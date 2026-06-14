@@ -1,9 +1,17 @@
 /* ============================================================
    CHEERCLICK SYSTEMS — Categorías & Entrenadores
-   styles.css
+   estilos.css
    ============================================================ */
 
-/* ── Reset & Base ─────────────────────────────────────────── */
+/* ── Reinicio & Base ─────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+h1,h2,h3,h4,h5,h6{
+    font-family: "Varela Round", sans-serif;
+}
+p,a,li,label,input{
+    font-family: "Arimo", sans-serif;
+}
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -28,9 +36,9 @@
     --sidebar-width: 62px;
     --header-height: 55px;
 
-    --radius-card: 4px;
+    --radio-tarjeta: 4px;
 
-    --sombra-card: none;
+    --sombra-tarjeta: none;
 }
 
 body {
@@ -40,7 +48,7 @@ body {
     min-height: 100vh;
 }
 
-/* ── Sidebar (Barra2) ────────────────────────────────────── */
+/* ── Barra lateral (Barra2) ──────────────────────────────── */
 .Barra2{
     position: fixed;
     top: 0;
@@ -56,10 +64,10 @@ body {
 }
 
 /* ===========================
-   MENU HAMBURGUESA
+   MENÚ HAMBURGUESA
 =========================== */
 
-.menu-icon{
+.icono-menu{
     width: 100%;
     height: 55px;
     display: flex;
@@ -71,11 +79,11 @@ body {
     transition: background .3s;
 }
 
-.menu-icon:hover{
+.icono-menu:hover{
     background: rgba(255,255,255,.12);
 }
 
-.menu-icon span{
+.icono-menu span{
     width: 22px;
     height: 3px;
     background: white;
@@ -83,34 +91,34 @@ body {
     transition: .3s;
 }
 
-.menu-icon:hover span:nth-child(1){
+.icono-menu:hover span:nth-child(1){
     transform: translateY(-2px);
 }
 
-.menu-icon:hover span:nth-child(3){
+.icono-menu:hover span:nth-child(3){
     transform: translateY(2px);
 }
 
 /* ===========================
-   MENU
+   MENÚ LATERAL
 =========================== */
 
-.sidebar-menu{
+.menu-lateral{
     width: 100%;
     list-style: none;
     margin-top: 15px;
 }
 
-.sidebar-menu li{
+.menu-lateral li{
     width: 100%;
     margin: 12px 0;
     display: flex;
     justify-content: center;
 }
 
-/* BOTON */
+/* BOTÓN */
 
-.sidebar-menu li a{
+.menu-lateral li a{
     width: 42px;
     height: 42px;
     display: flex;
@@ -123,47 +131,47 @@ body {
 
 /* ICONOS */
 
-.sidebar-menu li a img{
+.menu-lateral li a img{
     width: 24px;
     height: 24px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    transition:  .3s ease;
+    transition: .3s ease;
 }
 
-/* HOVER */
+/* AL PASAR EL CURSOR */
 
-.sidebar-menu li a:hover{
+.menu-lateral li a:hover{
     opacity: 1;
     transform: scale(1.15);
 }
 
-.sidebar-menu li a:hover img{
-    opacity: 1;           
-    transform: scale(1.15); 
+.menu-lateral li a:hover img{
+    opacity: 1;
+    transform: scale(1.15);
 }
 
 /* ACTIVO */
 
 /* BOTÓN ACTIVO */
 /* ESTILO GENERAL DEL ICONO ACTIVO */
-.sidebar-menu li.active a{
+.menu-lateral li.activo a{
    background: white;
    box-shadow: 0 4px 12px rgba(0,0,0,.18);
 }
 
 /* ICONO NEGRO CUANDO ESTÁ ACTIVO */
-.sidebar-menu li.active a img{
+.menu-lateral li.activo a img{
     filter: brightness(0);
     opacity: 1;
     transform: none;
 }
 
 /* BARRA INDICADORA LATERAL */
-.sidebar-menu li.active{
+.menu-lateral li.activo{
     position: relative;
 }
-.sidebar-menu li.active::before{
+.menu-lateral li.activo::before{
     content: "";
     position: absolute;
     left: 0;
@@ -177,15 +185,15 @@ body {
 
 /* ANIMACIÓN DE ENTRADA */
 
-.sidebar-menu li{
+.menu-lateral li{
     animation: aparecer .5s ease forwards;
 }
-.sidebar-menu li:nth-child(1){animation-delay:.1s;}
-.sidebar-menu li:nth-child(2){animation-delay:.15s;}
-.sidebar-menu li:nth-child(3){animation-delay:.2s;}
-.sidebar-menu li:nth-child(4){animation-delay:.25s;}
-.sidebar-menu li:nth-child(5){animation-delay:.3s;}
-.sidebar-menu li:nth-child(6){animation-delay:.35s;}
+.menu-lateral li:nth-child(1){animation-delay:.1s;}
+.menu-lateral li:nth-child(2){animation-delay:.15s;}
+.menu-lateral li:nth-child(3){animation-delay:.2s;}
+.menu-lateral li:nth-child(4){animation-delay:.25s;}
+.menu-lateral li:nth-child(5){animation-delay:.3s;}
+.menu-lateral li:nth-child(6){animation-delay:.35s;}
 
 @keyframes aparecer{
     from{
@@ -198,9 +206,9 @@ body {
     }
 }
 
-/* TOOLTIP */
+/* INFORMACIÓN EMERGENTE */
 
-.sidebar-menu li a::after{
+.menu-lateral li a::after{
     content: attr(title);
     position: absolute;
     left: 55px;
@@ -216,13 +224,13 @@ body {
     transition: .3s;
 }
 
-.sidebar-menu li a:hover::after{
+.menu-lateral li a:hover::after{
     opacity: 1;
     transform: translateX(0);
 }
 
 
-/* ── Header (Barra1) ─────────────────────────────────────── */
+/* ── Encabezado (Barra1) ─────────────────────────────────── */
 header {
     position: fixed;
     top: 0;
@@ -233,12 +241,13 @@ header {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
     z-index: 999;
 }
-.icon-link img{
+
+.enlace-icono img{
     height: 20px;
     transition: all .3s ease;
-
 }
-.icon-link:hover img{
+
+.enlace-icono:hover img{
     transform: scale(1.15);
     filter:
         brightness(0)
@@ -250,6 +259,7 @@ header {
         brightness(92%)
         contrast(95%);
 }
+
 @keyframes pulseRojo{
     0%{
         transform: scale(1);
@@ -280,8 +290,8 @@ header nav {
     height: 100%;
 }
 
-/* Left: botones de sesión */
-.nav-btns {
+/* Izquierda: botones de sesión */
+.botones-nav {
     list-style: none;
     display: flex;
     align-items: center;
@@ -308,7 +318,7 @@ header nav {
     color: var(--rojo);
 }
 
-.admin-btn {
+.btn-administrador {
     display: inline-block;
     padding: 7px 18px;
     background-color: var(--rojo);
@@ -321,14 +331,14 @@ header nav {
     user-select: none;
 }
 
-/* Right: iconos + logo */
-#Logo {
+/* Derecha: iconos + logo */
+#logo-iconos {
     display: flex;
     align-items: center;
     gap: 14px;
 }
 
-.icon-link {
+.enlace-icono {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -337,11 +347,11 @@ header nav {
     transition: color 0.2s;
 }
 
-.icon-link:hover {
+.enlace-icono:hover {
     color: var(--rojo);
 }
 
-.icon-link svg {
+.enlace-icono svg {
     width: 22px;
     height: 22px;
     display: block;
@@ -359,7 +369,7 @@ header nav {
     object-fit: cover;
 }
 
-/* ── Main content ────────────────────────────────────────── */
+/* ── Contenido principal ─────────────────────────────────── */
 .contenido {
     margin-left: var(--sidebar-width);
     margin-top: var(--header-height);
@@ -367,16 +377,199 @@ header nav {
     min-height: calc(100vh - var(--header-height));
 }
 
+/* ── Encabezado de página ────────────────────────────────── */
+.encabezado-pagina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
 
-/* ── Responsive ──────────────────────────────────────────── */
+.titulo-pagina h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--texto-dark);
+    margin-bottom: 3px;
+    letter-spacing: -0.3px;
+}
+
+.titulo-pagina p {
+    font-size: 12.5px;
+    color: var(--texto-muted);
+    font-weight: 400;
+}
+
+.btn-nueva-categoria {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    white-space: nowrap;
+    letter-spacing: 0.1px;
+}
+
+.btn-nueva-categoria:hover {
+    background-color: var(--rojo-hover);
+}
+
+.btn-nueva-categoria:active {
+    transform: scale(0.98);
+}
+
+/* ── Cuadrícula de categorías ────────────────────────────── */
+.cuadricula-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ── Tarjeta de categoría ────────────────────────────────── */
+.tarjeta-categoria {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.tarjeta-categoria:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.encabezado-categoria {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    line-height: 1.3;
+}
+
+.cuerpo-categoria {
+    padding: 18px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* ── Información del entrenador ──────────────────────────── */
+.info-entrenador {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex: 1;
+}
+
+.foto-entrenador {
+    width: 72px;
+    height: 90px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 4px;
+    flex-shrink: 0;
+    background-color: #e8e8e8;
+}
+
+.datos-entrenador {
+    flex: 1;
+    min-width: 0;
+}
+
+.datos-entrenador h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--texto-dark);
+    margin-bottom: 9px;
+    line-height: 1.2;
+}
+
+/* ── Insignias de horario ────────────────────────────────── */
+.horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.insignia-horario {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background-color: var(--rojo-badge);
+    color: var(--rojo);
+    padding: 5px 10px 5px 8px;
+    border-radius: 10px;
+    font-size: 10.5px;
+    font-weight: 750;
+    line-height: 1.3;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.insignia-horario img {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    stroke: var(--rojo);
+}
+
+/* ── Botones de acción de la tarjeta ─────────────────────── */
+.acciones-categoria {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding-top: 14px;
+    margin-top: auto;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn-modificar,
+.btn-inhabilitar {
+    padding: 7px 0;
+    width: 110px;
+    border: 1.5px solid var(--rojo);
+    background-color: var(--blanco);
+    color: var(--rojo);
+    border-radius: 5px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.18s, color 0.18s;
+    text-align: center;
+}
+
+.btn-modificar:hover {
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+
+.btn-inhabilitar:hover {
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+
+/* ── Diseño adaptable ────────────────────────────────────── */
 @media (max-width: 1100px) {
-    .categorias-grid {
+    .cuadricula-categorias {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 720px) {
-    .categorias-grid {
+    .cuadricula-categorias {
         grid-template-columns: 1fr;
     }
 
@@ -384,14 +577,419 @@ header nav {
         padding: 20px 16px 32px;
     }
 
-    .page-header {
+    .encabezado-pagina {
         flex-direction: column;
         align-items: flex-start;
         gap: 14px;
     }
 
-    .horario-badge {
+    .insignia-horario {
         font-size: 10px;
         white-space: normal;
+    }
+}
+
+/* ============================================================
+   MODAL — EDITAR / NUEVA CATEGORÍA
+   ============================================================ */
+
+/* ── Fondo semitransparente ──────────────────────────────── */
+.superposicion-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    display: none;               /* controlado mediante JS */
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.superposicion-modal.visible {
+    opacity: 1;
+}
+
+/* ── Contenedor del modal ────────────────────────────────── */
+.contenedor-modal {
+    background: #ffffff;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 470px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+    transform: scale(0.93) translateY(-16px);
+    transition: transform 0.26s ease, opacity 0.26s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
+}
+
+.superposicion-modal.visible .contenedor-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* ── Encabezado del modal ────────────────────────────────── */
+.encabezado-modal {
+    background: var(--rojo);
+    padding: 15px 20px;
+    border-radius: 14px 14px 0 0;
+    flex-shrink: 0;
+}
+
+.contenido-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-modal {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.encabezado-modal h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.1px;
+}
+
+/* ── Cuerpo del modal ────────────────────────────────────── */
+.cuerpo-modal {
+    padding: 22px 22px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── Grupos de formulario ────────────────────────────────── */
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.etiqueta-formulario {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--texto-dark);
+    letter-spacing: 0.1px;
+}
+
+.campo-formulario {
+    padding: 9px 13px;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 7px;
+    font-size: 13.5px;
+    color: var(--texto-dark);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    background: #fff;
+}
+
+.campo-formulario:focus {
+    border-color: var(--rojo);
+    box-shadow: 0 0 0 3px rgba(215, 25, 32, 0.10);
+}
+
+.campo-formulario::placeholder {
+    color: #bbbbbb;
+}
+
+/* ── Área de carga de foto ───────────────────────────────── */
+.zona-subida-foto {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    background: #fafafa;
+}
+
+.zona-subida-foto:hover {
+    border-color: var(--rojo);
+    background: var(--rojo-light);
+}
+
+.contenedor-vista-previa {
+    width: 52px;
+    height: 66px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #e5e5e5;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-vista-previa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.contenedor-vista-previa img[src=""] {
+    display: none;
+}
+
+.texto-subida {
+    flex: 1;
+}
+
+.texto-principal-subida {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto-dark);
+    margin-bottom: 3px;
+}
+
+.pista-subida {
+    font-size: 11.5px;
+    color: var(--texto-muted);
+    font-weight: 400;
+}
+
+/* ── Selector de días ────────────────────────────────────── */
+.selector-dias {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.btn-dia {
+    padding: 7px 10px;
+    min-width: 42px;
+    border: 1.5px solid #d9d9d9;
+    background: #ffffff;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
+    color: #999999;
+    text-align: center;
+    font-family: inherit;
+    user-select: none;
+}
+
+.btn-dia:hover:not(.activo) {
+    border-color: var(--rojo);
+    color: var(--rojo);
+}
+
+.btn-dia:active {
+    transform: scale(0.94);
+}
+
+.btn-dia.activo {
+    background: var(--rojo);
+    border-color: var(--rojo);
+    color: #ffffff;
+}
+
+/* ── Campos de horario ───────────────────────────────────── */
+.fila-horario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.fila-horario .campo-formulario {
+    flex: 1;
+}
+
+.btn-quitar-horario {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #fdeaea;
+    color: var(--rojo);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.18s, color 0.18s, transform 0.12s;
+}
+
+.btn-quitar-horario svg {
+    width: 13px;
+    height: 13px;
+}
+
+.btn-quitar-horario:hover {
+    background: var(--rojo);
+    color: #ffffff;
+}
+
+.btn-quitar-horario:active {
+    transform: scale(0.9);
+}
+
+/* ── Botón agregar horario ───────────────────────────────── */
+.btn-agregar-horario {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px dashed #cccccc;
+    background: #fafafa;
+    color: #999999;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.18s;
+    font-family: inherit;
+    margin-top: 2px;
+}
+
+.btn-agregar-horario:hover {
+    border-color: var(--rojo);
+    color: var(--rojo);
+    background: var(--rojo-light);
+}
+
+/* ── Pie del modal ───────────────────────────────────────── */
+.pie-modal {
+    padding: 16px 22px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    border-top: 1px solid #f2f2f2;
+    flex-shrink: 0;
+}
+
+.btn-cancelar-modal {
+    padding: 9px 22px;
+    border: 1.5px solid #cccccc;
+    background: #ffffff;
+    color: #666666;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.18s, color 0.18s;
+    font-family: inherit;
+}
+
+.btn-cancelar-modal:hover {
+    border-color: var(--rojo);
+    color: var(--rojo);
+}
+
+.btn-guardar-modal {
+    padding: 9px 22px;
+    border: none;
+    background: var(--rojo);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.1s;
+    font-family: inherit;
+    letter-spacing: 0.1px;
+}
+
+.btn-guardar-modal:hover {
+    background: var(--rojo-hover);
+}
+
+.btn-guardar-modal:active {
+    transform: scale(0.97);
+}
+
+/* ── Tarjeta inhabilitada ────────────────────────────────── */
+.tarjeta-categoria.inhabilitada {
+    opacity: 0.48;
+    filter: grayscale(55%);
+}
+
+.tarjeta-categoria.inhabilitada .encabezado-categoria {
+    background: #9e9e9e;
+}
+
+/* ── Tarjeta nueva — animación de entrada ────────────────── */
+.tarjeta-categoria.tarjeta-nueva {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.tarjeta-categoria.tarjeta-nueva.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ── Aviso de notificación ───────────────────────────────── */
+.aviso {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #222222;
+    color: #ffffff;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 4000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 6px 24px rgba(0,0,0,.22);
+}
+
+.aviso.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.aviso.aviso-ok          { background: #1d8348; }
+.aviso.aviso-advertencia { background: #b7770d; }
+.aviso.aviso-error       { background: var(--rojo); }
+
+/* ── Diseño adaptable del modal ──────────────────────────── */
+@media (max-width: 520px) {
+    .contenedor-modal {
+        max-height: 95vh;
+    }
+
+    .pie-modal {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancelar-modal,
+    .btn-guardar-modal {
+        width: 100%;
+        text-align: center;
+    }
+
+    .selector-dias {
+        gap: 5px;
+    }
+
+    .btn-dia {
+        min-width: 38px;
+        font-size: 11px;
+        padding: 6px 7px;
     }
 }

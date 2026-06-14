@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,68 +7,57 @@
     <link rel="stylesheet" href="css/styleHoraAdmin.css">
 </head>
 <body>
+
+    <!-- BARRA 2 - Lateral izquierda -->
     <div class="Barra2">
-        <div class="menu-icon">
+        <div class="icono-menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <ul class="sidebar-menu">
-
-
-    <!-- CALENDARIO ACTIVO -->
-    <li class="active">
-        <a href="#" title="Horarios">
-            <img src="img/calendario.png" alt="Calendario">
-        </a>
-    </li>
-
-
-    <li>
-        <a href="#" title="Estado de cuentas">
-            <img src="img/grafico-circular.png" alt="">
-        </a>
-    </li>
-
-    <li>
-        <a href="#" title="PQRS">
-            <img src="img/comentarios.png" alt="">
-        </a>
-    </li>
-
-
-    <li>
-        <a href="Implementos.html" title="Implementos">
-            <img src="img/Camisa.png" alt="">
-        </a>
-    </li>
-
-
-    <li>
-        <a href="#" title="Validación de Cuentas">
-            <img src="img/usuarios.png" alt="">
-        </a>
-    </li>
-
-
-</ul>
+        <ul class="menu-lateral">
+            <li class="activo">
+                <a href="#" title="Horarios">
+                    <img src="img/calendario.png" alt="Calendario">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Estado de cuentas">
+                    <img src="img/grafico-circular.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="img/comentarios.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="Implementos.html" title="Implementos">
+                    <img src="img/Camisa.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Validación de Cuentas">
+                    <img src="img/usuarios.png" alt="">
+                </a>
+            </li>
+        </ul>
     </div>
-
 
     <!-- BARRA 1 - Superior -->
     <header>
         <nav>
             <div class="contenedor">
                 <div class="Barra1">
-                    <ul class="nav-btns">
+                    <ul class="botones-nav">
                         <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
-                        <li><span class="admin-btn">Administrador</span></li>
+                        <li><span class="btn-administrador">Administrador</span></li>
                     </ul>
-                    <div id="Logo">
-                        <a href="#" class="icon-link">
+                    <div id="logo-iconos">
+                        <a href="#" class="enlace-icono">
                             <img src="img/campana-de-notificacion.png" alt="">
                         </a>
-                        <a href="#" class="icon-link">
+                        <a href="#" class="enlace-icono">
                             <img src="img/casa.png" alt="">
                         </a>
                         <div class="logo-club">
@@ -79,6 +68,597 @@
             </div>
         </nav>
     </header>
-    
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido">
+
+        <!-- Título + botón -->
+        <div class="encabezado-pagina">
+            <div class="titulo-pagina">
+                <h1>Niveles &amp; Entrenadores</h1>
+                <p>Gestiona los Niveles de entrenamiento</p>
+            </div>
+            <button class="btn-nueva-categoria" onclick="abrirModalNuevo()">+ Nuevo Nivel</button>
+        </div>
+
+        <!-- Cuadrícula de categorías -->
+        <div class="cuadricula-categorias" id="cuadricula-categorias">
+
+            <!-- Tarjeta 0 -->
+            <div class="tarjeta-categoria" data-tarjeta="0">
+                <div class="encabezado-categoria">Nivel 1.1 Formativo</div>
+                <div class="cuerpo-categoria">
+                    <div class="info-entrenador">
+                        <img src="img/Entrenador 1.png" alt="Jonathan Cruz" class="foto-entrenador">
+                        <div class="datos-entrenador">
+                            <h3>Jonathan Cruz</h3>
+                            <div class="horarios">
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Martes, Jueves y Sábados · 6:00 PM - 8:00 PM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acciones-categoria">
+                        <button class="btn-modificar" onclick="abrirModal(0)">Modificar</button>
+                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta-categoria" data-tarjeta="1">
+                <div class="encabezado-categoria">Nivel 1 Princess</div>
+                <div class="cuerpo-categoria">
+                    <div class="info-entrenador">
+                        <img src="img/alexandra.png" alt="Alexandra Rivera" class="foto-entrenador">
+                        <div class="datos-entrenador">
+                            <h3>Alexandra Rivera</h3>
+                            <div class="horarios">
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Martes, Jueves y Sábados · 6:00 PM - 8:00 PM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acciones-categoria">
+                        <button class="btn-modificar" onclick="abrirModal(1)">Modificar</button>
+                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta-categoria" data-tarjeta="2">
+                <div class="encabezado-categoria">Nivel 1 Queens</div>
+                <div class="cuerpo-categoria">
+                    <div class="info-entrenador">
+                        <img src="img/yari.png" alt="Yari Guitierrez" class="foto-entrenador">
+                        <div class="datos-entrenador">
+                            <h3>Yari Guitierrez</h3>
+                            <div class="horarios">
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Lunes y Viernes · 6:00 PM - 8:00 PM
+                                </span>
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Sábado · 9:00 AM - 11:00 AM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acciones-categoria">
+                        <button class="btn-modificar" onclick="abrirModal(2)">Modificar</button>
+                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="tarjeta-categoria" data-tarjeta="3">
+                <div class="encabezado-categoria">Nivel 3 Magic</div>
+                <div class="cuerpo-categoria">
+                    <div class="info-entrenador">
+                        <img src="img/stuard.png" alt="Stuard Reyes" class="foto-entrenador">
+                        <div class="datos-entrenador">
+                            <h3>Stuard Reyes</h3>
+                            <div class="horarios">
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Martes y Viernes · 8:00 PM - 10:00 PM
+                                </span>
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Sábado · 3:00 PM - 5:00 PM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acciones-categoria">
+                        <button class="btn-modificar" onclick="abrirModal(3)">Modificar</button>
+                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="tarjeta-categoria" data-tarjeta="4">
+                <div class="encabezado-categoria">Nivel 4 Blood Tigers</div>
+                <div class="cuerpo-categoria">
+                    <div class="info-entrenador">
+                        <img src="img/ronald.png" alt="Ronald Linares" class="foto-entrenador">
+                        <div class="datos-entrenador">
+                            <h3>Ronald Linares</h3>
+                            <div class="horarios">
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Miércoles y Sábados · 8:00 PM - 10:00 PM
+                                </span>
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
+                                    Domingos · 8:00 AM - 10:00 AM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acciones-categoria">
+                        <button class="btn-modificar" onclick="abrirModal(4)">Modificar</button>
+                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- ══════════════════════════════════════════════════
+         MODAL — EDITAR / NUEVA CATEGORÍA
+    ══════════════════════════════════════════════════ -->
+    <div id="superposicion-modal" class="superposicion-modal" onclick="cerrarModalFondo(event)">
+        <div class="contenedor-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+
+            <!-- Encabezado -->
+            <div class="encabezado-modal">
+                <div class="contenido-encabezado">
+                    <img  class="icono-modal" src="img/Icono editar.png" alt="icono Editar">
+                    <h2 id="titulo-modal">Editar Horario</h2>
+                </div>
+            </div>
+
+            <!-- Cuerpo -->
+            <div class="cuerpo-modal">
+
+                <!-- Nombre categoría -->
+                <div class="grupo-formulario">
+                    <label class="etiqueta-formulario" for="modal-categoria">Nombre del Nivel</label>
+                    <input type="text" id="modal-categoria" class="campo-formulario"
+                           placeholder="Ej: Nivel 1.1 Formativo">
+                </div>
+
+                <!-- Foto entrenador -->
+                <div class="grupo-formulario">
+                    <label class="etiqueta-formulario">Foto del Entrenador</label>
+                    <div class="zona-subida-foto" id="zona-subida-foto"
+                         onclick="document.getElementById('archivo-foto').click()"
+                         title="Haz clic para subir una foto">
+                        <div class="contenedor-vista-previa">
+                            <img id="vista-previa-foto" src="" alt="Vista previa">
+                        </div>
+                        <div class="texto-subida">
+                            <p class="texto-principal-subida">Haz clic para subir foto</p>
+                            <p class="pista-subida">JPG, PNG MÁX 5MB</p>
+                        </div>
+                        <input type="file" id="archivo-foto" accept="image/jpeg,image/png"
+                               style="display:none" onchange="previsualizarFoto(event)">
+                    </div>
+                </div>
+
+                <!-- Nombre entrenador -->
+                <div class="grupo-formulario">
+                    <label class="etiqueta-formulario" for="modal-entrenador">Nombre del Entrenador</label>
+                    <input type="text" id="modal-entrenador" class="campo-formulario"
+                           placeholder="Ej: Jonathan Cruz">
+                </div>
+
+                <!-- Días -->
+                <div class="grupo-formulario">
+                    <label class="etiqueta-formulario">Días de Entrenamiento</label>
+                    <div class="selector-dias">
+                        <button class="btn-dia" data-dia="lun" onclick="alternarDia(this)">Lun</button>
+                        <button class="btn-dia" data-dia="mar" onclick="alternarDia(this)">Mar</button>
+                        <button class="btn-dia" data-dia="mie" onclick="alternarDia(this)">Mié</button>
+                        <button class="btn-dia" data-dia="jue" onclick="alternarDia(this)">Jue</button>
+                        <button class="btn-dia" data-dia="vie" onclick="alternarDia(this)">Vie</button>
+                        <button class="btn-dia" data-dia="sab" onclick="alternarDia(this)">Sáb</button>
+                        <button class="btn-dia" data-dia="dom" onclick="alternarDia(this)">Dom</button>
+                    </div>
+                </div>
+
+                <!-- Horarios -->
+                <div class="grupo-formulario">
+                    <label class="etiqueta-formulario">Horarios</label>
+                    <div id="lista-horarios"></div>
+                    <button type="button" class="btn-agregar-horario" onclick="agregarCampoHorario('')">
+                        + Agregar Horario
+                    </button>
+                </div>
+
+            </div><!-- /cuerpo-modal -->
+
+            <!-- Pie de modal -->
+            <div class="pie-modal">
+                <button type="button" class="btn-cancelar-modal" onclick="cerrarModal()">Cancelar</button>
+                <button type="button" class="btn-guardar-modal" onclick="guardarCambios()">Guardar Cambios</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════
+         AVISO DE CONFIRMACIÓN
+    ══════════════════════════════════════════════════ -->
+    <div id="aviso" class="aviso" aria-live="polite"></div>
+
+
+    <!-- ══════════════════════════════════════════════════
+         CÓDIGO JAVASCRIPT
+    ══════════════════════════════════════════════════ -->
+    <script>
+
+    /* ─────────────────────────────────────────────────────
+       DATOS DE LAS CATEGORÍAS (espejo del HTML inicial)
+    ───────────────────────────────────────────────────── */
+    const datosTarjetas = [
+        {
+            categoria : 'Nivel 1.1 Formativo',
+            entrenador: 'Jonathan Cruz',
+            foto      : 'img/Entrenador 1.png',
+            fotoBase64: null,
+            dias      : ['mar','jue','sab'],
+            horarios  : ['6:00 PM - 8:00 PM']
+        },
+        {
+            categoria : 'Nivel 1 Princess',
+            entrenador: 'Alexandra Rivera',
+            foto      : 'img/alexandra.png',
+            fotoBase64: null,
+            dias      : ['mar','jue','sab'],
+            horarios  : ['6:00 PM - 8:00 PM']
+        },
+        {
+            categoria : 'Nivel 1 Queens',
+            entrenador: 'Yari Guitierrez',
+            foto      : 'img/yari.png',
+            fotoBase64: null,
+            dias      : ['lun','vie','sab'],
+            horarios  : ['6:00 PM - 8:00 PM', '9:00 AM - 11:00 AM']
+        },
+        {
+            categoria : 'Nivel 3 Magic',
+            entrenador: 'Stuard Reyes',
+            foto      : 'img/stuard.png',
+            fotoBase64: null,
+            dias      : ['mar','vie','sab'],
+            horarios  : ['8:00 PM - 10:00 PM', '3:00 PM - 5:00 PM']
+        },
+        {
+            categoria : 'Nivel 4 Blood Tigers',
+            entrenador: 'Ronald Linares',
+            foto      : 'img/ronald.png',
+            fotoBase64: null,
+            dias      : ['mie','sab','dom'],
+            horarios  : ['8:00 PM - 10:00 PM', '8:00 AM - 10:00 AM']
+        }
+    ];
+
+    /* Mapa día → etiqueta en español */
+    const etiquetaDias = {
+        lun:'Lunes', mar:'Martes', mie:'Miércoles',
+        jue:'Jueves', vie:'Viernes', sab:'Sábados', dom:'Domingos'
+    };
+
+    /* Índice de la tarjeta que se está editando (-1 = nueva) */
+    let indiceActual = -1;
+
+    /* ─────────────────────────────────────────────────────
+       ABRIR MODAL — EDITAR
+    ───────────────────────────────────────────────────── */
+    function abrirModal(indice) {
+        indiceActual = indice;
+        const d = datosTarjetas[indice];
+
+        document.getElementById('titulo-modal').textContent = 'Editar Horario';
+        document.getElementById('modal-categoria').value   = d.categoria;
+        document.getElementById('modal-entrenador').value  = d.entrenador;
+
+        /* Foto */
+        const vistaPrevia = document.getElementById('vista-previa-foto');
+        vistaPrevia.src = d.fotoBase64 || d.foto;
+
+        /* Días */
+        document.querySelectorAll('.btn-dia').forEach(btn => {
+            btn.classList.toggle('activo', d.dias.includes(btn.dataset.dia));
+        });
+
+        /* Horarios */
+        const lista = document.getElementById('lista-horarios');
+        lista.innerHTML = '';
+        d.horarios.forEach(h => agregarCampoHorario(h));
+
+        mostrarFondo();
+    }
+
+    /* ─────────────────────────────────────────────────────
+       ABRIR MODAL — NUEVA CATEGORÍA
+    ───────────────────────────────────────────────────── */
+    function abrirModalNuevo() {
+        indiceActual = -1;
+
+        document.getElementById('titulo-modal').textContent    = 'Nuevo Nivel';
+        document.getElementById('modal-categoria').value       = '';
+        document.getElementById('modal-entrenador').value      = '';
+        document.getElementById('vista-previa-foto').src       = '';
+
+        document.querySelectorAll('.btn-dia').forEach(b => b.classList.remove('activo'));
+
+        const lista = document.getElementById('lista-horarios');
+        lista.innerHTML = '';
+        agregarCampoHorario('');
+
+        mostrarFondo();
+    }
+
+    /* ─────────────────────────────────────────────────────
+       MOSTRAR / CERRAR FONDO DEL MODAL
+    ───────────────────────────────────────────────────── */
+    function mostrarFondo() {
+        const fondo = document.getElementById('superposicion-modal');
+        fondo.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        /* pequeño retraso para que la animación CSS se active */
+        requestAnimationFrame(() => fondo.classList.add('visible'));
+    }
+
+    function cerrarModal() {
+        const fondo = document.getElementById('superposicion-modal');
+        fondo.classList.remove('visible');
+        setTimeout(() => {
+            fondo.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 260);
+    }
+
+    function cerrarModalFondo(e) {
+        if (e.target === document.getElementById('superposicion-modal')) cerrarModal();
+    }
+
+    /* Tecla Escape */
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') cerrarModal();
+    });
+
+    /* ─────────────────────────────────────────────────────
+       ALTERNAR DÍAS
+    ───────────────────────────────────────────────────── */
+    function alternarDia(btn) {
+        btn.classList.toggle('activo');
+    }
+
+    /* ─────────────────────────────────────────────────────
+       HORARIOS — AGREGAR / ELIMINAR
+    ───────────────────────────────────────────────────── */
+    function agregarCampoHorario(valor) {
+        const lista = document.getElementById('lista-horarios');
+        const fila  = document.createElement('div');
+        fila.className = 'fila-horario';
+        fila.innerHTML = `
+            <input type="text"
+                   class="campo-formulario entrada-horario"
+                   value="${valor}"
+                   placeholder="Ej: 4:00 PM - 6:00 PM">
+            <button type="button" class="btn-quitar-horario"
+                    onclick="quitarHorario(this)"
+                    title="Eliminar horario">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2.5" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>`;
+        lista.appendChild(fila);
+    }
+
+    function quitarHorario(btn) {
+        const lista = document.getElementById('lista-horarios');
+        if (lista.children.length <= 1) {
+            mostrarAviso('Debe haber al menos un horario.', 'advertencia');
+            return;
+        }
+        btn.closest('.fila-horario').remove();
+    }
+
+    /* ─────────────────────────────────────────────────────
+       FOTO — PREVISUALIZAR
+    ───────────────────────────────────────────────────── */
+    function previsualizarFoto(event) {
+        const archivo = event.target.files[0];
+        if (!archivo) return;
+        if (archivo.size > 5 * 1024 * 1024) {
+            mostrarAviso('La foto supera los 5 MB permitidos.', 'error');
+            return;
+        }
+        const lector = new FileReader();
+        lector.onload = e => {
+            document.getElementById('vista-previa-foto').src = e.target.result;
+            /* guarda la base64 temporalmente */
+            if (indiceActual >= 0) datosTarjetas[indiceActual]._fotoTemp = e.target.result;
+            else window._fotoTempNueva = e.target.result;
+        };
+        lector.readAsDataURL(archivo);
+    }
+
+    /* ─────────────────────────────────────────────────────
+       GUARDAR CAMBIOS
+    ───────────────────────────────────────────────────── */
+    function guardarCambios() {
+
+        const categoria  = document.getElementById('modal-categoria').value.trim();
+        const entrenador = document.getElementById('modal-entrenador').value.trim();
+
+        if (!categoria)  { mostrarAviso('El nombre de la categoría es obligatorio.', 'error'); return; }
+        if (!entrenador) { mostrarAviso('El nombre del entrenador es obligatorio.', 'error'); return; }
+
+        /* Días seleccionados */
+        const diasSel = [...document.querySelectorAll('.btn-dia.activo')]
+                            .map(b => b.dataset.dia);
+        if (diasSel.length === 0) {
+            mostrarAviso('Selecciona al menos un día de entrenamiento.', 'error');
+            return;
+        }
+
+        /* Horarios */
+        const horarios = [...document.querySelectorAll('.entrada-horario')]
+                             .map(i => i.value.trim())
+                             .filter(Boolean);
+        if (horarios.length === 0) {
+            mostrarAviso('Añade al menos un horario.', 'error');
+            return;
+        }
+
+        if (indiceActual >= 0) {
+            /* ── EDITAR existente ── */
+            const d      = datosTarjetas[indiceActual];
+            d.categoria  = categoria;
+            d.entrenador = entrenador;
+            d.dias       = diasSel;
+            d.horarios   = horarios;
+            if (d._fotoTemp) { d.fotoBase64 = d._fotoTemp; delete d._fotoTemp; }
+
+            actualizarTarjeta(indiceActual);
+            mostrarAviso('Cambios guardados correctamente.', 'ok');
+
+        } else {
+            /* ── NUEVA categoría ── */
+            const nueva = {
+                categoria,
+                entrenador,
+                foto      : '',
+                fotoBase64: window._fotoTempNueva || null,
+                dias      : diasSel,
+                horarios
+            };
+            delete window._fotoTempNueva;
+            datosTarjetas.push(nueva);
+            crearTarjeta(datosTarjetas.length - 1);
+            mostrarAviso('Categoría creada correctamente.', 'ok');
+        }
+
+        cerrarModal();
+    }
+
+    /* ─────────────────────────────────────────────────────
+       ACTUALIZAR TARJETA EN EL DOM
+    ───────────────────────────────────────────────────── */
+    function actualizarTarjeta(indice) {
+        const d       = datosTarjetas[indice];
+        const tarjeta = document.querySelector(`.tarjeta-categoria[data-tarjeta="${indice}"]`);
+        if (!tarjeta) return;
+
+        tarjeta.querySelector('.encabezado-categoria').textContent  = d.categoria;
+        tarjeta.querySelector('.datos-entrenador h3').textContent   = d.entrenador;
+
+        const fotoEl = tarjeta.querySelector('.foto-entrenador');
+        if (d.fotoBase64) fotoEl.src = d.fotoBase64;
+
+        /* Reconstruir insignias */
+        const diasTexto = formatearDias(d.dias);
+        tarjeta.querySelector('.horarios').innerHTML =
+            d.horarios.map(h => `
+                <span class="insignia-horario">
+                    <img src="img/Imagen calendario.png" alt="">
+                    ${diasTexto} · ${h}
+                </span>`).join('');
+    }
+
+    /* ─────────────────────────────────────────────────────
+       CREAR TARJETA NUEVA EN LA CUADRÍCULA
+    ───────────────────────────────────────────────────── */
+    function crearTarjeta(indice) {
+        const d            = datosTarjetas[indice];
+        const cuadricula   = document.getElementById('cuadricula-categorias');
+        const foto         = d.fotoBase64 || d.foto || 'img/Entrenador 1.png';
+        const dias         = formatearDias(d.dias);
+
+        const html = `
+        <div class="tarjeta-categoria tarjeta-nueva" data-tarjeta="${indice}">
+            <div class="encabezado-categoria">${d.categoria}</div>
+            <div class="cuerpo-categoria">
+                <div class="info-entrenador">
+                    <img src="${foto}" alt="${d.entrenador}" class="foto-entrenador">
+                    <div class="datos-entrenador">
+                        <h3>${d.entrenador}</h3>
+                        <div class="horarios">
+                            ${d.horarios.map(h => `
+                                <span class="insignia-horario">
+                                    <img src="img/Imagen calendario.png" alt="">
+                                    ${dias} · ${h}
+                                </span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div class="acciones-categoria">
+                    <button class="btn-modificar" onclick="abrirModal(${indice})">Modificar</button>
+                    <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                </div>
+            </div>
+        </div>`;
+
+        cuadricula.insertAdjacentHTML('beforeend', html);
+        /* activa la animación de entrada */
+        requestAnimationFrame(() => {
+            const tarjeta = document.querySelector(`.tarjeta-categoria[data-tarjeta="${indice}"]`);
+            if (tarjeta) tarjeta.classList.add('visible');
+        });
+    }
+
+    /* ─────────────────────────────────────────────────────
+       INHABILITAR TARJETA
+    ───────────────────────────────────────────────────── */
+    function inhabilitar(btn) {
+        const tarjeta = btn.closest('.tarjeta-categoria');
+        tarjeta.classList.toggle('inhabilitada');
+        btn.textContent = tarjeta.classList.contains('inhabilitada')
+            ? 'Habilitar' : 'Inhabilitar';
+    }
+
+    /* ─────────────────────────────────────────────────────
+       FUNCIONES AUXILIARES
+    ───────────────────────────────────────────────────── */
+    function formatearDias(dias) {
+        if (!dias || dias.length === 0) return '';
+        const etiquetas = dias.map(d => etiquetaDias[d] || d);
+        if (etiquetas.length === 1) return etiquetas[0];
+        const ultimo = etiquetas.pop();
+        return etiquetas.join(', ') + ' y ' + ultimo;
+    }
+
+    /* ─────────────────────────────────────────────────────
+       AVISOS DE NOTIFICACIÓN
+    ───────────────────────────────────────────────────── */
+    function mostrarAviso(mensaje, tipo = 'ok') {
+        const a = document.getElementById('aviso');
+        a.textContent = mensaje;
+        a.className   = `aviso aviso-${tipo} visible`;
+        clearTimeout(a._temporizador);
+        a._temporizador = setTimeout(() => a.classList.remove('visible'), 3000);
+    }
+
+    </script>
+
 </body>
 </html>
