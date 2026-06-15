@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-contenedor">
+                <div class="logo">
+                    <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo Blood Tigers">
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#niveles">Niveles</a></li>
+                        <li><a href="#horarios">Horarios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="inscripcion.html">Inscribirse</a></li>
+                        <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="registro">
+            <div class="contenedor">
+
+            <header class="registro-header">
+                <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo Blood Tigers">
+                <h1>Crear Cuenta</h1>
+                <p>Complete su información</p>
+            </header>
+
+            <div class="pasos">
+
+                <div class="indicador-pasos activo" data-paso="1">
+                    <span>1</span>
+                    <p>Datos Personales</p>
+                </div>
+
+                <div class="indicador-pasos" data-paso="2">
+                    <span>2</span>
+                    <p>Seguridad</p>
+                </div>
+            </div>
+
+            <form>
+            <!-- PASO 1 -->
+                <div class="paso-contenido activo" data-step="1">
+                    <h2>Datos Personales</h2>
+
+                    <div class="form-grupo">
+                        <label for="tipo-rol">Rol</label>
+                        <select name="rol" id="tipo-rol">
+                            <option value="" disabled selected>Seleccione rol...</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="atleta">Atleta</option>
+                            <option value="entrenador">Entrenador</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="nombre-atleta">Nombre(s)</label>
+                        <input type="text" id="nombre-atleta" name="nombre-atleta" maxlength="30" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="apellido-atleta">Apellido(s)</label>
+                        <input type="text" id="apellido-atleta" name="apellido-atleta" maxlength="30" required>
+                    </div>
+                
+                    <div class="form-grupo">
+                        <label for="tipo-documento">Tipo Documento</label>
+                        <select name="documento" id="tipo-documento">
+                            <option value="" disabled selected>Seleccione tipo de documento...</option>
+                            <option value="cedula-ciudadania">Cédula de ciudadanía</option>
+                            <option value="cedula-extranjeria">Cédula de extranjería</option>
+                            <option value="tarjeta-identidad">Tarjeta de identidad</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-grupo">
+                        <label for="numero-documento">Número de Documento</label>
+                        <input type="text" name="numero-documento" id="numero-documento" maxlength="15" required>
+                    </div>
+                
+                    <div class="form-grupo">
+                        <label for="tipo-genero">Género</label>
+                        <select name="genero" id="tipo-genero">
+                            <option value="" disabled selected>Seleccione género...</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                        <input type="date" name="fecha-nacimiento" id="fecha-nacimiento" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="telefono-atleta">Teléfono</label>
+                        <input type="tel" name="telefono-atleta" id="telefono-atleta" maxlength="12">
+                    </div>
+                
+                    <div class="form-grupo campo-eps">
+                        <label for="certificado-eps">Certificado EPS</label>
+                        <input type="file" name="certificado-eps" id="certificado-eps" accept=".pdf,.jpg,.png">
+                    </div>
+
+                    <h3>Datos Contacto de Emergencia</h3>
+                    <div class="form-grupo">
+                        <label for="nombre-contacto">Nombre(s)</label>
+                        <input type="text" id="nombre-contacto" name="nombre-contacto" maxlength="30" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="apellido-contacto">Apellido(s)</label>
+                        <input type="text" id="apellido-contacto" name="apellido-contacto" maxlength="30" required>
+                    </div>
+               
+                    <div class="form-grupo">
+                        <label for="telefono-contacto">Teléfono</label>
+                        <input type="tel" name="telefono-contacto" id="telefono-contacto" maxlength="12" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="tipo-parentesco">Parentesco</label>
+                        <select name="parentesco" id="tipo-parentesco" required>
+                            <option value="" disabled selected>Seleccione parentesco...</option>
+                            <option value="madre-padre">Madre / Padre</option>
+                            <option value="tutor">Tutor</option>
+                            <option value="conyuge-pareja">Cónyuge / Pareja</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-principal">
+                        Siguiente
+                    </button>
+
+                    <p>¿Ya tiene cuenta? <a href="inicio-sesion.html">Iniciar sesión</a></p>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="paso-contenido" data-step="2">
+                    <h2>Seguridad</h2>
+
+                    <div class="form-grupo">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" maxlength="50" required placeholder="Ejemplo@gmail.com">
+                    </div>
+
+                    <div class="contrasena-contenedor">
+                        <label for="contrasena">Contraseña</label>
+                        <input type="password" name="contrasena" id="contrasena" required>
+                        <div class="input-ojo-icono">
+                            <button type="button" class="btn-ver-contrasena">👁</button>
+                        </div>
+                    </div>
+
+                    <div class="contrasena-contenedor">
+                        <label for="confirmar-contrasena">Confirmar Contraseña</label>
+                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena" required>
+                        <div class="input-ojo-icono"> 
+                            <button type="button" class="btn-ver-contrasena">👁</button> 
+                        </div>
+                    </div>
+                
+                    <button type="submit" class="btn-principal">
+                        Crear Cuenta
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
