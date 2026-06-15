@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementos Deportivos</title>
+    <link rel="stylesheet" href="Frontend Web/css/stylesAdmi.css">
+    <link rel="stylesheet" href="Frontend Web/css/stylesAtle.css">
+</head>
+<body>
+    <!-- BARRA 2 - Lateral izquierda -->
+    <div class="Barra2">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" title="Horarios">
+                    <img src="Frontend Web/img/calendario.png" alt="Calendario">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Estado de cuentas">
+                    <img src="Frontend Web/img/grafico-circular.png" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="Frontend Web/img/comentarios.png" alt="">
+                </a>
+            </li>
+
+            <!-- IMPLEMENTOS ACTIVO -->
+            <li class="active">
+                <a href="#" title="Implementos">
+                    <img src="Frontend Web/img/Camisa.png" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Validación de Cuentas">
+                    <img src="Frontend Web/img/usuarios.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- BARRA 1 - Superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Atleta</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link">
+                            <img src="Frontend Web/img/campana-de-notificacion.png" alt="">
+                        </a>
+                        <a href="#" class="icon-link">
+                            <img src="Frontend Web/img/casa.png" alt="">
+                        </a>
+                        <div class="logo-club">
+                            <img src="Frontend Web/img/logo_transparent.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Inicio de Vista de los Atletas -->
+    <div class="contenido-principal">       
+        <h1>Implementos Deportivos</h1>
+        <p>Solicite sus productos y reclama en el club</p>
+        <input type="radio" id="switch-lista" name="pestanas" checked style="display: none;">
+        <input type="radio" id="switch-solicitudes" name="pestanas" style="display: none;">
+
+        <div class="contenedor-informacion">
+            <img src="Frontend Web/img/boton-de-informacion.png" alt="Información" class="icono-informacion">
+            <p class="texto-informacion">Todos los pedidos se reclaman en el club</p>
+        </div>
+
+        <div class="tabla-contenido">
+            <label for="switch-lista" class="tab-btn btn-deportivos">Catalogo de Implementos Deportivos</label>
+            <label for="switch-solicitudes" class="tab-btn btn-solicitudes">Ver mis Solicitudes</label>
+        </div>
+
+        <!-- Catalogo de Implementos -->
+        <div class="seccion-catalogo">
+            <div class="barra-filtros-modulo">
+                <div class="filtro-buscar">
+                    <input type="text" id="buscar-producto" placeholder="Buscar producto...">  
+                </div>
+
+                <div class="filtro-selectores">
+                    <div class="grupo-filtro-item">
+                        <label for="filtro-genero">Género:</label>
+                        <select id="filtro-genero">
+                            <option value="todos">Todos</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="masculino">Masculino</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-filtro-item">
+                        <label for="filtro-categorias">Categorías:</label>
+                        <select id="filtro-categorias">
+                            <option value="todos">Todos</option>
+                            <option value="ropa-deportiva">Ropa Deportiva</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subtitulo-seccion">Catálogo de Productos</h3>
+            <div class="grid-productos">
+                <div class="tarjeta-producto">
+                    <div class="producto-imagen">
+                    <img src="Frontend Web/img/Zapatillas.png" alt="Zapatillas Cheer">
+                    </div>
+                    <div class="producto-info">
+                        <h4>Zapatillas Cheer</h4>
+                        <div class="calificacion">⭐⭐⭐⭐★ <span class="conteo-resenas">(30)</span></div>
+                        <p class="precio">$50.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                    </div>
+                </div>
+
+                <div class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="Frontend Web/img/Mochila.png" alt="Mochila Blood Tigers">
+                    </div>
+                    <div class="producto-info">
+                        <h4>Mochila Blood Tigers</h4>
+                        <div class="calificacion">⭐⭐⭐⭐⭐ <span class="conteo-resenas">(5)</span></div>
+                        <p class="precio">$100.000</p>
+                        <button class="btn-solicitar">Solicitar pedido</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentarios de la Comunidad -->
+            <div class="seccion-comentarios-comunidad">
+                <h3 class="subtitulo-seccion">Opiniones de la Comunidad</h3>
+                <div class="contenedor-comentarios">
+                    <div class="bloque-comentario">
+                        <div class="comentario-meta">
+                            <span class="nombre-usuario">Mariana Vélez</span>
+                            <span class="estrellas-usuario">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="comentario-texto">Las zapatillas son súper cómodas y tienen excelente agarre para las bases. La talla corresponde a la guía.</p>
+                    </div>
+                    
+                    <div class="bloque-comentario">
+                        <div class="comentario-meta">
+                            <span class="nombre-usuario">Carlos Mendoza</span>
+                            <span class="estrellas-usuario">⭐⭐⭐⭐★</span>
+                        </div>
+                        <p class="comentario-texto">El bolso es muy práctico y tiene buen material. Me gustaría que tuvieran más colores disponibles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Solicitudes -->
+        <div class="seccion-solicitudes">
+            <div class="barra-filtros-modulo">
+                <div class="filtro-buscar">
+                    <input type="text" id="buscar-solicitud" placeholder="Buscar solicitud...">  
+                </div>
+
+                <div class="grupo-filtro-item">
+                    <div class="grupo-filtro-item">
+                        <label for="filtro-estado">Estado:</label>
+                        <select id="filtro-estado">
+                            <option value="todos">Todos</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="listo">Listo</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-filtro-item">
+                        <label for="filtro-fecha">Fecha:</label>
+                        <select id="filtro-fecha">
+                            <option value="todos">Todos</option>
+                            <option value="mas-recientes">Más Recientes</option>
+                            <option value="menos-recientes">Menos Recientes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="encabezado-solicitudes">
+                <h3 class="subtitulo-seccion">Mis Productos Solicitados</h3>
+            </div>
+
+            <div class="lista-solicitudes">
+                <div class="tarjeta-solicitud">
+                    <div class="solicitud-cuerpo">
+                        <img src="Frontend Web/img/zapatillas.png" alt="Zapatillas" class="img-solicitud">
+                        <div class="solicitud-detalles">
+                            <h4>Zapatillas Cheer</h4>
+                            <p class="cantidad-solicitada">1 unidad</p>
+                            <p class="precio-solicitado">$50.000</p>
+                            <p class="pago-metodo"> Pago presencial</p>
+                        </div>
+                        <div class="solicitud-acciones">
+                            <span class="estado-tag estado-pendiente">Pendiente</span>
+                            <button class="btn-cancelar-pedido" onclick="abrirModalCancelar()">Cancelar</button>
+                        </div>
+                    </div>
+                    <div class="solicitud-comentario-usuario">
+                        <label>Añadir o editar comentario sobre este pedido:</label>
+                        <input type="text" placeholder="Escribe una instrucción o nota sobre tu pedido...">
+                    </div>
+                </div>
+
+                <div class="tarjeta-solicitud">
+                    <div class="solicitud-cuerpo">
+                        <img src="Frontend Web/img/Mochila.png" alt="Mochila" class="img-solicitud">
+                        <div class="solicitud-detalles">
+                            <h4>Mochila Blood Tigers</h4>
+                            <p class="cantidad-solicitada">2 unidades</p>
+                            <p class="precio-solicitado">$100.000</p>
+                            <p class="pago-metodo">Recibo de Nequi cargado</p>
+                        </div>
+                        <div class="solicitud-acciones">
+                            <span class="estado-tag estado-listo">Listo para entregar</span>
+                            <button class="btn-cancelar-pedido">Cancelar</button>
+                        </div>
+                    </div>
+                    <div class="solicitud-comentario-usuario">
+                        <label>Añadir o editar comentario sobre este pedido:</label>
+                        <input type="text" value="Pasa mi compañera de equipo a recogerlo hoy por la tarde." placeholder="Escribe una instrucción o nota sobre tu pedido...">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de solicitud -->
+        <dialog id="modalDialog" class="modal">
+            <div id="modalPedido" class="modal-fondo"> 
+                <div class="modal-contenedor">
+                    <button class="btn-cerrar-modal" onclick="cerrarModal()">&times;</button>
+                    <h3>Solicitar Pedido</h3>
+                    
+                    <div class="modal-producto-resumen">
+                        <img src="Frontend Web/img/zapatillas.png" alt="Zapatillas">
+                        <div>
+                            <h4>Zapatillas Cheer</h4>
+                            <div class="calificacion">⭐⭐⭐⭐★ (30)</div>
+                            <p class="pago-etiqueta"> Pago presencial / Nequi</p>
+                        </div>
+                    </div>
+
+                    <form class="formulario-pedido" onsubmit="event.preventDefault(); cerrarModal();">
+                        <div class="fila-formulario">
+                            <div class="campo-formulario c-corto">
+                                <label for="cantidad">Cantidad</label>
+                                <div class="control-cantidad">
+                                    <input type="number" id="cantidad" value="1" min="1">
+                                </div>
+                            </div>
+                            <div class="campo-formulario">
+                                <label for="talla">Talla</label>
+                                <input type="text" id="talla" placeholder="Ej: 38">
+                            </div>
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label>Método de Pago</label>
+                            <div class="opciones-pago">
+                                <label><input type="radio" name="metodo_pago" value="presencial" checked> Pago presencial al reclamar</label>
+                                <label><input type="radio" name="metodo_pago" value="nequi"> Transferencia Nequi</label>
+                            </div>
+                        </div>
+
+                        <div class="campo-formulario file-wrapper">
+                            <label for="recibo-nequi" class="label-archivo">Subir comprobante de Nequi (Opcional)</label>
+                            <input type="file" id="recibo-nequi" accept="image/*,.pdf">
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="comentario-pedido">Comentario (opcional)</label>
+                            <textarea id="comentario-pedido" rows="2" placeholder="Ej. Necesito el uniforme para el próximo torneo"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar-solicitud">Enviar solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </div>
+
+    <dialog id="modalCancelarDialog" class="modal">
+        <div class="modal-fondo">
+            <div class="modal-contenedor modal-confirmacion-alerta">
+                <button class="btn-cerrar-modal" onclick="cerrarModalCancelar()">&times;</button>
+                
+                <div class="modal-confirmar-contenido">
+                    
+                    <div class="contenedor-logo-alerta">
+                        <img src="Frontend Web/img/peligro.png" alt="Alerta Club" class="imagen-alerta-club">
+                    </div>
+
+                    <h3>¿Está seguro de que desea cancelar este pedido?</h3>
+                    <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
+                    
+                    <div class="modal-confirmar-botones">
+                        <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()">No, mantener</button>
+                        <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()">Sí, cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        const modalSolicitud = document.getElementById('modalDialog');
+        function abrirModal() { modalSolicitud.showModal(); }
+        function cerrarModal() { modalSolicitud.close(); }
+
+        const modalCancelar = document.getElementById('modalCancelarDialog');
+        function abrirModalCancelar() { modalCancelar.showModal(); }
+        function cerrarModalCancelar() { modalCancelar.close(); }
+        
+        function ejecutarCancelacionPedido() {
+            alert("Pedido cancelado correctamente."); 
+            cerrarModalCancelar();
+        }
+    </script>
+
+</body>
+</html>
