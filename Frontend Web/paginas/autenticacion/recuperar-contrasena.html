@@ -10,16 +10,20 @@
         <nav>
             <div class="nav-contenedor">
                 <div class="logo">
-                    <img src="../img/logo/logo-btc.png" alt="Logo">
+                    <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
                 </div>
                 <div class="nav-links">
                     <ul>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#niveles">Niveles</a></li>
-                        <li><a href="#horarios">Horarios</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="inscripcion.html">Inscribirse</a></li>
+                        <li><a href="../publico/index.html#nosotros">Nosotros</a></li>
+                        <li class="menu-desplegable">
+                            <a href="#">Programas</a>
+                            <ul class="submenu">
+                                <li><a href="../publico/index.html#servicios">Servicios</a></li>
+                                <li><a href="../publico/index.html#niveles">Niveles</a></li>
+                                <li><a href="../publico/index.html#horarios">Horarios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../publico/index.html#footer">Contacto</a></li>
                         <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
                     </ul>
                 </div>
@@ -31,7 +35,7 @@
         <section class="recuperar-contrasena">
             <div class="contenedor">
                 <header class="recuperar-contrasena-header">
-                    <img src="../img/icons/candado.png" alt="candado">
+                    <img src="/Frontend Web/img/iconos/candado.png" alt="candado">
                     <h1>RECUPERAR</h1>
                     <p class="subtitulo">Contraseña</p>
                     <p class="texto-info">
@@ -47,7 +51,7 @@
 
                 <form action="verificar-codigo.html" method="post">
                 <div class="form-grupo">
-                    <label for="correo">CORREO</label>
+                    <label for="correo">Correo</label>
                     <input type="email" id="correo" name="correo" placeholder="Tu@correo.com">
                 </div>
                 <button type="submit" class="btn-principal">Enviar código</button>
@@ -55,7 +59,7 @@
             </div>
             
             <p class="pie">
-            <a href="inicio-sesion.html">&#8592; Volver al inicio de sesión</a>
+            <a href="/Frontend Web/paginas/autenticacion/inicio-sesion.html">&#8592; Volver al inicio de sesión</a>
             </p>
         </section>
     </main>

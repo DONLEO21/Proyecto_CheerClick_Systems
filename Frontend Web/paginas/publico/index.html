@@ -16,13 +16,18 @@
                 </div>
                 <div class="nav-links">
                     <ul>
+                        <li><a href="#hero">Home</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#niveles">Niveles</a></li>
-                        <li><a href="#horarios">Horarios</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="inscripcion.html">Inscribirse</a></li>
-                        <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
+                        <li class="menu-desplegable">
+                            <a href="#">Programas</a>
+                            <ul class="submenu">
+                                <li><a href="#servicios">Servicios</a></li>
+                                <li><a href="#niveles">Niveles</a></li>
+                                <li><a href="#horarios">Horarios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#footer">Contacto</a></li>
+                        <li><a href="/Frontend Web/paginas/autenticacion/inicio-sesion.html">Iniciar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +36,7 @@
     
     <main>
         <!-- Sección Principal -->
-        <section class="hero">
+        <section id="hero">
 
             <div class="contenedor">
 
@@ -46,8 +51,8 @@
                     </p>
                 
                     <div class="hero-botones">
-                        <button id="btn-primario" type="button"><a href="inscripcion.html">Inscribirse</a></button>
-                        <button id="btn-secundario" type="button"><a href="login.html">Iniciar sesión</a></button>
+                        <button id="btn-primario" type="button"><a href="/Frontend Web/paginas/autenticacion/registro.html">Inscribirse</a></button>
+                        <button id="btn-secundario" type="button"><a href="/Frontend Web/paginas/autenticacion/inicio-sesion.html">Iniciar sesión</a></button>
                     </div>
 
 
@@ -143,7 +148,7 @@
         <!-- Sección Servicios -->
         <section id="servicios">
             <div class="contenedor">
-                <div class="servicios-contendido">
+                <div class="servicios-contedido">
                     <div class="seccion-titulo">
                         <h1>
                             NUESTROS SERVICIOS
@@ -201,7 +206,7 @@
                     <div class="niveles-valores">
                         <article class="nivel-tarjetas">
                             <header class="tarjeta-encabezado">
-                                <h3>INICO</h3>
+                                <h3>INICIO</h3>
                                 <h4>NIVEL FORMATIVO</h4>
                                 <p>El punto de partida ideal. Aprende las bases del cheerleading en un ambiente seguro</p>
                             </header>
@@ -410,7 +415,7 @@
     </main>
 
     <footer>
-        <section class="footer">
+        <section id="footer">
             <div class="contenedor">
                 <div class="footer-contenido">
 
