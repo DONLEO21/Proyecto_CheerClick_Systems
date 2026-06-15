@@ -1,0 +1,53 @@
+:root{
+    /* Colores */
+
+    --color-primario: #990000;
+    --color-secundario: #CC0000;
+
+    --color-fondo: #f8f8f8;
+
+    --color-texto: #1F1F1F;
+    --color-texto-claro: #6B7280;
+
+    --color-borde: #dddddd;
+
+    --color-exito: #1EAF52;
+    --color-pendiente: #fad755;
+
+    /* Tipografia */
+
+    --fuente-texto: "Arimo", sans-serif;
+    --fuente-titulo: "Varela Round", sans-serif;
+
+    /* Tamaño */
+
+    --texto-sm: 14px;
+    --texto-md: 16px;
+    --texto-lg: 20px;
+    --texto-xl: 32px;
+
+    /* Espacio */
+
+    --espacio-xs: 8px;
+    --espacio-sm: 16px;
+    --espacio-md: 24px;
+    --espacio-lg: 32px;
+    --espacio-xl: 64px;
+
+    /* Bordes */
+
+    --radio-sm: 8px;
+    --radio-md: 16px;
+    --radio-lg: 32px;
+
+    /* Sombras */
+
+    --sombra-sm: 0 2px 8px rgba(0,0,0,.08);
+    --sombra-md: 0 8px 20px rgba(0,0,0,.10);
+
+    /* Transiciones tiempo */
+
+    --transicion:
+        .3s ease;
+
+}
