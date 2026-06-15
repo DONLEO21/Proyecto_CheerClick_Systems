@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Productos</title>
+    <link rel="stylesheet" href="css/stylesAdmi.css">
+    <link rel="stylesheet" href="css/stylesAgre.css">
+</head>
+<body>
+    <!-- BARRA 2 - Lateral izquierda -->
+    <div class="Barra2">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" title="Horarios">
+                    <img src="img/calendario.png" alt="Calendario">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Estado de cuentas">
+                    <img src="img/grafico-circular.png" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="img/comentarios.png" alt="">
+                </a>
+            </li>
+
+            <!-- IMPLEMENTOS ACTIVO -->
+            <li class="active">
+                <a href="#" title="Implementos">
+                    <img src="img/Camisa.png" alt="">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Validación de Cuentas">
+                    <img src="img/usuarios.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- BARRA 1 - Superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Administrador</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link">
+                            <img src="img/campana-de-notificacion.png" alt="">
+                        </a>
+                        <a href="#" class="icon-link">
+                            <img src="img/casa.png" alt="">
+                        </a>
+                        <div class="logo-club">
+                            <img src="img/logo_transparent.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Inicia Registro de Implementos -->
+    <div class="contenido-principal">
+        <h1>Registrar Nuevo Implemento Deportivo</h1>
+        <form class="formulario-registro">
+            <div class="form-titulo">
+                <h2>Registrar Nuevo Producto</h2>
+            </div>
+
+            <div class="grid-campos">
+                <div class="imp-registro">
+                    <label for="nombre">Nombre del producto</label>
+                    <input type="text" id="nombre" class="form-control" placeholder="Nombre del elemento">
+                </div>
+                
+                <div class="imp-registro">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" class="form-control">
+                        <option value="" disabled selected>Seleccione tipo de producto</option>
+                        <option value="ropa">Ropa</option>
+                        <option value="accesorios">Accesorios</option>
+                    </select>
+                </div>
+                
+                <div class="imp-registro">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" class="form-control" placeholder="Ingrese cantidad">
+                </div>
+                
+                <div class="imp-registro">
+                    <label for="estado">Estado</label>
+                    <select id="estado" class="form-control">
+                        <option value="" disabled selected>Seleccione estado</option>
+                        <option value="disponible">Disponible</option>
+                        <option value="noDisponible">No disponible</option>
+                    </select>
+                </div>
+                
+                <div class="imp-registro full-width">
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" class="form-control" placeholder="Ingrese precio">
+                </div>
+    
+                <div class="imp-registro full-width">
+                    <label for="observaciones">Observaciones</label>
+                    <textarea id="observaciones" class="form-control" placeholder="Notas u observaciones sobre el elemento..."></textarea>
+                </div>
+            </div>
+
+            <div class="imp-registro full-width-foto">
+                <label>Agregar Foto:</label>
+                <div class="zona-drop" id="zonaDrop">
+                    <input type="file" id="inputFoto" accept="image/*" style="display: none;">
+                    <div class="contenido-drop">
+                        <div class="icono-nube-placeholder">☁️</div> 
+                        <p>Arrastra una imagen aquí o <span class="resaltado-click">haga click para subir</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-bnt-guardar">
+                <a href="ImplementosAdmi.html" class="btn-guardar">Guardar Implemento</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

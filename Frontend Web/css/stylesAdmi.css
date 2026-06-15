@@ -1,0 +1,1716 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --rojo: #d71920;
+    --rojo-hover: #b8141a;
+    --rojo-light: #fdeaea;
+    --rojo-badge: #f9dede;
+
+    --sidebar-bg: #d71920;
+
+    --blanco: #ffffff;
+    --gris-fondo: #f5f5f5;
+    --gris-borde: #dcdcdc;
+
+    --texto-dark: #222222;
+    --texto-muted: #777777;
+
+    --sidebar-width: 62px;
+    --header-height: 55px;
+
+    --radius-card: 4px;
+
+    --sombra-card: none;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--texto-dark);
+    min-height: 100vh;
+}
+
+/* ── Sidebar (Barra2) ────────────────────────────────────── */
+.Barra2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: 100vh;
+    background: #d71920;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 3px 0 10px rgba(0,0,0,.15);
+}
+
+
+.menu-icon{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: background .3s;
+}
+
+.menu-icon:hover{
+    background: rgba(255,255,255,.12);
+}
+
+.menu-icon span{
+    width: 22px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.menu-icon:hover span:nth-child(1){
+    transform: translateY(-2px);
+}
+
+.menu-icon:hover span:nth-child(3){
+    transform: translateY(2px);
+}
+
+/* Menú */
+.sidebar-menu{
+    width: 100%;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.sidebar-menu li{
+    width: 100%;
+    margin: 12px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* BOTON */
+
+.sidebar-menu li a{
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    transition: all .3s ease;
+    position: relative;
+}
+
+/* ICONOS */
+
+.sidebar-menu li a img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.6; 
+    transition: all .3s ease;
+}
+
+/* HOVER */
+
+.sidebar-menu li a:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* Efecto sobre el icono dentro del enlace (Opacidad y tamaño) */
+.sidebar-menu li a:hover img {
+    opacity: 1;           
+    transform: scale(1.15); 
+}
+
+/* ACTIVO */
+
+.sidebar-menu li.active a {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.18);
+}
+
+.sidebar-menu li.active a img {
+    filter: brightness(0);
+    opacity: 1;
+    transform: none;
+}
+
+/* ANIMACIÓN DE ENTRADA */
+
+.sidebar-menu li{
+    animation: aparecer .5s ease forwards;
+}
+.sidebar-menu li:nth-child(1){animation-delay:.1s;}
+.sidebar-menu li:nth-child(2){animation-delay:.15s;}
+.sidebar-menu li:nth-child(3){animation-delay:.2s;}
+.sidebar-menu li:nth-child(4){animation-delay:.25s;}
+.sidebar-menu li:nth-child(5){animation-delay:.3s;}
+.sidebar-menu li:nth-child(6){animation-delay:.35s;}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateX(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* TOOLTIP */
+
+.sidebar-menu li a::after{
+    content: attr(title);
+    position: absolute;
+    left: 55px;
+    background: #222;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-10px);
+    transition: .3s;
+}
+
+.sidebar-menu li a:hover::after{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ── Header (Barra1) ─────────────────────────────────────── */
+header {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    height: var(--header-height);
+    background-color: var(--blanco);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
+    z-index: 999;
+}
+.icon-link img{
+    height: 20px;
+
+}
+header nav {
+    height: 100%;
+}
+
+.contenedor {
+    height: 100%;
+    padding: 0 20px;
+}
+
+.Barra1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Left: botones de sesión */
+.nav-btns {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cerrar {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 16px;
+    border: 1.5px solid #cccccc;
+    background-color: var(--blanco);
+    color: #444444;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.btn-cerrar:hover {
+    border-color: var(--rojo);
+    color: var(--rojo);
+}
+
+.admin-btn {
+    display: inline-block;
+    padding: 7px 18px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    cursor: default;
+    user-select: none;
+}
+
+/* Right: iconos + logo */
+#Logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.icon-link:hover {
+    color: var(--rojo);
+}
+
+.icon-link svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    stroke: currentColor;
+}
+
+.logo-club {
+    display: flex;
+    align-items: center;
+}
+
+.logo-club img {
+    height: 38px;
+    width: 38px;
+    object-fit: cover;
+}
+
+/* ── Main content ────────────────────────────────────────── */
+.contenido {
+    margin-left: var(--sidebar-width);
+    margin-top: var(--header-height);
+    padding: 28px 30px 40px;
+    min-height: calc(100vh - var(--header-height));
+}
+
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .categorias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .categorias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contenido {
+        padding: 20px 16px 32px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .horario-badge {
+        font-size: 10px;
+        white-space: normal;
+    }
+}
+
+/* CSS de Implementos Admi */
+.contenido-principal {
+    margin-left: 56px;      
+    margin-top: 55px;     
+    padding: 20px;        
+    display: block; 
+    font-family: 'Varela Round', 'Segoe UI', sans-serif;
+    background-color: #f5f5f5; 
+    min-height: calc(100vh - 55px);       
+}
+
+.contenido-principal * {
+    max-width: 100%;
+}
+
+.contenido-principal h1 {
+    font-size: 24px;
+    color: #222222;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.icono-accion{
+    width: 18px;
+    height: 18px;
+}
+
+.tab-btn {
+    padding: 8px 20px;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #dddddd;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: 'Varela Round', sans-serif;
+    transition: all 0.2s ease;
+    margin-bottom: -2px;
+    display: inline-block;
+}
+
+#switch-deportivos:checked ~ .tabla-contenido .btn-deportivos {
+    background: #cc0000;
+    color: white;
+    border-color: #cc0000;
+}
+
+#switch-deportivos:checked ~ #implementos-deportivos {
+    display: block;
+}
+#switch-deportivos:checked ~ #implementos-solicitados {
+    display: none;
+}
+
+#switch-solicitados:checked ~ .tabla-contenido .btn-solicitados {
+    background: #cc0000;
+    color: white;
+    border-color: #cc0000;
+}
+
+#switch-solicitados:checked ~ #implementos-solicitados {
+    display: block;
+}
+#switch-solicitados:checked ~ #implementos-deportivos {
+    display: none;
+}
+
+.tabla-contenido {
+  display: flex;
+  gap: 5px;          
+  margin-bottom: 20px; 
+  border-bottom: 2px solid #dddddd;
+  width: 100%;
+  padding-bottom: 0px;
+}
+
+.acciones-barra {
+  display: flex;
+  justify-content: space-start; 
+  align-items: center;          
+  flex-wrap: wrap;               
+  gap: 12px;
+  margin-bottom: 25px;   
+  width: 100%;               
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px; 
+    font-size: 13px;
+    background-color: white;
+    outline: none;
+    width: 220px;
+    font-family: 'Varela Round', sans-serif;          
+}
+
+.filtro-grupo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #444444;
+    font-weight: 600;
+}
+
+.filtro-seleccion {
+    padding: 8px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 13px;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.search-input {
+    width: 220px;
+}
+
+/* Botón Rojo "Agregar nuevo Implemento" */
+.btn-agregar {
+    background:  #cc0000;
+    color: white;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+    background:  #cc0000;
+}
+
+.contenedor-tabla {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Estructura de la Tabla */
+.tabla-implementos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+    table-layout: fixed;
+}
+
+.tabla-implementos th {
+    color: #444444 !important;
+    font-weight: 700;
+    padding: 16px 15px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.tabla-implementos td {
+    color: #222222 !important;
+    padding: 15px;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: middle;
+    color: #dddddd;
+}
+
+.tabla-implementos tr:last-child td {
+    border-bottom: none;
+}
+
+/* Miniaturas de las imágenes del producto */
+.img-producto {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 0;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    min-width: 115px;
+}
+
+.badge.disponible {
+    background-color: #1eaf52; /* Verde Éxito */
+    color: white;
+}
+
+.badge.no-disponible {
+    background-color:  #cc0000; /* Rojo Alerta */
+    color: white;
+}
+
+.btn-accion {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Boton Editar */
+.btn-accion.editar {
+    background-color: #fad755; 
+    border: 1px solid #f1a623;
+}
+
+/* Hover de Editar  */
+.btn-accion.editar:hover {
+    background-color: #f1a623; 
+    border-color: #f3a31a;
+}
+
+/* Boton de Eliminar y Rechazar */
+.btn-accion.eliminar, .btn-accion.rechazar {
+    background-color: #cc0000; 
+    border: 1px solid #b40a0a;
+}
+
+/* Hover de Eliminar y Rechazar */
+.btn-accion.eliminar:hover, .btn-accion.rechazar:hover {
+    background-color: #b40a0a; 
+    border-color: #990000;
+}
+
+/* Boton Aprobar */
+.btn-accion.aprobar{
+    background-color: #1eaf52;
+    border-color: #14a84bb9;
+}
+
+/* Hover Aprobar */
+.btn-accion.aprobar:hover{
+    background-color: #14a84bb9;
+    border-color: #0f853a94;
+}
+
+.btn-accion .icono-accion {
+    filter: brightness(0) invert(1);
+}
+
+.tabla-implementos th:nth-child(1), .tabla-implementos td:nth-child(1) { width: 40%; } 
+.tabla-implementos th:nth-child(2), .tabla-implementos td:nth-child(2) { width: 12%; } 
+.tabla-implementos th:nth-child(3), .tabla-implementos td:nth-child(3) { width: 12%; } 
+.tabla-implementos th:nth-child(4), .tabla-implementos td:nth-child(4) { width: 12%; } 
+.tabla-implementos th:nth-child(5), .tabla-implementos td:nth-child(5) { width: 14%; } 
+.tabla-implementos th:nth-child(6), .tabla-implementos td:nth-child(6) { width: 10%; } 
+
+/* Diseño de Modales */
+.modal-diseno {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    width: 100%;
+    max-width: 460px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    font-family: 'Varela Round', sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.modal-diseno::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px); 
+}
+
+.modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    color: #222222;
+    font-weight: 700;
+}
+
+.modal-cuerpo {
+    padding: 20px 24px;
+}
+
+.modal-subtexto {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.modal-grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-grupo-input label {
+    font-size: 13px;
+    color: #444444;
+    font-weight: 600;
+}
+
+.modal-control {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    font-family: 'Varela Round', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.textarea-modal {
+    height: 90px;
+    padding: 12px;
+    resize: none;
+}
+
+.modal-footer {
+    padding: 15px 24px;
+    background-color: #f8fafc;
+    border-top: 1px solid #edf2f7;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.modal-cuerpo-centrado {
+    padding: 30px 24px 20px 24px;
+    text-align: center;
+}
+
+.modal-cuerpo-centrado h2 {
+    font-size: 19px;
+    color: #222222;
+    margin: 15px 0 10px 0;
+    font-weight: 700;
+}
+
+.modal-cuerpo-centrado p {
+    font-size: 13.5px;
+    color: #444444;
+    line-height: 1.5;
+}
+
+.nota-alerta {
+    color: #ef4444 !important;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.modal-footer-centrado {
+    padding: 0 24px 30px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.modal-img-ilustracion {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Estilo de los Botones en los Modales */
+.btn-modal-cancelar {
+    background: white;
+    border: 1px solid #dcdcdc;
+    color: #555555;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.btn-modal-guardar {
+    background: #1eaf52; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.btn-modal-peligro {
+    background: #cc0000;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.btn-rojo-marca {
+    background: #d71920 !important;
+}
+
+.campos-editar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.modal-header-rojo {
+    background-color: var(--rojo) !important;
+    color: white !important;
+    position: relative;
+    padding: 15px 20px !important;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+}
+
+.modal-header-rojo h2 {
+    color: white !important;
+    font-size: 20px !important;
+    font-weight: 700;
+}
+
+.modal-header-rojo p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+/* Boton X en cierre */
+.btn-cerrar-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-fila-superior {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.contenedor-vista-previa {
+    width: 85px;
+    height: 85px;
+    border: 1.5px solid #222;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 5px;
+}
+
+.img-previa-modal {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.input-nombre-completo {
+    flex: 1;
+}
+
+/* Separadores */
+.modal-separador {
+    border: none;
+    border-top: 1px solid #dcdcdc;
+    margin: 15px 0;
+}
+
+.modal-control {
+    border: 1.5px solid #222222 !important;
+    border-radius: 8px !important;
+    font-family: 'Varela Round', sans-serif;
+    color: #222 !important;
+}
+
+.control-cantidad {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 40px;
+    background: #fff;
+}
+
+.control-cantidad .modal-control {
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0;
+    text-align: center;
+}
+
+.btn-cantidad {
+    background: #f5f5f5;
+    border: none;
+    width: 35px;
+    height: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-cantidad:hover {
+    background: #e5e5e5;
+}
+
+.grupo-botones-estado {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-estado-toggle {
+    padding: 4px 10px;
+    border: 1.5px solid #222;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-estado-toggle.activo-disponible {
+    background-color: #1eaf52;
+    color: white;
+}
+
+.btn-estado-toggle.activo-no-disponible {
+    background-color: var(--rojo);
+    color: white;
+}
+
+.modal-footer-linea {
+    padding: 12px 24px;
+    background-color: #fff;
+    border-top: 1px solid #edf2f7;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-modal-accion {
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1.5px solid #222;
+    box-shadow: 0 2px 0 #222;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-modal-accion:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+.btn-cancelar-diseno {
+    background: #cccccc;
+    color: #222;
+}
+
+.btn-guardar-diseno {
+    background: var(--rojo);
+    color: white;
+}
+
+.btn-rojo-confirmar {
+    background: var(--rojo);
+    color: white;
+}
+
+/* ── Estilos de Modales de Alerta de Éxito (Aprobar) ── */
+.modal-alerta-v {
+    max-width: 380px !important;
+    border: 1.5px solid #222 !important;
+}
+
+.icono-contenedor-v {
+    width: 65px;
+    height: 80px;
+    border: 2px solid #1eaf52;
+    background-color: #bbf7d0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto 20px auto;
+}
+
+.check-v {
+    color: #16a34a;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.texto-alerta-modal {
+    font-size: 14px;
+    color: #222;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.btn-modal-alerta {
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #222;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #222;
+}
+
+.btn-alerta-verde {
+    background-color: #65a30d;
+    color: white;
+}
+
+.btn-modal-alerta:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+.modal-header-pestanaroja {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    height: 65px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.pestana-roja-titulo {
+    background-color: var(--rojo);
+    color: white;
+    padding: 10px 30px 10px 25px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 25px;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.pestana-roja-titulo h2 {
+    font-size: 18px !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin: 0;
+}
+
+.pestana-roja-titulo p {
+    font-size: 11.5px;
+    margin-top: 2px;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+/* Elementos superiores del modal */
+.modal-fila-superior {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.contenedor-vista-previa {
+    width: 80px;
+    height: 80px;
+    border: 1.5px solid #222222;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 6px;
+}
+
+.img-previa-modal {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.input-nombre-completo {
+    flex: 1;
+}
+
+.modal-separador {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 15px 0;
+}
+
+/* Inputs y Selects con el trazo negro estilizado de tus imágenes */
+.modal-control-comic {
+    height: 38px;
+    padding: 0 12px;
+    border: 1.5px solid #222222 !important;
+    border-radius: 10px !important;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13.5px;
+    color: #222222 !important;
+    background-color: #ffffff;
+    outline: none;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.textarea-modal {
+    height: 110px !important;
+    padding: 12px !important;
+    resize: none;
+}
+
+.label-motivo {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222222;
+}
+
+/* Grid inferior de edición */
+.campos-editar-comic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+}
+
+.campos-editar-comic label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #888888;
+}
+
+/* Control personalizado de cantidad (- 20 +) */
+.control-cantidad-comic {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #222222;
+    border-radius: 10px;
+    background: #ffffff;
+    height: 38px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.btn-cant-fn {
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #222222;
+}
+
+.input-cant-fn {
+    flex: 1;
+    border: none;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #222222;
+    width: 100%;
+    background: transparent;
+    outline: none;
+}
+
+/* Pie de página del modal */
+.modal-footer-comic {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    background: transparent;
+}
+
+/* Botones con sombreado e identidad Cómic */
+.btn-comic {
+    padding: 8px 24px;
+    border-radius: 10px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    cursor: pointer;
+    border: 1.5px solid #222222;
+    box-shadow: 0 3px 0 #222222;
+    transition: transform 0.05s, box-shadow 0.05s;
+}
+
+.btn-comic:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+.btn-comic-gris {
+    background: #cccccc;
+    color: #222222;
+}
+
+.btn-comic-rojo {
+    background: var(--rojo);
+    color: #ffffff;
+}
+
+.btn-comic-verde {
+    background: #65a30d;
+    color: #ffffff;
+}
+
+/* Estilos internos para el modal de éxito (Aprobar) */
+.icono-contenedor-v {
+    width: 60px;
+    height: 75px;
+    border: 2.2px solid #1eaf52;
+    background-color: #bbf7d0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto 18px auto;
+}
+
+.check-v {
+    color: #16a34a;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.texto-alerta-modal {
+    font-size: 13.5px;
+    color: #222222;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-diseno-final {
+    border: none;
+    border-radius: 14px !important;
+    padding: 0 !important;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    font-family: 'Varela Round', sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    overflow: hidden;
+    cursor: default;
+    width: auto;
+    min-width: 320px;
+    max-width: 95vw;
+}
+
+.modal-diseno-final::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1.5px);
+}
+
+.modal-header-rojo-total {
+    background-color: var(--rojo) !important;
+    color: #ffffff !important;
+    padding: 16px 22px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+dialog.modal-diseno-final:focus {
+    outline: none;
+}
+
+dialog.modal-diseno-final *:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+dialog.modal-diseno-final input,
+dialog.modal-diseno-final textarea,
+dialog.modal-diseno-final select {
+    caret-color: initial;
+}
+
+.modal-header-rojo-total h2 {
+    font-size: 19px !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.modal-header-rojo-total p {
+    font-size: 12px;
+    margin-top: 2px;
+    opacity: 0.9;
+    color: #ffffff;
+}
+
+.btn-cerrar-modal-x {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 400;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-cuerpo-perfecto {
+    padding: 24px 28px 18px 28px;
+    box-sizing: border-box;
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
+
+.modal-cuerpo-centrado {
+    padding: 24px 28px 18px 28px;
+    box-sizing: border-box;
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
+
+.modal-fila-superior {
+    display: flex;
+    gap: 14px;
+    align-items: flex-end;
+}
+
+.contenedor-vista-previa {
+    width: 76px;
+    height: 76px;
+    border: 1.5px solid #222222;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 5px;
+    flex-shrink: 0;
+}
+
+.img-previa-modal {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.input-nombre-completo {
+    flex: 1;
+}
+
+.input-nombre-completo label {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.modal-separador-fino {
+    border: none;
+    border-top: 1px solid #f1f5f9;
+    margin: 16px 0;
+}
+
+.modal-control-comic {
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1.5px solid #222222 !important;
+    border-radius: 9px !important;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
+    color: #222222 !important;
+    background-color: #ffffff;
+    outline: none;
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+.campos-grid-perfecto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+}
+
+.campos-grid-perfecto label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.control-cantidad-comic {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #222222;
+    border-radius: 9px;
+    background: #ffffff;
+    height: 38px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.btn-cant-fn {
+    background: #f8fafc;
+    border: none;
+    width: 32px;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #222222;
+}
+
+.btn-cant-fn:hover {
+    background: #f1f5f9;
+}
+
+.input-cant-fn {
+    flex: 1;
+    border: none;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #222222;
+    background: transparent;
+    outline: none;
+}
+
+.label-motivo-negro {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.textarea-modal-perfecto {
+    height: 115px !important;
+    padding: 12px !important;
+    resize: none;
+    line-height: 1.4;
+}
+
+.modal-footer-comic {
+    padding: 14px 22px 20px 22px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    background: transparent;
+}
+
+.btn-comic {
+    padding: 8px 24px;
+    border-radius: 9px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    cursor: pointer;
+    border: 1.5px solid #222222;
+    box-shadow: 0 3px 0 #222222;
+    transition: transform 0.05s, box-shadow 0.05s;
+}
+
+.btn-comic:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+.btn-comic-gris {
+    background: #cccccc;
+    color: #222222;
+}
+
+.btn-comic-rojo {
+    background: var(--rojo);
+    color: #ffffff;
+}
+
+.btn-comic-verde {
+    background: #65a30d;
+    color: #ffffff;
+}
+
+.icono-contenedor-exito-v {
+    width: 55px;
+    height: 70px;
+    border: 2px solid #1eaf52;
+    background-color: #bbf7d0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+}
+
+.check-icono-v {
+    color: #16a34a;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ========================================================
+   ESTILOS DE INTERFAZ INTEGRADOS (CON HTML CORREGIDO)
+   ======================================================== */
+
+/* 1. Comportamiento base y dimensiones del Diálogo Nativo */
+dialog.modal-diseno-final[open] {
+    display: block !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    height: auto !important;
+    max-height: calc(100vh - 40px) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32) !important;
+    font-family: 'Varela Round', sans-serif !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+}
+
+dialog.modal-diseno-final * {
+    box-sizing: border-box !important;
+}
+
+/* Modal sizes by dialog */
+#modal-editar.modal-diseno-final[open] {
+    width: min(88vw, 860px) !important;
+    max-width: 860px !important;
+    min-width: 620px !important;
+}
+
+#modal-rechazar.modal-diseno-final[open] {
+    width: min(80vw, 760px) !important;
+    max-width: 760px !important;
+    min-width: 540px !important;
+}
+
+#modal-aprobar.modal-diseno-final[open] {
+    width: min(68vw, 620px) !important;
+    max-width: 620px !important;
+    min-width: 420px !important;
+}
+
+#modal-inhabilitar.modal-diseno-final[open] {
+    width: min(72vw, 700px) !important;
+    max-width: 700px !important;
+    min-width: 500px !important;
+}
+
+#modal-editar.modal-diseno-final[open] .modal-cuerpo-perfecto,
+#modal-rechazar.modal-diseno-final[open] .modal-cuerpo-perfecto {
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+#modal-aprobar.modal-diseno-final[open] .modal-cuerpo-centrado,
+#modal-inhabilitar.modal-diseno-final[open] .modal-cuerpo-centrado {
+    max-height: calc(100vh - 190px) !important;
+    overflow-y: auto !important;
+}
+
+#modal-editar .modal-footer-comic,
+#modal-rechazar .modal-footer-comic,
+#modal-aprobar .modal-footer-comic,
+#modal-inhabilitar .modal-footer-comic {
+    justify-content: center !important;
+    gap: 14px !important;
+}
+
+#modal-editar .modal-footer-comic .btn-comic,
+#modal-rechazar .modal-footer-comic .btn-comic,
+#modal-aprobar .modal-footer-comic .btn-comic,
+#modal-inhabilitar .modal-footer-comic .btn-comic {
+    min-width: 140px !important;
+}
+
+/* Fondo oscuro nativo del navegador */
+dialog.modal-diseno-final::backdrop {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2. Estabilizar la Cabecera */
+.modal-header-rojo-total {
+    background-color: var(--rojo) !important;
+    color: #ffffff !important;
+    padding: 20px 28px 20px 24px !important;
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    z-index: 2 !important;
+}
+
+.modal-fila-superior {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.modal-fila-superior > * {
+    min-width: 0;
+}
+
+dialog.modal-diseno-final:focus,
+dialog.modal-diseno-final:focus-visible,
+dialog.modal-diseno-final *:focus,
+dialog.modal-diseno-final *:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.modal-header-rojo-total h2 {
+    font-size: 20px !important;
+    margin: 0 0 4px 0 !important;
+    color: #ffffff !important;
+    line-height: 1.2 !important;
+}
+
+.modal-header-rojo-total p {
+    font-size: 14px !important;
+    margin: 0 !important;
+    color: #fca5a5 !important;
+}
+
+.modal-header-rojo-total .btn-cerrar-modal-x {
+    position: absolute !important;
+    top: 50% !important;
+    right: 20px !important;
+    transform: translateY(-50%) !important;
+    background: none !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 26px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+/* 3. Estabilizar el cuerpo */
+.modal-cuerpo-perfecto {
+    padding: 24px 20px !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* 4. Activar las DOS columnas reales usando el nuevo contenedor HTML */
+.modal-diseno-final .campos-grid-perfecto {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Dos columnas idénticas */
+    gap: 16px 20px !important;
+    width: 100% !important;
+}
+
+/* Forzar que los elementos hereden el ancho de la celda y destruyan los 320px */
+.modal-diseno-final .imp-registro,
+.modal-diseno-final .modal-grupo-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important; /* Fuerza a ocupar todo el ancho disponible */
+    margin: 0 !important;
+}
+
+/* Forzar expansión absoluta en los inputs y selectores del cuerpo */
+.modal-diseno-final input,
+.modal-diseno-final select,
+.modal-diseno-final textarea,
+.modal-diseno-final .modal-control-comic {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important; /* Aplasta el width: 320px global */
+    height: 40px !important;
+}
+
+/* Componente de cantidad (- / +) totalmente expandido */
+.modal-diseno-final .control-cantidad-comic {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.modal-diseno-final .input-cant-fn {
+    flex: 1 !important;
+    min-width: 0 !important;
+    height: 100% !important;
+}
+
+/* Área de texto para el motivo del rechazo */
+.modal-diseno-final textarea.textarea-modal-perfecto {
+    height: 110px !important;
+    resize: none !important;
+}
+
+/* 5. Alinear y contener los botones inferiores */
+.modal-diseno-final .modal-footer-comic {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    padding: 15px 20px !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-top: 1px solid var(--gris-borde) !important;
+}
+
+.modal-diseno-final .modal-footer-comic .btn-comic {
+    width: auto !important;
+    flex: 1 !important; 
+    max-width: 180px !important;
+    padding: 10px 15px !important;
+    white-space: nowrap !important;
+}
