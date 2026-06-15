@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva contraseña</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-contenedor">
+                <div class="logo">
+                    <img src="/img/logo/logo-btc.png" alt="Logo">
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#niveles">Niveles</a></li>
+                        <li><a href="#horarios">Horarios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="inscripcion.html">Inscribirse</a></li>
+                        <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cambio-contrasena">
+            <div class="contenedor">
+                <header>
+                    <img src="/img/logo/logo-btc.png" alt="Logo">
+                    <h1>Nueva Contraseña</h1>
+                    <p>
+                        Cree una contraseña segura para su cuenta.
+                    </p>
+                    <div class="progreso">
+                        <div class="paso"></div>
+                        <div class="paso"></div>
+                        <div class="paso activo"></div>
+                    </div>
+                </header>
+
+                <form action="contrasena-actualizada.html" method="post">
+                    <div class="contrasena-contenedor">
+                        <label for="nueva-contrasena">Nueva Contraseña</label>
+                        <input type="password" name="nueva-contrasena" id="nueva-contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16">
+                        <div class="input-ojo-icono"> 
+                            <button type="button" class="btn-ver-contrasena">👁</button> 
+                        </div>
+                    
+                        <div class="seguridad-contrasena">
+                            <div class="barra activo"></div>
+                            <div class="barra"></div>
+                            <div class="barra"></div>
+                        </div>
+                        <p>Débil</p>
+                    </div>
+
+                    <div class="contrasena-contenedor">
+                        <label for="confirmar-contrasena">Confirmar Contraseña</label>
+                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena" required placeholder="Repita la contraseña" minlength="8" maxlength="16">
+                        <div class="input-ojo-icono"> 
+                            <button type="button" class="btn-ver-contrasena">👁</button> 
+                        </div>
+
+                    </div>
+                    
+                    <button type="submit" class="btn-principal">
+                        Guardar contraseña
+                    </button>
+                </form>
+                <a href="verificar-codigo.html">Volver</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

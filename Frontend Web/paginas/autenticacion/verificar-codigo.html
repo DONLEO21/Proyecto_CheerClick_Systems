@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar código</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-contenedor">
+                <div class="logo">
+                    <img src="../img/logo/logo-btc.png" alt="Logo">
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#niveles">Niveles</a></li>
+                        <li><a href="#horarios">Horarios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="inscripcion.html">Inscribirse</a></li>
+                        <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="codigo-verificacion">
+            <div class="contenedor">
+                <header>
+                    <h1>Verificar Código</h1>
+                    <p>
+                      Ingrese el código enviado a <br>
+                      Ejemplo@gmail.com  
+                    </p>
+
+                    <div class="progreso">
+                        <div class="paso"></div>
+                        <div class="paso activo"></div>
+                        <div class="paso"></div>
+                    </div>
+                </header>
+
+                <form action="cambio-contrasena.html" method="post">
+                    <div class="codigo-verificacion-inputs">
+                        <input type="text" maxlength="1" required>
+                        <input type="text" maxlength="1" required>
+                        <input type="text" maxlength="1" required>
+                        <input type="text" maxlength="1" required>
+                        <input type="text" maxlength="1" required>
+                        <input type="text" maxlength="1" required>
+                    </div>
+
+                    <button type="submit" class="btn-principal">
+                        Verificar Código
+                    </button>
+                </form>
+            </div>
+
+            <div class="pie">
+                <p>¿No llegó?<button type="button">Reenviar código</button></p>
+                <a href="recuperar-contrasena.html">&#8592; Volver</a>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>
