@@ -714,12 +714,6 @@ dialog.modal-diseno-aprobadas {
     background-color: #ffffff !important;
 }
 
-
-/* --------------------------------------------------------------------------
-   4. COMPONENTES INTERNOS (FILAS, INPUTS Y REJILLAS)
--------------------------------------------------------------------------- */
-
-/* Fila de Imagen + Nombre (Modal Editar) */
 .modal-fila-superior {
     display: flex !important;
     gap: 16px !important;
@@ -745,7 +739,6 @@ dialog.modal-diseno-aprobadas {
     object-fit: contain;
 }
 
-/* Grupos de campos de texto */
 .modal-grupo-input {
     display: flex !important;
     flex-direction: column !important;
@@ -767,7 +760,6 @@ dialog.modal-diseno-aprobadas {
     text-align: left !important;
 }
 
-/* Inputs, Selects y Textareas */
 .modal-control-comic {
     width: 100% !important;
     padding: 9px 12px !important;
@@ -780,7 +772,6 @@ dialog.modal-diseno-aprobadas {
     box-sizing: border-box !important;
 }
 
-/* Línea separadora sutil */
 .modal-separador-fino {
     border: none !important;
     border-top: 1px solid #eeeeee !important;
@@ -788,7 +779,6 @@ dialog.modal-diseno-aprobadas {
     width: 100% !important;
 }
 
-/* Rejilla perfecta en 2 columnas (Evita que colapsen los campos inferiores) */
 .campos-grid-perfecto {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -797,7 +787,6 @@ dialog.modal-diseno-aprobadas {
     box-sizing: border-box !important;
 }
 
-/* Control Incremental de Cantidad */
 .control-cantidad-comic {
     display: flex !important;
     border: 1.5px solid #222222 !important;
@@ -829,7 +818,6 @@ dialog.modal-diseno-aprobadas {
     background-color: #ffffff !important;
 }
 
-/* Textarea específico para motivos */
 .textarea-modal-perfecto {
     min-height: 110px !important;
     resize: none !important;
@@ -837,10 +825,6 @@ dialog.modal-diseno-aprobadas {
     display: block !important;
 }
 
-
-/* --------------------------------------------------------------------------
-   5. CONTENIDO GRÁFICO E INFOTEXTO (ALERTAS / INHABILITAR / ÉXITO)
--------------------------------------------------------------------------- */
 .modal-img-ilustracion {
     width: 64px !important;
     height: 64px !important;
@@ -868,7 +852,6 @@ dialog.modal-diseno-inhabilitar p {
     font-size: 13px !important;
 }
 
-/* Icono redondo de éxito (Aprobar) */
 .icono-contenedor-exito-v {
     width: 60px;
     height: 60px;
@@ -894,10 +877,6 @@ dialog.modal-diseno-inhabilitar p {
     margin: 0 0 20px 0 !important;
 }
 
-
-/* --------------------------------------------------------------------------
-   6. PIES DE PÁGINA Y BOTONERAS DE MODALES
--------------------------------------------------------------------------- */
 .modal-footer-comic {
     padding: 14px 20px !important;
     background-color: #fafafa !important;
@@ -909,15 +888,13 @@ dialog.modal-diseno-inhabilitar p {
     width: 100% !important;
 }
 
-/* Ajuste de pie para el de inhabilitar que no usa form */
 dialog.modal-diseno-inhabilitar .modal-footer-comic {
-    justify-content: center !important; /* Centrar botones de peligro */
+    justify-content: center !important; 
     background-color: #ffffff !important;
     border-top: none !important;
     padding-bottom: 24px !important;
 }
 
-/* Botones universales de acción */
 .btn-comic, 
 .btn-modal-cancelar, 
 .btn-modal-peligro {
@@ -939,7 +916,6 @@ dialog.modal-diseno-inhabilitar .modal-footer-comic {
     transform: scale(0.97) !important;
 }
 
-/* Variaciones de Color */
 .btn-comic-gris, 
 .btn-modal-cancelar {
     background-color: #e0e0e0 !important;
@@ -971,25 +947,19 @@ dialog.modal-diseno-inhabilitar .modal-footer-comic {
     background-color: #218838 !important;
 }
 
-/* ==========================================================================
-   REPARACIÓN QUIRÚRGICA PARA MODALES DE EDITAR Y RECHAZAR
-   ========================================================================== */
-
-/* 1. Resetear por completo las cajas nativas del dialog */
 dialog.modal-diseno-editar,
 dialog.modal-diseno-rechazar {
-    padding: 0 !important;                /* Quita el espacio interno que deja ver el fondo gris */
-    border: 2px solid #222222 !important; /* Mantiene tu borde cómic */
-    border-radius: 16px !important;       /* Curvatura limpia */
+    padding: 0 !important;               
+    border: 2px solid #222222 !important; 
+    border-radius: 16px !important;      
     background-color: #ffffff !important;
-    max-width: 480px !important;          /* Ancho perfecto para que las 2 columnas respiren */
+    max-width: 480px !important;         
     width: 90% !important;
-    margin: auto !important;               /* Centrado absoluto */
-    overflow: hidden !important;          /* SOLUCIÓN AL COSITO ROJO: Corta los picos que se salían */
+    margin: auto !important;            
+    overflow: hidden !important;
     box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
 }
 
-/* 2. Forzar al formulario a heredar el corte de las esquinas */
 dialog.modal-diseno-editar .form-modal-completo,
 dialog.modal-diseno-rechazar .form-modal-completo {
     display: flex !important;
@@ -1001,7 +971,6 @@ dialog.modal-diseno-rechazar .form-modal-completo {
     box-sizing: border-box !important;
 }
 
-/* 3. Encabezado Rojo de borde a borde */
 dialog.modal-diseno-editar .modal-header-rojo-total,
 dialog.modal-diseno-rechazar .modal-header-rojo-total {
     background-color: #cc0000 !important;
@@ -1013,7 +982,6 @@ dialog.modal-diseno-rechazar .modal-header-rojo-total {
     position: relative !important;
 }
 
-/* Asegurar textos blancos dentro de la cabecera */
 dialog.modal-diseno-editar .modal-header-rojo-total h2,
 dialog.modal-diseno-rechazar .modal-header-rojo-total h2 {
     color: #ffffff !important;
@@ -1030,7 +998,6 @@ dialog.modal-diseno-rechazar .modal-header-rojo-total p {
     opacity: 0.9 !important;
 }
 
-/* Ubicación exacta del botón X de cierre */
 dialog.modal-diseno-editar .btn-cerrar-modal-x,
 dialog.modal-diseno-rechazar .btn-cerrar-modal-x {
     position: absolute !important;
@@ -1044,7 +1011,6 @@ dialog.modal-diseno-rechazar .btn-cerrar-modal-x {
     line-height: 1 !important;
 }
 
-/* 4. Cuerpo interno libre de scrolls molestos */
 dialog.modal-diseno-editar .modal-cuerpo-perfecto,
 dialog.modal-diseno-rechazar .modal-cuerpo-perfecto {
     padding: 20px !important;
@@ -1056,7 +1022,6 @@ dialog.modal-diseno-rechazar .modal-cuerpo-perfecto {
     background-color: #ffffff !important;
 }
 
-/* 5. Distribución de inputs en 2 columnas exactas (50% y 50%) */
 dialog.modal-diseno-editar .campos-grid-perfecto {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -1065,14 +1030,12 @@ dialog.modal-diseno-editar .campos-grid-perfecto {
     box-sizing: border-box !important;
 }
 
-/* Prevenir que los inputs rompan el ancho */
 dialog.modal-diseno-editar .modal-control-comic,
 dialog.modal-diseno-rechazar .modal-control-comic {
     width: 100% !important;
     box-sizing: border-box !important;
 }
 
-/* Área de texto de rechazo perfecta */
 dialog.modal-diseno-rechazar .textarea-modal-perfecto {
     min-height: 110px !important;
     resize: none !important;
@@ -1081,7 +1044,6 @@ dialog.modal-diseno-rechazar .textarea-modal-perfecto {
     box-sizing: border-box !important;
 }
 
-/* 6. Ajuste del Footer gris de los botones */
 dialog.modal-diseno-editar .modal-footer-comic,
 dialog.modal-diseno-rechazar .modal-footer-comic {
     padding: 14px 20px !important;
@@ -1094,11 +1056,6 @@ dialog.modal-diseno-rechazar .modal-footer-comic {
     width: 100% !important;
 }
 
-/* ==========================================================================
-   CORRECCIÓN DE ALTURA PARA MODALES DE EDITAR Y RECHAZAR
-   ========================================================================== */
-
-/* 1. Resetear por completo las cajas nativas permitiendo altura automática */
 dialog.modal-diseno-editar {
     padding: 0 !important;
     border: 2px solid #222222 !important;
@@ -1106,22 +1063,21 @@ dialog.modal-diseno-editar {
     background-color: #ffffff !important;
     max-width: 500px !important; 
     width: 90% !important;
-    height: auto !important;     /* SOLUClÓN: Permite que el modal crezca verticalmente */
-    max-height: 70vh !important; /* Evita que se salga de la pantalla en monitores chicos */
+    height: auto !important;    
+    max-height: 70vh !important; 
     margin: auto !important;
-    overflow: hidden !important; /* Corta picos superiores del color rojo */
+    overflow: hidden !important; 
     box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
 }
 
-/* 2. Forzar al formulario a estirarse orgánicamente según su contenido */
 dialog.modal-diseno-editar .form-modal-completo {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    height: auto !important;   /* SOLUCIÓN: Quita cualquier restricción rígida de alto */
+    height: auto !important;   
     margin: 0 !important;
     padding: 0 !important;
-    overflow: visible !important; /* Deja fluir los elementos hacia el footer sin cortarlos */
+    overflow: visible !important; 
     box-sizing: border-box !important;
 }
 
@@ -1132,9 +1088,9 @@ dialog.modal-diseno-rechazar{
     background-color: #ffffff !important;
     max-width: 500px !important; 
     width: 90% !important;
-    height: auto !important;     /* SOLUClÓN: Permite que el modal crezca verticalmente */
-    max-height: 50vh !important; /* Evita que se salga de la pantalla en monitores chicos */
+    height: auto !important;    
+    max-height: 50vh !important; 
     margin: auto !important;
-    overflow: hidden !important; /* Corta picos superiores del color rojo */
+    overflow: hidden !important; 
     box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
 }
