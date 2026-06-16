@@ -13,6 +13,7 @@
 /*Componente */
 
 @import url("./componentes/botones.css");
+@import url(./componentes/modales.css);
 @import url("./componentes/formularios.css");
 @import url("./componentes/inputs.css");
 @import url("./componentes/mensajes.css");

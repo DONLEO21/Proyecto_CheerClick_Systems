@@ -1,0 +1,92 @@
+/* Modal*/
+
+.modal{
+    border:none;
+    padding:0;
+    background:transparent;
+    width:100vw;
+    height:100vh;
+    max-width:none;
+    max-height:none;
+
+}
+
+.modal::backdrop{
+    background:
+        rgba(0,0,0,.55);
+
+}
+
+.modal[open]{
+    display:grid;
+    place-items:center;
+
+}
+
+.modal-contenido{
+    background: var(--color-fondo);
+    width: min(90%,500px);
+    padding: var(--espacio-xl);
+    border-radius: var(--radio-md);
+    text-align:center;
+
+}
+
+/* Icono superior */
+
+.modal-contenido > img{
+    width:110px;
+    display:block;
+    margin:
+        0 auto
+        var(--espacio-md);
+
+}
+
+/* Contenedor mensaje*/
+
+.mensaje-validacion{
+    display:flex;
+    align-items:center;
+    gap:var(--espacio-sm);
+    padding: var(--espacio-md);
+    border-radius: var(--radio-sm);
+    margin: var(--espacio-lg) 0;
+
+}
+
+
+/* Registro*/
+
+.mensaje-validacion-registro{
+    background:
+        rgba(255,196,0,.15);
+
+}
+
+.mensaje-validacion-registro img{
+    width:30px;
+    height:30px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.mensaje-validacion-registro p{
+    text-align:left;
+}
+
+
+/* Ccontraseña*/
+
+.mensaje-validacion-contrasena{
+    background:
+        rgba(11, 229, 91, 0.12);
+
+}
+
+.mensaje-contrasena p{
+    text-align:left;
+    background-color: var(--color-exito);
+    padding: var(--espacio-sm);
+
+}
