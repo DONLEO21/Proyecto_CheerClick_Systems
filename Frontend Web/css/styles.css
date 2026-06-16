@@ -9,3 +9,12 @@
 @import url("./layout/navbar.css");
 @import url("./layout/footer.css");
 @import url("./layout/contenedores.css");
+
+/*Componente */
+
+@import url("./componentes/botones.css");
+@import url("./componentes/formularios.css");
+@import url("./componentes/inputs.css");
+@import url("./componentes/mensajes.css");
+@import url("./componentes/pasos.css");
+@import url("./componentes/progreso.css");
