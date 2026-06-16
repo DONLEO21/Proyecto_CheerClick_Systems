@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/styleHoraAdmin.css">
 </head>
 <body>
-
     <!-- BARRA 2 - Lateral izquierda -->
     <div class="Barra2">
         <div class="icono-menu">
@@ -32,7 +31,7 @@
                 </a>
             </li>
             <li>
-                <a href="Implementos.html" title="Implementos">
+                <a href="#" title="Implementos">
                     <img src="img/Camisa.png" alt="">
                 </a>
             </li>
@@ -43,7 +42,6 @@
             </li>
         </ul>
     </div>
-
     <!-- BARRA 1 - Superior -->
     <header>
         <nav>
@@ -55,10 +53,10 @@
                     </ul>
                     <div id="logo-iconos">
                         <a href="#" class="enlace-icono">
-                            <img src="img/campana-de-notificacion.png" alt="">
+                            <img src="img/campana-de-notificacion.png" alt="Icono campana">
                         </a>
                         <a href="#" class="enlace-icono">
-                            <img src="img/casa.png" alt="">
+                            <img src="img/casa.png" alt="Icono casa">
                         </a>
                         <div class="logo-club">
                             <img src="img/Logo-Club.png" alt="Logo del club">
@@ -71,7 +69,6 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="contenido">
-
         <!-- Título + botón -->
         <div class="encabezado-pagina">
             <div class="titulo-pagina">
@@ -80,7 +77,6 @@
             </div>
             <button class="btn-nueva-categoria" onclick="abrirModalNuevo()">+ Nuevo Nivel</button>
         </div>
-
         <!-- Cuadrícula de categorías -->
         <div class="cuadricula-categorias" id="cuadricula-categorias">
 
@@ -106,7 +102,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Tarjeta 1 -->
             <div class="tarjeta-categoria" data-tarjeta="1">
                 <div class="encabezado-categoria">Nivel 1 Princess</div>
@@ -129,7 +124,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Tarjeta 2 -->
             <div class="tarjeta-categoria" data-tarjeta="2">
                 <div class="encabezado-categoria">Nivel 1 Queens</div>
@@ -156,7 +150,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Tarjeta 3 -->
             <div class="tarjeta-categoria" data-tarjeta="3">
                 <div class="encabezado-categoria">Nivel 3 Magic</div>
@@ -183,7 +176,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Tarjeta 4 -->
             <div class="tarjeta-categoria" data-tarjeta="4">
                 <div class="encabezado-categoria">Nivel 4 Blood Tigers</div>
@@ -213,11 +205,7 @@
 
         </div>
     </main>
-
-
-    <!-- ══════════════════════════════════════════════════
-         MODAL — EDITAR / NUEVA CATEGORÍA
-    ══════════════════════════════════════════════════ -->
+    <!-- MODAL — EDITAR / NUEVA CATEGORÍA-->
     <div id="superposicion-modal" class="superposicion-modal" onclick="cerrarModalFondo(event)">
         <div class="contenedor-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
 
@@ -256,14 +244,12 @@
                                style="display:none" onchange="previsualizarFoto(event)">
                     </div>
                 </div>
-
                 <!-- Nombre entrenador -->
                 <div class="grupo-formulario">
                     <label class="etiqueta-formulario" for="modal-entrenador">Nombre del Entrenador</label>
                     <input type="text" id="modal-entrenador" class="campo-formulario"
                            placeholder="Ej: Jonathan Cruz">
                 </div>
-
                 <!-- Días -->
                 <div class="grupo-formulario">
                     <label class="etiqueta-formulario">Días de Entrenamiento</label>
@@ -277,7 +263,6 @@
                         <button class="btn-dia" data-dia="dom" onclick="alternarDia(this)">Dom</button>
                     </div>
                 </div>
-
                 <!-- Horarios -->
                 <div class="grupo-formulario">
                     <label class="etiqueta-formulario">Horarios</label>
@@ -288,7 +273,6 @@
                 </div>
 
             </div><!-- /cuerpo-modal -->
-
             <!-- Pie de modal -->
             <div class="pie-modal">
                 <button type="button" class="btn-cancelar-modal" onclick="cerrarModal()">Cancelar</button>
@@ -297,19 +281,10 @@
 
         </div>
     </div>
-
-
-    <!-- ══════════════════════════════════════════════════
-         AVISO DE CONFIRMACIÓN
-    ══════════════════════════════════════════════════ -->
+    <!-- AVISO DE CONFIRMACIÓN -->
     <div id="aviso" class="aviso" aria-live="polite"></div>
-
-
-    <!-- ══════════════════════════════════════════════════
-         CÓDIGO JAVASCRIPT
-    ══════════════════════════════════════════════════ -->
+    <!-- CÓDIGO JAVASCRIPT -->
     <script>
-
     /* ─────────────────────────────────────────────────────
        DATOS DE LAS CATEGORÍAS (espejo del HTML inicial)
     ───────────────────────────────────────────────────── */

@@ -7,6 +7,723 @@
     <link rel="stylesheet" href="css/styleHoraAtle.css">
 </head>
 <body>
-    
+     <!-- BARRA 2 - Lateral izquierda -->
+    <div class="Barra2">
+        <div class="icono-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu-lateral">
+            <li class="activo">
+                <a href="#" title="Horarios">
+                    <img src="img/calendario.png" alt="Calendario">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Estado de cuentas">
+                    <img src="img/grafico-circular.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Rendimiento Deportivo">
+                    <img src="img/estadisticas-de-barras.png" alt="Iconco Estadistica">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="img/comentarios.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Implementos">
+                    <img src="img/Camisa.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- BARRA 1 - Superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="botones-nav">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="btn-administrador">Administrador</span></li>
+                    </ul>
+                    <div id="logo-iconos">
+                        <a href="#" class="enlace-icono">
+                            <img src="img/campana-de-notificacion.png" alt="">
+                        </a>
+                        <a href="#" class="enlace-icono">
+                            <img src="img/casa.png" alt="">
+                        </a>
+                        <div class="logo-club">
+                            <img src="img/Logo-Club.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- ══ CONTENIDO PRINCIPAL ════════════════════════════════ -->
+<main class="contenido">
+<div class="envoltura-horario">
+
+    <!-- Encabezado de sección -->
+    <div class="encabezado-horario">
+        <div class="bloque-titulo-horario">
+            <h1>Próximos Entrenamientos</h1>
+            <p class="subtitulo-horario">Sus sesiones programadas para este mes</p>
+        </div>
+        <div class="chips-horario">
+            <span class="chip-estadistica">
+               <img class="icono-calendario" src="img/Icono calendario.png" alt="Icono calendario">
+                <span id="stat-sesiones">3 sesiones</span>
+            </span>
+            <span class="chip-estadistica">
+                <img class="icono-reloj" src="img/reloj.png" alt="Icono reloj">
+                <span id="stat-tiempo">6h totales</span>
+            </span>
+            <span class="chip-estadistica">
+                <img class="icono-rayo" src="img/Rayo.png" alt="Icono Rayo">
+                <span id="stat-categorias">2 disciplinas</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Filtros por tipo de entrenamiento -->
+    <div class="filtros-categoria" id="filtros-categoria"></div>
+
+    <!-- Navegador de semana -->
+    <div class="navegador-semana">
+        <button class="btn-semana" id="btn-anterior" onclick="cambiarSemana(-1)">
+            <img class="icono-flechaiz" src="img/flecha izquierda.png" alt="Icono felcha izquierda">
+            Semana anterior
+        </button>
+        <div class="centro-semana">
+            <span class="etiqueta-rango-semana" id="etiqueta-semana"></span>
+            <div class="tira-dias" id="tira-dias"></div>
+        </div>
+        <button class="btn-semana" id="btn-siguiente" onclick="cambiarSemana(1)">
+            Semana siguiente
+            <img class="icono-flechader" src="img/flecha derecha.png" alt=" Icono flecha derecha">
+        </button>
+    </div>
+
+    <!-- Grid de tarjetas (JS lo rellena) -->
+    <div class="cuadricula-entrenamientos" id="cuadricula-entrenamientos"></div>
+
+</div>
+</main>
+
+<!-- ══ MODAL ═══════════════════════════════════════════════ -->
+<div class="superposicion-modal" id="superposicion-modal">
+    <div class="contenedor-modal" id="interior-modal"></div>
+</div>
+<img src="img/calendario.png" alt="Icono calendario">
+
+<!-- ══ JAVASCRIPT ══════════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────────────────────
+   ÍCONOS SVG (reutilizables)
+───────────────────────────────────────────────────────── */
+const ICONOS = {
+    calendar:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+    clock:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    user:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    arrow:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+    target:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+    users:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    shirt:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>`,
+    x:         `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+    partnerIc: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    dumbbellIc:`<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="4" height="14" rx="1"/><rect x="18" y="5" width="4" height="14" rx="1"/><line x1="6" y1="12" x2="18" y2="12"/></svg>`,
+    trophyIc:  `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>`,
+    gymnastIc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6 8 11 4 9"/><path d="M12 6 16 11 20 9"/><path d="M12 6 10 17 7 22"/><path d="M12 6 14 17 17 22"/></svg>`,
+    pulseIc:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    musicIc:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+};
+
+/* ─────────────────────────────────────────────────────────
+   DEFINICIÓN DE CATEGORÍAS
+───────────────────────────────────────────────────────── */
+const CATEGORIAS = {
+    partner: {
+        name:        'Partner',
+        claseCabecera: 'cabecera-partner',
+        claseAvatar: 'avatar-partner',
+        claseRelleno:   'relleno-partner',
+        clasePunto:    'punto-partner',
+        claseModal:  'cm-partner',
+        icon:        ICONOS.partnerIc
+    },
+    gimnasia: {
+        name:        'Gimnasia',
+        claseCabecera: 'cabecera-gimnasia',
+        claseAvatar: 'avatar-gimnasia',
+        claseRelleno:   'relleno-gimnasia',
+        clasePunto:    'punto-gimnasia',
+        claseModal:  'cm-gimnasia',
+        icon:        ICONOS.gymnastIc
+    },
+    acondi: {
+        name:        'Físico / Cardio',
+        claseCabecera: 'cabecera-fisico',
+        claseAvatar: 'avatar-fisico',
+        claseRelleno:   'relleno-fisico',
+        clasePunto:    'punto-fisico',
+        claseModal:  'cm-fisico',
+        icon:        ICONOS.pulseIc
+    },
+    coreografia: {
+        name:        'Coreografía',
+        claseCabecera: 'cabecera-coreografia',
+        claseAvatar: 'avatar-coreografia',
+        claseRelleno:   'relleno-coreografia',
+        clasePunto:    'punto-coreografia',
+        claseModal:  'cm-coreografia',
+        icon:        ICONOS.musicIc
+    },
+    campeonato: {
+        name:        'Campeonato',
+        claseCabecera: 'cabecera-campeonato',
+        claseAvatar: 'avatar-campeonato',
+        claseRelleno:   'relleno-campeonato',
+        clasePunto:    'punto-campeonato',
+        claseModal:  'cm-campeonato',
+        icon:        ICONOS.trophyIc
+    }
+};
+
+/* ─────────────────────────────────────────────────────────
+   DATOS DE LAS SEMANAS
+───────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────
+   HORARIO FIJO DEL NIVEL (3 días por semana):
+   - Lunes      18:00 – 20:00 (6:00 – 8:00 PM)  → Partner
+   - Miércoles  18:00 – 20:00 (6:00 – 8:00 PM)  → Gimnasia
+   - Sábado     16:00 – 18:00 (4:00 – 6:00 PM)  → Físico / Cardio
+   En el tira-dias (L-M-X-J-V-S-D) esto corresponde a
+   dayIdx 0 (Lunes), dayIdx 2 (Miércoles) y dayIdx 5 (Sábado).
+
+   EXCEPCIÓN: en la semana del campeonato, los 3 días
+   (Lunes, Miércoles y Sábado) son sesiones de Coreografía,
+   como preparación previa a la competencia.
+
+   CALENDARIO REAL DE ABRIL 2026 (1 de abril = miércoles):
+   Lunes:     6, 13, 20, 27
+   Miércoles: 1, 8, 15, 22, 29
+   Sábado:    4, 11, 18, 25
+   Domingo de campeonato: 26 (único día de campeonato del mes)
+───────────────────────────────────────────────────────── */
+const SEMANAS = [
+    /* ── SEMANA PASADA (parcial): Abril 1 – Abril 5 (Mié–Dom) ── */
+    {
+        range:    'Abril 1 – Abril 5, 2026',
+        startDay: -1,
+        isPast:   true,
+        indiceHoy: null,
+        dots: [
+            { dayIdx: 2, cat: 'gimnasia' },
+            { dayIdx: 5, cat: 'acondi' }
+        ],
+        cards: [
+            {
+                id: 'a1', cat: 'gimnasia', insignia: 'PASADO',
+                dateLabel: 'Miércoles, Abril 1', dateShort: 'Abril 1',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Flexibilidad y técnica',
+                notes: ['Ropa cómoda para estiramiento'],
+                spots: { used: 10, total: 12 }
+            },
+            {
+                id: 'a2', cat: 'acondi', insignia: 'PASADO',
+                dateLabel: 'Sábado, Abril 4', dateShort: 'Abril 4',
+                time: '4:00 – 6:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Fuerza funcional',
+                notes: ['Ropa deportiva cómoda'],
+                spots: { used: 9, total: 12 }
+            }
+        ]
+    },
+
+    /* ── SEMANA PASADA: Abril 6 – Abril 12 (Lun–Dom) ──────── */
+    {
+        range:     'Abril 6 – Abril 12, 2026',
+        startDay:  6,
+        isPast:    true,
+        indiceHoy:  null,
+        dots: [
+            { dayIdx: 0, cat: 'partner' },
+            { dayIdx: 2, cat: 'gimnasia' },
+            { dayIdx: 5, cat: 'acondi' }
+        ],
+        cards: [
+            {
+                id: 'p1', cat: 'partner', insignia: 'PASADO',
+                dateLabel: 'Lunes, Abril 6', dateShort: 'Abril 6',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Confianza y sincronización',
+                notes: ['Llevar uniforme completo'],
+                spots: { used: 10, total: 10 }
+            },
+            {
+                id: 'p2', cat: 'gimnasia', insignia: 'PASADO',
+                dateLabel: 'Miércoles, Abril 8', dateShort: 'Abril 8',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Flexibilidad y técnica',
+                notes: ['Ropa cómoda para estiramiento'],
+                spots: { used: 12, total: 12 }
+            },
+            {
+                id: 'p3', cat: 'acondi', insignia: 'PASADO',
+                dateLabel: 'Sábado, Abril 11', dateShort: 'Abril 11',
+                time: '4:00 – 6:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Fuerza funcional',
+                notes: ['Ropa deportiva cómoda'],
+                spots: { used: 8, total: 10 }
+            }
+        ]
+    },
+
+    /* ── SEMANA ACTUAL: Abril 13 – Abril 19 (Lun–Dom) ─────── */
+    {
+        range:     'Abril 13 – Abril 19, 2026',
+        startDay:  13,
+        isPast:    false,
+        indiceHoy:  0,           // Lunes = hoy
+        dots: [
+            { dayIdx: 0, cat: 'partner' },
+            { dayIdx: 2, cat: 'gimnasia' },
+            { dayIdx: 5, cat: 'acondi' }
+        ],
+        cards: [
+            {
+                id: 'c1', cat: 'partner', insignia: 'HOY',
+                dateLabel: 'Lunes, Abril 13', dateShort: 'Abril 13',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Confianza y sincronización',
+                notes: ['Llevar uniforme completo'],
+                spots: { used: 7, total: 10 }
+            },
+            {
+                id: 'c2', cat: 'gimnasia', insignia: 'PRÓXIMO',
+                dateLabel: 'Miércoles, Abril 15', dateShort: 'Abril 15',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Flexibilidad y técnica',
+                notes: ['Ropa cómoda para estiramiento'],
+                spots: { used: 9, total: 12 }
+            },
+            {
+                id: 'c3', cat: 'acondi', insignia: 'PRÓXIMO',
+                dateLabel: 'Sábado, Abril 18', dateShort: 'Abril 18',
+                time: '4:00 – 6:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Fuerza funcional',
+                notes: ['Ropa deportiva cómoda'],
+                spots: { used: 11, total: 12 }
+            }
+        ]
+    },
+
+    /* ── SEMANA SIGUIENTE: Abril 20 – Abril 26 (Lun–Dom) ──── */
+    {
+        range:     'Abril 20 – Abril 26, 2026',
+        startDay:  20,
+        isPast:    false,
+        indiceHoy:  null,
+        dots: [
+            { dayIdx: 0, cat: 'coreografia' },
+            { dayIdx: 2, cat: 'coreografia' },
+            { dayIdx: 5, cat: 'coreografia' },
+            { dayIdx: 6, cat: 'campeonato' }
+        ],
+        cards: [
+            {
+                id: 'n1', cat: 'coreografia', insignia: 'PRÓXIMO',
+                dateLabel: 'Lunes, Abril 20', dateShort: 'Abril 20',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Inicio de montaje coreográfico',
+                notes: ['Llevar uniforme completo', 'Repasar formaciones'],
+                spots: { used: 6, total: 10 }
+            },
+            {
+                id: 'n2', cat: 'coreografia', insignia: 'PRÓXIMO',
+                dateLabel: 'Miércoles, Abril 22', dateShort: 'Abril 22',
+                time: '6:00 – 8:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Ensayo de coreografía',
+                notes: ['Repasar montaje completo', 'Llevar música de respaldo'],
+                spots: { used: 8, total: 12 }
+            },
+            {
+                id: 'n3', cat: 'coreografia', insignia: 'PRÓXIMO',
+                dateLabel: 'Sábado, Abril 25', dateShort: 'Abril 25',
+                time: '4:00 – 6:00 PM', duration: '2h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Ensayo general previo al campeonato',
+                notes: ['Vestuario de competencia', 'Llegada puntual obligatoria'],
+                spots: { used: 9, total: 12 }
+            },
+            {
+                id: 'n4', cat: 'campeonato', insignia: 'PRÓXIMO',
+                dateLabel: 'Domingo, Abril 26', dateShort: 'Abril 26',
+                time: '2:00 – 7:00 PM', duration: '5h',
+                trainer: 'Stuard Reyes', initials: 'SP',
+                focus: 'Rendimiento competitivo',
+                notes: ['Uniforme oficial obligatorio', 'Llegada 30 min antes'],
+                spots: { used: 20, total: 25 }
+            }
+        ]
+    },
+
+    /* ── SEMANA SIGUIENTE (parcial): Abril 27 – Abril 30 (Lun–Jue) ── */
+    {
+        range:    'Abril 27 – Abril 30, 2026',
+        startDay: 27,
+        isPast:   false,
+        indiceHoy: null,
+        dots: [
+            { dayIdx: 0, cat: 'partner' },
+            { dayIdx: 2, cat: 'gimnasia' }
+        ],
+        cards: [
+            {
+                id: 'f1',
+                cat: 'partner',
+                insignia: 'PRÓXIMO',
+                dateLabel: 'Lunes, Abril 27',
+                dateShort: 'Abril 27',
+                time: '18:00 – 20:00',
+                duration: '2h',
+                trainer: 'Stuard Reyes',
+                initials: 'SP',
+                focus: 'Confianza y sincronización',
+                notes: ['Llevar uniforme completo'],
+                spots: { used: 5, total: 10 }
+            },
+            {
+                id: 'f2',
+                cat: 'gimnasia',
+                insignia: 'PRÓXIMO',
+                dateLabel: 'Miércoles, Abril 29',
+                dateShort: 'Abril 29',
+                time: '6:00 – 8:00 PM',
+                duration: '2h',
+                trainer: 'Stuard Reyes',
+                initials: 'SP',
+                focus: 'Flexibilidad y técnica',
+                notes: ['Ropa cómoda para estiramiento'],
+                spots: { used: 7, total: 12 }
+            }
+        ]
+    }
+];
+
+/* ─────────────────────────────────────────────────────────
+   ESTADO GLOBAL
+───────────────────────────────────────────────────────── */
+let indiceSemanaActual = 2;  // Empieza en la semana actual
+let filtroActivo   = 'todos'; // Filtro de categoría activo
+
+/* ─────────────────────────────────────────────────────────
+   FILTROS POR TIPO DE ENTRENAMIENTO
+───────────────────────────────────────────────────────── */
+const FILTROS = ['todos', 'partner', 'gimnasia', 'acondi', 'coreografia'];
+
+function renderizarFiltros() {
+    return FILTROS.map(key => {
+        const esActivo = filtroActivo === key;
+        if (key === 'todos') {
+            return `
+            <button class="chip-filtro ${esActivo ? 'activo' : ''}" data-cat="todos" onclick="establecerFiltro('todos')">
+                ${ICONOS.calendar}
+                <span>Todos</span>
+            </button>`;
+        }
+        const cat = CATEGORIAS[key];
+        return `
+        <button class="chip-filtro ${esActivo ? 'activo' : ''}" data-cat="${key}" onclick="establecerFiltro('${key}')">
+            ${cat.icon}
+            <span>${cat.name}</span>
+        </button>`;
+    }).join('');
+}
+
+function establecerFiltro(key) {
+    filtroActivo = (filtroActivo === key) ? 'todos' : key;
+    renderizarSemana();
+}
+
+/* ─────────────────────────────────────────────────────────
+   RENDERIZADO DEL STRIP DE DÍAS
+───────────────────────────────────────────────────────── */
+function renderizarTiraDias(week) {
+    const ABBRS = ['L','M','X','J','V','S','D'];
+    return ABBRS.map((abbr, i) => {
+        let num = week.startDay + i;
+        if (num > 30 || num < 1) {
+        return '';
+}
+        const esHoy = week.indiceHoy === i;
+        const dotsHtml = week.dots
+            .filter(d => d.dayIdx === i)
+            .map(d => `<span class="punto ${CATEGORIAS[d.cat].clasePunto}"></span>`)
+            .join('');
+        return `
+        <div class="celda-dia ${esHoy ? 'hoy' : ''}">
+            <span class="abrev-dia">${abbr}</span>
+            <span class="numero-dia">${num}</span>
+            <div class="puntos-dia">${dotsHtml}</div>
+        </div>`;
+    }).join('');
+}
+
+/* ─────────────────────────────────────────────────────────
+   RENDERIZADO DE UNA TARJETA
+───────────────────────────────────────────────────────── */
+function renderizarTarjeta(card, isPast) {
+    const cat         = CATEGORIAS[card.cat];
+    const claseCabecera = isPast ? 'cabecera-pasado' : cat.claseCabecera;
+    const claseAvatar = isPast ? 'avatar-pasado' : cat.claseAvatar;
+    const fillPct     = Math.round((card.spots.used / card.spots.total) * 100);
+    let   claseRelleno   = isPast ? 'relleno-pasado'
+                      : fillPct >= 90 ? 'relleno-completo'
+                      : cat.claseRelleno;
+
+    const [tStart, tEnd] = card.time.split('–').map(s => s.trim());
+
+    return `
+    <div class="tarjeta-entrenamiento">
+        <!-- Cabecera -->
+        <div class="cabecera-tarjeta ${claseCabecera}">
+            <div class="fila-superior">
+                <span class="insignia ${obtenerClaseInsignia(card.insignia)}">${card.insignia}</span>
+                <span class="pastilla-duracion">
+                    ${ICONOS.clock}
+                    ${card.duration}
+                </span>
+            </div>
+            <div class="fila-categoria">
+                <div class="icono-categoria-contenedor">${cat.icon}</div>
+                <span class="nombre-categoria">${cat.name}</span>
+            </div>
+        </div>
+        <!-- Cuerpo -->
+        <div class="cuerpo-tarjeta">
+            <div class="fila-info">
+                <span class="icono-info">${ICONOS.calendar}</span>
+                <span class="texto-info">${card.dateLabel}</span>
+            </div>
+            <div class="fila-info">
+                <span class="icono-info">${ICONOS.clock}</span>
+                <span class="texto-info"><strong>${tStart}</strong> – ${tEnd}</span>
+            </div>
+            <div class="fila-info fila-entrenador">
+                <div class="avatar-entrenador ${claseAvatar}">${card.initials}</div>
+                <div class="info-entrenador">
+                    <span class="nombre-entrenador">${card.trainer}</span>
+                    <span class="rol-entrenador">Entrenador principal</span>
+                </div>
+            </div>
+        </div>
+        <!-- Pie -->
+        <div class="pie-tarjeta">
+            <button class="btn-detalles" data-card-id="${card.id}">
+                Ver detalles ${ICONOS.arrow}
+            </button>
+        </div>
+    </div>`;
+}
+
+function obtenerClaseInsignia(insignia) {
+    if (insignia === 'HOY')    return 'insignia-hoy';
+    if (insignia === 'PASADO') return 'insignia-pasado';
+    return 'insignia-proximo';
+}
+
+/* ─────────────────────────────────────────────────────────
+   RENDERIZADO COMPLETO DE LA SEMANA
+───────────────────────────────────────────────────────── */
+function renderizarSemana() {
+    const week = SEMANAS[indiceSemanaActual];
+
+    // Etiqueta de rango
+    document.getElementById('etiqueta-semana').textContent = week.range;
+
+    // Strip de días
+    document.getElementById('tira-dias').innerHTML = renderizarTiraDias(week);
+
+    // Filtros de tipo de entrenamiento
+    document.getElementById('filtros-categoria').innerHTML = renderizarFiltros();
+
+    // Tarjetas (aplicando filtro activo)
+    const visibleCards = filtroActivo === 'todos'
+        ? week.cards
+        : week.cards.filter(c => c.cat === filtroActivo);
+
+    document.getElementById('cuadricula-entrenamientos').innerHTML = visibleCards.length
+        ? visibleCards.map(card => renderizarTarjeta(card, week.isPast)).join('')
+        : `<div class="estado-vacio">
+               <span class="icono-vacio">${ICONOS.calendar}</span>
+               <p>No hay entrenamientos de tipo "${CATEGORIAS[filtroActivo]?.name ?? filtroActivo}" en esta semana.</p>
+           </div>`;
+
+    // Chips de estadísticas (sobre las tarjetas visibles)
+    const totalH = visibleCards.reduce((s, c) => s + parseFloat(c.duration), 0);
+    const cats   = new Set(visibleCards.map(c => c.cat)).size;
+    document.getElementById('stat-sesiones').textContent = `${visibleCards.length} sesion${visibleCards.length !== 1 ? 'es' : ''}`;
+    document.getElementById('stat-tiempo').textContent     = `${totalH}h totales`;
+    document.getElementById('stat-categorias').textContent     = `${cats} disciplina${cats !== 1 ? 's' : ''}`;
+
+    // Botones de navegación
+    document.getElementById('btn-anterior').disabled = (indiceSemanaActual === 0);
+    document.getElementById('btn-siguiente').disabled = (indiceSemanaActual === SEMANAS.length - 1);
+}
+
+/* ─────────────────────────────────────────────────────────
+   NAVEGACIÓN ENTRE SEMANAS (con animación)
+───────────────────────────────────────────────────────── */
+function cambiarSemana(delta) {
+    const newIdx = indiceSemanaActual + delta;
+    if (newIdx < 0 || newIdx >= SEMANAS.length) return;
+
+    const grid      = document.getElementById('cuadricula-entrenamientos');
+    const direction = delta > 0 ? -1 : 1;   // -1 = slide izquierda, 1 = slide derecha
+
+    // Fase 1: sacar hacia afuera
+    grid.style.transition = 'opacity .18s ease, transform .18s ease';
+    grid.style.opacity    = '0';
+    grid.style.transform  = `translateX(${direction * -24}px)`;
+
+    setTimeout(() => {
+        indiceSemanaActual = newIdx;
+        renderizarSemana();
+
+        // Fase 2: posicionar en el lado opuesto sin animación
+        grid.style.transition = 'none';
+        grid.style.opacity    = '0';
+        grid.style.transform  = `translateX(${direction * 24}px)`;
+
+        // Fase 3: entrar con animación
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            grid.style.transition = 'opacity .28s ease, transform .28s ease';
+            grid.style.opacity    = '1';
+            grid.style.transform  = 'translateX(0)';
+        }));
+    }, 180);
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODAL – ABRIR
+───────────────────────────────────────────────────────── */
+function abrirModal(cardId) {
+    const week = SEMANAS[indiceSemanaActual];
+    const card = week.cards.find(c => c.id === cardId);
+    if (!card) return;
+
+    const cat         = CATEGORIAS[card.cat];
+    const modalHeader = week.isPast ? 'cm-pasado' : cat.claseModal;
+
+    const notesHtml = card.notes.map(note => `
+        <div class="item-seccion-modal">
+            <span class="icono-item-modal">${ICONOS.shirt}</span>
+            <span class="texto-item-modal">${note}</span>
+        </div>`).join('');
+
+    document.getElementById('interior-modal').innerHTML = `
+        <!-- Cabecera del modal -->
+        <div class="cabecera-modal ${modalHeader}">
+            <div class="fila-titulo-modal">
+                <div class="icono-categoria-modal">${cat.icon}</div>
+                <span class="titulo-modal">${cat.name}</span>
+            </div>
+            <button class="cerrar-modal" onclick="cerrarModal()">${ICONOS.x}</button>
+        </div>
+        <!-- Cuerpo del modal -->
+        <div class="cuerpo-modal">
+            <h3 class="fecha-modal">${card.dateShort}</h3>
+            <div class="info-modal">
+                <div class="fila-info-modal">
+                    <span class="icono-info-modal">${ICONOS.clock}</span>
+                    <span class="texto-info-modal">${card.time}</span>
+                </div>
+                <div class="fila-info-modal">
+                    <span class="icono-info-modal">${ICONOS.user}</span>
+                    <span class="texto-info-modal">${card.trainer}</span>
+                </div>
+            </div>
+
+            <div class="divisor-modal"></div>
+
+            <!-- Sección: Enfoque -->
+            <div class="seccion-modal">
+                <div class="titulo-seccion-modal">
+                    <span class="icono-seccion-modal">${ICONOS.target}</span>
+                    <span class="texto-titulo-seccion-modal">Enfoque</span>
+                </div>
+                <div class="item-seccion-modal">
+                    <span class="icono-item-modal">${ICONOS.users}</span>
+                    <span class="texto-item-modal">${card.focus}</span>
+                </div>
+            </div>
+
+            <div class="divisor-modal"></div>
+
+            <!-- Sección: Indicaciones -->
+            <div class="seccion-modal">
+                <div class="titulo-seccion-modal">
+                    <span class="texto-titulo-seccion-modal">Indicaciones</span>
+                </div>
+                ${notesHtml}
+            </div>
+        </div>`;
+
+    document.getElementById('superposicion-modal').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODAL – CERRAR
+───────────────────────────────────────────────────────── */
+function cerrarModal() {
+    document.getElementById('superposicion-modal').classList.remove('activo');
+    document.body.style.overflow = '';
+}
+
+/* ─────────────────────────────────────────────────────────
+   INICIALIZACIÓN
+───────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+    // Render inicial
+    renderizarSemana();
+
+    // Delegación de eventos: "Ver detalles"
+    document.getElementById('cuadricula-entrenamientos').addEventListener('click', e => {
+        const btn = e.target.closest('.btn-detalles[data-card-id]');
+        if (btn) abrirModal(btn.dataset.cardId);
+    });
+
+    // Cerrar modal al hacer clic en el overlay
+    document.getElementById('superposicion-modal').addEventListener('click', e => {
+        if (e.target === document.getElementById('superposicion-modal')) cerrarModal();
+    });
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') cerrarModal();
+    });
+});
+</script>
 </body>
 </html>
