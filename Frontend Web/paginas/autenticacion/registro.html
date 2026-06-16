@@ -8,12 +8,12 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="nav-contenedor">
+        <nav class="nav-publica">
+            <div class="nav-publica-contenedor">
                 <div class="logo">
                     <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
                 </div>
-                <div class="nav-links">
+                <div class="nav-publica-links">
                     <ul>
                         <li><a href="../publico/index.html#hero">Home</a></li>
                         <li><a href="../publico/index.html#nosotros">Nosotros</a></li>
@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <form>
+            <form id="form-registro">
             <!-- PASO 1 -->
                 <div class="paso-contenido activo" data-step="1">
                     <h2>Datos Personales</h2>
@@ -189,5 +189,60 @@
         </div>
     </section>
 </main>
+<dialog id="modalRegistro" class="modal">
+
+    <div class="modal-contenido">
+
+        <img
+        src="/Frontend Web/img/iconos/alerta.png"
+        alt="Cuenta pendiente">
+
+        <h2>
+            Cuenta Pendiente<br>
+            de Validación
+        </h2>
+
+        <p>
+            Gracias por registrarse en CheerClick Systems.<br>
+            Su solicitud fue enviada correctamente y se encuentra
+            pendiente de validación por parte del administrador.
+        </p>
+
+        <div class="mensaje-validacion mensaje-validacion-registro">
+
+            <img
+            src="/Frontend Web/img/iconos/exclamacion.png"
+            alt="Información">
+
+            <p>
+                Una vez validada su cuenta, recibirá un mensaje
+                de confirmación al correo electrónico registrado.
+            </p>
+
+        </div>
+
+        <button type="button" class="btn btn-primario" onclick="cerrarModalRegistro()">
+            &#8592; Volver al Inicio
+        </button>
+
+    </div>
+
+    </dialog>
+    <script>
+        const formulario = document.getElementById("form-registro");
+        const modal = document.getElementById("modalRegistro");
+
+            formulario.addEventListener("submit",function(e){
+                e.preventDefault();
+                modal.showModal();
+            }
+        );
+
+        function cerrarModalRegistro(){
+            modal.close();
+        window.location.href ="/Frontend Web/paginas/publico/index.html#hero";
+}
+</script>
+
 </body>
 </html>

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Frontend Web/css/styles.css">
-    <title>Nueva contraseña</title>
+    <title>Cambio contraseña</title>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="nav-contenedor">
+        <nav class="nav-publica">
+            <div class="nav-publica-contenedor">
                 <div class="logo">
                     <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
                 </div>
-                <div class="nav-links">
+                <div class="nav-publica-links">
                     <ul>
                         <li><a href="../publico/index.html#hero">Home</a></li>
                         <li><a href="../publico/index.html#nosotros">Nosotros</a></li>
@@ -49,7 +49,7 @@
                     </div>
                 </header>
 
-                <form action="contrasena-actualizada.html" method="post">
+                <form id="form-cambio-contrasena">
                     <div class="contrasena-contenedor">
                         <label for="nueva-contrasena">Nueva Contraseña</label>
                         <input type="password" name="nueva-contrasena" id="nueva-contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16">
@@ -82,5 +82,47 @@
             </div>
         </section>
     </main>
+
+    <!-- modal cambio exitoso contraseña -->
+     <dialog id="modalContrasena" class="modal">
+
+        <div class="modal-contenido">
+            <img src="/Frontend Web/img/iconos/marca-de-verificacion.png" alt="Contraseña actualizada">
+
+            <h2>¡Listo!</h2>
+
+            <p>
+                Su contraseña fue actualizada correctamente.
+            </p>
+
+            <div class="mensaje-validacion mensaje-validacion-contrasena">
+                
+                <p>
+                    Ya puede iniciar sesión con su nueva contraseña.
+                </p>
+            </div>
+
+            <button type="button" class="btn btn-primario" onclick="cerrarModalContrasena()">
+                &#8592; Ir a Inicio de Sesión
+            </button>
+        </div>
+    </dialog>
+    
+    <script>
+        const formulario = document.getElementById("form-cambio-contrasena");
+        const modal = document.getElementById("modalContrasena");
+        
+            formulario.addEventListener("submit", function(e){
+                e.preventDefault();
+                modal.showModal();
+            }
+        );
+
+        function cerrarModalContrasena(){
+            modal.close();
+            window.location.href = "/Frontend Web/paginas/autenticacion/inicio-sesion.html";
+        }
+
+</script>
 </body>
 </html>
