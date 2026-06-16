@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implementos Deportivos</title>
-    <link rel="stylesheet" href="css/stylesAdmi.css">
+    <link rel="stylesheet" href="Frontend Web/css/stylesAdmi.css">
 </head>
 <body>
     <!-- BARRA 2 - Lateral izquierda -->
@@ -18,32 +18,32 @@
 
     <li>
         <a href="#" title="Horarios">
-            <img src="img/calendario.png" alt="Calendario">
+            <img src="Frontend Web/img/calendario.png" alt="Calendario">
         </a>
     </li>
 
     <li>
         <a href="#" title="Estado de cuentas">
-            <img src="img/grafico-circular.png" alt="">
+            <img src="Frontend Web/img/grafico-circular.png" alt="">
         </a>
     </li>
 
     <li>
         <a href="#" title="PQRS">
-            <img src="img/comentarios.png" alt="">
+            <img src="Frontend Web/img/comentarios.png" alt="">
         </a>
     </li>
 
     <!-- IMPLEMENTOS ACTIVO -->
     <li class="active">
         <a href="#" title="Implementos">
-            <img src="img/Camisa.png" alt="">
+            <img src="Frontend Web/img/Camisa.png" alt="">
         </a>
     </li>
 
     <li>
         <a href="#" title="Validación de Cuentas">
-            <img src="/img/usuarios.png" alt="">
+            <img src="Frontend Web/img/usuarios.png" alt="">
         </a>
     </li>
 
@@ -61,13 +61,13 @@
                     </ul>
                     <div id="Logo">
                         <a href="#" class="icon-link">
-                            <img src="img/campana-de-notificacion.png" alt="">
+                            <img src="Frontend Web/img/campana-de-notificacion.png" alt="">
                         </a>
                         <a href="#" class="icon-link">
-                            <img src="img/casa.png" alt="">
+                            <img src="Frontend Web/img/casa.png" alt="">
                         </a>
                         <div class="logo-club">
-                            <img src="img/logo_transparent.png" alt="Logo del club">
+                            <img src="Frontend Web/img/logo_transparent.png" alt="Logo del club">
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <tr>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <img src="img/Uniforme.png" alt="Uniforme" class="img-producto">
+                                    <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-producto">
                                     <span>Uniforme de competencia Femenino</span>
                                 </div>
                             </td>
@@ -151,11 +151,11 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion editar" onclick="document.getElementById('modal-editar').showModal()">
-                                        <img src="img/controlar (1).png" alt="Editar" class="icono-accion">
+                                        <img src="Frontend Web/img/controlar (1).png" alt="Editar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion eliminar" onclick="document.getElementById('modal-inhabilitar').showModal()">
-                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                        <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
                                     </button>
                                 </div>
                             </td>
@@ -206,7 +206,7 @@
                             <tr>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <img src="img/Uniforme.png" alt="Uniforme" class="img-producto">
+                                    <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-producto">
                                     <span>Uniforme de competencia Femenino</span>
                                 </div>
                             </td>
@@ -219,11 +219,11 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion aprobar" onclick="document.getElementById('modal-aprobar').showModal()">
-                                        <img src="img/controlar (1).png" alt="Aprobar" class="icono-accion">
+                                        <img src="Frontend Web/img/controlar (1).png" alt="Aprobar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion rechazar" onclick="document.getElementById('modal-rechazar').showModal()">
-                                        <img src="img/x.png" alt="Rechazar" class="icono-accion">
+                                        <img src="Frontend Web/img/x.png" alt="Rechazar" class="icono-accion">
                                     </button>
                                 </div>
                             </td>
@@ -234,79 +234,84 @@
         </section>
 
         <!-- Modal Editar Implemento -->
-        <dialog id="modal-editar" class="modal-diseno-final">
-            <header class="modal-header-rojo-total">
-                <h2>Editar Implemento</h2>
-                <p>Uniforme de competencia Femenino</p>
-                <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-editar').close()">×</button>
-            </header>
+        <dialog id="modal-editar" class="modal-diseno-editar">
+            <form method="dialog" class="form-modal-completo">
+                <header class="modal-header-rojo-total">
+                    <h2>Editar Implemento</h2>
+                    <p>Uniforme de competencia Femenino</p>
+                    <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-editar').close()">×</button>
+                </header>
 
-            <div class="modal-cuerpo-perfecto">
-                <div class="modal-fila-superior">
-                    <div class="contenedor-vista-previa">
-                        <img src="img/Uniforme.png" alt="Uniforme" class="img-previa-modal">
-                    </div>
-                    <div class="modal-grupo-input input-nombre-completo">
-                        <label>Nombre</label>
-                        <input type="text" class="modal-control-comic" value="Uniforme de Competencia Femenino">
-                    </div>
-                </div>
-
-                <hr class="modal-separador-fino">
-
-                <div class="campos-grid-perfecto">
-                    <div class="imp-registro">
-                        <label>Cantidad</label>
-                        <div class="control-cantidad-comic">
-                            <button type="button" class="btn-cant-fn">-</button>
-                            <input type="number" class="input-cant-fn" value="20" readonly>
-                            <button type="button" class="btn-cant-fn">+</button>
+                <div class="modal-cuerpo-perfecto">
+                    <div class="modal-fila-superior">
+                        <div class="contenedor-vista-previa">
+                            <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-previa-modal">
+                        </div>
+                        <div class="modal-grupo-input input-nombre-completo">
+                            <label>Nombre del Producto</label>
+                            <input type="text" class="modal-control-comic" value="Uniforme de Competencia Femenino">
                         </div>
                     </div>
-                    <div class="imp-registro">
-                        <label>Tipo</label>
-                        <select id="tipo" class="modal-control-comic">
-                            <option value="ropa">Ropa</option>
-                            <option value="accesorios">Accesorios</option>
-                        </select>
+
+                    <hr class="modal-separador-fino">
+
+                    <div class="campos-grid-perfecto">
+                        <div class="imp-registro">
+                            <label>Cantidad</label>
+                            <div class="control-cantidad-comic">
+                                <button type="button" class="btn-cant-fn">-</button>
+                                <input type="number" class="input-cant-fn" value="20" readonly>
+                                <button type="button" class="btn-cant-fn">+</button>
+                            </div>
+                        </div>
+                        <div class="imp-registro">
+                            <label>Tipo</label>
+                            <select id="tipo" class="modal-control-comic">
+                                <option value="ropa">Ropa</option>
+                                <option value="accesorios">Accesorios</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="imp-registro">
-                        <label>Estado</label>
-                        <select id="estado" class="modal-control-comic">
-                            <option value="disponible">Disponible</option>
-                            <option value="noDisponible">No disponible</option>
-                        </select>
-                    </div>
-                    <div class="imp-registro">
-                        <label>Precio</label>
-                        <input type="text" id="precio" class="modal-control-comic" value="$ 250,000">
+
+                    <div class="campos-grid-perfecto">
+                        <div class="imp-registro">
+                            <label>Estado</label>
+                            <select id="estado" class="modal-control-comic">
+                                <option value="disponible">Disponible</option>
+                                <option value="noDisponible">No disponible</option>
+                            </select>
+                        </div>
+                        <div class="imp-registro">
+                            <label>Precio</label>
+                            <input type="text" id="precio" class="modal-control-comic" value="$ 250,000">
+                        </div>
                     </div>
                 </div>
-            </div>
-                
-            <footer class="modal-footer-comic">
-                <button type="button" class="btn-comic btn-comic-gris" onclick="document.getElementById('modal-editar').close()">Cancelar</button>
-                <button type="button" class="btn-comic btn-comic-rojo" onclick="document.getElementById('modal-editar').close()">Guardar Cambios</button>
-            </footer>
+
+                <footer class="modal-footer-comic">
+                    <button type="button" class="btn-comic btn-comic-gris" onclick="document.getElementById('modal-editar').close()">Cancelar</button>
+                    <button type="submit" class="btn-comic btn-comic-rojo">Guardar Cambios</button>
+                </footer>
+            </form>
         </dialog>
 
         <!-- Modal Inhabilitar Implemento -->
-        <dialog id="modal-inhabilitar" class="modal-diseno-final">
+        <dialog id="modal-inhabilitar" class="modal-diseno-inhabilitar">
             <div class="modal-cuerpo-centrado">
-                <img src="img/rayo.png" alt="inhabilitar-implemento" class="modal-img-ilustracion">
+                <img src="Frontend Web/img/rayo.png" alt="inhabilitar-implemento" class="modal-img-ilustracion">
                 <h1>¿Inhabilitar Elemento Deportivo?</h1>
                 <p>¿Está seguro/a de que desea inhabilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
                 <p class="nota-alerta">Esta acción cambiará su estado a No Disponible.</p>
-            </div>
             
-            <div class="modal-footer-comic">
-                <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-inhabilitar').close()">Cancelar</button>
-                <button type="button" class="btn-modal-peligro" onclick="document.getElementById('modal-inhabilitar').close()">Inhabilitar</button>
+                <div class="modal-footer-comic">
+                    <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-inhabilitar').close()">Cancelar</button>
+                    <button type="button" class="btn-modal-peligro" onclick="document.getElementById('modal-inhabilitar').close()">Inhabilitar</button>
+                </div>
             </div>
         </dialog>
 
         <!-- Modal de Solicitud Aprobada -->
-        <dialog id="modal-aprobar" class="modal-diseno-final" style="max-width: 400px;">
+        <dialog id="modal-aprobar" class="modal-diseno-aprobadas" style="max-width: 400px;">
             <div class="modal-cuerpo-centrado">
                 <div class="icono-contenedor-exito-v">
                     <span class="check-icono-v">✓</span>
@@ -319,22 +324,26 @@
         </dialog>
 
         <!-- Modal de Solicitud Rechazada -->
-        <dialog id="modal-rechazar" class="modal-diseno-final">
-            <header class="modal-header-rojo-total">
-                <h2>Rechazar Solicitud</h2>
-                <p>Pedido de Implemento</p>
-                <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-rechazar').close()">×</button>
-            </header>
-            <div class="modal-cuerpo-perfecto">
-                <div class="modal-grupo-input">
-                    <label class="label-motivo-negro">Motivo del Rechazo *</label>
-                    <textarea id="motivo-rechazo" class="modal-control-comic textarea-modal-perfecto" placeholder="Inconvenientes con el proveedor. Por favor, intente nuevamente más adelante o contacte al administrador..."></textarea>
+        <dialog id="modal-rechazar" class="modal-diseno-rechazar">
+            <form method="dialog" class="form-modal-completo">
+                <header class="modal-header-rojo-total">
+                    <h2>Rechazar Solicitud</h2>
+                    <p>Pedido de Implemento</p>
+                    <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-rechazar').close()">×</button>
+                </header>
+                
+                <div class="modal-cuerpo-perfecto">
+                    <div class="modal-grupo-input">
+                        <label class="label-motivo-negro">Motivo del Rechazo *</label>
+                        <textarea id="motivo-rechazo" class="modal-control-comic textarea-modal-perfecto" placeholder="Escriba aquí los inconvenientes con el proveedor o detalles del rechazo..."></textarea>
+                    </div>
                 </div>
-            </div>
-            <footer class="modal-footer-comic">
-                <button type="button" class="btn-comic btn-comic-gris" onclick="document.getElementById('modal-rechazar').close()">Cancelar</button>
-                <button type="button" class="btn-comic btn-comic-rojo" onclick="document.getElementById('modal-rechazar').close()">Confirmar Rechazo</button>
-            </footer>
+    
+                <footer class="modal-footer-comic">
+                    <button type="button" class="btn-comic btn-comic-gris" onclick="document.getElementById('modal-rechazar').close()">Cancelar</button>
+                    <button type="submit" class="btn-comic btn-comic-rojo">Confirmar Rechazo</button>
+                </footer>
+            </form>
         </dialog>
     </div>  
 </body>

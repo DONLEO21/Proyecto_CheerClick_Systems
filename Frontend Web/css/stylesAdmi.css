@@ -616,1101 +616,526 @@ html{
 .tabla-implementos th:nth-child(5), .tabla-implementos td:nth-child(5) { width: 14%; } 
 .tabla-implementos th:nth-child(6), .tabla-implementos td:nth-child(6) { width: 10%; } 
 
-/* Diseño de Modales */
-.modal-diseno {
-    border: none;
-    border-radius: 12px;
-    padding: 0;
-    width: 100%;
-    max-width: 460px;
-    background: white;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+/* Modales */
+dialog.modal-diseno-editar::backdrop,
+dialog.modal-diseno-inhabilitar::backdrop,
+dialog.modal-diseno-aprobadas::backdrop,
+dialog.modal-diseno-rechazar::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+dialog.modal-diseno-editar,
+dialog.modal-diseno-inhabilitar,
+dialog.modal-diseno-aprobadas,
+dialog.modal-diseno-rechazar {
+    border: 2px solid #222222 !important;
+    border-radius: 16px !important;       
+    padding: 0 !important;               
+    margin: auto !important;               
+    background-color: #ffffff !important;
     font-family: 'Varela Round', sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-}
-
-.modal-diseno::backdrop {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px); 
-}
-
-.modal-header {
-    padding: 20px 24px;
-    border-bottom: 1px solid #edf2f7;
-}
-
-.modal-header h2 {
-    font-size: 18px;
-    color: #222222;
-    font-weight: 700;
-}
-
-.modal-cuerpo {
-    padding: 20px 24px;
-}
-
-.modal-subtexto {
-    font-size: 13px;
-    color: #64748b;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.modal-grupo-input {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.modal-grupo-input label {
-    font-size: 13px;
-    color: #444444;
-    font-weight: 600;
-}
-
-.modal-control {
-    height: 40px;
-    padding: 0 12px;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    font-family: 'Varela Round', sans-serif;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 5px;
-}
-
-.textarea-modal {
-    height: 90px;
-    padding: 12px;
-    resize: none;
-}
-
-.modal-footer {
-    padding: 15px 24px;
-    background-color: #f8fafc;
-    border-top: 1px solid #edf2f7;
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
-.modal-cuerpo-centrado {
-    padding: 30px 24px 20px 24px;
-    text-align: center;
-}
-
-.modal-cuerpo-centrado h2 {
-    font-size: 19px;
-    color: #222222;
-    margin: 15px 0 10px 0;
-    font-weight: 700;
-}
-
-.modal-cuerpo-centrado p {
-    font-size: 13.5px;
-    color: #444444;
-    line-height: 1.5;
-}
-
-.nota-alerta {
-    color: #ef4444 !important;
-    font-weight: 600;
-    margin-top: 8px;
-}
-
-.modal-footer-centrado {
-    padding: 0 24px 30px 24px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-}
-
-.modal-img-ilustracion {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-    margin: 0 auto;
-    display: block;
-}
-
-/* Estilo de los Botones en los Modales */
-.btn-modal-cancelar {
-    background: white;
-    border: 1px solid #dcdcdc;
-    color: #555555;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: 'Varela Round', sans-serif;
-}
-
-.btn-modal-guardar {
-    background: #1eaf52; 
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: 'Varela Round', sans-serif;
-}
-
-.btn-modal-peligro {
-    background: #cc0000;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: 'Varela Round', sans-serif;
-}
-
-.btn-rojo-marca {
-    background: #d71920 !important;
-}
-
-.campos-editar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.modal-header-rojo {
-    background-color: var(--rojo) !important;
-    color: white !important;
-    position: relative;
-    padding: 15px 20px !important;
-    border-top-left-radius: 11px;
-    border-top-right-radius: 11px;
-}
-
-.modal-header-rojo h2 {
-    color: white !important;
-    font-size: 20px !important;
-    font-weight: 700;
-}
-
-.modal-header-rojo p {
-    font-size: 13px;
-    opacity: 0.9;
-    margin-top: 2px;
-}
-
-/* Boton X en cierre */
-.btn-cerrar-x {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.modal-fila-superior {
-    display: flex;
-    gap: 15px;
-    align-items: flex-end;
-    margin-bottom: 15px;
-}
-
-.contenedor-vista-previa {
-    width: 85px;
-    height: 85px;
-    border: 1.5px solid #222;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    padding: 5px;
-}
-
-.img-previa-modal {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.input-nombre-completo {
-    flex: 1;
-}
-
-/* Separadores */
-.modal-separador {
-    border: none;
-    border-top: 1px solid #dcdcdc;
-    margin: 15px 0;
-}
-
-.modal-control {
-    border: 1.5px solid #222222 !important;
-    border-radius: 8px !important;
-    font-family: 'Varela Round', sans-serif;
-    color: #222 !important;
-}
-
-.control-cantidad {
-    display: flex;
-    align-items: center;
-    border: 1.5px solid #222;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 40px;
-    background: #fff;
-}
-
-.control-cantidad .modal-control {
-    border: none !important;
-    border-radius: 0 !important;
-    margin: 0;
-    text-align: center;
-}
-
-.btn-cantidad {
-    background: #f5f5f5;
-    border: none;
-    width: 35px;
-    height: 100%;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn-cantidad:hover {
-    background: #e5e5e5;
-}
-
-.grupo-botones-estado {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.btn-estado-toggle {
-    padding: 4px 10px;
-    border: 1.5px solid #222;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    background: #fff;
-    cursor: pointer;
-    text-align: center;
-}
-
-.btn-estado-toggle.activo-disponible {
-    background-color: #1eaf52;
-    color: white;
-}
-
-.btn-estado-toggle.activo-no-disponible {
-    background-color: var(--rojo);
-    color: white;
-}
-
-.modal-footer-linea {
-    padding: 12px 24px;
-    background-color: #fff;
-    border-top: 1px solid #edf2f7;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.btn-modal-accion {
-    padding: 8px 24px;
-    border-radius: 8px;
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    border: 1.5px solid #222;
-    box-shadow: 0 2px 0 #222;
-    transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.btn-modal-accion:active {
-    transform: translateY(2px);
-    box-shadow: none;
-}
-
-.btn-cancelar-diseno {
-    background: #cccccc;
-    color: #222;
-}
-
-.btn-guardar-diseno {
-    background: var(--rojo);
-    color: white;
-}
-
-.btn-rojo-confirmar {
-    background: var(--rojo);
-    color: white;
-}
-
-/* ── Estilos de Modales de Alerta de Éxito (Aprobar) ── */
-.modal-alerta-v {
-    max-width: 380px !important;
-    border: 1.5px solid #222 !important;
-}
-
-.icono-contenedor-v {
-    width: 65px;
-    height: 80px;
-    border: 2px solid #1eaf52;
-    background-color: #bbf7d0;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto 20px auto;
-}
-
-.check-v {
-    color: #16a34a;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.texto-alerta-modal {
-    font-size: 14px;
-    color: #222;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.btn-modal-alerta {
-    width: 70%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1.5px solid #222;
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    box-shadow: 0 3px 0 #222;
-}
-
-.btn-alerta-verde {
-    background-color: #65a30d;
-    color: white;
-}
-
-.btn-modal-alerta:active {
-    transform: translateY(3px);
-    box-shadow: none;
-}
-
-.modal-header-pestanaroja {
-    position: relative;
-    background: transparent;
-    padding: 0;
-    height: 65px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.pestana-roja-titulo {
-    background-color: var(--rojo);
-    color: white;
-    padding: 10px 30px 10px 25px;
-    border-top-left-radius: 12px;
-    border-bottom-right-radius: 25px;
-    display: inline-block;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.pestana-roja-titulo h2 {
-    font-size: 18px !important;
-    font-weight: 700;
-    color: #ffffff !important;
-    margin: 0;
-}
-
-.pestana-roja-titulo p {
-    font-size: 11.5px;
-    margin-top: 2px;
-    font-weight: 400;
-    opacity: 0.95;
-}
-
-/* Elementos superiores del modal */
-.modal-fila-superior {
-    display: flex;
-    gap: 15px;
-    align-items: flex-end;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-.contenedor-vista-previa {
-    width: 80px;
-    height: 80px;
-    border: 1.5px solid #222222;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    padding: 6px;
-}
-
-.img-previa-modal {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.input-nombre-completo {
-    flex: 1;
-}
-
-.modal-separador {
-    border: none;
-    border-top: 1px solid #e2e8f0;
-    margin: 15px 0;
-}
-
-/* Inputs y Selects con el trazo negro estilizado de tus imágenes */
-.modal-control-comic {
-    height: 38px;
-    padding: 0 12px;
-    border: 1.5px solid #222222 !important;
-    border-radius: 10px !important;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13.5px;
-    color: #222222 !important;
-    background-color: #ffffff;
-    outline: none;
-    width: 100%;
-    margin-top: 4px;
-}
-
-.textarea-modal {
-    height: 110px !important;
-    padding: 12px !important;
-    resize: none;
-}
-
-.label-motivo {
-    font-size: 14px;
-    font-weight: 700;
-    color: #222222;
-}
-
-/* Grid inferior de edición */
-.campos-editar-comic {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 20px;
-}
-
-.campos-editar-comic label {
-    font-size: 13px;
-    font-weight: 600;
-    color: #888888;
-}
-
-/* Control personalizado de cantidad (- 20 +) */
-.control-cantidad-comic {
-    display: flex;
-    align-items: center;
-    border: 1.5px solid #222222;
-    border-radius: 10px;
-    background: #ffffff;
-    height: 38px;
-    margin-top: 4px;
-    overflow: hidden;
-}
-
-.btn-cant-fn {
-    background: transparent;
-    border: none;
-    width: 32px;
-    height: 100%;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    color: #222222;
-}
-
-.input-cant-fn {
-    flex: 1;
-    border: none;
-    text-align: center;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #222222;
-    width: 100%;
-    background: transparent;
-    outline: none;
-}
-
-/* Pie de página del modal */
-.modal-footer-comic {
-    padding: 20px 24px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    background: transparent;
-}
-
-/* Botones con sombreado e identidad Cómic */
-.btn-comic {
-    padding: 8px 24px;
-    border-radius: 10px;
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 700;
-    font-size: 13.5px;
-    cursor: pointer;
-    border: 1.5px solid #222222;
-    box-shadow: 0 3px 0 #222222;
-    transition: transform 0.05s, box-shadow 0.05s;
-}
-
-.btn-comic:active {
-    transform: translateY(3px);
-    box-shadow: none;
-}
-
-.btn-comic-gris {
-    background: #cccccc;
-    color: #222222;
-}
-
-.btn-comic-rojo {
-    background: var(--rojo);
-    color: #ffffff;
-}
-
-.btn-comic-verde {
-    background: #65a30d;
-    color: #ffffff;
-}
-
-/* Estilos internos para el modal de éxito (Aprobar) */
-.icono-contenedor-v {
-    width: 60px;
-    height: 75px;
-    border: 2.2px solid #1eaf52;
-    background-color: #bbf7d0;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px auto 18px auto;
-}
-
-.check-v {
-    color: #16a34a;
-    font-size: 32px;
-    font-weight: bold;
-}
-
-.texto-alerta-modal {
-    font-size: 13.5px;
-    color: #222222;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.modal-diseno-final {
-    border: none;
-    border-radius: 14px !important;
-    padding: 0 !important;
-    background: #ffffff;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    font-family: 'Varela Round', sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    overflow: hidden;
-    cursor: default;
-    width: auto;
-    min-width: 320px;
-    max-width: 95vw;
-}
-
-.modal-diseno-final::backdrop {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(1.5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
+    overflow: hidden !important;         
+    outline: none;                       
+    width: 90% !important;
+}
+
+dialog.modal-diseno-inhabilitar,
+dialog.modal-diseno-aprobadas {
+    max-width: 410px !important; 
+}
+
+.form-modal-completo {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
 }
 
 .modal-header-rojo-total {
-    background-color: var(--rojo) !important;
-    color: #ffffff !important;
-    padding: 16px 22px;
+    background-color: #cc0000 !important;
+    padding: 16px 20px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
     position: relative;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-dialog.modal-diseno-final:focus {
-    outline: none;
-}
-
-dialog.modal-diseno-final *:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-dialog.modal-diseno-final input,
-dialog.modal-diseno-final textarea,
-dialog.modal-diseno-final select {
-    caret-color: initial;
 }
 
 .modal-header-rojo-total h2 {
-    font-size: 19px !important;
-    font-weight: 700;
     color: #ffffff !important;
-    margin: 0;
-    font-family: 'Varela Round', sans-serif;
+    margin: 0 0 2px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
 }
 
 .modal-header-rojo-total p {
-    font-size: 12px;
-    margin-top: 2px;
-    opacity: 0.9;
-    color: #ffffff;
+    color: #ffffff !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    opacity: 0.9 !important;
 }
 
 .btn-cerrar-modal-x {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 26px;
-    font-weight: 400;
-    cursor: pointer;
+    position: absolute !important;
+    top: 14px !important;
+    right: 20px !important;
+    background: none !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
     line-height: 1;
 }
 
 .modal-cuerpo-perfecto {
-    padding: 24px 28px 18px 28px;
-    box-sizing: border-box;
-    max-height: calc(100vh - 190px);
-    overflow-y: auto;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    box-sizing: border-box !important;
+    width: 10% !important;
+    background-color: #ffffff !important;
 }
 
+/* Bloque centrado para modales de alerta/éxito (Inhabilitar y Aprobar) */
 .modal-cuerpo-centrado {
-    padding: 24px 28px 18px 28px;
-    box-sizing: border-box;
-    max-height: calc(100vh - 190px);
-    overflow-y: auto;
+    padding: 24px 24px 16px 24px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
 }
 
+
+/* --------------------------------------------------------------------------
+   4. COMPONENTES INTERNOS (FILAS, INPUTS Y REJILLAS)
+-------------------------------------------------------------------------- */
+
+/* Fila de Imagen + Nombre (Modal Editar) */
 .modal-fila-superior {
-    display: flex;
-    gap: 14px;
-    align-items: flex-end;
+    display: flex !important;
+    gap: 16px !important;
+    align-items: center !important;
+    width: 100% !important;
 }
 
 .contenedor-vista-previa {
-    width: 76px;
-    height: 76px;
+    width: 75px;
+    height: 75px;
     border: 1.5px solid #222222;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    padding: 5px;
+    background: #f9f9f9;
     flex-shrink: 0;
 }
 
 .img-previa-modal {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 85%;
+    max-height: 85%;
     object-fit: contain;
 }
 
+/* Grupos de campos de texto */
+.modal-grupo-input {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+}
+
 .input-nombre-completo {
-    flex: 1;
+    flex: 1 !important;
 }
 
-.input-nombre-completo label {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #222222;
-}
-
-.modal-separador-fino {
-    border: none;
-    border-top: 1px solid #f1f5f9;
-    margin: 16px 0;
-}
-
-.modal-control-comic {
-    min-height: 42px;
-    padding: 0 14px;
-    border: 1.5px solid #222222 !important;
-    border-radius: 9px !important;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13px;
-    color: #222222 !important;
-    background-color: #ffffff;
-    outline: none;
-    width: 100%;
-    margin-top: 4px;
-    box-sizing: border-box;
-}
-
-.campos-grid-perfecto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 18px;
-}
-
-.campos-grid-perfecto label {
-    font-size: 13px;
-    font-weight: 700;
-    color: #666666;
-}
-
-.control-cantidad-comic {
-    display: flex;
-    align-items: center;
-    border: 1.5px solid #222222;
-    border-radius: 9px;
-    background: #ffffff;
-    height: 38px;
-    margin-top: 4px;
-    overflow: hidden;
-}
-
-.btn-cant-fn {
-    background: #f8fafc;
-    border: none;
-    width: 32px;
-    height: 100%;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    color: #222222;
-}
-
-.btn-cant-fn:hover {
-    background: #f1f5f9;
-}
-
-.input-cant-fn {
-    flex: 1;
-    border: none;
-    text-align: center;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #222222;
-    background: transparent;
-    outline: none;
-}
-
-.label-motivo-negro {
-    font-size: 14px;
-    font-weight: 700;
-    color: #222222;
-}
-
-.textarea-modal-perfecto {
-    height: 115px !important;
-    padding: 12px !important;
-    resize: none;
-    line-height: 1.4;
-}
-
-.modal-footer-comic {
-    padding: 14px 22px 20px 22px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    background: transparent;
-}
-
-.btn-comic {
-    padding: 8px 24px;
-    border-radius: 9px;
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 700;
-    font-size: 13.5px;
-    cursor: pointer;
-    border: 1.5px solid #222222;
-    box-shadow: 0 3px 0 #222222;
-    transition: transform 0.05s, box-shadow 0.05s;
-}
-
-.btn-comic:active {
-    transform: translateY(3px);
-    box-shadow: none;
-}
-
-.btn-comic-gris {
-    background: #cccccc;
-    color: #222222;
-}
-
-.btn-comic-rojo {
-    background: var(--rojo);
-    color: #ffffff;
-}
-
-.btn-comic-verde {
-    background: #65a30d;
-    color: #ffffff;
-}
-
-.icono-contenedor-exito-v {
-    width: 55px;
-    height: 70px;
-    border: 2px solid #1eaf52;
-    background-color: #bbf7d0;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px auto;
-}
-
-.check-icono-v {
-    color: #16a34a;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-/* ========================================================
-   ESTILOS DE INTERFAZ INTEGRADOS (CON HTML CORREGIDO)
-   ======================================================== */
-
-/* 1. Comportamiento base y dimensiones del Diálogo Nativo */
-dialog.modal-diseno-final[open] {
+.modal-grupo-input label, 
+.imp-registro label {
     display: block !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    margin: 0 !important;
-    height: auto !important;
-    max-height: calc(100vh - 40px) !important;
-    border: none !important;
-    border-radius: 14px !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32) !important;
-    font-family: 'Varela Round', sans-serif !important;
-    overflow: hidden !important;
-    z-index: 999999 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #444444 !important;
+    margin-bottom: 4px !important;
+    text-align: left !important;
 }
 
-dialog.modal-diseno-final * {
+/* Inputs, Selects y Textareas */
+.modal-control-comic {
+    width: 100% !important;
+    padding: 9px 12px !important;
+    border: 1.5px solid #222222 !important;
+    border-radius: 8px !important;
+    font-family: 'Varela Round', sans-serif !important;
+    font-size: 13px !important;
+    outline: none !important;
+    background-color: #ffffff !important;
     box-sizing: border-box !important;
 }
 
-/* Modal sizes by dialog */
-#modal-editar.modal-diseno-final[open] {
-    width: min(88vw, 860px) !important;
-    max-width: 860px !important;
-    min-width: 620px !important;
-}
-
-#modal-rechazar.modal-diseno-final[open] {
-    width: min(80vw, 760px) !important;
-    max-width: 760px !important;
-    min-width: 540px !important;
-}
-
-#modal-aprobar.modal-diseno-final[open] {
-    width: min(68vw, 620px) !important;
-    max-width: 620px !important;
-    min-width: 420px !important;
-}
-
-#modal-inhabilitar.modal-diseno-final[open] {
-    width: min(72vw, 700px) !important;
-    max-width: 700px !important;
-    min-width: 500px !important;
-}
-
-#modal-editar.modal-diseno-final[open] .modal-cuerpo-perfecto,
-#modal-rechazar.modal-diseno-final[open] .modal-cuerpo-perfecto {
-    max-height: none !important;
-    overflow-y: visible !important;
-}
-
-#modal-aprobar.modal-diseno-final[open] .modal-cuerpo-centrado,
-#modal-inhabilitar.modal-diseno-final[open] .modal-cuerpo-centrado {
-    max-height: calc(100vh - 190px) !important;
-    overflow-y: auto !important;
-}
-
-#modal-editar .modal-footer-comic,
-#modal-rechazar .modal-footer-comic,
-#modal-aprobar .modal-footer-comic,
-#modal-inhabilitar .modal-footer-comic {
-    justify-content: center !important;
-    gap: 14px !important;
-}
-
-#modal-editar .modal-footer-comic .btn-comic,
-#modal-rechazar .modal-footer-comic .btn-comic,
-#modal-aprobar .modal-footer-comic .btn-comic,
-#modal-inhabilitar .modal-footer-comic .btn-comic {
-    min-width: 140px !important;
-}
-
-/* Fondo oscuro nativo del navegador */
-dialog.modal-diseno-final::backdrop {
-    background: rgba(0, 0, 0, 0.5) !important;
-}
-
-/* 2. Estabilizar la Cabecera */
-.modal-header-rojo-total {
-    background-color: var(--rojo) !important;
-    color: #ffffff !important;
-    padding: 20px 28px 20px 24px !important;
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
-    text-align: left !important;
-    z-index: 2 !important;
-}
-
-.modal-fila-superior {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.modal-fila-superior > * {
-    min-width: 0;
-}
-
-dialog.modal-diseno-final:focus,
-dialog.modal-diseno-final:focus-visible,
-dialog.modal-diseno-final *:focus,
-dialog.modal-diseno-final *:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.modal-header-rojo-total h2 {
-    font-size: 20px !important;
-    margin: 0 0 4px 0 !important;
-    color: #ffffff !important;
-    line-height: 1.2 !important;
-}
-
-.modal-header-rojo-total p {
-    font-size: 14px !important;
-    margin: 0 !important;
-    color: #fca5a5 !important;
-}
-
-.modal-header-rojo-total .btn-cerrar-modal-x {
-    position: absolute !important;
-    top: 50% !important;
-    right: 20px !important;
-    transform: translateY(-50%) !important;
-    background: none !important;
+/* Línea separadora sutil */
+.modal-separador-fino {
     border: none !important;
-    color: #ffffff !important;
-    font-size: 26px !important;
-    cursor: pointer !important;
-    padding: 0 !important;
-    line-height: 1 !important;
+    border-top: 1px solid #eeeeee !important;
+    margin: 2px 0 !important;
+    width: 100% !important;
 }
 
-/* 3. Estabilizar el cuerpo */
-.modal-cuerpo-perfecto {
-    padding: 24px 20px !important;
+/* Rejilla perfecta en 2 columnas (Evita que colapsen los campos inferiores) */
+.campos-grid-perfecto {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Control Incremental de Cantidad */
+.control-cantidad-comic {
+    display: flex !important;
+    border: 1.5px solid #222222 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    height: 36px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.btn-cant-fn {
+    width: 36px !important;
+    background: #f5f5f5 !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
+
+.input-cant-fn {
+    flex: 1 !important;
+    border: none !important;
+    text-align: center !important;
+    font-family: 'Varela Round', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    outline: none !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+}
+
+/* Textarea específico para motivos */
+.textarea-modal-perfecto {
+    min-height: 110px !important;
+    resize: none !important;
     width: 100% !important;
     display: block !important;
 }
 
-/* 4. Activar las DOS columnas reales usando el nuevo contenedor HTML */
-.modal-diseno-final .campos-grid-perfecto {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Dos columnas idénticas */
-    gap: 16px 20px !important;
-    width: 100% !important;
+
+/* --------------------------------------------------------------------------
+   5. CONTENIDO GRÁFICO E INFOTEXTO (ALERTAS / INHABILITAR / ÉXITO)
+-------------------------------------------------------------------------- */
+.modal-img-ilustracion {
+    width: 64px !important;
+    height: 64px !important;
+    object-fit: contain !important;
+    margin-bottom: 14px !important;
 }
 
-/* Forzar que los elementos hereden el ancho de la celda y destruyan los 320px */
-.modal-diseno-final .imp-registro,
-.modal-diseno-final .modal-grupo-input {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 100% !important; /* Fuerza a ocupar todo el ancho disponible */
-    margin: 0 !important;
+dialog.modal-diseno-inhabilitar h1 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin: 0 0 10px 0 !important;
 }
 
-/* Forzar expansión absoluta en los inputs y selectores del cuerpo */
-.modal-diseno-final input,
-.modal-diseno-final select,
-.modal-diseno-final textarea,
-.modal-diseno-final .modal-control-comic {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 100% !important; /* Aplasta el width: 320px global */
-    height: 40px !important;
+dialog.modal-diseno-inhabilitar p {
+    font-size: 14px !important;
+    color: #555555 !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.4 !important;
 }
 
-/* Componente de cantidad (- / +) totalmente expandido */
-.modal-diseno-final .control-cantidad-comic {
-    display: flex !important;
-    width: 100% !important;
-    max-width: 100% !important;
+.nota-alerta {
+    color: #cc0000 !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
 }
 
-.modal-diseno-final .input-cant-fn {
-    flex: 1 !important;
-    min-width: 0 !important;
-    height: 100% !important;
+/* Icono redondo de éxito (Aprobar) */
+.icono-contenedor-exito-v {
+    width: 60px;
+    height: 60px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
 }
 
-/* Área de texto para el motivo del rechazo */
-.modal-diseno-final textarea.textarea-modal-perfecto {
-    height: 110px !important;
-    resize: none !important;
+.check-icono-v {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
 }
 
-/* 5. Alinear y contener los botones inferiores */
-.modal-diseno-final .modal-footer-comic {
+.texto-alerta-modal {
+    font-size: 14px !important;
+    color: #333333 !important;
+    line-height: 1.5 !important;
+    margin: 0 0 20px 0 !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. PIES DE PÁGINA Y BOTONERAS DE MODALES
+-------------------------------------------------------------------------- */
+.modal-footer-comic {
+    padding: 14px 20px !important;
+    background-color: #fafafa !important;
+    border-top: 1px solid #eeeeee !important;
     display: flex !important;
     justify-content: flex-end !important;
     gap: 12px !important;
-    padding: 15px 20px !important;
+    box-sizing: border-box !important;
     width: 100% !important;
-    background: #ffffff !important;
-    border-top: 1px solid var(--gris-borde) !important;
 }
 
-.modal-diseno-final .modal-footer-comic .btn-comic {
-    width: auto !important;
-    flex: 1 !important; 
-    max-width: 180px !important;
-    padding: 10px 15px !important;
-    white-space: nowrap !important;
+/* Ajuste de pie para el de inhabilitar que no usa form */
+dialog.modal-diseno-inhabilitar .modal-footer-comic {
+    justify-content: center !important; /* Centrar botones de peligro */
+    background-color: #ffffff !important;
+    border-top: none !important;
+    padding-bottom: 24px !important;
+}
+
+/* Botones universales de acción */
+.btn-comic, 
+.btn-modal-cancelar, 
+.btn-modal-peligro {
+    padding: 9px 20px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    font-family: 'Varela Round', sans-serif !important;
+    border: 1.5px solid #222222 !important;
+    transition: background-color 0.2s, transform 0.1s !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+
+.btn-comic:active, 
+.btn-modal-cancelar:active, 
+.btn-modal-peligro:active {
+    transform: scale(0.97) !important;
+}
+
+/* Variaciones de Color */
+.btn-comic-gris, 
+.btn-modal-cancelar {
+    background-color: #e0e0e0 !important;
+    color: #222222 !important;
+}
+
+.btn-comic-gris:hover, 
+.btn-modal-cancelar:hover {
+    background-color: #d5d5d5 !important;
+}
+
+.btn-comic-rojo, 
+.btn-modal-peligro {
+    background-color: #cc0000 !important;
+    color: #ffffff !important;
+}
+
+.btn-comic-rojo:hover, 
+.btn-modal-peligro:hover {
+    background-color: #b30000 !important;
+}
+
+.btn-comic-verde {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+}
+
+.btn-comic-verde:hover {
+    background-color: #218838 !important;
+}
+
+/* ==========================================================================
+   REPARACIÓN QUIRÚRGICA PARA MODALES DE EDITAR Y RECHAZAR
+   ========================================================================== */
+
+/* 1. Resetear por completo las cajas nativas del dialog */
+dialog.modal-diseno-editar,
+dialog.modal-diseno-rechazar {
+    padding: 0 !important;                /* Quita el espacio interno que deja ver el fondo gris */
+    border: 2px solid #222222 !important; /* Mantiene tu borde cómic */
+    border-radius: 16px !important;       /* Curvatura limpia */
+    background-color: #ffffff !important;
+    max-width: 480px !important;          /* Ancho perfecto para que las 2 columnas respiren */
+    width: 90% !important;
+    margin: auto !important;               /* Centrado absoluto */
+    overflow: hidden !important;          /* SOLUCIÓN AL COSITO ROJO: Corta los picos que se salían */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
+}
+
+/* 2. Forzar al formulario a heredar el corte de las esquinas */
+dialog.modal-diseno-editar .form-modal-completo,
+dialog.modal-diseno-rechazar .form-modal-completo {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* 3. Encabezado Rojo de borde a borde */
+dialog.modal-diseno-editar .modal-header-rojo-total,
+dialog.modal-diseno-rechazar .modal-header-rojo-total {
+    background-color: #cc0000 !important;
+    padding: 16px 20px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    position: relative !important;
+}
+
+/* Asegurar textos blancos dentro de la cabecera */
+dialog.modal-diseno-editar .modal-header-rojo-total h2,
+dialog.modal-diseno-rechazar .modal-header-rojo-total h2 {
+    color: #ffffff !important;
+    margin: 0 0 2px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+}
+
+dialog.modal-diseno-editar .modal-header-rojo-total p,
+dialog.modal-diseno-rechazar .modal-header-rojo-total p {
+    color: #ffffff !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    opacity: 0.9 !important;
+}
+
+/* Ubicación exacta del botón X de cierre */
+dialog.modal-diseno-editar .btn-cerrar-modal-x,
+dialog.modal-diseno-rechazar .btn-cerrar-modal-x {
+    position: absolute !important;
+    top: 14px !important;
+    right: 20px !important;
+    background: none !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+}
+
+/* 4. Cuerpo interno libre de scrolls molestos */
+dialog.modal-diseno-editar .modal-cuerpo-perfecto,
+dialog.modal-diseno-rechazar .modal-cuerpo-perfecto {
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+}
+
+/* 5. Distribución de inputs en 2 columnas exactas (50% y 50%) */
+dialog.modal-diseno-editar .campos-grid-perfecto {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Prevenir que los inputs rompan el ancho */
+dialog.modal-diseno-editar .modal-control-comic,
+dialog.modal-diseno-rechazar .modal-control-comic {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Área de texto de rechazo perfecta */
+dialog.modal-diseno-rechazar .textarea-modal-perfecto {
+    min-height: 110px !important;
+    resize: none !important;
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+}
+
+/* 6. Ajuste del Footer gris de los botones */
+dialog.modal-diseno-editar .modal-footer-comic,
+dialog.modal-diseno-rechazar .modal-footer-comic {
+    padding: 14px 20px !important;
+    background-color: #fafafa !important;
+    border-top: 1px solid #eeeeee !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+}
+
+/* ==========================================================================
+   CORRECCIÓN DE ALTURA PARA MODALES DE EDITAR Y RECHAZAR
+   ========================================================================== */
+
+/* 1. Resetear por completo las cajas nativas permitiendo altura automática */
+dialog.modal-diseno-editar {
+    padding: 0 !important;
+    border: 2px solid #222222 !important;
+    border-radius: 16px !important;
+    background-color: #ffffff !important;
+    max-width: 500px !important; 
+    width: 90% !important;
+    height: auto !important;     /* SOLUClÓN: Permite que el modal crezca verticalmente */
+    max-height: 70vh !important; /* Evita que se salga de la pantalla en monitores chicos */
+    margin: auto !important;
+    overflow: hidden !important; /* Corta picos superiores del color rojo */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
+}
+
+/* 2. Forzar al formulario a estirarse orgánicamente según su contenido */
+dialog.modal-diseno-editar .form-modal-completo {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;   /* SOLUCIÓN: Quita cualquier restricción rígida de alto */
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important; /* Deja fluir los elementos hacia el footer sin cortarlos */
+    box-sizing: border-box !important;
+}
+
+dialog.modal-diseno-rechazar{
+    padding: 0 !important;
+    border: 2px solid #222222 !important;
+    border-radius: 16px !important;
+    background-color: #ffffff !important;
+    max-width: 500px !important; 
+    width: 90% !important;
+    height: auto !important;     /* SOLUClÓN: Permite que el modal crezca verticalmente */
+    max-height: 50vh !important; /* Evita que se salga de la pantalla en monitores chicos */
+    margin: auto !important;
+    overflow: hidden !important; /* Corta picos superiores del color rojo */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
 }
