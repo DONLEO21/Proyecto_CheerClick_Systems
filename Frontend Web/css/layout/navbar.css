@@ -8,7 +8,7 @@ nav{
     
 }
 
-.nav-contenedor{
+.nav-publica-contenedor{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,17 +18,17 @@ nav{
         var(--espacio-lg);
 }
 
-.nav-links ul{
+.nav-publica-links ul{
     display: flex;
     align-items: center;
     gap: var(--espacio-lg);
 }
 
-.nav-links li{
+.nav-publica-links li{
     position: relative;
 }
 
-.nav-links a{
+.nav-publica-links a{
     color: var(--color-fondo);
     font-size: var(--texto-sm);
     padding-bottom: 2px;
@@ -36,7 +36,7 @@ nav{
     transition: var(--transicion);
 }
 
-.nav-links a:hover{
+.nav-publica-links a:hover{
     border-bottom-color: var(--color-fondo);
 }
 
@@ -62,7 +62,7 @@ nav{
     padding: var(--espacio-sm);
     border-radius: var(--radio-sm);
     gap: var(--espacio-sm);
-    min-width: 140px;
+    min-width: 130px;
 }
 
 .menu-desplegable:hover ul{
