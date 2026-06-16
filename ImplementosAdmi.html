@@ -51,7 +51,7 @@
     </div>
 
     <!-- BARRA 1 - Superior -->
-    <header>
+    <header class="Barra1-contenedor">
         <nav>
             <div class="contenedor">
                 <div class="Barra1">
@@ -151,7 +151,7 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion editar" onclick="document.getElementById('modal-editar').showModal()">
-                                        <img src="Frontend Web/img/controlar (1).png" alt="Editar" class="icono-accion">
+                                        <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion eliminar" onclick="document.getElementById('modal-inhabilitar').showModal()">
@@ -236,74 +236,74 @@
         <!-- Modal Editar Implemento -->
         <dialog id="modal-editar" class="modal-diseno-editar">
             <form method="dialog" class="form-modal-completo">
-                <header class="modal-header-rojo-total">
+                <header class="modal-header-rojo">
                     <h2>Editar Implemento</h2>
                     <p>Uniforme de competencia Femenino</p>
                     <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-editar').close()">×</button>
                 </header>
 
-                <div class="modal-cuerpo-perfecto">
-                    <div class="modal-fila-superior">
-                        <div class="contenedor-vista-previa">
-                            <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-previa-modal">
+                <div class="modal-cuerpo-editar">
+                    <div class="modal-fila-editar">
+                        <div class="contenedor-vista">
+                            <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-modal">
                         </div>
-                        <div class="modal-grupo-input input-nombre-completo">
+                        <div class="modal-input-editar input-nombre-completo">
                             <label>Nombre del Producto</label>
-                            <input type="text" class="modal-control-comic" value="Uniforme de Competencia Femenino">
+                            <input type="text" class="modal-editar-comic" value="Uniforme de Competencia Femenino">
                         </div>
                     </div>
 
-                    <hr class="modal-separador-fino">
+                    <hr class="modal-separador-editar">
 
-                    <div class="campos-grid-perfecto">
-                        <div class="imp-registro">
+                    <div class="campos-grid-editar">
+                        <div class="imp-editar">
                             <label>Cantidad</label>
-                            <div class="control-cantidad-comic">
+                            <div class="control-cantidad-editarc">
                                 <button type="button" class="btn-cant-fn">-</button>
                                 <input type="number" class="input-cant-fn" value="20" readonly>
                                 <button type="button" class="btn-cant-fn">+</button>
                             </div>
                         </div>
-                        <div class="imp-registro">
+                        <div class="imp-editar">
                             <label>Tipo</label>
-                            <select id="tipo" class="modal-control-comic">
+                            <select id="tipo" class="modal-editar-comic">
                                 <option value="ropa">Ropa</option>
                                 <option value="accesorios">Accesorios</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="campos-grid-perfecto">
-                        <div class="imp-registro">
+                    <div class="campos-grid-editar">
+                        <div class="imp-editar">
                             <label>Estado</label>
-                            <select id="estado" class="modal-control-comic">
+                            <select id="estado" class="modal-editar-comic">
                                 <option value="disponible">Disponible</option>
                                 <option value="noDisponible">No disponible</option>
                             </select>
                         </div>
-                        <div class="imp-registro">
+                        <div class="imp-editar">
                             <label>Precio</label>
-                            <input type="text" id="precio" class="modal-control-comic" value="$ 250,000">
+                            <input type="text" id="precio" class="modal-editar-comic" value="$ 250,000">
                         </div>
                     </div>
                 </div>
 
-                <footer class="modal-footer-comic">
-                    <button type="button" class="btn-comic btn-comic-gris" onclick="document.getElementById('modal-editar').close()">Cancelar</button>
-                    <button type="submit" class="btn-comic btn-comic-rojo">Guardar Cambios</button>
+                <footer class="modal-footer-editar">
+                    <button type="button" class="btn-editar btn-editar-gris" onclick="document.getElementById('modal-editar').close()">Cancelar</button>
+                    <button type="submit" class="btn-editar btn-editar-rojo">Guardar Cambios</button>
                 </footer>
             </form>
         </dialog>
 
         <!-- Modal Inhabilitar Implemento -->
         <dialog id="modal-inhabilitar" class="modal-diseno-inhabilitar">
-            <div class="modal-cuerpo-centrado">
-                <img src="Frontend Web/img/rayo.png" alt="inhabilitar-implemento" class="modal-img-ilustracion">
+            <div class="modal-cuerpo-inhabilitar">
+                <img src="Frontend Web/img/rayo.png" alt="inhabilitar-implemento" class="modal-img-ihnabilitar">
                 <h1>¿Inhabilitar Elemento Deportivo?</h1>
                 <p>¿Está seguro/a de que desea inhabilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
                 <p class="nota-alerta">Esta acción cambiará su estado a No Disponible.</p>
             
-                <div class="modal-footer-comic">
+                <div class="modal-footer-ihnabilitar">
                     <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-inhabilitar').close()">Cancelar</button>
                     <button type="button" class="btn-modal-peligro" onclick="document.getElementById('modal-inhabilitar').close()">Inhabilitar</button>
                 </div>
@@ -311,40 +311,69 @@
         </dialog>
 
         <!-- Modal de Solicitud Aprobada -->
-        <dialog id="modal-aprobar" class="modal-diseno-aprobadas" style="max-width: 400px;">
-            <div class="modal-cuerpo-centrado">
+        <dialog id="modal-aprobar" class="modal-aprobadas" style="max-width: 400px;">
+            <div class="modal-cuerpo-aprobada">
                 <div class="icono-contenedor-exito-v">
                     <span class="check-icono-v">✓</span>
                 </div>
-                <p class="texto-alerta-modal">
+                <p class="texto-aprobada-modal">
                     La solicitud ha sido aprobada exitosamente, se notificará al usuario sobre la fecha de entrega <strong>08/04/2026</strong> y el valor correspondiente del producto.
                 </p>
-                <button type="button" class="btn-comic btn-comic-verde" style="width: 50%; margin: 0 auto; display: block;" onclick="document.getElementById('modal-aprobar').close()">Volver</button>
+                <button type="button" class="btn-aprobada btn-aprobada-verde" style="width: 50%; margin: 0 auto; display: block;" onclick="document.getElementById('modal-aprobar').close()">Volver</button>
             </div>
         </dialog>
 
         <!-- Modal de Solicitud Rechazada -->
         <dialog id="modal-rechazar" class="modal-diseno-rechazar">
-            <form method="dialog" class="form-modal-completo">
-                <header class="modal-header-rojo-total">
+            <form method="dialog" class="form-modal-rechazar">
+                <header class="modal-header-rojo-rechazar">
                     <h2>Rechazar Solicitud</h2>
                     <p>Pedido de Implemento</p>
                     <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-rechazar').close()">×</button>
                 </header>
                 
-                <div class="modal-cuerpo-perfecto">
+                <div class="modal-cuerpo-rechazar">
                     <div class="modal-grupo-input">
                         <label class="label-motivo-negro">Motivo del Rechazo *</label>
-                        <textarea id="motivo-rechazo" class="modal-control-comic textarea-modal-perfecto" placeholder="Escriba aquí los inconvenientes con el proveedor o detalles del rechazo..."></textarea>
+                        <textarea id="motivo-rechazo" class="modal-control-rechazar textarea-modal-rechazar" placeholder="Escriba aquí los inconvenientes con el proveedor o detalles del rechazo..."></textarea>
                     </div>
                 </div>
                 
-                <footer class="modal-footer-comic">
-                    <button type="button" class="btn-comic btn-comic-gris" onclick="document.getElementById('modal-rechazar').close()">Cancelar</button>
-                    <button type="submit" class="btn-comic btn-comic-rojo">Confirmar Rechazo</button>
+                <footer class="modal-footer-rechazar">
+                    <button type="button" class="btn-rechazar btn-rechazar-gris" onclick="document.getElementById('modal-rechazar').close()">Cancelar</button>
+                    <button type="submit" class="btn-rechazar btn-rechazar-rojo">Confirmar Rechazo</button>
                 </footer>
             </form>
         </dialog>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const contenedorCantidad = document.querySelector('.control-cantidad-editarc');
+                if (contenedorCantidad) {
+                    const btnMenos = contenedorCantidad.querySelector('.btn-cant-fn:first-child');
+                    const btnMas = contenedorCantidad.querySelector('.btn-cant-fn:last-child');
+                    const inputCant = contenedorCantidad.querySelector('.input-cant-fn');
+
+                    btnMenos.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        let valorActual = parseInt(inputCant.value) || 0;
+                        if (valorActual > 0) inputCant.value = valorActual - 1;
+                    });
+
+                    btnMas.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        let valorActual = parseInt(inputCant.value) || 0;
+                        inputCant.value = valorActual + 1;
+                    });
+                }
+
+                document.querySelectorAll('.btn-editar-implemento').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.getElementById('modal-editar').showModal();
+                    });
+                });
+            });
+        </script>
     </div>  
 </body>
 </html>
