@@ -698,11 +698,10 @@ dialog.modal-diseno-aprobadas {
     flex-direction: column !important;
     gap: 16px !important;
     box-sizing: border-box !important;
-    width: 10% !important;
+    width: 100% !important;
     background-color: #ffffff !important;
 }
 
-/* Bloque centrado para modales de alerta/éxito (Inhabilitar y Aprobar) */
 .modal-cuerpo-centrado {
     padding: 24px 24px 16px 24px !important;
     text-align: center !important;
