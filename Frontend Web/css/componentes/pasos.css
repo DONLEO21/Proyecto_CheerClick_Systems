@@ -1,0 +1,38 @@
+/* Contenedor*/
+.pasos{
+    display:flex;
+    gap:var(--espacio-md);
+    margin-bottom: var(--espacio-xl);
+
+}
+
+/*paso*/
+
+.indicador-pasos{
+    flex:1;
+    text-align:center;
+    padding-bottom: var(--espacio-sm);
+    border-bottom: 3px solid var(--color-gris);
+
+}
+
+.indicador-pasos span{
+    display:block;
+    margin-bottom: var(--espacio-xs);
+    font-weight:700;
+
+}
+
+/* Paso activo*/
+
+.indicador-pasos.activo{
+    border-bottom: 3px solid var(--color-primario);
+
+}
+
+/* Texto paso*/
+
+.indicador-pasos p{
+    margin:0;
+
+}

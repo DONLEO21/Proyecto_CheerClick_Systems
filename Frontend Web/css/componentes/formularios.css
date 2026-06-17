@@ -1,0 +1,46 @@
+
+/* Formulario */
+form{
+    display:flex;
+    flex-direction:column;
+   
+
+}
+
+/* Agrupaciones*/
+
+.form-grupo{
+    display:flex;
+    flex-direction:column;
+    gap: var(--espacio-xs);
+
+    margin-bottom: var(--espacio-md);
+
+}
+
+/* Titulos internos */
+
+form h2{
+    text-align:center;
+
+}
+
+form h3{
+    margin-top:var(--espacio-lg);
+}
+
+/* Textos adicionales*/
+
+form > p{
+    text-align:center;
+
+}
+
+form .btn{
+    margin-top:var(--espacio-md);
+}
+
+form .btn + p{
+    margin-top:var(--espacio-md);
+
+}
