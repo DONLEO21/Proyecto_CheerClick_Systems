@@ -149,7 +149,7 @@
                         </select>
                     </div>
 
-                    <button type="button" class="btn btn-primario">
+                    <button type="button" id="btn-siguiente" class="btn btn-primario">
                         Siguiente
                     </button>
 
@@ -161,29 +161,78 @@
                     <h2>Seguridad</h2>
 
                     <div class="form-grupo">
-                        <label for="correo">Correo electrónico</label>
-                        <input type="email" id="correo" name="correo" maxlength="50" required placeholder="Ejemplo@gmail.com">
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                        <input  type="email" id="correo" name="correo" maxlength="50" required placeholder="Ejemplo@gmail.com">
                     </div>
 
-                    <div class="contrasena-contenedor">
-                        <label for="contrasena">Contraseña</label>
-                        <input type="password" name="contrasena" id="contrasena" required>
-                        <div class="input-ojo-icono">
-                            <button type="button" class="btn-ver-contrasena">👁</button>
+                    <div class="form-grupo">
+                        <label for="contrasena">
+                            Contraseña
+                        </label>
+                        <div class="contrasena-contenedor">
+
+                            <input type="password" id="contrasena" name="contrasena" required>
+                    
+                            <button type="button" class="btn-ver-contrasena">
+                                👁
+                            </button>
                         </div>
                     </div>
 
-                    <div class="contrasena-contenedor">
-                        <label for="confirmar-contrasena">Confirmar Contraseña</label>
-                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena" required>
-                        <div class="input-ojo-icono"> 
-                            <button type="button" class="btn-ver-contrasena">👁</button> 
-                        </div>
-                    </div>
-                
-                    <button type="submit" class="btn btn-primario">
-                        Crear Cuenta
-                    </button>
+    <div class="form-grupo">
+
+        <label for="confirmar-contrasena">
+            Confirmar Contraseña
+        </label>
+
+        <div class="contrasena-contenedor">
+
+            <input
+                type="password"
+                id="confirmar-contrasena"
+                name="confirmar-contrasena"
+                required>
+
+            <button
+                type="button"
+                class="btn-ver-contrasena">
+
+                👁
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="acciones-formulario">
+
+        <button
+            type="submit"
+            class="btn btn-primario">
+
+            Crear Cuenta
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="acciones-formulario">
+
+    <button
+        type="submit"
+        class="btn btn-primario">
+
+        Crear Cuenta
+
+    </button>
+
+</div>
                 </div>
             </form>
         </div>
@@ -240,8 +289,23 @@
 
         function cerrarModalRegistro(){
             modal.close();
-        window.location.href ="/Frontend Web/paginas/publico/index.html#hero";
-}
+            window.location.href ="/Frontend Web/paginas/publico/index.html#hero";
+        }
+    </script>
+
+    <script>
+        const btnSiguiente = document.getElementById("btn-siguiente");
+        const paso1 = document.querySelector('[data-step="1"]');
+        const paso2 = document.querySelector('[data-step="2"]');
+        const indicador1 = document.querySelector('[data-paso="1"]');
+        const indicador2 = document.querySelector('[data-paso="2"]');
+
+        btnSiguiente.addEventListener("click",()=>{
+            paso1.classList.remove("activo");
+            paso2.classList.add("activo");
+            indicador1.classList.remove("activo");
+            indicador2.classList.add("activo");
+        });
 </script>
 
 </body>
