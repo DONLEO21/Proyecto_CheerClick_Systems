@@ -631,7 +631,7 @@ html{
 
 /* Modal editar */
 .modal-diseno-editar {
-    border: 1.5px solid #000000 !important;
+    border: 1px solid #222222 !important;
     border-radius: 16px;
     padding: 0 !important;
     width: 500px;
@@ -711,7 +711,7 @@ html{
 }
 
 .contenedor-vista {
-    border: 1px solid #000000;
+    border: 1px solid #222222;
     border-radius: 12px;
     width: 110px;
     height: 110px;
@@ -740,7 +740,7 @@ html{
 .modal-editar-comic {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #000000;
+    border: 1px solid #222222;
     border-radius: 10px;
     padding: 8px 10px;
     font-size: 0.95rem;
@@ -773,7 +773,7 @@ html{
 
 .control-cantidad-editarc {
     display: flex;
-    border: 1px solid #000000;
+    border: 1px solid #222222;
     border-radius: 10px;
     overflow: hidden;
     height: 38px; 
@@ -796,8 +796,8 @@ html{
 
 .input-cant-fn {
     border: none;
-    border-left: 1px solid #000000;
-    border-right: 1px solid #000000;
+    border-left: 1px solid #222222;
+    border-right: 1px solid #222222;
     width: 100%;
     text-align: center;
     font-size: 0.95rem;
@@ -821,7 +821,7 @@ html{
 }
 
 .btn-editar {
-    border: 1px solid #000000;
+    border: 1px solid #222222;
     border-radius: 10px;
     padding: 8px 24px;
     font-size: 1rem;
@@ -837,7 +837,7 @@ html{
 
 .btn-editar-gris {
     background-color: #cccccc;
-    color: #000000;
+    color: #222222;
 }
 
 .btn-editar-rojo {
@@ -847,7 +847,7 @@ html{
 
 /* Modal Inhabilitar Implemento */
 .modal-diseno-inhabilitar {
-    border: 1.5px solid #000000 !important;
+    border: 1.5px solid #222222 !important;
     border-radius: 16px;
     padding: 0 !important;
     width: 380px;
@@ -921,7 +921,7 @@ html{
 }
 
 .btn-modal-cancelar {
-    border: 1px solid #000000;
+    border: 1px solid #222222;
     border-radius: 10px;
     padding: 8px 24px;
     font-size: 1rem;
@@ -929,7 +929,7 @@ html{
     cursor: pointer;
     font-family: 'Varela Round', sans-serif;
     background-color: #cccccc;
-    color: #000000;
+    color: #222222;
     transition: transform 0.1s ease;
 }
 
@@ -969,4 +969,204 @@ html{
 
 .btn-modal-habilitar:active {
     transform: scale(0.98);
+}
+
+/* Modal Aprobar Solicitud */
+.modal-aprobadas {
+    border: 1.5px solid #222222 !important;
+    border-radius: 16px;
+    padding: 0 !important;
+    width: 380px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-family: 'Varela Round', sans-serif;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    overflow: hidden !important;
+    outline: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    margin: auto !important;
+    height: fit-content !important;
+}
+
+.modal-aprobadas::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-aprobadas * {
+    box-sizing: border-box;
+}
+
+.modal-cuerpo-aprobada {
+    padding: 35px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.icono-contenedor-exito-v {
+    width: 72px;
+    height: 72px;
+    border: 2.5px solid #1eaf52;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.check-icono-v {
+    color: #1eaf52;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.texto-aprobada-modal {
+    font-size: 0.95rem;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.btn-aprobada {
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    border: none;
+    transition: transform 0.1s ease;
+}
+
+.btn-aprobada:active {
+    transform: scale(0.98);
+}
+
+.btn-aprobada-verde {
+    background-color: #1eaf52;
+    color: #ffffff;
+}
+
+/* Modal Rechazar Solicitud */
+.modal-diseno-rechazar {
+    border: 1px solid #222222 !important;
+    border-radius: 16px;
+    padding: 0 !important;
+    width: 460px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-family: 'Varela Round', sans-serif;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    overflow: hidden !important;
+    outline: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    margin: auto !important;
+    height: fit-content !important;
+}
+
+.modal-diseno-rechazar::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-diseno-rechazar * {
+    box-sizing: border-box;
+}
+
+.form-modal-rechazar {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header-rojo-rechazar {
+    background-color: #cc0000;
+    color: #ffffff;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.modal-header-rojo-rechazar h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.modal-header-rojo-rechazar p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.modal-cuerpo-rechazar {
+    padding: 20px 20px 10px 20px;
+}
+
+.modal-grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label-motivo-negro {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #222222;
+}
+
+.modal-control-rechazar {
+    width: 100%;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #ffffff;
+    outline: none;
+    resize: none;
+}
+
+.textarea-modal-rechazar {
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+.modal-footer-rechazar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 20px 20px 20px;
+}
+
+.btn-rechazar {
+    border: 1px solid #222222;
+    border-radius: 10px;
+    padding: 8px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    transition: transform 0.1s ease;
+}
+
+.btn-rechazar:active {
+    transform: scale(0.98);
+}
+
+.btn-rechazar-gris {
+    background-color: #dddddd;
+    color: #222222;
+}
+
+.btn-rechazar-rojo {
+    background-color: #cc0000;
+    color: #ffffff;
+    border-color: #b40a0a;
 }
