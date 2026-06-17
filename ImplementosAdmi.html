@@ -99,6 +99,7 @@
                         <option value="todos">Todos</option>
                         <option value="ropa">Ropa</option>
                         <option value="accesorios">Accesorios</option>
+                        <option value="calzado">Calzado</option>
                     </select>
                 </div>
 
@@ -160,6 +161,59 @@
                                 </div>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <img src="Frontend Web/img/zapatillas.png" alt="Zapatillas" class="img-producto">
+                                    <span>Zapatillas Cheer</span>
+                                </div>
+                            </td>
+                            <td>Calzado</td>
+                            <td>4</td>
+                            <td>$50.000</td>
+                            <td>
+                                <span class="badge disponible">Disponible</span>
+                            </td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar">
+                                        <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    
+                                    <button type="button" class="btn-accion eliminar">
+                                        <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <img src="Frontend Web/img/Mochila.png" alt="Mochila" class="img-producto">
+                                    <span>Mochila</span>
+                                </div>
+                            </td>
+                            <td>Accesorios</td>
+                            <td>13</td>
+                            <td>$150.000</td>
+                            <td>
+                                <span class="badge disponible">Disponible</span>
+                            </td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    
+                                    <button type="button" class="btn-accion eliminar" onclick="document.getElementById('modal-inhabilitar').showModal()">
+                                        <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -298,7 +352,7 @@
         <!-- Modal Inhabilitar Implemento -->
         <dialog id="modal-inhabilitar" class="modal-diseno-inhabilitar">
             <div class="modal-cuerpo-inhabilitar">
-                <img src="Frontend Web/img/rayo.png" alt="inhabilitar-implemento" class="modal-img-ihnabilitar">
+                <img src="Frontend Web/img/Inhabilitar.png" alt="inhabilitar-implemento" class="modal-img-ihnabilitar">
                 <h1>¿Inhabilitar Elemento Deportivo?</h1>
                 <p>¿Está seguro/a de que desea inhabilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
                 <p class="nota-alerta">Esta acción cambiará su estado a No Disponible.</p>
@@ -306,6 +360,21 @@
                 <div class="modal-footer-ihnabilitar">
                     <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-inhabilitar').close()">Cancelar</button>
                     <button type="button" class="btn-modal-peligro" onclick="document.getElementById('modal-inhabilitar').close()">Inhabilitar</button>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- Modal Habilitar Implemento -->
+        <dialog id="modal-habilitar" class="modal-diseno-inhabilitar">
+            <div class="modal-cuerpo-inhabilitar">
+                <img src="Frontend Web/img/Rayo.png" alt="habilitar-implemento" class="modal-img-ihnabilitar">
+                <h1>¿Habilitar Elemento Deportivo?</h1>
+                <p>¿Está seguro/a de que desea habilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
+                <p class="nota-alerta">Esta acción cambiará su estado a Disponible.</p>
+            
+                <div class="modal-footer-ihnabilitar">
+                    <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-habilitar').close()">Cancelar</button>
+                    <button type="button" class="btn-modal-habilitar">Habilitar</button>
                 </div>
             </div>
         </dialog>
@@ -348,30 +417,179 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+
+                // Cantidad en modal editar
                 const contenedorCantidad = document.querySelector('.control-cantidad-editarc');
                 if (contenedorCantidad) {
                     const btnMenos = contenedorCantidad.querySelector('.btn-cant-fn:first-child');
                     const btnMas = contenedorCantidad.querySelector('.btn-cant-fn:last-child');
                     const inputCant = contenedorCantidad.querySelector('.input-cant-fn');
-
                     btnMenos.addEventListener('click', (e) => {
                         e.preventDefault();
-                        let valorActual = parseInt(inputCant.value) || 0;
-                        if (valorActual > 0) inputCant.value = valorActual - 1;
+                        let v = parseInt(inputCant.value) || 0;
+                        if (v > 0) inputCant.value = v - 1;
                     });
-
                     btnMas.addEventListener('click', (e) => {
                         e.preventDefault();
-                        let valorActual = parseInt(inputCant.value) || 0;
-                        inputCant.value = valorActual + 1;
+                        let v = parseInt(inputCant.value) || 0;
+                        inputCant.value = v + 1;
                     });
                 }
 
-                document.querySelectorAll('.btn-editar-implemento').forEach(btn => {
+                // Abrir modal EDITAR con datos del implemento
+                document.querySelectorAll('.btn-accion.editar').forEach(btn => {
                     btn.addEventListener('click', () => {
+                        const fila = btn.closest('tr');
+                        const nombre = fila.querySelector('span').textContent.trim();
+                        const cantidad = fila.querySelectorAll('td')[2].textContent.trim();
+                        const precio = fila.querySelectorAll('td')[3].textContent.trim();
+                        const tipo = fila.querySelectorAll('td')[1].textContent.trim();
+                        const img = fila.querySelector('.img-producto').src;
+
+                        document.querySelector('#modal-editar .modal-header-rojo p').textContent = nombre;
+                        document.querySelector('#modal-editar .modal-editar-comic[type="text"]').value = nombre;
+                        document.querySelector('#modal-editar .input-cant-fn').value = cantidad;
+                        document.querySelector('#modal-editar #precio').value = precio;
+                        document.querySelector('#modal-editar .img-modal').src = img;
+
+                        const selectTipo = document.querySelector('#modal-editar #tipo');
+                        [...selectTipo.options].forEach(opt => {
+                            opt.selected = opt.text.toLowerCase() === tipo.toLowerCase();
+                        });
+
                         document.getElementById('modal-editar').showModal();
                     });
                 });
+
+                // Abrir modal INHABILITAR con nombre del implemento
+                document.querySelectorAll('.btn-accion.eliminar').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const fila = btn.closest('tr');
+                        const nombre = fila.querySelector('span').textContent.trim();
+                        document.querySelector('#modal-inhabilitar strong').textContent = `"${nombre}"`;
+
+                        // Guardar referencia a la fila en el modal para usarla al confirmar
+                        document.getElementById('modal-inhabilitar').dataset.filaIndex =
+                            [...document.querySelectorAll('.tabla-implementos tbody tr')].indexOf(fila);
+
+                        document.getElementById('modal-inhabilitar').showModal();
+                    });
+                });
+
+                // Confirmar INHABILITAR
+                document.querySelector('.btn-modal-peligro').addEventListener('click', () => {
+                    const filas = document.querySelectorAll('.tabla-implementos tbody tr');
+                    const index = document.getElementById('modal-inhabilitar').dataset.filaIndex;
+                    const fila = filas[index];
+
+                    // Cambiar badge a No Disponible
+                    const badge = fila.querySelector('.badge');
+                    badge.textContent = 'No Disponible';
+                    badge.classList.remove('disponible');
+                    badge.classList.add('no-disponible');
+
+                    // Deshabilitar botón editar
+                    const btnEditar = fila.querySelector('.btn-accion.editar');
+                    btnEditar.disabled = true;
+                    btnEditar.style.opacity = '0.4';
+                    btnEditar.style.cursor = 'not-allowed';
+
+                    // Cambiar botón inhabilitar → habilitar
+                    const btnEliminar = fila.querySelector('.btn-accion.eliminar');
+                    btnEliminar.classList.remove('eliminar');
+                    btnEliminar.classList.add('habilitar');
+                    btnEliminar.querySelector('.icono-accion').alt = 'Habilitar';
+                    btnEliminar.title = 'Habilitar';
+
+                    document.getElementById('modal-inhabilitar').close();
+                });
+
+                // Abrir modal HABILITAR
+                document.querySelector('.tabla-implementos tbody').addEventListener('click', (e) => {
+                    const btn = e.target.closest('.btn-accion.habilitar');
+                    if (!btn) return;
+
+                    const fila = btn.closest('tr');
+                    const nombre = fila.querySelector('span').textContent.trim();
+                    document.querySelector('#modal-habilitar strong').textContent = `"${nombre}"`;
+
+                    document.getElementById('modal-habilitar').dataset.filaIndex =
+                        [...document.querySelectorAll('.tabla-implementos tbody tr')].indexOf(fila);
+
+                    document.getElementById('modal-habilitar').showModal();
+                });
+
+                // Confirmar HABILITAR
+                document.querySelector('.btn-modal-habilitar').addEventListener('click', () => {
+                    const filas = document.querySelectorAll('.tabla-implementos tbody tr');
+                    const index = document.getElementById('modal-habilitar').dataset.filaIndex;
+                    const fila = filas[index];
+
+                    const badge = fila.querySelector('.badge');
+                    badge.textContent = 'Disponible';
+                    badge.classList.remove('no-disponible');
+                    badge.classList.add('disponible');
+
+                    const btnEditar = fila.querySelector('.btn-accion.editar');
+                    btnEditar.disabled = false;
+                    btnEditar.style.opacity = '';
+                    btnEditar.style.cursor = '';
+
+                    const btnHabilitar = fila.querySelector('.btn-accion.habilitar');
+                    btnHabilitar.classList.remove('habilitar');
+                    btnHabilitar.classList.add('eliminar');
+                    btnHabilitar.querySelector('.icono-accion').alt = 'Eliminar';
+
+                    document.getElementById('modal-habilitar').close();
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const params = new URLSearchParams(window.location.search);
+                const nombre = params.get('nombre');
+                if (!nombre) return;
+
+                const tipo = params.get('tipo');
+                const cantidad = params.get('cantidad');
+                const estado = params.get('estado');
+                const precio = params.get('precio');
+                const img = sessionStorage.getItem('nuevaImg') || 'Frontend Web/img/Uniforme.png';
+                sessionStorage.removeItem('nuevaImg');
+
+                // ← Esto limpia la URL para que al refrescar no vuelva a agregar
+                window.history.replaceState({}, '', 'ImplementosAdmi.html');
+
+                const estadoClase = estado === 'disponible' ? 'disponible' : 'no-disponible';
+                const estadoTexto = estado === 'disponible' ? 'Disponible' : 'No Disponible';
+                const precioFormato = '$' + Number(precio).toLocaleString('es-CO');
+
+                const tbody = document.querySelector('#implementos-deportivos .tabla-implementos tbody');
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="${img}" alt="${nombre}" class="img-producto">
+                            <span>${nombre}</span>
+                        </div>
+                    </td>
+                    <td>${tipo.charAt(0).toUpperCase() + tipo.slice(1)}</td>
+                    <td>${cantidad}</td>
+                    <td>${precioFormato}</td>
+                    <td><span class="badge ${estadoClase}">${estadoTexto}</span></td>
+                    <td>
+                        <div class="contenedor-acciones-celda">
+                            <button type="button" class="btn-accion editar">
+                                <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
+                            </button>
+                            <button type="button" class="btn-accion eliminar">
+                                <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(fila);
             });
         </script>
     </div>  
