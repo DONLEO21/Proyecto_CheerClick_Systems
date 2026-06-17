@@ -2,6 +2,8 @@
 
 .btn{
     display: inline-block;
+    align-items: center;
+    justify-content: center;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;

@@ -22,11 +22,13 @@ form{
 
 form h2{
     text-align:center;
+    margin-top: var(--espacio-md);
 
 }
 
 form h3{
     margin-top:var(--espacio-lg);
+    margin-bottom: var(--espacio-md);
 }
 
 /* Textos adicionales*/
@@ -44,3 +46,9 @@ form .btn + p{
     margin-top:var(--espacio-md);
 
 }
+
+.acciones-formulario{
+    margin-top:var(--espacio-md);
+    text-align:center;
+}
+

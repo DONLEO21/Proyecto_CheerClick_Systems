@@ -1,6 +1,7 @@
 
 .progreso{
     display:flex;
+    justify-content: center;
     gap:var(--espacio-sm);
     margin-top: var(--espacio-sm);
     margin-bottom: var(--espacio-md);

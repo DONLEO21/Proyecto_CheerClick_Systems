@@ -36,3 +36,13 @@
     margin:0;
 
 }
+
+.paso-contenido{
+    display:none;
+
+}
+
+.paso-contenido.activo{
+    display:block;
+
+}
