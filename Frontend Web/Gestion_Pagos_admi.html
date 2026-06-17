@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado cuentas</title>
+    <link rel="stylesheet" href="css/style_admi.css">
+</head>
+<body>
+
+
+    <!-- BARRA 2 - Lateral izquierda -->
+    <div class="Barra2">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="sidebar-menu">
+
+
+    <!-- CALENDARIO ACTIVO -->
+    <li>
+        <a href="#" title="Horarios">
+            <img src="img/calendario.png" alt="Calendario">
+        </a>
+    </li>
+
+
+    <li class="active">
+        <a href="#" title="Estado de cuentas">
+            <img src="img/grafico-circular.png" alt="">
+        </a>
+    </li>
+
+    <li>
+        <a href="#" title="PQRS">
+            <img src="img/comentarios.png" alt="">
+        </a>
+    </li>
+
+
+    <li>
+        <a href="Implementos.html" title="Implementos">
+            <img src="img/Camisa.png" alt="">
+        </a>
+    </li>
+
+
+    <li>
+        <a href="#" title="Validación de Cuentas">
+            <img src="img/usuarios.png" alt="">
+        </a>
+    </li>
+
+
+</ul>
+    </div>
+
+
+    <!-- BARRA 1 - Superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Administrador</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link">
+                            <img src="img/campana-de-notificacion.png" alt="">
+                        </a>
+                        <a href="#" class="icon-link">
+                            <img src="img/casa.png" alt="">
+                        </a>
+                        <div class="logo-club">
+                            <img src="img/Logo-Club.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<main id="contenido">
+    <section id="titulo-cuentas">
+        <h2>Estado cuentas</h2>
+        <form action="#" class="filtros">
+            <input type="text" placeholder="🔍 Buscar Atleta... ">
+            <select name="Estado" id="Est">
+                <option value="">📃 Estado</option>
+                <option value="">Pagado</option>
+                <option value="">Vencido</option>
+            </select>
+            <select name="Mes" id="Mes" >
+                <option value="">📆 Mes</option>
+                <option value="">Enero</option>
+                <option value="">Febrero</option>
+                <option value="">Marzo</option>
+                <option value="">Abril</option>
+                <option value="">Mayo</option>
+                <option value="">Junio</option>
+                <option value="">Agosto</option>
+                <option value="">Septiembre</option>
+                <option value="">Octubre</option>
+                <option value="">Noviembre</option>
+                <option value="">Diciembre</option>
+            </select>
+        </form>
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Mes</td>
+                        <td>Estado</td>
+                        <td>Valor</td>
+                        <td id="invi">
+                            <span>Acciones</span>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Karen Martinaz</td>
+                        <td>Marzo</td>
+                        <td><button class="esta"><img src="img/letra-x.png" alt="">Vencido</button></td>
+                        <td>$100,000</td>
+                        <td><button class="regis" onclick="abrirModal()"><strong>$  Registrar pago</strong></button></td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>-</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div id="aver">
+                <img src="img/exclamacion.png" alt="Advertencia">
+                <span>Primero debe elegir un atleta para registrar</span>
+            </div>
+    </section>
+</main>
+    <dialog id="menu-regis">
+        <div id="menu-infor">
+            <h2>Regitrar pago recibido</h2>
+            <section id="datos-usuario">
+                <span><strong>Atleta:</strong> Karen Martinez</span><br>
+                <span><strong>Mes:</strong> Marzo</span><br>
+                <span><strong>Valor:</strong> $100,000</span><br>
+                <span><strong>Estado actual:</strong></span><span class="esta-ven"> Vencido</span>
+            </section>
+            <form id="ingre">
+                <label for="meto-pago">Método con el que pagó el atleta</label><br>
+                <select name="meto-pago">
+                    <option value="">Elija un método de pago</option>
+                    <option value="">Billetera Digital</option>
+                    <option value="">Efectivo</option>
+                </select>
+                <br>
+                <label for="num-refe">Número de referencia (opcional)</label><br>
+                <input type="text" placeholder="Ingrese el número de referencia">
+            </form>
+        </div>
+        <div id="menu-acci">
+            <div id="fecha">
+                <label for="fecha-pago">Fecha de pago</label><br>
+                <input type="date">
+            </div>
+            <div id="btn-menu">
+                <button id="regis-pago"><strong>Registrar Pago</strong></button>
+                <button id="can" onclick="cerrarModal()"><strong>Cancelar</strong></button>
+            </div>
+        </div>
+    </dialog>
+<script>
+    const modal = document.getElementById('menu-regis');
+
+        function abrirModal() {
+            modal.showModal();
+        }
+
+        function cerrarModal() {
+            modal.close();
+        }
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) cerrarModal();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado cuentas</title>
+    <link rel="stylesheet" href="css/style_atle.css">
+</head>
+<body>
+
+
+    <!-- BARRA 2 - Lateral izquierda -->
+    <div class="Barra2">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="sidebar-menu">
+
+
+    <!-- CALENDARIO ACTIVO -->
+     <li>
+        <a href="#" title="Perfil">
+            <img src="img/usuario.png" alt="Calendario">
+        </a>
+    </li>
+
+    <li>
+        <a href="#" title="Horarios">
+            <img src="img/calendario.png" alt="Calendario">
+        </a>
+    </li>
+
+
+    <li class="active">
+        <a href="#" title="Estado de cuentas">
+            <img src="img/factura.png" alt="">
+        </a>
+    </li>
+
+    <li>
+        <a href="#" title="Rendimiento deportivo">
+            <img src="img/estadisticas-de-barras.png" alt="Calendario">
+        </a>
+    </li>
+
+    <li>
+        <a href="#" title="PQRS">
+            <img src="img/comentarios.png" alt="">
+        </a>
+    </li>
+
+
+    <li>
+        <a href="Implementos.html" title="Implementos">
+            <img src="img/Camisa.png" alt="">
+        </a>
+    </li>
+</ul>
+    </div>
+
+
+    <!-- BARRA 1 - Superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Atleta</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link">
+                            <img src="img/campana-de-notificacion.png" alt="">
+                        </a>
+                        <a href="#" class="icon-link">
+                            <img src="img/casa.png" alt="">
+                        </a>
+                        <div class="logo-club">
+                            <img src="img/Logo-Club.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+<main id="contenido">
+    <aside id="infor-usuario">
+       <div id="infor-usu">
+        <div id="detalle-usu"></div>
+        <h3>Gabriela Duaquiz<p>Atletismo · Categoría Junior · Activa desde Ene 2024</p></h3>
+       </div>
+       <div id="perfil">
+        <a href=""><button>Perfil</button></a>
+       </div>
+    </aside>
+    <section id="infor-general">
+        <div class="tar-general">
+            <h3 class="gene-titu">Total pendiente</h3>
+            <h2 id="titu-pendi">$200.000</h2>
+        </div>
+        <div class="tar-general">
+            <h3 class="gene-titu">Pagado este año</h3>
+            <h2 id="titu-paga">$100.000</h2>
+        </div>
+        <div class="tar-general">
+            <h3 class="gene-titu">Meses al día</h3>
+            <h2 id="titu-meses">1 / 3</h2>
+        </div>
+        <div class="tar-general">
+            <h3 class="gene-titu">Próximo vencimiento</h3>
+            <h2 id="titu-fecha">Abr 30</h2>
+        </div>
+    </section>
+    <section id="panel">
+        <h3 id="titulo-mensu">Mensualidades · Registro completo</h3>
+        <div id="mensaje">
+           <h4>Total pendiente: <strong>$200.000</strong> - Regulariza para evitar suspensión.</h4> 
+        </div>
+        <nav id="filtros">
+            <button class="acti">Últimos 3 meses</button>
+            <button class="btn-normal">Pagados</button>
+            <button class="btn-normal">Pendientes</button>
+            <button class="btn-normal">Vencidos</button>
+        </nav>
+        <section id="targetas">
+            <div class="tar-infor">
+                <h4 class="tar-titulo">Marzo 2025</h4>
+                <button class="esta-pen"><img class="img-tar" src="img/circulo.png" alt="">Pendiente</button>
+                <h3 class="tar-precio">$100.000</h3>
+                <p class="tar-fecha">Vence: 31 Mar</p>
+            </div>
+            <div class="tar-infor">
+                <h4 class="tar-titulo">Febrero 2025</h4>
+                <button class="esta-ven"><img class="img-tar" src="img/reloj-de-pared-negro.png" alt="">Vencido</button>
+                <h3 class="tar-precio">$100.000</h3>
+                <p class="tar-fecha">Venció: 28 Feb</p>
+            </div>
+            <div class="tar-infor">
+                <h4 class="tar-titulo">Enero 2025</h4>
+                <button class="esta-paga"><img  class="img-tar" src="img/cheque.png" alt="">Pagado</button>
+                <h3 class="tar-precio">$100.000</h3>
+                <p class="tar-fecha">Pagado: 15 Ene · Efectivo</p>
+            </div>
+        </section>
+    </section>
+    <footer id="infor-final">
+        <section id="infor-plan">
+            <h3 class="titu-final">Mi plan de membresía</h3>
+            <h5 class="sub-final">Plan vigente actualmente</h5>
+            <div class="con-infor">
+                <span class="plan-sub">Tipo plan</span>
+                <span class="plan-valor">Mensual</span>
+            </div>
+            <div class="con-infor">
+                <span class="plan-sub">Valor mensual</span>
+                <span class="plan-valor">$100.000</span>
+            </div class="con-infor">
+            <div class="con-infor">
+                <span class="plan-sub">Día de corte</span>
+                <span class="plan-valor">Día 30 de cada mes</span>
+            </div>
+        </section>
+        <section id="noti-final">
+            <h3 class="titu-final">Notificaciones recientes</h3>
+            <h5 class="sub-final">Alertas sobre tu membresía</h5>
+            <div class="conte-noti">
+                <div class="conte-a">
+                <div id="detalle-1"></div>
+                <span class="plan-su">Feb 2025 lleva 16 días vencido.</span>
+                </div>
+                <span class="plan-valor"> Hace 2 días</span>
+            </div>
+            <div class="conte-noti">
+                <div class="conte-a">
+                <div id="detalle-2"></div>
+                <span class="plan-su">Mar 2025 vence en 14 días. Recuerda pagar.</span>
+                </div>
+                <span class="plan-valor">Hace 1 día</span>
+            </div>
+            <div class="conte-noti">
+                <div class="conte-a">
+                <div id="detalle-3"></div>
+                <span class="plan-su">Ene 2025 pago registrado exitosamente</span>
+                </div>
+                <span class="plan-valor">15 Ene 2025</span>
+            </div>
+        </section>
+    </footer>
+</main>
+</body>
+</html>
