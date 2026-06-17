@@ -212,6 +212,12 @@
     padding: 15px;
     margin-bottom: 15px;
     background: var(--color-gris-fondo);
+    background: #ffffff;
+    border: 1px solid #e2e8f0; 
+    border-radius: 12px; 
+    padding: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Sombreado para dar volumen */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .solicitud-cuerpo {
@@ -222,7 +228,9 @@
 }
 
 .img-solicitud {
-    width: 50px; height: 50px; object-fit: contain;
+    width: 150px; 
+    height: 150px; 
+    object-fit: contain;
 }
 
 .solicitud-detalles {
@@ -537,15 +545,6 @@ dialog.modal::backdrop {
     margin-top: 15px;
 }
 
-.tarjeta-solicitud {
-    background: #ffffff;
-    border: 1px solid #e2e8f0; 
-    border-radius: 12px; 
-    padding: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Sombreado para dar volumen */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
 .tarjeta-solicitud:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
     border-color: #cbd5e1;
@@ -652,4 +651,144 @@ dialog.modal::backdrop {
     width: 75%;
     height: 75%;
     object-fit: contain;
+}
+
+/* Checkbox para marcar como recibido */
+.check-recibido {
+    display: none;
+}
+
+.btn-marcar-recibido {
+    background: #1eaf52;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.label-marcar-recibido {
+    display: inline-block;
+    background: #1eaf52;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.label-marcar-recibido:hover {
+    background: #17903f;
+}
+
+.check-recibido:checked ~ .solicitud-cuerpo .estado-tag {
+    background: #c8e6c9;
+    color: #1eaf52;
+}
+
+.check-recibido:checked ~ .solicitud-cuerpo .label-marcar-recibido {
+    background: #888888;
+    cursor: default;
+    pointer-events: none;
+}
+
+.check-recibido:checked ~ .solicitud-cuerpo .label-marcar-recibido {
+    content: "Recibido";
+}
+
+.seccion-comentario-recibido {
+    display: none;
+    margin-top: 12px;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.check-recibido:checked ~ .seccion-comentario-recibido {
+    display: flex;
+}
+
+.seccion-comentario-recibido label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.seccion-comentario-recibido textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    resize: none;
+    min-height: 70px;
+    font-family: inherit;
+    outline: none;
+}
+
+.seccion-comentario-recibido textarea:focus {
+    border-color: #1eaf52;
+}
+
+.check-recibido:checked ~ .solicitud-cuerpo .estado-listo {
+    background: #c8e6c9;
+    color: #1eaf52;
+}
+
+.check-recibido:checked ~ .solicitud-comentario-usuario {
+    display: none;
+}
+
+.estrellas-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.estrellas-rating input {
+    display: none;
+}
+
+.estrellas-rating label {
+    font-size: 1.8rem;
+    color: #dcdcdc;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.estrellas-rating input:checked ~ label,
+.estrellas-rating label:hover,
+.estrellas-rating label:hover ~ label {
+    color: #fad755;
+}
+
+.btn-enviar-comentario {
+    align-self: flex-end;
+    background: #1eaf52;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-enviar-comentario:hover {
+    background: #17903f;
+}
+
+.lista-solicitudes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
 }

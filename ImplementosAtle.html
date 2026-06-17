@@ -41,16 +41,11 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#" title="Validación de Cuentas">
-                    <img src="Frontend Web/img/usuarios.png" alt="">
-                </a>
-            </li>
         </ul>
     </div>
 
     <!-- BARRA 1 - Superior -->
-    <header>
+    <header class="Barra1-contenedor">
         <nav>
             <div class="contenedor">
                 <div class="Barra1">
@@ -223,6 +218,10 @@
                 </div>
 
                 <div class="tarjeta-solicitud">
+                    <div class="tarjeta-solicitud">
+            
+                    <input type="checkbox" id="recibido-1" class="check-recibido">
+
                     <div class="solicitud-cuerpo">
                         <img src="Frontend Web/img/Mochila.png" alt="Mochila" class="img-solicitud">
                         <div class="solicitud-detalles">
@@ -233,12 +232,33 @@
                         </div>
                         <div class="solicitud-acciones">
                             <span class="estado-tag estado-listo">Listo para entregar</span>
-                            <button class="btn-cancelar-pedido">Cancelar</button>
+                            <label for="recibido-1" class="label-marcar-recibido">Marcar como recibido</label>
                         </div>
                     </div>
+
                     <div class="solicitud-comentario-usuario">
                         <label>Añadir o editar comentario sobre este pedido:</label>
-                        <input type="text" value="Pasa mi compañera de equipo a recogerlo hoy por la tarde." placeholder="Escribe una instrucción o nota sobre tu pedido...">
+                        <input type="text" value="Pasa mi compañera de equipo a recogerlo hoy por la tarde.">
+                    </div>
+
+                    <div class="seccion-comentario-recibido">
+                        <label>Deja una reseña (opcional):</label>
+
+                        <div class="estrellas-rating">
+                            <input type="radio" id="star5-1" name="rating-1" value="5">
+                            <label for="star5-1">★</label>
+                            <input type="radio" id="star4-1" name="rating-1" value="4">
+                            <label for="star4-1">★</label>
+                            <input type="radio" id="star3-1" name="rating-1" value="3">
+                            <label for="star3-1">★</label>
+                            <input type="radio" id="star2-1" name="rating-1" value="2">
+                            <label for="star2-1">★</label>
+                            <input type="radio" id="star1-1" name="rating-1" value="1">
+                            <label for="star1-1">★</label>
+                        </div>
+
+                        <textarea id="comentario-recibido-1" placeholder="Ej: El producto llegó en perfectas condiciones..."></textarea>
+                        <button type="button" class="btn-enviar-comentario">Enviar reseña</button>
                     </div>
                 </div>
             </div>
@@ -297,30 +317,32 @@
                 </div>
             </div>
         </dialog>
-    </div>
 
-    <dialog id="modalCancelarDialog" class="modal">
-        <div class="modal-fondo">
-            <div class="modal-contenedor modal-confirmacion-alerta">
-                <button class="btn-cerrar-modal" onclick="cerrarModalCancelar()">&times;</button>
-                
-                <div class="modal-confirmar-contenido">
+        <!-- Cancelar Solicitud -->
+        <dialog id="modalCancelarDialog" class="modal">
+            <div class="modal-fondo">
+                <div class="modal-contenedor modal-confirmacion-alerta">
+                    <button class="btn-cerrar-modal" onclick="cerrarModalCancelar()">&times;</button>
                     
-                    <div class="contenedor-logo-alerta">
-                        <img src="Frontend Web/img/peligro.png" alt="Alerta Club" class="imagen-alerta-club">
-                    </div>
+                    <div class="modal-confirmar-contenido">
+                        
+                        <div class="contenedor-logo-alerta">
+                            <img src="Frontend Web/img/peligro.png" alt="Alerta Club" class="imagen-alerta-club">
+                                </div>
 
-                    <h3>¿Está seguro de que desea cancelar este pedido?</h3>
-                    <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
-                    
-                    <div class="modal-confirmar-botones">
-                        <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()">No, mantener</button>
-                        <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()">Sí, cancelar</button>
+                        <h3>¿Está seguro de que desea cancelar este pedido?</h3>
+                        <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
+                        
+                        <div class="modal-confirmar-botones">
+                            <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()">No, mantener</button>
+                            <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()">Sí, cancelar</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </dialog>
         </div>
-    </dialog>
+    </div>
 
     <script>
         const modalSolicitud = document.getElementById('modalDialog');
