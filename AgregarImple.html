@@ -50,7 +50,7 @@
     </div>
 
     <!-- BARRA 1 - Superior -->
-    <header>
+    <header class="Barra1-contenedor">
         <nav>
             <div class="contenedor">
                 <div class="Barra1">
@@ -94,6 +94,7 @@
                         <option value="" disabled selected>Seleccione tipo de producto</option>
                         <option value="ropa">Ropa</option>
                         <option value="accesorios">Accesorios</option>
+                        <option value="calzado">Calzado</option>
                     </select>
                 </div>
                 
@@ -126,17 +127,97 @@
                 <label>Agregar Foto:</label>
                 <div class="zona-drop" id="zonaDrop">
                     <input type="file" id="inputFoto" accept="image/*" style="display: none;">
-                    <div class="contenido-drop">
-                        <div class="icono-nube-placeholder">☁️</div> 
+                    <div class="contenido-drop" id="contenidoDrop">
+                        <div class="icono-nube-placeholder">☁️</div>
                         <p>Arrastra una imagen aquí o <span class="resaltado-click">haga click para subir</span></p>
                     </div>
+                    <img id="previstaFoto" style="display:none; max-width:100%; max-height:180px; border-radius:8px; object-fit:contain;">
                 </div>
             </div>
 
             <div class="contenedor-bnt-guardar">
-                <a href="ImplementosAdmi.html" class="btn-guardar">Guardar Implemento</a>
+                <button type="button" class="btn-guardar" id="btn-guardar">Guardar Implemento</button>
             </div>
         </form>
+
+        <script>
+            // --- Zona de foto ---
+            const zonaDrop = document.getElementById('zonaDrop');
+            const inputFoto = document.getElementById('inputFoto');
+            const contenidoDrop = document.getElementById('contenidoDrop');
+            const previstaFoto = document.getElementById('previstaFoto');
+
+            zonaDrop.addEventListener('click', () => inputFoto.click());
+
+            inputFoto.addEventListener('change', () => {
+                const archivo = inputFoto.files[0];
+                if (archivo) mostrarPreview(archivo);
+            });
+
+            zonaDrop.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zonaDrop.style.borderColor = '#cc0000';
+                zonaDrop.style.backgroundColor = '#fff5f5';
+            });
+
+            zonaDrop.addEventListener('dragleave', () => {
+                zonaDrop.style.borderColor = '';
+                zonaDrop.style.backgroundColor = '';
+            });
+
+            zonaDrop.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zonaDrop.style.borderColor = '';
+                zonaDrop.style.backgroundColor = '';
+                const archivo = e.dataTransfer.files[0];
+                if (archivo && archivo.type.startsWith('image/')) {
+                    const dt = new DataTransfer();
+                    dt.items.add(archivo);
+                    inputFoto.files = dt.files;
+                    mostrarPreview(archivo);
+                }
+            });
+
+            function mostrarPreview(archivo) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previstaFoto.src = e.target.result;
+                    previstaFoto.style.display = 'block';
+                    contenidoDrop.style.display = 'none';
+                };
+                reader.readAsDataURL(archivo);
+            }
+
+            // --- Guardar ---
+            document.getElementById('btn-guardar').addEventListener('click', () => {
+                const nombre = document.getElementById('nombre').value.trim();
+                const tipo = document.getElementById('tipo').value;
+                const cantidad = document.getElementById('cantidad').value;
+                const estado = document.getElementById('estado').value;
+                const precio = document.getElementById('precio').value;
+
+                if (!nombre || !tipo || !cantidad || !estado || !precio) {
+                    alert('Por favor completa todos los campos obligatorios.');
+                    return;
+                }
+
+                const archivo = inputFoto.files[0];
+
+                const guardar = (imgSrc) => {
+                    sessionStorage.setItem('nuevaImg', imgSrc);
+                    const params = new URLSearchParams({ nombre, tipo, cantidad, estado, precio });
+                    window.location.href = 'ImplementosAdmi.html?' + params.toString();
+                };
+
+                if (archivo) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => guardar(e.target.result);
+                    reader.readAsDataURL(archivo);
+                } else {
+                    guardar('Frontend Web/img/Uniforme.png');
+                }
+            });
+        </script>
     </div>
 </body>
 </html>
