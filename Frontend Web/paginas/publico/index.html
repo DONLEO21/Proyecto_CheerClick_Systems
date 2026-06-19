@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CheerClick</title>
     <link rel="stylesheet" href="/Frontend Web/css/styles.css">
     <link rel="icon" href="../img/logo/logo.png" type="image">
 </head>
-<body>
+<body class="pagina-publica">
     <header>
         <nav class="nav-publica">
             <div class="nav-publica-contenedor">
                 <div class="logo">
                     <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
+                    <p><strong>CLUB DEPORTIVO</strong><br>
+                    BLOOD TIGERS CHEER</p>
                 </div>
                 <div class="nav-publica-links">
                     <ul>
@@ -27,9 +34,7 @@
                             </ul>
                         </li>
                         <li><a href="../publico/index.html#footer">Contacto</a></li>
-                        <li><a href="/Frontend Web/paginas/autenticacion/usuario.html?vista=inicio-sesion">
-                            Iniciar sesión
-                        </a></li>
+                        <li><a href="../autenticacion/usuario.html?vista=inicio-sesion">Iniciar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,78 +44,68 @@
     <main>
         <!-- Sección Principal -->
         <section id="hero">
+        <div class="contenedor hero-layout">
 
-            <div class="contenedor">
+        <div class="hero-contenido">
+            <h1>CLUB DEPORTIVO BLOOD TIGERS CHEER</h1>
 
-                <div class="hero-contenido">
+            <p>
+                Supera tus límites. Vive el cheerleading. En Blood Tigers Cheer entrenas,
+                compites y creces no solo como deportista, sino como persona integral,
+                en un entorno que impulsa tu disciplina y confianza.
+            </p>
 
-                    <h1>
-                        CLUB DEPORTIVO BLOOD TIGERS CHEER
-                    </h1>
+            <div class="hero-botones">
+                <a href="#" class="btn btn-primario">Registrarse</a>
+                <a href="#" class="btn btn-secundario">Iniciar sesión</a>
+            </div>
 
-                    <p>
-                        Supera tus límites. Vive el cheerleading. En Blood Tigers Cheer entrenas, compites y creces no solo como deportista, sino como persona integral, en un entorno que impulsa tu disciplina y confianza
-                    </p>
-                
-                    <div class="hero-botones">
-                        <a href="/Frontend Web/paginas/autenticacion/usuario.html?vista=registro" class="btn btn-primario">
-                            Registrarse
-                        </a>
+            <div class="logros">
+                <div>
+                    <h2>8+</h2>
+                    <p>Años de experiencia</p>
+                </div>
 
-                        <a href="/Frontend Web/paginas/autenticacion/usuario.html?vista=inicio-sesion" class="btn btn-secundario">
-                            Iniciar sesión
-                        </a>
-                    </div>
+                <div>
+                    <h2>5</h2>
+                    <p>Niveles de competencia</p>
+                </div>
 
-
-                    <div class="logros">
-                        <div>
-                            <h2>8 +</h2>
-                            <p>Años de Experiencia</p>
-                        </div>
-
-                        <div>
-                            <h2>5 </h2>
-                            <p>Niveles de Competencia</p>
-                        </div>
-
-                        <div>
-                            <h2>10 +</h2>
-                            <p>Titulos Ganados</p>
-                        </div>
-                        
-                    </div>
+                <div>
+                    <h2>10+</h2>
+                    <p>Títulos ganados</p>
                 </div>
             </div>
+        </div>
 
-            <div class="hero-imagen">
-                <img src="/Frontend Web/img/equipo-blood-tigers.jpg" alt="Equipo Blood Tigers Cheer">
-            </div>
-        </section>
+        <div class="hero-imagen">
+            <img src="/Frontend Web/img/equipo-blood-tigers.jpg"
+                 alt="Equipo Blood Tigers Cheer">
+        </div>
+
+    </div>
+</section>
 
         <!-- Sección Nosotros -->
-         <section id="nosotros">
-            <div class="contenedor">
-                <div class="nosotros-contenido">
+        <section id="nosotros">
+    <div class="contenedor">
+        <div class="seccion-titulo">
+            <h1>¿QUIÉNES SOMOS?</h1>
+        </div>
 
-                    <div class="seccion-titulo">
-                        <h1>
-                            ¿QUIÉNES SOMOS?
-                        </h1>
-                    </div>
+        <div class="nosotros-layout">
+            <div class="nosotros-info">
+                <h2>
+                    MÁS QUE UN CLUB,<br>
+                    UNA FAMILIA
+                </h2>
 
-                    <h2>
-                        MÁS QUE UN CLUB, <br>
-                        UNA FAMILIA
-                    </h2>
+                <p>
+                    Blood Tigers Cheer es un club deportivo comprometido con el desarrollo integral de cada atleta, combinando disciplina, trabajo en equipo y pasión por el cheerleading.
+                </p>
 
-                    <p>
-                        Blood Tigers Cheer es un club deportivo comprometido con el desarrollo integral de cada atleta, combinando disciplina, trabajo en equipo y pasión por el cheerleading.
-                    </p>
-
-                    <div class="nosotros-imagen">
-                        <img src="/Frontend Web/img/blood-tigers-competencia.jpg" alt="Equipo Blood Tigers Cheer">
-                    </div>
+                <div class="nosotros-imagen">
+                    <img src="/Frontend Web/img/blood-tigers-competencia.jpg" alt="Equipo Blood Tigers Cheer">
 
                     <div class="historia-tarjeta">
                         <h3>8+</h3>
@@ -118,49 +113,61 @@
                     </div>
                 </div>
             </div>
+
             <div class="nosotros-valores">
                 <article class="valor-tarjetas">
                     <img src="/Frontend Web/img/iconos/objetivos.png" alt="Objetivos">
-
-                    <h3>Entrenamiento de Élite</h3>
-                    <p>
-                        Metodología profesional adaptada a cada nivel desde formativo hasta competencia nacional.
-                    </p>
+                    <div class="valor-info">
+                        <h3>Entrenamiento de Élite</h3>
+                        <p>Metodología profesional adaptada a cada nivel desde formativo hasta competencia nacional.</p>
+                    </div>
                 </article>
 
                 <article class="valor-tarjetas">
                     <img src="/Frontend Web/img/iconos/apreton-de-manos.png" alt="Apretón de manos">
-                    <h3>Trabajo en Equipo</h3>
-                    <p>
-                        Fomentamos respeto, compañerismo y liderazgo dentro y fuera de la pista.
-                    </p>
+                    <div class="valor-info">
+                        <h3>Trabajo en Equipo</h3>
+                        <p>Fomentamos respeto, compañerismo y liderazgo dentro y fuera de la pista.</p>
+                    </div>
                 </article>
 
                 <article class="valor-tarjetas">
                     <img src="/Frontend Web/img/iconos/medalla-de-oro.png" alt="Medalla de oro">
-                    <h3>Competencia de Alto Nivel</h3>
-                    <p>
-                        Participamos en torneos regionales y nacionales con rutinas de nivel internacional.
-                    </p>
+                    <div class="valor-info">
+                        <h3>Competencia de Alto Nivel</h3>
+                        <p>Participamos en torneos regionales y nacionales con rutinas de nivel internacional.</p>
+                    </div>
                 </article>
 
                 <article class="valor-tarjetas">
                     <img src="/Frontend Web/img/iconos/fuerte.png" alt="Brazo fuerte">
-                    <h3>Desarrollo Integral</h3>
-                    <p>Formamos atletas seguros, disciplinados y comprometidos con sus metas</p>
+                    <div class="valor-info">
+                        <h3>Desarrollo Integral</h3>
+                        <p>Formamos atletas seguros, disciplinados y comprometidos con sus metas.</p>
+                    </div>
                 </article>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Sección Servicios -->
         <section id="servicios">
             <div class="contenedor">
-                <div class="servicios-contedido">
+                <div class="servicios-contenido">
                     <div class="seccion-titulo">
                         <h1>
-                            NUESTROS SERVICIOS
+                            SERVICIOS
                         </h1>
                     </div>
+
+                    <h2>
+                        NUESTROS SERVICIOS
+                    </h2>
+
+                    <p>
+                        En Blood Tigers preparamos atletas completos, fuertes y disciplinados. A través de nuestras diferentes áreas de entrenamiento, <br>garantizamos un proceso técnico y seguro adaptado a todas las edades y niveles de rendimiento.
+                    </p>
 
                     <div class="servicios-valores">
 
@@ -175,15 +182,31 @@
 
                         <article class="servicio-tarjetas">
                             <img src="/Frontend Web/img/servicios/acondicionamiento.jpg" alt="Acondicionamiento físico">
-                            <h2>Acondicionamiento Físico</h2>
+                            <h2>Gimnasia</h2>
                             <p>
-                                Realizamos sesiones enfocadas en fuerza, resistencia y flexibilidad, pilares del rendimiento deportivo que preparan el cuerpo para ejecutar cada movimiento con seguridad y control.
+                                Desarrollamos la potencia, flexibilidad y técnica de ejecución en acrobacias de suelo y saltos. Trabajamos desde las bases posturales hasta giros avanzados para garantizar ejecuciones limpias, estables y seguras en cada rutina.
+                            </p>
+                        </article>
+
+                        <article class="servicio-tarjetas">
+                            <img src="/Frontend Web/img/servicios/acondicionamiento.jpg" alt="Acondicionamiento físico">
+                            <h2>Físico/Cardio</h2>
+                            <p>
+                                Maximizamos la resistencia anaeróbica, la fuerza explosiva y la agilidad de los atletas. Preparamos el cuerpo para mantener la máxima energía y precisión técnica durante los exigentes minutos que dura la rutina en competencia.
+                            </p>
+                        </article>
+
+                        <article class="servicio-tarjetas">
+                            <img src="/Frontend Web/img/servicios/acondicionamiento.jpg" alt="Acondicionamiento físico">
+                            <h2>Coreografía</h2>
+                            <p>
+                                El momento de brillar y conectar en la pista. Creamos secuencias visuales coordinadas que combinan baile, sincronía y actitud, convirtiendo cada bloque musical en un espectáculo memorable para los jueces.
                             </p>
                         </article>
 
                         <article class="servicio-tarjetas">
                             <img src="/Frontend Web/img/servicios/trabajo-en-equipo.jpg" alt="Trabajo en equipo">
-                            <h2>Trabajo en Equipo (partner y acrobacia)</h2>
+                            <h2>Trabajo en Equipo Partner</h2>
                             <p>Entrenamos habilidades de partner y grupos acrobáticos, fortaleciendo la confianza, coordinación y sincronización entre los atletas. Esta unión es la base de nuestro éxito en el escenario.</p>
                         </article>
                     </div>
@@ -292,7 +315,7 @@
                     </div>
 
                     <h2>
-                        Horarios de Entrenamiento
+                        HORARIOS DE ENTRENAMIENTO
                     </h2>
 
                     <p>
@@ -402,7 +425,7 @@
                             <ul class="lista-horarios">
                                 <li>
                                     <p class="dia">Miércoles</p>
-                                    <p class="hora">8:00 - 10:00 PM</p>
+                                    <p class="hora">8:00 - 10:00 PM
                                 </li>
                                 <li>
                                     <p class="dia">Sábado</p>
@@ -498,3 +521,4 @@
 
 </body>
 </html>
+
