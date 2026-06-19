@@ -19,3 +19,7 @@
 @import url("./componentes/mensajes.css");
 @import url("./componentes/pasos.css");
 @import url("./componentes/progreso.css");
+
+/*Paginas*/
+
+@import url(./paginas/index.css);
