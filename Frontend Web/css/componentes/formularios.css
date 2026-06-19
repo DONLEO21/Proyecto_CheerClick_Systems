@@ -21,20 +21,20 @@ form{
 
 form h2{
     text-align:center;
-    margin-top: var(--espacio-md);
+    margin-top: var(--espacio-xs);
 
 }
 
 form h3{
     margin-top:var(--espacio-lg);
-    margin-bottom: var(--espacio-md);
+    margin-bottom: var(--espacio-sm);
 }
 
 /* Textos adicionales*/
 
 form > p{
     text-align:center;
-
+    margin-top: var(--espacio-md);
 }
 
 form .btn{

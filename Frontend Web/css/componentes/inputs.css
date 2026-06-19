@@ -1,6 +1,6 @@
 label{
     display:block;
-    margin-bottom: var(--espacio-xs);
+    margin-bottom: none;
     font-size: var(--texto-sm);
     font-weight:600;
 
@@ -9,7 +9,7 @@ label{
 input, select,textarea{
     width:100%;
     box-sizing:border-box;
-    padding:var(--espacio-sm) var(--espacio-md);
+    padding: 10px 14px;
     border:1px solid var(--color-borde);
     border-radius:var(--radio-sm);
     background:var(--color-fondo);
@@ -20,7 +20,7 @@ input, select,textarea{
 }
 
 input::placeholder{
-    color:var(--color-placeholder);
+    color:var(--color-texto-claro);
 }
 
 input:focus, select:focus, textarea:focus{

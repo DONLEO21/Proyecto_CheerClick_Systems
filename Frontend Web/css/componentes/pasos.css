@@ -2,8 +2,7 @@
 .pasos{
     display:flex;
     gap:var(--espacio-md);
-    margin-bottom: var(--espacio-xl);
-
+    margin-bottom: var(--espacio-md);
 }
 
 /*paso*/
@@ -27,6 +26,19 @@
 
 .indicador-pasos.activo{
     border-bottom: 3px solid var(--color-primario);
+
+}
+
+.indicador-pasos.activo span{
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--espacio-xs) auto;
 
 }
 
