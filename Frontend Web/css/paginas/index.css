@@ -195,7 +195,7 @@
 
 .nosotros-info h2{
     font-family: var(--fuente-titulo);
-    font-size: var(--texto-x);
+    font-size: var(--texto-xl);
     line-height: 1.1;
     color: var(--color-texto);
     margin: 0 0 var(--espacio-md);
