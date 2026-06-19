@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Frontend Web/css/styles.css">
-    <link rel="stylesheet" href="/Frontend Web/css/autenticacion.css">
     
     <title>Inicio</title>
 </head>
@@ -12,7 +11,6 @@
 <body>
 
 <dialog id="modal-autenticacion" class="modal modal-autenticacion">
-    <button type="button" class="btn-cerrar-modal" id="btn-cerrar-auth" aria-label="Cerrar">&times;</button>
 
     <!-- vista inicio sesion -->
     <section class="inicio-sesion vista-auth activo">
@@ -27,7 +25,7 @@
             <form id="form-inicio-sesion">
                 <div class="form-grupo">
                     <label for="rol">Rol</label>
-                    <select id="rol" name="rol">
+                    <select id="rol" name="rol" required>
                         <option value="" disabled selected>Seleccione rol...</option>
                         <option value="atleta">Atleta</option>
                         <option value="entrenador">Entrenador</option>
@@ -37,7 +35,7 @@
 
                 <div class="form-grupo">
                     <label for="correo">Correo</label>
-                    <input type="email" id="correo" name="correo" placeholder="Su@gmail.com">
+                    <input type="email" id="correo" name="correo" placeholder="Su@gmail.com" required maxlength="50">
                 </div>
 
                 <div class="form-grupo">
@@ -45,7 +43,7 @@
                         Contraseña
                     </label>
                     <div class="contrasena-contenedor">
-                        <input type="password" id="contrasena" name="contrasena" placeholder="••••••••">
+                        <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required max="16">
 
                         <button type="button" class="btn-ver-contrasena">
                             👁
@@ -78,7 +76,7 @@
 
             <header class="registro-header">
                 <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo Blood Tigers">
-                <h1>Crear Cuenta</h1>
+                <h1>Crear cuenta</h1>
                 <p>Complete su información</p>
             </header>
 
@@ -86,7 +84,7 @@
 
                 <div class="indicador-pasos activo" data-paso="1">
                     <span>1</span>
-                    <p>Datos Personales</p>
+                    <p>Datos personales</p>
                 </div>
 
                 <div class="indicador-pasos" data-paso="2">
@@ -98,7 +96,7 @@
             <form id="form-registro">
                 <!-- PASO 1 -->
                 <div class="paso-contenido activo" data-step="1">
-                    <h2>Datos Personales</h2>
+                    <h2>Datos personales</h2>
 
                     <div class="form-grupo">
                         <label for="tipo-rol">Rol</label>
@@ -121,7 +119,7 @@
                     </div>
 
                     <div class="form-grupo">
-                        <label for="tipo-documento">Tipo Documento</label>
+                        <label for="tipo-documento">Tipo de documento</label>
                         <select name="documento" id="tipo-documento" required >
                             <option value="" disabled selected>Seleccione tipo de documento...</option>
                             <option value="cedula-ciudadania">Cédula de ciudadanía</option>
@@ -132,13 +130,13 @@
                     </div>
 
                     <div class="form-grupo">
-                        <label for="numero-documento">Número de Documento</label>
+                        <label for="numero-documento">Número de documento</label>
                         <input type="text" name="numero-documento" id="numero-documento" maxlength="15" required>
                     </div>
 
                     <div class="form-grupo">
                         <label for="tipo-genero">Género</label>
-                        <select name="genero" id="tipo-genero">
+                        <select name="genero" id="tipo-genero" required>
                             <option value="" disabled selected>Seleccione género...</option>
                             <option value="femenino">Femenino</option>
                             <option value="masculino">Masculino</option>
@@ -147,18 +145,18 @@
                     </div>
 
                     <div class="form-grupo">
-                        <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                        <label for="fecha-nacimiento">Fecha de acimiento</label>
                         <input type="date" name="fecha-nacimiento" id="fecha-nacimiento" required>
                     </div>
 
                     <div class="form-grupo">
                         <label for="telefono-atleta">Teléfono</label>
-                        <input type="tel" name="telefono-atleta" id="telefono-atleta" maxlength="12">
+                        <input type="tel" name="telefono-atleta" id="telefono-atleta" required maxlength="12">
                     </div>
 
                     <div class="form-grupo campo-eps">
                         <label for="certificado-eps">Certificado EPS</label>
-                        <input type="file" name="certificado-eps" id="certificado-eps" accept=".pdf,.jpg,.png">
+                        <input type="file" name="certificado-eps" id="certificado-eps" accept=".pdf,.jpg,.png" required>
                     </div>
 
                     <h3>Datos Contacto de Emergencia</h3>
@@ -212,9 +210,7 @@
                             Contraseña
                         </label>
                         <div class="contrasena-contenedor">
-
-                            <input type="password" id="contrasena-registro" name="contrasena" required>
-
+                            <input type="password" id="contrasena-registro" name="contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16">
                             <button type="button" class="btn-ver-contrasena">
                                 👁
                             </button>
@@ -228,7 +224,7 @@
 
                         <div class="contrasena-contenedor">
 
-                            <input type="password" id="confirmar-contrasena-registro" name="confirmar-contrasena" required>
+                            <input type="password" id="confirmar-contrasena-registro" name="confirmar-contrasena" required placeholder="Repetir contraseña" minlength="8" maxlength="16">
 
                             <button type="button" class="btn-ver-contrasena">
                                 👁
@@ -268,7 +264,7 @@
             <form id="form-recuperar-contrasena">
                 <div class="form-grupo">
                     <label for="correo-recuperar">Correo</label>
-                    <input type="email" id="correo-recuperar" name="correo" placeholder="Tu@correo.com" required>
+                    <input type="email" id="correo-recuperar" name="correo" placeholder="Su@correo.com" required maxlength="50">
                 </div>
                 <button type="submit" class="btn btn-primario">Enviar código</button>
             </form>
@@ -283,7 +279,7 @@
     <section class="codigo-verificacion vista-auth">
         <div class="contenedor">
             <header>
-                <h1>Verificar Código</h1>
+                <h1>Verificar código</h1>
                 <p>
                     Ingrese el código enviado a <br>
                     <span id="correo-mostrado-verificacion">Ejemplo@gmail.com</span>
@@ -297,7 +293,7 @@
             </header>
 
             <form id="form-verificar-codigo">
-                <div class="codigo-verificacion-inputs">
+                <div class="codigo-verificacion-inputs" >
                     <input type="text" maxlength="1" required>
                     <input type="text" maxlength="1" required>
                     <input type="text" maxlength="1" required>
@@ -342,7 +338,7 @@
                     </label>
 
                     <div class="contrasena-contenedor">
-                        <input type="password" name="nueva-contrasena" id="nueva-contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16">
+                        <input type="password" name="nueva-contrasena" id="nueva-contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16" >
 
                         <button type="button" class="btn-ver-contrasena">
                             👁
@@ -369,7 +365,7 @@
 
                     <div class="contrasena-contenedor">
 
-                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena-nueva" required placeholder="Repita la contraseña" minlength="8" maxlength="16">
+                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena-nueva" required placeholder="Repetir la contraseña" minlength="8" maxlength="16">
 
                         <button type="button" class="btn-ver-contrasena">
                             👁
@@ -397,15 +393,18 @@
             de Validación
         </h2>
 
-        <p>
-            Gracias por registrarse en CheerClick Systems.<br>
-            Su solicitud fue enviada correctamente y se encuentra
-            pendiente de validación por parte del administrador.
-        </p>
-
         <div class="mensaje-validacion mensaje-validacion-registro">
-
+            <img src="/Frontend Web/img/iconos/exclamacion.png" alt="exclamacion">
+            <p>
+            ¡Gracias por registrarse en CheerClick Systems!<br>
+            Su cuenta está pendiente de validación por parte del administrador.<br>
+            Le enviaremos una notificaación cuando sea habilitada.
+            </p>
         </div>
+
+        <a href="../publico/index.html" type="button" class="btn btn-primario" id="btn-volver-inicio">
+            &#8592; Volver al inicio
+        </a>
     </div>
 </dialog>
 
@@ -428,7 +427,7 @@
         </div>
 
         <button type="button" class="btn btn-primario" id="btn-cerrar-modal-contrasena">
-            &#8592; Ir a Inicio de Sesión
+            &#8592; Ir a inicio de sesión
         </button>
     </div>
 </dialog>
@@ -437,9 +436,13 @@
     const modalAuth = document.getElementById('modal-autenticacion');
     const btnCerrarAuth = document.getElementById('btn-cerrar-auth');
 
+    if(btnCerrarAuth){
+        btnCerrarAuth.addEventListener('click', () => modalAuth.close())
+    }
+
     // Abre automáticamente al cargar
     window.addEventListener('DOMContentLoaded', () => modalAuth.showModal());
-    btnCerrarAuth.addEventListener('click', () => modalAuth.close());
+    
 
     const vistas = document.querySelectorAll('.vista-auth');
 
@@ -469,15 +472,22 @@
     document.getElementById('link-volver-recuperar-desde-codigo')
         .addEventListener('click', e => { e.preventDefault(); mostrarVista('recuperar-contrasena'); });
 
+    document.getElementById('btn-volver-inicio')
+        .addEventListener('click', () =>{
+            modalRegistro.close();
+        });
 
+        /*modal cuenta pendiente*/
     const modalRegistro = document.getElementById('modalRegistro');
 
     document.getElementById('form-registro')
         .addEventListener('submit', e => {
-            e.preventDefault();
-            modalAuth.close();
-            modalRegistro.showModal();
-        });
+        e.preventDefault();
+        console.log('submit ejecutado');
+
+        modalAuth.close();
+        modalRegistro.showModal();
+});
 
     const modalContrasena = document.getElementById('modalContrasena');
 
@@ -485,8 +495,43 @@
         .addEventListener('submit', e => {
             e.preventDefault();
             modalAuth.close();
-            modalRegistro.showModal();
+            modalContrasena.showModal();
         });
+    
+    const btnCerrarModalContrasena = document.getElementById('btn-cerrar-modal-contrasena');
+
+    btnCerrarModalContrasena.addEventListener('click', () => {
+
+        modalContrasena.close();
+        modalAuth.showModal();
+        mostrarVista('inicio-sesion');
+
+});
+
+    /* cambiar de paso en registro */
+    const btnSiguiente = document.getElementById('btn-siguiente');
+
+    btnSiguiente.addEventListener('click', () => {
+
+        // ocultar paso 1
+        document
+        .querySelector('[data-step="1"]')
+        .classList.remove('activo');
+
+        // mostrar paso 2
+        document
+        .querySelector('[data-step="2"]')
+        .classList.add('activo');
+
+        document
+        .querySelector('[data-paso="1"]')
+        .classList.remove('activo')
+
+        document
+        .querySelector('[data-paso="2"]')
+        .classList.add('activo')
+
+    });
 </script>
 
 </body>
