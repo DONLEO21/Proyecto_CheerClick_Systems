@@ -4,37 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Frontend Web/css/styles.css">
+    <link rel="stylesheet" href="/Frontend Web/css/autenticacion.css">
+    
     <title>Inicio</title>
 </head>
 
 <body>
-    <header>
-        <nav class="nav-publica">
-            <div class="nav-publica-contenedor">
-                <div class="logo">
-                    <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
-                </div>
-                <div class="nav-publica-links">
-                    <ul>
-                        <li><a href="../publico/index.html#hero">Home</a></li>
-                        <li><a href="../publico/index.html#nosotros">Nosotros</a></li>
-                        <li class="menu-desplegable">
-                            <a href="#">Programas</a>
-                            <ul class="submenu">
-                                <li><a href="../publico/index.html#servicios">Servicios</a></li>
-                                <li><a href="../publico/index.html#niveles">Niveles</a></li>
-                                <li><a href="../publico/index.html#horarios">Horarios</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="../publico/index.html#footer">Contacto</a></li>
-                        <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <dialog id="modal-autenticacion" class="modal modal-autenticacion">
-    <!-- ===================== modal inicio de sesion ===================== -->
+
+<dialog id="modal-autenticacion" class="modal modal-autenticacion">
+    <button type="button" class="btn-cerrar-modal" id="btn-cerrar-auth" aria-label="Cerrar">&times;</button>
+
+    <!-- vista inicio sesion -->
     <section class="inicio-sesion vista-auth activo">
         <div class="contenedor">
 
@@ -92,7 +72,7 @@
         </div>
     </section>
 
-    <!-- ===================== VISTA: REGISTRO ===================== -->
+    <!-- vista registro -->
     <section class="registro vista-auth">
         <div class="contenedor">
 
@@ -267,7 +247,7 @@
         </div>
     </section>
 
-    <!-- ===================== VISTA: RECUPERAR CONTRASEÑA ===================== -->
+    <!-- vista recuperar contraseña -->
     <section class="recuperar-contrasena vista-auth">
         <div class="contenedor">
             <header class="recuperar-contrasena-header">
@@ -299,7 +279,7 @@
         </p>
     </section>
 
-    <!-- ===================== VISTA: VERIFICAR CÓDIGO ===================== -->
+    <!-- vista verificar codigo -->
     <section class="codigo-verificacion vista-auth">
         <div class="contenedor">
             <header>
@@ -338,7 +318,7 @@
         </div>
     </section>
 
-    <!-- ===================== VISTA: CAMBIO DE CONTRASEÑA ===================== -->
+    <!-- vista cambio contraseña -->
     <section class="cambio-contrasena vista-auth">
         <div class="contenedor">
             <header>
@@ -406,7 +386,7 @@
 
 </dialog>
 
-<!-- ===================== MODAL: REGISTRO ENVIADO ===================== -->
+<!-- modal registro de cuenta en validacion -->
 <dialog id="modalRegistro" class="modal">
     <div class="modal-contenido">
 
@@ -425,23 +405,11 @@
 
         <div class="mensaje-validacion mensaje-validacion-registro">
 
-            <img src="/Frontend Web/img/iconos/exclamacion.png" alt="Información">
-
-            <p>
-                Una vez validada su cuenta, recibirá un mensaje
-                de confirmación al correo electrónico registrado.
-            </p>
-
         </div>
-
-        <button type="button" class="btn btn-primario" id="btn-cerrar-modal-registro">
-            &#8592; Volver al Inicio
-        </button>
-
     </div>
 </dialog>
 
-<!-- ===================== MODAL: CONTRASEÑA ACTUALIZADA ===================== -->
+<!-- modal cambio contraseña exitoso -->
 <dialog id="modalContrasena" class="modal">
     <div class="modal-contenido">
         <img src="/Frontend Web/img/iconos/marca-de-verificacion.png" alt="Contraseña actualizada">
@@ -466,152 +434,60 @@
 </dialog>
 
 <script>
-    /*  Control de vista dentro de modales*/
-    const modalAuth = document.getElementById("modal-autenticacion");
-    const vistasAuth = document.querySelectorAll(".vista-auth");
+    const modalAuth = document.getElementById('modal-autenticacion');
+    const btnCerrarAuth = document.getElementById('btn-cerrar-auth');
 
-    const wrapperRegistro = document.createElement("div");
-wrapperRegistro.id = "wrapper-registro";
-document.body.appendChild(wrapperRegistro);
+    // Abre automáticamente al cargar
+    window.addEventListener('DOMContentLoaded', () => modalAuth.showModal());
+    btnCerrarAuth.addEventListener('click', () => modalAuth.close());
 
-const seccionRegistro = document.querySelector(".registro");
+    const vistas = document.querySelectorAll('.vista-auth');
 
-function mostrarVista(claseVista) {
-    const esRegistro = claseVista === "registro";
-
-    if (esRegistro) {
-        // Mueve el formulario fuera del dialog al wrapper
-        wrapperRegistro.appendChild(seccionRegistro);
-        wrapperRegistro.style.display = "block";
-        seccionRegistro.classList.add("activo");
-        modalAuth.close();
-    } else {
-        // Devuelve el formulario al dialog y oculta el wrapper
-        if (wrapperRegistro.contains(seccionRegistro)) {
-            modalAuth.appendChild(seccionRegistro);
-            wrapperRegistro.style.display = "none";
-        }
-        vistasAuth.forEach(vista => vista.classList.remove("activo"));
-        document.querySelector("." + claseVista).classList.add("activo");
-        if (!modalAuth.open) modalAuth.showModal();
+    function mostrarVista(nombreClase) {
+        vistas.forEach(v => v.classList.remove('activo'));
+        document.querySelector('.' + nombreClase).classList.add('activo');
     }
-}
 
-window.abrirModalAuth = function(claseVista) {
-    const esRegistro = claseVista === "registro";
-    if (esRegistro) {
-        mostrarVista("registro");
-    } else {
-        mostrarVista(claseVista || "inicio-sesion");
-        if (!modalAuth.open) modalAuth.showModal();
-    }
-}
+    document.getElementById('link-ir-registro')
+        .addEventListener('click', e => { e.preventDefault(); mostrarVista('registro'); });
+
+    document.getElementById('link-ir-login-desde-registro')
+        .addEventListener('click', e => { e.preventDefault(); mostrarVista('inicio-sesion'); });
+
+    document.getElementById('link-olvide-contrasena')
+        .addEventListener('click', e => { e.preventDefault(); mostrarVista('recuperar-contrasena'); });
+
+    document.getElementById('link-volver-login-desde-recuperar')
+        .addEventListener('click', e => { e.preventDefault(); mostrarVista('inicio-sesion'); });
+
+    document.getElementById('form-recuperar-contrasena')
+        .addEventListener('submit', e => { e.preventDefault(); mostrarVista('codigo-verificacion'); });
+
+    document.getElementById('form-verificar-codigo')
+        .addEventListener('submit', e => { e.preventDefault(); mostrarVista('cambio-contrasena'); });
+
+    document.getElementById('link-volver-recuperar-desde-codigo')
+        .addEventListener('click', e => { e.preventDefault(); mostrarVista('recuperar-contrasena'); });
 
 
-    /* navegacion entre vistas de modales */
-    document.getElementById("link-ir-registro").addEventListener("click", (e) => {
-        e.preventDefault();
-        mostrarVista("registro");
-    });
+    const modalRegistro = document.getElementById('modalRegistro');
 
-    document.getElementById("link-ir-login-desde-registro").addEventListener("click", (e) => {
-        e.preventDefault();
-        mostrarVista("inicio-sesion");
-    });
+    document.getElementById('form-registro')
+        .addEventListener('submit', e => {
+            e.preventDefault();
+            modalAuth.close();
+            modalRegistro.showModal();
+        });
 
-    document.getElementById("link-olvide-contrasena").addEventListener("click", (e) => {
-        e.preventDefault();
-        mostrarVista("recuperar-contrasena");
-    });
+    const modalContrasena = document.getElementById('modalContrasena');
 
-    document.getElementById("link-volver-login-desde-recuperar").addEventListener("click", (e) => {
-        e.preventDefault();
-        mostrarVista("inicio-sesion");
-    });
-
-    document.getElementById("link-volver-recuperar-desde-codigo").addEventListener("click", (e) => {
-        e.preventDefault();
-        mostrarVista("recuperar-contrasena");
-    });
-
-    /* formulario inicio de sesion */
-    document.getElementById("form-inicio-sesion").addEventListener("submit", function (e) {
-        e.preventDefault();
-        // Aquí va la validación / petición al servidor
-    });
-
-    /* formulario recuperar contraseña a verificar codigo */
-    document.getElementById("form-recuperar-contrasena").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const correoIngresado = document.getElementById("correo-recuperar").value;
-        document.getElementById("correo-mostrado-verificacion").textContent = correoIngresado;
-        mostrarVista("codigo-verificacion");
-    });
-
-    /* formulario verificar codigo a cambio de contraeña */
-    document.getElementById("form-verificar-codigo").addEventListener("submit", function (e) {
-        e.preventDefault();
-        mostrarVista("cambio-contrasena");
-    });
-
-    /* formulario registro */
-    const formularioRegistro = document.getElementById("form-registro");
-    const modalRegistro = document.getElementById("modalRegistro");
-
-    formularioRegistro.addEventListener("submit", function (e) {
-        e.preventDefault();
-        modalAuth.close();
-        modalRegistro.showModal();
-    });
-
-    document.getElementById("btn-cerrar-modal-registro").addEventListener("click", () => {
-        modalRegistro.close();
-        modalAuth.close();
-        window.location.hash = "hero";
-    });
-
-    const btnSiguiente = document.getElementById("btn-siguiente");
-    const paso1 = document.querySelector('[data-step="1"]');
-    const paso2 = document.querySelector('[data-step="2"]');
-    const indicador1 = document.querySelector('[data-paso="1"]');
-    const indicador2 = document.querySelector('[data-paso="2"]');
-
-    btnSiguiente.addEventListener("click", () => {
-        paso1.classList.remove("activo");
-        paso2.classList.add("activo");
-        indicador1.classList.remove("activo");
-        indicador2.classList.add("activo");
-    });
-
-    /* formulario cambio de contraseña */
-    const formularioContrasena = document.getElementById("form-cambio-contrasena");
-    const modalContrasena = document.getElementById("modalContrasena");
-
-    formularioContrasena.addEventListener("submit", function (e) {
-        e.preventDefault();
-        modalAuth.close()
-        modalContrasena.showModal();
-    });
-
-    document.getElementById("btn-cerrar-modal-contrasena").addEventListener("click", () => {
-        modalContrasena.close();
-        mostrarVista("inicio-sesion");
-    });
-
-    window.addEventListener("DOMContentLoaded", () => {
-
-    const params =
-        new URLSearchParams(window.location.search);
-
-    const vista =
-        params.get("vista");
-
-    abrirModalAuth(
-        vista || "inicio-sesion"
-    );
-
-});
-
+    document.getElementById('form-cambio-contrasena')
+        .addEventListener('submit', e => {
+            e.preventDefault();
+            modalAuth.close();
+            modalRegistro.showModal();
+        });
 </script>
+
 </body>
 </html>
