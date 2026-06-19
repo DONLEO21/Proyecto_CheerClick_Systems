@@ -1,5 +1,6 @@
 .contenedor{
-    width: min(90%, 1200px);
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-
+    padding: 0 var(--espacio-lg);
 }
