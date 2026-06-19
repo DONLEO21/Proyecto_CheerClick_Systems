@@ -1,0 +1,219 @@
+/* ============================================================
+   auth.css — estilos del modal de autenticacion
+   complementa: reset, variables, global, botones, formularios,
+   inputs, mensajes, pasos, progreso y modales del proyecto.
+   no duplica lo ya definido en esos archivos.
+   ============================================================ */
+
+/* correccion: --color-gris se usa en pasos.css pero no esta en variables */
+:root {
+    --color-gris: var(--color-borde);
+}
+
+/* ============================================================
+   #modal-autenticacion
+   sobreescribe .modal para que ocupe toda la pantalla y el
+   scroll sea del propio dialogo (que cubre el viewport completo),
+   dando la sensacion de scroll del navegador sin barra interna.
+   ============================================================ */
+#modal-autenticacion {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: none;      /* anula el max-height:90vh de .modal */
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent; /* anula background:white de .modal */
+    box-shadow: none;
+    overflow-y: auto;      /* el dialogo entero scrollea, no un hijo */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal-autenticacion::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================================
+   tarjeta blanca de cada vista de autenticacion
+   anula .modal .contenedor {width:100%} para contener el formulario
+   ============================================================ */
+#modal-autenticacion .vista-auth .contenedor {
+    width: min(480px, calc(100vw - var(--espacio-sm) * 2));
+    background: white;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-md);
+    padding: var(--espacio-lg);
+    margin: var(--espacio-xl) auto var(--espacio-sm);
+}
+
+/* ============================================================
+   cabeceras de cada vista
+   ============================================================ */
+.inicio-header,
+.registro-header,
+.recuperar-contrasena-header,
+#modal-autenticacion .vista-auth header {
+    text-align: center;
+    margin-bottom: var(--espacio-lg);
+}
+
+/* texto descriptivo bajo el h1 */
+.inicio-header > p,
+.registro-header > p,
+#modal-autenticacion .vista-auth header > p {
+    color: var(--color-texto-claro);
+    font-size: var(--texto-sm);
+    margin-top: var(--espacio-xs);
+}
+
+/* ============================================================
+   pie de vista (texto "volver", "no tiene cuenta", etc.)
+   los que estan fuera del .contenedor se centran solos
+   ============================================================ */
+.vista-auth > .pie {
+    text-align: center;
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+    padding-bottom: var(--espacio-xl);
+    width: 100%;
+}
+
+/* el pie dentro del .contenedor (inicio-sesion) */
+.inicio-sesion .pie {
+    text-align: center;
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+    margin-top: var(--espacio-sm);
+}
+
+/* ============================================================
+   vista recuperar contraseña — textos del header
+   ============================================================ */
+.recuperar-contrasena-header h1 {
+    font-size: var(--texto-xl);
+    margin-bottom: 2px;
+}
+
+.recuperar-contrasena-header .subtitulo {
+    font-family: var(--fuente-titulo);
+    font-size: var(--texto-lg);
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.recuperar-contrasena-header .texto-info {
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+    margin-top: var(--espacio-xs);
+}
+
+/* ============================================================
+   vista verificar codigo — pie con boton reenviar
+   ============================================================ */
+.codigo-verificacion .pie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-xs);
+}
+
+.codigo-verificacion .pie p {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+}
+
+/* el boton de reenviar ya hereda estilos de button{} del reset */
+.codigo-verificacion .pie p button {
+    color: var(--color-secundario);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.codigo-verificacion .pie p button:hover {
+    color: var(--color-primario);
+}
+
+/* ============================================================
+   modales secundarios: registro pendiente y contrasena exitosa
+   sobreescriben .modal ya que estos son solo de confirmacion
+   ============================================================ */
+#modalRegistro,
+#modalContrasena {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100vw;
+    max-height: none;
+    overflow: visible;
+}
+
+#modalRegistro::backdrop,
+#modalContrasena::backdrop {
+    background: rgba(0, 0, 0, 0.50);
+}
+
+/* tarjeta de confirmacion */
+#modalRegistro .modal-contenido,
+#modalContrasena .modal-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-lg);
+    background: white;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-md);
+    width: min(460px, calc(100vw - var(--espacio-sm) * 2));
+}
+
+#modalRegistro .modal-contenido img,
+#modalContrasena .modal-contenido img {
+    width: 72px;
+    height: auto;
+    margin-bottom: var(--espacio-xs);
+}
+
+#modalRegistro .modal-contenido h2,
+#modalContrasena .modal-contenido h2 {
+    font-family: var(--fuente-titulo);
+    font-size: var(--texto-lg);
+    line-height: 1.3;
+}
+
+#modalRegistro .modal-contenido > p,
+#modalContrasena .modal-contenido > p {
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   responsive movil
+   ============================================================ */
+@media (max-width: 480px) {
+
+    #modal-autenticacion .vista-auth .contenedor {
+        padding: var(--espacio-md);
+        margin-top: var(--espacio-lg);
+    }
+
+    .codigo-verificacion-inputs input {
+        width: 40px;
+        height: 44px;
+    }
+
+    .pasos {
+        gap: var(--espacio-sm);
+    }
+}
