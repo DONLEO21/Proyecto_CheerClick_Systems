@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Frontend Web/css/styles.css">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-publica">
+            <div class="nav-publica-contenedor">
+                <div class="logo">
+                    <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
+                </div>
+                <div class="nav-publica-links">
+                    <ul>
+                        <li><a href="../publico/index.html#hero">Home</a></li>
+                        <li><a href="../publico/index.html#nosotros">Nosotros</a></li>
+                        <li class="menu-desplegable">
+                            <a href="#">Programas</a>
+                            <ul class="submenu">
+                                <li><a href="../publico/index.html#servicios">Servicios</a></li>
+                                <li><a href="../publico/index.html#niveles">Niveles</a></li>
+                                <li><a href="../publico/index.html#horarios">Horarios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../publico/index.html#footer">Contacto</a></li>
+                        <li><a href="inicio-sesion.html">Iniciar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <dialog id="modal-autenticacion" class="modal modal-autenticacion">
+    <!-- ===================== modal inicio de sesion ===================== -->
+    <section class="inicio-sesion vista-auth activo">
+        <div class="contenedor">
+
+            <header class="inicio-header">
+                <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo Blood Tigers">
+                <h1>BIENVENIDO</h1>
+                <p>Ingrese a su panel</p>
+            </header>
+
+            <form id="form-inicio-sesion">
+                <div class="form-grupo">
+                    <label for="rol">Rol</label>
+                    <select id="rol" name="rol">
+                        <option value="" disabled selected>Seleccione rol...</option>
+                        <option value="atleta">Atleta</option>
+                        <option value="entrenador">Entrenador</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" placeholder="Su@gmail.com">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="contrasena">
+                        Contraseña
+                    </label>
+                    <div class="contrasena-contenedor">
+                        <input type="password" id="contrasena" name="contrasena" placeholder="••••••••">
+
+                        <button type="button" class="btn-ver-contrasena">
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fila-opciones">
+                    <label>
+                        <input type="checkbox" name="recordar">
+                        Recordarme
+                    </label>
+                    <a href="#" class="link-texto" id="link-olvide-contrasena">Olvidé mi contraseña</a>
+                </div>
+
+                <p class="error">Complete todos los campos.</p>
+
+                <button type="submit" class="btn btn-primario">
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <p class="pie">¿No tiene cuenta? <a href="#" class="link-texto" id="link-ir-registro">Regístrese</a></p>
+        </div>
+    </section>
+
+    <!-- ===================== VISTA: REGISTRO ===================== -->
+    <section class="registro vista-auth">
+        <div class="contenedor">
+
+            <header class="registro-header">
+                <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo Blood Tigers">
+                <h1>Crear Cuenta</h1>
+                <p>Complete su información</p>
+            </header>
+
+            <div class="pasos">
+
+                <div class="indicador-pasos activo" data-paso="1">
+                    <span>1</span>
+                    <p>Datos Personales</p>
+                </div>
+
+                <div class="indicador-pasos" data-paso="2">
+                    <span>2</span>
+                    <p>Seguridad</p>
+                </div>
+            </div>
+
+            <form id="form-registro">
+                <!-- PASO 1 -->
+                <div class="paso-contenido activo" data-step="1">
+                    <h2>Datos Personales</h2>
+
+                    <div class="form-grupo">
+                        <label for="tipo-rol">Rol</label>
+                        <select name="rol" id="tipo-rol" required>
+                            <option value="" disabled selected>Seleccione rol...</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="atleta">Atleta</option>
+                            <option value="entrenador">Entrenador</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="nombre-atleta">Nombre(s)</label>
+                        <input type="text" id="nombre-atleta" name="nombre-atleta" maxlength="30" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="apellido-atleta">Apellido(s)</label>
+                        <input type="text" id="apellido-atleta" name="apellido-atleta" maxlength="30" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="tipo-documento">Tipo Documento</label>
+                        <select name="documento" id="tipo-documento" required >
+                            <option value="" disabled selected>Seleccione tipo de documento...</option>
+                            <option value="cedula-ciudadania">Cédula de ciudadanía</option>
+                            <option value="cedula-extranjeria">Cédula de extranjería</option>
+                            <option value="tarjeta-identidad">Tarjeta de identidad</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="numero-documento">Número de Documento</label>
+                        <input type="text" name="numero-documento" id="numero-documento" maxlength="15" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="tipo-genero">Género</label>
+                        <select name="genero" id="tipo-genero">
+                            <option value="" disabled selected>Seleccione género...</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                        <input type="date" name="fecha-nacimiento" id="fecha-nacimiento" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="telefono-atleta">Teléfono</label>
+                        <input type="tel" name="telefono-atleta" id="telefono-atleta" maxlength="12">
+                    </div>
+
+                    <div class="form-grupo campo-eps">
+                        <label for="certificado-eps">Certificado EPS</label>
+                        <input type="file" name="certificado-eps" id="certificado-eps" accept=".pdf,.jpg,.png">
+                    </div>
+
+                    <h3>Datos Contacto de Emergencia</h3>
+                    <div class="form-grupo">
+                        <label for="nombre-contacto">Nombre(s)</label>
+                        <input type="text" id="nombre-contacto" name="nombre-contacto" maxlength="30" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="apellido-contacto">Apellido(s)</label>
+                        <input type="text" id="apellido-contacto" name="apellido-contacto" maxlength="30" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="telefono-contacto">Teléfono</label>
+                        <input type="tel" name="telefono-contacto" id="telefono-contacto" maxlength="12" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="tipo-parentesco">Parentesco</label>
+                        <select name="parentesco" id="tipo-parentesco" required>
+                            <option value="" disabled selected>Seleccione parentesco...</option>
+                            <option value="madre-padre">Madre / Padre</option>
+                            <option value="tutor">Tutor</option>
+                            <option value="conyuge-pareja">Cónyuge / Pareja</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="btn-siguiente" class="btn btn-primario">
+                        Siguiente
+                    </button>
+
+                    <p>¿Ya tiene cuenta? <a href="#" class="link-texto" id="link-ir-login-desde-registro">Iniciar sesión</a></p>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="paso-contenido" data-step="2">
+                    <h2>Seguridad</h2>
+
+                    <div class="form-grupo">
+                        <label for="correo-registro">
+                            Correo electrónico
+                        </label>
+
+                        <input type="email" id="correo-registro" name="correo" maxlength="50" required placeholder="Ejemplo@gmail.com">
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="contrasena-registro">
+                            Contraseña
+                        </label>
+                        <div class="contrasena-contenedor">
+
+                            <input type="password" id="contrasena-registro" name="contrasena" required>
+
+                            <button type="button" class="btn-ver-contrasena">
+                                👁
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="confirmar-contrasena-registro">
+                            Confirmar Contraseña
+                        </label>
+
+                        <div class="contrasena-contenedor">
+
+                            <input type="password" id="confirmar-contrasena-registro" name="confirmar-contrasena" required>
+
+                            <button type="button" class="btn-ver-contrasena">
+                                👁
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="acciones-formulario">
+
+                        <button type="submit" class="btn btn-primario">
+                            Crear Cuenta
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===================== VISTA: RECUPERAR CONTRASEÑA ===================== -->
+    <section class="recuperar-contrasena vista-auth">
+        <div class="contenedor">
+            <header class="recuperar-contrasena-header">
+                <img src="/Frontend Web/img/iconos/candado.png" alt="candado">
+                <h1>RECUPERAR</h1>
+                <p class="subtitulo">Contraseña</p>
+                <p class="texto-info">
+                    Ingrese su correo registrado y le enviaremos un código para restablecer su contraseña.
+                </p>
+
+                <div class="progreso">
+                    <div class="paso activo"></div>
+                    <div class="paso"></div>
+                    <div class="paso"></div>
+                </div>
+            </header>
+
+            <form id="form-recuperar-contrasena">
+                <div class="form-grupo">
+                    <label for="correo-recuperar">Correo</label>
+                    <input type="email" id="correo-recuperar" name="correo" placeholder="Tu@correo.com" required>
+                </div>
+                <button type="submit" class="btn btn-primario">Enviar código</button>
+            </form>
+        </div>
+
+        <p class="pie">
+            <a href="#" class="link-texto" id="link-volver-login-desde-recuperar">&#8592; Volver al inicio de sesión</a>
+        </p>
+    </section>
+
+    <!-- ===================== VISTA: VERIFICAR CÓDIGO ===================== -->
+    <section class="codigo-verificacion vista-auth">
+        <div class="contenedor">
+            <header>
+                <h1>Verificar Código</h1>
+                <p>
+                    Ingrese el código enviado a <br>
+                    <span id="correo-mostrado-verificacion">Ejemplo@gmail.com</span>
+                </p>
+
+                <div class="progreso">
+                    <div class="paso"></div>
+                    <div class="paso activo"></div>
+                    <div class="paso"></div>
+                </div>
+            </header>
+
+            <form id="form-verificar-codigo">
+                <div class="codigo-verificacion-inputs">
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                </div>
+
+                <button type="submit" class="btn btn-primario">
+                    Verificar Código
+                </button>
+            </form>
+        </div>
+
+        <div class="pie">
+            <p>¿No llegó? <button type="button">Reenviar código</button></p>
+            <a href="#" class="link-texto" id="link-volver-recuperar-desde-codigo">&#8592; Volver</a>
+        </div>
+    </section>
+
+    <!-- ===================== VISTA: CAMBIO DE CONTRASEÑA ===================== -->
+    <section class="cambio-contrasena vista-auth">
+        <div class="contenedor">
+            <header>
+                <img src="/Frontend Web/img/logo/logo-btc.png" alt="Logo">
+                <h1>Nueva Contraseña</h1>
+                <p>
+                    Cree una contraseña segura para su cuenta.
+                </p>
+                <div class="progreso">
+                    <div class="paso"></div>
+                    <div class="paso"></div>
+                    <div class="paso activo"></div>
+                </div>
+            </header>
+
+            <form id="form-cambio-contrasena">
+                <div class="form-grupo">
+
+                    <label for="nueva-contrasena">
+                        Nueva Contraseña
+                    </label>
+
+                    <div class="contrasena-contenedor">
+                        <input type="password" name="nueva-contrasena" id="nueva-contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16">
+
+                        <button type="button" class="btn-ver-contrasena">
+                            👁
+                        </button>
+                    </div>
+
+                    <div class="seguridad-contrasena">
+
+                        <div class="barra activo"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                    </div>
+
+                    <p class="texto-seguridad">
+                        Débil
+                    </p>
+
+                </div>
+
+                <div class="form-grupo">
+                    <label for="confirmar-contrasena-nueva">
+                        Confirmar Contraseña
+                    </label>
+
+                    <div class="contrasena-contenedor">
+
+                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena-nueva" required placeholder="Repita la contraseña" minlength="8" maxlength="16">
+
+                        <button type="button" class="btn-ver-contrasena">
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primario">
+                    Guardar contraseña
+                </button>
+            </form>
+        </div>
+    </section>
+
+</dialog>
+
+<!-- ===================== MODAL: REGISTRO ENVIADO ===================== -->
+<dialog id="modalRegistro" class="modal">
+    <div class="modal-contenido">
+
+        <img src="/Frontend Web/img/iconos/alerta.png" alt="Cuenta pendiente">
+
+        <h2>
+            Cuenta Pendiente<br>
+            de Validación
+        </h2>
+
+        <p>
+            Gracias por registrarse en CheerClick Systems.<br>
+            Su solicitud fue enviada correctamente y se encuentra
+            pendiente de validación por parte del administrador.
+        </p>
+
+        <div class="mensaje-validacion mensaje-validacion-registro">
+
+            <img src="/Frontend Web/img/iconos/exclamacion.png" alt="Información">
+
+            <p>
+                Una vez validada su cuenta, recibirá un mensaje
+                de confirmación al correo electrónico registrado.
+            </p>
+
+        </div>
+
+        <button type="button" class="btn btn-primario" id="btn-cerrar-modal-registro">
+            &#8592; Volver al Inicio
+        </button>
+
+    </div>
+</dialog>
+
+<!-- ===================== MODAL: CONTRASEÑA ACTUALIZADA ===================== -->
+<dialog id="modalContrasena" class="modal">
+    <div class="modal-contenido">
+        <img src="/Frontend Web/img/iconos/marca-de-verificacion.png" alt="Contraseña actualizada">
+
+        <h2>¡Listo!</h2>
+
+        <p>
+            Su contraseña fue actualizada correctamente.
+        </p>
+
+        <div class="mensaje-validacion mensaje-validacion-contrasena">
+
+            <p>
+                Ya puede iniciar sesión con su nueva contraseña.
+            </p>
+        </div>
+
+        <button type="button" class="btn btn-primario" id="btn-cerrar-modal-contrasena">
+            &#8592; Ir a Inicio de Sesión
+        </button>
+    </div>
+</dialog>
+
+<script>
+    /*  Control de vista dentro de modales*/
+    const modalAuth = document.getElementById("modal-autenticacion");
+    const vistasAuth = document.querySelectorAll(".vista-auth");
+
+    const wrapperRegistro = document.createElement("div");
+wrapperRegistro.id = "wrapper-registro";
+document.body.appendChild(wrapperRegistro);
+
+const seccionRegistro = document.querySelector(".registro");
+
+function mostrarVista(claseVista) {
+    const esRegistro = claseVista === "registro";
+
+    if (esRegistro) {
+        // Mueve el formulario fuera del dialog al wrapper
+        wrapperRegistro.appendChild(seccionRegistro);
+        wrapperRegistro.style.display = "block";
+        seccionRegistro.classList.add("activo");
+        modalAuth.close();
+    } else {
+        // Devuelve el formulario al dialog y oculta el wrapper
+        if (wrapperRegistro.contains(seccionRegistro)) {
+            modalAuth.appendChild(seccionRegistro);
+            wrapperRegistro.style.display = "none";
+        }
+        vistasAuth.forEach(vista => vista.classList.remove("activo"));
+        document.querySelector("." + claseVista).classList.add("activo");
+        if (!modalAuth.open) modalAuth.showModal();
+    }
+}
+
+window.abrirModalAuth = function(claseVista) {
+    const esRegistro = claseVista === "registro";
+    if (esRegistro) {
+        mostrarVista("registro");
+    } else {
+        mostrarVista(claseVista || "inicio-sesion");
+        if (!modalAuth.open) modalAuth.showModal();
+    }
+}
+
+
+    /* navegacion entre vistas de modales */
+    document.getElementById("link-ir-registro").addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarVista("registro");
+    });
+
+    document.getElementById("link-ir-login-desde-registro").addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarVista("inicio-sesion");
+    });
+
+    document.getElementById("link-olvide-contrasena").addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarVista("recuperar-contrasena");
+    });
+
+    document.getElementById("link-volver-login-desde-recuperar").addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarVista("inicio-sesion");
+    });
+
+    document.getElementById("link-volver-recuperar-desde-codigo").addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarVista("recuperar-contrasena");
+    });
+
+    /* formulario inicio de sesion */
+    document.getElementById("form-inicio-sesion").addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Aquí va la validación / petición al servidor
+    });
+
+    /* formulario recuperar contraseña a verificar codigo */
+    document.getElementById("form-recuperar-contrasena").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const correoIngresado = document.getElementById("correo-recuperar").value;
+        document.getElementById("correo-mostrado-verificacion").textContent = correoIngresado;
+        mostrarVista("codigo-verificacion");
+    });
+
+    /* formulario verificar codigo a cambio de contraeña */
+    document.getElementById("form-verificar-codigo").addEventListener("submit", function (e) {
+        e.preventDefault();
+        mostrarVista("cambio-contrasena");
+    });
+
+    /* formulario registro */
+    const formularioRegistro = document.getElementById("form-registro");
+    const modalRegistro = document.getElementById("modalRegistro");
+
+    formularioRegistro.addEventListener("submit", function (e) {
+        e.preventDefault();
+        modalAuth.close();
+        modalRegistro.showModal();
+    });
+
+    document.getElementById("btn-cerrar-modal-registro").addEventListener("click", () => {
+        modalRegistro.close();
+        modalAuth.close();
+        window.location.hash = "hero";
+    });
+
+    const btnSiguiente = document.getElementById("btn-siguiente");
+    const paso1 = document.querySelector('[data-step="1"]');
+    const paso2 = document.querySelector('[data-step="2"]');
+    const indicador1 = document.querySelector('[data-paso="1"]');
+    const indicador2 = document.querySelector('[data-paso="2"]');
+
+    btnSiguiente.addEventListener("click", () => {
+        paso1.classList.remove("activo");
+        paso2.classList.add("activo");
+        indicador1.classList.remove("activo");
+        indicador2.classList.add("activo");
+    });
+
+    /* formulario cambio de contraseña */
+    const formularioContrasena = document.getElementById("form-cambio-contrasena");
+    const modalContrasena = document.getElementById("modalContrasena");
+
+    formularioContrasena.addEventListener("submit", function (e) {
+        e.preventDefault();
+        modalAuth.close()
+        modalContrasena.showModal();
+    });
+
+    document.getElementById("btn-cerrar-modal-contrasena").addEventListener("click", () => {
+        modalContrasena.close();
+        mostrarVista("inicio-sesion");
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const vista =
+        params.get("vista");
+
+    abrirModalAuth(
+        vista || "inicio-sesion"
+    );
+
+});
+
+</script>
+</body>
+</html>
