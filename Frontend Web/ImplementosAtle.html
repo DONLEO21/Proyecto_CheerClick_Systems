@@ -6,6 +6,7 @@
     <title>Implementos Deportivos</title>
     <link rel="stylesheet" href="css/stylesAdmi.css">
     <link rel="stylesheet" href="css/stylesAtle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- BARRA 2 - Lateral izquierda -->
@@ -72,13 +73,13 @@
     <!-- Inicio de Vista de los Atletas -->
     <div class="contenido-principal">       
         <h1>Implementos Deportivos</h1>
-        <p>Solicite sus productos y reclama en el club</p>
+        <p>Solicite sus productos y reclama en el club.</p>
         <input type="radio" id="switch-lista" name="pestanas" checked style="display: none;">
         <input type="radio" id="switch-solicitudes" name="pestanas" style="display: none;">
 
         <div class="contenedor-informacion">
             <img src="img/boton-de-informacion.png" alt="Información" class="icono-informacion">
-            <p class="texto-informacion">Todos los pedidos se reclaman en el club</p>
+            <p class="texto-informacion">Todos los pedidos se reclaman en el club.</p>
         </div>
 
         <div class="tabla-contenido">
@@ -90,6 +91,10 @@
         <div class="seccion-catalogo">
             <div class="barra-filtros-modulo">
                 <div class="filtro-buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search">
+                        <path d="m21 21-4.34-4.34"/>
+                        <circle cx="11" cy="11" r="8"/>
+                    </svg>
                     <input type="text" id="buscar-producto" placeholder="Buscar producto...">  
                 </div>
 
@@ -122,7 +127,14 @@
                     </div>
                     <div class="producto-info">
                         <h4>Zapatillas Cheer</h4>
-                        <div class="calificacion">⭐⭐⭐⭐★ <span class="conteo-resenas">(30)</span></div>
+                        <div class="calificacion">
+                            <i class="fa-solid fa-star"></i> 
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="conteo-resenas">(30)</span>
+                        </div>
                         <p class="precio">$50.000</p>
                         <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
                     </div>
@@ -134,9 +146,92 @@
                     </div>
                     <div class="producto-info">
                         <h4>Mochila Blood Tigers</h4>
-                        <div class="calificacion">⭐⭐⭐⭐⭐ <span class="conteo-resenas">(5)</span></div>
+                        <div class="calificacion">
+                            <i class="fa-solid fa-star"></i> 
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
                         <p class="precio">$100.000</p>
-                        <button class="btn-solicitar">Solicitar pedido</button>
+                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                    </div>
+                </div>
+
+                <div class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Uniforme.png" alt="Mochila Blood Tigers">
+                    </div>
+                    <div class="producto-info">
+                        <h4>Uniforme femenino</h4>
+                        <div class="calificacion">
+                            <i class="fa-solid fa-star"></i> 
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="conteo-resenas">(15)</span>
+                        </div>
+                        <p class="precio">$100.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                    </div>
+                </div>
+
+                <div class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Mochila.png" alt="Mochila Blood Tigers">
+                    </div>
+                    <div class="producto-info">
+                        <h4>Moño Cheer</h4>
+                        <div class="calificacion">
+                            <i class="fa-solid fa-star"></i> 
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="conteo-resenas">(23)</span>
+                        </div>
+                        <p class="precio">$10.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                    </div>
+                </div>
+
+                <div class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Zapatillas.png" alt="Mochila Blood Tigers">
+                    </div>
+                    <div class="producto-info">
+                        <h4>Esqueleto de entrenamiento masculino</h4>
+                        <div class="calificacion">
+                            <i class="fa-solid fa-star"></i> 
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="conteo-resenas">(9)</span>
+                        </div>
+                        <p class="precio">$50.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                    </div>
+                </div>
+
+                <div class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Uniforme.png" alt="Mochila Blood Tigers">
+                    </div>
+                    <div class="producto-info">
+                        <h4>Pantaloneta masculina</h4>
+                        <div class="calificacion">
+                            <i class="fa-solid fa-star"></i> 
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
+                        <p class="precio">$50.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
                     </div>
                 </div>
             </div>
@@ -148,15 +243,27 @@
                     <div class="bloque-comentario">
                         <div class="comentario-meta">
                             <span class="nombre-usuario">Mariana Vélez</span>
-                            <span class="estrellas-usuario">⭐⭐⭐⭐⭐</span>
+                            <div class="estrellas-opinion">
+                                <i class="fa-solid fa-star"></i> 
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
-                        <p class="comentario-texto">Las zapatillas son súper cómodas y tienen excelente agarre para las bases. La talla corresponde a la guía.</p>
+                        <p class="comentario-texto">Las zapatillas son súper cómodas y tienen excelente agarre para las bases.</p>
                     </div>
                     
                     <div class="bloque-comentario">
                         <div class="comentario-meta">
                             <span class="nombre-usuario">Carlos Mendoza</span>
-                            <span class="estrellas-usuario">⭐⭐⭐⭐★</span>
+                            <div class="estrellas-opinion">
+                                <i class="fa-solid fa-star"></i> 
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                         </div>
                         <p class="comentario-texto">El bolso es muy práctico y tiene buen material. Me gustaría que tuvieran más colores disponibles.</p>
                     </div>
@@ -168,7 +275,11 @@
         <div class="seccion-solicitudes">
             <div class="barra-filtros-modulo">
                 <div class="filtro-buscar">
-                    <input type="text" id="buscar-solicitud" placeholder="Buscar solicitud...">  
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search">
+                        <path d="m21 21-4.34-4.34"/>
+                        <circle cx="11" cy="11" r="8"/>
+                    </svg>
+                    <input type="text" id="buscar-solicitud" placeholder="Buscar solicitud...">
                 </div>
 
                 <div class="grupo-filtro-item">
@@ -218,44 +329,64 @@
                 </div>
 
                 <div class="tarjeta-solicitud">
-                    <div class="tarjeta-solicitud">
-            
-                    <input type="checkbox" id="recibido-1" class="check-recibido">
-
                     <div class="solicitud-cuerpo">
-                        <img src="img/Mochila.png" alt="Mochila" class="img-solicitud">
+                        <img src="img/Uniforme.png" alt="Uniforme" class="img-solicitud">
                         <div class="solicitud-detalles">
-                            <h4>Mochila Blood Tigers</h4>
-                            <p class="cantidad-solicitada">2 unidades</p>
+                            <h4>Uniforme Femenino</h4>
+                            <p class="cantidad-solicitada">1 unidad</p>
                             <p class="precio-solicitado">$100.000</p>
-                            <p class="pago-metodo">Recibo de Nequi cargado</p>
+                            <p class="pago-metodo"> Pago presencial</p>
                         </div>
                         <div class="solicitud-acciones">
-                            <span class="estado-tag estado-listo">Listo para entregar</span>
-                            <label for="recibido-1" class="label-marcar-recibido">Marcar como recibido</label>
+                            <span class="estado-tag estado-pendiente">Pendiente</span>
+                            <button class="btn-cancelar-pedido" onclick="abrirModalCancelar()">Cancelar</button>
                         </div>
                     </div>
-
                     <div class="solicitud-comentario-usuario">
                         <label>Añadir o editar comentario sobre este pedido:</label>
-                        <input type="text" value="Pasa mi compañera de equipo a recogerlo hoy por la tarde.">
+                        <input type="text" placeholder="Escribe una instrucción o nota sobre tu pedido...">
                     </div>
+                </div>
 
-                    <div class="seccion-comentario-recibido">
-                        <label>Deja una reseña (opcional):</label>
+                <div class="tarjeta-solicitud">
+                    <div class="tarjeta-solicitud">
+            
+                        <input type="checkbox" id="recibido-1" class="check-recibido">
 
-                        <div class="estrellas-rating">
-                            <input type="radio" id="star5-1" name="rating-1" value="5">
-                            <label for="star5-1">★</label>
-                            <input type="radio" id="star4-1" name="rating-1" value="4">
-                            <label for="star4-1">★</label>
-                            <input type="radio" id="star3-1" name="rating-1" value="3">
-                            <label for="star3-1">★</label>
-                            <input type="radio" id="star2-1" name="rating-1" value="2">
-                            <label for="star2-1">★</label>
-                            <input type="radio" id="star1-1" name="rating-1" value="1">
-                            <label for="star1-1">★</label>
+                        <div class="solicitud-cuerpo">
+                            <img src="img/Mochila.png" alt="Mochila" class="img-solicitud">
+                            <div class="solicitud-detalles">
+                                <h4>Mochila Blood Tigers</h4>
+                                <p class="cantidad-solicitada">2 unidades</p>
+                                <p class="precio-solicitado">$100.000</p>
+                                <p class="pago-metodo">Recibo de Nequi cargado</p>
+                            </div>
+                            <div class="solicitud-acciones">
+                                <span class="estado-tag estado-listo">Listo para entregar</span>
+                                <label for="recibido-1" class="label-marcar-recibido">Marcar como recibido</label>
+                            </div>
                         </div>
+
+                        <div class="solicitud-comentario-usuario">
+                            <label>Añadir o editar comentario sobre este pedido:</label>
+                            <input type="text" value="Pasa mi compañera de equipo a recogerlo hoy por la tarde.">
+                        </div>
+
+                        <div class="seccion-comentario-recibido">
+                            <label>Deja una reseña (opcional):</label>
+
+                            <div class="estrellas-rating">
+                                <input type="radio" id="star5-1" name="rating-1" value="5">
+                                <label for="star5-1">★</label>
+                                <input type="radio" id="star4-1" name="rating-1" value="4">
+                                <label for="star4-1">★</label>
+                                <input type="radio" id="star3-1" name="rating-1" value="3">
+                                <label for="star3-1">★</label>
+                                <input type="radio" id="star2-1" name="rating-1" value="2">
+                                <label for="star2-1">★</label>
+                                <input type="radio" id="star1-1" name="rating-1" value="1">
+                                <label for="star1-1">★</label>
+                            </div>
 
                         <textarea id="comentario-recibido-1" placeholder="Ej: El producto llegó en perfectas condiciones..."></textarea>
                         <button type="button" class="btn-enviar-comentario">Enviar reseña</button>
@@ -264,95 +395,107 @@
             </div>
         </div>
 
-        <!-- Modal de solicitud -->
-        <dialog id="modalDialog" class="modal">
-            <div id="modalPedido" class="modal-fondo"> 
-                <div class="modal-contenedor">
-                    <button class="btn-cerrar-modal" onclick="cerrarModal()">&times;</button>
-                    <h3>Solicitar Pedido</h3>
-                    
-                    <div class="modal-producto-resumen">
-                        <img src="img/zapatillas.png" alt="Zapatillas">
-                        <div>
-                            <h4>Zapatillas Cheer</h4>
-                            <div class="calificacion">⭐⭐⭐⭐★ (30)</div>
-                            <p class="pago-etiqueta"> Pago presencial / Nequi</p>
-                        </div>
-                    </div>
-
-                    <form class="formulario-pedido" onsubmit="event.preventDefault(); cerrarModal();">
-                        <div class="fila-formulario">
-                            <div class="campo-formulario c-corto">
-                                <label for="cantidad">Cantidad</label>
-                                <div class="control-cantidad">
-                                    <input type="number" id="cantidad" value="1" min="1">
-                                </div>
-                            </div>
-                            <div class="campo-formulario">
-                                <label for="talla">Talla</label>
-                                <input type="text" id="talla" placeholder="Ej: 38">
-                            </div>
-                        </div>
-
-                        <div class="campo-formulario">
-                            <label>Método de Pago</label>
-                            <div class="opciones-pago">
-                                <label><input type="radio" name="metodo_pago" value="presencial" checked> Pago presencial al reclamar</label>
-                                <label><input type="radio" name="metodo_pago" value="nequi"> Transferencia Nequi</label>
-                            </div>
-                        </div>
-
-                        <div class="campo-formulario file-wrapper">
-                            <label for="recibo-nequi" class="label-archivo">Subir comprobante de Nequi (Opcional)</label>
-                            <input type="file" id="recibo-nequi" accept="image/*,.pdf">
-                        </div>
-
-                        <div class="campo-formulario">
-                            <label for="comentario-pedido">Comentario (opcional)</label>
-                            <textarea id="comentario-pedido" rows="2" placeholder="Ej. Necesito el uniforme para el próximo torneo"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-enviar-solicitud">Enviar solicitud</button>
-                    </form>
-                </div>
-            </div>
-        </dialog>
-
-        <!-- Cancelar Solicitud -->
-        <dialog id="modalCancelarDialog" class="modal">
-            <div class="modal-fondo">
-                <div class="modal-contenedor modal-confirmacion-alerta">
-                    <button class="btn-cerrar-modal" onclick="cerrarModalCancelar()">&times;</button>
-                    
-                    <div class="modal-confirmar-contenido">
-                        
-                        <div class="contenedor-logo-alerta">
-                            <img src="img/peligro.png" alt="Alerta Club" class="imagen-alerta-club">
-                        </div>
-
-                        <h3>¿Está seguro de que desea cancelar este pedido?</h3>
-                        <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
-                        
-                        <div class="modal-confirmar-botones">
-                            <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()">No, mantener</button>
-                            <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()">Sí, cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </dialog>
         </div>
     </div>
 
+    <!-- Modal de solicitud -->
+    <dialog id="modalDialog" class="modal">
+        <div id="modalPedido" class="modal-fondo"> 
+            <div class="modal-contenedor">
+                <button class="btn-cerrar-modal" onclick="cerrarModal()">&times;</button>
+                <h3>Solicitar Pedido</h3>
+                    
+                <div class="modal-producto-resumen">
+                    <img src="img/zapatillas.png" alt="Zapatillas">
+                    <div>
+                        <h4>Zapatillas Cheer</h4>
+                        <div class="calificacion">⭐⭐⭐⭐★ (30)</div>
+                        <p class="pago-etiqueta"> Pago presencial / Nequi</p>
+                    </div>
+                </div>
+
+                <form class="formulario-pedido" onsubmit="event.preventDefault(); cerrarModal();">
+                    <div class="fila-formulario">
+                        <div class="campo-formulario c-corto">
+                            <label for="cantidad">Cantidad</label>
+                            <div class="control-cantidad">
+                                <input type="number" id="cantidad" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="campo-formulario">
+                            <label for="talla">Talla</label>
+                            <input type="text" id="talla" placeholder="Ej: 38">
+                        </div>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label>Método de Pago</label>
+                        <div class="opciones-pago">
+                            <label><input type="radio" name="metodo_pago" value="presencial" checked> Pago presencial al reclamar</label>
+                            <label><input type="radio" name="metodo_pago" value="nequi"> Transferencia Nequi</label>
+                        </div>
+                    </div>
+
+                    <div class="campo-formulario file-wrapper">
+                        <label for="recibo-nequi" class="label-archivo">Subir comprobante de Nequi (Opcional)</label>
+                        <input type="file" id="recibo-nequi" accept="image/*,.pdf">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="comentario-pedido">Comentario (opcional)</label>
+                        <textarea id="comentario-pedido" rows="2" placeholder="Ej. Necesito el uniforme para el próximo torneo"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar-solicitud">Enviar solicitud</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modal de cancelar solicitud -->
+    <dialog id="modalCancelarDialog" class="modal">
+        <div class="modal-fondo">
+            <div class="modal-contenedor modal-confirmacion-alerta">
+                <button class="btn-cerrar-modal" onclick="cerrarModalCancelar()">&times;</button>
+                    
+                <div class="modal-confirmar-contenido">
+                    
+                    <div class="contenedor-logo-alerta">
+                        <img src="img/peligro.png" alt="Alerta Club" class="imagen-alerta-club">
+                    </div>
+
+                    <h3>¿Está seguro de que desea cancelar este pedido?</h3>
+                    <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
+                        
+                    <div class="modal-confirmar-botones">
+                        <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()">No, mantener</button>
+                        <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()">Sí, cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
     <script>
         const modalSolicitud = document.getElementById('modalDialog');
-        function abrirModal() { modalSolicitud.showModal(); }
-        function cerrarModal() { modalSolicitud.close(); }
+
+        function abrirModal() { 
+            modalSolicitud.showModal(); 
+        }
+        function cerrarModal() { 
+            modalSolicitud.close(); 
+        }
 
         const modalCancelar = document.getElementById('modalCancelarDialog');
-        function abrirModalCancelar() { modalCancelar.showModal(); }
-        function cerrarModalCancelar() { modalCancelar.close(); }
-        
+
+        function abrirModalCancelar() { 
+            modalCancelar.showModal(); 
+        }
+
+        function cerrarModalCancelar() { 
+            modalCancelar.close(); 
+        }
+
         function ejecutarCancelacionPedido() {
             alert("Pedido cancelado correctamente."); 
             cerrarModalCancelar();
