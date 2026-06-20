@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheerClick Systems</title>
+    <link rel="stylesheet" href="css/stylePQRSAdmin.css">
+</head>
+<body>
+
+    <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+        <nav>
+            <ul class="menu-lateral" role="list">
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Estado de cuentas">
+                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="#" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Implementos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Validación de Cuentas">
+                        <img class="menu-lateral__icono" src="img/usuarios.png" alt="Validación de cuentas">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor">
+            <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
+                <ul class="encabezado__lista-botones" role="list">
+                    <li>
+                        <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol" aria-label="Rol: Administrador">Administrador</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="encabezado__iconos-logo">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <img src="img/campana-de-notificacion.png" alt="Notificaciones">
+                </a>
+                <a href="#" class="icono-accion" aria-label="Ir al inicio">
+                    <img src="img/casa.png" alt="Inicio">
+                </a>
+                <figure class="logo-club">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="contenido-principal" id="contenido-principal">
+
+        <!-- Cabecera de sección -->
+        <section class="seccion-cabecera" aria-labelledby="titulo-pqrs">
+            <h1 id="titulo-pqrs">PQRS</h1>
+            <p>Gestiona las peticiones, quejas, reclamos y sugerencias de los miembros del club deportivo.</p>
+        </section>
+
+        <!-- Tarjetas de resumen estadístico -->
+        <section class="tarjetas-resumen" aria-label="Resumen estadístico de PQRS">
+            <article class="tarjeta tarjeta--pendiente" aria-label="10 PQRS pendientes">
+                <div class="tarjeta__icono-fondo tarjeta__icono-fondo--amarillo">
+                    <img class="tarjeta__imagen" src="img/comentario.png" alt="">
+                </div>
+                <div class="tarjeta__datos">
+                    <h2 class="tarjeta__titulo">10 Pendiente(s)</h2>
+                    <p class="tarjeta__subtitulo">Todos</p>
+                </div>
+            </article>
+
+            <article class="tarjeta tarjeta--tramite" aria-label="18 PQRS en trámite">
+                <div class="tarjeta__icono-fondo tarjeta__icono-fondo--verde">
+                    <img class="tarjeta__imagen" src="img/controlar.png" alt="">
+                </div>
+                <div class="tarjeta__datos">
+                    <h2 class="tarjeta__titulo">18 En Trámite(s)</h2>
+                    <p class="tarjeta__subtitulo">Todos</p>
+                </div>
+            </article>
+
+            <article class="tarjeta tarjeta--resuelto" aria-label="6 PQRS resueltas">
+                <div class="tarjeta__icono-fondo tarjeta__icono-fondo--azul">
+                    <img class="tarjeta__imagen" src="img/controlar.png" alt="">
+                </div>
+                <div class="tarjeta__datos">
+                    <h2 class="tarjeta__titulo">6 Resueltos(s)</h2>
+                    <p class="tarjeta__subtitulo">Todos</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección de filtros y tabla -->
+        <section class="seccion-tabla" aria-label="Listado de PQRS">
+
+            <!-- Barra de filtros -->
+            <div class="barra-filtros" role="search" aria-label="Filtros de búsqueda">
+                <div class="barra-filtros__selectores">
+                    <label for="orden-id" class="visualmente-oculto">Ordenar por ID</label>
+                    <select class="selector" name="orden-id" id="orden-id">
+                        <option value="">ID</option>
+                        <option value="asc">ID Asc</option>
+                        <option value="desc">ID Desc</option>
+                    </select>
+
+                    <label for="filtro-categoria" class="visualmente-oculto">Filtrar por categoría</label>
+                    <select class="selector" name="filtro-categoria" id="filtro-categoria">
+                        <option value="">Ct</option>
+                        <option value="peticion">Petición</option>
+                        <option value="queja">Queja</option>
+                        <option value="reclamo">Reclamo</option>
+                        <option value="sugerencia">Sugerencia</option>
+                    </select>
+
+                    <label for="filtro-estado" class="visualmente-oculto">Filtrar por estado</label>
+                    <select class="selector" name="filtro-estado" id="filtro-estado">
+                        <option value="">Estado</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="tramite">En trámite</option>
+                        <option value="resuelto">Resuelto</option>
+                    </select>
+
+                    <label for="filtro-prioridad" class="visualmente-oculto">Filtrar por prioridad</label>
+                    <select class="selector" name="filtro-prioridad" id="filtro-prioridad">
+                        <option value="">Prioridad</option>
+                        <option value="alta">Alta</option>
+                        <option value="media">Media</option>
+                        <option value="baja">Baja</option>
+                    </select>
+                    <button class="boton-todos" type="button">Todos</button>
+                </div>
+
+                <div class="barra-filtros__busqueda">
+                    <div class="campo-busqueda">
+                       <img class="campo-busqueda__icono" src="img/buscar.png" alt="">
+                        <label for="campo-busqueda" class="visualmente-oculto">Buscar PQRS</label>
+                        <input type="search" id="campo-busqueda" class="campo-busqueda__entrada" placeholder="Buscar">
+                    </div>
+                    <button class="boton-filtrar" type="button" aria-label="Aplicar filtros">
+                        <img src="img/filtrar.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabla de PQRS -->
+            <div class="tabla-envoltorio" role="region" aria-label="Tabla de PQRS" tabindex="0">
+                <table class="tabla-pqrs">
+                    <thead class="tabla-pqrs__cabecera">
+                        <tr>
+                            <th scope="col" class="tabla-pqrs__columna">ID</th>
+                            <th scope="col" class="tabla-pqrs__columna">ASUNTO</th>
+                            <th scope="col" class="tabla-pqrs__columna">ESTADO</th>
+                            <th scope="col" class="tabla-pqrs__columna">PRIORIDAD</th>
+                            <th scope="col" class="tabla-pqrs__columna">FECHA</th>
+                            <th scope="col" class="tabla-pqrs__columna">REMITENTE</th>
+                            <th scope="col" class="tabla-pqrs__columna">ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tabla-pqrs__cuerpo">
+                        <tr class="tabla-pqrs__fila">
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ1045</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Sugerencia</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Estado">
+                                <span class="insignia-estado insignia-estado--resuelto">Resuelto</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Prioridad">
+                                <span class="insignia-prioridad insignia-prioridad--media">Media</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Fecha">
+                                <time datetime="2026-03-26">26/03/2026</time>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Remitente">Dylan Ramirez</td>
+                            <td class="tabla-pqrs__celda tabla-pqrs__celda--acciones" data-etiqueta="Acciones">
+                                <a href="ResponderPQRS.html" class="boton-accion boton-accion--responder">Responder</a>
+                                <a href="#" class="boton-accion boton-accion--modificar">Modificar</a>
+                                <button class="boton-accion boton-accion--inhabilitar" type="button">Inhabilitar</button>
+                            </td>
+                        </tr>
+                        <tr class="tabla-pqrs__fila">
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ2140</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Mejorar horarios de entrenamiento</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Estado">
+                                <span class="insignia-estado insignia-estado--tramite">En trámite</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Prioridad">
+                                <span class="insignia-prioridad insignia-prioridad--media">Media</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Fecha">
+                                <time datetime="2026-03-18">18/03/2026</time>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Remitente">Leonardo Jara</td>
+                            <td class="tabla-pqrs__celda tabla-pqrs__celda--acciones" data-etiqueta="Acciones">
+                                <a href="#" class="boton-accion boton-accion--responder">Responder</a>
+                                <a href="ModificarPQRS.html" class="boton-accion boton-accion--modificar">Modificar</a>
+                                <button class="boton-accion boton-accion--inhabilitar" type="button">Inhabilitar</button>
+                            </td>
+                        </tr>
+                        <tr class="tabla-pqrs__fila">
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ1021</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Sugerencia para la competencia</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Estado">
+                                <span class="insignia-estado insignia-estado--tramite">En trámite</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Prioridad">
+                                <span class="insignia-prioridad insignia-prioridad--media">Media</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Fecha">
+                                <time datetime="2026-03-15">15/03/2026</time>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Remitente">Santigo Ramirez</td>
+                            <td class="tabla-pqrs__celda tabla-pqrs__celda--acciones" data-etiqueta="Acciones">
+                                <a href="#" class="boton-accion boton-accion--responder">Responder</a>
+                                <a href="#" class="boton-accion boton-accion--modificar">Modificar</a>
+                                <button class="boton-accion boton-accion--inhabilitar" type="button">Inhabilitar</button>
+                            </td>
+                        </tr>
+                        <tr class="tabla-pqrs__fila">
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ4210</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Queja por mal trato del entrenador</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Estado">
+                                <span class="insignia-estado insignia-estado--pendiente">Pendiente</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Prioridad">
+                                <span class="insignia-prioridad insignia-prioridad--media">Media</span>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Fecha">
+                                <time datetime="2026-03-10">10/03/2026</time>
+                            </td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="Remitente">Gabriela Deaquiz</td>
+                            <td class="tabla-pqrs__celda tabla-pqrs__celda--acciones" data-etiqueta="Acciones">
+                                <a href="#" class="boton-accion boton-accion--responder">Responder</a>
+                                <a href="#" class="boton-accion boton-accion--modificar">Modificar</a>
+                                <button class="boton-accion boton-accion--inhabilitar" type="button">Inhabilitar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
