@@ -507,8 +507,8 @@ html{
     border-collapse: collapse;
     text-align: left;
     font-size: 14px;
-    table-layout: fixed;
     justify-content: center;
+    min-width: 900px;
 }
 
 .tabla-implementos th {
@@ -534,8 +534,8 @@ html{
 
 /* Miniaturas de las imágenes del producto */
 .img-producto {
-    width: 45px;
-    height: 45px;
+    width: 75px;
+    height: 75px;
     object-fit: contain;
     border-radius: 4px;
 }
@@ -550,13 +550,18 @@ html{
     min-width: 115px;
 }
 
+.badge.pendiente {
+    background-color: #f1a623; 
+    color: white;
+}
+
 .badge.disponible {
-    background-color: #1eaf52; /* Verde Éxito */
+    background-color: #1eaf52; 
     color: white;
 }
 
 .badge.no-disponible {
-    background-color:  #cc0000; /* Rojo Alerta */
+    background-color:  #cc0000; 
     color: white;
 }
 
@@ -612,12 +617,11 @@ html{
     filter: brightness(0) invert(1);
 }
 
-.tabla-implementos th:nth-child(1), .tabla-implementos td:nth-child(1) { width: 40%; } 
-.tabla-implementos th:nth-child(2), .tabla-implementos td:nth-child(2) { width: 12%; } 
-.tabla-implementos th:nth-child(3), .tabla-implementos td:nth-child(3) { width: 12%; } 
-.tabla-implementos th:nth-child(4), .tabla-implementos td:nth-child(4) { width: 12%; } 
-.tabla-implementos th:nth-child(5), .tabla-implementos td:nth-child(5) { width: 14%; } 
-.tabla-implementos th:nth-child(6), .tabla-implementos td:nth-child(6) { width: 10%; } 
+.tabla-implementos td:nth-child(1) {
+    color: #979797f3 !important;
+    font-weight: 600;
+    font-size: 13px;
+}
 
 .btn-accion.habilitar {
     background-color: #1eaf52;
