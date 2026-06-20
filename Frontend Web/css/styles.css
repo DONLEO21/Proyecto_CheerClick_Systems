@@ -6,7 +6,7 @@
 
 /* Layout */
 
-@import url("./layout/navbar.css");
+@import url("./layout/navbar-interna.css");
 @import url("./layout/footer.css");
 @import url("./layout/contenedores.css");
 
@@ -19,8 +19,3 @@
 @import url("./componentes/mensajes.css");
 @import url("./componentes/pasos.css");
 @import url("./componentes/progreso.css");
-
-/*Paginas*/
-
-@import url(./paginas/index.css);
-@import url(./paginas/usuarios.css);
