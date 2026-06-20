@@ -1,0 +1,392 @@
+/* ── Layout base del main ──────────────────────────────── */
+.admin-main{
+    margin-left: var(--sidebar-width, 62px);
+    padding: calc(var(--header-height, 55px) + var(--espacio-lg, 32px)) var(--espacio-lg, 32px) var(--espacio-xl, 64px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+    min-height: 100vh;
+    background: var(--color-fondo);
+}
+ 
+/* ── Hero: saludo + botón perfil ───────────────────────── */
+.admin-hero{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--espacio-md);
+    flex-wrap: wrap;
+}
+ 
+.admin-hero__eyebrow{
+    font-size: var(--texto-sm);
+    font-weight: 600;
+    color: var(--color-texto-claro);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: var(--espacio-xs);
+}
+ 
+.admin-hero__text h1{
+    font-size: var(--texto-xl);
+    line-height: 1.2;
+}
+ 
+.admin-hero__subtitle{
+    margin-top: var(--espacio-xs);
+    max-width: 520px;
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+}
+ 
+.admin-hero__profile-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    flex-shrink: 0;
+    padding: 10px 22px;
+    background: var(--color-secundario);
+    color: white;
+    font-weight: 700;
+    font-size: var(--texto-sm);
+    border-radius: var(--radio-sm);
+    box-shadow: var(--sombra-sm);
+    transition: var(--transicion);
+}
+ 
+.admin-hero__profile-btn:hover{
+    opacity: .9;
+    transform: translateY(-1px);
+}
+ 
+/* ── Grid principal de tarjetas ─────────────────────────── */
+.admin-summary-grid{
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--espacio-lg);
+}
+ 
+/* ── Tarjeta base ───────────────────────────────────────── */
+.admin-card{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+    min-width: 0; /* evita que tablas/grids desborden la celda */
+    padding: var(--espacio-lg);
+    background: white;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-sm);
+}
+ 
+.admin-card__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-sm);
+    flex-wrap: wrap;
+}
+ 
+.admin-card__header h2{
+    font-size: var(--texto-md);
+    font-weight: 700;
+}
+ 
+/* ── Acción inferior (link/botón al final de la tarjeta) ─ */
+.admin-card__action{
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 28px;
+    background: var(--color-secundario);
+    color: white;
+    font-weight: 700;
+    font-size: var(--texto-sm);
+    border-radius: var(--radio-sm);
+    transition: var(--transicion);
+}
+ 
+.admin-card__action:hover{
+    opacity: .9;
+    transform: translateY(-1px);
+}
+ 
+/* Botón "Ver todos" — oculto por ahora a pedido */
+.admin-card__action--dark{
+    align-self: flex-end;
+    background: #2b2b2b;
+    color: white;
+    display: none; /* quitar esta línea cuando se vuelva a activar */
+}
+ 
+/* ════════════════════════════════════════════════════════
+   TARJETA: Total atletas (stats + dona)
+   ════════════════════════════════════════════════════════ */
+.admin-stats{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-md);
+    flex-wrap: wrap;
+}
+ 
+.admin-stats__number{
+    font-family: var(--fuente-titulo);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--color-secundario);
+    line-height: 1;
+}
+ 
+.admin-stats__legend{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xs);
+    font-size: var(--texto-sm);
+    color: var(--color-texto);
+}
+ 
+.admin-stats__legend li{
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+}
+ 
+.admin-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+ 
+.admin-dot--paid{ background: var(--color-secundario); }
+.admin-dot--pending{ background: #c9c9c9; }
+.admin-dot--expired{ background: #4d4d4d; }
+ 
+.admin-chart{
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+}
+ 
+.admin-chart img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+ 
+/* ════════════════════════════════════════════════════════
+   TARJETA: Próximas actividades
+   ════════════════════════════════════════════════════════ */
+.admin-list{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+}
+ 
+.admin-list--activities .admin-list__item{
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-sm);
+}
+ 
+.admin-list__icon{
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(204, 0, 0, .08);
+}
+ 
+.admin-list__icon img{
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+ 
+.admin-list__icon--alert{
+    background: rgba(250, 215, 85, .25);
+}
+ 
+.admin-list__content h3{
+    font-size: var(--texto-sm);
+    font-weight: 700;
+    line-height: 1.3;
+}
+ 
+.admin-list__content p{
+    margin-top: 2px;
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+}
+ 
+/* ════════════════════════════════════════════════════════
+   TARJETA: Solicitudes de cuentas pendiente
+   ════════════════════════════════════════════════════════ */
+.admin-card--wide .admin-card__body{
+    overflow-x: auto; /* permite scroll horizontal de la tabla en pantallas chicas */
+}
+ 
+.admin-search{
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    width: 220px;
+    padding: 6px 12px;
+    background: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-sm);
+}
+ 
+.admin-search__icon{
+    color: var(--color-texto-claro);
+    font-size: var(--texto-md);
+    line-height: 1;
+}
+ 
+.admin-search input{
+    flex: 1;
+    width: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+ 
+.admin-search input:focus{
+    box-shadow: none;
+}
+ 
+.admin-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--texto-sm);
+}
+ 
+.admin-table thead th{
+    padding: var(--espacio-sm);
+    background: var(--color-fondo);
+    color: var(--color-texto-claro);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    text-align: left;
+}
+ 
+.admin-table tbody td{
+    padding: var(--espacio-sm);
+    border-bottom: 1px solid var(--color-borde);
+}
+ 
+.admin-table tbody tr:last-child td{
+    border-bottom: none;
+}
+ 
+.admin-table__btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: var(--radio-sm);
+    font-size: var(--texto-sm);
+    font-weight: 600;
+    color: white;
+    transition: var(--transicion);
+}
+ 
+.admin-table__btn:hover{
+    opacity: .9;
+}
+ 
+.admin-table__btn--view{
+    background: var(--color-secundario);
+}
+ 
+.admin-table__btn--view::before{
+    content: "⌕";
+    font-size: 13px;
+}
+ 
+.admin-table__btn--accept{
+    background: var(--color-exito);
+}
+ 
+.admin-table__btn--accept::before{
+    content: "✓";
+    font-size: 13px;
+    font-weight: 700;
+}
+ 
+/* ════════════════════════════════════════════════════════
+   TARJETA: Novedades
+   ════════════════════════════════════════════════════════ */
+.admin-list--news .admin-list__item{
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-sm);
+}
+ 
+.admin-list__dot{
+    width: 8px;
+    height: 8px;
+    margin-top: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+ 
+.admin-list__item--red .admin-list__dot{ background: var(--color-secundario); }
+.admin-list__item--green .admin-list__dot{ background: var(--color-exito); }
+.admin-list__item--yellow .admin-list__dot{ background: var(--color-pendiente); }
+ 
+.admin-list--news .admin-list__content h3{
+    font-size: var(--texto-sm);
+    font-weight: 700;
+}
+ 
+.admin-list--news .admin-list__content p{
+    margin-top: 2px;
+    font-size: var(--texto-sm);
+    color: var(--color-texto-claro);
+}
+ 
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 900px){
+    .admin-summary-grid{
+        grid-template-columns: 1fr;
+    }
+}
+ 
+@media (max-width: 640px){
+    .admin-main{
+        margin-left: 0;
+        padding: calc(var(--header-height, 55px) + var(--espacio-md, 24px)) var(--espacio-md, 24px) var(--espacio-xl, 64px);
+    }
+ 
+    .admin-hero{
+        align-items: flex-start;
+    }
+ 
+    .admin-hero__profile-btn{
+        width: 100%;
+        justify-content: center;
+    }
+ 
+    .admin-stats{
+        justify-content: flex-start;
+    }
+ 
+    .admin-card__header--space{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+ 
+    .admin-search{
+        width: 100%;
+    }
+}
