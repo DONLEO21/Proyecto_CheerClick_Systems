@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Frontend Web/css/styles.css">
     <link rel="stylesheet" href="/Frontend Web/css/paginas/usuarios.css">
-
-    <title>Inicio</title>
+    <link rel="icon" href="/Frontend Web/img/logo/logo-btc.png" type="image">
+    <title>Autenticación - BTC</title>
 </head>
 
 <body>
@@ -442,8 +442,20 @@
     }
 
     // Abre automáticamente al cargar
-    window.addEventListener('DOMContentLoaded', () => modalAuth.showModal());
-    
+    window.addEventListener('DOMContentLoaded', () => {
+        modalAuth.showModal();
+
+        const parametros = new URLSearchParams(window.location.search);
+        const vista = parametros.get('view');
+
+        if(vista === 'registro'){
+            mostrarVista('registro');
+        }
+
+        if(vista === 'login'){
+            mostrarVista('inicio-sesion');
+        }
+    });
 
     const vistas = document.querySelectorAll('.vista-auth');
 
