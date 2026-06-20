@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrador | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="/css/paginas/dashboard-admin.css">
+</head>
+
+<body class="pagina-admin">
+
+    <!-- barra lateral -->
+    <div class="Barra2">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="#" title="Perfil">
+                    <img src="/Frontend Web/img/iconos/perfil.png" alt="Icono perfil">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Estado de cuentas">
+                    <img src="/img/iconos/" alt="Icono estado de cuentas">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Estado de mensualidades">
+                    <img src="/img/iconos/grafico-circular.png" alt="Icono estado de mensualidades">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Horarios">
+                    <img src="/img/iconos/calendario.png" alt="Icono calendario">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Implementos">
+                    <img src="/img/iconos/camisa.png" alt="Icono implementos">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="/img/iconos/comentarios.png" alt="Icono comentarios">
+                </a>
+            </li>
+            
+            <li>
+                <a href="#" title="Rendimiento">
+                    <img src="/img/iconos/estadistica-barras.png" alt="Icono rendimiento">
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- BARRA 1 - Superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Administrador</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link">
+                            <img src="/img/iconos/campana.png" alt="Notificaciones">
+                        </a>
+                        <a href="#" class="icon-link">
+                            <img src="/img/iconos/casa.png" alt="Inicio">
+                        </a>
+                        <div class="logo-club">
+                            <img src="/img/logo/logo-btc.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="contenedor">
+
+            <!-- encabezado principal -->
+            <section class="bienvenida-admin" aria-labelledby="titulo-dashboard">
+                <div class="bienvenida-admin__texto">
+                    <h1 id="titulo-dashboard">
+                        Hola, Alexandra Rivera 👋
+                    </h1>
+                </div>
+
+                <a href="./perfil-admin.html" class="btn btn-primario bienvenida-admin__perfil">
+                    Perfil
+                    <img src="/Frontend Web/img/iconos/lapiz.png" alt="l">
+                </a>
+            </section>
+
+            <!-- tarjetas principales -->
+            <section class="panel-resumen" aria-label="resumen del administrador">
+
+                <article class="tarjeta-dashboard tarjeta-dashboard--estadisticas">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <img src="/img/iconos/casa.png" alt="Icono calendario">
+                        <h2>Total atletas</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido contenido-estadisticas">
+                        <div class="estadisticas-numero">
+                            180
+                        </div>
+
+                        <ul class="leyenda-estados" aria-label="leyenda del estado de cuentas">
+                            <li>
+                                <span class="punto punto--pagado"></span>
+                                Pagado
+                            </li>
+                            <li>
+                                <span class="punto punto--pendiente"></span>
+                                Pendiente
+                            </li>
+                            <li>
+                                <span class="punto punto--vencido"></span>
+                                Vencido
+                            </li>
+                        </ul>
+
+                        <figure class="grafico-estados">
+                            <img src="/Frontend Web/img/graficas/estado-cuentas.png" alt="gráfica del estado de cuentas">
+                        </figure>
+                    </div>
+
+                    <a href="./estado-cuentas.html" class="btn btn-primario tarjeta-dashboard__accion">
+                        Ver registro completo
+                    </a>
+                </article>
+
+                <article class="tarjeta-dashboard">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <img src="/img/iconos/casa.png" alt="Icono calendario">
+                        <h2>Próximas actividades</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        <ul class="lista-actividades">
+
+                            <li class="lista-actividades__item">
+                                <div class="lista-actividades__icono lista-actividades__icono--amarillo">
+                                    <img src="/Frontend Web/img/iconos/alerta.png" alt="o">
+                                </div>
+
+                                <div class="lista-actividades__texto">
+                                    <h3>Reunión de entrenadores</h3>
+                                    <p>10 de julio del 2026</p>
+                                </div>
+                            </li>
+
+                            <li class="lista-actividades__item">
+                                <div class="lista-actividades__icono">
+                                    <img src="/Frontend Web/img/iconos/trofeo.png" alt="oo">
+                                </div>
+
+                                <div class="lista-actividades__texto">
+                                    <h3>Competencia regional - Capital Cheer Colombia</h3>
+                                    <p>22 de octubre del 2026</p>
+                                </div>
+                            </li>
+
+                            <li class="lista-actividades__item">
+                                <div class="lista-actividades__icono lista-actividades__icono--alerta">
+                                    <img src="/Frontend Web/img/iconos/alerta.png" alt="o">
+                                </div>
+
+                                <div class="lista-actividades__texto">
+                                    <h3>Competencia nacional - Capital Cheer Colombia</h3>
+                                    <p>19 de noviembre del 2026</p>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </article>
+
+                <article class="tarjeta-dashboard tarjeta-dashboard--ancha">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--espacio">
+                        <h2>Solicitudes de cuentas pendientes</h2>
+
+                        <label class="buscador" aria-label="buscar solicitudes">
+                            <span class="buscador__icono">⌕</span>
+                            <input type="search" placeholder="Buscar">
+                        </label>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        <table class="tabla-dashboard">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Fecha</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Dilan Ramírez</td>
+                                    <td>18</td>
+                                    <td>22/06/2026</td>
+                                    <td>
+                                        <button type="button" class="btn-tabla btn-tabla--ver">
+                                            Ver
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Gabriela Deaqui</td>
+                                    <td>16</td>
+                                    <td>11/05/2026</td>
+                                    <td>
+                                        <button type="button" class="btn-tabla btn-tabla--aceptar">
+                                            Aceptar
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Leonardo Jara</td>
+                                    <td>20</td>
+                                    <td>19/04/2026</td>
+                                    <td>
+                                        <button type="button" class="btn-tabla btn-tabla--ver">
+                                            Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="tarjeta-dashboard">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <img src="/Frontend Web/img/iconos/documento.png" alt="Icono novedades">
+                        <h2>Novedades</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        <ul class="lista-novedades">
+
+                            <li class="lista-novedades__item">
+                                <div class="lista-novedades__icono">
+                                    <img src="/Frontend Web/img/iconos/calendario.png" alt="Calendario">
+                                </div>
+
+                                <div class="lista-novedades__texto">
+                                    <h3>Clases de entrenamiento programadas</h3>
+                                    <p>27 de marzo del 2026 · 6:00 PM</p>
+                                </div>
+                            </li>
+
+                            <li class="lista-novedades__item">
+                                <div class="lista-novedades__icono">
+                                    <img src="/Frontend Web/img/iconos/camiseta.png" alt="Implemento">
+                                </div>
+
+                                <div class="lista-novedades__texto">
+                                    <h3>Nuevo implemento deportivo solicitado</h3>
+                                    <p>16 de mayoo del 2026 · Camiseta deportiva</p>
+                                </div>
+                            </li>
+
+                            <li class="lista-novedades__item">
+                                <div class="lista-novedades__icono">
+                                    <img src="/Frontend Web/img/iconos/pqrs.png" alt="PQRS">
+                                </div>
+
+                                <div class="lista-novedades__texto">
+                                    <h3>Nueva PQRS registrada</h3>
+                                    <p>Leonardo Jara · Atleta</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
