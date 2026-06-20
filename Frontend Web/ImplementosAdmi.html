@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implementos Deportivos</title>
-    <link rel="stylesheet" href="Frontend Web/css/stylesAdmi.css">
+    <link rel="stylesheet" href="css/stylesAdmi.css">
 </head>
 <body>
     <!-- BARRA 2 - Lateral izquierda -->
@@ -18,32 +18,32 @@
 
     <li>
         <a href="#" title="Horarios">
-            <img src="Frontend Web/img/calendario.png" alt="Calendario">
+            <img src="img/calendario.png" alt="Calendario">
         </a>
     </li>
 
     <li>
         <a href="#" title="Estado de cuentas">
-            <img src="Frontend Web/img/grafico-circular.png" alt="">
+            <img src="img/grafico-circular.png" alt="">
         </a>
     </li>
 
     <li>
         <a href="#" title="PQRS">
-            <img src="Frontend Web/img/comentarios.png" alt="">
+            <img src="img/comentarios.png" alt="">
         </a>
     </li>
 
     <!-- IMPLEMENTOS ACTIVO -->
     <li class="active">
         <a href="#" title="Implementos">
-            <img src="Frontend Web/img/Camisa.png" alt="">
+            <img src="img/Camisa.png" alt="">
         </a>
     </li>
 
     <li>
         <a href="#" title="Validación de Cuentas">
-            <img src="Frontend Web/img/usuarios.png" alt="">
+            <img src="img/usuarios.png" alt="">
         </a>
     </li>
 
@@ -61,13 +61,13 @@
                     </ul>
                     <div id="Logo">
                         <a href="#" class="icon-link">
-                            <img src="Frontend Web/img/campana-de-notificacion.png" alt="">
+                            <img src="img/campana-de-notificacion.png" alt="">
                         </a>
                         <a href="#" class="icon-link">
-                            <img src="Frontend Web/img/casa.png" alt="">
+                            <img src="img/casa.png" alt="">
                         </a>
                         <div class="logo-club">
-                            <img src="Frontend Web/img/logo_transparent.png" alt="Logo del club">
+                            <img src="img/logo_transparent.png" alt="Logo del club">
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <!-- Acciones de Barra -->
             <div class="acciones-barra">
                 <input type="search" placeholder="Buscar Implemento..." class="search-input">
-                <a href="AgregarImple.html"><button type="button" class="btn-agregar">Agregar nuevo Implemento</button></a>
+                <button type="button" class="btn-agregar" onclick="document.getElementById('modal-agregar').showModal()">Agregar nuevo Implemento</button>
 
                 <div class="filtro-grupo">
                     <span class="filtro">Tipo:</span>
@@ -139,7 +139,7 @@
                         <tr>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-producto">
+                                    <img src="img/Uniforme.png" alt="Uniforme" class="img-producto">
                                     <span>Uniforme de competencia Femenino</span>
                                 </div>
                             </td>
@@ -152,11 +152,11 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion editar" onclick="document.getElementById('modal-editar').showModal()">
-                                        <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion eliminar" onclick="document.getElementById('modal-inhabilitar').showModal()">
-                                        <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
                                     </button>
                                 </div>
                             </td>
@@ -165,7 +165,7 @@
                         <tr>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <img src="Frontend Web/img/zapatillas.png" alt="Zapatillas" class="img-producto">
+                                    <img src="img/zapatillas.png" alt="Zapatillas" class="img-producto">
                                     <span>Zapatillas Cheer</span>
                                 </div>
                             </td>
@@ -178,11 +178,11 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion editar">
-                                        <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion eliminar">
-                                        <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
                                     </button>
                                 </div>
                             </td>
@@ -191,7 +191,7 @@
                         <tr>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <img src="Frontend Web/img/Mochila.png" alt="Mochila" class="img-producto">
+                                    <img src="img/Mochila.png" alt="Mochila" class="img-producto">
                                     <span>Mochila</span>
                                 </div>
                             </td>
@@ -204,11 +204,11 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion editar" onclick="document.getElementById('modal-editar').showModal()">
-                                        <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion eliminar" onclick="document.getElementById('modal-inhabilitar').showModal()">
-                                        <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
                                     </button>
                                 </div>
                             </td>
@@ -260,7 +260,7 @@
                             <tr>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 10px;">
-                                    <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-producto">
+                                    <img src="img/Uniforme.png" alt="Uniforme" class="img-producto">
                                     <span>Uniforme de competencia Femenino</span>
                                 </div>
                             </td>
@@ -273,11 +273,11 @@
                             <td>
                                 <div class="contenedor-acciones-celda">
                                     <button type="button" class="btn-accion aprobar" onclick="document.getElementById('modal-aprobar').showModal()">
-                                        <img src="Frontend Web/img/controlar (1).png" alt="Aprobar" class="icono-accion">
+                                        <img src="img/controlar (1).png" alt="Aprobar" class="icono-accion">
                                     </button>
                                     
                                     <button type="button" class="btn-accion rechazar" onclick="document.getElementById('modal-rechazar').showModal()">
-                                        <img src="Frontend Web/img/x.png" alt="Rechazar" class="icono-accion">
+                                        <img src="img/x.png" alt="Rechazar" class="icono-accion">
                                     </button>
                                 </div>
                             </td>
@@ -299,7 +299,7 @@
                 <div class="modal-cuerpo-editar">
                     <div class="modal-fila-editar">
                         <div class="contenedor-vista">
-                            <img src="Frontend Web/img/Uniforme.png" alt="Uniforme" class="img-modal">
+                            <img src="img/Uniforme.png" alt="Uniforme" class="img-modal">
                         </div>
                         <div class="modal-input-editar input-nombre-completo">
                             <label>Nombre del Producto</label>
@@ -352,7 +352,7 @@
         <!-- Modal Inhabilitar Implemento -->
         <dialog id="modal-inhabilitar" class="modal-diseno-inhabilitar">
             <div class="modal-cuerpo-inhabilitar">
-                <img src="Frontend Web/img/Inhabilitar.png" alt="inhabilitar-implemento" class="modal-img-ihnabilitar">
+                <img src="img/Inhabilitar.png" alt="inhabilitar-implemento" class="modal-img-ihnabilitar">
                 <h1>¿Inhabilitar Elemento Deportivo?</h1>
                 <p>¿Está seguro/a de que desea inhabilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
                 <p class="nota-alerta">Esta acción cambiará su estado a No Disponible.</p>
@@ -367,7 +367,7 @@
         <!-- Modal Habilitar Implemento -->
         <dialog id="modal-habilitar" class="modal-diseno-inhabilitar">
             <div class="modal-cuerpo-inhabilitar">
-                <img src="Frontend Web/img/Rayo.png" alt="habilitar-implemento" class="modal-img-ihnabilitar">
+                <img src="img/Rayo.png" alt="habilitar-implemento" class="modal-img-ihnabilitar">
                 <h1>¿Habilitar Elemento Deportivo?</h1>
                 <p>¿Está seguro/a de que desea habilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
                 <p class="nota-alerta">Esta acción cambiará su estado a Disponible.</p>
@@ -413,6 +413,75 @@
                     <button type="submit" class="btn-rechazar btn-rechazar-rojo">Confirmar Rechazo</button>
                 </footer>
             </form>
+        </dialog>
+
+        <!-- Modal Agregar -->
+        <dialog id="modal-agregar" class="modal-agregar">
+        <div class="modal-agregar-cuerpo">
+            <h1 class="modal-agregar-titulo">Registrar Nuevo Implemento Deportivo</h1>
+                <form class="formulario-registro">
+                    <div class="form-titulo">
+                        <h2>Registrar Implemento</h2>
+                    </div>
+
+                    <div class="grid-campos">
+                        <div class="imp-registro">
+                            <label for="nombre">Nombre del producto</label>
+                            <input type="text" id="nombre" class="form-control" placeholder="Nombre del elemento">
+                        </div>
+                        
+                        <div class="imp-registro">
+                            <label for="tipo">Tipo</label>
+                            <select id="tipo-re" class="form-control">
+                                <option value="" disabled selected>Seleccione tipo de producto</option>
+                                <option value="ropa">Ropa</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="calzado">Calzado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="imp-registro">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" id="cantidad" class="form-control" placeholder="Ingrese cantidad">
+                        </div>
+                        
+                        <div class="imp-registro">
+                            <label for="estado">Estado</label>
+                            <select id="estado-re" class="form-control">
+                                <option value="" disabled selected>Seleccione estado</option>
+                                <option value="disponible">Disponible</option>
+                                <option value="noDisponible">No disponible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="imp-registro full-width">
+                            <label for="precio">Precio</label>
+                            <input type="number" id="precio-re" class="form-control" placeholder="Ingrese precio">
+                        </div>
+            
+                        <div class="imp-registro full-width">
+                            <label for="observaciones">Observaciones</label>
+                            <textarea id="observaciones" class="form-control" placeholder="Notas u observaciones sobre el elemento..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="imp-registro full-width-foto">
+                        <label>Agregar Foto:</label>
+                        <div class="zona-drop" id="zonaDrop">
+                            <input type="file" id="inputFoto" accept="image/*" style="display: none;">
+                            <div class="contenido-drop" id="contenidoDrop">
+                                <div class="icono-nube-placeholder">☁️</div>
+                                <p>Arrastra una imagen aquí o <span class="resaltado-click">haga click para subir</span></p>
+                            </div>
+                            <img id="previstaFoto" style="display:none; max-width:100%; max-height:180px; border-radius:8px; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div class="contenedor-bnt-guardar">
+                        <button type="button" class="btn-guardar" id="btn-guardar">Guardar Implemento</button>
+                    </div>
+                </form>
+            </div>
         </dialog>
 
         <script>
@@ -543,55 +612,13 @@
                     document.getElementById('modal-habilitar').close();
                 });
             });
-        </script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const params = new URLSearchParams(window.location.search);
-                const nombre = params.get('nombre');
-                if (!nombre) return;
-
-                const tipo = params.get('tipo');
-                const cantidad = params.get('cantidad');
-                const estado = params.get('estado');
-                const precio = params.get('precio');
-                const img = sessionStorage.getItem('nuevaImg') || 'Frontend Web/img/Uniforme.png';
-                sessionStorage.removeItem('nuevaImg');
-
-                // ← Esto limpia la URL para que al refrescar no vuelva a agregar
-                window.history.replaceState({}, '', 'ImplementosAdmi.html');
-
-                const estadoClase = estado === 'disponible' ? 'disponible' : 'no-disponible';
-                const estadoTexto = estado === 'disponible' ? 'Disponible' : 'No Disponible';
-                const precioFormato = '$' + Number(precio).toLocaleString('es-CO');
-
-                const tbody = document.querySelector('#implementos-deportivos .tabla-implementos tbody');
-                const fila = document.createElement('tr');
-                fila.innerHTML = `
-                    <td>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <img src="${img}" alt="${nombre}" class="img-producto">
-                            <span>${nombre}</span>
-                        </div>
-                    </td>
-                    <td>${tipo.charAt(0).toUpperCase() + tipo.slice(1)}</td>
-                    <td>${cantidad}</td>
-                    <td>${precioFormato}</td>
-                    <td><span class="badge ${estadoClase}">${estadoTexto}</span></td>
-                    <td>
-                        <div class="contenedor-acciones-celda">
-                            <button type="button" class="btn-accion editar">
-                                <img src="Frontend Web/img/boton-editar.png" alt="Editar" class="icono-accion">
-                            </button>
-                            <button type="button" class="btn-accion eliminar">
-                                <img src="Frontend Web/img/basura.png" alt="Eliminar" class="icono-accion">
-                            </button>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(fila);
+            // Cerrar modal agregar al guardar
+            document.getElementById('btn-guardar').addEventListener('click', () => {
+                document.getElementById('modal-agregar').close();
             });
         </script>
+
     </div>  
 </body>
 </html>
