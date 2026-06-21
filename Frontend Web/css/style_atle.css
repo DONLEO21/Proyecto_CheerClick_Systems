@@ -373,12 +373,12 @@ header nav {
 
 #infor-usuario{
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #d4d4d4;
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #detalle-usu{
@@ -389,18 +389,18 @@ header nav {
     border: 2px solid #dcdcdc;
 }
 
-#infor-usu{
+#infor-usua{
     display: flex;
     align-items: center;
 }
 
-#infor-usu h3{
+#infor-usua h3{
     margin-left: 20px;
     font-size: 20px;
     font-family: var(--text-titulo);
 }
 
-#infor-usu h3 p{
+#infor-usua h3 p{
     margin-top: 3px;
     font-size: 12px;
     font-weight: 1px;
@@ -408,7 +408,19 @@ header nav {
     color:#929292 ;
 }
 
+#lapiz{
+    height: 18px;
+    width: 18px;
+    margin-right: 7px;
+}
+
+#perfil a{
+    text-decoration: none;
+}
+
 #perfil button{
+    display: flex;
+    align-items: center;
     width: 100px;
     height: 100%;
     background:#cc0000 ;
@@ -429,10 +441,15 @@ header nav {
     background: #ffffff;
     width: 25%;
     height:90px;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #d4d4d4;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+#filtros{
+    display: flex;
+    justify-content: space-between;
 }
 
 .gene-titu{
@@ -463,6 +480,18 @@ header nav {
     color: #000000;
 }
 
+#mes{
+    border: 2px solid #d1d5db;
+    color: #333333;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+    height: 45px;
+    width: 100%;
+    margin-right: 20px;
+    font-family:var(--text-texto) ;
+}
+
 #titu-fecha{
     font-size: 20px;
     font-family: var(--text-texto);
@@ -472,10 +501,10 @@ header nav {
 
 #panel{
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #d4d4d4;
     padding: 30px 30px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #titulo-mensu{
@@ -539,7 +568,6 @@ header nav {
     border-radius: 15px;
     display: flex;
     gap: 30px;
-    height: 300px;
     padding: 30px;
 }
 
@@ -564,7 +592,7 @@ header nav {
 
 .esta-pen{
     height: 32px;
-    width: 40%;
+    width: 100%;
     display: flex;
     align-items: center;
     background: #cc0000;
@@ -578,7 +606,7 @@ header nav {
 
 .esta-paga{
     height: 32px;
-    width: 40%;
+    width: 100%;
     display: flex;
     align-items: center;
     background: #1eaf52;
@@ -592,7 +620,7 @@ header nav {
 
 .esta-ven{
     height: 32px;
-    width: 40%;
+    width: 100%;
     display: flex;
     align-items: center;
     background: #6B7280;
@@ -618,6 +646,46 @@ header nav {
     color: #696969 ;
 }
 
+.subir-compro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: var(--text-titulo);
+    font-weight: 700;
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    border: 3px solid #d4d4d4;
+    cursor: pointer;
+}
+
+.ver-compro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: var(--text-titulo);
+    font-weight: 700;
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #1F2937;
+    border-radius: 15px;
+    border: 3px solid #1F2937;
+    color: #ffffff;
+    cursor: pointer; 
+}
+
+.sim-compro{
+    height: 17PX;
+    width: 17PX;
+    margin-right: 15PX;
+}
 #infor-final{
     display: flex;
     gap: 30px;
@@ -625,7 +693,7 @@ header nav {
 
 #infor-plan{
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #d4d4d4;
     width: 50%;
     padding: 30px 30px;
@@ -633,7 +701,7 @@ header nav {
 
 #noti-final{
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #d4d4d4;
     width: 50%;
     padding: 30px 30px;
@@ -691,7 +759,7 @@ header nav {
 #detalle-1{
     height: 15px;
     width: 15px;
-    background: #B94399;
+    background: #1eaf52;
     border-radius: 100%;
 }
 
@@ -717,7 +785,358 @@ header nav {
     margin-left: 10px;
 }
 
+/* Menus desplegables */
 
+#menu-regis{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 540px;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius:15px ;
+    
+}
+#menu-regis[open] {
+    gap: 30px;
+}
+
+#menu-regis::backdrop{
+    background: #00000062;
+    backdrop-filter: blur(2px);
+}
+
+/* Menu 2 */
+
+#menu-regis2{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    min-width: 470px;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius:15px ;
+    
+}
+#menu-regis2[open] {
+    gap: 30px;
+}
+
+#menu-regis2::backdrop{
+    background: #00000062;
+    backdrop-filter: blur(2px);
+}
+
+#conte-compro{
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #d4d4d4;
+    margin: 20px 25px 0px 25px;
+    height: 120px;
+}
+
+#docu-infor{
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom:  1px solid #d4d4d4;
+    background-color: #fffbfb;
+    padding: 20px;
+    height: 77%;
+}
+
+#docu-infor button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1eaf535c;
+    border: #1eaf535c;
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 45px;
+    height: 50px;
+}
+
+#docu-infor svg{
+    color: #147036;
+}
+
+#docu-infor h4{
+    font-family: var(--text-titulo);
+    font-size: 15px;
+}
+
+#docu-infor span{
+    font-family: var(--text-texto);
+    color: #8c8c8c;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+#infor-pago{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #8c8c8c;
+    font-size: 13px;
+    font-weight: 400;
+    gap: 20px;
+    padding: 7px;
+}
+
+.sim-pago{
+    height: 13px;
+    width: 13px;
+    margin-right: 5px;
+}
+
+#btn-compro{
+    padding: 20px 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #d4d4d4;
+    height: 40px;
+    width: 50%;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#cabe-menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 2px solid #d4d4d4;
+}
+
+#infor-cabe{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#sim-menu{
+    color:#3b82f6 ;
+}
+
+
+#titu-menu{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--text-titulo);
+}
+
+#sim-x{
+    height: 25px;
+    width: 25px ;
+    cursor: pointer;
+}
+
+#infor-usu{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fffbfb;
+    border-radius: 15px;
+    border: 1px solid #d4d4d4;
+    margin: 25px;
+    padding: 15px;
+}
+
+#conte-usu{
+    display: flex;
+    align-items: center;
+}
+
+#detalle-menu{
+    background: #ffffff;
+    border: 2px solid #d4d4d4;
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    margin-right: 17px;
+}
+
+#id-usu{
+    display: flex;
+}
+
+#usu-tex h4{
+    font-family: var(--text-titulo);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#usu-tex h5{
+    font-family: var(--text-texto);
+    font-weight: 700;
+    color:#6E6B5F;
+}
+
+.fon-blanco{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #d4d4d4;
+    width: 40px;
+    margin-left: 10px;
+}
+
+#mes-conte{
+    display: flex;
+    align-items: center;
+}
+
+#mes-conte button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 50%;
+    width: 60px;
+    background: #3b82f6;
+    color: #ffffff;
+    border: 3px solid #3b82f6;
+}
+
+#con-input{
+    padding: 25px;
+}
+
+.input-div{
+    display: flex;
+    gap: 20px;
+}
+
+.inputs{
+    display: grid;
+    width: 100%;
+}
+
+.inputs label{
+    font-size: var(--text-texto);
+    font-size: 16px;
+    font-weight: 500;
+    color:#676767 ;
+    margin-bottom: 10px;
+}
+
+.inputs input, select{
+    border: 1px solid #d4d4d4;
+    color: #000000;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 40px;
+    width: 100%;
+    font-family:var(--text-texto) ;
+    margin-bottom: 10px;
+}
+
+#titu-com{
+    font-size: var(--text-texto);
+    font-size: 16px;
+    font-weight: 500;
+    color:#676767 ;
+    margin-left: 25px;
+}
+#linea{
+    height: 2px;
+    background: #d4d4d4;
+    margin: 0px 24px;
+    margin-bottom: 15px;
+}
+
+#con-compro{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px dashed #d4d4d4;
+    padding: 40px;
+    margin: 15px 25px;
+}
+
+#con-compro div{
+    display: flex;
+    justify-content: center;
+}
+
+#detalle-cir{
+    background:#3b83f656 ;
+    border: #3b83f656;
+    color: #3b82f6;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+#con-compro span{
+    font-size: var(--text-texto);
+    font-size: 16px;
+    font-weight: 400;
+    color:#333333 ;
+    margin-bottom: 5px;
+}
+
+#con-compro u{
+    font-size: var(--text-texto);
+    font-size: 14px;
+    font-weight: 600;
+    color:#136eff ;
+    cursor: pointer;
+}
+
+#con-compro p{
+    font-size: var(--text-texto);
+    font-size: 12px;
+    font-weight: 500;
+    color:#696969 ;
+}
+
+#conte-btn{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 25px;
+    padding: 25px;
+    border-top: 2px solid #d4d4d4;
+}
+
+#cancelar{
+    border: 1px solid #E5E7EB;
+    background: #E5E7EB;
+    color: #696969;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+    font-weight: 900;
+    font-family:var(--text-texto);
+    cursor: pointer;
+}
+
+#registrar{
+    border: 1px solid #cc0000;
+    background: #cc0000;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+    font-weight: 900;
+    font-family:var(--text-texto);
+    cursor: pointer;
+}
 
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -746,4 +1165,120 @@ header nav {
         font-size: 10px;
         white-space: normal;
     }
+}
+
+/* ANIMACIONES */
+
+@keyframes entrada-arriba {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-abajo {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-escala {
+  from { opacity: 0; transform: scale(0.95) translateY(14px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── PÁGINA ── */
+
+/* Info del usuario */
+#infor-usuario {
+  opacity: 0;
+  animation: entrada-abajo 0.7s ease 0.05s forwards;
+}
+
+/* Tarjetas generales — escalonadas */
+#infor-general .tar-general:nth-child(1) {
+  opacity: 0;
+  animation: entrada-escala 0.8s ease 0.15s forwards;
+}
+#infor-general .tar-general:nth-child(2) {
+  opacity: 0;
+  animation: entrada-escala 0.8s ease 0.25s forwards;
+}
+#infor-general .tar-general:nth-child(3) {
+  opacity: 0;
+  animation: entrada-escala 0.8s ease 0.35s forwards;
+}
+#infor-general .tar-general:nth-child(4) {
+  opacity: 0;
+  animation: entrada-escala 0.8s ease 0.45s forwards;
+}
+
+/* Panel mensualidades */
+#panel {
+  opacity: 0;
+  animation: entrada-arriba 0.9s ease 0.5s forwards;
+}
+
+/* Tarjetas de mensualidad — escalonadas */
+#targetas .tar-infor:nth-child(1) {
+  opacity: 0;
+  animation: entrada-arriba 0.7s ease 0.55s forwards;
+}
+#targetas .tar-infor:nth-child(2) {
+  opacity: 0;
+  animation: entrada-arriba 0.7s ease 0.63s forwards;
+}
+#targetas .tar-infor:nth-child(3) {
+  opacity: 0;
+  animation: entrada-arriba 0.7s ease 0.71s forwards;
+}
+
+/* Footer — plan y notificaciones */
+#infor-plan {
+  opacity: 0;
+  animation: entrada-arriba 0.8s ease 0.75s forwards;
+}
+#noti-final {
+  opacity: 0;
+  animation: entrada-arriba 0.8s ease 0.85s forwards;
+}
+
+
+@keyframes dialog-entrar {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dialog-fondo {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes dialog-entrar {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 20px)); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+dialog[open] {
+  animation: dialog-entrar 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+dialog[open]::backdrop {
+  animation: dialog-fondo 0.3s ease forwards;
+}
+
+dialog[open] #cabe-menu {
+  opacity: 0;
+  animation: entrada-abajo 0.4s ease 0.1s forwards;
+}
+dialog[open] #con-input,
+dialog[open] #infor-usu {
+  opacity: 0;
+  animation: entrada-arriba 0.4s ease 0.18s forwards;
+}
+dialog[open] #con-compro,
+dialog[open] #conte-compro {
+  opacity: 0;
+  animation: entrada-arriba 0.4s ease 0.26s forwards;
+}
+dialog[open] #conte-btn,
+dialog[open] #btn-compro {
+  opacity: 0;
+  animation: entrada-arriba 0.4s ease 0.34s forwards;
 }
