@@ -352,7 +352,7 @@ header .contenedor{
     transform: translateY(-1px);
 }
  
-/* ── Layout del contenido principal ────────────────────────── */
+/* ── Layout del contenido principal */
 .admin-main{
     margin-left: var(--sidebar-width);
     margin-top: var(--header-height);
@@ -368,18 +368,20 @@ header .contenedor{
     padding: var(--espacio-lg);
 }
  
-/* ── Hero: saludo + botón perfil ───────────────────────────── */
+/* saludo y botón perfil */
 .bienvenida-admin{
     display: flex;
-    align-items: flex-end;
+    background: var(--blanco);
+    box-shadow: var(--sombra-sm);
+    border-radius: var(--radio-md);
+    padding: var(--espacio-md) var(--espacio-lg);
     justify-content: space-between;
-    gap: var(--espacio-md);
-    flex-wrap: wrap;
 }
- 
-.bienvenida-admin__texto h1{
+
+.bienvenida-admin h1{
     font-size: var(--texto-xl);
     line-height: 1.2;
+    
 }
  
 .bienvenida-admin__perfil{ flex-shrink: 0; }
@@ -390,14 +392,14 @@ header .contenedor{
     filter: brightness(0) invert(1);
 }
  
-/* ── Grid principal de tarjetas ─────────────────────────────── */
+/*  Grid principal de tarjetas */
 .panel-resumen{
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: var(--espacio-lg);
 }
  
-/* ── Tarjeta base ───────────────────────────────────────────── */
+/*  Tarjeta base*/
 .tarjeta-dashboard{
     display: flex;
     flex-direction: column;
@@ -439,7 +441,7 @@ header .contenedor{
     align-self: flex-start;
 }
  
-/* tarjeta ancha: que la tabla pueda scrollear en pantallas chicas */
+/* tarjeta ancha con scroll */
 .tarjeta-dashboard--ancha .tarjeta-dashboard__contenido{
     overflow-x: auto;
 }
