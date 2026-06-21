@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Atleta | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/paginas/dashboard-atleta.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo/logo-btc.png">
+</head>
+
+<body class="pagina-atleta">
+
+    <!-- barra lateral -->
+    <div class="Barra2">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="#" title="Perfil" id="perfil-icon">
+                    <img src="/img/iconos/circle-user.svg" alt="Perfil usuario">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Estado de mensualidades">
+                    <img src="/img/iconos/grafico-circular.png" alt="Icono estado de mensualidades">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Horarios">
+                    <img src="/img/iconos/calendario.png" alt="Icono calendario">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Implementos">
+                    <img src="/img/iconos/camisa.png" alt="Icono implementos">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="/img/iconos/comentarios.png" alt="Icono comentarios">
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Rendimiento">
+                    <img src="/img/iconos/estadistica-barras.png" alt="Icono rendimiento">
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- barra superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Atleta</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-icon lucide-bell"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                        </a>
+                        <a href="#" class="icon-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                        </a>
+                        <div class="logo-club">
+                            <img src="/img/logo/logo-btc.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="contenedor">
+
+            <!-- encabezado principal -->
+            <section class="bienvenida-atleta" aria-labelledby="titulo-dashboard">
+                <h1 id="titulo-dashboard">
+                    Hola, Gabriela 👋
+                </h1>
+
+                <a href="./perfil-atleta.html" class="btn btn-primario bienvenida-atleta__perfil">
+                    Perfil
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
+                </a>
+            </section>
+
+            <!-- tarjetas principales -->
+            <section class="panel-resumen" aria-label="resumen del atleta">
+
+                <!-- tu rendimiento -->
+                <article class="tarjeta-dashboard tarjeta-rendimiento">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Tu rendimiento</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido tarjeta-rendimiento__contenido">
+                        <figure class="grafico-rendimiento">
+                            <!-- gráfica generada por ahora con imagen, sin JS -->
+                            <img src="/img/iconos/grafica-rendimiento.png" alt="75% de habilidades dominadas">
+                        </figure>
+
+                        <p class="tarjeta-progreso__variacion">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up-icon lucide-trending-up"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                            <strong>+5%</strong> respecto a la semana pasada
+                        </p>
+
+                        <a href="./mi-rendimiento.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                            Ver mi Rendimiento
+                        </a>
+                    </div>
+                </article>
+
+                <!-- progreso semanal -->
+                <article class="tarjeta-dashboard tarjeta-progreso">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Progreso semanal</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        
+                        <figure class="grafico-progreso">
+                            <img src="" alt="Gráfica de progreso semanal">
+                        </figure>
+
+                        <div class="lista-progreso">
+
+                            <div class="barra-progreso">
+                                <div class="barra-progreso__etiqueta">
+                                    <span>Mortales</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="barra-progreso__pista">
+                                    <div class="barra-progreso__relleno barra-progreso__relleno--rojo" style="width: 40%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="barra-progreso">
+                                <div class="barra-progreso__etiqueta">
+                                    <span>Palomas</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="barra-progreso__pista">
+                                    <div class="barra-progreso__relleno barra-progreso__relleno--verde" style="width: 100%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="barra-progreso">
+                                <div class="barra-progreso__etiqueta">
+                                    <span>Flips</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="barra-progreso__pista">
+                                    <div class="barra-progreso__relleno barra-progreso__relleno--amarillo" style="width: 75%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+
+                <!-- calendario -->
+                <article class="tarjeta-dashboard tarjeta-calendario">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                        <h2>Calendario</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        <table class="calendario">
+                            <thead>
+                                <tr>
+                                    <th colspan="7">Marzo, 2026</th>
+                                </tr>
+                                <tr>
+                                    <th>Dom</th>
+                                    <th>Lun</th>
+                                    <th>Mar</th>
+                                    <th>Mié</th>
+                                    <th>Jue</th>
+                                    <th>Vie</th>
+                                    <th>Sáb</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <th class="dia-asistio">2</th>
+                                    <th>3</th>
+                                    <th class="dia-asistio">4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th class="dia-asistio">7</th>
+                                </tr>
+                                <tr>
+                                    <th class="dia-asistio">8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th class="dia-fallo">11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th class="dia-fallo">14</th>
+                                </tr>
+                                <tr>
+                                    <th class="dia-asistio">15</th>
+                                    <th class="dia-asistio">16</th>
+                                    <th>17</th>
+                                    <th class="dia-asistio">18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                </tr>
+                                <tr>
+                                    <th>22</th>
+                                    <th class="dia-fallo">23</th>
+                                    <th>24</th>
+                                    <th class="dia-asistio">25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                </tr>
+                                <tr>
+                                    <th>29</th>
+                                    <th class="dia-asistio">30</th>
+                                    <th>31</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="calendario__leyenda">
+                            <li class="calendario__leyenda-item">
+                                <span class="calendario__punto calendario__punto--verde"></span>
+                                Asistí
+                            </li>
+                            <li class="calendario__leyenda-item">
+                                <span class="calendario__punto calendario__punto--rojo"></span>
+                                Falté
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="./mis-entrenamientos.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                        Ver entrenamientos
+                    </a>
+                </article>
+
+                <!-- tarjeta perfil -->
+                <article class="tarjeta-dashboard tarjeta-perfil-atleta">
+                    <div class="tarjeta-dashboard__contenido perfil-atleta">
+
+                        <figure class="perfil-atleta__foto">
+                            <img src="/img/atletas/gabriela-deaquiz.jpg" alt="Foto de Gabriela Deaquiz">
+                        </figure>
+
+                        <h3 class="perfil-atleta__nombre">Gabriela Deaquiz</h3>
+
+                        <span class="insignia-categoria">Nivel 3 Magic</span>
+
+                        <div class="perfil-atleta__stats">
+                            <div class="perfil-atleta__stat">
+                                <span class="perfil-atleta__stat-valor">20</span>
+                                <span class="perfil-atleta__stat-etiqueta">Entrenamientos</span>
+                            </div>
+                            <div class="perfil-atleta__stat">
+                                <span class="perfil-atleta__stat-valor">1</span>
+                                <span class="perfil-atleta__stat-etiqueta">Coreografía</span>
+                            </div>
+                        </div>
+
+                        <!-- proximos entrenamientos-->
+                        <div class="perfil-atleta__proximo">
+                            <div class="perfil-atleta__proximo-etiqueta">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                                Próximo entrenamiento
+                            </div>
+                            <div class="perfil-atleta__proximo-info">
+                                <span class="perfil-atleta__proximo-fecha">Lun 23 · 4:00 PM</span>
+                                <span class="perfil-atleta__proximo-tipo">Rutina de partner</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- ultimas actividades -->
+                <article class="tarjeta-dashboard tarjeta-actividades">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Últimas actividades</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido lista-actividades">
+
+                        <!-- CAMBIO: separadores entre items con clase actividad-item--separador -->
+                        <div class="actividad-item">
+                            <span class="actividad-item__icono actividad-item__icono--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            </span>
+                            <div class="actividad-item__texto">
+                                <span class="actividad-item__titulo">Entrenamiento completado</span>
+                                <span class="actividad-item__subtitulo">Rutina de partner</span>
+                            </div>
+                            <span class="actividad-item__tiempo">Hoy</span>
+                        </div>
+
+                        <div class="actividad-item actividad-item--separador">
+                            <span class="actividad-item__icono actividad-item__icono--azul">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                            </span>
+                            <div class="actividad-item__texto">
+                                <span class="actividad-item__titulo">Evaluación física</span>
+                                <span class="actividad-item__subtitulo">Mediciones mensuales</span>
+                            </div>
+                            <span class="actividad-item__tiempo">Ayer</span>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- pqrs -->
+                <article class="tarjeta-dashboard tarjeta-pqrs">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <h2>PQRS</h2>
+                    </header>
+
+                    <!-- tarjetas de PQRS estados-->
+                    <div class="tarjeta-dashboard__contenido pqrs__resumen">
+                        <span class="insignia-pqrs insignia-pqrs--respondida">2 respondidas</span>
+                        <span class="insignia-pqrs insignia-pqrs--proceso">1 en proceso</span>
+                        <span class="insignia-pqrs insignia-pqrs--pendiente">1 pendiente</span>
+                        <span class="insignia-pqrs insignia-pqrs--rechazada">1 rechazada</span>
+                    </div>
+
+                    <a href="./mis-solicitudes.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                        Ver mis Solicitudes
+                    </a>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
