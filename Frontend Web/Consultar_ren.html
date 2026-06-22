@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheerClick Systems</title>
+    <link rel="stylesheet" href="css/Consultar_ren.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     BARRA LATERAL
+══════════════════════════════════════════ -->
+<aside class="barra-lateral" aria-label="Menú de navegación principal">
+    <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+        <span class="boton-menu__linea"></span>
+        <span class="boton-menu__linea"></span>
+        <span class="boton-menu__linea"></span>
+    </button>
+    <nav>
+        <ul class="menu-lateral" role="list">
+            <li class="menu-lateral__elemento">
+                <a href="#" class="menu-lateral__enlace" title="Perfil">
+                    <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento">
+                <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
+                    <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                    <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento">
+                <a href="#" class="menu-lateral__enlace" title="Registro Asistencia">
+                    <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Registro Asistencia">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento">
+                <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                    <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+<!-- ══════════════════════════════════════════
+     ENCABEZADO SUPERIOR
+══════════════════════════════════════════ -->
+<header class="encabezado" role="banner">
+    <div class="encabezado__contenedor">
+        <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
+            <ul class="encabezado__lista-botones" role="list">
+                <li>
+                    <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                </li>
+                <li>
+                    <span class="etiqueta-rol" aria-label="Rol: Entrenador">Entrenador</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="encabezado__iconos-logo">
+            <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                <img src="img/campana-de-notificacion.png" alt="Notificaciones">
+            </a>
+            <a href="#" class="icono-accion" aria-label="Ir al inicio">
+                <img src="img/casa.png" alt="Inicio">
+            </a>
+            <figure class="logo-club">
+                <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+            </figure>
+        </div>
+    </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     CONTENIDO PRINCIPAL
+══════════════════════════════════════════ -->
+<main id="contenido">
+    <div id="volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+        <a href="Gestion_renDeportivo_entre.html"> Volver al Rendimiento de los Atletas</a>
+    </div>
+    <aside id="conte-infor">
+        <div>
+            <img  id="foto" src="img/Foto1.jpg" alt="Foto Atleta">
+        </div>
+        <div>
+            <h3>Detalle del Atleta</h3>
+            <h4>Leonardo Jara</h4>
+            <h5>Edad: 20 - Nivel 3 Magic </h5>
+        </div>
+    </aside>
+    <section id="targetas">
+        <div class="targe">
+            <h4 class="titu">Puntaje Total</h4>
+            <div class="conte-targe">
+                <span class="valor">88%</span>
+                <div id="ver">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-icon lucide-triangle"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
+                    <p class="texto-verde">4 pts + mes anterior</p>
+                </div>
+            </div>
+        </div>
+        <div class="targe">
+            <h4 class="titu">Mejor habilidad</h4>
+            <div class="conte-targe">
+                <span class="valor-tex">Parada de manos</span>
+                <p class="texto-verde">94%  ·  +2% este mes</p>
+            </div>
+        </div>
+        <div class="targe">
+            <h4 class="titu">Asistencia</h4>
+            <div class="conte-targe">
+                <span class="valor-tex">91%</span>
+                <p class="texto">20 / 22 sesiones</p>
+            </div>
+        </div>
+    </section>
+    <section id="panel-infor">
+        <div id="conte-esta">
+            <h3>Desempeño</h3>
+            <div id="targetas-desem">
+                <div class="targe-desem">
+                    <div class="tar-img-nombre">
+                        <img  class="img-habi" src="img/habi1.png" alt="Foto habilidad">
+                        <span class="texto-habi">Habilidades de arcos</span>
+                    </div>
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:86%"></div></div>
+                    </div>
+                    <div class="tar-porcen">
+                        <h5 class="porcen">86%</h5>
+                    </div>
+                </div>
+                <div class="targe-desem">
+                    <div class="tar-img-nombre">
+                        <img  class="img-habi" src="img/habi2.png" alt="Foto habilidad">
+                        <span class="texto-habi">Habilidades de palomas</span>
+                    </div>
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:78%"></div></div>
+                    </div>
+                    <div class="tar-porcen">
+                        <h5 class="porcen">78%</h5>
+                    </div>
+                </div>
+                <div class="targe-desem">
+                    <div class="tar-img-nombre">
+                        <img  class="img-habi" src="img/habi3.png" alt="Foto habilidad">
+                        <span class="texto-habi">Parada de manos</span>
+                    </div>
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:94%"></div></div>
+                    </div>
+                    <div class="tar-porcen">
+                        <h5 class="porcen">94%</h5>
+                    </div>
+                </div>
+                <div class="targe-desem">
+                    <div class="tar-img-nombre">
+                        <img  class="img-habi" src="img/habi4.png" alt="Foto habilidad">
+                        <span class="texto-habi">Flexibilidad</span>
+                    </div>
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:88%"></div></div>
+                    </div>
+                    <div class="tar-porcen">
+                        <h5 class="porcen">88%</h5>
+                    </div>
+                </div>
+                <div class="targe-desem">
+                    <div class="tar-img-nombre">
+                        <img  class="img-habi" src="img/habi5.png" alt="Foto habilidad">
+                        <span class="texto-habi">Habilidades de parther</span>
+                    </div>
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:93%"></div></div>
+                    </div>
+                    <div class="tar-porcen">
+                        <h5 class="porcen">93%</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="conte-grafica">
+          <h3>Puntaje total</h3>
+          <div id="grafica">
+                <img src="img/Estadistica-1.png" alt="">
+            </div>
+        </div>
+    </section>
+    <footer id="notas-entre">
+        <h3>Notas del Entrenador</h3>
+        <div class="targe-notas">
+            <span class="titu-notas">14 Jun 2026 — Entrenador</span>
+            <p class="texto-notas">Leonardo mostró gran mejora en parada de manos. Se recomienda reforzar la técnica de palomas antes de la competencia del 28 de junio.</p>
+        </div>
+        <div class="targe-notas">
+            <span class="titu-notas">05 Jun 2026 — Entrenador</span>
+            <p class="texto-notas">Sesión de evaluación general. Flexibilidad mejoró notablemente respecto al mes anterior. Mantener rutina de estiramiento post-entrenamiento.</p>
+        </div>
+        <div class="targe-notas">
+            <span class="titu-notas">28 May 2026 — Entrenador</span>
+            <p class="texto-notas">Primer ensayo con la nueva coreografía. El atleta se adaptó rápido pero necesita más repetición en la transición del segundo al tercer bloque.</p>
+        </div>
+    </footer>
+</main>
+</body>
