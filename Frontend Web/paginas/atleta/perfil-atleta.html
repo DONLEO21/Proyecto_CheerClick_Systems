@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/paginas/perfil-atleta.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo/logo-btc.png">
+</head>
+
+<body class="pagina-atleta">
+
+    <!-- barra lateral -->
+    <div class="Barra2">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="#" title="Perfil" id="perfil-icon">
+                    <img src="/img/iconos/circle-user.svg" alt="Perfil usuario">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Estado de mensualidades">
+                    <img src="/img/iconos/grafico-circular.png" alt="Mensualidades">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Horarios">
+                    <img src="/img/iconos/calendario.png" alt="Horarios">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Implementos">
+                    <img src="/img/iconos/camisa.png" alt="Implementos">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="PQRS">
+                    <img src="/img/iconos/comentarios.png" alt="PQRS">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="Rendimiento">
+                    <img src="/img/iconos/estadistica-barras.png" alt="Rendimiento">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- barra superior -->
+    <header>
+        <nav>
+            <div class="contenedor">
+                <div class="Barra1">
+                    <ul class="nav-btns">
+                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
+                        <li><span class="admin-btn">Atleta</span></li>
+                    </ul>
+                    <div id="Logo">
+                        <a href="#" class="icon-link" title="Notificaciones">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                        </a>
+                        <a href="#" class="icon-link" title="Inicio">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                        </a>
+                        <div class="logo-club">
+                            <img src="/img/logo/logo-btc.png" alt="Logo del club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- contenido principal -->
+    <main class="admin-main">
+        <div class="contenedor">
+
+            <!-- título de página -->
+            <section class="pagina-encabezado">
+                <h1>Mi perfil</h1>
+                <p class="pagina-encabezado__sub">Gestiona tu información personal y preferencias de cuenta.</p>
+            </section>
+
+            
+            <div class="perfil-layout">
+
+                <!-- columna principal -->
+                <div class="perfil-col-principal">
+
+                    <!-- tarjeta: foto y nombre -->
+                    <div class="tarjeta-p tarjeta-p--fila">
+
+                        <div class="perfil-encabezado-foto">
+                            <!-- foto con botón lápiz -->
+                            <div class="foto-contenedor">
+                                <figure class="foto-circulo">
+                                    <img src="/img/atletas/gabriela-deaquiz.jpg" alt="Foto de perfil" id="foto-principal">
+                                </figure>
+                                <button
+                                    class="foto-lapiz"
+                                    type="button"
+                                    title="Cambiar foto de perfil"
+                                    aria-label="Cambiar foto de perfil"
+                                    onclick="abrirModal('modal-foto')"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="perfil-encabezado-info">
+                                <h2 class="perfil-nombre">Gabriela</h2>
+                                <p class="perfil-apellido">Deaquiz</p>
+                                <span class="insignia-rol">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    Atleta · Nivel 3 Magic
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- botones editar / guardar / cancelar -->
+                        <div class="perfil-encabezado-acciones">
+                            <button type="button" class="btn btn-secundario" id="btn-editar" onclick="activarEdicion()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
+                                Editar información
+                            </button>
+                            <button type="button" class="btn btn-primario oculto" id="btn-guardar" onclick="abrirModal('modal-confirmar')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                                Guardar cambios
+                            </button>
+                            <button type="button" class="btn-texto oculto" id="btn-cancelar" onclick="cancelarEdicion()">Cancelar</button>
+                        </div>
+                    </div>
+
+                    <!-- tarjeta: información personal -->
+                    <div class="tarjeta-p">
+                        <div class="seccion-titulo">
+                            <span class="seccion-titulo__icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </span>
+                            <div>
+                                <h3>Información personal</h3>
+                                <p class="seccion-titulo__sub">Actualiza tus datos personales y de contacto</p>
+                            </div>
+                        </div>
+
+                        <div class="divisor"></div>
+
+                        <div class="campos-grid">
+
+                            <div class="form-grupo">
+                                <label for="tipo-documento">Tipo de documento</label>
+                                <select id="tipo-documento" name="documento" disabled>
+                                    <option value="cc" selected>Cédula de ciudadanía</option>
+                                    <option value="ti">Tarjeta de identidad</option>
+                                    <option value="ce">Cédula de extranjería</option>
+                                    <option value="pasaporte">Pasaporte</option>
+                                </select>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="numero-documento">Número de documento</label>
+                                <input type="text" id="numero-documento" name="numero-documento" value="676767001" disabled>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="correo">Correo electrónico</label>
+                                <input type="email" id="correo" name="correo" value="Ejemplo@gmail.com" disabled>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" value="322 408 8212" disabled>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- tarjeta: contacto de emergencia -->
+                    <div class="tarjeta-p">
+                        <div class="seccion-titulo">
+                            <span class="seccion-titulo__icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </span>
+                            <div>
+                                <h3>Datos de contacto de emergencia</h3>
+                                <p class="seccion-titulo__sub">Información de contacto en caso de emergencia</p>
+                            </div>
+                        </div>
+
+                        <div class="divisor"></div>
+
+                        <div class="campos-grid campos-grid--cuatro">
+
+                            <div class="form-grupo">
+                                <label for="em-nombre">Nombre</label>
+                                <input type="text" id="em-nombre" name="em-nombre" value="Pedro" disabled>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="em-apellido">Apellido</label>
+                                <input type="text" id="em-apellido" name="em-apellido" value="Lopez" disabled>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="em-telefono">Teléfono</label>
+                                <input type="tel" id="em-telefono" name="em-telefono" value="302 407 8321" disabled>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="tipo-parentesco">Parentesco</label>
+                                
+                                <select name="parentesco" id="tipo-parentesco" required>
+                                    <option value="" disabled selected>Seleccionar parentesco...</option>
+                                    <option value="madre-padre">Madre / Padre</option>
+                                    <option value="tutor">Tutor</option>
+                                    <option value="conyuge-pareja">Cónyuge / Pareja</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!-- /perfil columna principal -->
+
+                <!-- columna lateral -->
+                <aside class="perfil-col-lateral">
+
+                    <!-- seguridad -->
+                    <div class="tarjeta-p tarjeta-p--lateral">
+                        <div class="seccion-titulo">
+                            <span class="seccion-titulo__icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </span>
+                            <div>
+                                <h3>Seguridad</h3>
+                                <p class="seccion-titulo__sub">Protege tu cuenta y mantén tu información segura</p>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-rojo btn-bloque"
+                            onclick="window.location.href='/paginas/autenticacion/autenticacion.html?view=cambio-contrasena'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Cambiar contraseña
+                        </button>
+                    </div>
+
+                    <!-- preferencias de comunicacion -->
+                    <div class="tarjeta-p tarjeta-p--lateral">
+                        <div class="seccion-titulo">
+                            <span class="seccion-titulo__icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                            </span>
+                            <div>
+                                <h3>Preferencias de comunicación</h3>
+                            </div>
+                        </div>
+
+                        <div class="preferencia-item">
+                            <div class="preferencia-item__texto">
+                                <span class="preferencia-item__titulo">Notificaciones</span>
+                                <span class="preferencia-item__sub">Recibe notificaciones del sistema</span>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle__pista"></span>
+                            </label>
+                        </div>
+
+                        <div class="preferencia-item">
+                            <div class="preferencia-item__texto">
+                                <span class="preferencia-item__titulo">Correos</span>
+                                <span class="preferencia-item__sub">Recibe correos importantes</span>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle__pista"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- modal para cambiar foto de perfil -->
+    <div class="modal-overlay oculto" id="modal-foto" onclick="if(event.target===this) cerrarModal('modal-foto')">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-foto-titulo">
+            <div class="modal-cabeza">
+                <h2 class="modal-cabeza__titulo" id="modal-foto-titulo">Cambiar foto de perfil</h2>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-foto')" aria-label="Cerrar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <p class="modal-descripcion">Selecciona una nueva foto de perfil. La imagen debe ser JPG o PNG y no debe superar los 5MB.</p>
+
+            <!-- preview circular -->
+            <div class="modal-foto-preview-zona">
+                <figure class="modal-foto-preview">
+                    <img src="/img/atletas/gabriela-deaquiz.jpg" alt="Preview foto" id="modal-foto-preview-img">
+                </figure>
+            </div>
+
+            <!-- zona parra arrastrar o subir foto -->
+            <div class="zona-carga" id="zona-carga">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+                <p class="zona-carga__texto">Arrastra y suelta la imagen aquí</p>
+                <span class="zona-carga__o">o</span>
+                <button class="btn btn-outline-rojo" type="button" onclick="document.getElementById('input-foto').click()">
+                    Selecciona la imagen
+                </button>
+                <input type="file" id="input-foto" accept="image/jpeg,image/jpg,image/png" class="oculto">
+                <p class="zona-carga__formatos">Formatos permitidos: JPG, PNG. Máximo 5MB.</p>
+            </div>
+
+            <!-- mensaje estado -->
+            <p class="estado-carga oculto" id="estado-carga"></p>
+
+            <div class="modal-pie">
+                <button class="btn btn-blanco" type="button" onclick="cerrarModal('modal-foto')">Cancelar</button>
+                <button class="btn btn-primario" type="button" id="btn-guardar-foto" disabled onclick="guardarFoto()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal para confirmar guardar cambios -->
+    <div class="modal-overlay oculto" id="modal-confirmar" onclick="if(event.target===this) cerrarModal('modal-confirmar')">
+        <div class="modal modal--chico" role="dialog" aria-modal="true" aria-labelledby="modal-confirmar-titulo">
+            <div class="modal-cabeza modal-cabeza--simple">
+                <h2 class="modal-titulo" id="modal-confirmar-titulo">¿Guardar cambios?</h2>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-confirmar')" aria-label="Cerrar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <p class="modal-descripcion">Se actualizará tu información personal. ¿Confirmas los cambios realizados?</p>
+            <div class="modal-pie">
+                <button class="btn btn-blanco" type="button" onclick="cerrarModal('modal-confirmar')">Cancelar</button>
+                <button class="btn btn-primario" type="button" onclick="confirmarGuardar()">Sí, guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal de cambios guardados con éxito -->
+    <div class="modal-overlay oculto" id="modal-exito" onclick="if(event.target===this) cerrarModal('modal-exito')">
+        <div class="modal modal--chico modal--centrado" role="dialog" aria-modal="true" aria-labelledby="modal-exito-titulo">
+            <div class="exito-icono">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h2 class="modal-titulo" id="modal-exito-titulo">¡Cambios guardados!</h2>
+            <p class="modal-descripcion">Tu información personal ha sido actualizada correctamente.</p>
+            <button class="btn btn-primario" type="button" onclick="cerrarModal('modal-exito')">Entendido</button>
+        </div>
+    </div>
+
+    <script>
+       
+        function abrirModal(id) {
+            document.getElementById(id).classList.remove('oculto');
+        }
+        function cerrarModal(id) {
+            document.getElementById(id).classList.add('oculto');
+            if (id === 'modal-foto') resetearModalFoto();
+        }
+
+        /* cerrar cualquier modal abierto con escape */
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            document.querySelectorAll('.modal-overlay:not(.oculto)').forEach(function(m) {
+                cerrarModal(m.id);
+            });
+        });
+
+        /* edición de campos */
+        var valoresOriginales = {};
+
+        function obtenerCampos() {
+            return document.querySelectorAll('.perfil-col-principal .form-grupo input, .perfil-col-principal .form-grupo select');
+        }
+
+        function activarEdicion() {
+            obtenerCampos().forEach(function(c) {
+                valoresOriginales[c.id] = c.value;
+                c.disabled = false;
+            });
+            document.getElementById('btn-editar').classList.add('oculto');
+            document.getElementById('btn-guardar').classList.remove('oculto');
+            document.getElementById('btn-cancelar').classList.remove('oculto');
+        }
+
+        function cancelarEdicion() {
+            obtenerCampos().forEach(function(c) {
+                if (valoresOriginales[c.id] !== undefined) c.value = valoresOriginales[c.id];
+                c.disabled = true;
+            });
+            document.getElementById('btn-editar').classList.remove('oculto');
+            document.getElementById('btn-guardar').classList.add('oculto');
+            document.getElementById('btn-cancelar').classList.add('oculto');
+        }
+
+        function confirmarGuardar() {
+            
+            obtenerCampos().forEach(function(c) { c.disabled = true; });
+            document.getElementById('btn-editar').classList.remove('oculto');
+            document.getElementById('btn-guardar').classList.add('oculto');
+            document.getElementById('btn-cancelar').classList.add('oculto');
+            cerrarModal('modal-confirmar');
+            abrirModal('modal-exito');
+        }
+
+        /* modal de foto */
+        var urlImagenPendiente = null;
+        var zona = document.getElementById('zona-carga');
+
+        document.getElementById('input-foto').addEventListener('change', function() {
+            if (this.files && this.files[0]) procesarArchivo(this.files[0]);
+        });
+
+        zona.addEventListener('dragover',  function(e) { e.preventDefault(); zona.classList.add('arrastrando'); });
+        zona.addEventListener('dragleave', function()  { zona.classList.remove('arrastrando'); });
+        zona.addEventListener('drop', function(e) {
+            e.preventDefault();
+            zona.classList.remove('arrastrando');
+            if (e.dataTransfer.files[0]) procesarArchivo(e.dataTransfer.files[0]);
+        });
+
+        function procesarArchivo(archivo) {
+            var permitidos = ['image/jpeg', 'image/jpg', 'image/png'];
+            if (!permitidos.includes(archivo.type)) { mostrarEstado('error', 'Solo se permiten archivos JPG o PNG.'); return; }
+            if (archivo.size > 5 * 1024 * 1024)    { mostrarEstado('error', 'La imagen supera el límite de 5MB.');  return; }
+            var lector = new FileReader();
+            lector.onload = function(e) {
+                urlImagenPendiente = e.target.result;
+                document.getElementById('modal-foto-preview-img').src = urlImagenPendiente;
+                mostrarEstado('exito', 'La imagen ha sido cargada con éxito.');
+                document.getElementById('btn-guardar-foto').disabled = false;
+            };
+            lector.readAsDataURL(archivo);
+        }
+
+        function mostrarEstado(tipo, texto) {
+            var el = document.getElementById('estado-carga');
+            el.classList.remove('oculto');
+            el.className = 'estado-carga estado-carga--' + tipo;
+            el.textContent = texto;
+        }
+
+        function guardarFoto() {
+            if (urlImagenPendiente) document.getElementById('foto-principal').src = urlImagenPendiente;
+            cerrarModal('modal-foto');
+        }
+
+        function resetearModalFoto() {
+            urlImagenPendiente = null;
+            document.getElementById('input-foto').value = '';
+            document.getElementById('btn-guardar-foto').disabled = true;
+            document.getElementById('estado-carga').className = 'estado-carga oculto';
+            document.getElementById('estado-carga').textContent = '';
+            document.getElementById('modal-foto-preview-img').src = document.getElementById('foto-principal').src;
+            zona.classList.remove('arrastrando');
+        }
+    </script>
+
+</body>
+</html>
