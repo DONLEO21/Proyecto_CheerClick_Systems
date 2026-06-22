@@ -62,9 +62,9 @@
 
                 <p class="error">Completar todos los campos.</p>
 
-                <button type="submit" class="btn btn-primario">
+                <a href="/paginas/administrador/dashboard-admin.html" type="submit" class="btn btn-primario">
                     Iniciar Sesión
-                </button>
+                </a>
             </form>
 
             <p class="pie">¿No tienes cuenta? <a href="#" class="link-texto" id="link-ir-registro">Registrarse</a></p>
@@ -440,7 +440,7 @@
         btnCerrarAuth.addEventListener('click', () => modalAuth.close())
     }
 
-    // Abre automáticamente al cargar
+    /*Abre automáticamente al cargar*/
     window.addEventListener('DOMContentLoaded', () => {
         modalAuth.showModal();
 
