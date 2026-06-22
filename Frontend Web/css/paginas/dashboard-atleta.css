@@ -639,9 +639,6 @@ header .contenedor{
     font-weight: 700;
 }
 
-/* ELIMINADOS los estilos de puntitos:
-   .perfil-atleta__puntos y .perfil-atleta__punto ya no se usan */
-
 /* mini estadísticas */
 .perfil-atleta__stats{
     display: flex;

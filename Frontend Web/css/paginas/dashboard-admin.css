@@ -65,7 +65,7 @@ ul{ list-style:none; }
 button{ border:none; background:none; font:inherit; cursor:pointer; }
 input{ font:inherit; outline:none; }
  
-/* ── Sidebar (Barra2) ────────────────────────────────────── */
+/*Sidebar (Barra2) */
 .Barra2{
     position: fixed;
     top: 0;
@@ -328,7 +328,7 @@ header .contenedor{
     border-radius: 50%;
 }
  
-/* ── Botones genéricos ──────────────────────────────────── */
+/*Botones genéricos */
 .btn{
     display: inline-flex;
     align-items: center;

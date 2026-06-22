@@ -385,7 +385,7 @@ header .contenedor{
     
 }
 
-/* ── Grid principal de tarjetas ─────────────────────────────── */
+/* ─Grid principal de tarjetas */
 .panel-resumen{
     display: grid;
     grid-template-columns: 1.6fr .8fr 1fr;

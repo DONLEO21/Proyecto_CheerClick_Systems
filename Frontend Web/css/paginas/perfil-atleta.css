@@ -383,14 +383,6 @@ header .contenedor{
     font-size: var(--texto-sm);
     color: var(--texto-muted);
 }
-
-/* ── Layout de dos columnas con filas compartidas ──────────
-   display:contents en las columnas hace que sus tarjetas pasen
-   a ser items directos del grid. grid-auto-flow:column llena
-   primero toda la columna 1 (3 filas) y luego la columna 2,
-   así cada tarjeta queda emparejada en la misma fila que su
-   contraparte. align-items:stretch hace que ambas tarjetas de
-   una misma fila tomen la altura de la más alta. */
 .perfil-layout{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -405,7 +397,7 @@ header .contenedor{
     display: contents;
 }
 
-/* ── Tarjeta base*/
+/* Tarjeta base*/
 .tarjeta-p{
     background: var(--blanco);
     border-radius: var(--radio-md);
@@ -429,7 +421,7 @@ header .contenedor{
     
 }
 
-/* ── Encabezado: foto + nombre*/
+/*Encabezado foto mas nombre*/
 .perfil-encabezado-foto{
     display: flex;
     align-items: center;
@@ -512,7 +504,7 @@ header .contenedor{
     font-weight: 700;
 }
 
-/* ── Acciones (editar / guardar / cancelar) */
+/* Acciones (editar / guardar / cancelar) */
 .perfil-encabezado-acciones{
     display: flex;
     align-items: center;
@@ -548,7 +540,7 @@ header .contenedor{
     display: none !important;
 }
 
-/* ── Títulos de sección dentro de las tarjetas */
+/* Títulos de sección dentro de las tarjetas */
 .seccion-titulo{
     display: flex;
     align-items: flex-start;
@@ -584,7 +576,7 @@ header .contenedor{
     margin: var(--espacio-md) 0;
 }
 
-/* ── Formularios: información personal y contacto emergencia ── */
+/*  Formularios: información personal y contacto emergencia */
 .campos-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

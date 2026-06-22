@@ -62,7 +62,7 @@ ul { list-style: none; }
 button { border: none; background: none; font: inherit; cursor: pointer; }
 input, select { font: inherit; outline: none; }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
+/* ── Sidebar */
 .Barra2 {
     position: fixed;
     top: 0;
@@ -184,7 +184,7 @@ input, select { font: inherit; outline: none; }
     transform: translateX(0);
 }
 
-/* ── Header ──────────────────────────────────────────────── */
+/*Header */
 body > header {
     position: fixed;
     top: 0;
@@ -277,7 +277,7 @@ header .contenedor {
     border-radius: 50%;
 }
 
-/* ── Main layout ─────────────────────────────────────────── */
+/* Main layout*/
 .admin-main {
     margin-left: var(--sidebar-width);
     margin-top: var(--header-height);
@@ -292,13 +292,13 @@ header .contenedor {
     padding: var(--espacio-lg);
 }
 
-/* ── Encabezado de página ────────────────────────────────── */
+/* Encabezado de página*/
 .pagina-encabezado h1 {
     font-size: var(--texto-xl);
     font-weight: 700;
 }
 
-/* ── Barra de acciones ───────────────────────────────────── */
+/*Barra de acciones*/
 .acciones-barra {
     display: flex;
     align-items: center;
@@ -343,7 +343,7 @@ header .contenedor {
     gap: var(--espacio-xs);
 }
 
-/* ── Botones generales ───────────────────────────────────── */
+/*botones generales */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -392,7 +392,7 @@ header .contenedor {
 
 .btn-blanco:hover { border-color: var(--texto-muted); }
 
-/* ── Tabs ────────────────────────────────────────────────── */
+/* ── Tabs*/
 .tabs-barra {
     display: flex;
     align-items: center;
@@ -429,7 +429,7 @@ header .contenedor {
 
 .tab-btn--activo:hover { background: var(--rojo-hover); }
 
-/* ── Badge de conteo ─────────────────────────────────────── */
+/* Badge de conteo */
 .conteo-badge {
     display: inline-flex;
     align-items: center;
@@ -444,7 +444,7 @@ header .contenedor {
 .conteo-badge--verde { background: var(--verde-light); color: var(--verde); }
 .conteo-badge--rojo { background: var(--rojo-light); color: var(--rojo); }
 
-/* ── Tabla ───────────────────────────────────────────────── */
+/* abla */
 .tabla-wrap {
     background: var(--blanco);
     border-radius: var(--radio-md);
@@ -495,7 +495,7 @@ header .contenedor {
     font-size: var(--texto-sm);
 }
 
-/* ── Celdas especiales ───────────────────────────────────── */
+/*Celdas especiales*/
 .nombre-celda {
     font-weight: 600;
     color: var(--texto-dark);
@@ -531,7 +531,7 @@ header .contenedor {
     flex-shrink: 0;
 }
 
-/* ── Badges de estado/rol ────────────────────────────────── */
+/*Badges de estado/rol*/
 .badge {
     display: inline-flex;
     align-items: center;
@@ -548,7 +548,7 @@ header .contenedor {
 .badge--amarillo { background: var(--amarillo-light); color: #92400e; }
 .badge--azul { background: var(--azul-light); color: var(--azul-oscuro); }
 
-/* ── Acciones en tabla ───────────────────────────────────── */
+/*Acciones en tabla */
 .acciones-celda {
     display: flex;
     align-items: center;
@@ -601,7 +601,7 @@ header .contenedor {
     border-color: var(--rojo);
 }
 
-/* ── Toggle switch ───────────────────────────────────────── */
+/* Toggle switch */
 .toggle {
     position: relative;
     display: inline-block;
@@ -642,7 +642,7 @@ header .contenedor {
 .toggle input:checked + .toggle__pista { background: var(--rojo); }
 .toggle input:checked + .toggle__pista::before { transform: translateX(18px); }
 
-/* ── Sección Gestión de cuentas ──────────────────────────── */
+/*Sección Gestión de cuentas */
 .gestion-encabezado {
     display: flex;
     align-items: center;
@@ -695,10 +695,10 @@ header .contenedor {
     box-shadow: 0 0 0 3px var(--rojo-light);
 }
 
-/* ── Utilidad ────────────────────────────────────────────── */
+/* ── Utilidad*/
 .oculto { display: none !important; }
 
-/* ── Modales ─────────────────────────────────────────────── */
+/*  Modales */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -797,7 +797,7 @@ header .contenedor {
     color: var(--verde);
 }
 
-/* ── Modal detalles ──────────────────────────────────────── */
+/* ── Modal detalles */
 .modal--detalles {
     max-width: 660px;
 }
@@ -870,7 +870,7 @@ header .contenedor {
     color: #92400e;
 }
 
-/* EPS field con botón ojo */
+/* EPS campo con botón ojo */
 .campo-eps {
     display: flex;
     align-items: center;
@@ -899,7 +899,7 @@ header .contenedor {
     border-color: var(--azul);
 }
 
-/* títulos de sección dentro del modal (ocupan ambas columnas) */
+/* títulos de sección dentro del modal que ocupan ambas columnas */
 .detalle-titulo-seccion {
     display: flex;
     align-items: center;
@@ -942,7 +942,7 @@ header .contenedor {
     gap: var(--espacio-md) var(--espacio-lg);
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
+/*Responsive*/
 @media (max-width: 900px) {
     .gestion-encabezado {
         flex-direction: column;
