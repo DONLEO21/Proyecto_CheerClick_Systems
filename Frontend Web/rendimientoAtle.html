@@ -9,9 +9,7 @@
 <body>
     <input type="radio" id="switch-progreso" name="pestanas" checked style="display: none;">
     <input type="radio" id="switch-historial" name="pestanas" style="display: none;">
-    <!-- ══════════════════════════════════════════
-        BARRA LATERAL
-    ══════════════════════════════════════════ -->
+     <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
     <aside class="barra-lateral" aria-label="Menú de navegación principal">
         <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
             <span class="boton-menu__linea"></span>
@@ -19,39 +17,46 @@
             <span class="boton-menu__linea"></span>
         </button>
         <nav>
-            <ul class="menu-lateral" role="list">
+           <ul class="menu-lateral" role="list">
                 <li class="menu-lateral__elemento">
                     <a href="#" class="menu-lateral__enlace" title="Perfil">
                         <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
                     </a>
                 </li>
+
                 <li class="menu-lateral__elemento">
-                    <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
+                    <a href="#" class="menu-lateral__enlace" title="Estado de cuentas">
+                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
                 </li>
-                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
-                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
-                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
+
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
                     </a>
                 </li>
+
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Registro Asistencia">
-                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Registro Asistencia">
-                    </a>
-                </li>
-                <li class="menu-lateral__elemento">
-                    <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                    <a href="#" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
                     </a>
                 </li>
             </ul>
         </nav>
     </aside>
 
-    <!-- ══════════════════════════════════════════
-        ENCABEZADO SUPERIOR
-    ══════════════════════════════════════════ -->
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
     <header class="encabezado" role="banner">
         <div class="encabezado__contenedor">
             <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
@@ -60,7 +65,7 @@
                         <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
                     </li>
                     <li>
-                        <span class="etiqueta-rol" aria-label="Rol: Entrenador">Atleta</span>
+                        <span class="etiqueta-rol" aria-label="Rol: Administrador">Atleta</span>
                     </li>
                 </ul>
             </nav>
@@ -120,21 +125,30 @@
                 </p>
 
                 <div class="habilidades">
-                    <h2>Parada de Manos</h2>
-                    <p>Últimos 20 días</p>
-                    <p>10 seg +2</p>
+                    <div class="habilidad-info">
+                        <h2>Parada de Manos</h2>
+                        <p class="hab-periodo">Últimos 20 días</p>
+                        <div class="hab-barra-wrap"><div class="hab-barra" style="width:68%; background:#1eaf52;"></div></div>
+                    </div>
+                    <p class="hab-valor" style="color:#1eaf52;">10 seg <span class="hab-delta">▲+2</span></p>
                 </div>
 
                 <div class="habilidades">
-                    <h2>Habilidad de Mortales</h2>
-                    <p>Últimos 20 días</p>
-                    <p>4 rep ~2</p>
+                    <div class="habilidad-info">
+                        <h2>Habilidad de Mortales</h2>
+                        <p class="hab-periodo">Últimos 20 días</p>
+                        <div class="hab-barra-wrap"><div class="hab-barra" style="width:42%; background:#cc0000;"></div></div>
+                    </div>
+                    <p class="hab-valor" style="color:#cc0000;">4 rep <span class="hab-delta">▼~2</span></p>
                 </div>
 
                 <div class="habilidades">
-                    <h2>Habilidad de Palomas</h2>
-                    <p>Últimos 20 días</p>
-                    <p>10 seg +3</p>
+                    <div class="habilidad-info">
+                        <h2>Habilidad de Palomas</h2>
+                        <p class="hab-periodo">Últimos 20 días</p>
+                        <div class="hab-barra-wrap"><div class="hab-barra" style="width:78%; background:#1eaf52;"></div></div>
+                    </div>
+                    <p class="hab-valor" style="color:#1eaf52;">10 seg <span class="hab-delta">▲+3</span></p>
                 </div>
             </div>
 
@@ -158,7 +172,7 @@
                         </svg>
                         10
                     </h2>
-                    <p>Abril 2026</p>
+                    <p class="asis-text">Abril 2026</p>
                     <p>Asistío</p>
                 </div>
 
@@ -170,7 +184,7 @@
                         </svg>
                         08
                     </h2>
-                    <p>Abril 2026</p>
+                    <p class="asis-text">Abril 2026</p>
                     <button type="button" class="justificar" onclick="document.getElementById('modal-justificar').showModal()">Justificar</button>
                 </div>
 
@@ -183,7 +197,7 @@
                         </svg>
                         06
                     </h2>
-                    <p>Abril 2026</p>
+                    <p class="asis-text">Abril 2026</p>
                     <p>Justificado</p>
                 </div>
 

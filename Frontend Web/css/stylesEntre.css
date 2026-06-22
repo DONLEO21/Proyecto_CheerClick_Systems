@@ -9,14 +9,13 @@
     font-size: 1rem;
     font-weight: 700;
     color: var(--texto-dark);
-    border: 1px solid var(--texto-dark);
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: 8px;
-    background: white;
+    background-color: #ddd;
 }
 
 .badge-categoria {
-    background-color: var(--rojo);
+    background-color: #cc0000;
     color: white;
     font-weight: 700;
     font-size: 1rem;
@@ -503,3 +502,157 @@
 }
 
 .leyenda-circulo.dia-registrado { background-color: #1eaf52; }
+/*  Cards de resumen rápido */
+.resumen-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 0 20px 16px;
+    margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+    .resumen-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+.rcard {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1.5px solid var(--gris-borde);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.rcard-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #555;
+}
+
+.rcard-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.rcard-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--texto-dark);
+    line-height: 1;
+}
+
+.rcard-label {
+    font-size: 0.78rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.rcard-bar-wrap {
+    width: 100%;
+    height: 4px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+.rcard-bar {
+    height: 4px;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/*  Footer bar (guardar + paginación) */
+.asist-footer-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    border-top: 1.5px solid #f0f0f0;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+/* ── Tip / aviso ────────────────────────────────────────── */
+.asist-tip {
+    margin: 0 20px 20px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Header - última actualización */
+.asist-ultima-actualizacion {
+    margin-left: auto;
+    font-size: 0.82rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Cards - iconos por variante */
+.rcard-icon-pct     { background: #e0f2fe; }
+.rcard-icon-presente { background: #dcfce7; }
+.rcard-icon-falta   { background: #fee2e2; }
+
+/* Cards - números por variante */
+.rcard-num-pct      { color: #0284c7; }
+.rcard-num-presente { color: #1eaf52; }
+.rcard-num-falta    { color: #cc0000; }
+
+/* Cards - barras por variante */
+.rcard-bar-pct      { width: 63%; background: #0284c7; }
+.rcard-bar-presente { width: 63%; background: #1eaf52; }
+.rcard-bar-falta    { width: 36%; background: #cc0000; }
+
+/* Paginación dentro del footer bar */
+.asist-paginacion-footer {
+    padding: 0;
+    flex: 1;
+    border: none;
+}
+
+/* Badge categoría tamaño pequeño (modal) */
+.badge-categoria-sm {
+    font-size: 0.85rem;
+    padding: 5px 14px;
+}
+
+.asist-fecha-sm {
+    gap: 6px;
+    font-size: 0.88rem;
+}
+
+.asist-contador-sm {
+    min-width: unset;
+    padding: 6px 12px;
+}
+
+.calendario-leyenda { margin-top: 14px; }
+
+.leyenda-presente  { background: #1eaf52; }
+.leyenda-inpuntual { background: #f59e0b; }
+.leyenda-falta     { background: #cc0000; border-radius: 4px; }
+.leyenda-hoy       { background: #e5e7eb; border: 2px solid #222; border-radius: 4px; }

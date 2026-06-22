@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="css/stylesEntre.css">
 </head>
 <body>
-        
-    <!-- ══════════════════════════════════════════
-        BARRA LATERAL
-    ══════════════════════════════════════════ -->
-    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <aside class="barra-lateral" aria-label="Menú de navegación principal">
         <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
@@ -22,26 +18,27 @@
             <ul class="menu-lateral" role="list">
                 <li class="menu-lateral__elemento">
                     <a href="#" class="menu-lateral__enlace" title="Perfil">
-                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Horarios">
                     </a>
                 </li>
                 <li class="menu-lateral__elemento">
-                    <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
+                    <a href="#" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
                 </li>
-                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                <li class="menu-lateral__elemento">
                     <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
                         <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
                     </a>
                 </li>
-                <li class="menu-lateral__elemento">
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
                     <a href="#" class="menu-lateral__enlace" title="Registro Asistencia">
-                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Registro Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Horarios">
                     </a>
                 </li>
+
                 <li class="menu-lateral__elemento">
-                    <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                    <a href="#" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
                     </a>
                 </li>
@@ -49,9 +46,7 @@
         </nav>
     </aside>
 
-    <!-- ══════════════════════════════════════════
-        ENCABEZADO SUPERIOR
-    ══════════════════════════════════════════ -->
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
     <header class="encabezado" role="banner">
         <div class="encabezado__contenedor">
             <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
@@ -60,7 +55,7 @@
                         <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
                     </li>
                     <li>
-                        <span class="etiqueta-rol" aria-label="Rol: Entrenador">Entrenador</span>
+                        <span class="etiqueta-rol" aria-label="Rol: Administrador">Entrenador</span>
                     </li>
                 </ul>
             </nav>
@@ -84,6 +79,70 @@
         <div class="asist-header">
             <h1>Registrar asistencia</h1>
             <span class="badge-categoria">Magic</span>
+            <span class="asist-ultima-actualizacion">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+                Última actualización: hoy, 18:42
+            </span>
+        </div>
+
+        <!-- Cards de resumen rápido -->
+        <div class="resumen-cards">
+            <div class="rcard rcard-total">
+                <div class="rcard-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-num">11</span>
+                    <span class="rcard-label">Total atletas</span>
+                </div>
+            </div>
+            <div class="rcard rcard-pct">
+                <div class="rcard-icon rcard-icon-pct">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-num rcard-num-pct">63%</span>
+                    <span class="rcard-label">Asistencia hoy</span>
+                </div>
+                <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-pct"></div></div>
+            </div>
+            <div class="rcard rcard-presente">
+                <div class="rcard-icon rcard-icon-presente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1eaf52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-num rcard-num-presente">7</span>
+                    <span class="rcard-label">Presentes + Inpuntuales</span>
+                </div>
+                <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-presente"></div></div>
+            </div>
+            <div class="rcard rcard-falta">
+                <div class="rcard-icon rcard-icon-falta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-num rcard-num-falta">4</span>
+                    <span class="rcard-label">Faltas registradas</span>
+                </div>
+                <div class="rcard-bar-wrap">
+                    <div class="rcard-bar rcard-bar-falta"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Barra de filtros y contadores -->
@@ -385,27 +444,32 @@
             </table>
         </div>
 
-        <!-- Botón guardar -->
-        <td class="acciones-cell">
-            <button type="button" class="btn-accion btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
+        <!-- Botón guardar + Paginación -->
+        <div class="asist-footer-bar">
+            <button type="button" class="btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <polyline points="17 8 12 3 7 8"/>
                     <line x1="12" x2="12" y1="3" y2="15"/>
                 </svg>
-                Guardar
+                Guardar asistencia
             </button>
-        </td>
-
-        <!-- Paginación -->
-        <div class="asist-paginacion">
-            <span class="paginacion-info">Mostrando 6 de 12 atletas</span>
-            <div class="paginacion-btns">
-                <button type="button" class="btn-pag">← Anterior</button>
-                <button type="button" class="btn-pag btn-pag-num">1</button>
-                <button type="button" class="btn-pag btn-pag-num activo">2</button>
-                <button type="button" class="btn-pag">Siguiente →</button>
+            <div class="asist-paginacion asist-paginacion-footer">
+                <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
+                <div class="paginacion-btns">
+                    <button type="button" class="btn-pag">← Anterior</button>
+                    <button type="button" class="btn-pag btn-pag-num activo">1</button>
+                    <button type="button" class="btn-pag btn-pag-num">2</button>
+                    <button type="button" class="btn-pag btn-pag-num">3</button>
+                    <button type="button" class="btn-pag">Siguiente →</button>
+                </div>
             </div>
+        </div>
+
+        <!-- Tip / aviso informativo -->
+        <div class="asist-tip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
         </div>
 
     </div>
@@ -429,12 +493,12 @@
         <div class="modal-consultar-contenido">
             <div class="modal-consultar-header">
                 <h2>Asistencia</h2>
-                <span class="badge-categoria" style="font-size:0.85rem; padding:5px 14px;">Magic</span>
+                <span class="badge-categoria">Magic</span>
                 <button type="button" class="btn-modal-x" onclick="document.getElementById('modal-consultar').close()">×</button>
             </div>
 
             <div class="consultar-mes-selector">
-                <div class="asist-fecha" style="gap:6px; font-size:0.88rem;">
+                <div class="asist-fecha">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
                         <line x1="16" x2="16" y1="2" y2="6"/>

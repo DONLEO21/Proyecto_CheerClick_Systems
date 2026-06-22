@@ -1,94 +1,64 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
-/* ── Reinicio ─────────────────────────────────────────────── */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 /* ── Variables globales ───────────────────────────────────── */
 :root {
-    /* ── Colores principales ── */
     --color-primario:        #d71920;
     --color-primario-oscuro: #b8141a;
     --color-primario-claro:  #fdeaea;
-    --color-blanco:          #ffffff;
-    --color-fondo:           #f5f5f5;
-    --color-borde:           #dcdcdc;
-    --color-texto:           #222222;
-    --color-texto-suave:     #777777;
 
-    /* ── Aliases usados en el contenido ── */
-    --rojo:          #d71920;
-    --rojo-hover:    #b8141a;
-    --rojo-light:    #fdeaea;
-    --rojo-badge:    #f9dede;
-    --blanco:        #ffffff;
-    --gris-fondo:    #f5f5f5;
-    --gris-borde:    #e0e0e0;
-    --texto-dark:    #1e1e1e;
-    --texto-muted:   #888888;
-    --verde:         #2ecc71;
-    --verde-dark:    #27ae60;
-    --azul:          #3498db;
+    --color-blanco:   #ffffff;
+    --color-fondo:    #f5f5f5;
+    --color-borde:    #dcdcdc;
 
-    /* ── Layout ── */
+    --color-texto:        #222222;
+    --color-texto-suave:  #777777;
+
     --ancho-barra-lateral: 56px;
-    --ancho-lateral:       56px;   /* alias para .contenido */
     --alto-encabezado:     55px;
-
-    /* ── Radios y sombras ── */
-    --radio-borde:    8px;
-    --radio-boton:    5px;
-    --radio-sm:       6px;
-    --radio-md:       10px;
-
-    --sombra-tarjeta: 0 2px 10px rgba(0,0,0,.07);
-    --sombra-boton:   0 2px 8px rgba(215,25,32,.25);
-
-    /* Colores nuestros */
-
-    --rojo-noso: #cc0000;
-    --verde-noso: #1eaf52;
-    --amarillo-noso: #fad755;
-    --gris-noso: #dddddd;
-    --azul-noso: #3b82f6;
-
-    /* Tipografia */
-
-    --text-texto: "Arimo", sans-serif;
-    --text-titulo: "Varela Round", sans-serif;
+    --radio-borde:         8px;
+    --radio-boton:         5px;
 }
 
-/* ── Base ─────────────────────────────────────────────────── */
+/* Reinicio  */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  Base  */
 html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Arimo', 'Segoe UI', Arial, sans-serif;
-    background: var(--gris-fondo);
-    color: var(--texto-dark);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
     min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 { font-family: "Varela Round", sans-serif; }
-p, a, li, label, input  { font-family: "Arimo", sans-serif; }
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Varela Round", sans-serif;
+}
 
-/* Clase accesibilidad */
+/* Clase de accesibilidad: texto solo visible para lectores de pantalla */
 .visualmente-oculto {
     position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
 }
 
-/* ══════════════════════════════════════════════════════════
-   BARRA LATERAL
-══════════════════════════════════════════════════════════ */
+/* ── Barra Lateral ────────────────────────────────────────── */
 .barra-lateral {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: var(--ancho-barra-lateral);
     height: 100vh;
     background-color: var(--color-primario);
@@ -96,7 +66,7 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     flex-direction: column;
     align-items: center;
     z-index: 1000;
-    box-shadow: 3px 0 10px rgba(0,0,0,.15);
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Botón hamburguesa */
@@ -112,19 +82,24 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     background: none;
     border: none;
     padding: 0;
-    transition: background .3s;
+    transition: background 0.3s;
 }
-.boton-menu:hover { background: rgba(255,255,255,.12); }
+
+.boton-menu:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
 
 .boton-menu__linea {
     display: block;
-    width: 22px; height: 3px;
+    width: 22px;
+    height: 3px;
     background: white;
     border-radius: 3px;
-    transition: transform .3s;
+    transition: transform 0.3s;
 }
-.boton-menu:hover .boton-menu__linea:first-child { transform: translateY(-2px); }
-.boton-menu:hover .boton-menu__linea:last-child  { transform: translateY(2px); }
+
+.boton-menu:hover .boton-menu__linea:first-child  { transform: translateY(-2px); }
+.boton-menu:hover .boton-menu__linea:last-child   { transform: translateY(2px); }
 
 /* Lista del menú lateral */
 .menu-lateral {
@@ -141,13 +116,14 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     justify-content: center;
     position: relative;
     opacity: 0;
-    animation: aparecer .5s ease forwards;
+    animation: aparecer 0.5s ease forwards;
 }
-.menu-lateral__elemento:nth-child(1) { animation-delay: .10s; }
-.menu-lateral__elemento:nth-child(2) { animation-delay: .15s; }
-.menu-lateral__elemento:nth-child(3) { animation-delay: .20s; }
-.menu-lateral__elemento:nth-child(4) { animation-delay: .25s; }
-.menu-lateral__elemento:nth-child(5) { animation-delay: .30s; }
+
+.menu-lateral__elemento:nth-child(1) { animation-delay: 0.10s; }
+.menu-lateral__elemento:nth-child(2) { animation-delay: 0.15s; }
+.menu-lateral__elemento:nth-child(3) { animation-delay: 0.20s; }
+.menu-lateral__elemento:nth-child(4) { animation-delay: 0.25s; }
+.menu-lateral__elemento:nth-child(5) { animation-delay: 0.30s; }
 
 @keyframes aparecer {
     from { opacity: 0; transform: translateX(-20px); }
@@ -155,22 +131,27 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
 }
 
 .menu-lateral__enlace {
-    width: 42px; height: 42px;
+    width: 42px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 12px;
     text-decoration: none;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     position: relative;
 }
-.menu-lateral__enlace:hover { transform: scale(1.15); }
 
 .menu-lateral__icono {
-    width: 24px; height: 24px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    transition: all .3s ease;
+    transition: all 0.3s ease;
+}
+
+.menu-lateral__enlace:hover {
+    transform: scale(1.15);
 }
 
 /* Tooltip emergente */
@@ -188,32 +169,38 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     opacity: 0;
     pointer-events: none;
     transform: translateX(-10px);
-    transition: all .3s;
+    transition: all 0.3s;
     z-index: 100;
 }
-.menu-lateral__enlace:hover::after { opacity: 1; transform: translateX(0); }
+
+.menu-lateral__enlace:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 /* Elemento activo */
 .menu-lateral__elemento--activo::before {
     content: "";
     position: absolute;
-    left: 0; top: 50%;
+    left: 0;
+    top: 50%;
     transform: translateY(-50%);
-    width: 4px; height: 30px;
+    width: 4px;
+    height: 30px;
     background: #000;
     border-radius: 0 5px 5px 0;
 }
+
 .menu-lateral__elemento--activo .menu-lateral__enlace {
     background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,.18);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
+
 .menu-lateral__elemento--activo .menu-lateral__icono {
     filter: brightness(0);
 }
 
-/* ══════════════════════════════════════════════════════════
-   ENCABEZADO SUPERIOR
-══════════════════════════════════════════════════════════ */
+/* ── Encabezado Superior ──────────────────────────────────── */
 .encabezado {
     position: fixed;
     top: 0;
@@ -221,7 +208,7 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     right: 0;
     height: var(--alto-encabezado);
     background-color: var(--color-blanco);
-    box-shadow: 0 1px 6px rgba(0,0,0,.10);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
     z-index: 999;
 }
 
@@ -253,9 +240,10 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     font-size: 13px;
     font-family: 'Arimo', sans-serif;
     font-weight: 500;
-    transition: border-color .2s, color .2s;
+    transition: border-color 0.2s, color 0.2s;
     cursor: pointer;
 }
+
 .boton-cerrar-sesion:hover {
     border-color: var(--color-primario);
     color: var(--color-primario);
@@ -270,7 +258,7 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     font-size: 13px;
     font-family: 'Arimo', sans-serif;
     font-weight: 700;
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
     user-select: none;
 }
 
@@ -286,11 +274,13 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     justify-content: center;
     text-decoration: none;
 }
+
 .icono-accion img {
     height: 20px;
     width: auto;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
+
 .icono-accion:hover img {
     transform: scale(1.15);
     filter: brightness(0) saturate(100%) invert(17%) sepia(99%)
@@ -302,13 +292,13 @@ p, a, li, label, input  { font-family: "Arimo", sans-serif; }
     align-items: center;
     margin: 0;
 }
+
 .logo-club img {
     height: 38px;
     width: 38px;
     object-fit: cover;
     border-radius: 50%;
 }
-
 /* Inicio de CSS Atleta */
 .contenedor-principal {
     margin-left: 56px;      
@@ -422,9 +412,13 @@ body {
     background-color: transparent;
 }
 
+.asis-text{
+    text-align: left !important;
+}
+
 .rendimiento > p, .asistencia > p, .progreso-general > h2 {
     display: flex;
-    align-items: center;
+    align-items: auto;
     gap: 8px;
     font-weight: 600;
     color: #4b5563;
@@ -809,12 +803,12 @@ body {
 }
 
 .btn-progreso button {
-    border: 1px solid #e5e7eb;
-    background-color: white;
-    padding: 6px 14px;
+    border: none !important; 
+    background-color: #f3f4f6;
+    padding: 8px 16px;
     font-size: 0.85rem;
-    font-weight: 500;
-    border-radius: 6px;
+    font-weight: 600;
+    border-radius: 20px; 
     color: var(--text-dark);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -827,7 +821,6 @@ body {
 
 .btn-progreso button:not(.btn-semana):hover {
     background-color: #f9fafb;
-    border-color: #c4c4c4;
 }
 
 .contenedor-progreso img {
@@ -1385,11 +1378,13 @@ body {
 
 .calendario {
     grid-column: 2;
+    margin: 0 auto;
     grid-row: 1 / span 5; 
     background-color: var(--bg-card);
-    border-collapse: collapse;
-    width: 400px;
-    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 4px;
+    width: 420px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
@@ -1565,19 +1560,18 @@ body {
 .btn-progreso {
     display: flex;
     gap: 10px;
-    margin-bottom: none;
 }
 
 .btn-progreso button {
-    border: 1px solid #e5e7eb;
-    background-color: white;
+    background-color: transparent;
     padding: 6px 14px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.82rem;
+    font-weight: 600;
     border-radius: 6px;
-    color: var(--text-dark);
+    color: #6b7280;
     cursor: pointer;
     transition: all 0.2s ease;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .btn-progreso button.btn-semana {
@@ -1829,4 +1823,92 @@ button[class*="justificacion"] {
 button[class*="justificacion"]:hover {
     background-color: #e5e7eb;
     color: #4b5563;
+}
+
+.habilidades {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.habilidad-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.habilidad-info h2 {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.hab-periodo {
+    font-size: 0.78rem !important;
+    color: #9ca3af !important;
+    margin: 0 !important;
+}
+
+.hab-barra-wrap {
+    width: 100%;
+    height: 5px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.hab-barra {
+    height: 5px;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.hab-valor {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.hab-delta {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+/* ── Gráfica SVG inline ────────────────────────────────── */
+.grafica-wrapper {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #f0f0f0;
+    flex: 1;
+}
+
+.grafica-leyenda {
+    display: flex;
+    gap: 16px;
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.grafica-leyenda span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ley-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
 }
