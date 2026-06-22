@@ -105,7 +105,7 @@
                 </div>
             </div>
 
-            <!-- ===== VISTA: SOLICITUDES ===== -->
+            <!-- seccion-solicitudes -->
             <div id="seccion-solicitudes">
 
                 <!-- Tabs de estados -->
@@ -121,7 +121,7 @@
                     </div>
                 </div>
 
-                <!-- Tabla solicitudes -->
+                <!-- Tabla para solicitudes -->
                 <div class="tabla-wrap">
                     <table class="tabla" id="tabla-solicitudes">
                         <thead>
@@ -139,9 +139,9 @@
                     </table>
                 </div>
 
-            </div><!-- /seccion-solicitudes -->
+            </div>
 
-            <!-- ===== VISTA: GESTIÓN DE CUENTAS ===== -->
+            <!-- seccion gestion de cuentas -->
             <div id="seccion-gestion" class="oculto">
 
                 <div class="gestion-encabezado">
@@ -186,17 +186,17 @@
                             </tr>
                         </thead>
                         <tbody id="cuerpo-gestion">
-                            <!-- Filas generadas por JS -->
+                            
                         </tbody>
                     </table>
                 </div>
 
-            </div><!-- /seccion-gestion -->
+            </div>
 
         </div>
     </main>
 
-    <!-- ===== MODAL: DETALLES DE LA SOLICITUD ===== -->
+    <!-- modal detalles de solicitud-->
     <div class="modal-overlay oculto" id="modal-detalles" onclick="if(event.target===this) cerrarModal('modal-detalles')">
         <div class="modal modal--detalles" role="dialog" aria-modal="true" aria-labelledby="modal-detalles-titulo">
             <div class="modal-cabeza">
@@ -208,13 +208,13 @@
 
             <div class="modal-cuerpo">
 
-                <!-- Título: datos personales -->
+                <!-- Título de datos personales -->
                 <div class="detalle-titulo-seccion detalle-titulo-seccion--inicio">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     Datos personales
                 </div>
 
-                <!-- Columna 1 -->
+                <!-- Columna 1 contacto-->
                 <div class="detalle-col">
                     <div class="detalle-grupo">
                         <label>Nombre</label>
@@ -246,7 +246,7 @@
                     </div>
                 </div>
 
-                <!-- Columna 2 -->
+                <!-- Columna 2 contacto -->
                 <div class="detalle-col">
                     <div class="detalle-grupo">
                         <label>Género</label>
@@ -266,13 +266,13 @@
                     </div>
                 </div>
 
-                <!-- Título: contacto de emergencia -->
+                <!-- Título de contacto de emergencia -->
                 <div class="detalle-titulo-seccion">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     Datos de contacto de emergencia
                 </div>
 
-                <!-- Contacto de emergencia: 2 columnas x 2 filas, ancho completo -->
+                <!-- contacto de emergenci-->
                 <div class="detalle-emergencia-grid">
                     <div class="detalle-grupo">
                         <label>Nombre</label>
@@ -297,7 +297,7 @@
         </div>
     </div>
 
-    <!-- ===== MODAL: CONFIRMAR APROBAR ===== -->
+    <!--modal confirmar aprobaacion de cuenta-->
     <div class="modal-overlay oculto" id="modal-aprobar" onclick="if(event.target===this) cerrarModal('modal-aprobar')">
         <div class="modal modal--chico" role="dialog" aria-modal="true">
             <div class="modal-cabeza modal-cabeza--simple">
@@ -314,7 +314,7 @@
         </div>
     </div>
 
-    <!-- ===== MODAL: CONFIRMAR RECHAZAR ===== -->
+    <!-- modal confirmar rechazo de cuenta-->
     <div class="modal-overlay oculto" id="modal-rechazar" onclick="if(event.target===this) cerrarModal('modal-rechazar')">
         <div class="modal modal--chico" role="dialog" aria-modal="true">
             <div class="modal-cabeza modal-cabeza--simple">
@@ -331,7 +331,7 @@
         </div>
     </div>
 
-    <!-- ===== MODAL: ÉXITO ===== -->
+    <!-- modal de exito-->
     <div class="modal-overlay oculto" id="modal-exito" onclick="if(event.target===this) cerrarModal('modal-exito')">
         <div class="modal modal--chico modal--centrado" role="dialog" aria-modal="true">
             <div class="exito-icono">
@@ -344,7 +344,7 @@
     </div>
 
     <script>
-    /* ── Datos de muestra ────────────────────────────── */
+    /* Datos de muestra*/
     var solicitudes = [
         {
             id: 1, nombre: 'Andrés Felipe', apellido: 'Rodríguez', correo: 'andres.rodriguez.dev@gmail.com',
@@ -447,8 +447,8 @@
         { id: 5, nombre: 'Leonardo Jarc', correo: 'llara@gmail.com', rol: 'Atleta', activo: true, foto: '' },
     ];
 
-    /* ── Estado de la app ─────────────────────────────── */
-    var modoActual = 'solicitudes'; // 'solicitudes' | 'gestion'
+    /* Estado solicitud o gestion */
+    var modoActual = 'solicitudes'; 
     var tabActual = 'pendientes';
     var solicitudSeleccionadaId = null;
     var accionPendiente = null;
@@ -464,12 +464,12 @@
         return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
 
-    /* ── Inicializar ──────────────────────────────────── */
+    /* Inicializar*/
     document.addEventListener('DOMContentLoaded', function () {
         renderSolicitudes();
     });
 
-    /* ── Toggle modo solicitudes / gestión ───────────── */
+    /* Toggle modo solicitudes y gestión */
     function toggleModo() {
         if (modoActual === 'solicitudes') {
             modoActual = 'gestion';
@@ -496,7 +496,7 @@
         }
     }
 
-    /* ── Cambiar tab ──────────────────────────────────── */
+    /* Cambiar tab */
     function cambiarTab(tab, btn) {
         tabActual = tab;
         document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('tab-btn--activo'); });
@@ -504,7 +504,7 @@
         renderSolicitudes();
     }
 
-    /* ── Render solicitudes ───────────────────────────── */
+    /* solicitudes */
     function renderSolicitudes() {
         var busqueda = document.getElementById('campo-busqueda').value.toLowerCase();
         var estadoBuscado = mapaEstadosTab[tabActual];
@@ -579,7 +579,7 @@
         });
     }
 
-    /* ── Render gestión de cuentas ────────────────────── */
+    /* Render gestión de cuentas */
     function renderGestion() {
         var busqueda = document.getElementById('campo-busqueda').value.toLowerCase();
         var filtroEstado = document.getElementById('filtro-estado').value;
@@ -642,7 +642,7 @@
         }
     }
 
-    /* ── Modales ──────────────────────────────────────── */
+    /*Modales */
     function abrirModal(id) { document.getElementById(id).classList.remove('oculto'); }
     function cerrarModal(id) { document.getElementById(id).classList.add('oculto'); }
 
