@@ -1,3 +1,5 @@
+
+/* ── Fuentes ──────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
@@ -705,3 +707,56 @@ h1, h2, h3, h4, h5, h6 {
 .boton-accion:active {
     transform: translateY(0);
 }
+
+/* ══════════════════════════════════════════════════════════
+   ANIMACIONES DE ENTRADA — CONTENIDO PRINCIPAL
+   (no afecta barra lateral ni encabezado)
+══════════════════════════════════════════════════════════ */
+
+@keyframes entrada-arriba {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-abajo {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-escala {
+    from { opacity: 0; transform: scale(0.95) translateY(14px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Cabecera de página */
+.seccion-cabecera {
+    opacity: 0;
+    animation: entrada-abajo 0.9s ease 0.05s forwards;
+}
+
+/* Tarjetas de resumen — escalonadas */
+.tarjetas-resumen .tarjeta:nth-child(1) {
+    opacity: 0;
+    animation: entrada-escala 0.9s ease 0.15s forwards;
+}
+.tarjetas-resumen .tarjeta:nth-child(2) {
+    opacity: 0;
+    animation: entrada-escala 0.9s ease 0.25s forwards;
+}
+.tarjetas-resumen .tarjeta:nth-child(3) {
+    opacity: 0;
+    animation: entrada-escala 0.9s ease 0.35s forwards;
+}
+
+/* Sección de tabla completa */
+.seccion-tabla {
+    opacity: 0;
+    animation: entrada-arriba 0.95s ease 0.4s forwards;
+}
+
+/* Filas de la tabla — escalonadas */
+.tabla-pqrs__fila:nth-child(1) { opacity: 0; animation: entrada-arriba 0.8s ease 0.50s forwards; }
+.tabla-pqrs__fila:nth-child(2) { opacity: 0; animation: entrada-arriba 0.8s ease 0.58s forwards; }
+.tabla-pqrs__fila:nth-child(3) { opacity: 0; animation: entrada-arriba 0.8s ease 0.66s forwards; }
+.tabla-pqrs__fila:nth-child(4) { opacity: 0; animation: entrada-arriba 0.8s ease 0.74s forwards; }
+.tabla-pqrs__fila:nth-child(5) { opacity: 0; animation: entrada-arriba 0.8s ease 0.82s forwards; }

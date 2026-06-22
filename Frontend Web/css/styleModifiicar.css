@@ -1,3 +1,9 @@
+/* ============================================================
+   CHEERCLICK SYSTEMS — Modificar PQRS
+   estilos-modificar-pqrs.css
+   ============================================================ */
+
+/* ── Fuentes ──────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
@@ -736,4 +742,54 @@ h1, h2, h3, h4, h5, h6 {
 
 .boton-guardar:active {
     transform: translateY(0);
+}
+
+/* ══════════════════════════════════════════════════════════
+   ANIMACIONES DE ENTRADA — CONTENIDO PRINCIPAL
+   (no afecta barra lateral ni encabezado)
+══════════════════════════════════════════════════════════ */
+
+@keyframes entrada-arriba {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-abajo {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrada-escala {
+    from { opacity: 0; transform: scale(0.96) translateY(12px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Título del formulario */
+.panel-formulario__cabecera {
+    opacity: 0;
+    animation: entrada-abajo 0.9s ease 0.05s forwards;
+}
+
+/* Franja de metadatos (ID, prioridad, estado, fecha) */
+.franja-metadatos {
+    opacity: 0;
+    animation: entrada-arriba 0.9s ease 0.15s forwards;
+}
+
+/* Tarjeta del ticket (remitente + mensaje) */
+.tarjeta-ticket {
+    opacity: 0;
+    animation: entrada-escala 0.9s ease 0.25s forwards;
+}
+
+/* Sección de respuesta (editor + selector estado) */
+.seccion-respuesta {
+    opacity: 0;
+    animation: entrada-arriba 0.9s ease 0.35s forwards;
+}
+
+/* Pie del formulario (botón guardar) */
+.panel-formulario__pie {
+    opacity: 0;
+    animation: entrada-arriba 0.8s ease 0.45s forwards;
 }

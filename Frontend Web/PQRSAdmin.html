@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    
     <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
     <aside class="barra-lateral" aria-label="Menú de navegación principal">
         <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
@@ -18,27 +19,37 @@
         <nav>
             <ul class="menu-lateral" role="list">
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Horarios">
-                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    <a href="#" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
                     </a>
                 </li>
+
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Estado de cuentas">
+                    <a href="Gestion_Pagos_admi.html" class="menu-lateral__enlace" title="Estado de cuentas">
                         <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
                     </a>
                 </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="HoraAdmin.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+
                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
                     <a href="#" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
                     </a>
                 </li>
+
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Implementos">
-                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
-                    </a>
-                </li>
-                <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Validación de Cuentas">
+                    <a href="#" class="menu-lateral__enlace" title="Validación de Cuentas usuarios">
                         <img class="menu-lateral__icono" src="img/usuarios.png" alt="Validación de cuentas">
                     </a>
                 </li>
@@ -183,7 +194,7 @@
                     </thead>
                     <tbody class="tabla-pqrs__cuerpo">
                         <tr class="tabla-pqrs__fila">
-                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ1045</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ104</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Sugerencia</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Estado">
                                 <span class="insignia-estado insignia-estado--resuelto">Resuelto</span>
@@ -196,13 +207,13 @@
                             </td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Remitente">Dylan Ramirez</td>
                             <td class="tabla-pqrs__celda tabla-pqrs__celda--acciones" data-etiqueta="Acciones">
-                                <a href="ResponderPQRS.html" class="boton-accion boton-accion--responder">Responder</a>
+                                <a href="#" class="boton-accion boton-accion--responder">Responder</a>
                                 <a href="#" class="boton-accion boton-accion--modificar">Modificar</a>
                                 <button class="boton-accion boton-accion--inhabilitar" type="button">Inhabilitar</button>
                             </td>
                         </tr>
                         <tr class="tabla-pqrs__fila">
-                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ2140</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ214</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Mejorar horarios de entrenamiento</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Estado">
                                 <span class="insignia-estado insignia-estado--tramite">En trámite</span>
@@ -221,7 +232,7 @@
                             </td>
                         </tr>
                         <tr class="tabla-pqrs__fila">
-                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ1021</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ102</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Sugerencia para la competencia</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Estado">
                                 <span class="insignia-estado insignia-estado--tramite">En trámite</span>
@@ -240,7 +251,7 @@
                             </td>
                         </tr>
                         <tr class="tabla-pqrs__fila">
-                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ4210</td>
+                            <td class="tabla-pqrs__celda" data-etiqueta="ID">PQ402</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Asunto">Queja por mal trato del entrenador</td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Estado">
                                 <span class="insignia-estado insignia-estado--pendiente">Pendiente</span>
@@ -253,7 +264,7 @@
                             </td>
                             <td class="tabla-pqrs__celda" data-etiqueta="Remitente">Gabriela Deaquiz</td>
                             <td class="tabla-pqrs__celda tabla-pqrs__celda--acciones" data-etiqueta="Acciones">
-                                <a href="#" class="boton-accion boton-accion--responder">Responder</a>
+                                <a href="ResponderPQRS.html" class="boton-accion boton-accion--responder">Responder</a>
                                 <a href="#" class="boton-accion boton-accion--modificar">Modificar</a>
                                 <button class="boton-accion boton-accion--inhabilitar" type="button">Inhabilitar</button>
                             </td>
