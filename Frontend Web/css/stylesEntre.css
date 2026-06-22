@@ -1,0 +1,505 @@
+.asist-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 20px 0 20px;
+}
+
+.asist-header h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--texto-dark);
+    border: 1px solid var(--texto-dark);
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: white;
+}
+
+.badge-categoria {
+    background-color: var(--rojo);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 8px 20px;
+    border-radius: 8px;
+}
+
+.asist-controles {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    flex-wrap: wrap;
+}
+
+.asist-fecha {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--gris-borde);
+    background: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--texto-dark);
+    font-weight: 500;
+}
+
+.btn-consultar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-consultar:hover {
+    background-color: #3b82f6;
+}
+
+.asist-contador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gris-borde);
+    background: white;
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 130px;
+}
+
+.asist-contador svg {
+    padding: 3px;
+    border-radius: 50%;
+    color: white;
+    flex-shrink: 0;
+}
+
+.contador-presente svg { background-color: #1eaf52; }
+.contador-inpuntual svg { background-color: #f59e0b; border-radius: 50%; }
+.contador-falta svg { background-color: #cc0000; border-radius: 6px; }
+
+.asist-contador .num {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--texto-dark);
+}
+
+.asist-contador .label {
+    color: #555;
+    font-weight: 500;
+}
+
+.asist-tabla-wrapper {
+    padding: 0 20px;
+    overflow-x: auto;
+}
+
+.asist-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.asist-tabla thead tr {
+    background-color: #e5e7eb;
+}
+
+.asist-tabla th {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto-dark);
+}
+
+.asist-tabla td {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    color: var(--texto-dark);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.asist-tabla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.estado-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+
+.estado-presente    { background-color: #1eaf52; }
+.estado-falta       { background-color: #cc0000; }
+.estado-inpuntual   { background-color: #f59e0b; }
+.estado-justificado { background-color: #2563eb; }
+
+/* Columna de acciones */
+.acciones-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-accion {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    color: white;
+}
+
+.btn-accion:hover { opacity: 0.85; }
+
+.btn-presente { background-color: #1eaf52; }
+.btn-falta    { background-color: #cc0000; }
+.btn-mas      { background-color: #e5e7eb; color: #444; }
+
+/* Botón Guardar */
+.btn-guardar {
+    display: flex;
+    gap: 8px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: auto;
+    height: auto;
+}
+
+.btn-guardar:hover { background-color: #1d4ed8; }
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 100;
+    min-width: 140px;
+    overflow: hidden;
+}
+
+.dropdown-menu.visible { display: block; }
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: var(--texto-dark);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+}
+
+.dropdown-item:hover { background-color: #f3f4f6; }
+
+.dropdown-item svg { color: #666; flex-shrink: 0; }
+
+.asist-paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.paginacion-btns {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.btn-pag {
+    padding: 7px 14px;
+    border: 1.5px solid var(--gris-borde);
+    background: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--texto-dark);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-pag:hover { border-color: var(--rojo); color: var(--rojo); }
+
+.btn-pag-num { min-width: 36px; text-align: center; }
+
+.btn-pag-num.activo {
+    background-color: var(--rojo);
+    color: white;
+    border-color: var(--rojo);
+}
+
+/*  MODAL: Asistencia registrada */
+#modal-guardado {
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 420px;
+    width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+#modal-guardado::backdrop {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
+}
+
+.modal-exito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 32px 32px;
+    text-align: center;
+    gap: 16px;
+}
+
+.modal-exito-icono {
+    width: 72px;
+    height: 72px;
+    background-color: #1eaf52;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.modal-exito h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--texto-dark);
+    margin: 0;
+}
+
+.modal-exito p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.btn-aceptar {
+    background-color: #1eaf52;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-aceptar:hover { background-color: #17923f; }
+
+/*  MODAL: Consultar asistencia (tabla mensual) */
+#modal-consultar {
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 92vw;
+    width: 960px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+#modal-consultar::backdrop {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
+}
+
+.modal-consultar-contenido {
+    padding: 20px 24px 20px;
+}
+
+.modal-consultar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.modal-consultar-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--texto-dark);
+    margin: 0;
+}
+
+.modal-consultar-header .btn-modal-x {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 2px 6px;
+}
+
+.modal-consultar-header .btn-modal-x:hover { color: var(--rojo); }
+
+/* Fila de filtros/contadores dentro del modal */
+.consultar-mes-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+/* Tabla mensual con iconos */
+.consultar-tabla-wrapper {
+    overflow-x: auto;
+}
+
+.consultar-tabla-mes {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-size: 0.82rem;
+}
+
+.consultar-tabla-mes thead tr {
+    background-color: #e5e7eb;
+}
+
+.consultar-tabla-mes th {
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--texto-dark);
+    white-space: nowrap;
+}
+
+.consultar-tabla-mes th.col-nombre-mes {
+    text-align: left;
+    padding-left: 14px;
+    min-width: 180px;
+}
+
+.consultar-tabla-mes td {
+    padding: 8px 4px;
+    text-align: center;
+    color: var(--texto-dark);
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.consultar-tabla-mes td.col-nombre-mes {
+    text-align: left;
+    padding-left: 14px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.consultar-tabla-mes tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Columna del día actual (29) */
+.consultar-tabla-mes th.dia-hoy,
+.consultar-tabla-mes td.dia-hoy {
+    background-color: #f0f0f0;
+    border-left: 2px solid #555;
+    border-right: 2px solid #555;
+}
+
+/* Iconos de estado dentro de la tabla */
+.ico-presente,
+.ico-falta,
+.ico-inpuntual {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.ico-presente  { background-color: #1eaf52; border-radius: 6px; }
+.ico-falta     { background-color: #cc0000; border-radius: 6px; }
+.ico-inpuntual { background-color: #f59e0b; border-radius: 50%; }
+
+/* Leyenda */
+.calendario-leyenda {
+    display: flex;
+    gap: 16px;
+    font-size: 0.82rem;
+    color: #555;
+    flex-wrap: wrap;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.leyenda-circulo {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.leyenda-circulo.dia-registrado { background-color: #1eaf52; }
