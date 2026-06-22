@@ -1,19 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
-h1,h2,h3,h4,h5,h6{
+
+h1,h2,h3,h4,h5,h6 { 
     font-family: "Varela Round", sans-serif;
 }
-p,a,li,label,input{
+p,a,li,label,input,select,textarea,span,em,time,button { 
     font-family: "Arimo", sans-serif;
-}
-
-
-
-/* ── Reinicio y base ───────────────────────────────────────────── */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 /* ── Variables de diseño ───────────────────────────────────────── */
@@ -98,10 +90,6 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     min-height: 100vh;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Varela Round", sans-serif;
 }
 
 /* Clase de accesibilidad: texto solo visible para lectores de pantalla */
