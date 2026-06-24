@@ -1,554 +1,617 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/paginas/usuarios.css">
-    <link rel="icon" href="/img/logo/logo-btc.png" type="image">
-    <title>Autenticación - BTC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BT — Panel de acceso</title>
+  <link rel="stylesheet" href="/css/paginas/autenticacion.css" />
 </head>
-
 <body>
 
-<dialog id="modal-autenticacion" class="modal modal-autenticacion">
+  <!-- pantalla de inicio de sesion -->
+  <div class="contenedor" id="pantalla-login">
+    <div class="tarjeta">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen"/>
+      <h2>Bienvenido</h2>
+      <p class="subtitulo">Ingresa a tu panel</p>
+
+      <label class="etiqueta" for="login-correo">CORREO ELECTRÓNICO</label>
+      <input class="campo" type="email" id="login-correo" placeholder="correo@ejemplo.com" />
+
+      <label class="etiqueta" for="login-clave">CONTRASEÑA</label>
+      <div class="clave-contenedor">
+        <input class="campo" type="password" id="login-clave" placeholder="••••••••" />
+        <button class="boton-ojo" type="button" onclick="alternarOjo('login-clave',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+
+      <div class="fila-separada">
+        <label class="etiqueta-casilla">
+          <input type="checkbox" /> Recordarme
+        </label>
+        <a class="enlace-rojo" onclick="mostrarPantalla('pantalla-recuperar-1')">Olvidé mi contraseña</a>
+      </div>
+
+      <div class="mensaje-error oculto" id="login-error"></div>
+      <div class="mensaje-exito oculto" id="login-exito"></div>
+
+      <button class="boton-primario" type="button" onclick="iniciarSesion()">Iniciar sesión</button>
+      <p class="nota-pie">¿Sin cuenta? <a class="enlace-rojo" onclick="mostrarPantalla('pantalla-registro-inicio')">Regístrate</a></p>
 
-    <!-- vista inicio sesion -->
-    <section class="inicio-sesion vista-auth activo">
-        <div class="contenedor">
-
-            <header class="inicio-header">
-                <img src="/img/logo/logo-btc.png" alt="Logo Blood Tigers Cheer">
-                <h1>BIENVENIDO</h1>
-                <p>Ingresa a tu panel</p>
-            </header>
-
-            <form id="form-inicio-sesion">
-                <div class="form-grupo">
-                    <label for="rol">Rol</label>
-                    <select id="rol" name="rol" required>
-                        <option value="" disabled selected>Seleccionar rol...</option>
-                        <option value="atleta">Atleta</option>
-                        <option value="entrenador">Entrenador</option>
-                        <option value="admin">Administrador</option>
-                    </select>
-                </div>
-
-                <div class="form-grupo">
-                    <label for="correo">Correo</label>
-                    <input type="email" id="correo" name="correo" placeholder="Su@gmail.com" required maxlength="50">
-                </div>
-
-                <div class="form-grupo">
-                    <label for="contrasena">
-                        Contraseña
-                    </label>
-                    <div class="contrasena-contenedor">
-                        <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required max="16">
-
-                        <button type="button" class="btn-ver-contrasena">
-                            👁
-                        </button>
-                    </div>
-                </div>
-
-                <div class="fila-opciones">
-                    <label>
-                        <input type="checkbox" name="recordar">
-                        Recordarme
-                    </label>
-                    <a href="#" class="link-texto" id="link-olvide-contrasena">Olvidé mi contraseña</a>
-                </div>
-
-                <p class="error">Completar todos los campos.</p>
-
-                <a href="/paginas/administrador/dashboard-admin.html" type="submit" class="btn btn-primario">
-                    Iniciar Sesión
-                </a>
-            </form>
-
-            <p class="pie">¿No tienes cuenta? <a href="#" class="link-texto" id="link-ir-registro">Registrarse</a></p>
-        </div>
-    </section>
-
-    <!-- vista registro -->
-    <section class="registro vista-auth">
-        <div class="contenedor">
-
-            <header class="registro-header">
-                <img src="/img/logo/logo-btc.png" alt="Logo Blood Tigers Cheer">
-                <h1>Crear cuenta</h1>
-                <p>Completa tu información</p>
-            </header>
-
-            <div class="pasos">
-
-                <div class="indicador-pasos activo" data-paso="1">
-                    <span>1</span>
-                    <p>Datos personales</p>
-                </div>
-
-                <div class="indicador-pasos" data-paso="2">
-                    <span>2</span>
-                    <p>Seguridad</p>
-                </div>
-            </div>
-
-            <form id="form-registro">
-                <!-- PASO 1 -->
-                <div class="paso-contenido activo" data-step="1">
-                    <h2>Datos personales</h2>
-
-                    <div class="form-grupo">
-                        <label for="tipo-rol">Rol</label>
-                        <select name="rol" id="tipo-rol" required>
-                            <option value="" disabled selected>Seleccione rol...</option>
-                            <option value="administrador">Administrador</option>
-                            <option value="atleta">Atleta</option>
-                            <option value="entrenador">Entrenador</option>
-                        </select>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="nombre-atleta">Nombre(s)</label>
-                        <input type="text" id="nombre-atleta" name="nombre-atleta" maxlength="30" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="apellido-atleta">Apellido(s)</label>
-                        <input type="text" id="apellido-atleta" name="apellido-atleta" maxlength="30" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="tipo-documento">Tipo de documento</label>
-                        <select name="documento" id="tipo-documento" required >
-                            <option value="" disabled selected>Seleccione tipo de documento...</option>
-                            <option value="cedula-ciudadania">Cédula de ciudadanía</option>
-                            <option value="cedula-extranjeria">Cédula de extranjería</option>
-                            <option value="tarjeta-identidad">Tarjeta de identidad</option>
-                            <option value="pasaporte">Pasaporte</option>
-                        </select>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="numero-documento">Número de documento</label>
-                        <input type="text" name="numero-documento" id="numero-documento" maxlength="15" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="tipo-genero">Género</label>
-                        <select name="genero" id="tipo-genero" required>
-                            <option value="" disabled selected>Seleccionar género...</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="fecha-nacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="fecha-nacimiento" id="fecha-nacimiento" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="telefono-atleta">Teléfono</label>
-                        <input type="tel" name="telefono-atleta" id="telefono-atleta" required maxlength="12">
-                    </div>
-
-                    <div class="form-grupo campo-eps">
-                        <label for="certificado-eps">Certificado EPS</label>
-                        <input type="file" name="certificado-eps" id="certificado-eps" accept=".pdf,.jpg,.png" required>
-                    </div>
-
-                    <h3>Datos Contacto de Emergencia</h3>
-                    <div class="form-grupo">
-                        <label for="nombre-contacto">Nombre(s)</label>
-                        <input type="text" id="nombre-contacto" name="nombre-contacto" maxlength="30" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="apellido-contacto">Apellido(s)</label>
-                        <input type="text" id="apellido-contacto" name="apellido-contacto" maxlength="30" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="telefono-contacto">Teléfono</label>
-                        <input type="tel" name="telefono-contacto" id="telefono-contacto" maxlength="12" required>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="tipo-parentesco">Parentesco</label>
-                        <select name="parentesco" id="tipo-parentesco" required>
-                            <option value="" disabled selected>Seleccionar parentesco...</option>
-                            <option value="madre-padre">Madre / Padre</option>
-                            <option value="tutor">Tutor</option>
-                            <option value="conyuge-pareja">Cónyuge / Pareja</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-
-                    <button type="button" id="btn-siguiente" class="btn btn-primario">
-                        Siguiente
-                    </button>
-
-                    <p>¿Ya tienes una cuenta? <a href="#" class="link-texto" id="link-ir-login-desde-registro">Iniciar sesión</a></p>
-                </div>
-
-                <!-- PASO 2 -->
-                <div class="paso-contenido" data-step="2">
-                    <h2>Seguridad</h2>
-
-                    <div class="form-grupo">
-                        <label for="correo-registro">
-                            Correo electrónico
-                        </label>
-
-                        <input type="email" id="correo-registro" name="correo" maxlength="50" required placeholder="Ejemplo@gmail.com">
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="contrasena-registro">
-                            Contraseña
-                        </label>
-                        <div class="contrasena-contenedor">
-                            <input type="password" id="contrasena-registro" name="contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16">
-                            <button type="button" class="btn-ver-contrasena">
-                                👁
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="form-grupo">
-                        <label for="confirmar-contrasena-registro">
-                            Confirmar Contraseña
-                        </label>
-
-                        <div class="contrasena-contenedor">
-
-                            <input type="password" id="confirmar-contrasena-registro" name="confirmar-contrasena" required placeholder="Repetir contraseña" minlength="8" maxlength="16">
-
-                            <button type="button" class="btn-ver-contrasena">
-                                👁
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="acciones-formulario">
-
-                        <button type="submit" class="btn btn-primario">
-                            Crear Cuenta
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- vista recuperar contraseña -->
-    <section class="recuperar-contrasena vista-auth">
-        <div class="contenedor">
-            <header class="recuperar-contrasena-header">
-                <img src="/img/iconos/candado.svg" alt="candado">
-                <h1>RECUPERAR</h1>
-                <p class="subtitulo">Contraseña</p>
-                <p class="texto-info">
-                    Ingresa el correo registrado y te enviaremos un código para restablecer tu contraseña.
-                </p>
-
-                <div class="progreso">
-                    <div class="paso activo"></div>
-                    <div class="paso"></div>
-                    <div class="paso"></div>
-                </div>
-            </header>
-
-            <form id="form-recuperar-contrasena">
-                <div class="form-grupo">
-                    <label for="correo-recuperar">Correo</label>
-                    <input type="email" id="correo-recuperar" name="correo" placeholder="Su@correo.com" required maxlength="50">
-                </div>
-                <button type="submit" class="btn btn-primario">Enviar código</button>
-            </form>
-        </div>
-
-        <p class="pie">
-            <a href="#" class="link-texto" id="link-volver-login-desde-recuperar">&#8592; Volver al inicio de sesión</a>
-        </p>
-    </section>
-
-    <!-- vista verificar codigo -->
-    <section class="codigo-verificacion vista-auth">
-        <div class="contenedor">
-            <header>
-                <h1>Verificar código</h1>
-                <p>
-                    Ingresa el código enviado a <br>
-                    <span id="correo-mostrado-verificacion">Ejemplo@gmail.com</span>
-                </p>
-
-                <div class="progreso">
-                    <div class="paso"></div>
-                    <div class="paso activo"></div>
-                    <div class="paso"></div>
-                </div>
-            </header>
-
-            <form id="form-verificar-codigo">
-                <div class="codigo-verificacion-inputs" >
-                    <input type="text" maxlength="1" required>
-                    <input type="text" maxlength="1" required>
-                    <input type="text" maxlength="1" required>
-                    <input type="text" maxlength="1" required>
-                    <input type="text" maxlength="1" required>
-                    <input type="text" maxlength="1" required>
-                </div>
-
-                <button type="submit" class="btn btn-primario">
-                    Verificar Código
-                </button>
-            </form>
-        </div>
-
-        <div class="pie">
-            <p>¿No llegó? <button type="button">Reenviar código</button></p>
-            <a href="#" class="link-texto" id="link-volver-recuperar-desde-codigo">&#8592; Volver</a>
-        </div>
-    </section>
-
-    <!-- vista cambio contraseña -->
-    <section class="cambio-contrasena vista-auth">
-        <div class="contenedor">
-            <header>
-                <img src="/img/logo/logo-btc.png" alt="Logo Blood Tigers Cheer">
-                <h1>Nueva Contraseña</h1>
-                <p>
-                    Crea una contraseña segura para tu cuenta.
-                </p>
-                <div class="progreso">
-                    <div class="paso"></div>
-                    <div class="paso"></div>
-                    <div class="paso activo"></div>
-                </div>
-            </header>
-
-            <form id="form-cambio-contrasena">
-                <div class="form-grupo">
-
-                    <label for="nueva-contrasena">
-                        Nueva Contraseña
-                    </label>
-
-                    <div class="contrasena-contenedor">
-                        <input type="password" name="nueva-contrasena" id="nueva-contrasena" required placeholder="Mínimo 8 caracteres" minlength="8" maxlength="16" >
-
-                        <button type="button" class="btn-ver-contrasena">
-                            👁
-                        </button>
-                    </div>
-
-                    <div class="seguridad-contrasena">
-
-                        <div class="barra activo"></div>
-                        <div class="barra"></div>
-                        <div class="barra"></div>
-                    </div>
-
-                    <p class="texto-seguridad">
-                        Débil
-                    </p>
-
-                </div>
-
-                <div class="form-grupo">
-                    <label for="confirmar-contrasena-nueva">
-                        Confirmar Contraseña
-                    </label>
-
-                    <div class="contrasena-contenedor">
-
-                        <input type="password" name="confirmar-contrasena" id="confirmar-contrasena-nueva" required placeholder="Repetir la contraseña" minlength="8" maxlength="16">
-
-                        <button type="button" class="btn-ver-contrasena">
-                            👁
-                        </button>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primario">
-                    Guardar contraseña
-                </button>
-            </form>
-        </div>
-    </section>
-
-</dialog>
-
-<!-- modal registro de cuenta en validacion -->
-<dialog id="modalRegistro" class="modal">
-    <div class="modal-contenido">
-
-        <img src="/img/iconos/circulo-alerta.svg" alt="Cuenta pendiente">
-
-        <h2>
-            Cuenta Pendiente<br>
-            de Validación
-        </h2>
-
-        <div class="mensaje-validacion mensaje-validacion-registro">
-            <p>
-            ¡Gracias por registrarte en CheerClick Systems!<br>
-            Tu cuenta está pendiente de validación por parte del administrador.<br>
-            Te enviaremos una notificaación cuando sea habilitada.
-            </p>
-        </div>
-
-        <a href="../publico/index.html" type="button" class="btn btn-primario" id="btn-volver-inicio">
-            &#8592; Volver al inicio
-        </a>
     </div>
-</dialog>
+  </div>
 
-<!-- modal cambio contraseña exitoso -->
-<dialog id="modalContrasena" class="modal">
-    <div class="modal-contenido">
-        <img src="/img/iconos/marca-verificacion.svg" alt="Contraseña actualizada">
 
-        <h2>¡Listo!</h2>
+  <!-- pantalla para crear cuenta, solo rol -->
+  <div class="contenedor oculto" id="pantalla-registro-inicio">
+    <div class="tarjeta">
 
-        <p>
-            Tu contraseña fue actualizada correctamente.
-        </p>
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC " class="logo-imagen" />
+      <h2>Crear cuenta</h2>
+      <p class="subtitulo">Complete su información</p>
 
-        <div class="mensaje-validacion mensaje-validacion-contrasena">
+      <label class="etiqueta" for="inicio-rol">ROL</label>
+      <select class="campo" id="inicio-rol">
+        <option value="">Seleccione su rol...</option>
+        <option value="atleta">Atleta</option>
+        <option value="entrenador">Entrenador</option>
+        <option value="admin">Administrador</option>
+      </select>
 
-            <p>
-                Ya puedes iniciar sesión con tu nueva contraseña.
-            </p>
-        </div>
+      <div class="mensaje-error oculto" id="inicio-error"></div>
 
-        <button type="button" class="btn btn-primario" id="btn-cerrar-modal-contrasena">
-            &#8592; Ir a inicio de sesión
-        </button>
+      <button class="boton-primario" type="button" onclick="irARegistro()">Registrarse</button>
+      <p class="nota-pie">¿Ya tienes cuenta? <a class="enlace-rojo" onclick="mostrarPantalla('pantalla-login')">Inicia sesión</a></p>
+
     </div>
-</dialog>
+  </div>
 
-<script>
-    const modalAuth = document.getElementById('modal-autenticacion');
-    const btnCerrarAuth = document.getElementById('btn-cerrar-auth');
 
-    if(btnCerrarAuth){
-        btnCerrarAuth.addEventListener('click', () => modalAuth.close())
+  <!-- pantalla de registro, paso 1: datos personales -->
+  <div class="contenedor oculto" id="pantalla-registro-1">
+    <div class="tarjeta tarjeta-ancha">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
+      <h2>Crear cuenta</h2>
+      <p class="subtitulo">Complete su información</p>
+
+      <div class="pasos">
+        <div class="paso activo">
+          <span class="paso-numero">1</span>
+          <span class="paso-etiqueta">Datos Personales</span>
+        </div>
+        <div class="paso-linea"></div>
+        <div class="paso">
+          <span class="paso-numero">2</span>
+          <span class="paso-etiqueta">Seguridad</span>
+        </div>
+      </div>
+
+      <!-- el rol viene prellenado, solo se muestra de forma visual -->
+      <label class="etiqueta" for="registro-rol">ROL *</label>
+      <select class="campo" id="registro-rol" disabled>
+        <option value="">—</option>
+        <option value="atleta">Atleta</option>
+        <option value="entrenador">Entrenador</option>
+        <option value="admin">Administrador</option>
+      </select>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-nombres">NOMBRE(S) *</label>
+          <input class="campo" type="text" id="registro-nombres" placeholder="Gabriela" />
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-apellidos">APELLIDOS *</label>
+          <input class="campo" type="text" id="registro-apellidos" placeholder="Deoquiz" />
+        </div>
+      </div>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-tipo-doc">TIPO DE DOCUMENTO *</label>
+          <select class="campo" id="registro-tipo-doc">
+            <option value="">Selecciona...</option>
+            <option value="cedula">Cédula de ciudadanía</option>
+            <option value="tarjeta">Tarjeta de identidad</option>
+            <option value="pasaporte">Pasaporte</option>
+            <option value="extranjeria">Cédula de extranjería</option>
+          </select>
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-numero-doc">NÚMERO DE DOCUMENTO *</label>
+          <input class="campo" type="text" id="registro-numero-doc" placeholder="1000000000" />
+        </div>
+      </div>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-genero">GÉNERO *</label>
+          <select class="campo" id="registro-genero">
+            <option value="">Selecciona...</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="no-binario">No binario</option>
+            <option value="no-decir">Prefiero no decir</option>
+          </select>
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-fecha">FECHA DE NACIMIENTO *</label>
+          <input class="campo" type="date" id="registro-fecha" />
+        </div>
+      </div>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="registro-telefono">TELÉFONO *</label>
+          <input class="campo" type="tel" id="registro-telefono" placeholder="300 000 0000" />
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta">CERTIFICADO DE EPS *</label>
+          <label class="boton-archivo" for="registro-eps">
+            &#128206; Subir archivo
+            <input type="file" id="registro-eps" accept=".pdf,.jpg,.jpeg,.png" />
+          </label>
+          <span class="nombre-archivo" id="nombre-archivo-eps">Ningún archivo seleccionado</span>
+        </div>
+      </div>
+
+      <div class="titulo-seccion">DATOS DE CONTACTO DE EMERGENCIA</div>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="emergencia-nombre">NOMBRE *</label>
+          <input class="campo" type="text" id="emergencia-nombre" placeholder="Nombre" />
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta" for="emergencia-apellido">APELLIDO *</label>
+          <input class="campo" type="text" id="emergencia-apellido" placeholder="Apellido" />
+        </div>
+      </div>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="emergencia-telefono">TELÉFONO *</label>
+          <input class="campo" type="tel" id="emergencia-telefono" placeholder="300 000 0000" />
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta" for="emergencia-parentesco">PARENTESCO *</label>
+          <input class="campo" type="text" id="emergencia-parentesco" placeholder="Madre, Padre..." />
+        </div>
+      </div>
+
+      <div class="mensaje-error oculto" id="registro1-error"></div>
+
+      <button class="boton-primario" type="button" onclick="irAPaso2()">Siguiente</button>
+      <p class="nota-pie">¿Ya tienes cuenta? <a class="enlace-rojo" onclick="mostrarPantalla('pantalla-login')">Inicia sesión</a></p>
+
+    </div>
+  </div>
+
+
+  <!-- pantalla de registro, paso 2: seguridad -->
+  <div class="contenedor oculto" id="pantalla-registro-2">
+    <div class="tarjeta tarjeta-ancha">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
+      <h2>Crear cuenta</h2>
+      <p class="subtitulo">Configura tu acceso</p>
+
+      <div class="pasos">
+        <div class="paso completado">
+          <span class="paso-numero">&#10003;</span>
+          <span class="paso-etiqueta">Datos Personales</span>
+        </div>
+        <div class="paso-linea completado"></div>
+        <div class="paso activo">
+          <span class="paso-numero">2</span>
+          <span class="paso-etiqueta">Seguridad</span>
+        </div>
+      </div>
+
+      <label class="etiqueta" for="registro-correo">CORREO ELECTRÓNICO *</label>
+      <input class="campo" type="email" id="registro-correo" placeholder="correo@ejemplo.com" />
+
+      <label class="etiqueta" for="registro-clave">CONTRASEÑA *</label>
+      <div class="clave-contenedor">
+        <input class="campo" type="password" id="registro-clave" placeholder="Mínimo 6 caracteres"
+          oninput="verificarFuerza('registro-clave', ['fuerza1','fuerza2','fuerza3'], 'fuerza-resultado')" />
+        <button class="boton-ojo" type="button" onclick="alternarOjo('registro-clave',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+
+      <div class="fuerza-contenedor">
+        <div class="fuerza-barras">
+          <div class="fuerza-segmento" id="fuerza1"></div>
+          <div class="fuerza-segmento" id="fuerza2"></div>
+          <div class="fuerza-segmento" id="fuerza3"></div>
+        </div>
+        <span class="fuerza-etiqueta" id="fuerza-resultado"></span>
+      </div>
+
+      <label class="etiqueta" for="registro-confirmar">CONFIRMAR CONTRASEÑA *</label>
+      <div class="clave-contenedor">
+        <input class="campo" type="password" id="registro-confirmar" placeholder="Repite tu contraseña" />
+        <button class="boton-ojo" type="button" onclick="alternarOjo('registro-confirmar',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+
+      <div class="mensaje-error oculto" id="registro2-error"></div>
+
+      <div class="fila-botones">
+        <button class="boton-secundario" type="button" onclick="mostrarPantalla('pantalla-registro-1')">&#8592; Volver</button>
+        <button class="boton-primario boton-flexible" type="button" onclick="registrarCuenta()">Crear cuenta</button>
+      </div>
+      <p class="nota-pie">¿Ya tienes cuenta? <a class="enlace-rojo" onclick="mostrarPantalla('pantalla-login')">Inicia sesión</a></p>
+
+    </div>
+  </div>
+
+
+  <!-- pantalla de cuenta pendiente de validacion -->
+  <div class="contenedor oculto" id="pantalla-pendiente">
+    <div class="tarjeta tarjeta-pendiente">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen logo-imagen-pequena" />
+      <div class="icono-advertencia">&#9888;</div>
+      <h2 class="titulo-pendiente">Cuenta Pendiente<br>de Validación</h2>
+      <p class="texto-pendiente">
+        Gracias por registrarse en CheerClick Systems<br>
+        Su cuenta está en revisión por el Administrador
+      </p>
+      <div class="caja-info">
+        <span class="icono-info">&#9432;</span>
+        <p>Una vez validada su cuenta, recibirá un mensaje de confirmación al correo electrónico registrado para acceder al sistema.</p>
+      </div>
+      <a class="enlace-rojo enlace-centrado" onclick="mostrarPantalla('pantalla-login')">Volver a Inicio</a>
+
+    </div>
+  </div>
+
+
+  <!-- pantalla de recuperar contraseña, paso 1: correo -->
+  <div class="contenedor oculto" id="pantalla-recuperar-1">
+    <div class="tarjeta">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
+      <h2>Recuperar contraseña</h2>
+      <p class="subtitulo">Ingresa tu correo y te enviaremos<br>un código de verificación</p>
+
+      <div class="puntos-paso">
+        <div class="punto-paso activo"></div>
+        <div class="punto-paso"></div>
+        <div class="punto-paso"></div>
+      </div>
+
+      <label class="etiqueta" for="recuperar-correo">CORREO ELECTRÓNICO</label>
+      <input class="campo" type="email" id="recuperar-correo" placeholder="correo@ejemplo.com" />
+
+      <div class="mensaje-error oculto" id="recuperar1-error"></div>
+      <div class="mensaje-exito oculto" id="recuperar1-exito"></div>
+
+      <button class="boton-primario" type="button" onclick="enviarCodigo()">Enviar código</button>
+      <button class="boton-secundario boton-bloque" type="button" onclick="mostrarPantalla('pantalla-login')" style="margin-top:8px;">&#8592; Volver al inicio</button>
+
+    </div>
+  </div>
+
+
+  <!-- pantalla de recuperar contraseña, paso 2: codigo -->
+  <div class="contenedor oculto" id="pantalla-recuperar-2">
+    <div class="tarjeta">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
+      <h2>Verificar código</h2>
+      <p class="subtitulo" id="recuperar2-subtitulo">Ingresa el código de 6 dígitos<br>enviado a tu correo</p>
+
+      <div class="puntos-paso">
+        <div class="punto-paso completado"></div>
+        <div class="punto-paso activo"></div>
+        <div class="punto-paso"></div>
+      </div>
+
+      <div class="codigo-entradas">
+        <input class="codigo-entrada" type="text" inputmode="numeric" maxlength="1" id="codigo0" oninput="navegarCodigo(0)" onkeydown="borrarCodigo(event,0)" />
+        <input class="codigo-entrada" type="text" inputmode="numeric" maxlength="1" id="codigo1" oninput="navegarCodigo(1)" onkeydown="borrarCodigo(event,1)" />
+        <input class="codigo-entrada" type="text" inputmode="numeric" maxlength="1" id="codigo2" oninput="navegarCodigo(2)" onkeydown="borrarCodigo(event,2)" />
+        <input class="codigo-entrada" type="text" inputmode="numeric" maxlength="1" id="codigo3" oninput="navegarCodigo(3)" onkeydown="borrarCodigo(event,3)" />
+        <input class="codigo-entrada" type="text" inputmode="numeric" maxlength="1" id="codigo4" oninput="navegarCodigo(4)" onkeydown="borrarCodigo(event,4)" />
+        <input class="codigo-entrada" type="text" inputmode="numeric" maxlength="1" id="codigo5" oninput="navegarCodigo(5)" onkeydown="borrarCodigo(event,5)" />
+      </div>
+
+      <div class="mensaje-error oculto" id="recuperar2-error"></div>
+      <div class="mensaje-exito oculto" id="recuperar2-exito"></div>
+
+      <button class="boton-primario" type="button" onclick="verificarCodigo()">Verificar código</button>
+      <p class="nota-pie" style="margin-top:10px;">
+        ¿No llegó? <a class="enlace-rojo" onclick="reenviarCodigo()">Reenviar código</a>
+      </p>
+      <button class="boton-secundario boton-bloque" type="button" onclick="mostrarPantalla('pantalla-recuperar-1')" style="margin-top:6px;">&#8592; Volver</button>
+
+    </div>
+  </div>
+
+
+  <!-- pantalla de recuperar contraseña, paso 3: nueva clave -->
+  <div class="contenedor oculto" id="pantalla-recuperar-3">
+    <div class="tarjeta">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
+      <h2>Nueva contraseña</h2>
+      <p class="subtitulo">Crea una contraseña segura<br>para tu cuenta</p>
+
+      <div class="puntos-paso">
+        <div class="punto-paso completado"></div>
+        <div class="punto-paso completado"></div>
+        <div class="punto-paso activo"></div>
+      </div>
+
+      <label class="etiqueta" for="recuperar-clave-nueva">NUEVA CONTRASEÑA</label>
+      <div class="clave-contenedor">
+        <input class="campo" type="password" id="recuperar-clave-nueva" placeholder="Mínimo 6 caracteres"
+          oninput="verificarFuerza('recuperar-clave-nueva', ['nueva-fuerza1','nueva-fuerza2','nueva-fuerza3'], 'nueva-fuerza-resultado')" />
+        <button class="boton-ojo" type="button" onclick="alternarOjo('recuperar-clave-nueva',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+
+      <div class="fuerza-contenedor">
+        <div class="fuerza-barras">
+          <div class="fuerza-segmento" id="nueva-fuerza1"></div>
+          <div class="fuerza-segmento" id="nueva-fuerza2"></div>
+          <div class="fuerza-segmento" id="nueva-fuerza3"></div>
+        </div>
+        <span class="fuerza-etiqueta" id="nueva-fuerza-resultado"></span>
+      </div>
+
+      <label class="etiqueta" for="recuperar-confirmar-clave">CONFIRMAR CONTRASEÑA</label>
+      <div class="clave-contenedor">
+        <input class="campo" type="password" id="recuperar-confirmar-clave" placeholder="Repite la contraseña" />
+        <button class="boton-ojo" type="button" onclick="alternarOjo('recuperar-confirmar-clave',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+
+      <div class="mensaje-error oculto" id="recuperar3-error"></div>
+
+      <button class="boton-primario" type="button" onclick="guardarClave()">Guardar contraseña</button>
+      <button class="boton-secundario boton-bloque" type="button" onclick="mostrarPantalla('pantalla-recuperar-2')" style="margin-top:8px;">&#8592; Volver</button>
+
+    </div>
+  </div>
+
+
+  <!-- pantalla de contraseña actualizada con exito -->
+  <div class="contenedor oculto" id="pantalla-recuperar-exito">
+    <div class="tarjeta">
+
+      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
+      <div class="icono-exito">&#10003;</div>
+      <h2 class="titulo-exito">¡Contraseña actualizada!</h2>
+      <p class="subtitulo" style="margin-bottom:1.5rem;">
+        Tu contraseña fue cambiada correctamente.<br>Ya puedes iniciar sesión con tu nueva clave.
+      </p>
+      <button class="boton-primario" type="button" onclick="mostrarPantalla('pantalla-login')">Ir al inicio de sesión</button>
+
+    </div>
+  </div>
+
+
+  <!-- comportamiento de las pantallas -->
+  <script>
+
+    /* credenciales de prueba por rol, cambia el href por el enlace real de cada panel */
+    const PANELES = {
+      atleta:     { email: 'atleta@bt.com',  pass: 'atleta123', href: '../Atleta/dashboard-atleta.html' },
+      entrenador: { email: 'coach@bt.com',   pass: 'coach123',  href: '../Entrenador/dashboard-entrenador.html' },
+      admin:      { email: 'admin@bt.com',   pass: 'admin123',  href: '../Admin/dashboard-admin.html' }
+    };
+
+    /* estado temporal de la recuperacion de clave */
+    let codigoGenerado = '';
+    let correoRecuperacion = '';
+
+    /* cambia entre pantallas */
+    function mostrarPantalla(id) {
+      document.querySelectorAll('.contenedor').forEach(el => el.classList.add('oculto'));
+      document.getElementById(id).classList.remove('oculto');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /*Abre automáticamente al cargar*/
-    window.addEventListener('DOMContentLoaded', () => {
-        modalAuth.showModal();
+    /* iconos del ojo (abierto) y del ojo tachado, usados para mostrar u ocultar la contraseña */
+    const ICONO_OJO = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>';
+    const ICONO_OJO_TACHADO = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>';
 
-        const parametros = new URLSearchParams(window.location.search);
-        const vista = parametros.get('view');
-
-        if(vista === 'registro'){
-            mostrarVista('registro');
-        }
-
-        if(vista === 'login'){
-            mostrarVista('inicio-sesion');
-        }
-
-        if(vista === 'cambio-contrasena'){
-        mostrarVista('cambio-contrasena');
+    /* muestra u oculta la contraseña */
+    function alternarOjo(idEntrada, boton) {
+      const entrada = document.getElementById(idEntrada);
+      const seVaAMostrar = entrada.type === 'password';
+      entrada.type = seVaAMostrar ? 'text' : 'password';
+      boton.innerHTML = seVaAMostrar ? ICONO_OJO_TACHADO : ICONO_OJO;
+      boton.setAttribute('aria-label', seVaAMostrar ? 'Ocultar contraseña' : 'Ver contraseña');
     }
+
+    /* muestra un mensaje de error */
+    function mostrarError(id, texto) {
+      const el = document.getElementById(id);
+      el.textContent = texto;
+      el.classList.remove('oculto');
+    }
+
+    /* limpia los mensajes indicados */
+    function limpiarMensajes(...ids) {
+      ids.forEach(id => document.getElementById(id).classList.add('oculto'));
+    }
+
+    /* inicio de sesion, solo correo y contraseña */
+    function iniciarSesion() {
+      limpiarMensajes('login-error','login-exito');
+      const correo = document.getElementById('login-correo').value.trim();
+      const clave  = document.getElementById('login-clave').value;
+
+      if (!correo || !clave) return mostrarError('login-error', 'Completa todos los campos.');
+
+      /* busca el rol que coincida con las credenciales */
+      const coincide = Object.values(PANELES).find(r => r.email === correo && r.pass === clave);
+
+      if (coincide) {
+        const exito = document.getElementById('login-exito');
+        exito.textContent = '¡Acceso concedido! Redirigiendo...';
+        exito.classList.remove('oculto');
+        setTimeout(() => { window.location.href = coincide.href; }, 1200);
+      } else {
+        mostrarError('login-error', 'Correo o contraseña incorrectos.');
+      }
+    }
+
+    /* registro, paso 0 a paso 1 */
+    function irARegistro() {
+      limpiarMensajes('inicio-error');
+      const rol = document.getElementById('inicio-rol').value;
+      if (!rol) return mostrarError('inicio-error', 'Selecciona un rol para continuar.');
+
+      /* prellena y bloquea el rol en el paso 1 */
+      document.getElementById('registro-rol').value = rol;
+
+      mostrarPantalla('pantalla-registro-1');
+    }
+
+    /* registro, paso 1 a paso 2 */
+    function irAPaso2() {
+      limpiarMensajes('registro1-error');
+      const campos = [
+        'registro-nombres','registro-apellidos','registro-tipo-doc','registro-numero-doc',
+        'registro-genero','registro-fecha','registro-telefono',
+        'emergencia-nombre','emergencia-apellido','emergencia-telefono','emergencia-parentesco'
+      ];
+      for (const id of campos) {
+        if (!document.getElementById(id).value.trim())
+          return mostrarError('registro1-error', 'Completa todos los campos obligatorios (*).');
+      }
+      mostrarPantalla('pantalla-registro-2');
+    }
+
+    /* registro, paso 2 a pantalla pendiente */
+    function registrarCuenta() {
+      limpiarMensajes('registro2-error');
+      const correo    = document.getElementById('registro-correo').value.trim();
+      const clave     = document.getElementById('registro-clave').value;
+      const confirmar = document.getElementById('registro-confirmar').value;
+
+      if (!correo)             return mostrarError('registro2-error', 'Ingresa tu correo electrónico.');
+      if (!clave)              return mostrarError('registro2-error', 'Ingresa una contraseña.');
+      if (clave.length < 6)    return mostrarError('registro2-error', 'La contraseña debe tener mínimo 6 caracteres.');
+      if (clave !== confirmar) return mostrarError('registro2-error', 'Las contraseñas no coinciden.');
+
+      /* registro exitoso, va a la pantalla de validacion */
+      mostrarPantalla('pantalla-pendiente');
+    }
+
+    /* recuperar contraseña, paso 1: enviar codigo */
+    function enviarCodigo() {
+      limpiarMensajes('recuperar1-error','recuperar1-exito');
+      const correo = document.getElementById('recuperar-correo').value.trim();
+      if (!correo) return mostrarError('recuperar1-error', 'Ingresa tu correo electrónico.');
+      if (!/\S+@\S+\.\S+/.test(correo)) return mostrarError('recuperar1-error', 'Correo no válido.');
+
+      correoRecuperacion = correo;
+      codigoGenerado = String(Math.floor(100000 + Math.random() * 900000));
+      console.log('Código de prueba:', codigoGenerado); /* solo para desarrollo */
+
+      const exito = document.getElementById('recuperar1-exito');
+      exito.textContent = `Código enviado a ${correo}`;
+      exito.classList.remove('oculto');
+      setTimeout(() => {
+        /* limpia las cajas de codigo */
+        for (let i = 0; i < 6; i++) document.getElementById('codigo'+i).value = '';
+        document.getElementById('recuperar2-subtitulo').textContent =
+          `Ingresa el código de 6 dígitos\nenviado a ${correo}`;
+        mostrarPantalla('pantalla-recuperar-2');
+        document.getElementById('codigo0').focus();
+      }, 1000);
+    }
+
+    /* reenvia el codigo de verificacion */
+    function reenviarCodigo() {
+      codigoGenerado = String(Math.floor(100000 + Math.random() * 900000));
+      console.log('Nuevo código:', codigoGenerado);
+      for (let i = 0; i < 6; i++) document.getElementById('codigo'+i).value = '';
+      limpiarMensajes('recuperar2-error','recuperar2-exito');
+      const exito = document.getElementById('recuperar2-exito');
+      exito.textContent = 'Código reenviado';
+      exito.classList.remove('oculto');
+      document.getElementById('codigo0').focus();
+    }
+
+    /* navegacion automatica entre las cajas de codigo */
+    function navegarCodigo(i) {
+      const valor = document.getElementById('codigo'+i).value;
+      if (valor && i < 5) document.getElementById('codigo'+(i+1)).focus();
+    }
+    function borrarCodigo(e, i) {
+      if (e.key === 'Backspace' && !document.getElementById('codigo'+i).value && i > 0)
+        document.getElementById('codigo'+(i-1)).focus();
+    }
+
+    /* recuperar contraseña, paso 2: verificar codigo */
+    function verificarCodigo() {
+      limpiarMensajes('recuperar2-error','recuperar2-exito');
+      let ingresado = '';
+      for (let i = 0; i < 6; i++) ingresado += document.getElementById('codigo'+i).value;
+
+      if (ingresado.length < 6) return mostrarError('recuperar2-error', 'Ingresa los 6 dígitos del código.');
+
+      const exito = document.getElementById('recuperar2-exito');
+      exito.textContent = '¡Código correcto!';
+      exito.classList.remove('oculto');
+      setTimeout(() => mostrarPantalla('pantalla-recuperar-3'), 800);
+    }
+
+    /* barra de fuerza de la contraseña, recibe el input, los ids de los segmentos y el id de la etiqueta */
+    function verificarFuerza(idEntrada, idsSegmentos, idEtiqueta) {
+      const clave     = document.getElementById(idEntrada).value;
+      const segmentos = idsSegmentos.map(id => document.getElementById(id));
+      const etiqueta  = document.getElementById(idEtiqueta);
+
+      /* puntaje de 0 a 3 */
+      let puntaje = 0;
+      if (clave.length >= 1) puntaje++;                                                  /* algo escrito -> baja */
+      if (clave.length >= 8 && (/[A-Z]/.test(clave) || /[0-9]/.test(clave))) puntaje++;   /* longitud y variedad -> media */
+      if (clave.length >= 8 && /[A-Z]/.test(clave) && /[0-9]/.test(clave) &&
+          /[^A-Za-z0-9]/.test(clave)) puntaje++;                                          /* todo combinado -> alta */
+
+      /* colores y textos por nivel */
+      const niveles = [
+        { color: '#cc0000', texto: 'Baja'  },
+        { color: '#f5a623', texto: 'Media' },
+        { color: '#22a85a', texto: 'Alta'  }
+      ];
+
+      const nivel = puntaje > 0 ? niveles[puntaje - 1] : null;
+
+      segmentos.forEach((seg, idx) => {
+        seg.style.background = (nivel && idx < puntaje) ? nivel.color : '#e0e0e0';
+        seg.style.opacity    = (nivel && idx < puntaje) ? '1'         : '0.35';
+      });
+
+      if (nivel && clave.length) {
+        etiqueta.textContent = nivel.texto;
+        etiqueta.style.color = nivel.color;
+      } else {
+        etiqueta.textContent = '';
+      }
+    }
+
+    /* recuperar contraseña, paso 3: guardar nueva clave */
+    function guardarClave() {
+      limpiarMensajes('recuperar3-error');
+      const clave     = document.getElementById('recuperar-clave-nueva').value;
+      const confirmar = document.getElementById('recuperar-confirmar-clave').value;
+      if (!clave || clave.length < 6) return mostrarError('recuperar3-error', 'La contraseña debe tener mínimo 6 caracteres.');
+      if (clave !== confirmar)         return mostrarError('recuperar3-error', 'Las contraseñas no coinciden.');
+      mostrarPantalla('pantalla-recuperar-exito');
+    }
+
+    /* muestra el nombre del archivo de eps seleccionado */
+    document.getElementById('registro-eps').addEventListener('change', function () {
+      document.getElementById('nombre-archivo-eps').textContent =
+        this.files[0] ? this.files[0].name : 'Ningún archivo seleccionado';
     });
 
-    const vistas = document.querySelectorAll('.vista-auth');
-
-    function mostrarVista(nombreClase) {
-        vistas.forEach(v => v.classList.remove('activo'));
-        document.querySelector('.' + nombreClase).classList.add('activo');
-    }
-
-    document.getElementById('link-ir-registro')
-        .addEventListener('click', e => { e.preventDefault(); mostrarVista('registro'); });
-
-    document.getElementById('link-ir-login-desde-registro')
-        .addEventListener('click', e => { e.preventDefault(); mostrarVista('inicio-sesion'); });
-
-    document.getElementById('link-olvide-contrasena')
-        .addEventListener('click', e => { e.preventDefault(); mostrarVista('recuperar-contrasena'); });
-
-    document.getElementById('link-volver-login-desde-recuperar')
-        .addEventListener('click', e => { e.preventDefault(); mostrarVista('inicio-sesion'); });
-
-    document.getElementById('form-recuperar-contrasena')
-        .addEventListener('submit', e => { e.preventDefault(); mostrarVista('codigo-verificacion'); });
-
-    document.getElementById('form-verificar-codigo')
-        .addEventListener('submit', e => { e.preventDefault(); mostrarVista('cambio-contrasena'); });
-
-    document.getElementById('link-volver-recuperar-desde-codigo')
-        .addEventListener('click', e => { e.preventDefault(); mostrarVista('recuperar-contrasena'); });
-
-    document.getElementById('btn-volver-inicio')
-        .addEventListener('click', () =>{
-            modalRegistro.close();
-        });
-
-        /*modal cuenta pendiente*/
-    const modalRegistro = document.getElementById('modalRegistro');
-
-    document.getElementById('form-registro')
-        .addEventListener('submit', e => {
-        e.preventDefault();
-        console.log('submit ejecutado');
-
-        modalAuth.close();
-        modalRegistro.showModal();
-});
-
-    const modalContrasena = document.getElementById('modalContrasena');
-
-    document.getElementById('form-cambio-contrasena')
-        .addEventListener('submit', e => {
-            e.preventDefault();
-            modalAuth.close();
-            modalContrasena.showModal();
-        });
-    
-    const btnCerrarModalContrasena = document.getElementById('btn-cerrar-modal-contrasena');
-
-    btnCerrarModalContrasena.addEventListener('click', () => {
-
-        modalContrasena.close();
-        modalAuth.showModal();
-        mostrarVista('inicio-sesion');
-
-});
-
-    /* cambiar de paso en registro */
-    const btnSiguiente = document.getElementById('btn-siguiente');
-
-    btnSiguiente.addEventListener('click', () => {
-
-        // ocultar paso 1
-        document
-        .querySelector('[data-step="1"]')
-        .classList.remove('activo');
-
-        // mostrar paso 2
-        document
-        .querySelector('[data-step="2"]')
-        .classList.add('activo');
-
-        document
-        .querySelector('[data-paso="1"]')
-        .classList.remove('activo')
-
-        document
-        .querySelector('[data-paso="2"]')
-        .classList.add('activo')
-
-    });
-</script>
-
+  </script>
 </body>
 </html>
