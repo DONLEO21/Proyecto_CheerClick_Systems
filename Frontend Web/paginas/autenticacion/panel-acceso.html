@@ -16,12 +16,12 @@
       <h2>Bienvenido</h2>
       <p class="subtitulo">Ingresa a tu panel</p>
 
-      <label class="etiqueta" for="login-correo">CORREO ELECTRÓNICO</label>
-      <input class="campo" type="email" id="login-correo" placeholder="correo@ejemplo.com" />
+      <label class="etiqueta" for="login-correo">Correo electrónico</label>
+      <input class="campo" type="email" id="login-correo" placeholder="correo@ejemplo.com" maxlength="50"/>
 
-      <label class="etiqueta" for="login-clave">CONTRASEÑA</label>
+      <label class="etiqueta" for="login-clave">Contraseña</label>
       <div class="clave-contenedor">
-        <input class="campo" type="password" id="login-clave" placeholder="••••••••" />
+        <input class="campo" type="password" id="login-clave" placeholder="••••••••" minlength="8" maxlength="16" />
         <button class="boton-ojo" type="button" onclick="alternarOjo('login-clave',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
       </div>
 
@@ -50,7 +50,7 @@
       <h2>Crear cuenta</h2>
       <p class="subtitulo">Complete su información</p>
 
-      <label class="etiqueta" for="inicio-rol">ROL</label>
+      <label class="etiqueta" for="inicio-rol">Rol</label>
       <select class="campo" id="inicio-rol">
         <option value="">Seleccione su rol...</option>
         <option value="atleta">Atleta</option>
@@ -88,7 +88,7 @@
       </div>
 
       <!-- el rol viene prellenado, solo se muestra de forma visual -->
-      <label class="etiqueta" for="registro-rol">ROL *</label>
+      <label class="etiqueta" for="registro-rol">Rol *</label>
       <select class="campo" id="registro-rol" disabled>
         <option value="">—</option>
         <option value="atleta">Atleta</option>
@@ -98,19 +98,19 @@
 
       <div class="fila-dos">
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-nombres">NOMBRE(S) *</label>
-          <input class="campo" type="text" id="registro-nombres" placeholder="Gabriela" />
+          <label class="etiqueta" for="nombres-personales">Nombre(s) *</label>
+          <input class="campo" type="text" id="nombres-personales" placeholder="Gabriela" maxlength="30" />
         </div>
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-apellidos">APELLIDOS *</label>
-          <input class="campo" type="text" id="registro-apellidos" placeholder="Deoquiz" />
+          <label class="etiqueta" for="apellidos-personales">Apellido(s) *</label>
+          <input class="campo" type="text" id="apellidos-personales" placeholder="Deoquiz" maxlength="30" />
         </div>
       </div>
 
       <div class="fila-dos">
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-tipo-doc">TIPO DE DOCUMENTO *</label>
-          <select class="campo" id="registro-tipo-doc">
+          <label class="etiqueta" for="tipo-documento">Tipo de documento *</label>
+          <select class="campo" id="tipo-documento">
             <option value="">Selecciona...</option>
             <option value="cedula">Cédula de ciudadanía</option>
             <option value="tarjeta">Tarjeta de identidad</option>
@@ -119,15 +119,15 @@
           </select>
         </div>
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-numero-doc">NÚMERO DE DOCUMENTO *</label>
-          <input class="campo" type="text" id="registro-numero-doc" placeholder="1000000000" />
+          <label class="etiqueta" for="numero-doc">Número de documento *</label>
+          <input class="campo" type="text" id="numero-doc" placeholder="1000000000" maxlength="15" />
         </div>
       </div>
 
       <div class="fila-dos">
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-genero">GÉNERO *</label>
-          <select class="campo" id="registro-genero">
+          <label class="etiqueta" for="genero">Género *</label>
+          <select class="campo" id="genero">
             <option value="">Selecciona...</option>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
@@ -136,47 +136,67 @@
           </select>
         </div>
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-fecha">FECHA DE NACIMIENTO *</label>
-          <input class="campo" type="date" id="registro-fecha" />
+          <label class="etiqueta" for="fecha-nacimiento">Fecha de nacimiento *</label>
+          <input class="campo" type="date" id="fecha-nacimiento" />
         </div>
       </div>
 
       <div class="fila-dos">
         <div class="campo-grupo">
-          <label class="etiqueta" for="registro-telefono">TELÉFONO *</label>
-          <input class="campo" type="tel" id="registro-telefono" placeholder="300 000 0000" />
+          <label class="etiqueta" for="eps-nombre">Nombre de EPS  *</label>
+          <select class="campo" id="eps-nombre">
+            <option value="">Selecciona...</option>
+            <option value="compensar">Compensar</option>
+            <option value="famisanar">Famisanar</option>
+            <option value="nuevaeps">Nueva EPS</option>
+            <option value="sanitas">Sanitas</option>
+            <option value="sura">Sura</option>
+            <option value="otra">Otra</option>
+            <option value="no-decir">Prefiero no decir</option>
+          </select>
         </div>
         <div class="campo-grupo">
-          <label class="etiqueta">CERTIFICADO DE EPS *</label>
-          <label class="boton-archivo" for="registro-eps">
-            &#128206; Subir archivo
-            <input type="file" id="registro-eps" accept=".pdf,.jpg,.jpeg,.png" />
-          </label>
-          <span class="nombre-archivo" id="nombre-archivo-eps">Ningún archivo seleccionado</span>
+          <label class="etiqueta" for="telefono-personal">Teléfono *</label>
+          <input class="campo" type="tel" id="telefono-personal" placeholder="300 000 0000" maxlength="12" />
         </div>
+      </div>
+
+      <div class="campo-grupo">
+        <label class="etiqueta" for="eps-certificado">Certificado de EPS *</label>
+        <label class="boton-archivo" for="eps-certificado">
+          Subir archivo
+          <input type="file" id="eps-certificado" accept=".pdf,.jpg,.jpeg,.png" />
+        </label>
+        <span class="nombre-archivo" id="nombre-archivo-eps">Ningún archivo seleccionado</span>
       </div>
 
       <div class="titulo-seccion">DATOS DE CONTACTO DE EMERGENCIA</div>
 
       <div class="fila-dos">
         <div class="campo-grupo">
-          <label class="etiqueta" for="emergencia-nombre">NOMBRE *</label>
-          <input class="campo" type="text" id="emergencia-nombre" placeholder="Nombre" />
+          <label class="etiqueta" for="emergencia-nombre">Nombres(s)*</label>
+          <input class="campo" type="text" id="emergencia-nombre" placeholder="Nombre" maxlength="30" />
         </div>
         <div class="campo-grupo">
-          <label class="etiqueta" for="emergencia-apellido">APELLIDO *</label>
-          <input class="campo" type="text" id="emergencia-apellido" placeholder="Apellido" />
+          <label class="etiqueta" for="emergencia-apellido">Apellido(s)*</label>
+          <input class="campo" type="text" id="emergencia-apellido" placeholder="Apellido" maxlength="30" />
         </div>
       </div>
 
       <div class="fila-dos">
         <div class="campo-grupo">
-          <label class="etiqueta" for="emergencia-telefono">TELÉFONO *</label>
-          <input class="campo" type="tel" id="emergencia-telefono" placeholder="300 000 0000" />
+          <label class="etiqueta" for="emergencia-telefono">Teléfono *</label>
+          <input class="campo" type="tel" id="emergencia-telefono" placeholder="300 000 0000" maxlength="12" />
         </div>
         <div class="campo-grupo">
-          <label class="etiqueta" for="emergencia-parentesco">PARENTESCO *</label>
-          <input class="campo" type="text" id="emergencia-parentesco" placeholder="Madre, Padre..." />
+          <label class="etiqueta" for="parentesco-tipo">Parentesco *</label>
+          <select class="campo" id="parentesco-tipo">
+            <option value="">Selecciona...</option>
+            <option value="madre-padre">Madre/Padre</option>
+            <option value="tutor">Tutor</option>
+            <option value="conyuge-pareja">Conyuge/Pareja</option>
+            <option value="otro">Otro</option>
+          </select>
         </div>
       </div>
 
@@ -209,10 +229,10 @@
         </div>
       </div>
 
-      <label class="etiqueta" for="registro-correo">CORREO ELECTRÓNICO *</label>
+      <label class="etiqueta" for="registro-correo">Correo electrónico *</label>
       <input class="campo" type="email" id="registro-correo" placeholder="correo@ejemplo.com" />
 
-      <label class="etiqueta" for="registro-clave">CONTRASEÑA *</label>
+      <label class="etiqueta" for="registro-clave">Contraseña *</label>
       <div class="clave-contenedor">
         <input class="campo" type="password" id="registro-clave" placeholder="Mínimo 6 caracteres"
           oninput="verificarFuerza('registro-clave', ['fuerza1','fuerza2','fuerza3'], 'fuerza-resultado')" />
@@ -228,7 +248,7 @@
         <span class="fuerza-etiqueta" id="fuerza-resultado"></span>
       </div>
 
-      <label class="etiqueta" for="registro-confirmar">CONFIRMAR CONTRASEÑA *</label>
+      <label class="etiqueta" for="registro-confirmar">Confirmar contraseña *</label>
       <div class="clave-contenedor">
         <input class="campo" type="password" id="registro-confirmar" placeholder="Repite tu contraseña" />
         <button class="boton-ojo" type="button" onclick="alternarOjo('registro-confirmar',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
@@ -250,7 +270,7 @@
   <div class="contenedor oculto" id="pantalla-pendiente">
     <div class="tarjeta tarjeta-pendiente">
 
-      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen logo-imagen-pequena" />
+      
       <div class="icono-advertencia">&#9888;</div>
       <h2 class="titulo-pendiente">Cuenta Pendiente<br>de Validación</h2>
       <p class="texto-pendiente">
@@ -281,7 +301,7 @@
         <div class="punto-paso"></div>
       </div>
 
-      <label class="etiqueta" for="recuperar-correo">CORREO ELECTRÓNICO</label>
+      <label class="etiqueta" for="recuperar-correo">Correo electrónico</label>
       <input class="campo" type="email" id="recuperar-correo" placeholder="correo@ejemplo.com" />
 
       <div class="mensaje-error oculto" id="recuperar1-error"></div>
@@ -344,7 +364,7 @@
         <div class="punto-paso activo"></div>
       </div>
 
-      <label class="etiqueta" for="recuperar-clave-nueva">NUEVA CONTRASEÑA</label>
+      <label class="etiqueta" for="recuperar-clave-nueva">Nueva contraseña</label>
       <div class="clave-contenedor">
         <input class="campo" type="password" id="recuperar-clave-nueva" placeholder="Mínimo 6 caracteres"
           oninput="verificarFuerza('recuperar-clave-nueva', ['nueva-fuerza1','nueva-fuerza2','nueva-fuerza3'], 'nueva-fuerza-resultado')" />
@@ -360,7 +380,7 @@
         <span class="fuerza-etiqueta" id="nueva-fuerza-resultado"></span>
       </div>
 
-      <label class="etiqueta" for="recuperar-confirmar-clave">CONFIRMAR CONTRASEÑA</label>
+      <label class="etiqueta" for="recuperar-confirmar-clave">Confirmar contraseña</label>
       <div class="clave-contenedor">
         <input class="campo" type="password" id="recuperar-confirmar-clave" placeholder="Repite la contraseña" />
         <button class="boton-ojo" type="button" onclick="alternarOjo('recuperar-confirmar-clave',this)" aria-label="Ver contraseña"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
@@ -379,7 +399,6 @@
   <div class="contenedor oculto" id="pantalla-recuperar-exito">
     <div class="tarjeta">
 
-      <img src="/img/logo/logo-btc.png" alt="Logo BTC" class="logo-imagen" />
       <div class="icono-exito">&#10003;</div>
       <h2 class="titulo-exito">¡Contraseña actualizada!</h2>
       <p class="subtitulo" style="margin-bottom:1.5rem;">
@@ -473,15 +492,23 @@
     /* registro, paso 1 a paso 2 */
     function irAPaso2() {
       limpiarMensajes('registro1-error');
+
+      /* estos IDs deben coincidir EXACTAMENTE con los id="" de los inputs/selects del paso 1 */
       const campos = [
-        'registro-nombres','registro-apellidos','registro-tipo-doc','registro-numero-doc',
-        'registro-genero','registro-fecha','registro-telefono',
-        'emergencia-nombre','emergencia-apellido','emergencia-telefono','emergencia-parentesco'
+        'nombres-personales','apellidos-personales','tipo-documento','numero-doc',
+        'genero','fecha-nacimiento','eps-nombre','telefono-personal',
+        'emergencia-nombre','emergencia-apellido','emergencia-telefono','parentesco-tipo'
       ];
+
       for (const id of campos) {
-        if (!document.getElementById(id).value.trim())
+        const elemento = document.getElementById(id);
+
+        if (!elemento || !elemento.value.trim()) {
+          console.log('Campo vacío o no encontrado:', id);
           return mostrarError('registro1-error', 'Completa todos los campos obligatorios (*).');
+        }
       }
+
       mostrarPantalla('pantalla-registro-2');
     }
 
@@ -607,11 +634,26 @@
     }
 
     /* muestra el nombre del archivo de eps seleccionado */
-    document.getElementById('registro-eps').addEventListener('change', function () {
+    document.getElementById('eps-certificado').addEventListener('change', function () {
       document.getElementById('nombre-archivo-eps').textContent =
         this.files[0] ? this.files[0].name : 'Ningún archivo seleccionado';
     });
 
+    /* detectar desde qué botón llegó el usuario */
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const parametros = new URLSearchParams(window.location.search);
+    const vista = parametros.get('view');
+
+    if (vista === 'registro') {
+      mostrarPantalla('pantalla-registro-inicio');
+    }
+
+    else if (vista === 'inicio-sesion') {
+      mostrarPantalla('pantalla-login');
+    }
+
+  });
   </script>
 </body>
 </html>
