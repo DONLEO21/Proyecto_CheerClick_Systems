@@ -384,13 +384,6 @@ header .contenedor{
     color: var(--texto-muted);
 }
 
-/* ── Layout de dos columnas con filas compartidas ──────────
-   display:contents en las columnas hace que sus tarjetas pasen
-   a ser items directos del grid. grid-auto-flow:column llena
-   primero toda la columna 1 (3 filas) y luego la columna 2,
-   así cada tarjeta queda emparejada en la misma fila que su
-   contraparte. align-items:stretch hace que ambas tarjetas de
-   una misma fila tomen la altura de la más alta. */
 .perfil-layout{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -581,7 +574,7 @@ header .contenedor{
     margin: var(--espacio-md) 0;
 }
 
-/* ── Formularios: información personal y contacto emergencia ── */
+/* Formularios de información personal y contacto emergencia*/
 .campos-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -590,6 +583,11 @@ header .contenedor{
 
 .campos-grid--cuatro{
     grid-template-columns: repeat(4, 1fr);
+}
+
+/* Campo que ocupa las 2 columnas completas */
+.form-grupo--completo{
+    grid-column: 1 / -1;
 }
 
 .form-grupo{
@@ -629,27 +627,89 @@ header .contenedor{
     box-shadow: 0 0 0 3px var(--rojo-light);
 }
 
-/* ── Campo con icono (solo en perfil-admin) ───────────────── */
+/* Campo con icono */
 .campo-con-icono{
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.campo-con-icono svg{
+/* El SVG decorativo flotante a la izquierdda*/
+.campo-con-icono > svg{
     position: absolute;
     left: 12px;
     color: var(--texto-muted);
     pointer-events: none;
     z-index: 1;
+    flex-shrink: 0;
 }
 
+/*iconos de inputs y selects a la izquierda */
 .campo-con-icono input,
 .campo-con-icono select{
     padding-left: 38px;
 }
 
-/* ── Columna lateral: seguridad y preferencias */
+/* ocultar la flecha original de despliegue */
+.campo-con-icono select,
+.form-grupo select{
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23777777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 36px;
+}
+
+/*Campo certificado EPS */
+.campo-archivo-visualizacion{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: var(--radio-sm);
+    background: var(--gris-fondo);
+    min-height: 42px;
+}
+
+/* cambio de color al editar */
+.campo-archivo-visualizacion.editable{
+    background: var(--blanco);
+    border-color: var(--gris-borde);
+}
+
+.campo-archivo-visualizacion .nombre-archivo{
+    flex: 1;
+    font-size: var(--texto-sm);
+    color: var(--texto-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* botón "Cambiar archivo", principalmente oculto y visible al editar */
+.boton-archivo--perfil{
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border: 1.5px solid var(--rojo);
+    border-radius: var(--radio-sm);
+    color: var(--rojo);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transicion);
+    flex-shrink: 0;
+}
+
+.boton-archivo--perfil:hover{
+    background: var(--rojo);
+    color: var(--blanco);
+}
+
+/* Columna lateral: seguridad y preferencias */
 .btn-outline-rojo{
     background: var(--blanco);
     border: 1.5px solid var(--rojo);
@@ -705,7 +765,7 @@ header .contenedor{
     color: var(--texto-muted);
 }
 
-/* ── Tarjeta: Administrar Cuentas (único agregado de esta página) ── */
+/* Tarjeta: Administrar Cuentas */
 .tarjeta-administrar-cuentas{
     display: flex;
     align-items: center;
@@ -716,7 +776,6 @@ header .contenedor{
     box-shadow: var(--sombra-sm);
     color: var(--blanco);
     transition: var(--transicion);
-    /* no se estira para igualar la tarjeta de contacto de emergencia */
     align-self: start;
 }
 
@@ -903,7 +962,6 @@ header .contenedor{
     margin-bottom: var(--espacio-lg);
 }
 
-/* preview circular de la foto */
 .modal-foto-preview-zona{
     display: flex;
     justify-content: center;
@@ -925,7 +983,6 @@ header .contenedor{
     object-fit: cover;
 }
 
-/* zona de arrastrar y soltar */
 .zona-carga{
     display: flex;
     flex-direction: column;
@@ -986,7 +1043,6 @@ header .contenedor{
     margin-top: var(--espacio-lg);
 }
 
-/* modal de éxito */
 .exito-icono{
     display: flex;
     justify-content: center;
@@ -1002,7 +1058,7 @@ header .contenedor{
     width: 100%;
 }
 
-/*Responsive*/
+/* ── Responsive ── */
 @media (max-width: 900px){
     .perfil-layout{
         grid-template-columns: 1fr;
