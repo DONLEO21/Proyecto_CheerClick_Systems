@@ -232,7 +232,7 @@ input[type="date"].campo { cursor: pointer; }
   color: #555;
   cursor: pointer;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 0;
   transition: background .15s, border-color .15s, color .15s;
   user-select: none;
 }
