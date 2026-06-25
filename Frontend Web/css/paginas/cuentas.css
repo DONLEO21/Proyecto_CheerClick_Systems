@@ -1,4 +1,4 @@
-/* ── Reset & Base ─────────────────────────────────────────── */
+/* Reset y base */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -62,7 +62,7 @@ ul { list-style: none; }
 button { border: none; background: none; font: inherit; cursor: pointer; }
 input, select { font: inherit; outline: none; }
 
-/* ── Sidebar */
+/* Barra lateral */
 .Barra2 {
     position: fixed;
     top: 0;
@@ -184,7 +184,7 @@ input, select { font: inherit; outline: none; }
     transform: translateX(0);
 }
 
-/*Header */
+/* Barra superior */
 body > header {
     position: fixed;
     top: 0;
@@ -277,7 +277,7 @@ header .contenedor {
     border-radius: 50%;
 }
 
-/* Main layout*/
+/* Contenido principal */
 .admin-main {
     margin-left: var(--sidebar-width);
     margin-top: var(--header-height);
@@ -292,13 +292,13 @@ header .contenedor {
     padding: var(--espacio-lg);
 }
 
-/* Encabezado de página*/
+/* Encabezado de página */
 .pagina-encabezado h1 {
     font-size: var(--texto-xl);
     font-weight: 700;
 }
 
-/*Barra de acciones*/
+/* Barra de acciones */
 .acciones-barra {
     display: flex;
     align-items: center;
@@ -343,7 +343,7 @@ header .contenedor {
     gap: var(--espacio-xs);
 }
 
-/*botones generales */
+/* Botones generales */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -392,7 +392,7 @@ header .contenedor {
 
 .btn-blanco:hover { border-color: var(--texto-muted); }
 
-/* ── Tabs*/
+/* Pestañas */
 .tabs-barra {
     display: flex;
     align-items: center;
@@ -429,7 +429,7 @@ header .contenedor {
 
 .tab-btn--activo:hover { background: var(--rojo-hover); }
 
-/* Badge de conteo */
+/* Contador de solicitudes */
 .conteo-badge {
     display: inline-flex;
     align-items: center;
@@ -444,7 +444,7 @@ header .contenedor {
 .conteo-badge--verde { background: var(--verde-light); color: var(--verde); }
 .conteo-badge--rojo { background: var(--rojo-light); color: var(--rojo); }
 
-/* abla */
+/* Tabla */
 .tabla-wrap {
     background: var(--blanco);
     border-radius: var(--radio-md);
@@ -495,7 +495,7 @@ header .contenedor {
     font-size: var(--texto-sm);
 }
 
-/*Celdas especiales*/
+/* Celdas especiales */
 .nombre-celda {
     font-weight: 600;
     color: var(--texto-dark);
@@ -531,7 +531,7 @@ header .contenedor {
     flex-shrink: 0;
 }
 
-/*Badges de estado/rol*/
+/* Etiquetas de estado y rol */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -548,7 +548,7 @@ header .contenedor {
 .badge--amarillo { background: var(--amarillo-light); color: #92400e; }
 .badge--azul { background: var(--azul-light); color: var(--azul-oscuro); }
 
-/*Acciones en tabla */
+/* Botones de acción en tabla */
 .acciones-celda {
     display: flex;
     align-items: center;
@@ -601,7 +601,7 @@ header .contenedor {
     border-color: var(--rojo);
 }
 
-/* Toggle switch */
+/* Interruptor de activación */
 .toggle {
     position: relative;
     display: inline-block;
@@ -642,7 +642,7 @@ header .contenedor {
 .toggle input:checked + .toggle__pista { background: var(--rojo); }
 .toggle input:checked + .toggle__pista::before { transform: translateX(18px); }
 
-/*Sección Gestión de cuentas */
+/* Sección de gestión de cuentas */
 .gestion-encabezado {
     display: flex;
     align-items: center;
@@ -695,10 +695,10 @@ header .contenedor {
     box-shadow: 0 0 0 3px var(--rojo-light);
 }
 
-/* ── Utilidad*/
+/* Utilidad: ocultar elementos */
 .oculto { display: none !important; }
 
-/*  Modales */
+/* Modales: fondo oscuro */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -710,6 +710,7 @@ header .contenedor {
     background: rgba(0,0,0,.5);
 }
 
+/* Contenedor del modal */
 .modal {
     width: 100%;
     max-width: 560px;
@@ -728,6 +729,7 @@ header .contenedor {
 .modal--chico { max-width: 380px; }
 .modal--centrado { text-align: center; }
 
+/* Cabecera del modal */
 .modal-cabeza {
     display: flex;
     align-items: center;
@@ -789,7 +791,7 @@ header .contenedor {
 .modal--centrado .modal-pie { justify-content: center; }
 .modal--centrado .modal-pie .btn { min-width: 140px; }
 
-/* éxito */
+/* Icono de éxito */
 .exito-icono {
     display: flex;
     justify-content: center;
@@ -797,24 +799,33 @@ header .contenedor {
     color: var(--verde);
 }
 
-/* ── Modal detalles */
+/* Modal de detalles: ancho ampliado para 2 columnas */
 .modal--detalles {
-    max-width: 660px;
+    max-width: 680px;
+    width: min(680px, 92vw);
 }
 
+/* Cuerpo del modal: columna única que contiene los grids internos */
 .modal-cuerpo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--espacio-md) var(--espacio-lg);
-    margin-top: var(--espacio-sm);
-}
-
-.detalle-col {
     display: flex;
     flex-direction: column;
     gap: var(--espacio-sm);
+    margin-top: var(--espacio-sm);
 }
 
+/* Grid de 2 columnas para campos del formulario */
+.detalle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+}
+
+/* Campo que ocupa las dos columnas (EPS) */
+.detalle-grupo--full {
+    grid-column: 1 / -1;
+}
+
+/* Grupo individual de campo + etiqueta */
 .detalle-grupo {
     display: flex;
     flex-direction: column;
@@ -840,6 +851,7 @@ header .contenedor {
     cursor: default;
 }
 
+/* Fila de nombre con insignia de rol */
 .detalle-fila-nombre {
     display: flex;
     align-items: center;
@@ -848,7 +860,7 @@ header .contenedor {
 
 .detalle-fila-nombre input { flex: 1; }
 
-/* insignia rol dentro del modal */
+/* Insignia de rol dentro del modal */
 .insignia-rol--tabla {
     display: inline-flex;
     align-items: center;
@@ -870,7 +882,7 @@ header .contenedor {
     color: #92400e;
 }
 
-/* EPS campo con botón ojo */
+/* Campo EPS con botón para ver el archivo */
 .campo-eps {
     display: flex;
     align-items: center;
@@ -899,12 +911,11 @@ header .contenedor {
     border-color: var(--azul);
 }
 
-/* títulos de sección dentro del modal que ocupan ambas columnas */
+/* Títulos de sección dentro del modal */
 .detalle-titulo-seccion {
     display: flex;
     align-items: center;
     gap: 6px;
-    grid-column: 1 / -1;
     margin-top: 4px;
     padding-top: var(--espacio-sm);
     border-top: 1.5px solid var(--gris-borde);
@@ -921,40 +932,19 @@ header .contenedor {
     border-top: none;
 }
 
-/* alias retro-compatible */
-.detalle-emergencia-titulo {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 4px;
-    padding-top: var(--espacio-sm);
-    border-top: 1.5px solid var(--gris-borde);
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--texto-dark);
-}
-
-/* bloque de contacto de emergencia: 2 columnas x 2 filas, ancho completo */
-.detalle-emergencia-grid {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--espacio-md) var(--espacio-lg);
-}
-
-/*Responsive*/
+/* Diseño responsivo */
 @media (max-width: 900px) {
     .gestion-encabezado {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .modal-cuerpo {
+    .detalle-grid {
         grid-template-columns: 1fr;
     }
 
-    .detalle-emergencia-grid {
-        grid-template-columns: 1fr;
+    .detalle-grupo--full {
+        grid-column: 1;
     }
 }
 
