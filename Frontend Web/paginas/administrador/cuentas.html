@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Cuentas | Blood Tigers Cheer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/paginas/cuentas.css">
     <link rel="icon" type="image/x-icon" href="/img/logo/logo-btc.png">
 </head>
@@ -21,17 +20,17 @@
         <ul class="sidebar-menu">
             <li>
                 <a href="/paginas/administrador/perfil-admin.html" title="Perfil" id="perfil-icon">
-                    <img src="/img/iconos/circle-user.svg" alt="Perfil usuario">
+                    <img src="/img/iconos/circle-user.svg" alt="Perfil">
                 </a>
             </li>
             <li class="active">
                 <a href="#" title="Estado de cuentas">
-                    <img src="/img/iconos/usuarios.png" alt="Estado de cuentas">
+                    <img src="/img/iconos/usuarios.png" alt="Cuentas">
                 </a>
             </li>
             <li>
                 <a href="#" title="Estado de mensualidades">
-                    <img src="/img/iconos/grafico-circular.png" alt="Estado de mensualidades">
+                    <img src="/img/iconos/grafico-circular.png" alt="Mensualidades">
                 </a>
             </li>
             <li>
@@ -68,13 +67,13 @@
                     </ul>
                     <div id="Logo">
                         <a href="#" class="icon-link" title="Notificaciones">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
                         </a>
                         <a href="#" class="icon-link" title="Inicio">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                         </a>
                         <div class="logo-club">
-                            <img src="/img/logo/logo-btc.png" alt="Logo del club">
+                            <img src="/img/logo/logo-btc.png" alt="Logo">
                         </div>
                     </div>
                 </div>
@@ -83,139 +82,357 @@
     </header>
 
     <!-- contenido principal -->
-    <main class="admin-main" id="vista-solicitudes">
+    <main class="admin-main">
         <div class="contenedor">
 
-            <!-- título de página -->
             <section class="pagina-encabezado">
                 <h1 id="titulo-pagina">Solicitudes de nuevas cuentas</h1>
+                <p class="pagina-subtitulo" id="subtitulo-pagina">Gestiona las solicitudes de ingreso de atletas, entrenadores y administradores nuevos del club.</p>
             </section>
 
-            <!-- barra de acciones -->
             <div class="acciones-barra">
                 <div class="buscar-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    <input type="text" id="campo-busqueda" placeholder="Buscar Solicitud" oninput="filtrarTabla()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" id="campo-busqueda" placeholder="Buscar solicitud">
                 </div>
                 <div class="acciones-btns">
                     <button class="btn btn-amarillo" id="btn-gestionar" onclick="toggleModo()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         Gestionar cuentas
                     </button>
                 </div>
             </div>
 
-            <!-- seccion-solicitudes -->
+            <!-- vista de solicitudes -->
             <div id="seccion-solicitudes">
 
-                <!-- Tabs de estados -->
                 <div class="tabs-barra">
                     <div class="tabs-grupo">
-                        <button class="tab-btn tab-btn--activo" data-tab="pendientes" onclick="cambiarTab('pendientes', this)">Pendientes</button>
-                        <button class="tab-btn" data-tab="aprobadas" onclick="cambiarTab('aprobadas', this)">Aprobadas</button>
-                        <button class="tab-btn" data-tab="rechazadas" onclick="cambiarTab('rechazadas', this)">Rechazadas</button>
+                        <button class="tab-btn tab-btn--activo" onclick="cambiarTab('pendientes', this)">Pendientes</button>
+                        <button class="tab-btn" onclick="cambiarTab('aprobadas', this)">Aprobadas</button>
+                        <button class="tab-btn" onclick="cambiarTab('rechazadas', this)">Rechazadas</button>
                     </div>
-                    <div class="conteo-badge" id="badge-conteo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                    <div class="conteo-badge conteo-badge--azul" id="badge-conteo">
                         <span id="texto-conteo">5 Solicitudes pendientes</span>
                     </div>
                 </div>
 
-                <!-- Tabla para solicitudes -->
                 <div class="tabla-wrap">
-                    <table class="tabla" id="tabla-solicitudes">
+                    <table class="tabla">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Contacto</th>
                                 <th>Rol</th>
                                 <th>Estado</th>
+                                <th>Fecha registro</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="cuerpo-solicitudes">
-                            <!-- Filas generadas por JS -->
+
+                            <tr data-estado="pendiente"
+                                data-nombre="Andrés Felipe" data-apellido="Rodríguez"
+                                data-tipodoc="C.C" data-numdoc="1023456789" data-eps="SaludTotal.PDF"
+                                data-genero="Masculino" data-fechanac="12/05/1998"
+                                data-emnombre="Carlos" data-emapellido="Rodríguez" data-emtelefono="310 111 2222" data-emparentesco="Padre">
+                                <td><span class="id-celda">AT001</span></td>
+                                <td><span class="nombre-celda">Andrés Felipe Rodríguez</span></td>
+                                <td><span class="correo-celda">andres.rodriguez.dev@gmail.com</span><br><span class="tel-celda">310 456 7890</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--amarillo">Pendiente</span></td>
+                                <td><span class="fecha-celda">10/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                    <button class="btn-accion btn-accion--check" onclick="pedirConfirmacion(this,'aprobar')" title="Aprobar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></button>
+                                    <button class="btn-accion btn-accion--x" onclick="pedirConfirmacion(this,'rechazar')" title="Rechazar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr data-estado="pendiente"
+                                data-nombre="María Paula" data-apellido="Martínez"
+                                data-tipodoc="C.C" data-numdoc="1045678901" data-eps="Compensar.PDF"
+                                data-genero="Femenino" data-fechanac="22/08/2000"
+                                data-emnombre="Ana" data-emapellido="Martínez" data-emtelefono="315 333 4444" data-emparentesco="Madre">
+                                <td><span class="id-celda">AT002</span></td>
+                                <td><span class="nombre-celda">María Paula Martínez</span></td>
+                                <td><span class="correo-celda">m.martinez.atleta@gmail.com</span><br><span class="tel-celda">315 234 5678</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--amarillo">Pendiente</span></td>
+                                <td><span class="fecha-celda">11/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                    <button class="btn-accion btn-accion--check" onclick="pedirConfirmacion(this,'aprobar')" title="Aprobar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></button>
+                                    <button class="btn-accion btn-accion--x" onclick="pedirConfirmacion(this,'rechazar')" title="Rechazar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr data-estado="pendiente"
+                                data-nombre="Carlos Alberto" data-apellido="García"
+                                data-tipodoc="C.C" data-numdoc="79123456" data-eps="Nueva EPS.PDF"
+                                data-genero="Masculino" data-fechanac="03/11/1985"
+                                data-emnombre="Lucía" data-emapellido="García" data-emtelefono="320 555 6666" data-emparentesco="Cónyuge">
+                                <td><span class="id-celda">AT003</span></td>
+                                <td><span class="nombre-celda">Carlos Alberto García</span></td>
+                                <td><span class="correo-celda">carlos.garcia.coach@gmail.com</span><br><span class="tel-celda">320 890 1234</span></td>
+                                <td><span class="badge badge--amarillo">Entrenador</span></td>
+                                <td><span class="badge badge--amarillo">Pendiente</span></td>
+                                <td><span class="fecha-celda">12/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                    <button class="btn-accion btn-accion--check" onclick="pedirConfirmacion(this,'aprobar')" title="Aprobar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></button>
+                                    <button class="btn-accion btn-accion--x" onclick="pedirConfirmacion(this,'rechazar')" title="Rechazar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr data-estado="pendiente"
+                                data-nombre="Laura Sofía" data-apellido="Hernández"
+                                data-tipodoc="C.C" data-numdoc="1067890123" data-eps="Sura.PDF"
+                                data-genero="Femenino" data-fechanac="17/02/2003"
+                                data-emnombre="Marta" data-emapellido="Hernández" data-emtelefono="300 777 8888" data-emparentesco="Madre">
+                                <td><span class="id-celda">AT004</span></td>
+                                <td><span class="nombre-celda">Laura Sofía Hernández</span></td>
+                                <td><span class="correo-celda">lhernandez.gestion@gmail.com</span><br><span class="tel-celda">300 567 4321</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--amarillo">Pendiente</span></td>
+                                <td><span class="fecha-celda">13/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                    <button class="btn-accion btn-accion--check" onclick="pedirConfirmacion(this,'aprobar')" title="Aprobar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></button>
+                                    <button class="btn-accion btn-accion--x" onclick="pedirConfirmacion(this,'rechazar')" title="Rechazar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr data-estado="pendiente"
+                                data-nombre="Diego Alejandro" data-apellido="Gómez"
+                                data-tipodoc="C.C" data-numdoc="1089012345" data-eps="Coomeva.PDF"
+                                data-genero="Masculino" data-fechanac="29/06/2001"
+                                data-emnombre="Pedro" data-emapellido="Gómez" data-emtelefono="312 999 0000" data-emparentesco="Padre">
+                                <td><span class="id-celda">AT005</span></td>
+                                <td><span class="nombre-celda">Diego Alejandro Gómez</span></td>
+                                <td><span class="correo-celda">diego.gomez2026@gmail.com</span><br><span class="tel-celda">312 345 6789</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--amarillo">Pendiente</span></td>
+                                <td><span class="fecha-celda">14/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                    <button class="btn-accion btn-accion--check" onclick="pedirConfirmacion(this,'aprobar')" title="Aprobar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></button>
+                                    <button class="btn-accion btn-accion--x" onclick="pedirConfirmacion(this,'rechazar')" title="Rechazar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr class="oculto" data-estado="aprobada"
+                                data-nombre="Juan David" data-apellido="Ramírez Méndez"
+                                data-tipodoc="C.C" data-numdoc="7418758785" data-eps="EpsKaffamcer.PDF"
+                                data-genero="Masculino" data-fechanac="14/03/2005"
+                                data-emnombre="Luis Fernando" data-emapellido="Ramírez García" data-emtelefono="315 852 6846" data-emparentesco="Padre">
+                                <td><span class="id-celda">AT006</span></td>
+                                <td><span class="nombre-celda">Juan David Ramírez Méndez</span></td>
+                                <td><span class="correo-celda">juan.ramirez@gmail.com</span><br><span class="tel-celda">311 234 5671</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--verde">Aprobada</span></td>
+                                <td><span class="fecha-celda">02/05/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr class="oculto" data-estado="aprobada"
+                                data-nombre="Natalia Andrea" data-apellido="Muñoz"
+                                data-tipodoc="C.C" data-numdoc="52123456" data-eps="Compensar.PDF"
+                                data-genero="Femenino" data-fechanac="28/04/1990"
+                                data-emnombre="Carlos" data-emapellido="Muñoz" data-emtelefono="314 666 7777" data-emparentesco="Esposo">
+                                <td><span class="id-celda">AT009</span></td>
+                                <td><span class="nombre-celda">Natalia Andrea Muñoz</span></td>
+                                <td><span class="correo-celda">n.munoz.gestion@gmail.com</span><br><span class="tel-celda">314 567 8901</span></td>
+                                <td><span class="badge badge--amarillo ">Entrenador</span></td>
+                                <td><span class="badge badge--verde">Aprobada</span></td>
+                                <td><span class="fecha-celda">15/04/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr class="oculto" data-estado="rechazada"
+                                data-nombre="Valentina Isabela" data-apellido="Castro"
+                                data-tipodoc="C.C" data-numdoc="1056789012" data-eps="Sura.PDF"
+                                data-genero="Femenino" data-fechanac="02/01/2006"
+                                data-emnombre="Gloria" data-emapellido="Castro" data-emtelefono="316 111 0000" data-emparentesco="Madre">
+                                <td><span class="id-celda">AT011</span></td>
+                                <td><span class="nombre-celda">Valentina Isabela Castro</span></td>
+                                <td><span class="correo-celda">valentina.castro.co@gmail.com</span><br><span class="tel-celda">316 789 0122</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--rojo">Rechazada</span></td>
+                                <td><span class="fecha-celda">01/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr class="oculto" data-estado="rechazada"
+                                data-nombre="Mateo Alejandro" data-apellido="Ortiz"
+                                data-tipodoc="C.C" data-numdoc="1078901234" data-eps="Sanitas.PDF"
+                                data-genero="Masculino" data-fechanac="30/10/2005"
+                                data-emnombre="Luis" data-emapellido="Ortiz" data-emtelefono="313 222 1111" data-emparentesco="Padre">
+                                <td><span class="id-celda">AT012</span></td>
+                                <td><span class="nombre-celda">Mateo Alejandro Ortiz</span></td>
+                                <td><span class="correo-celda">mortiz.atleta@gmail.com</span><br><span class="tel-celda">313 456 1239</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--rojo">Rechazada</span></td>
+                                <td><span class="fecha-celda">03/06/2025</span></td>
+                                <td class="acciones-celda">
+                                    <button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                                </td>
+                            </tr>
+
+                            <tr id="fila-sin-solicitudes" class="oculto">
+                                <td colspan="7" class="tabla-vacia">No hay solicitudes en esta categoría.</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
-
             </div>
 
-            <!-- seccion gestion de cuentas -->
+            <!-- vista de gestión de cuentas -->
             <div id="seccion-gestion" class="oculto">
 
                 <div class="gestion-encabezado">
                     <div class="gestion-stats">
                         <div class="stat-badge stat-badge--azul">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             160 Usuarios totales
                         </div>
                         <div class="stat-badge stat-badge--verde">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             157 Usuarios activos
                         </div>
                         <div class="stat-badge stat-badge--rojo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             23 Usuarios inactivos
                         </div>
-                    </div>
-                    <div class="gestion-filtros">
-                        <select id="filtro-estado" onchange="filtrarGestion()">
-                            <option value="">Estado</option>
-                            <option value="activo">Activo</option>
-                            <option value="inactivo">Inactivo</option>
-                        </select>
-                        <select id="filtro-rol" onchange="filtrarGestion()">
-                            <option value="">Rol</option>
-                            <option value="atleta">Atleta</option>
-                            <option value="entrenador">Entrenador</option>
-                            <option value="administrador">Administrador</option>
-                        </select>
                     </div>
                 </div>
 
                 <div class="tabla-wrap">
-                    <table class="tabla" id="tabla-gestion">
+                    <table class="tabla">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Correo</th>
                                 <th>Rol</th>
                                 <th>Estado</th>
+                                <th>Fecha registro</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="cuerpo-gestion">
-                            
+
+                            <tr data-activo="true">
+                                <td><span class="id-celda">AT006</span></td>
+                                <td><div class="nombre-con-avatar"><div class="avatar-inicial">A</div><span class="nombre-celda">Ana López</span></div></td>
+                                <td><span class="correo-celda">ana.lopez2026@gmail.com</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--verde">Activa</span></td>
+        
+                                <td><span class="fecha-celda">02/05/2025</span></td>
+                                <td class="acciones-celda">
+                                    <label class="toggle">
+                                        <input type="checkbox" checked onchange="pedirConfirmacionToggle(this)">
+                                        <span class="toggle__pista"></span>
+                                    </label>
+                                </td>
+                            </tr>
+
+                            <tr data-activo="true">
+                                <td><span class="id-celda">AT007</span></td>
+                                <td><div class="nombre-con-avatar"><div class="avatar-inicial">J</div><span class="nombre-celda">Juan Pérez</span></div></td>
+                                <td><span class="correo-celda">jperez@gmail.com</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--verde">Activa</span></td>
+                                <td><span class="fecha-celda">05/05/2025</span></td>
+                                <td class="acciones-celda">
+                                    <label class="toggle">
+                                        <input type="checkbox" checked onchange="pedirConfirmacionToggle(this)">
+                                        <span class="toggle__pista"></span>
+                                    </label>
+                                </td>
+                            </tr>
+
+                            <tr data-activo="true">
+                                <td><span class="id-celda">EN001</span></td>
+                                <td><div class="nombre-con-avatar"><div class="avatar-inicial">R</div><span class="nombre-celda">Ronald Linares</span></div></td>
+                                <td><span class="correo-celda">ronald.l@gmail.com</span></td>
+                                <td><span class="badge badge--amarillo">Entrenador</span></td>
+                                <td><span class="badge badge--verde">Activa</span></td>
+                                <td><span class="fecha-celda">10/03/2025</span></td>
+                                <td class="acciones-celda">
+                                    <label class="toggle">
+                                        <input type="checkbox" checked onchange="pedirConfirmacionToggle(this)">
+                                        <span class="toggle__pista"></span>
+                                    </label>
+                                </td>
+                            </tr>
+
+                            <tr data-activo="false">
+                                <td><span class="id-celda">AT008</span></td>
+                                <td><div class="nombre-con-avatar"><div class="avatar-inicial">G</div><span class="nombre-celda">Gabriela Deaquiz</span></div></td>
+                                <td><span class="correo-celda">gabideaquiz09@gmail.com</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--rojo">Inactiva</span></td>
+                                <td><span class="fecha-celda">18/04/2025</span></td>
+                                <td class="acciones-celda">
+                                    <label class="toggle">
+                                        <input type="checkbox" onchange="pedirConfirmacionToggle(this)">
+                                        <span class="toggle__pista"></span>
+                                    </label>
+                                </td>
+                            </tr>
+
+                            <tr data-activo="true">
+                                <td><span class="id-celda">AT009</span></td>
+                                <td><div class="nombre-con-avatar"><div class="avatar-inicial">L</div><span class="nombre-celda">Leonardo Jarc</span></div></td>
+                                <td><span class="correo-celda">llara@gmail.com</span></td>
+                                <td><span class="badge badge--azul">Atleta</span></td>
+                                <td><span class="badge badge--verde">Activa</span></td>
+                                <td><span class="fecha-celda">20/04/2025</span></td>
+                                <td class="acciones-celda">
+                                    <label class="toggle">
+                                        <input type="checkbox" checked onchange="pedirConfirmacionToggle(this)">
+                                        <span class="toggle__pista"></span>
+                                    </label>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
-
             </div>
 
         </div>
     </main>
 
-    <!-- modal detalles de solicitud-->
-    <div class="modal-overlay oculto" id="modal-detalles" onclick="if(event.target===this) cerrarModal('modal-detalles')">
-        <div class="modal modal--detalles" role="dialog" aria-modal="true" aria-labelledby="modal-detalles-titulo">
+    <!-- modal de detalles de solicitud -->
+    <div class="modal-overlay oculto" id="modal-detalles" onclick="if(event.target===this)cerrarModal('modal-detalles')">
+        <div class="modal modal--detalles" role="dialog" aria-modal="true">
             <div class="modal-cabeza">
-                <h2 class="modal-cabeza__titulo" id="modal-detalles-titulo">Detalles de la solicitud</h2>
-                <button class="modal-cerrar" onclick="cerrarModal('modal-detalles')" aria-label="Cerrar">
+                <h2 class="modal-cabeza__titulo">Detalles de la solicitud</h2>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-detalles')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
             </div>
-
             <div class="modal-cuerpo">
 
-                <!-- Título de datos personales -->
+                <!-- título sección datos personales -->
                 <div class="detalle-titulo-seccion detalle-titulo-seccion--inicio">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     Datos personales
                 </div>
 
-                <!-- Columna 1 contacto-->
-                <div class="detalle-col">
+                <!-- grid 2 columnas: datos personales -->
+                <div class="detalle-grid">
                     <div class="detalle-grupo">
                         <label>Nombre</label>
                         <div class="detalle-fila-nombre">
@@ -224,18 +441,35 @@
                         </div>
                     </div>
                     <div class="detalle-grupo">
+                        <label>Género</label>
+                        <input type="text" id="det-genero" readonly>
+                    </div>
+                    <div class="detalle-grupo">
                         <label>Apellido</label>
                         <input type="text" id="det-apellido" readonly>
+                    </div>
+                    <div class="detalle-grupo">
+                        <label>Fecha de Nacimiento</label>
+                        <input type="text" id="det-fecha" readonly>
                     </div>
                     <div class="detalle-grupo">
                         <label>Tipo de Documento</label>
                         <input type="text" id="det-tipo-doc" readonly>
                     </div>
                     <div class="detalle-grupo">
+                        <label>Teléfono</label>
+                        <input type="text" id="det-telefono" readonly>
+                    </div>
+                    <div class="detalle-grupo">
                         <label>Número de Documento</label>
                         <input type="text" id="det-num-doc" readonly>
                     </div>
                     <div class="detalle-grupo">
+                        <label>Correo Electrónico</label>
+                        <input type="text" id="det-correo" readonly>
+                    </div>
+                    <!-- EPS ocupa las dos columnas -->
+                    <div class="detalle-grupo detalle-grupo--full">
                         <label>Certificado EPS</label>
                         <div class="campo-eps">
                             <input type="text" id="det-eps" readonly>
@@ -246,34 +480,14 @@
                     </div>
                 </div>
 
-                <!-- Columna 2 contacto -->
-                <div class="detalle-col">
-                    <div class="detalle-grupo">
-                        <label>Género</label>
-                        <input type="text" id="det-genero" readonly>
-                    </div>
-                    <div class="detalle-grupo">
-                        <label>Fecha de Nacimiento</label>
-                        <input type="text" id="det-fecha" readonly>
-                    </div>
-                    <div class="detalle-grupo">
-                        <label>Teléfono</label>
-                        <input type="text" id="det-telefono" readonly>
-                    </div>
-                    <div class="detalle-grupo">
-                        <label>Correo Electrónico</label>
-                        <input type="text" id="det-correo" readonly>
-                    </div>
-                </div>
-
-                <!-- Título de contacto de emergencia -->
+                <!-- título sección contacto de emergencia -->
                 <div class="detalle-titulo-seccion">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    Datos de contacto de emergencia
+                    Contacto de emergencia
                 </div>
 
-                <!-- contacto de emergenci-->
-                <div class="detalle-emergencia-grid">
+                <!-- grid 2 columnas: contacto de emergencia -->
+                <div class="detalle-grid">
                     <div class="detalle-grupo">
                         <label>Nombre</label>
                         <input type="text" id="det-em-nombre" readonly>
@@ -293,18 +507,15 @@
                 </div>
 
             </div>
-
         </div>
     </div>
 
-    <!--modal confirmar aprobaacion de cuenta-->
-    <div class="modal-overlay oculto" id="modal-aprobar" onclick="if(event.target===this) cerrarModal('modal-aprobar')">
+    <!-- modal de aprobación -->
+    <div class="modal-overlay oculto" id="modal-aprobar" onclick="if(event.target===this)cerrarModal('modal-aprobar')">
         <div class="modal modal--chico" role="dialog" aria-modal="true">
             <div class="modal-cabeza modal-cabeza--simple">
                 <h2 class="modal-titulo">¿Aprobar solicitud?</h2>
-                <button class="modal-cerrar" onclick="cerrarModal('modal-aprobar')" aria-label="Cerrar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                </button>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-aprobar')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
             </div>
             <p class="modal-descripcion">Se creará la cuenta y el usuario recibirá acceso al sistema. ¿Confirmas la aprobación?</p>
             <div class="modal-pie">
@@ -314,14 +525,12 @@
         </div>
     </div>
 
-    <!-- modal confirmar rechazo de cuenta-->
-    <div class="modal-overlay oculto" id="modal-rechazar" onclick="if(event.target===this) cerrarModal('modal-rechazar')">
+    <!-- modal de rechazo -->
+    <div class="modal-overlay oculto" id="modal-rechazar" onclick="if(event.target===this)cerrarModal('modal-rechazar')">
         <div class="modal modal--chico" role="dialog" aria-modal="true">
             <div class="modal-cabeza modal-cabeza--simple">
                 <h2 class="modal-titulo">¿Rechazar solicitud?</h2>
-                <button class="modal-cerrar" onclick="cerrarModal('modal-rechazar')" aria-label="Cerrar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                </button>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-rechazar')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
             </div>
             <p class="modal-descripcion">La solicitud será rechazada y el usuario será notificado. ¿Confirmas el rechazo?</p>
             <div class="modal-pie">
@@ -331,11 +540,41 @@
         </div>
     </div>
 
-    <!-- modal de exito-->
-    <div class="modal-overlay oculto" id="modal-exito" onclick="if(event.target===this) cerrarModal('modal-exito')">
+    <!-- modal de activación de cuenta -->
+    <div class="modal-overlay oculto" id="modal-activar" onclick="if(event.target===this)cerrarModal('modal-activar')">
+        <div class="modal modal--chico" role="dialog" aria-modal="true">
+            <div class="modal-cabeza modal-cabeza--simple">
+                <h2 class="modal-titulo">¿Activar cuenta?</h2>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-activar')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+            </div>
+            <p class="modal-descripcion">El usuario podrá volver a ingresar al sistema. ¿Confirmas la activación?</p>
+            <div class="modal-pie">
+                <button class="btn btn-blanco" onclick="cancelarToggle()">Cancelar</button>
+                <button class="btn btn-verde" onclick="confirmarToggle()">Sí, activar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal de desactivación de cuenta -->
+    <div class="modal-overlay oculto" id="modal-desactivar" onclick="if(event.target===this)cerrarModal('modal-desactivar')">
+        <div class="modal modal--chico" role="dialog" aria-modal="true">
+            <div class="modal-cabeza modal-cabeza--simple">
+                <h2 class="modal-titulo">¿Desactivar cuenta?</h2>
+                <button class="modal-cerrar" onclick="cerrarModal('modal-desactivar')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+            </div>
+            <p class="modal-descripcion">El usuario perderá acceso al sistema hasta ser reactivado. ¿Confirmas la desactivación?</p>
+            <div class="modal-pie">
+                <button class="btn btn-blanco" onclick="cancelarToggle()">Cancelar</button>
+                <button class="btn btn-primario" onclick="confirmarToggle()">Sí, desactivar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal de éxito -->
+    <div class="modal-overlay oculto" id="modal-exito" onclick="if(event.target===this)cerrarModal('modal-exito')">
         <div class="modal modal--chico modal--centrado" role="dialog" aria-modal="true">
             <div class="exito-icono">
-                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <h2 class="modal-titulo" id="exito-titulo">¡Acción realizada!</h2>
             <p class="modal-descripcion" id="exito-descripcion">La operación se completó correctamente.</p>
@@ -344,356 +583,140 @@
     </div>
 
     <script>
+    var modoActual = 'solicitudes';
+    var tabActual  = 'pendientes';
+    var mapaTab    = { pendientes: 'pendiente', aprobadas: 'aprobada', rechazadas: 'rechazada' };
+    var filaSeleccionada = null;
+    var filaToggle = null, valorToggle = null;
 
-        
-    /* Datos de muestra*/
-    var solicitudes = [
-        {
-            id: 1, nombre: 'Andrés Felipe', apellido: 'Rodríguez', correo: 'andres.rodriguez.dev@gmail.com',
-            telefono: '310 456 7890', rol: 'Atleta', estado: 'Pendiente',
-            tipoDoc: 'C.C', numDoc: '1023456789', eps: 'SaludTotal.PDF', genero: 'Masculino',
-            fechaNac: '12/05/1998',
-            emNombre: 'Carlos', emApellido: 'Rodríguez', emTelefono: '310 111 2222', emParentesco: 'Padre'
-        },
-        {
-            id: 2, nombre: 'María Paula', apellido: 'Martínez', correo: 'm.martinez.atleta@gmail.com',
-            telefono: '315 234 5678', rol: 'Atleta', estado: 'Pendiente',
-            tipoDoc: 'C.C', numDoc: '1045678901', eps: 'Compensar.PDF', genero: 'Femenino',
-            fechaNac: '22/08/2000',
-            emNombre: 'Ana', emApellido: 'Martínez', emTelefono: '315 333 4444', emParentesco: 'Madre'
-        },
-        {
-            id: 3, nombre: 'Carlos Alberto', apellido: 'García', correo: 'carlos.garcia.coach@gmail.com',
-            telefono: '320 890 1234', rol: 'Entrenador', estado: 'Pendiente',
-            tipoDoc: 'C.C', numDoc: '79123456', eps: 'Nueva EPS.PDF', genero: 'Masculino',
-            fechaNac: '03/11/1985',
-            emNombre: 'Lucía', emApellido: 'García', emTelefono: '320 555 6666', emParentesco: 'Cónyuge'
-        },
-        {
-            id: 4, nombre: 'Laura Sofía', apellido: 'Hernández', correo: 'lhernandez.gestion@gmail.com',
-            telefono: '300 567 4321', rol: 'Atleta', estado: 'Pendiente',
-            tipoDoc: 'C.C', numDoc: '1067890123', eps: 'Sura.PDF', genero: 'Femenino',
-            fechaNac: '17/02/2003',
-            emNombre: 'Marta', emApellido: 'Hernández', emTelefono: '300 777 8888', emParentesco: 'Madre'
-        },
-        {
-            id: 5, nombre: 'Diego Alejandro', apellido: 'Gómez', correo: 'diego.gomez2026@gmail.com',
-            telefono: '312 345 6789', rol: 'Atleta', estado: 'Pendiente',
-            tipoDoc: 'C.C', numDoc: '1089012345', eps: 'Coomeva.PDF', genero: 'Masculino',
-            fechaNac: '29/06/2001',
-            emNombre: 'Pedro', emApellido: 'Gómez', emTelefono: '312 999 0000', emParentesco: 'Padre'
-        },
-        {
-            id: 6, nombre: 'Juan David', apellido: 'Ramírez Méndez', correo: 'juan.ramirez@gmail.com',
-            telefono: '311 234 5671', rol: 'Atleta', estado: 'Aprobada',
-            tipoDoc: 'C.C', numDoc: '7418758785', eps: 'EpsKaffamcer.PDF', genero: 'Masculino',
-            fechaNac: '14/03/2005',
-            emNombre: 'Luis Fernando', emApellido: 'Ramírez García', emTelefono: '315 852 6846', emParentesco: 'Padre'
-        },
-        {
-            id: 9, nombre: 'Natalia Andrea', apellido: 'Muñoz', correo: 'n.munoz.gestion@gmail.com',
-            telefono: '314 567 8901', rol: 'Entrenador', estado: 'Aprobada',
-            tipoDoc: 'C.C', numDoc: '52123456', eps: 'Compensar.PDF', genero: 'Femenino',
-            fechaNac: '28/04/1990',
-            emNombre: 'Carlos', emApellido: 'Muñoz', emTelefono: '314 666 7777', emParentesco: 'Esposo'
-        },
-        {
-            id: 10, nombre: 'Julián Esteban', apellido: 'Vargas', correo: 'julian.vargas2026@gmail.com',
-            telefono: '301 432 1098', rol: 'Entrenador', estado: 'Aprobada',
-            tipoDoc: 'C.C', numDoc: '80123456', eps: 'Nueva EPS.PDF', genero: 'Masculino',
-            fechaNac: '11/07/1988',
-            emNombre: 'Sandra', emApellido: 'Vargas', emTelefono: '301 888 9999', emParentesco: 'Esposa'
-        },
-        {
-            id: 11, nombre: 'Valentina Isabela', apellido: 'Castro', correo: 'valentina.castro.co@gmail.com',
-            telefono: '316 789 0122', rol: 'Atleta', estado: 'Rechazada',
-            tipoDoc: 'C.C', numDoc: '1056789012', eps: 'Sura.PDF', genero: 'Femenino',
-            fechaNac: '02/01/2006',
-            emNombre: 'Gloria', emApellido: 'Castro', emTelefono: '316 111 0000', emParentesco: 'Madre'
-        },
-        {
-            id: 12, nombre: 'Mateo Alejandro', apellido: 'Ortiz', correo: 'mortiz.atleta@gmail.com',
-            telefono: '313 456 1239', rol: 'Atleta', estado: 'Rechazada',
-            tipoDoc: 'C.C', numDoc: '1078901234', eps: 'Sanitas.PDF', genero: 'Masculino',
-            fechaNac: '30/10/2005',
-            emNombre: 'Luis', emApellido: 'Ortiz', emTelefono: '313 222 1111', emParentesco: 'Padre'
-        },
-        {
-            id: 13, nombre: 'Sofía Elena', apellido: 'Jiménez', correo: 's.jimenez.admin@gmail.com',
-            telefono: '322 987 6543', rol: 'Atleta', estado: 'Rechazada',
-            tipoDoc: 'C.C', numDoc: '1090123456', eps: 'Coomeva.PDF', genero: 'Femenino',
-            fechaNac: '15/05/2004',
-            emNombre: 'Elena', emApellido: 'Jiménez', emTelefono: '322 333 2222', emParentesco: 'Madre'
-        },
-        {
-            id: 14, nombre: 'Daniel Francisco', apellido: 'Silva', correo: 'dsilva.gestion@gmail.com',
-            telefono: '305 321 0987', rol: 'Entrenador', estado: 'Rechazada',
-            tipoDoc: 'C.C', numDoc: '71234567', eps: 'SaludTotal.PDF', genero: 'Masculino',
-            fechaNac: '08/03/1982',
-            emNombre: 'María', emApellido: 'Silva', emTelefono: '305 444 3333', emParentesco: 'Esposa'
-        },
-        {
-            id: 15, nombre: 'Paula Andrea', apellido: 'Morales', correo: 'paula.morales2026@gmail.com',
-            telefono: '317 654 9812', rol: 'Atleta', estado: 'Rechazada',
-            tipoDoc: 'C.C', numDoc: '1012309876', eps: 'Compensar.PDF', genero: 'Femenino',
-            fechaNac: '20/07/2006',
-            emNombre: 'José', emApellido: 'Morales', emTelefono: '317 555 4444', emParentesco: 'Padre'
-        }
-    ];
-
-    var usuarios = [
-        { id: 1, nombre: 'Ana López', correo: 'ana.lopez2026@gmail.com', rol: 'Atleta', activo: true, foto: '' },
-        { id: 2, nombre: 'Juan Pérez', correo: 'jperez@gmail.com', rol: 'Atleta', activo: true, foto: '' },
-        { id: 3, nombre: 'Ronald Linares', correo: 'ronald.l@gmail.com', rol: 'Entrenador', activo: true, foto: '' },
-        { id: 4, nombre: 'Gabriela Deaquiz', correo: 'gabideaquiz09@gmail.com', rol: 'Atleta', activo: true, foto: '' },
-        { id: 5, nombre: 'Leonardo Jarc', correo: 'llara@gmail.com', rol: 'Atleta', activo: true, foto: '' },
-    ];
-
-    /* Estado solicitud o gestion */
-    var modoActual = 'solicitudes'; 
-    var tabActual = 'pendientes';
-    var solicitudSeleccionadaId = null;
-    var accionPendiente = null;
-
-    /* mapa: nombre de tab (plural) -> valor del campo "estado" (singular, sin tildes) */
-    var mapaEstadosTab = {
-        pendientes: 'pendiente',
-        aprobadas: 'aprobada',
-        rechazadas: 'rechazada'
-    };
-
-    function quitarTildes(texto) {
-        return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    }
-
-    /* Inicializar*/
-    document.addEventListener('DOMContentLoaded', function () {
-        renderSolicitudes();
+    document.addEventListener('DOMContentLoaded', function () { aplicarTab('pendientes'); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') document.querySelectorAll('.modal-overlay:not(.oculto)').forEach(function (m) { cerrarModal(m.id); });
     });
 
-    /* Toggle modo solicitudes y gestión */
+    /* alternar entre vista de solicitudes y gestión de cuentas */
     function toggleModo() {
-        if (modoActual === 'solicitudes') {
-            modoActual = 'gestion';
-            document.getElementById('seccion-solicitudes').classList.add('oculto');
-            document.getElementById('seccion-gestion').classList.remove('oculto');
+        var esSolicitudes = modoActual === 'solicitudes';
+        modoActual = esSolicitudes ? 'gestion' : 'solicitudes';
+        document.getElementById('seccion-solicitudes').classList.toggle('oculto', modoActual === 'gestion');
+        document.getElementById('seccion-gestion').classList.toggle('oculto', modoActual === 'solicitudes');
+        var btn = document.getElementById('btn-gestionar');
+        if (modoActual === 'gestion') {
             document.getElementById('titulo-pagina').textContent = 'Gestión de cuentas';
-            var btn = document.getElementById('btn-gestionar');
-            btn.classList.remove('btn-amarillo');
-            btn.classList.add('btn-azul');
-            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Validar cuentas';
-            document.getElementById('campo-busqueda').placeholder = 'Buscar Usuario';
-            renderGestion();
+            document.getElementById('subtitulo-pagina').textContent = 'Activa o desactiva el acceso de los miembros registrados en el club.';
+            document.getElementById('campo-busqueda').placeholder = 'Buscar usuario';
+            btn.className = 'btn btn-azul';
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Validar cuentas';
         } else {
-            modoActual = 'solicitudes';
-            document.getElementById('seccion-gestion').classList.add('oculto');
-            document.getElementById('seccion-solicitudes').classList.remove('oculto');
             document.getElementById('titulo-pagina').textContent = 'Solicitudes de nuevas cuentas';
-            var btn = document.getElementById('btn-gestionar');
-            btn.classList.remove('btn-azul');
-            btn.classList.add('btn-amarillo');
-            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Gestionar cuentas';
-            document.getElementById('campo-busqueda').placeholder = 'Buscar Solicitud';
-            renderSolicitudes();
+            document.getElementById('subtitulo-pagina').textContent = 'Gestiona las solicitudes de ingreso de atletas, entrenadores y administradores nuevos del club.';
+            document.getElementById('campo-busqueda').placeholder = 'Buscar solicitud';
+            btn.className = 'btn btn-amarillo';
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Gestionar cuentas';
         }
     }
 
-    /* Cambiar tab */
+    /* cambiar pestaña activa */
     function cambiarTab(tab, btn) {
-        tabActual = tab;
         document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('tab-btn--activo'); });
         btn.classList.add('tab-btn--activo');
-        renderSolicitudes();
+        aplicarTab(tab);
     }
 
-    /* solicitudes */
-    function renderSolicitudes() {
-        var busqueda = document.getElementById('campo-busqueda').value.toLowerCase();
-        var estadoBuscado = mapaEstadosTab[tabActual];
-
-        var filtradas = solicitudes.filter(function (s) {
-            return quitarTildes(s.estado) === estadoBuscado &&
-                   (s.nombre + ' ' + s.apellido + ' ' + s.correo).toLowerCase().includes(busqueda);
+    /* mostrar filas según el estado de la pestaña */
+    function aplicarTab(tab) {
+        tabActual = tab;
+        var estado = mapaTab[tab];
+        var filas = document.querySelectorAll('#cuerpo-solicitudes tr[data-estado]');
+        var n = 0;
+        filas.forEach(function (f) {
+            var visible = f.dataset.estado === estado;
+            f.classList.toggle('oculto', !visible);
+            if (visible) n++;
         });
-
-        var conteo = filtradas.length;
-        var badgeEl = document.getElementById('badge-conteo');
-
-        var badgeClase = 'conteo-badge';
-        var icono = '';
-        var label = '';
-
-        if (tabActual === 'pendientes') {
-            badgeClase += ' conteo-badge--azul';
-            icono = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>';
-            label = conteo + ' Solicitudes pendientes';
-        } else if (tabActual === 'aprobadas') {
-            badgeClase += ' conteo-badge--verde';
-            icono = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>';
-            label = conteo + ' Solicitudes aprobadas';
-        } else {
-            badgeClase += ' conteo-badge--rojo';
-            icono = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
-            label = conteo + ' Solicitudes rechazadas';
-        }
-
-        badgeEl.className = badgeClase;
-        badgeEl.innerHTML = icono + '<span>' + label + '</span>';
-
-        var tbody = document.getElementById('cuerpo-solicitudes');
-        tbody.innerHTML = '';
-
-        if (filtradas.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="tabla-vacia">No hay solicitudes en esta categoría.</td></tr>';
-            return;
-        }
-
-        filtradas.forEach(function (s) {
-            var tr = document.createElement('tr');
-
-            var estadoHtml = '';
-            if (s.estado === 'Pendiente') {
-                estadoHtml = '<span class="badge badge--amarillo"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg> Pendiente</span>';
-            } else if (s.estado === 'Aprobada') {
-                estadoHtml = '<span class="badge badge--verde"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Aprobada</span>';
-            } else {
-                estadoHtml = '<span class="badge badge--rojo"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Rechazada</span>';
-            }
-
-            var rolClase = s.rol === 'Entrenador' ? 'badge--amarillo' : 'badge--verde';
-            var rolHtml = '<span class="badge ' + rolClase + '">' + s.rol + '</span>';
-
-            var accionesHtml = '<button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(' + s.id + ')" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>';
-
-            if (s.estado === 'Pendiente') {
-                accionesHtml += ' <button class="btn-accion btn-accion--check" onclick="pedirConfirmacion(' + s.id + ', \'aprobar\')" title="Aprobar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></button>';
-                accionesHtml += ' <button class="btn-accion btn-accion--x" onclick="pedirConfirmacion(' + s.id + ', \'rechazar\')" title="Rechazar"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>';
-            }
-
-            tr.innerHTML =
-                '<td><span class="nombre-celda">' + s.nombre + ' ' + s.apellido + '</span></td>' +
-                '<td><span class="correo-celda">' + s.correo + '</span><br><span class="tel-celda">' + s.telefono + '</span></td>' +
-                '<td>' + rolHtml + '</td>' +
-                '<td>' + estadoHtml + '</td>' +
-                '<td class="acciones-celda">' + accionesHtml + '</td>';
-
-            tbody.appendChild(tr);
-        });
+        document.getElementById('fila-sin-solicitudes').classList.toggle('oculto', n > 0);
+        var badge = document.getElementById('badge-conteo');
+        badge.className = 'conteo-badge conteo-badge--' + (tab === 'pendientes' ? 'azul' : tab === 'aprobadas' ? 'verde' : 'rojo');
+        document.getElementById('texto-conteo').textContent = n + ' Solicitudes ' + tab;
     }
 
-    /* Render gestión de cuentas */
-    function renderGestion() {
-        var busqueda = document.getElementById('campo-busqueda').value.toLowerCase();
-        var filtroEstado = document.getElementById('filtro-estado').value;
-        var filtroRol = document.getElementById('filtro-rol').value;
-
-        var filtrados = usuarios.filter(function (u) {
-            var matchBusqueda = (u.nombre + ' ' + u.correo).toLowerCase().includes(busqueda);
-            var matchEstado = !filtroEstado || (filtroEstado === 'activo' ? u.activo : !u.activo);
-            var matchRol = !filtroRol || u.rol.toLowerCase() === filtroRol.toLowerCase();
-            return matchBusqueda && matchEstado && matchRol;
-        });
-
-        var tbody = document.getElementById('cuerpo-gestion');
-        tbody.innerHTML = '';
-
-        if (filtrados.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="tabla-vacia">No hay usuarios que coincidan.</td></tr>';
-            return;
-        }
-
-        filtrados.forEach(function (u) {
-            var tr = document.createElement('tr');
-            var inicial = u.nombre.charAt(0).toUpperCase();
-            var avatarHtml = '<div class="avatar-inicial">' + inicial + '</div>';
-
-            var rolClase = u.rol === 'Entrenador' ? 'badge--amarillo' : 'badge--azul';
-            var rolHtml = '<span class="badge ' + rolClase + '">' + u.rol + '</span>';
-
-            var estadoHtml = u.activo
-                ? '<span class="badge badge--verde"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Activa</span>'
-                : '<span class="badge badge--rojo"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Inactiva</span>';
-
-            var switchChecked = u.activo ? 'checked' : '';
-
-            tr.innerHTML =
-                '<td><div class="nombre-con-avatar">' + avatarHtml + '<span class="nombre-celda">' + u.nombre + '</span></div></td>' +
-                '<td><span class="correo-celda">' + u.correo + '</span></td>' +
-                '<td>' + rolHtml + '</td>' +
-                '<td>' + estadoHtml + '</td>' +
-                '<td class="acciones-celda"><label class="toggle"><input type="checkbox" ' + switchChecked + ' onchange="toggleUsuario(' + u.id + ', this.checked)"><span class="toggle__pista"></span></label></td>';
-
-            tbody.appendChild(tr);
-        });
-    }
-
-    function filtrarTabla() {
-        if (modoActual === 'solicitudes') renderSolicitudes();
-        else renderGestion();
-    }
-
-    function filtrarGestion() {
-        renderGestion();
-    }
-
-    function toggleUsuario(id, activo) {
-        var u = usuarios.find(function (x) { return x.id === id; });
-        if (u) {
-            u.activo = activo;
-            renderGestion();
-        }
-    }
-
-    /*Modales */
+    /* abrir y cerrar modales */
     function abrirModal(id) { document.getElementById(id).classList.remove('oculto'); }
     function cerrarModal(id) { document.getElementById(id).classList.add('oculto'); }
 
-    document.addEventListener('keydown', function (e) {
-        if (e.key !== 'Escape') return;
-        document.querySelectorAll('.modal-overlay:not(.oculto)').forEach(function (m) { cerrarModal(m.id); });
-    });
-
-    function abrirDetalles(id) {
-        var s = solicitudes.find(function (x) { return x.id === id; });
-        if (!s) return;
-        document.getElementById('det-nombre').value = s.nombre;
-        document.getElementById('det-apellido').value = s.apellido;
-        document.getElementById('det-tipo-doc').value = s.tipoDoc;
-        document.getElementById('det-num-doc').value = s.numDoc;
-        document.getElementById('det-eps').value = s.eps;
-        document.getElementById('det-genero').value = s.genero;
-        document.getElementById('det-fecha').value = s.fechaNac;
-        document.getElementById('det-telefono').value = s.telefono;
-        document.getElementById('det-correo').value = s.correo;
-        document.getElementById('det-em-nombre').value = s.emNombre;
-        document.getElementById('det-em-apellido').value = s.emApellido;
-        document.getElementById('det-em-telefono').value = s.emTelefono;
-        document.getElementById('det-em-parentesco').value = s.emParentesco;
-        var rolClase = s.rol === 'Entrenador' ? 'insignia-rol--entrenador' : 'insignia-rol--atleta';
-        var badge = document.getElementById('det-rol-badge');
-        badge.className = 'insignia-rol insignia-rol--tabla ' + rolClase;
-        badge.textContent = s.rol;
+    /* poblar y abrir modal de detalles */
+    function abrirDetalles(btn) {
+        var f = btn.closest('tr');
+        document.getElementById('det-nombre').value        = f.dataset.nombre;
+        document.getElementById('det-apellido').value      = f.dataset.apellido;
+        document.getElementById('det-tipo-doc').value      = f.dataset.tipodoc;
+        document.getElementById('det-num-doc').value       = f.dataset.numdoc;
+        document.getElementById('det-eps').value           = f.dataset.eps;
+        document.getElementById('det-genero').value        = f.dataset.genero;
+        document.getElementById('det-fecha').value         = f.dataset.fechanac;
+        document.getElementById('det-telefono').value      = f.querySelector('.tel-celda').textContent;
+        document.getElementById('det-correo').value        = f.querySelector('.correo-celda').textContent;
+        document.getElementById('det-em-nombre').value     = f.dataset.emnombre;
+        document.getElementById('det-em-apellido').value   = f.dataset.emapellido;
+        document.getElementById('det-em-telefono').value   = f.dataset.emtelefono;
+        document.getElementById('det-em-parentesco').value = f.dataset.emparentesco;
+        var rol = f.children[3].textContent.trim();
+        var b = document.getElementById('det-rol-badge');
+        b.className = 'insignia-rol insignia-rol--tabla ' + (rol === 'Entrenador' ? 'insignia-rol--entrenador' : 'insignia-rol--atleta');
+        b.textContent = rol;
         abrirModal('modal-detalles');
     }
 
-    function pedirConfirmacion(id, accion) {
-        solicitudSeleccionadaId = id;
-        accionPendiente = accion;
+    /* solicitar confirmación para aprobar o rechazar */
+    function pedirConfirmacion(btn, accion) {
+        filaSeleccionada = btn.closest('tr');
         abrirModal('modal-' + accion);
     }
 
+    /* confirmar aprobación o rechazo: actualiza badge y botones sin eliminar la fila */
     function confirmarAccion(accion) {
-        var s = solicitudes.find(function (x) { return x.id === solicitudSeleccionadaId; });
-        if (s) {
-            s.estado = accion === 'aprobar' ? 'Aprobada' : 'Rechazada';
-        }
+        if (!filaSeleccionada) return;
+        var f = filaSeleccionada;
+        f.dataset.estado = accion === 'aprobar' ? 'aprobada' : 'rechazada';
+        var cls = accion === 'aprobar' ? 'badge--verde' : 'badge--rojo';
+        var txt = accion === 'aprobar' ? 'Aprobada' : 'Rechazada';
+        f.children[4].innerHTML = '<span class="badge ' + cls + '">' + txt + '</span>';
+        f.children[6].innerHTML = '<button class="btn-accion btn-accion--ojo" onclick="abrirDetalles(this)" title="Ver detalles"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>';
         cerrarModal('modal-' + accion);
         document.getElementById('exito-titulo').textContent = accion === 'aprobar' ? '¡Solicitud aprobada!' : '¡Solicitud rechazada!';
-        document.getElementById('exito-descripcion').textContent = accion === 'aprobar'
-            ? 'La cuenta ha sido creada y el usuario puede ingresar al sistema.'
-            : 'La solicitud fue rechazada. El usuario será notificado.';
+        document.getElementById('exito-descripcion').textContent = accion === 'aprobar' ? 'La cuenta fue creada y el usuario puede ingresar.' : 'La solicitud fue rechazada. El usuario será notificado.';
         abrirModal('modal-exito');
-        renderSolicitudes();
+        filaSeleccionada = null;
+    }
+
+    /* solicitar confirmación para activar o desactivar cuenta */
+    function pedirConfirmacionToggle(checkbox) {
+        filaToggle = checkbox.closest('tr');
+        valorToggle = checkbox.checked;
+        checkbox.checked = !valorToggle;
+        abrirModal(valorToggle ? 'modal-activar' : 'modal-desactivar');
+    }
+
+    /* confirmar cambio de estado de cuenta sin eliminar la fila */
+    function confirmarToggle() {
+        if (!filaToggle) return;
+        var activar = valorToggle;
+        filaToggle.dataset.activo = activar;
+        var cls = activar ? 'badge--verde' : 'badge--rojo';
+        var txt = activar ? 'Activa' : 'Inactiva';
+        filaToggle.children[3].innerHTML = '<span class="badge ' + cls + '">' + txt + '</span>';
+        filaToggle.querySelector('input[type="checkbox"]').checked = activar;
+        cerrarModal(activar ? 'modal-activar' : 'modal-desactivar');
+        document.getElementById('exito-titulo').textContent = activar ? '¡Cuenta activada!' : '¡Cuenta desactivada!';
+        document.getElementById('exito-descripcion').textContent = activar ? 'El usuario recuperó el acceso.' : 'El usuario ya no podrá ingresar al sistema.';
+        abrirModal('modal-exito');
+        filaToggle = null; valorToggle = null;
+    }
+
+    /* cancelar cambio de estado sin modificar nada */
+    function cancelarToggle() {
+        cerrarModal(valorToggle ? 'modal-activar' : 'modal-desactivar');
+        filaToggle = null; valorToggle = null;
     }
     </script>
 
