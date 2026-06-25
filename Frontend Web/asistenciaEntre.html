@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistencia</title>
-    <link rel="stylesheet" href="css/stylesAtle.css">
     <link rel="stylesheet" href="css/stylesEntre.css">
 </head>
 <body>
@@ -17,28 +16,28 @@
         <nav>
             <ul class="menu-lateral" role="list">
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Perfil">
+                    <a href="perfil-entre.html" class="menu-lateral__enlace" title="Perfil">
                         <img class="menu-lateral__icono" src="img/usuario.png" alt="Horarios">
                     </a>
                 </li>
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Horarios">
+                    <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
                 </li>
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
                         <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
                     </a>
                 </li>
                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
-                    <a href="#" class="menu-lateral__enlace" title="Registro Asistencia">
+                    <a href="asistenciaEntre.html" class="menu-lateral__enlace" title="Registro Asistencia">
                         <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Horarios">
                     </a>
                 </li>
 
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="PQRS">
+                    <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
                     </a>
                 </li>
@@ -52,7 +51,7 @@
             <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
                 <ul class="encabezado__lista-botones" role="list">
                     <li>
-                        <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
                     </li>
                     <li>
                         <span class="etiqueta-rol" aria-label="Rol: Administrador">Entrenador</span>
@@ -63,7 +62,7 @@
                 <a href="#" class="icono-accion" aria-label="Ver notificaciones">
                     <img src="img/campana-de-notificacion.png" alt="Notificaciones">
                 </a>
-                <a href="#" class="icono-accion" aria-label="Ir al inicio">
+                <a href="dashboard-entre.html" class="icono-accion" aria-label="Ir al inicio">
                     <img src="img/casa.png" alt="Inicio">
                 </a>
                 <figure class="logo-club">
@@ -76,402 +75,802 @@
     <!-- Inicio de Vista de Entrenador -->
     <div class="contenedor-principal">
 
+        <!-- Radios para control de pestañas (CSS-only) -->
+        <input type="radio" id="switch-formativos" name="pestanas" checked>
+        <input type="radio" id="switch-queen" name="pestanas">
+        <input type="radio" id="switch-princess" name="pestanas">
+        <input type="radio" id="switch-magic" name="pestanas">
+        <input type="radio" id="switch-blood" name="pestanas">
+
         <div class="asist-header">
-            <h1>Registrar asistencia</h1>
-            <span class="badge-categoria">Magic</span>
-            <span class="asist-ultima-actualizacion">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 6v6l4 2"/>
-                </svg>
-                Última actualización: hoy, 18:42
-            </span>
+            <div class="asist-header__titulo-bloque">
+                <h1>Registrar asistencia</h1>
+                <p>Gestione la asistencia y el historial de sus registros aquí.</p>
+            </div>
+
+            <div class="asist-header__tabs-bloque">
+                <div class="tabla-contenido">
+                    <label for="switch-formativos" class="tab-btn btn-formativos">Nivel Formativo King</label>
+                    <label for="switch-queen" class="tab-btn btn-queen">Queen</label>
+                    <label for="switch-princess" class="tab-btn btn-princess">Princess</label>
+                    <label for="switch-magic" class="tab-btn btn-magic">Magic</label>
+                    <label for="switch-blood" class="tab-btn btn-blood">Blood Tigers</label>
+                </div>
+            </div>
         </div>
 
-        <!-- Cards de resumen rápido -->
-        <div class="resumen-cards">
-            <div class="rcard rcard-total">
-                <div class="rcard-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
+        <!-- Nivel Formativo -->
+        <div class="switch-formativos">
+            <!-- Cards de resumen rápido -->
+            <div class="resumen-cards">
+                <div class="rcard rcard-total">
+                    <div class="rcard-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num">11</span>
+                        <span class="rcard-label">Total atletas</span>
+                    </div>
                 </div>
-                <div class="rcard-info">
-                    <span class="rcard-num">11</span>
-                    <span class="rcard-label">Total atletas</span>
+                <div class="rcard rcard-pct">
+                    <div class="rcard-icon rcard-icon-pct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-pct">63%</span>
+                        <span class="rcard-label">Asistencia hoy</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-pct"></div></div>
+                </div>
+                <div class="rcard rcard-presente">
+                    <div class="rcard-icon rcard-icon-presente">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1eaf52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-presente">7</span>
+                        <span class="rcard-label">Presentes + Inpuntuales</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-presente"></div></div>
+                </div>
+                <div class="rcard rcard-falta">
+                    <div class="rcard-icon rcard-icon-falta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-falta">4</span>
+                        <span class="rcard-label">Faltas registradas</span>
+                    </div>
+                    <div class="rcard-bar-wrap">
+                        <div class="rcard-bar rcard-bar-falta"></div>
+                    </div>
                 </div>
             </div>
-            <div class="rcard rcard-pct">
-                <div class="rcard-icon rcard-icon-pct">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+
+            <!-- Barra de filtros y contadores -->
+            <div class="asist-controles">
+                <div class="asist-fecha">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
                     </svg>
+                    <span>29/04/2026</span>
                 </div>
-                <div class="rcard-info">
-                    <span class="rcard-num rcard-num-pct">63%</span>
-                    <span class="rcard-label">Asistencia hoy</span>
-                </div>
-                <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-pct"></div></div>
-            </div>
-            <div class="rcard rcard-presente">
-                <div class="rcard-icon rcard-icon-presente">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1eaf52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+                <button type="button" class="btn-consultar" onclick="document.getElementById('modal-consultar').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="7" height="7" x="3" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="14" rx="1"/>
+                        <rect width="7" height="7" x="3" y="14" rx="1"/>
+                    </svg>
+                    Consultar asistencia
+                </button>
+
+                <div class="asist-contador contador-presente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 6 9 17l-5-5"/>
                     </svg>
+                    <span class="num">6</span>
+                    <span class="label">Presentes</span>
                 </div>
-                <div class="rcard-info">
-                    <span class="rcard-num rcard-num-presente">7</span>
-                    <span class="rcard-label">Presentes + Inpuntuales</span>
+
+                <div class="asist-contador contador-inpuntual">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span class="num">1</span>
+                    <span class="label">Inpuntual</span>
                 </div>
-                <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-presente"></div></div>
-            </div>
-            <div class="rcard rcard-falta">
-                <div class="rcard-icon rcard-icon-falta">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+                <div class="asist-contador contador-falta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 6 6 18"/>
                         <path d="m6 6 12 12"/>
                     </svg>
-                </div>
-                <div class="rcard-info">
-                    <span class="rcard-num rcard-num-falta">4</span>
-                    <span class="rcard-label">Faltas registradas</span>
-                </div>
-                <div class="rcard-bar-wrap">
-                    <div class="rcard-bar rcard-bar-falta"></div>
+                    <span class="num">4</span>
+                    <span class="label">Faltas</span>
                 </div>
             </div>
-        </div>
 
-        <!-- Barra de filtros y contadores -->
-        <div class="asist-controles">
-            <div class="asist-fecha">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                    <line x1="16" x2="16" y1="2" y2="6"/>
-                    <line x1="8" x2="8" y1="2" y2="6"/>
-                    <line x1="3" x2="21" y1="10" y2="10"/>
-                </svg>
-                <span>29/04/2026</span>
+            <!-- Tabla de atletas -->
+            <div class="asist-tabla-wrapper">
+                <table class="asist-tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Fernanda</td>
+                            <td>Rodrigues Rivera</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Pablo</td>
+                            <td>Martínez Soler</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Alberto</td>
+                            <td>Castro Peña</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Victoria</td>
+                            <td>Delgado Ortiz</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Eduardo</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paola Valentina</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <button type="button" class="btn-consultar" onclick="document.getElementById('modal-consultar').showModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect width="7" height="7" x="3" y="3" rx="1"/>
-                    <rect width="7" height="7" x="14" y="3" rx="1"/>
-                    <rect width="7" height="7" x="14" y="14" rx="1"/>
-                    <rect width="7" height="7" x="3" y="14" rx="1"/>
-                </svg>
-                Consultar asistencia
-            </button>
-
-            <div class="asist-contador contador-presente">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"/>
-                </svg>
-                <span class="num">6</span>
-                <span class="label">Presentes</span>
-            </div>
-
-            <div class="asist-contador contador-inpuntual">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 6v6l4 2"/>
-                </svg>
-                <span class="num">1</span>
-                <span class="label">Inpuntual</span>
-            </div>
-
-            <div class="asist-contador contador-falta">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 6 6 18"/>
-                    <path d="m6 6 12 12"/>
-                </svg>
-                <span class="num">4</span>
-                <span class="label">Faltas</span>
-            </div>
-        </div>
-
-        <!-- Tabla de atletas -->
-        <div class="asist-tabla-wrapper">
-            <table class="asist-tabla">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maria Fernanda</td>
-                        <td>Rodrigues Rivera</td>
-                        <td></td>
-                        <td class="acciones-cell">
-                            <button type="button" class="btn-accion btn-presente" title="Presente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="btn-accion btn-falta" title="Falta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-wrapper">
-                                <button type="button" class="btn-accion btn-mas" onclick="this.nextElementSibling.classList.toggle('visible')" title="Más opciones">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                                        </svg>
-                                        Inpuntual
-                                    </button>
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                        Justificado
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Juan Pablo</td>
-                        <td>Martínez Soler</td>
-                        <td></td>
-                        <td class="acciones-cell">
-                            <button type="button" class="btn-accion btn-presente" title="Presente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="btn-accion btn-falta" title="Falta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-wrapper">
-                                <button type="button" class="btn-accion btn-mas" onclick="this.nextElementSibling.classList.toggle('visible')" title="Más opciones">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                                        </svg>
-                                        Inpuntual
-                                    </button>
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                        Justificado
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Juan Alberto</td>
-                        <td>Castro Peña</td>
-                        <td></td>
-                        <td class="acciones-cell">
-                            <button type="button" class="btn-accion btn-presente" title="Presente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="btn-accion btn-falta" title="Falta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-wrapper">
-                                <button type="button" class="btn-accion btn-mas" onclick="this.nextElementSibling.classList.toggle('visible')" title="Más opciones">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                                        </svg>
-                                        Inpuntual
-                                    </button>
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                        Justificado
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ana Victoria</td>
-                        <td>Delgado Ortiz</td>
-                        <td></td>
-                        <td class="acciones-cell">
-                            <button type="button" class="btn-accion btn-presente" title="Presente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="btn-accion btn-falta" title="Falta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-wrapper">
-                                <button type="button" class="btn-accion btn-mas" onclick="this.nextElementSibling.classList.toggle('visible')" title="Más opciones">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                                        </svg>
-                                        Inpuntual
-                                    </button>
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                        Justificado
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Carlos Eduardo</td>
-                        <td>Rojas Mendoza</td>
-                        <td></td>
-                        <td class="acciones-cell">
-                            <button type="button" class="btn-accion btn-presente" title="Presente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="btn-accion btn-falta" title="Falta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-wrapper">
-                                <button type="button" class="btn-accion btn-mas" onclick="this.nextElementSibling.classList.toggle('visible')" title="Más opciones">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                                        </svg>
-                                        Inpuntual
-                                    </button>
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                        Justificado
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Paola Valentina</td>
-                        <td>Rojas Mendoza</td>
-                        <td></td>
-                        <td class="acciones-cell">
-                            <button type="button" class="btn-accion btn-presente" title="Presente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="btn-accion btn-falta" title="Falta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-                                </svg>
-                            </button>
-                            <div class="dropdown-wrapper">
-                                <button type="button" class="btn-accion btn-mas" onclick="this.nextElementSibling.classList.toggle('visible')" title="Más opciones">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                                        </svg>
-                                        Inpuntual
-                                    </button>
-                                    <button type="button" class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                        Justificado
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Botón guardar + Paginación -->
-        <div class="asist-footer-bar">
-            <button type="button" class="btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="17 8 12 3 7 8"/>
-                    <line x1="12" x2="12" y1="3" y2="15"/>
-                </svg>
-                Guardar asistencia
-            </button>
-            <div class="asist-paginacion asist-paginacion-footer">
-                <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
-                <div class="paginacion-btns">
-                    <button type="button" class="btn-pag">← Anterior</button>
-                    <button type="button" class="btn-pag btn-pag-num activo">1</button>
-                    <button type="button" class="btn-pag btn-pag-num">2</button>
-                    <button type="button" class="btn-pag btn-pag-num">3</button>
-                    <button type="button" class="btn-pag">Siguiente →</button>
+            <!-- Botón guardar + Paginación -->
+            <div class="asist-footer-bar">
+                <button type="button" class="btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" x2="12" y1="3" y2="15"/>
+                    </svg>
+                    Guardar asistencia
+                </button>
+                <div class="asist-paginacion asist-paginacion-footer">
+                    <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
+                    <div class="paginacion-btns">
+                        <button type="button" class="btn-pag">← Anterior</button>
+                        <button type="button" class="btn-pag btn-pag-num-activo">1</button>
+                        <button type="button" class="btn-pag btn-pag-num">2</button>
+                        <button type="button" class="btn-pag btn-pag-num">3</button>
+                        <button type="button" class="btn-pag">Siguiente →</button>
+                    </div>
                 </div>
             </div>
+
+            <!-- Tip / aviso informativo -->
+            <div class="asist-tip">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
+            </div>
         </div>
 
-        <!-- Tip / aviso informativo -->
-        <div class="asist-tip">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-            Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
-        </div>
+        <div class="switch-queen">
+            <!-- Cards de resumen rápido -->
+            <div class="resumen-cards">
+                <div class="rcard rcard-total">
+                    <div class="rcard-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num">11</span>
+                        <span class="rcard-label">Total atletas</span>
+                    </div>
+                </div>
+                <div class="rcard rcard-pct">
+                    <div class="rcard-icon rcard-icon-pct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-pct">63%</span>
+                        <span class="rcard-label">Asistencia hoy</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-pct"></div></div>
+                </div>
+                <div class="rcard rcard-presente">
+                    <div class="rcard-icon rcard-icon-presente">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1eaf52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-presente">7</span>
+                        <span class="rcard-label">Presentes + Inpuntuales</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-presente"></div></div>
+                </div>
+                <div class="rcard rcard-falta">
+                    <div class="rcard-icon rcard-icon-falta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-falta">4</span>
+                        <span class="rcard-label">Faltas registradas</span>
+                    </div>
+                    <div class="rcard-bar-wrap">
+                        <div class="rcard-bar rcard-bar-falta"></div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Barra de filtros y contadores -->
+            <div class="asist-controles">
+                <div class="asist-fecha">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    <span>29/04/2026</span>
+                </div>
+
+                <button type="button" class="btn-consultar" onclick="document.getElementById('modal-consultar').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="7" height="7" x="3" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="14" rx="1"/>
+                        <rect width="7" height="7" x="3" y="14" rx="1"/>
+                    </svg>
+                    Consultar asistencia
+                </button>
+
+                <div class="asist-contador contador-presente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                    <span class="num">6</span>
+                    <span class="label">Presentes</span>
+                </div>
+
+                <div class="asist-contador contador-inpuntual">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span class="num">1</span>
+                    <span class="label">Inpuntual</span>
+                </div>
+
+                <div class="asist-contador contador-falta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                    <span class="num">4</span>
+                    <span class="label">Faltas</span>
+                </div>
+            </div>
+
+            <!-- Tabla de atletas -->
+            <div class="asist-tabla-wrapper">
+                <table class="asist-tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Fernanda</td>
+                            <td>Rodrigues Rivera</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Pablo</td>
+                            <td>Martínez Soler</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Alberto</td>
+                            <td>Castro Peña</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Victoria</td>
+                            <td>Delgado Ortiz</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Eduardo</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paola Valentina</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón guardar + Paginación -->
+            <div class="asist-footer-bar">
+                <button type="button" class="btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" x2="12" y1="3" y2="15"/>
+                    </svg>
+                    Guardar asistencia
+                </button>
+                <div class="asist-paginacion asist-paginacion-footer">
+                    <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
+                    <div class="paginacion-btns">
+                        <button type="button" class="btn-pag">← Anterior</button>
+                        <button type="button" class="btn-pag btn-pag-num-activo">1</button>
+                        <button type="button" class="btn-pag btn-pag-num">2</button>
+                        <button type="button" class="btn-pag btn-pag-num">3</button>
+                        <button type="button" class="btn-pag">Siguiente →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip / aviso informativo -->
+            <div class="asist-tip">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
+            </div>
+        </div>
     </div>
 
     <!-- Modal de Asistencia registrada correctamente -->
@@ -921,4 +1320,111 @@
         </div>
     </dialog>
 </body>
+<script>
+    // Menú flotante único que se mueve al hacer click en cualquier btn-mas
+    var floatingMenu = null;
+    var activeBtn    = null;
+
+    function buildFloatingMenu() {
+        var m = document.createElement('div');
+        m.id = 'floating-dropdown';
+        m.style.cssText = [
+            'position:fixed',
+            'z-index:99999',
+            'background:#fff',
+            'border:1px solid #e5e7eb',
+            'border-radius:8px',
+            'box-shadow:0 4px 16px rgba(0,0,0,0.14)',
+            'min-width:148px',
+            'overflow:hidden',
+            'display:none'
+        ].join(';');
+
+        var items = [
+            {
+                svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+                label: 'Inpuntual'
+            },
+            {
+                svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+                label: 'Justificado'
+            }
+        ];
+
+        items.forEach(function(item) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.style.cssText = [
+                'display:flex',
+                'align-items:center',
+                'gap:10px',
+                'width:100%',
+                'padding:10px 14px',
+                'background:none',
+                'border:none',
+                'font-size:0.9rem',
+                'font-family:inherit',
+                'color:#222',
+                'cursor:pointer',
+                'text-align:left'
+            ].join(';');
+            btn.innerHTML = item.svg + item.label;
+            btn.addEventListener('mouseenter', function() { this.style.background = '#f3f4f6'; });
+            btn.addEventListener('mouseleave', function() { this.style.background = 'none'; });
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+            m.appendChild(btn);
+        });
+
+        document.body.appendChild(m);
+        return m;
+    }
+
+    function openMenu(btn) {
+        if (!floatingMenu) floatingMenu = buildFloatingMenu();
+
+        activeBtn = btn;
+        floatingMenu.style.display = 'block';
+
+        var rect   = btn.getBoundingClientRect();
+        var menuW  = floatingMenu.offsetWidth;
+        var menuH  = floatingMenu.offsetHeight;
+
+        // Aparece a la DERECHA del botón, centrado verticalmente con él
+        var top  = rect.top + (rect.height / 2) - (menuH / 2);
+        var left = rect.right + 8;
+
+        // No salir por la derecha → mostrar a la izquierda del botón
+        if (left + menuW > window.innerWidth - 8) left = rect.left - menuW - 8;
+        // No salir por arriba
+        if (top < 8) top = 8;
+        // No salir por abajo
+        if (top + menuH > window.innerHeight - 8) top = window.innerHeight - menuH - 8;
+
+        floatingMenu.style.top  = top  + 'px';
+        floatingMenu.style.left = left + 'px';
+    }
+
+    function closeMenu() {
+        if (floatingMenu) floatingMenu.style.display = 'none';
+        activeBtn = null;
+    }
+
+    document.querySelectorAll('.btn-mas').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (activeBtn === btn && floatingMenu && floatingMenu.style.display !== 'none') {
+                closeMenu();
+            } else {
+                openMenu(btn);
+            }
+        });
+    });
+
+    document.addEventListener('click', closeMenu);
+    window.addEventListener('scroll', closeMenu, true);
+    window.addEventListener('resize', closeMenu);
+</script>
 </html>
