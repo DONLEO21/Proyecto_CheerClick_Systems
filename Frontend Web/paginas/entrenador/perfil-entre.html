@@ -168,6 +168,35 @@
                                 <label for="telefono">Teléfono</label>
                                 <input type="tel" id="telefono" name="telefono" value="322 862 8212" disabled>
                             </div>
+                            <div class="form-grupo">
+                                <label for="eps-nombre">Nombre de EPS</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="none"/></svg>
+                                     <select id="eps-nombre" name="eps-nombre" disabled>
+                                        <option value="">Selecciona...</option>
+                                        <option value="compensar">Compensar</option>
+                                        <option value="coomeva">Coomeva</option>
+                                        <option value="famisanar">Famisanar</option>
+                                        <option value="nuevaeps" selected>Nueva EPS</option>
+                                        <option value="salud-total">Salud Total</option>
+                                        <option value="sanitas">Sanitas</option>
+                                        <option value="sura">SURA</option>
+                                        <option value="otra">Otra</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label>Certificado de EPS</label>
+                                <div class="campo-archivo-visualizacion">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                    <span class="nombre-archivo" id="nombre-archivo-eps">certificado-nueva-eps.pdf</span>
+                                    <label class="boton-archivo--perfil oculto" id="btn-cambiar-archivo" for="eps-certificado-perfil">
+                                        Cambiar archivo
+                                        <input type="file" id="eps-certificado-perfil" accept=".pdf,.jpg,.jpeg,.png" style="display:none;" onchange="actualizarNombreArchivo(this)"/>
+                                    </label>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -207,10 +236,10 @@
                                 <label for="tipo-parentesco">Parentesco</label>
                                 
                                 <select name="parentesco" id="tipo-parentesco" required disabled>
-                                    <option value="" disabled selected>Seleccionar parentesco...</option>
+                                    <option value="" disabled>Seleccionar parentesco...</option>
                                     <option value="madre-padre">Madre / Padre</option>
                                     <option value="tutor">Tutor</option>
-                                    <option value="conyuge-pareja">Cónyuge / Pareja</option>
+                                    <option value="conyuge-pareja" selected>Cónyuge / Pareja</option>
                                     <option value="otro">Otro</option>
                                 </select>
                             </div>

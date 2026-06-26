@@ -21,17 +21,13 @@
         <ul class="sidebar-menu">
             <li class="active">
                 <a href="/paginas/administrador/perfil-admin.html" title="Perfil" id="perfil-icon">
-                    <img src="/img/iconos/perfil.png" alt="Perfil usuario">
+                    <img src="/img/iconos/usuario.png" alt="Perfil usuario">
                 </a>
             </li>
+            
             <li>
-                <a href="#" title="Registro asistencia">
-                    <img src="/img/iconos/asistencia.png" alt="Registro asistencia">
-                </a>
-            </li>
-            <li>
-                <a href="/paginas/administrador/cuentas.html" title="Estado de cuentas">
-                    <img src="/img/iconos/usuarios.png" alt="Estado de cuentas">
+                <a href="/paginas/administrador/cuentas.html" title="Cuentas Usuarios">
+                    <img src="/img/iconos/usuarios.png" alt="Cuentas de usuarios">
                 </a>
             </li>
             <li>
@@ -55,11 +51,17 @@
                 </a>
             </li>
             <li>
+                <a href="#" title="Registro de asistencia">
+                    <img src="/img/iconos/asistencia.png" alt="Registro asistencia">
+                </a>
+            </li>
+            <li>
                 <a href="#" title="Rendimiento">
                     <img src="/img/iconos/estadistica-barras.png" alt="Rendimiento">
                 </a>
             </li>
         </ul>
+
     </div>
 
     <!-- barra superior -->
@@ -194,7 +196,7 @@
                                 <label for="eps-nombre">Nombre de EPS</label>
                                 <div class="campo-con-icono">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="none"/></svg>
-                                    <select id="eps-nombre" name="eps-nombre" disabled>
+                                      <select id="eps-nombre" name="eps-nombre" disabled>
                                         <option value="">Selecciona...</option>
                                         <option value="compensar">Compensar</option>
                                         <option value="coomeva">Coomeva</option>
@@ -204,7 +206,6 @@
                                         <option value="sanitas" selected>Sanitas</option>
                                         <option value="sura">SURA</option>
                                         <option value="otra">Otra</option>
-                                        <option value="no-decir">Prefiero no decir</option>
                                     </select>
                                 </div>
                             </div>
