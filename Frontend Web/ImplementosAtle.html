@@ -1,103 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implementos Deportivos</title>
+    <title>Implementos Deportivos – CheerClick Systems</title>
     <link rel="stylesheet" href="css/stylesAdmi.css">
     <link rel="stylesheet" href="css/stylesAtle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- BARRA 2 - Lateral izquierda -->
-    <div class="Barra2">
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        <ul class="sidebar-menu">
-            <li>
-                <a href="#" title="Horarios">
-                    <img src="img/calendario.png" alt="Calendario">
-                </a>
-            </li>
 
-            <li>
-                <a href="#" title="Estado de cuentas">
-                    <img src="img/grafico-circular.png" alt="">
-                </a>
-            </li>
-
-            <li>
-                <a href="#" title="PQRS">
-                    <img src="img/comentarios.png" alt="">
-                </a>
-            </li>
-
-            <!-- IMPLEMENTOS ACTIVO -->
-            <li class="active">
-                <a href="#" title="Implementos">
-                    <img src="img/Camisa.png" alt="">
-                </a>
-            </li>
-
-        </ul>
-    </div>
-
-    <!-- BARRA 1 - Superior -->
-    <header class="Barra1-contenedor">
+    <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
         <nav>
-            <div class="contenedor">
-                <div class="Barra1">
-                    <ul class="nav-btns">
-                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
-                        <li><span class="admin-btn">Atleta</span></li>
-                    </ul>
-                    <div id="Logo">
-                        <a href="#" class="icon-link">
-                            <img src="img/campana-de-notificacion.png" alt="">
-                        </a>
-                        <a href="#" class="icon-link">
-                            <img src="img/casa.png" alt="">
-                        </a>
-                        <div class="logo-club">
-                            <img src="img/logo_transparent.png" alt="Logo del club">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ul class="menu-lateral" role="list">
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-atleta.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Estado de cuentas">
+                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="PQRSAtleta.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="rendimientoAtle.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
+                    </a>
+                </li>
+            </ul>
         </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor">
+            <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
+                <ul class="encabezado__lista-botones" role="list">
+                    <li><a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a></li>
+                    <li><span class="etiqueta-rol" aria-label="Rol: Atleta">Atleta</span></li>
+                </ul>
+            </nav>
+            <div class="encabezado__iconos-logo">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <img src="img/campana-de-notificacion.png" alt="Notificaciones">
+                </a>
+                <a href="dashboardAtleta.html" class="icono-accion" aria-label="Ir al inicio">
+                    <img src="img/casa.png" alt="Inicio">
+                </a>
+                <figure class="logo-club">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+        </div>
     </header>
 
-    <!-- Inicio de Vista de los Atletas -->
-    <div class="contenido-principal">       
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="contenido-principal">
+
         <h1>Implementos Deportivos</h1>
-        <p>Solicite sus productos y reclama en el club.</p>
-        <input type="radio" id="switch-lista" name="pestanas" checked style="display: none;">
-        <input type="radio" id="switch-solicitudes" name="pestanas" style="display: none;">
+        <p>Solicite sus productos y reclámelos en el club.</p>
 
-        <div class="contenedor-informacion">
+        <!-- Radios de pestañas (ocultos) -->
+        <input type="radio" id="switch-lista"       name="pestanas" checked style="display:none;">
+        <input type="radio" id="switch-solicitudes" name="pestanas"         style="display:none;">
+
+        <!-- Banner informativo -->
+        <div class="contenedor-informacion" role="note">
             <img src="img/boton-de-informacion.png" alt="Información" class="icono-informacion">
-            <p class="texto-informacion">Todos los pedidos se reclaman en el club.</p>
+            <p class="texto-informacion">Todos los pedidos se reclaman presencialmente en el club.</p>
         </div>
 
-        <div class="tabla-contenido">
-            <label for="switch-lista" class="tab-btn btn-deportivos">Catalogo de Implementos Deportivos</label>
-            <label for="switch-solicitudes" class="tab-btn btn-solicitudes">Ver mis Solicitudes</label>
+        <!-- Pestañas de navegación -->
+        <div class="tabla-contenido" role="tablist">
+            <label for="switch-lista"       class="tab-btn btn-deportivos"  role="tab">Catálogo de Implementos</label>
+            <label for="switch-solicitudes" class="tab-btn btn-solicitudes" role="tab">Mis Solicitudes</label>
         </div>
 
-        <!-- Catalogo de Implementos -->
-        <div class="seccion-catalogo">
+        <!-- SECCIÓN 1 — CATÁLOGO-->
+        <section class="seccion-catalogo" aria-label="Catálogo de implementos deportivos">
+
+            <!-- Barra de filtros -->
             <div class="barra-filtros-modulo">
                 <div class="filtro-buscar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="m21 21-4.34-4.34"/>
                         <circle cx="11" cy="11" r="8"/>
                     </svg>
-                    <input type="text" id="buscar-producto" placeholder="Buscar producto...">  
+                    <input type="text" id="buscar-producto" placeholder="Buscar producto…" aria-label="Buscar producto">
                 </div>
-
                 <div class="filtro-selectores">
                     <div class="grupo-filtro-item">
                         <label for="filtro-genero">Género:</label>
@@ -107,9 +121,8 @@
                             <option value="masculino">Masculino</option>
                         </select>
                     </div>
-
                     <div class="grupo-filtro-item">
-                        <label for="filtro-categorias">Categorías:</label>
+                        <label for="filtro-categorias">Categoría:</label>
                         <select id="filtro-categorias">
                             <option value="todos">Todos</option>
                             <option value="ropa-deportiva">Ropa Deportiva</option>
@@ -119,265 +132,306 @@
                 </div>
             </div>
 
-            <h3 class="subtitulo-seccion">Catálogo de Productos</h3>
-            <div class="grid-productos">
-                <div class="tarjeta-producto">
+            <!-- Grid de productos -->
+            <h2 class="subtitulo-seccion">Catálogo de Productos</h2>
+            <div class="grid-productos entrada-escalonada">
+
+                <!-- Zapatillas -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                    <img src="img/Zapatillas.jpeg" alt="Zapatillas Cheer">
+                        <img src="img/Zapatillas.jpeg" alt="Zapatillas BTC">
                     </div>
                     <div class="producto-info">
-                        <h4>Zapatillas BTC</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+                        <h3>Zapatillas BTC</h3>
+                        <div class="calificacion" aria-label="Calificación: 4 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-regular fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(30)</span>
                         </div>
-                        <p class="precio">$50.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <p class="precio">$100.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-producto">
+                <!-- Bolso -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                        <img src="img/Bolso.jpeg" alt="Bolso Blood Tigers">
+                        <img src="img/Bolso.jpeg" alt="Bolso BTC">
                     </div>
                     <div class="producto-info">
-                        <h4>Bolso BTC</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <h3>Bolso BTC</h3>
+                        <div class="calificacion" aria-label="Calificación: 3 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-regular fa-star" aria-hidden="true"></i>
+                            <i class="fa-regular fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(5)</span>
                         </div>
-                        <p class="precio">$70.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <p class="precio">$100.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-producto">
+                <!-- Uniforme Femenino -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                        <img src="img/Uniforme Femenino.jpeg" alt="Uniiforme Fem">
+                        <img src="img/Uniforme Femenino.jpeg" alt="Uniforme de competencia Femenino">
                     </div>
                     <div class="producto-info">
-                        <h4>Uniforme de competencia Femenino</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <h3>Uniforme de competencia Femenino</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(15)</span>
                         </div>
                         <p class="precio">$350.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-producto">
+                <!-- Uniforme Masculino -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                        <img src="img/Uniforme Masculino.jpeg" alt="Uniforme Mas">
+                        <img src="img/Uniforme Masculino.jpeg" alt="Uniforme de competencia Masculino">
                     </div>
                     <div class="producto-info">
-                        <h4>Uniforme de competencia Masculino</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <h3>Uniforme de competencia Masculino</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(23)</span>
                         </div>
                         <p class="precio">$350.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-producto">
+                <!-- Moños -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                        <img src="img/Moño.jpeg" alt="Moño">
+                        <img src="img/Moño.jpeg" alt="Moños BTC">
                     </div>
                     <div class="producto-info">
-                        <h4>Moños BTC</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <h3>Moños BTC</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(9)</span>
                         </div>
-                        <p class="precio">$10.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <p class="precio">$25.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-producto">
+                <!-- Pantaloneta -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                        <img src="img/Pantaloneta Mas.jpeg" alt="Pantalonesta Mas">
+                        <img src="img/Pantaloneta Mas.jpeg" alt="Pantaloneta de Entrenamiento">
                     </div>
                     <div class="producto-info">
-                        <h4>Pantaloneta de Entrenamiento</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <h3>Pantaloneta de Entrenamiento</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(5)</span>
                         </div>
                         <p class="precio">$50.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-producto">
+                <!-- Short Femenino -->
+                <article class="tarjeta-producto">
                     <div class="producto-imagen">
-                        <img src="img/Pantaloneta.jpeg" alt="Short Feme">
+                        <img src="img/Pantaloneta.jpeg" alt="Short de Entrenamiento">
                     </div>
                     <div class="producto-info">
-                        <h4>Short de Entrenamiento</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span class="conteo-resenas">(5)</span>
-                        </div>
-                        <p class="precio">$50.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
-                    </div>
-                </div>
-
-                <div class="tarjeta-producto">
-                    <div class="producto-imagen">
-                        <img src="img/Esqueleto Fem.jpeg" alt="Esqueleto Fem">
-                    </div>
-                    <div class="producto-info">
-                        <h4>Esqueleto Femenino</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span class="conteo-resenas">(5)</span>
-                        </div>
-                        <p class="precio">$50.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
-                    </div>
-                </div>
-
-                <div class="tarjeta-producto">
-                    <div class="producto-imagen">
-                        <img src="img/Esqueleto.jpeg" alt="Esqueleto Mas ">
-                    </div>
-                    <div class="producto-info">
-                        <h4>Esqueleto Masculino</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span class="conteo-resenas">(5)</span>
-                        </div>
-                        <p class="precio">$50.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
-                    </div>
-                </div>
-
-                <div class="tarjeta-producto">
-                    <div class="producto-imagen">
-                        <img src="img/Sudadera.jpeg" alt="Saco">
-                    </div>
-                    <div class="producto-info">
-                        <h4>Buso BTC</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span class="conteo-resenas">(5)</span>
-                        </div>
-                        <p class="precio">$50.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
-                    </div>
-                </div>
-
-                <div class="tarjeta-producto">
-                    <div class="producto-imagen">
-                        <img src="img/Camiseta.jpeg" alt="Camiseta">
-                    </div>
-                    <div class="producto-info">
-                        <h4>Camiseta BTC</h4>
-                        <div class="calificacion">
-                            <i class="fa-solid fa-star"></i> 
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <h3>Short de Entrenamiento</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                             <span class="conteo-resenas">(5)</span>
                         </div>
                         <p class="precio">$40.000</p>
-                        <button class="btn-solicitar" onclick="abrirModal()">Solicitar pedido</button>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
                     </div>
-                </div>
+                </article>
+
+                <!-- Esqueleto Femenino -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Esqueleto Fem.jpeg" alt="Esqueleto Femenino">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Esqueleto Femenino</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
+                        <p class="precio">$40.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
+                    </div>
+                </article>
+
+                <!-- Top Femenino -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Esqueleto Fem.jpeg" alt="Esqueleto Femenino">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Top Femenino</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
+                        <p class="precio">$40.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
+                    </div>
+                </article>
+
+                <!-- Esqueleto Masculino -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Esqueleto.jpeg" alt="Esqueleto Masculino">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Esqueleto Masculino</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
+                        <p class="precio">$50.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
+                    </div>
+                </article>
+
+                <!-- Buso -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Sudadera.jpeg" alt="Buso BTC">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Buso BTC</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
+                        <p class="precio">$130.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
+                    </div>
+                </article>
+
+                <!-- Camiseta -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen">
+                        <img src="img/Camiseta.jpeg" alt="Camiseta BTC">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Camiseta BTC</h3>
+                        <div class="calificacion" aria-label="Calificación: 5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <span class="conteo-resenas">(5)</span>
+                        </div>
+                        <p class="precio">$50.000</p>
+                        <button class="btn-solicitar" onclick="abrirModal()" type="button">Solicitar pedido</button>
+                    </div>
+                </article>
+
             </div>
 
-            <!-- Comentarios de la Comunidad -->
+            <!-- Opiniones de la Comunidad -->
             <div class="seccion-comentarios-comunidad">
-                <h3 class="subtitulo-seccion">Opiniones de la Comunidad</h3>
+                <h2 class="subtitulo-seccion">Opiniones de la Comunidad</h2>
                 <div class="contenedor-comentarios">
+
                     <div class="bloque-comentario">
                         <div class="comentario-meta">
                             <span class="nombre-usuario">Mariana Vélez</span>
-                            <div class="estrellas-opinion">
-                                <i class="fa-solid fa-star"></i> 
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                            <div class="estrellas-opinion" aria-label="5 estrellas">
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <p class="comentario-texto">Las zapatillas son súper cómodas y tienen excelente agarre para las bases.</p>
                     </div>
-                    
+
                     <div class="bloque-comentario">
                         <div class="comentario-meta">
                             <span class="nombre-usuario">Carlos Mendoza</span>
-                            <div class="estrellas-opinion">
-                                <i class="fa-solid fa-star"></i> 
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                            <div class="estrellas-opinion" aria-label="4 estrellas">
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-regular fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <p class="comentario-texto">El bolso es muy práctico y tiene buen material. Me gustaría que tuvieran más colores disponibles.</p>
                     </div>
+
                 </div>
             </div>
-        </div>
 
-        <!-- Sección de Solicitudes -->
-        <div class="seccion-solicitudes">
+        </section>
+
+
+        <!-- SECCIÓN 2 — MIS SOLICITUDES -->
+        <section class="seccion-solicitudes" aria-label="Mis solicitudes de implementos">
+
+            <!-- Barra de filtros -->
             <div class="barra-filtros-modulo">
                 <div class="filtro-buscar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="m21 21-4.34-4.34"/>
                         <circle cx="11" cy="11" r="8"/>
                     </svg>
-                    <input type="text" id="buscar-solicitud" placeholder="Buscar solicitud...">
+                    <input type="text" id="buscar-solicitud" placeholder="Buscar solicitud…" aria-label="Buscar solicitud">
                 </div>
-
-                <div class="grupo-filtro-item">
+                <div class="filtro-selectores">
                     <div class="grupo-filtro-item">
                         <label for="filtro-estado">Estado:</label>
                         <select id="filtro-estado">
@@ -386,214 +440,359 @@
                             <option value="listo">Listo</option>
                         </select>
                     </div>
-
                     <div class="grupo-filtro-item">
                         <label for="filtro-fecha">Fecha:</label>
                         <select id="filtro-fecha">
                             <option value="todos">Todos</option>
-                            <option value="mas-recientes">Más Recientes</option>
-                            <option value="menos-recientes">Menos Recientes</option>
+                            <option value="mas-recientes">Más recientes</option>
+                            <option value="menos-recientes">Menos recientes</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <div class="encabezado-solicitudes">
-                <h3 class="subtitulo-seccion">Mis Productos Solicitados</h3>
-            </div>
+            <h2 class="subtitulo-seccion">Mis Productos Solicitados</h2>
 
             <div class="lista-solicitudes">
-                <div class="tarjeta-solicitud">
+
+                <!-- Solicitud 1 — Zapatillas (pendiente) -->
+                <article class="tarjeta-solicitud">
                     <div class="solicitud-cuerpo">
-                        <img src="img/Zapatillas.jpeg" alt="Zapatillas" class="img-solicitud">
+                        <img src="img/Zapatillas.jpeg" alt="Zapatillas BTC" class="img-solicitud">
                         <div class="solicitud-detalles">
-                            <h4>Zapatillas BTC</h4>
+                            <h3>Zapatillas BTC</h3>
                             <p class="cantidad-solicitada">1 unidad</p>
-                            <p class="precio-solicitado">$50.000</p>
-                            <p class="pago-metodo"> Pago presencial</p>
+                            <p class="precio-solicitado">$100.000</p>
+                            <p class="pago-metodo">Pago presencial</p>
                         </div>
                         <div class="solicitud-acciones">
                             <span class="estado-tag estado-pendiente">Pendiente</span>
-                            <button class="btn-cancelar-pedido" onclick="abrirModalCancelar()">Cancelar</button>
+                            <button class="btn-cancelar-pedido" onclick="abrirModalCancelar()" type="button">Cancelar</button>
                         </div>
                     </div>
-                    <div class="solicitud-comentario-usuario">
-                        <label>Añadir o editar comentario sobre este pedido:</label>
-                        <input type="text" placeholder="Escribe una instrucción o nota sobre tu pedido...">
-                    </div>
-                </div>
+                </article>
 
-                <div class="tarjeta-solicitud">
+                <!-- Solicitud 2 — Uniforme Femenino (pendiente) -->
+                <article class="tarjeta-solicitud">
                     <div class="solicitud-cuerpo">
-                        <img src="img/Uniforme Femenino.jpeg" alt="Uniforme" class="img-solicitud">
+                        <img src="img/Uniforme Femenino.jpeg" alt="Uniforme de Competencia Femenino" class="img-solicitud">
                         <div class="solicitud-detalles">
-                            <h4>Uniforme de Competencia Femenino</h4>
+                            <h3>Uniforme de Competencia Femenino</h3>
                             <p class="cantidad-solicitada">1 unidad</p>
                             <p class="precio-solicitado">$350.000</p>
-                            <p class="pago-metodo"> Pago presencial</p>
+                            <p class="pago-metodo">Pago presencial</p>
                         </div>
                         <div class="solicitud-acciones">
                             <span class="estado-tag estado-pendiente">Pendiente</span>
-                            <button class="btn-cancelar-pedido" onclick="abrirModalCancelar()">Cancelar</button>
+                            <button class="btn-cancelar-pedido" onclick="abrirModalCancelar()" type="button">Cancelar</button>
                         </div>
                     </div>
-                    <div class="solicitud-comentario-usuario">
-                        <label>Añadir o editar comentario sobre este pedido:</label>
-                        <input type="text" placeholder="Escribe una instrucción o nota sobre tu pedido...">
+                </article>
+
+                <!-- Solicitud 3 — Bolso (listo para entregar) -->
+                <article class="tarjeta-solicitud">
+                    <input type="checkbox" id="recibido-1" class="check-recibido">
+
+                    <div class="solicitud-cuerpo">
+                        <img src="img/Bolso.jpeg" alt="Bolso BTC" class="img-solicitud">
+                        <div class="solicitud-detalles">
+                            <h3>Bolso BTC</h3>
+                            <p class="cantidad-solicitada">2 unidades</p>
+                            <p class="precio-solicitado">$200.000</p>
+                            <p class="pago-metodo">Recibo de Nequi cargado</p>
+                        </div>
+                        <div class="solicitud-acciones">
+                            <span class="estado-tag estado-listo">Listo para entregar</span>
+                            <label for="recibido-1" class="label-marcar-recibido">Marcar como recibido</label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="tarjeta-solicitud">
-                    <div class="tarjeta-solicitud">
-            
-                        <input type="checkbox" id="recibido-1" class="check-recibido">
-
-                        <div class="solicitud-cuerpo">
-                            <img src="img/Bolso.jpeg" alt="Mochila" class="img-solicitud">
-                            <div class="solicitud-detalles">
-                                <h4>Bolso BTC</h4>
-                                <p class="cantidad-solicitada">2 unidades</p>
-                                <p class="precio-solicitado">$140.000</p>
-                                <p class="pago-metodo">Recibo de Nequi cargado</p>
-                            </div>
-                            <div class="solicitud-acciones">
-                                <span class="estado-tag estado-listo">Listo para entregar</span>
-                                <label for="recibido-1" class="label-marcar-recibido">Marcar como recibido</label>
-                            </div>
+                    <div class="seccion-comentario-recibido">
+                        <label>Deja una reseña (opcional):</label>
+                        <div class="estrellas-rating" role="group" aria-label="Calificación del producto">
+                            <input type="radio" id="star5-1" name="rating-1" value="5">
+                            <label for="star5-1" title="5 estrellas">★</label>
+                            <input type="radio" id="star4-1" name="rating-1" value="4">
+                            <label for="star4-1" title="4 estrellas">★</label>
+                            <input type="radio" id="star3-1" name="rating-1" value="3">
+                            <label for="star3-1" title="3 estrellas">★</label>
+                            <input type="radio" id="star2-1" name="rating-1" value="2">
+                            <label for="star2-1" title="2 estrellas">★</label>
+                            <input type="radio" id="star1-1" name="rating-1" value="1">
+                            <label for="star1-1" title="1 estrella">★</label>
                         </div>
-
-                        <div class="solicitud-comentario-usuario">
-                            <label>Añadir o editar comentario sobre este pedido:</label>
-                            <input type="text" value="Pasa mi compañera de equipo a recogerlo hoy por la tarde.">
-                        </div>
-
-                        <div class="seccion-comentario-recibido">
-                            <label>Deja una reseña (opcional):</label>
-
-                            <div class="estrellas-rating">
-                                <input type="radio" id="star5-1" name="rating-1" value="5">
-                                <label for="star5-1">★</label>
-                                <input type="radio" id="star4-1" name="rating-1" value="4">
-                                <label for="star4-1">★</label>
-                                <input type="radio" id="star3-1" name="rating-1" value="3">
-                                <label for="star3-1">★</label>
-                                <input type="radio" id="star2-1" name="rating-1" value="2">
-                                <label for="star2-1">★</label>
-                                <input type="radio" id="star1-1" name="rating-1" value="1">
-                                <label for="star1-1">★</label>
-                            </div>
-
-                        <textarea id="comentario-recibido-1" placeholder="Ej: El producto llegó en perfectas condiciones..."></textarea>
+                        <textarea id="comentario-recibido-1" placeholder="Ej: El producto llegó en perfectas condiciones…"></textarea>
                         <button type="button" class="btn-enviar-comentario">Enviar reseña</button>
                     </div>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!--  MODAL — SOLICITAR PEDIDO -->
+    <dialog id="modalDialog" class="modal" aria-labelledby="modal-titulo-pedido">
+
+        <!-- Cabecera -->
+        <div class="modal-header">
+            <div class="modal-header-icono" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </div>
+            <h3 id="modal-titulo-pedido" class="modal-titulo">Solicitar Pedido</h3>
+            <button class="btn-cerrar-modal" onclick="cerrarModal()" type="button" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Cuerpo -->
+        <div class="modal-body">
+
+            <!-- Tarjeta del producto -->
+            <div class="modal-tarjeta-producto">
+                <img class="modal-tarjeta-img" src="img/Zapatillas.jpeg" alt="Producto">
+                <div class="modal-tarjeta-info">
+                    <span class="modal-tarjeta-badge">Implemento Deportivo</span>
+                    <p class="modal-tarjeta-nombre" id="modal-nombre-producto">Zapatillas BTC</p>
+                    <div class="calificacion" aria-label="Calificación: 4 de 5 estrellas">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-regular fa-star" aria-hidden="true"></i>
+                        <span class="conteo-resenas">(30)</span>
+                    </div>
+                    <p class="modal-tarjeta-precio" id="modal-precio-unitario">$100.000</p>
                 </div>
             </div>
-        </div>
 
-        </div>
-    </div>
+            <form class="formulario-pedido" onsubmit="event.preventDefault(); cerrarModal();">
 
-    <!-- Modal de solicitud -->
-    <dialog id="modalDialog" class="modal">
-        <div id="modalPedido" class="modal-fondo"> 
-            <div class="modal-contenedor">
-                <button class="btn-cerrar-modal" onclick="cerrarModal()">&times;</button>
-                <h3>Solicitar Pedido</h3>
-                    
-                <div class="modal-producto-resumen">
-                    <img src="img/Zapatillas.jpeg" alt="Zapatillas">
-                    <div>
-                        <h4>Zapatillas BTC</h4>
-                        <div class="calificacion">⭐⭐⭐⭐★ (30)</div>
-                        <p class="pago-etiqueta"> Pago presencial / Nequi</p>
-                    </div>
-                </div>
-
-                <form class="formulario-pedido" onsubmit="event.preventDefault(); cerrarModal();">
+                <!-- Detalles del pedido -->
+                <div class="form-section">
+                    <p class="form-section-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                            <line x1="7" y1="7" x2="7.01" y2="7"/>
+                        </svg>
+                        Detalles del pedido
+                    </p>
                     <div class="fila-formulario">
                         <div class="campo-formulario c-corto">
                             <label for="cantidad">Cantidad</label>
-                            <div class="control-cantidad">
-                                <input type="number" id="cantidad" value="1" min="1">
+                            <div class="control-cantidad" role="group" aria-label="Seleccionar cantidad">
+                                <button type="button" aria-label="Restar uno" onclick="cambiarCantidad(-1)">−</button>
+                                <input type="number" id="cantidad" value="1" min="1" max="99"
+                                    aria-label="Cantidad" onchange="actualizarTotal()">
+                                <button type="button" aria-label="Sumar uno" onclick="cambiarCantidad(1)">+</button>
                             </div>
                         </div>
-                        <div class="campo-formulario">
+                        <div class="campo-formulario" style="flex:1">
                             <label for="talla">Talla</label>
-                            <input type="text" id="talla" placeholder="Ej: 38">
+                            <input type="text" id="talla" placeholder="Ej: 38, M, XL…" autocomplete="off">
                         </div>
                     </div>
+                </div>
 
-                    <div class="campo-formulario">
-                        <label>Método de Pago</label>
-                        <div class="opciones-pago">
-                            <label><input type="radio" name="metodo_pago" value="presencial" checked> Pago presencial al reclamar</label>
-                            <label><input type="radio" name="metodo_pago" value="nequi"> Transferencia Nequi</label>
+                <!-- Método de pago -->
+                <div class="form-section">
+                    <p class="form-section-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        Método de Pago
+                    </p>
+                    <div class="opciones-pago-tarjetas">
+                        <input type="radio" name="metodo-pago" id="pago-presencial" value="presencial" checked>
+                        <label for="pago-presencial" class="tarjeta-pago-label">
+                            <div class="pago-check"></div>
+                            <div class="pago-icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
+                            <span class="pago-titulo">Pago presencial</span>
+                            <span class="pago-subtitulo">Al recoger en el club</span>
+                        </label>
+
+                        <input type="radio" name="metodo-pago" id="pago-nequi" value="nequi">
+                        <label for="pago-nequi" class="tarjeta-pago-label">
+                            <div class="pago-check"></div>
+                            <div class="pago-icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                                </svg>
+                            </div>
+                            <span class="pago-titulo">Transferencia Nequi</span>
+                            <span class="pago-subtitulo">Sube tu comprobante</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Comprobante -->
+                <div class="form-section">
+                    <p class="form-section-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        Comprobante <span class="label-opcional">— opcional</span>
+                    </p>
+                    <label for="recibo-nequi" class="zona-upload" id="zona-drop">
+                        <div class="zona-upload-icono" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 16 12 12 8 16"/>
+                                <line x1="12" y1="12" x2="12" y2="21"/>
+                                <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+                            </svg>
                         </div>
-                    </div>
+                        <p class="zona-upload-texto">Haz clic para subir el comprobante</p>
+                        <span class="zona-upload-hint">PNG, JPG o PDF · Máx. 5 MB</span>
+                        <span class="zona-upload-nombre" id="nombre-archivo">Ningún archivo seleccionado</span>
+                    </label>
+                    <input type="file" id="recibo-nequi" accept="image/*,.pdf"
+                        style="display:none" onchange="mostrarNombreArchivo(this)">
+                </div>
 
-                    <div class="campo-formulario file-wrapper">
-                        <label for="recibo-nequi" class="label-archivo">Subir comprobante de Nequi (Opcional)</label>
-                        <input type="file" id="recibo-nequi" accept="image/*,.pdf">
+                <!-- Resumen de precio -->
+                <div class="modal-resumen-precio">
+                    <div class="resumen-fila">
+                        <span class="resumen-label">Precio unitario</span>
+                        <span class="resumen-valor" id="resumen-unitario">$100.000</span>
                     </div>
-
-                    <div class="campo-formulario">
-                        <label for="comentario-pedido">Comentario (opcional)</label>
-                        <textarea id="comentario-pedido" rows="2" placeholder="Ej. Necesito el uniforme para el próximo torneo"></textarea>
+                    <div class="resumen-fila">
+                        <span class="resumen-label">Cantidad</span>
+                        <span class="resumen-valor" id="resumen-cantidad">× 1</span>
                     </div>
+                    <div class="resumen-divider"></div>
+                    <div class="resumen-fila resumen-total">
+                        <span>Total estimado</span>
+                        <span id="resumen-total">$100.000</span>
+                    </div>
+                </div>
 
-                    <button type="submit" class="btn-enviar-solicitud">Enviar solicitud</button>
-                </form>
-            </div>
+                <button type="submit" class="btn-enviar-solicitud">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    Enviar solicitud
+                </button>
+            </form>
         </div>
     </dialog>
 
-    <!-- Modal de cancelar solicitud -->
-    <dialog id="modalCancelarDialog" class="modal">
-        <div class="modal-fondo">
-            <div class="modal-contenedor modal-confirmacion-alerta">
-                <button class="btn-cerrar-modal" onclick="cerrarModalCancelar()">&times;</button>
-                    
-                <div class="modal-confirmar-contenido">
-                    
-                    <div class="contenedor-logo-alerta">
-                        <img src="img/peligro.png" alt="Alerta Club" class="imagen-alerta-club">
-                    </div>
+    <!-- MODAL — CANCELAR SOLICITUD-->
+    <dialog id="modalCancelarDialog" class="modal" aria-labelledby="modal-titulo-cancelar">
+        <div class="modal-confirmacion-alerta">
+            <button class="btn-cerrar-modal btn-cerrar-alerta" onclick="cerrarModalCancelar()" type="button" aria-label="Cerrar">&#x2715;</button>
 
-                    <h3>¿Está seguro de que desea cancelar este pedido?</h3>
-                    <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
-                        
-                    <div class="modal-confirmar-botones">
-                        <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()">No, mantener</button>
-                        <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()">Sí, cancelar</button>
-                    </div>
-                </div>
+            <div class="contenedor-logo-alerta">
+                <img src="img/peligro.png" alt="" class="imagen-alerta-club" aria-hidden="true">
+            </div>
+            <h2 id="modal-titulo-cancelar">¿Desea cancelar este pedido?</h2>
+            <p>Esta acción no se puede deshacer y el club liberará el producto para otros deportistas.</p>
+            <div class="modal-confirmar-botones">
+                <button class="btn-mantener-pedido" onclick="cerrarModalCancelar()" type="button">No, mantener</button>
+                <button class="btn-confirmar-cancelar" onclick="ejecutarCancelacionPedido()" type="button">Sí, cancelar</button>
             </div>
         </div>
     </dialog>
 
     <script>
+        /* ── Modal solicitar ── */
         const modalSolicitud = document.getElementById('modalDialog');
-
-        function abrirModal() { 
-            modalSolicitud.showModal(); 
+        function abrirModal() {
+            modalSolicitud.showModal();
         }
-        function cerrarModal() { 
-            modalSolicitud.close(); 
+        function cerrarModal() {
+            modalSolicitud.classList.add('cerrando');
+            modalSolicitud.addEventListener('transitionend', () => {
+                modalSolicitud.classList.remove('cerrando');
+                modalSolicitud.close();
+            }, { once: true });
         }
 
+        /* ── Modal cancelar ── */
         const modalCancelar = document.getElementById('modalCancelarDialog');
-
-        function abrirModalCancelar() { 
-            modalCancelar.showModal(); 
+        function abrirModalCancelar() {
+            modalCancelar.showModal();
         }
-
-        function cerrarModalCancelar() { 
-            modalCancelar.close(); 
+        function cerrarModalCancelar() {
+            modalCancelar.classList.add('cerrando');
+            modalCancelar.addEventListener('transitionend', () => {
+                modalCancelar.classList.remove('cerrando');
+                modalCancelar.close();
+            }, { once: true });
         }
-
         function ejecutarCancelacionPedido() {
-            alert("Pedido cancelado correctamente."); 
+            alert("Pedido cancelado correctamente.");
             cerrarModalCancelar();
+        }
+
+        /* ── Stepper cantidad ── */
+        function cambiarCantidad(delta) {
+            const input = document.getElementById('cantidad');
+            const nuevo = Math.max(1, Math.min(99, parseInt(input.value || 1) + delta));
+            input.value = nuevo;
+            actualizarTotal();
+        }
+
+        /* ── Calcular total ── */
+        function actualizarTotal() {
+            const precio = parseInt(
+                (document.getElementById('resumen-unitario').textContent || '0')
+                .replace(/\D/g, '')
+            );
+            const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
+            const total = precio * cantidad;
+            document.getElementById('resumen-cantidad').textContent = '× ' + cantidad;
+            document.getElementById('resumen-total').textContent =
+                '$' + total.toLocaleString('es-CO') + '.000'.replace(/\.000\.000/, '.000');
+        }
+
+        /* ── Nombre de archivo subido ── */
+        function mostrarNombreArchivo(input) {
+            const label = document.getElementById('nombre-archivo');
+            const zona  = document.getElementById('zona-drop');
+            if (input.files && input.files[0]) {
+                label.textContent = input.files[0].name;
+                zona.classList.add('zona-upload--activa');
+            } else {
+                label.textContent = 'Ningún archivo seleccionado';
+                zona.classList.remove('zona-upload--activa');
+            }
         }
     </script>
 
