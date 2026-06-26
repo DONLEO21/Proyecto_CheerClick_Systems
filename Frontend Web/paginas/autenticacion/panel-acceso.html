@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BTC— Panel de acceso</title>
-  <link rel="stylesheet" href="/css/paginas/panel-acceso.css" />
+  <link rel="stylesheet" href="/css/paginas/panel-acceso.css"/>
+  <link rel="icon" href="/img/logo/logo-btc.png" type="image">
 </head>
 <body>
 
@@ -144,15 +145,16 @@
       <div class="fila-dos">
         <div class="campo-grupo">
           <label class="etiqueta" for="eps-nombre">Nombre de EPS  *</label>
-          <select class="campo" id="eps-nombre">
+          <select class="campo" id="eps-nombre" name="eps-nombre" >
             <option value="">Selecciona...</option>
             <option value="compensar">Compensar</option>
-            <option value="famisanar">Famisanar</option>
+            <option value="coomeva">Coomeva</option>
+            <option value="famisanar" selected>Famisanar</option>
             <option value="nuevaeps">Nueva EPS</option>
+            <option value="salud-total">Salud Total</option>
             <option value="sanitas">Sanitas</option>
-            <option value="sura">Sura</option>
+            <option value="sura">SURA</option>
             <option value="otra">Otra</option>
-            <option value="no-decir">Prefiero no decir</option>
           </select>
         </div>
         <div class="campo-grupo">
@@ -169,6 +171,33 @@
         </label>
         <span class="nombre-archivo" id="nombre-archivo-eps">Ningún archivo seleccionado</span>
       </div>
+
+      <!-- ── DaTOS PLAN -->
+      <div class="titulo-seccion" style="margin-top: 1.4rem;">DATOS DE AFILIACIÓN</div>
+
+      <div class="fila-dos">
+        <div class="campo-grupo">
+          <label class="etiqueta" for="nivel-perteneciente">Nivel perteneciente *</label>
+          <select class="campo" id="nivel-perteneciente">
+            <option value="">Selecciona...</option>
+            <option value="formativo">Formativo</option>
+            <option value="queens">Queens</option>
+            <option value="princess">Princess</option>
+            <option value="magic">Magic</option>
+            <option value="blood-tigers">Blood Tigers</option>
+          </select>
+        </div>
+        <div class="campo-grupo">
+          <label class="etiqueta" for="plan-mensualidad">Plan de mensualidad *</label>
+          <select class="campo" id="plan-mensualidad">
+            <option value="">Selecciona...</option>
+            <option value="basico">Básico — $80.000</option>
+            <option value="white">White — $160.000</option>
+            <option value="black">Black — $220.000</option>
+          </select>
+        </div>
+      </div>
+      
 
       <div class="titulo-seccion">DATOS DE CONTACTO DE EMERGENCIA</div>
 
@@ -497,6 +526,7 @@
       const campos = [
         'nombres-personales','apellidos-personales','tipo-documento','numero-doc',
         'genero','fecha-nacimiento','eps-nombre','telefono-personal',
+        'nivel-perteneciente','plan-mensualidad',
         'emergencia-nombre','emergencia-apellido','emergencia-telefono','parentesco-tipo'
       ];
 
@@ -653,6 +683,9 @@
       mostrarPantalla('pantalla-login');
     }
 
+    else if (vista === 'pantalla-recuperar-3') {
+    mostrarPantalla('pantalla-recuperar-3');
+    }
   });
   </script>
 </body>
