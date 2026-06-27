@@ -360,7 +360,7 @@ header .contenedor{
     background: var(--gris-fondo);
 }
  
-/* .contenedor dentro de <main>: el contenedor de ancho del panel */
+/* el contenedor de ancho del panel */
 .admin-main .contenedor{
     display: flex;
     flex-direction: column;
@@ -381,7 +381,6 @@ header .contenedor{
 .bienvenida-admin h1{
     font-size: var(--texto-xl);
     line-height: 1.2;
-    
 }
  
 .bienvenida-admin__perfil{ flex-shrink: 0; }
@@ -392,14 +391,30 @@ header .contenedor{
     filter: brightness(0) invert(1);
 }
  
-/*  Grid principal de tarjetas */
+/* grid principal de tarjetas */
+/*fila 1: usuarios + pagos comparten el espacio de la columna izquierda, actividades ocupa la derecha*/
+/*fila 2: solicitudes ancha + novedades*/
 .panel-resumen{
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 0.75fr 1.3fr 1.15fr;
     gap: var(--espacio-lg);
 }
+
+/*usuarios y pagos se apilan en columna 1-2 (mismo espacio anterior de atletas)*/
+.tarjeta-dashboard--atletas{
+    grid-column: 1;
+}
+
+.tarjeta-dashboard--pagos{
+    grid-column: 2;
+}
+
+/*solicitudes ocupa columnas 1 y 2 en fila 2*/
+.tarjeta-dashboard--ancha{
+    grid-column: 1 / 3;
+}
  
-/*  Tarjeta base*/
+/* tarjeta base */
 .tarjeta-dashboard{
     display: flex;
     flex-direction: column;
@@ -422,7 +437,6 @@ header .contenedor{
 .tarjeta-dashboard__header h2{
     font-size: var(--texto-lg);
     font-weight: 700;
-    
 }
 
 .tarjeta-dashboard__header--icono {
@@ -439,20 +453,103 @@ header .contenedor{
  
 .tarjeta-dashboard__accion{
     align-self: flex-start;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+/*boton centrado para tarjeta pagos*/
+.tarjeta-dashboard__accion--centrado{
+    align-self: center;
+    width: auto;
+    min-width: 220px;
+}
+
+/*boton de ancho completo para gestionar cuentas*/
+.tarjeta-dashboard__accion--ancho{
+    width: 100%;
 }
  
 /* tarjeta ancha con scroll */
 .tarjeta-dashboard--ancha .tarjeta-dashboard__contenido{
     overflow-x: auto;
 }
+
+/* contenedor de las 3 estadisticas de usuarios (totales, activos, inactivos) */
+.lista-usuarios-stats{
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-sm);
+    flex-grow: 1;
+}
+
+/* tarjeta individual de cada estadistica de usuario */
+.stat-usuarios{
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: var(--radio-sm);
+}
+
+.stat-usuarios svg{
+    flex-shrink: 0;
+}
+
+.stat-usuarios__texto{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.stat-usuarios__numero{
+    font-size: var(--texto-lg);
+    font-weight: 700;
+}
+
+.stat-usuarios__etiqueta{
+    font-size: var(--texto-sm);
+    color: var(--texto-muted);
+}
+
+/* variante: usuarios totales (azul) */
+.stat-usuarios--total{
+    background: #e8f0fe;
+}
+
+.stat-usuarios--total svg,
+.stat-usuarios--total .stat-usuarios__numero{
+    color: #3b6fe0;
+}
+
+/* variante: usuarios activos (verde) */
+.stat-usuarios--activos{
+    background: #e6f8ee;
+}
+
+.stat-usuarios--activos svg,
+.stat-usuarios--activos .stat-usuarios__numero{
+    color: #2bb673;
+}
+
+/* variante: usuarios inactivos (rojo) */
+.stat-usuarios--inactivos{
+    background: #fdebec;
+}
+
+.stat-usuarios--inactivos svg,
+.stat-usuarios--inactivos .stat-usuarios__numero{
+    color: var(--rojo);
+}
  
-/* total atletas */
+/* contenido estadisticas (usado en tarjeta pagos) */
 .contenido-estadisticas{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--espacio-md);
+    justify-content: center;
+    gap: 48px;
     flex-wrap: wrap;
+    flex-grow: 1;
 }
  
 .estadisticas-numero{
@@ -465,20 +562,20 @@ header .contenedor{
 .leyenda-estados{
     display: flex;
     flex-direction: column;
-    gap: var(--espacio-xs);
-    font-size: var(--texto-sm);
+    gap: var(--espacio-lg);
+    font-size: var(--texto-md);
 }
  
 .leyenda-estados li{
     display: flex;
     align-items: center;
-    gap: var(--espacio-xs);
+    gap: var(--espacio-sm);
     line-height: var(--espacio-md);
 }
  
 .punto{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: inline-block;
     flex-shrink: 0;
@@ -489,62 +586,75 @@ header .contenedor{
 .punto--vencido{ background: var(--gris-oscuro); }
  
 .grafico-estados{
-    width: 110px;
-    height: 110px;
+    width: 230px;
+    height: 230px;
     flex-shrink: 0;
 }
  
 .grafico-estados img{
     width: 100%;
-    
     height: 100%;
     object-fit: contain;
 }
  
-/* proximas actividades / novedades*/
+/* proximas actividades y novedades */
 .lista-actividades,
 .lista-novedades{
-    display:flex;
-    flex-direction:column;
-    gap:var(--espacio-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
 }
 
 .lista-actividades__item,
 .lista-novedades__item{
-    display:flex;
-    align-items:flex-start;
-    gap:var(--espacio-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-sm);
+}
+
+/*alineacion icono con texto*/
+.lista-actividades__item a,
+.lista-novedades__item a{
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
 }
 
 .lista-actividades__icono,
 .lista-novedades__icono{
-    width:36px;
-    height:36px;
-    flex-shrink:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-    background:rgb(255, 181, 97);
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgb(255, 181, 97);
 }
 
 .lista-novedades__icono{
     background-color: #ffe572;
 }
 
+.lista-actividades__icono--amarillo{
+    background: var(--amarillo);
+}
+
+.lista-actividades__icono--alerta{
+    background: #ff7f7f;
+}
+
 .lista-actividades h3,
 .lista-novedades h3{
-    font-size: var(--texto-md)
+    font-size: var(--texto-md);
 }
 
 .lista-actividades p,
 .lista-novedades p{
-    font-size: var(--texto-md)
+    font-size: var(--texto-md);
 }
 
-/* solicitudes pendientes*/
+/* solicitudes pendientes */
 .buscador{
     display: flex;
     align-items: center;
@@ -554,12 +664,6 @@ header .contenedor{
     background: var(--gris-fondo);
     border: 1px solid var(--gris-borde);
     border-radius: var(--radio-sm);
-}
- 
-.buscador__icono{
-    color: var(--texto-muted);
-    font-size: var(--texto-md);
-    line-height: 1;
 }
  
 .buscador input{
@@ -615,13 +719,25 @@ header .contenedor{
 .btn-tabla--ver{ background: var(--rojo); }
 
 .btn-tabla--aceptar{ background: var(--verde); }
+ 
+/* responsive */
+@media (max-width: 1100px){
+    .panel-resumen{
+        grid-template-columns: 1fr 1fr;
+    }
+    .tarjeta-dashboard--ancha{
+        grid-column: 1 / 3;
+    }
+}
 
- 
- 
-/*responsive*/
-@media (max-width: 900px){
+@media (max-width: 700px){
     .panel-resumen{
         grid-template-columns: 1fr;
+    }
+    .tarjeta-dashboard--atletas,
+    .tarjeta-dashboard--pagos,
+    .tarjeta-dashboard--ancha{
+        grid-column: 1;
     }
 }
  
