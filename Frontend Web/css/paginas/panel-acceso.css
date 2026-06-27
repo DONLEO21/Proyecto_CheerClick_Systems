@@ -472,20 +472,14 @@ input[type="date"].campo { cursor: pointer; }
   line-height: 1.55;
 }
 
-/* icono de exito para contraseña actualizada */
-.icono-exito {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg,#22a85a,#18803f);
-  color: #fff;
-  font-size: 28px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.2rem auto 0.8rem;
-  box-shadow: 0 4px 16px rgba(34,168,90,.35);
+/* icono de exito para contraseña actualizada*/
+.icono-exito-img {
+  width: 84px;
+  height: 84px;
+  display: block;
+  margin: -8px auto 0.9rem;
 }
+
 .titulo-exito {
   text-align: center;
   font-size: 20px;
