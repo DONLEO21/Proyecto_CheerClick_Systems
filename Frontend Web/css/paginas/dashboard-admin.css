@@ -398,11 +398,13 @@ header .contenedor{
     display: grid;
     grid-template-columns: 0.75fr 1.3fr 1.15fr;
     gap: var(--espacio-lg);
+    
 }
 
 /*usuarios y pagos se apilan en columna 1-2 (mismo espacio anterior de atletas)*/
 .tarjeta-dashboard--atletas{
     grid-column: 1;
+    
 }
 
 .tarjeta-dashboard--pagos{
@@ -424,6 +426,7 @@ header .contenedor{
     background: var(--blanco);
     border-radius: var(--radio-md);
     box-shadow: var(--sombra-sm);
+    border-top: 3px solid var(--rojo);
 }
  
 .tarjeta-dashboard__header{

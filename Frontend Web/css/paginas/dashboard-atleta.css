@@ -413,6 +413,7 @@ header .contenedor{
     background: var(--blanco);
     border-radius: var(--radio-md);
     box-shadow: var(--sombra-sm);
+    border-top: 3px solid var(--rojo);
 }
 
 .tarjeta-dashboard__header{
