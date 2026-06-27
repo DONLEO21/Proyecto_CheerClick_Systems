@@ -143,8 +143,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .menu-lateral__enlace::after {
     content: attr(title);
-    position: absolute;
-    left: 52px;
+    position: fixed;
+    left: 64px;
     background: #1a202c;
     color: white;
     padding: 5px 11px;
@@ -154,15 +154,18 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     white-space: nowrap;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transform: translateX(-8px);
-    transition: opacity 0.22s ease, transform 0.22s ease;
-    z-index: 100;
+    transform: translateX(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+    z-index: 9999;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .menu-lateral__enlace:hover::after {
     opacity: 1;
+    visibility: visible;
     transform: translateX(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0s;
 }
 
 .menu-lateral__elemento--activo::before {
@@ -293,7 +296,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contenido-principal h1::before {
-    content: "";
     display: inline-block;
     width: 4px; 
     height: 40px;
@@ -1147,6 +1149,13 @@ dialog::backdrop {
     margin: auto;
 }
 
+.modal-header-rojo h1 { 
+    margin: 0 0 4px 0; 
+    font-size: 1.15rem; 
+    font-weight: 700; 
+    color: #f1f5f9;
+}
+
 .modal-agregar::backdrop { 
     background: rgba(0, 0, 0, 0.52);
     backdrop-filter: blur(3px);
@@ -1159,17 +1168,15 @@ dialog::backdrop {
 .modal-agregar-titulo {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #1a202c;
+    color: #f1f5f9;
     margin-bottom: 20px;
     padding-bottom: 14px;
-    border-bottom: 2px solid #f1f5f9;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .modal-agregar-titulo::before {
-    content: "";
     display: inline-block;
     width: 4px; height: 18px;
     background: var(--color-primario);
@@ -1970,4 +1977,21 @@ dialog[open].modal-diseno-visualizar .modal-footer {
     .modal-diseno-visualizar .producto-card-nombre {
         white-space: normal;
     }
+}
+
+/* Modal Inhabilitar / Habilitar — centrado fijo */
+.modal-diseno-inhabilitar {
+    width: 420px;
+    max-width: 92vw;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    translate: -50% -50% !important;
+    margin: 0 !important;
+    height: fit-content !important;
+    outline: none !important;
+}
+.modal-diseno-inhabilitar::backdrop {
+    background: rgba(0, 0, 0, 0.52);
+    backdrop-filter: blur(3px);
 }
