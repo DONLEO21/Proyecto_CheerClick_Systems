@@ -1,4 +1,6 @@
 /* -Dashboard Atleta- */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
 /* ── Reset & Base ─────────────────────────────────────────── */
 *, *::before, *::after{
@@ -387,11 +389,11 @@ header .contenedor{
 /* Grid principal de tarjetas */
 .panel-resumen{
     display: grid;
-    grid-template-columns: 1.1fr 1.1fr .9fr .9fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
         "rendimiento progreso calendario perfil"
         "actividades actividades pqrs perfil";
-    gap: var(--espacio-lg);
+    gap: var(--espacio-md);
     align-items: stretch;
     align-content: start;
 }
@@ -546,14 +548,38 @@ header .contenedor{
     table-layout: fixed;
 }
 
-.calendario thead tr:first-child th{
-    padding-bottom: var(--espacio-sm);
-    font-size: var(--texto-sm);
-    font-weight: 700;
-    text-align: left;
+/* cabecera con flechas y mes centrado (solo visual, sin funcionalidad) */
+.calendario__cabecera{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--espacio-sm);
 }
 
-.calendario thead tr:nth-child(2) th{
+.calendario__mes-actual{
+    flex: 1;
+    text-align: center;
+    font-size: var(--texto-sm);
+    font-weight: 700;
+}
+
+.calendario__flecha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: var(--texto-muted);
+    flex-shrink: 0;
+}
+
+.calendario__flecha:disabled{
+    opacity: 1;
+    cursor: default;
+}
+
+.calendario thead th{
     padding: 6px 0;
     font-size: 11px;
     font-weight: 600;
@@ -627,6 +653,7 @@ header .contenedor{
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 
 .perfil-atleta__foto img{
@@ -722,23 +749,21 @@ header .contenedor{
     font-weight: 600;
 }
 
-/* Ultimas actividades*/
+/* ultimas actividades*/
 .lista-actividades{
     display: flex;
     flex-direction: column;
-    
+    gap: var(--espacio-xs);
 }
 
+/* cada actividad ahora tiene su propio fondo, en vez de separador */
 .actividad-item{
     display: flex;
     align-items: center;
     gap: var(--espacio-sm);
-    padding: var(--espacio-sm) 0;
-}
-
-/* separar actividades */
-.actividad-item--separador{
-    border-top: 1px solid var(--gris-borde);
+    padding: var(--espacio-sm);
+    background: var(--gris-fondo);
+    border-radius: var(--radio-sm);
 }
 
 .actividad-item__icono{
@@ -747,7 +772,7 @@ header .contenedor{
     justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: var(--radio-sm);
     flex-shrink: 0;
 }
 
@@ -759,6 +784,11 @@ header .contenedor{
 .actividad-item__icono--azul{
     background: rgba(47,128,237,.12);
     color: var(--azul);
+}
+
+.actividad-item__icono--amarillo{
+    background: rgba(250,215,85,.35);
+    color: #8a6d00;
 }
 
 .actividad-item__texto{
@@ -814,13 +844,141 @@ header .contenedor{
     color: #8a6d00;
 }
 
-/* NUEVO: pendiente — azul */
+/* nuevo pendiente — azul */
 .insignia-pqrs--pendiente{
     background: var(--azul-claro);
     color: var(--azul-oscuro);
 }
 
+/* Proximos torneos */
+.torneos__header{
+    align-items: flex-start;
+}
 
+.torneos__titulo-grupo{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.torneos__subtitulo{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--texto-muted);
+}
+
+.torneos__contador{
+    flex-shrink: 0;
+    padding: 4px 12px;
+    background: var(--rojo-light);
+    color: var(--rojo);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.torneos__lista{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espacio-sm);
+}
+
+/* tarjeta de torneo, es un enlace para que sea cliceable */
+.torneo-card{
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-sm);
+    padding: var(--espacio-sm);
+    background: var(--gris-fondo);
+    border-radius: var(--radio-sm);
+    min-width: 0;
+    transition: var(--transicion);
+}
+
+.torneo-card:hover{
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-sm);
+}
+
+.torneo-card__fecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radio-sm);
+    color: var(--blanco);
+    flex-shrink: 0;
+}
+
+.torneo-card__fecha--rojo{ background: var(--rojo); }
+.torneo-card__fecha--oscuro{ background: var(--texto-dark); }
+
+.torneo-card__dia{
+    font-size: var(--texto-md);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.torneo-card__mes{
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+
+.torneo-card__info{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.torneo-card__nombre{
+    font-size: var(--texto-sm);
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.torneo-card__lugar{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--texto-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.torneo-card__lugar svg{
+    color: var(--rojo);
+    flex-shrink: 0;
+}
+
+.torneo-card__estado{
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.torneo-card__estado--inscrita{
+    background: rgba(30,175,82,.12);
+    color: var(--verde);
+}
+
+.torneo-card__estado--pendiente{
+    background: var(--gris-borde);
+    color: var(--gris-oscuro);
+}
 
 /* responsive */
 @media (max-width: 1100px){
@@ -831,6 +989,10 @@ header .contenedor{
             "calendario perfil"
             "actividades actividades"
             "pqrs pqrs";
+    }
+
+    .torneos__lista{
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -857,5 +1019,9 @@ header .contenedor{
     .tarjeta-dashboard__header--espacio{
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .torneos__lista{
+        grid-template-columns: 1fr;
     }
 }
