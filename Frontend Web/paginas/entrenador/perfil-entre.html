@@ -153,28 +153,42 @@
 
                             <div class="form-grupo">
                                 <label for="tipo-documento">Tipo de documento</label>
-                                <select id="tipo-documento" name="documento" disabled>
-                                    <option value="cc" selected>Cédula de ciudadanía</option>
-                                    <option value="ti">Tarjeta de identidad</option>
-                                    <option value="ce">Cédula de extranjería</option>
-                                    <option value="pasaporte">Pasaporte</option>
-                                </select>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    <select id="tipo-documento" name="tipo-documento" disabled>
+                                        <option value="">Selecciona...</option>
+                                        <option value="cedula" selected>Cédula de ciudadanía</option>
+                                        <option value="tarjeta">Tarjeta de identidad</option>
+                                        <option value="pasaporte">Pasaporte</option>
+                                        <option value="extranjeria">Cédula de extranjería</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-grupo">
-                                <label for="numero-documento">Número de documento</label>
-                                <input type="text" id="numero-documento" name="numero-documento" value="676767001" disabled>
+                                <label for="numero-doc">Número de documento</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                                    <input type="text" id="numero-doc" name="numero-doc" value="1012345678" disabled>
+                                </div>
                             </div>
 
                             <div class="form-grupo">
-                                <label for="correo">Correo electrónico</label>
-                                <input type="email" id="correo" name="correo" value="Ejemplo@gmail.com" disabled>
+                                <label for="registro-correo">Correo Electrónico</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    <input type="email" id="registro-correo" name="registro-correo" value="laura.martinez@gmail.com" disabled>
+                                </div>
                             </div>
 
                             <div class="form-grupo">
-                                <label for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" value="322 862 8212" disabled>
+                                <label for="telefono-personal">Teléfono</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+                                    <input type="tel" id="telefono-personal" name="telefono-personal" value="311 234 5678" disabled>
+                                </div>
                             </div>
+
                             <div class="form-grupo">
                                 <label for="eps-nombre">Nombre de EPS</label>
                                 <div class="campo-con-icono">
@@ -183,8 +197,8 @@
                                         <option value="">Selecciona...</option>
                                         <option value="compensar">Compensar</option>
                                         <option value="coomeva">Coomeva</option>
-                                        <option value="famisanar">Famisanar</option>
-                                        <option value="nuevaeps" selected>Nueva EPS</option>
+                                        <option value="famisanar" selected>Famisanar</option>
+                                        <option value="nuevaeps">Nueva EPS</option>
                                         <option value="salud-total">Salud Total</option>
                                         <option value="sanitas">Sanitas</option>
                                         <option value="sura">SURA</option>
@@ -197,7 +211,7 @@
                                 <label>Certificado de EPS</label>
                                 <div class="campo-archivo-visualizacion">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
-                                    <span class="nombre-archivo" id="nombre-archivo-eps">certificado-nueva-eps.pdf</span>
+                                    <span class="nombre-archivo" id="nombre-archivo-eps">certificado-eps-famisanar.pdf</span>
                                     <label class="boton-archivo--perfil oculto" id="btn-cambiar-archivo" for="eps-certificado-perfil">
                                         Cambiar archivo
                                         <input type="file" id="eps-certificado-perfil" accept=".pdf,.jpg,.jpeg,.png" style="display:none;" onchange="actualizarNombreArchivo(this)"/>
@@ -208,15 +222,15 @@
                         </div>
                     </div>
 
-                    <!-- tarjeta: contacto de emergencia -->
+                    <!-- tarjeta: contacto de emergencia 1 -->
                     <div class="tarjeta-p">
                         <div class="seccion-titulo">
                             <span class="seccion-titulo__icono">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                             </span>
                             <div>
-                                <h3>Datos de contacto de emergencia</h3>
-                                <p class="seccion-titulo__sub">Información de contacto en caso de emergencia</p>
+                                <h3>Contacto de emergencia</h3>
+                                <p class="seccion-titulo__sub">Información de contacto principal en caso de emergencia</p>
                             </div>
                         </div>
 
@@ -225,36 +239,45 @@
                         <div class="campos-grid campos-grid--cuatro">
 
                             <div class="form-grupo">
-                                <label for="em-nombre">Nombre</label>
-                                <input type="text" id="em-nombre" name="em-nombre" value="Ivan" disabled>
+                                <label for="emergencia-nombre">Nombre</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    <input type="text" id="emergencia-nombre" name="emergencia-nombre" value="Carlos" disabled>
+                                </div>
                             </div>
 
                             <div class="form-grupo">
-                                <label for="em-apellido">Apellido</label>
-                                <input type="text" id="em-apellido" name="em-apellido" value="Gonzales" disabled>
+                                <label for="emergencia-apellido">Apellido</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    <input type="text" id="emergencia-apellido" name="emergencia-apellido" value="Martínez" disabled>
+                                </div>
                             </div>
 
                             <div class="form-grupo">
-                                <label for="em-telefono">Teléfono</label>
-                                <input type="tel" id="em-telefono" name="em-telefono" value="309 497 2123" disabled>
+                                <label for="emergencia-telefono">Teléfono</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+                                    <input type="tel" id="emergencia-telefono" name="emergencia-telefono" value="310 987 6543" disabled>
+                                </div>
                             </div>
 
                             <div class="form-grupo">
-                                <label for="tipo-parentesco">Parentesco</label>
-                                
-                                <select name="parentesco" id="tipo-parentesco" required disabled>
-                                    <option value="" disabled>Seleccionar parentesco...</option>
-                                    <option value="madre-padre">Madre / Padre</option>
-                                    <option value="tutor">Tutor</option>
-                                    <option value="conyuge-pareja" selected>Cónyuge / Pareja</option>
-                                    <option value="otro">Otro</option>
-                                </select>
+                                <label for="parentesco-tipo">Parentesco</label>
+                                <div class="campo-con-icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+                                    <select name="parentesco-tipo" id="parentesco-tipo" disabled>
+                                        <option value="">Seleccionar parentesco...</option>
+                                        <option value="madre-padre" selected>Padre</option>
+                                        <option value="tutor">Tutor</option>
+                                        <option value="conyuge-pareja">Cónyuge / Pareja</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
                             </div>
 
                         </div>
                     </div>
-
-                </div><!-- /perfil columna principal -->
 
                 <!-- columna lateral -->
                 <aside class="perfil-col-lateral">
