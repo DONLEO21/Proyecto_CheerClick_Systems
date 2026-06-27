@@ -1293,3 +1293,48 @@ h1, h2, h3, h4, h5, h6 {
 #switch-blood {
     display: none;
 }
+
+
+.btn-editar-guardado {
+    display: none;
+}
+
+#toggle-guardado:checked ~ .contenedor-principal .btn-guardar-normal {
+    display: none;
+}
+#toggle-guardado:checked ~ .contenedor-principal .btn-editar-guardado {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f59e0b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+}
+#toggle-guardado:checked ~ .contenedor-principal .btn-editar-guardado:hover {
+    background: #d97706;
+}
+
+#toggle-guardado:checked ~ .contenedor-principal .asist-tip {
+    background: #ecfdf5;
+    border-color: #1eaf52;
+    color: #166534;
+}
+#toggle-guardado:checked ~ .contenedor-principal .asist-tip::before {
+    content: "✓ Asistencia guardada. Presiona 'Editar asistencia' para hacer cambios.";
+}
+#toggle-guardado:checked ~ .contenedor-principal .asist-tip > * {
+    display: none;
+}
+
+#toggle-guardado:checked ~ .contenedor-principal .btn-accion,
+#toggle-guardado:checked ~ .contenedor-principal .btn-mas {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+}

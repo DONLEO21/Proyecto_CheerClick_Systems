@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistencia</title>
     <link rel="stylesheet" href="css/stylesEntre.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
 </head>
 <body>
         <aside class="barra-lateral" aria-label="Menú de navegación principal">
@@ -20,6 +21,14 @@
                         <img class="menu-lateral__icono" src="img/usuario.png" alt="Horarios">
                     </a>
                 </li>
+
+                <!-- Asistencia Activa -->
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="asistenciaEntre.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Asistencia">
+                    </a>
+                </li>
+
                 <li class="menu-lateral__elemento">
                     <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
@@ -29,13 +38,6 @@
                 <li class="menu-lateral__elemento">
                     <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
-                    </a>
-                </li>
-
-                <!-- Asistencia Activa -->
-                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
-                    <a href="asistenciaEntre.html" class="menu-lateral__enlace" title="Registrar Asistencia">
-                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Horarios">
                     </a>
                 </li>
 
@@ -75,6 +77,7 @@
         </div>
     </header>
 
+    <input type="checkbox" id="toggle-guardado" style="display:none;">
     <!-- Inicio de Vista de Entrenador -->
     <div class="contenedor-principal">
 
@@ -462,7 +465,7 @@
 
             <!-- Botón guardar + Paginación -->
             <div class="asist-footer-bar">
-                <button type="button" class="btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
+                <button type="button" class="btn-guardar btn-guardar-normal" onclick="document.getElementById('modal-guardado').showModal()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                         <polyline points="17 8 12 3 7 8"/>
@@ -470,6 +473,13 @@
                     </svg>
                     Guardar asistencia
                 </button>
+                <label for="toggle-guardado" class="btn-guardar btn-editar-guardado">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar asistencia
+                </label>
                 <div class="asist-paginacion asist-paginacion-footer">
                     <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
                     <div class="paginacion-btns">
@@ -848,7 +858,7 @@
 
             <!-- Botón guardar + Paginación -->
             <div class="asist-footer-bar">
-                <button type="button" class="btn-guardar" onclick="document.getElementById('modal-guardado').showModal()">
+                <button type="button" class="btn-guardar btn-guardar-normal" onclick="document.getElementById('modal-guardado').showModal()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                         <polyline points="17 8 12 3 7 8"/>
@@ -856,6 +866,13 @@
                     </svg>
                     Guardar asistencia
                 </button>
+                <label for="toggle-guardado" class="btn-guardar btn-editar-guardado">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar asistencia
+                </label>
                 <div class="asist-paginacion asist-paginacion-footer">
                     <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
                     <div class="paginacion-btns">
@@ -885,8 +902,8 @@
                 </svg>
             </div>
             <h2>Asistencia registrada correctamente</h2>
-            <p>La lista de asistencia para la categoría Magic del día 29 de abril del 2026 a sido registrada con éxito dentro del sistema.</p>
-            <button type="button" class="btn-aceptar" onclick="document.getElementById('modal-guardado').close()">Aceptar</button>
+            <p>La lista de asistencia para la categoría Magic del día 29 de abril del 2026 ha sido registrada con éxito dentro del sistema.</p>
+            <label for="toggle-guardado" class="btn-aceptar" onclick="document.getElementById('modal-guardado').close()">Aceptar</label>
         </div>
     </dialog>
 
