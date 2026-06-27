@@ -1,71 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rendimiento Deportivo</title>
+    <title>Mi Rendimiento Deportivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesAtle.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
 </head>
 <body>
-    <input type="radio" id="switch-progreso" name="pestanas" checked style="display: none;">
-    <input type="radio" id="switch-historial" name="pestanas" style="display: none;">
-     <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
     <aside class="barra-lateral" aria-label="Menú de navegación principal">
-        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú">
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
         </button>
         <nav>
-           <ul class="menu-lateral" role="list">
+            <ul class="menu-lateral" role="list">
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Perfil">
+                    <a href="perfil-atleta.html" class="menu-lateral__enlace" title="Perfil">
                         <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
                     </a>
                 </li>
-
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Estado de cuentas">
-                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Pagos">
                     </a>
                 </li>
-
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Horarios">
+                    <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
                 </li>
-
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Implementos Deportivos">
+                    <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
                         <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
                     </a>
                 </li>
-
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="PQRS">
+                    <a href="PQRSAtleta.html" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
                     </a>
                 </li>
-                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
-                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="rendimientoAtle.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
                         <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
                     </a>
                 </li>
             </ul>
         </nav>
     </aside>
-
-    <!-- ===== ENCABEZADO SUPERIOR ===== -->
     <header class="encabezado" role="banner">
         <div class="encabezado__contenedor">
             <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
                 <ul class="encabezado__lista-botones" role="list">
                     <li>
-                        <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
                     </li>
                     <li>
-                        <span class="etiqueta-rol" aria-label="Rol: Administrador">Atleta</span>
+                        <span class="etiqueta-rol" aria-label="Rol: atleta">Atleta</span>
                     </li>
                 </ul>
             </nav>
@@ -73,7 +66,7 @@
                 <a href="#" class="icono-accion" aria-label="Ver notificaciones">
                     <img src="img/campana-de-notificacion.png" alt="Notificaciones">
                 </a>
-                <a href="#" class="icono-accion" aria-label="Ir al inicio">
+                <a href="dashboardAtleta.html" class="icono-accion" aria-label="Ir al inicio">
                     <img src="img/casa.png" alt="Inicio">
                 </a>
                 <figure class="logo-club">
@@ -83,404 +76,568 @@
         </div>
     </header>
 
-    <!-- Inicio de vista de Atleta -->
-    <div class="contenedor-principal">
-        <div class="titulo">
-            <h1>Rendimiento del Atleta</h1>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="contenido">
+        <div class="page-header">
+            <h1>Mi Rendimiento Deportivo</h1>
+            <p>Consulta tu historial de asistencia, nivel de desempeño, habilidades adquiridas y las notas de tu entrenador.</p>
+        </div>
 
-            <div class="tabla-contenido">
-                <!-- Boton de Ver Progreso -->
-                <label for="switch-progreso" class="tab-btn btn-progreso">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-line-icon lucide-chart-line">
-                    <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
-                    <path d="m19 9-5 5-4-4-3 3"/>
-                    </svg>
-                    Ver Progreso
-                </label>
-                <!-- Boton de Historial -->
-                <label for="switch-historial" class="tab-btn btn-historial">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gallery-vertical-end-icon lucide-gallery-vertical-end">
-                    <path d="M7 2h10"/>
-                    <path d="M5 6h14"/>
-                    <rect width="18" height="12" x="3" y="10" rx="2"/>
-                    </svg>
-                    Historial
-                </label>
+        <!-- Perfil del atleta -->
+        <div class="perfil-atleta">
+            <img class="perfil-atleta__foto" src="img/Foto1.jpg" alt="Foto de perfil">
+            <div class="perfil-atleta__info">
+                <h3>Leonardo Jara</h3>
+                <p>Edad: 20 años</p>
+                <span class="badge-nivel">Nivel 3 · Magic</span>
             </div>
         </div>
 
-        <!-- Vista General del rendimineto y Asistencia del Atleta -->
-        <section id="rendimiento-atleta-general">
-            <div class="rendimiento">
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-medal-icon lucide-medal">
-                    <path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/>
-                    <path d="M11 12 5.12 2.2"/>
-                    <path d="m13 12 5.88-9.8"/>
-                    <path d="M8 7h8"/>
-                    <circle cx="12" cy="17" r="5"/>
-                    <path d="M12 18v-2h-.5"/>
-                    </svg>
-                    Redimiento
-                </p>
+        <!-- Tabs de navegación -->
+        <div class="tabs-nav" role="tablist">
+            <button class="tab-btn activo" data-tab="rendimiento" role="tab" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                Rendimiento
+            </button>
+            <button class="tab-btn" data-tab="asistencia" role="tab" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Asistencia
+            </button>
+        </div>
 
-                <div class="habilidades">
-                    <div class="habilidad-info">
-                        <h2>Parada de Manos</h2>
-                        <p class="hab-periodo">Últimos 20 días</p>
-                        <div class="hab-barra-wrap"><div class="hab-barra" style="width:68%; background:#1eaf52;"></div></div>
+        <!-- TAB: RENDIMIENTO-->
+        <div class="tab-panel activo" id="tab-rendimiento">
+
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-md-4">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Puntaje Total</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--azul">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">59%</span>
+                        <span class="rcard__nota rcard__nota--up">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
+                            +4 pts respecto al mes anterior
+                        </span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--amarillo" style="width:59%"></div></div>
                     </div>
-                    <p class="hab-valor" style="color:#1eaf52;">10 seg <span class="hab-delta">▲+2</span></p>
                 </div>
-
-                <div class="habilidades">
-                    <div class="habilidad-info">
-                        <h2>Habilidad de Mortales</h2>
-                        <p class="hab-periodo">Últimos 20 días</p>
-                        <div class="hab-barra-wrap"><div class="hab-barra" style="width:42%; background:#cc0000;"></div></div>
+                <div class="col-12 col-md-4">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Habilidades</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">32<span style="font-size:1rem;color:var(--texto-muted)"> / 54</span></span>
+                        <span class="rcard__nota">30 base + 2 nuevas este mes</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--verde" style="width:59%"></div></div>
                     </div>
-                    <p class="hab-valor" style="color:#cc0000;">4 rep <span class="hab-delta">▼~2</span></p>
                 </div>
-
-                <div class="habilidades">
-                    <div class="habilidad-info">
-                        <h2>Habilidad de Palomas</h2>
-                        <p class="hab-periodo">Últimos 20 días</p>
-                        <div class="hab-barra-wrap"><div class="hab-barra" style="width:78%; background:#1eaf52;"></div></div>
+                <div class="col-12 col-md-4">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Asistencia</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor rcard__valor--verde">91%</span>
+                        <span class="rcard__nota">20 de 22 sesiones</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--verde" style="width:91%"></div></div>
                     </div>
-                    <p class="hab-valor" style="color:#1eaf52;">10 seg <span class="hab-delta">▲+3</span></p>
                 </div>
             </div>
 
-            <div class="asistencia">
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list-icon lucide-clipboard-list">
-                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                    <path d="M12 11h4"/>
-                    <path d="M12 16h4"/>
-                    <path d="M8 11h.01"/>
-                    <path d="M8 16h.01"/>
-                    </svg>
-                    Asistencia
-                </p>
-
-                <div class="registro-asistencia">
-                    <h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check">
-                        <path d="M20 6 9 17l-5-5"/>
-                        </svg>
-                        10
-                    </h2>
-                    <p class="asis-text">Abril 2026</p>
-                    <p>Asistío</p>
+            <!-- Panel de habilidades -->
+            <div class="panel-rendimiento">
+                <div class="panel-rendimiento__header">
+                    <h3>Desempeño por habilidades</h3>
+                    <div class="filtros-habilidad" role="group" aria-label="Filtrar por nivel">
+                        <button class="btn-filtro btn-filtro--activo" data-nivel="apropiada" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19.06 12.501 2.78-2.707a.53.53 0 0 0-.294-.905l-5.166-.755a2.1 2.1 0 0 1-1.595-1.16l-2.31-4.68a.53.53 0 0 0-.95.001L9.216 6.974a2.1 2.1 0 0 1-1.597 1.16l-5.165.755a.53.53 0 0 0-.294.906l3.736 3.637a2.1 2.1 0 0 1 .611 1.879l-.88 5.139a.53.53 0 0 0 .769.56l4.617-2.428.027-.014"/><path d="m15 18 2 2 4-4"/></svg>
+                            Apropiadas
+                        </button>
+                        <button class="btn-filtro" data-nivel="avanzada" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                            Avanzadas
+                        </button>
+                        <button class="btn-filtro" data-nivel="elite" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+                            Élite
+                        </button>
+                    </div>
                 </div>
 
-                <div class="registro-asistencia">
-                    <h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
-                            <path d="M18 6 6 18"/>
-                            <path d="m6 6 12 12"/>
-                        </svg>
-                        08
-                    </h2>
-                    <p class="asis-text">Abril 2026</p>
-                    <button type="button" class="justificar" onclick="document.getElementById('modal-justificar').showModal()">Justificar</button>
+                <!-- Nivel Apropiada -->
+                <div class="nivel-habilidades activo" data-nivel="apropiada">
+                    <div class="grid-habilidades">
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="10"/><path d="M5 17c0-3 3.5-5 7-5s7 2 7 5"/><circle cx="12" cy="5" r="2"/><path d="M9 22v-3"/><path d="M15 22v-3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Invertida debajo del nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12"/><path d="M12 12 8 6"/><path d="M12 12l4-6"/><circle cx="12" cy="4" r="2"/><path d="M8 22h8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión descendente debajo del nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M5 12c0-4 3-7 7-7"/><path d="M19 12c0 4-3 7-7 7"/><circle cx="12" cy="5" r="1.5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Movimiento suelto hacia nivel PREP o inferior</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 0 1 0 18"/><path d="M12 3a9 9 0 0 0 0 18"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con 3/4 de giro hacia 1-pierna en nivel PREP</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l4-4 4 4 4-4 4 4"/><path d="M4 7l4 4 4-4 4 4 4-4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Walk-in / Toss a manos</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l4 4-4 4"/><path d="M19 8l-4 4 4 4"/><path d="M5 12h14"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac / Flic Flac Salida con Paso</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 7v7"/><path d="M9 14l3 6 3-6"/><path d="M7 10h10"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Cuna recta desde 1-pierna en nivel extendido</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c-4 5-4 13 0 18"/><path d="M12 2c4 5 4 13 0 18"/><line x1="6" y1="12" x2="18" y2="12"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Rueda Libre – Aerial</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="registro-asistencia">
-                    <h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info-icon lucide-info">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 16v-4"/>
-                            <path d="M12 8h.01"/>
-                        </svg>
-                        06
-                    </h2>
-                    <p class="asis-text">Abril 2026</p>
-                    <p>Justificado</p>
+                <!-- Nivel Avanzada -->
+                <div class="nivel-habilidades" data-nivel="avanzada">
+                    <div class="grid-habilidades">
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V2"/><path d="M17 7l-5-5-5 5"/><circle cx="12" cy="17" r="3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión desde nivel de cintura / PREP hacia 1-pierna en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h12"/><path d="M6 8l6 4-6 4"/><path d="M18 8l-6 4 6 4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Tic Toc desde LIB en nivel de extensión</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12c2-6 8-8 10-10"/><path d="M22 12c-2-6-8-8-10-10"/><path d="M12 2v20"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Movimiento suelto desde nivel suelo a LIB en nivel PREP (Switch Up)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12c2-5 6-8 8-8s6 3 8 8"/><path d="M4 12c2 5 6 8 8 8s6-3 8-8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Rondada – Serie de Flic Flacs – Mortal Atrás Agrupado</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                    </div>
                 </div>
 
-                <button type="button" class="todas-asistencias" onclick="document.getElementById('switch-historial').click(); document.getElementById('historial-asistencia').scrollIntoView();">Ver todas las Asistencias</button>
-
-            </div>
-
-            <div class="progreso-general">
-                <h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-bar-icon lucide-chart-bar">
-                    <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
-                    <path d="M7 16h8"/>
-                    <path d="M7 11h12"/>
-                    <path d="M7 6h3"/>
-                    </svg>
-                    Progreso General
-                </h2>
-                <img src="img/grafica.png" alt="Progreso General">
-            </div>
-        </section>
-
-        <!-- Historial de Asistencia -->
-        <section id="historial-asistencia">
-            <h2>Historial de Asistencia</h2>
-
-            <div class="resumen-abril">
-                <h3>Resumen de Abril</h3>
-                <div class="abril">
-                    <h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check">
-                        <path d="M20 6 9 17l-5-5"/>
-                        </svg>
-                        2
-                    </h2>
-                    <p>Asistencia</p>
-                </div>
-
-                <div class="abril">
-                    <h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info-icon lucide-info">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 16v-4"/>
-                            <path d="M12 8h.01"/>
-                        </svg>
-                        0
-                    </h2>
-                    <p>Faltas</p>
-                </div>
-
-                <div class="abril">
-                    <h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-bar-icon lucide-chart-bar">
-                        <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
-                        <path d="M7 16h8"/>
-                        <path d="M7 11h12"/>
-                        <path d="M7 6h3"/>
-                        </svg>
-                        2
-                    </h2>
-                    <p>Justificadas</p>
-                </div>
-
-                <table class="calendario">
-                    <thead>
-                        <tr>
-                            <th colspan="7">Abril, 2026</th>
-                        </tr>
-
-                        <tr>
-                            <th>Dom</th>
-                            <th>Lun</th>
-                            <th>Mar</th>
-                            <th>Mié</th>
-                            <th>Jue</th>
-                            <th>Vie</th>
-                            <th>Sáb</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>01</th>
-                            <th>02</th>
-                            <th>03</th>
-                            <th>04</th>
-                        </tr>
-
-                        <tr>
-                            <th>05</th>
-                            <th>06</th>
-                            <th>07</th>
-                            <th>08</th>
-                            <th>09</th>
-                            <th>10</th>
-                            <th>11</th>
-                        </tr>
-
-                        <tr>
-                            <th>12</th>
-                            <th>13</th>
-                            <th>14</th>
-                            <th>15</th>
-                            <th>16</th>
-                            <th>17</th>
-                            <th>18</th>
-                        </tr>
-
-                        <tr>
-                            <th>19</th>
-                            <th>20</th>
-                            <th>21</th>
-                            <th>22</th>
-                            <th>23</th>
-                            <th>24</th>
-                            <th>25</th>
-                        </tr>
-
-                        <tr>
-                            <th>26</th>
-                            <th>27</th>
-                            <th>28</th>
-                            <th>29</th>
-                            <th>30</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </section>
-
-        <!-- Historial de Rendimiento -->
-        <section id="historial-rendimiento">
-
-            <h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-medal-icon lucide-medal">
-                <path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/>
-                <path d="M11 12 5.12 2.2"/>
-                <path d="m13 12 5.88-9.8"/>
-                <path d="M8 7h8"/>
-                <circle cx="12" cy="17" r="5"/>
-                <path d="M12 18v-2h-.5"/>
-                </svg>
-                Redimiento
-            </h2>
-
-            <div class="contenedor-rendimiento">
-                <p>15 Mar 2026</p>
-                <div class="des-habilidades">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-icon lucide-hand">
-                    <path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/>
-                    <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/>
-                    <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/>
-                    <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
-                    </svg>
-                    <p>Parada de manos</p>
-                    <p>16 sg</p>
-                </div>
-
-                <div class="des-habilidades">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-person-standing-icon lucide-person-standing">
-                    <circle cx="12" cy="5" r="1"/>
-                    <path d="m9 20 3-6 3 6"/>
-                    <path d="m6 8 6 2 6-2"/>
-                    <path d="M12 10v4"/>
-                    </svg>
-                    <p>Mortales</p>
-                    <p>5 rep</p>
-                </div>
-
-                <div class="des-habilidades">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bird-icon lucide-bird">
-                    <path d="M16 7h.01"/>
-                    <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/>
-                    <path d="m20 7 2 .5-2 .5"/>
-                    <path d="M10 18v3"/>
-                    <path d="M14 17.75V21"/>
-                    <path d="M7 18a6 6 0 0 0 3.84-10.61"/>
-                    </svg>
-                    <p>Paloma</p>
-                    <p>12 sg</p>
-                </div>
-
-                <p>12 Mar 2026</p>
-                <div class="des-habilidades">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-icon lucide-hand">
-                    <path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/>
-                    <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/>
-                    <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/>
-                    <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
-                    </svg>
-                    <p>Parada de manos</p>
-                    <p>10 sg</p>
-                </div>
-
-                <div class="des-habilidades">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-person-standing-icon lucide-person-standing">
-                    <circle cx="12" cy="5" r="1"/>
-                    <path d="m9 20 3-6 3 6"/>
-                    <path d="m6 8 6 2 6-2"/>
-                    <path d="M12 10v4"/>
-                    </svg>
-                    <p>Mortales</p>
-                    <p>5 rep</p>
+                <!-- Nivel Élite -->
+                <div class="nivel-habilidades" data-nivel="elite">
+                    <div class="grid-habilidades">
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M2 7l10-5 10 5"/><path d="M2 17l10 5 10-5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión desde nivel de suelo hacia POS del cuerpo en nivel extendido</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20"/><path d="M12 2v10l5 5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con giro completo en nivel PREP (POS del cuerpo – POS del cuerpo)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-7 17"/><path d="M12 2a10 10 0 0 1 7 17"/><path d="M12 12v8"/><path d="M9 17l3 3 3-3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">RO – FF Salida con Paso – 1/2 Giro – RO – A – Mortal Atrás Agrupado</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7-7 7 7"/><path d="M5 15l7 7 7-7"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">TIC TOC con giro completo en nivel PREP (LIB – POS del cuerpo)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="contenedor-progreso">
-                <h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-bar-icon lucide-chart-bar">
-                    <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
-                    <path d="M7 16h8"/>
-                    <path d="M7 11h12"/>
-                    <path d="M7 6h3"/>
-                    </svg>
-                    Progreso General
-                </h2>
+            <!-- Notas del entrenador -->
+            <div class="notas-entrenador">
+                <h3>Notas del Entrenador</h3>
+                <div class="nota-card">
+                    <div class="nota-card__fecha">14 Jun 2026 · Entrenador</div>
+                    <p class="nota-card__texto">Leonardo mostró gran mejora en parada de manos. Se recomienda reforzar la técnica de palomas antes de la competencia del 28 de junio.</p>
+                </div>
+                <div class="nota-card">
+                    <div class="nota-card__fecha">05 Jun 2026 · Entrenador</div>
+                    <p class="nota-card__texto">Sesión de evaluación general. Flexibilidad mejoró notablemente respecto al mes anterior. Mantener rutina de estiramiento post-entrenamiento.</p>
+                </div>
+                <div class="nota-card">
+                    <div class="nota-card__fecha">28 May 2026 · Entrenador</div>
+                    <p class="nota-card__texto">Primer ensayo con la nueva coreografía. El atleta se adaptó rápido pero necesita más repetición en la transición del segundo al tercer bloque.</p>
+                </div>
+            </div>
 
-                <div class="btn-progreso">
-                    <button type="button" class="btn-progreso btn-semana">Última Semana</button>
-                    <button type="button" class="btn-progreso btn-mes">Último Mes</button>
-                    <button type="button" class="btn-progreso btn-meses">Últimos 3 Meses</button>
+        </div>
+
+        <!-- TAB: ASISTENCIA-->
+        <div class="tab-panel" id="tab-asistencia">
+
+            <!-- Cards resumen asistencia -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Sesiones totales</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--azul">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">22</span>
+                        <span class="rcard__nota">En lo que va del mes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Presentes</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor rcard__valor--verde">20</span>
+                        <span class="rcard__nota">91% del total</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--verde" style="width:91%"></div></div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Faltas</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--rojo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor rcard__valor--rojo">2</span>
+                        <span class="rcard__nota">9% del total</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--rojo" style="width:9%"></div></div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Inpuntuales</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--amarillo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">1</span>
+                        <span class="rcard__nota">En este período</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendario -->
+            <div class="calendario-asistencia">
+                <div class="calendario-asistencia__header">
+                    <h3>Calendario de asistencia — Junio 2026</h3>
+                    <div class="calendario-nav">
+                        <button class="btn-nav-cal" type="button" aria-label="Mes anterior">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <span class="calendario-mes">Junio 2026</span>
+                        <button class="btn-nav-cal" type="button" aria-label="Mes siguiente">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </div>
                 </div>
 
-                <img src="img/Dias de la semana.png" alt="Progreso Semana">
-                <p>Mejora</p>
-                <p>Retroceso</p>
-                <p>Sin Actividad</p>
-            </div>
-        </section>
+                <div class="cal-grid">
+                    <div class="cal-grid__dia-nombre">Lun</div>
+                    <div class="cal-grid__dia-nombre">Mar</div>
+                    <div class="cal-grid__dia-nombre">Mié</div>
+                    <div class="cal-grid__dia-nombre">Jue</div>
+                    <div class="cal-grid__dia-nombre">Vie</div>
+                    <div class="cal-grid__dia-nombre">Sáb</div>
+                    <div class="cal-grid__dia-nombre">Dom</div>
 
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">1</div>
+                    <div class="cal-dia cal-dia--sin-sesion">2</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">3</div>
+                    <div class="cal-dia cal-dia--sin-sesion">4</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">5</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">6</div>
+                    <div class="cal-dia cal-dia--sin-sesion">7</div>
+
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">8</div>
+                    <div class="cal-dia cal-dia--sin-sesion">9</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">10</div>
+                    <div class="cal-dia cal-dia--sin-sesion">11</div>
+                    <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">12</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">13</div>
+                    <div class="cal-dia cal-dia--sin-sesion">14</div>
+
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">15</div>
+                    <div class="cal-dia cal-dia--sin-sesion">16</div>
+                    <div class="cal-dia cal-dia--inpuntual" title="Inpuntual · Llegó 15 min tarde">17</div>
+                    <div class="cal-dia cal-dia--sin-sesion">18</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">19</div>
+                    <div class="cal-dia cal-dia--justificado" title="Justificado · Consulta médica">20</div>
+                    <div class="cal-dia cal-dia--sin-sesion">21</div>
+
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">22</div>
+                    <div class="cal-dia cal-dia--sin-sesion">23</div>
+                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">24</div>
+                    <div class="cal-dia cal-dia--sin-sesion">25</div>
+                    <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">26</div>
+                    <div class="cal-dia cal-dia--hoy cal-dia--sin-sesion" title="Hoy">27</div>
+                    <div class="cal-dia cal-dia--sin-sesion">28</div>
+
+                    <div class="cal-dia cal-dia--sin-sesion">29</div>
+                    <div class="cal-dia cal-dia--sin-sesion">30</div>
+                    <div class="cal-dia cal-dia--vacio"></div>
+                    <div class="cal-dia cal-dia--vacio"></div>
+                    <div class="cal-dia cal-dia--vacio"></div>
+                    <div class="cal-dia cal-dia--vacio"></div>
+                    <div class="cal-dia cal-dia--vacio"></div>
+                </div>
+
+                <div class="cal-leyenda">
+                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--presente"></div>Asistí</div>
+                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--falta"></div>Falté</div>
+                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--inpuntual"></div>Inpuntual</div>
+                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--justificado"></div>Justificado</div>
+                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--sin-sesion"></div>Sin sesión</div>
+                </div>
+            </div>
+
+            <!-- Historial de sesiones — Bootstrap table -->
+            <div class="historial-sesiones">
+                <h3>Historial de sesiones</h3>
+                <div class="table-responsive">
+                    <table class="table historial-tabla">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Horario</th>
+                                <th>Entrenador</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>27 Jun 2026</td>
+                                <td>18:00 – 20:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--falta"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Falta</span></td>
+                                <td>
+                                    <button class="btn-justificar" type="button" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Justificar
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>24 Jun 2026</td>
+                                <td>18:00 – 20:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>22 Jun 2026</td>
+                                <td>18:00 – 20:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>20 Jun 2026</td>
+                                <td>10:00 – 12:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--justificado"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Justificado</span></td>
+                                <td><span style="font-size:.8rem;color:var(--texto-muted)">Consulta médica</span></td>
+                            </tr>
+                            <tr>
+                                <td>19 Jun 2026</td>
+                                <td>18:00 – 20:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>17 Jun 2026</td>
+                                <td>18:00 – 20:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--inpuntual"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Inpuntual</span></td>
+                                <td><span style="font-size:.8rem;color:var(--texto-muted)">15 min tarde</span></td>
+                            </tr>
+                            <tr>
+                                <td>12 Jun 2026</td>
+                                <td>18:00 – 20:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--falta"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Falta</span></td>
+                                <td>
+                                    <button class="btn-justificar" type="button" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Justificar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- MODAL JUSTIFICACIÓN -->
+    <div class="modal fade" id="modal-justificacion" tabindex="-1" role="dialog" aria-labelledby="modal-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal-titulo">Justificar inasistencia</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <div class="modal-fecha-grande" id="modal-fecha">08 Abril</div>
+                        <div class="modal-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <span id="modal-hora">18:00 – 20:00</span>
+                        </div>
+                        <div class="modal-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <span id="modal-entrenador">Stuart Pérez</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-campo">
+                        <label for="motivo-textarea">Motivo de la inasistencia <span>*</span></label>
+                        <textarea class="modal-textarea" id="motivo-textarea" placeholder="Consulta médica, viaje..."></textarea>
+                    </div>
+
+                    <div class="text-end">
+                        <span class="modal-adjunto-label">Adjuntar archivo (Opcional)</span>
+                        <div>
+                            <input type="file" id="archivo-adjunto" class="d-none" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                            <button class="btn-subir-archivo" type="button" onclick="document.getElementById('archivo-adjunto').click()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                                Subir archivo
+                            </button>
+                            <span id="nombre-archivo" class="ms-2" style="font-size:.8rem;color:var(--texto-muted);"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-cancelar-modal" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn-enviar-modal" id="btn-enviar-justificacion" type="button" disabled>Enviar justificación</button>
+                </div>
+
+            </div>
+        </div>
     </div>
 
- <!-- Modal de Justificar Asistencia -->
-        <dialog id="modal-justificar">
-            <header class="header-gris">
-                <h1>Justificar Asistencia</h1>
-                <button type="button" class="btn-modal-x" onclick="document.getElementById('modal-justificar').close()">×</button>
-            </header>
-                
-            <main>
-                <h2>08 Abril</h2>
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 6v6l4 2"/>
-                    </svg>
-                    18:00-20:00
-                </p>
+    <div class="toast-custom" id="toast">✓ Justificación enviada correctamente</div>
 
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round">
-                    <path d="M17.925 20.056a6 6 0 0 0-11.851 001"/>
-                    <circle cx="12" cy="11" r="4"/>
-                    <circle cx="12" cy="12" r="10"/>
-                    </svg>
-                    Stuard Pérez
-                </p>
-                <h3>Motivo de la Inasistencia</h3>
-                <label for="motivo-inasistencia">Motivo de la Insasitencia</label>
-                <input type="textera" id="motivo-inasistencia" placeholder="Ej: Consulta Médica...">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-                <div class="subir-archivo">
-                    <label for="archivo" class="label-archivo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload">
-                            <path d="M12 13v8"/>
-                            <path d="M4 14.899A7 7 0 1 1 15 71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
-                            <path d="m8 17 4-4 4 4"/>
-                        </svg>
-                        Adjuntar Archivo (Opcional)
-                    </label>
-                    <input type="file" id="archivo" accept="image/*,.pdf">
-                </div>
-            </main>
+    <script>
+        // ── Tabs propios ──────────────────────────────────────────────
+        const tabBtns   = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
 
-            <footer>
-                <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-justificar').close()">Cancelar</button>
-                <button type="button" class="btn-modal.justificacion">Enviar Justificación</button>
-                </footer>
-        </dialog>
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+                tabBtns.forEach(b => b.classList.remove('activo'));
+                tabPanels.forEach(p => p.classList.remove('activo'));
+                btn.classList.add('activo');
+                document.getElementById('tab-' + target).classList.add('activo');
+            });
+        });
+
+        // ── Filtros de habilidades ────────────────────────────────────
+        const btnsFiltro = document.querySelectorAll('.btn-filtro');
+        const niveles    = document.querySelectorAll('.nivel-habilidades');
+
+        btnsFiltro.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const nivel = btn.dataset.nivel;
+                btnsFiltro.forEach(b => b.classList.remove('btn-filtro--activo'));
+                niveles.forEach(n => n.classList.remove('activo'));
+                btn.classList.add('btn-filtro--activo');
+                document.querySelector(`.nivel-habilidades[data-nivel="${nivel}"]`).classList.add('activo');
+            });
+        });
+
+        // ── Modal Bootstrap ───────────────────────────────────────────
+        const modalEl    = document.getElementById('modal-justificacion');
+        const bsModal    = new bootstrap.Modal(modalEl);
+        const textarea   = document.getElementById('motivo-textarea');
+        const btnEnviar  = document.getElementById('btn-enviar-justificacion');
+        const toast      = document.getElementById('toast');
+
+        function abrirModal(fecha, hora, entrenador) {
+            document.getElementById('modal-fecha').textContent      = fecha;
+            document.getElementById('modal-hora').textContent       = hora;
+            document.getElementById('modal-entrenador').textContent = entrenador;
+            textarea.value = '';
+            document.getElementById('nombre-archivo').textContent   = '';
+            btnEnviar.disabled = true;
+            bsModal.show();
+        }
+
+        // Abrir desde días del calendario con falta
+        document.querySelectorAll('.cal-dia--justificable').forEach(dia => {
+            dia.addEventListener('click', () => {
+                abrirModal(dia.dataset.fecha, dia.dataset.hora, dia.dataset.entrenador);
+            });
+        });
+
+        // Abrir desde botón "Justificar" de la tabla
+        document.querySelectorAll('.btn-justificar').forEach(btn => {
+            btn.addEventListener('click', () => {
+                abrirModal(btn.dataset.fecha, btn.dataset.hora, btn.dataset.entrenador);
+            });
+        });
+
+        // Habilitar botón enviar cuando hay texto suficiente
+        textarea.addEventListener('input', () => {
+            btnEnviar.disabled = textarea.value.trim().length < 5;
+        });
+
+        // Mostrar nombre del archivo adjunto
+        document.getElementById('archivo-adjunto').addEventListener('change', function () {
+            document.getElementById('nombre-archivo').textContent = this.files[0]?.name ?? '';
+        });
+
+        // Enviar justificación
+        btnEnviar.addEventListener('click', () => {
+            bsModal.hide();
+            setTimeout(() => {
+                toast.classList.add('visible');
+                setTimeout(() => toast.classList.remove('visible'), 3500);
+            }, 350);
+        });
+    </script>
 </body>
 </html>
