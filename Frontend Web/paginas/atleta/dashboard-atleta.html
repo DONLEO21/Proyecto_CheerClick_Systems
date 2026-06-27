@@ -181,11 +181,20 @@
                     </header>
 
                     <div class="tarjeta-dashboard__contenido">
+
+                        <!-- cabecera del mes, con flechas solo visuales (no funcionales) -->
+                        <div class="calendario__cabecera">
+                            <button type="button" class="calendario__flecha" aria-label="Mes anterior" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <span class="calendario__mes-actual">Junio, 2026</span>
+                            <button type="button" class="calendario__flecha" aria-label="Mes siguiente" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+
                         <table class="calendario">
                             <thead>
-                                <tr>
-                                    <th colspan="7">Marzo, 2026</th>
-                                </tr>
                                 <tr>
                                     <th>Dom</th>
                                     <th>Lun</th>
@@ -198,45 +207,45 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <th></th>
                                     <th>1</th>
                                     <th class="dia-asistio">2</th>
                                     <th>3</th>
                                     <th class="dia-asistio">4</th>
                                     <th>5</th>
                                     <th>6</th>
-                                    <th class="dia-asistio">7</th>
                                 </tr>
                                 <tr>
+                                    <th class="dia-asistio">7</th>
                                     <th class="dia-asistio">8</th>
                                     <th>9</th>
                                     <th>10</th>
                                     <th class="dia-fallo">11</th>
                                     <th>12</th>
                                     <th>13</th>
-                                    <th class="dia-fallo">14</th>
                                 </tr>
                                 <tr>
+                                    <th class="dia-fallo">14</th>
                                     <th class="dia-asistio">15</th>
                                     <th class="dia-asistio">16</th>
                                     <th>17</th>
                                     <th class="dia-asistio">18</th>
                                     <th>19</th>
                                     <th>20</th>
-                                    <th>21</th>
                                 </tr>
                                 <tr>
+                                    <th>21</th>
                                     <th>22</th>
                                     <th class="dia-fallo">23</th>
                                     <th>24</th>
                                     <th class="dia-asistio">25</th>
                                     <th>26</th>
                                     <th>27</th>
-                                    <th>28</th>
                                 </tr>
                                 <tr>
+                                    <th>28</th>
                                     <th>29</th>
                                     <th class="dia-asistio">30</th>
-                                    <th>31</th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -308,7 +317,6 @@
 
                     <div class="tarjeta-dashboard__contenido lista-actividades">
 
-                        <!-- CAMBIO: separadores entre items con clase actividad-item--separador -->
                         <div class="actividad-item">
                             <span class="actividad-item__icono actividad-item__icono--verde">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
@@ -320,15 +328,15 @@
                             <span class="actividad-item__tiempo">Hoy</span>
                         </div>
 
-                        <div class="actividad-item actividad-item--separador">
-                            <span class="actividad-item__icono actividad-item__icono--azul">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                        <div class="actividad-item">
+                            <span class="actividad-item__icono actividad-item__icono--amarillo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
                             </span>
                             <div class="actividad-item__texto">
-                                <span class="actividad-item__titulo">Evaluación física</span>
-                                <span class="actividad-item__subtitulo">Mediciones mensuales</span>
+                                <span class="actividad-item__titulo">Torneo</span>
+                                <span class="actividad-item__subtitulo">ALLCHEER - Nivel 2</span>
                             </div>
-                            <span class="actividad-item__tiempo">Ayer</span>
+                            <span class="actividad-item__tiempo">Lun</span>
                         </div>
 
                     </div>
@@ -355,6 +363,82 @@
                 </article>
 
             </section>
+
+            <!-- proximos torneos -->
+            <section class="tarjeta-dashboard tarjeta-torneos" aria-label="proximos torneos">
+                <header class="tarjeta-dashboard__header torneos__header">
+                    <div class="torneos__titulo-grupo">
+                        <h2>Próximos Torneos</h2>
+                        <p class="torneos__subtitulo">Competencias programadas para este año</p>
+                    </div>
+                    <span class="torneos__contador">4 eventos</span>
+                </header>
+
+                <div class="torneos__lista">
+
+                    <a href="./torneo-detalle.html?id=universal" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--rojo">
+                            <span class="torneo-card__dia">25</span>
+                            <span class="torneo-card__mes">Jul</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Universal</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Bogotá - Colegio San Viator
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--inscrita">Inscrita</span>
+                    </a>
+
+                    <a href="./torneo-detalle.html?id=nfinity" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--rojo">
+                            <span class="torneo-card__dia">20</span>
+                            <span class="torneo-card__mes">Sep</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Nfinity League</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Bogotá - City Hall
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--pendiente">Por inscribir</span>
+                    </a>
+
+                    <a href="./torneo-detalle.html?id=summer" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--oscuro">
+                            <span class="torneo-card__dia">10</span>
+                            <span class="torneo-card__mes">Oct</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Summer</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Tocaima - Parque acuático
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--pendiente">Por inscribir</span>
+                    </a>
+
+                    <a href="./torneo-detalle.html?id=xiua" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--oscuro">
+                            <span class="torneo-card__dia">29</span>
+                            <span class="torneo-card__mes">Nov</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Xiua</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Sibaté - Coliseo
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--pendiente">Por inscribir</span>
+                    </a>
+
+                </div>
+            </section>
+
         </div>
     </main>
 
