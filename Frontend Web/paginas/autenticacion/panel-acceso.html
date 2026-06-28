@@ -453,10 +453,24 @@
     let codigoGenerado = '';
     let correoRecuperacion = '';
 
-    /* cambia entre pantallas */
+    /*cambiar pantallas*/
     function mostrarPantalla(id) {
-      document.querySelectorAll('.contenedor').forEach(el => el.classList.add('oculto'));
-      document.getElementById(id).classList.remove('oculto');
+      const pantallas = document.querySelectorAll('.contenedor');
+
+      pantallas.forEach(el => {
+        el.classList.add('oculto');
+        el.style.setProperty('display', 'none', 'important');
+      });
+
+      const objetivo = document.getElementById(id);
+      if (!objetivo) {
+        console.error('[BTC] No existe ninguna pantalla con id:', id);
+        return;
+      }
+
+      objetivo.classList.remove('oculto');
+      objetivo.style.removeProperty('display'); /* deja que el CSS decida cómo mostrarla */
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -663,30 +677,41 @@
       mostrarPantalla('pantalla-recuperar-exito');
     }
 
-    /* muestra el nombre del archivo de eps seleccionado */
-    document.getElementById('eps-certificado').addEventListener('change', function () {
-      document.getElementById('nombre-archivo-eps').textContent =
-        this.files[0] ? this.files[0].name : 'Ningún archivo seleccionado';
-    });
-
-    /* detectar desde qué botón llegó el usuario */
-  document.addEventListener('DOMContentLoaded', () => {
-
-    const parametros = new URLSearchParams(window.location.search);
-    const vista = parametros.get('view');
-
-    if (vista === 'registro') {
-      mostrarPantalla('pantalla-registro-inicio');
+    /* muestra el nombre del archivo de eps seleccionado (con verificación de existencia) */
+    const inputEps = document.getElementById('eps-certificado');
+    if (inputEps) {
+      inputEps.addEventListener('change', function () {
+        document.getElementById('nombre-archivo-eps').textContent =
+          this.files[0] ? this.files[0].name : 'Ningún archivo seleccionado';
+      });
     }
 
-    else if (vista === 'inicio-sesion') {
-      mostrarPantalla('pantalla-login');
+    /*
+      abrir pantalla de registro o inicio de sesion segun parametro recibido en view*/
+    function aplicarVistaDesdeURL() {
+      const parametros = new URLSearchParams(window.location.search);
+      const vista = parametros.get('view');
+
+      /* diagnóstico: abre la consola (F12) y revisa estas dos líneas al hacer clic en un botón */
+      console.log('[BTC] URL actual:', window.location.href);
+      console.log('[BTC] Parámetro "view" detectado:', vista);
+
+      if (vista === 'registro') {
+        mostrarPantalla('pantalla-registro-inicio');
+      } else if (vista === 'inicio-sesion') {
+        mostrarPantalla('pantalla-login');
+      } else if (vista === 'pantalla-recuperar-3') {
+        mostrarPantalla('pantalla-recuperar-3');
+      } else {
+        console.log('[BTC] Sin parámetro "view" reconocido, se queda en la pantalla por defecto (login).');
+      }
     }
 
-    else if (vista === 'pantalla-recuperar-3') {
-    mostrarPantalla('pantalla-recuperar-3');
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aplicarVistaDesdeURL);
+    } else {
+      aplicarVistaDesdeURL();
     }
-  });
   </script>
 </body>
 </html>
