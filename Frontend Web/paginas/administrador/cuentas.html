@@ -4,93 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Cuentas | Blood Tigers Cheer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/paginas/cuentas.css">
-    <link rel="icon" type="image/x-icon" href="/img/logo/logo-btc.png">
+    <link rel="icon" type="image/x-icon" href="/img/logo/Logo-Club.png">
 </head>
 
-<body class="pagina-admin">
+<body>
 
-    <!-- barra lateral -->
-    <div class="Barra2">
-        <div class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="sidebar-menu">
-            <li>
-                <a href="/paginas/administrador/perfil-admin.html" title="Perfil" id="perfil-icon">
-                    <img src="/img/iconos/perfil.png" alt="Perfil usuario">
-                </a>
-            </li>
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
 
-            <li>
-                <a href="#" title="Asistencia">
-                    <img src="/img/iconos/asistencia.png" alt="Asistencia">
-                </a>
-            </li>
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
 
-            <li class="active">
-                <a href="/paginas/administrador/cuentas.html" title="Cuentas de usuarios">
-                    <img src="/img/iconos/usuarios.png" alt="Cuentas de usuarios">
-                </a>
-            </li>
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
 
-            <li>
-                <a href="#" title="Horarios">
-                    <img src="/img/iconos/calendario.png" alt="Icono calendario">
-                </a>
-            </li>
+                <li class="menu-lateral__elemento">
+                    <a href="/paginas/administrador/perfil-admin.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="/img/iconos/perfil.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="/img/iconos/asistencia.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="/paginas/administrador/cuentas.html" class="menu-lateral__enlace" title="Cuentas de Usuarios">
+                        <img class="menu-lateral__icono" src="/img/iconos/usuarios.png" alt="Validación de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="/img/iconos/horarios.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="/paginas/administrador/implementos.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="/img/iconos/camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="/img/iconos/factura.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="/img/iconos/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="/img/iconos/estadistica-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
 
-            <li>
-                <a href="#" title="Implementos">
-                    <img src="/img/iconos/camisa.png" alt="Icono implementos">
-                </a>
-            </li>
-
-            <li>
-                <a href="#" title="Pagos">
-                    <img src="/img/iconos/grafico-circular.png" alt="Pagos">
-                </a>
-            </li>
-
-            <li>
-                <a href="#" title="PQRS">
-                    <img src="/img/iconos/comentarios.png" alt="Icono comentarios">
-                </a>
-            </li>
-            
-            <li>
-                <a href="#" title="Rendimiento">
-                    <img src="/img/iconos/estadistica-barras.png" alt="Icono rendimiento">
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- barra superior -->
-    <header>
-        <nav>
-            <div class="contenedor">
-                <div class="Barra1">
-                    <ul class="nav-btns">
-                        <li><a href="../publico/index.html" class="btn-cerrar">Cerrar Sesión</a></li>
-                        <li><span class="admin-btn">Administrador</span></li>
-                    </ul>
-                    <div id="Logo">
-                        <a href="#" class="icon-link" title="Notificaciones">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
-                        </a>
-                        <a href="../administrador/dashboard-admin.html" class="icon-link" title="Inicio">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                        </a>
-                        <div class="logo-club">
-                            <img src="/img/logo/logo-btc.png" alt="Logo">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </ul>
         </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="/paginas/autenticacion/panel-acceso.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Administrador</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="/paginas/administrador/dashboard-admin.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="/img/logo/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
     </header>
 
     <!-- contenido principal -->
@@ -143,8 +153,6 @@
                             </tr>
                         </thead>
                         <tbody id="cuerpo-solicitudes">
-
-                            <!-- nota: se agregaron data-nivel-perteneciente y data-plan-mensualidad a cada fila para poder mostrarlos en el modal de detalles -->
 
                             <tr data-estado="pendiente"
                                 data-nombres-personales="Andrés Felipe" data-apellidos-personales="Rodríguez"
@@ -281,7 +289,7 @@
                                 <td><span class="id-celda">AT009</span></td>
                                 <td><span class="nombre-celda">Natalia Andrea Muñoz</span></td>
                                 <td><span class="correo-celda">n.munoz.gestion@gmail.com</span><br><span class="tel-celda">314 567 8901</span></td>
-                                <td><span class="badge badge--amarillo ">Entrenador</span></td>
+                                <td><span class="badge badge--amarillo">Entrenador</span></td>
                                 <td><span class="badge badge--verde">Aprobada</span></td>
                                 <td><span class="fecha-celda">15/04/2025</span></td>
                                 <td class="acciones-celda">
@@ -377,7 +385,6 @@
                                 <td><span class="correo-celda">ana.lopez2026@gmail.com</span></td>
                                 <td><span class="badge badge--azul">Atleta</span></td>
                                 <td><span class="badge badge--verde">Activa</span></td>
-        
                                 <td><span class="fecha-celda">02/05/2025</span></td>
                                 <td class="acciones-celda">
                                     <label class="toggle">
@@ -455,8 +462,12 @@
         </div>
     </main>
 
-    <!-- modal de detalles de solicitud -->
-    <div class="modal-overlay oculto" id="modal-detalles" onclick="if(event.target===this)cerrarModal('modal-detalles')">
+    <!-- ============================================================
+         MODAL DE DETALLES — usa modal-overlay--scroll para que el
+         scroll sea el nativo del navegador y el overlay cubra todo
+         el documento sin generar espacio en blanco en los demás.
+         ============================================================ -->
+    <div class="modal-overlay modal-overlay--scroll oculto" id="modal-detalles" onclick="if(event.target===this)cerrarModal('modal-detalles')">
         <div class="modal modal--detalles" role="dialog" aria-modal="true">
             <div class="modal-cabeza">
                 <h2 class="modal-cabeza__titulo">Detalles de la solicitud</h2>
@@ -509,12 +520,10 @@
                         <label>Correo Electrónico</label>
                         <input type="text" id="det-registro-correo" readonly>
                     </div>
-                    <!-- nombre EPS -->
                     <div class="detalle-grupo">
                         <label>Nombre EPS</label>
                         <input type="text" id="det-eps-nombre" readonly>
                     </div>
-                    <!-- certificado EPS -->
                     <div class="detalle-grupo">
                         <label>Certificado EPS</label>
                         <div class="campo-eps">
@@ -526,14 +535,12 @@
                     </div>
                 </div>
 
-                <!-- título sección datos de afiliación (nivel y plan) -->
+                <!-- título sección datos de afiliación -->
                 <div class="detalle-titulo-seccion">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     Datos de plan
                 </div>
 
-                <!-- grid 2 columnas: nivel y plan de mensualidad -->
-                <!-- el plan de mensualidad solo aplica a atletas, por eso su grupo tiene id para poder ocultarlo cuando el rol es entrenador -->
                 <div class="detalle-grid">
                     <div class="detalle-grupo">
                         <label>Nivel perteneciente</label>
@@ -551,7 +558,6 @@
                     Contacto de emergencia
                 </div>
 
-                <!-- grid 2 columnas: contacto de emergencia -->
                 <div class="detalle-grid">
                     <div class="detalle-grupo">
                         <label>Nombre</label>
@@ -706,23 +712,19 @@
     }
 
     /* abrir y cerrar modales */
-    /* se bloquea el scroll del body mientras el modal esta abierto, para que solo quede una barra de scroll (la del overlay) */
     function abrirModal(id) {
         document.getElementById(id).classList.remove('oculto');
         document.body.classList.add('modal-abierto');
     }
     function cerrarModal(id) {
         document.getElementById(id).classList.add('oculto');
-        /* solo se vuelve a permitir el scroll del body si ya no queda ningun modal abierto */
         var hayModalAbierto = document.querySelector('.modal-overlay:not(.oculto)');
         if (!hayModalAbierto) document.body.classList.remove('modal-abierto');
     }
 
-    /* poblar y abrir modal de detalles (mismos nombres que el formulario de registro) */
+    /* poblar y abrir modal de detalles */
     function abrirDetalles(btn) {
         var f = btn.closest('tr');
-
-        /* el rol se necesita primero porque decide si se muestra o no el plan de mensualidad */
         var rol = f.children[3].textContent.trim();
 
         document.getElementById('det-nombres-personales').value   = f.dataset.nombresPersonales;
@@ -739,11 +741,8 @@
         document.getElementById('det-emergencia-apellido').value  = f.dataset.emergenciaApellido;
         document.getElementById('det-emergencia-telefono').value  = f.dataset.emergenciaTelefono;
         document.getElementById('det-parentesco-tipo').value      = f.dataset.parentescoTipo;
-
-        /* datos de afiliación: el nivel siempre se muestra */
         document.getElementById('det-nivel-perteneciente').value  = f.dataset.nivelPerteneciente;
 
-        /* el plan de mensualidad solo aplica a atletas, si el rol es entrenador se oculta el campo completo */
         var grupoPlan = document.getElementById('det-grupo-plan');
         if (rol === 'Entrenador') {
             grupoPlan.classList.add('oculto');
@@ -755,6 +754,9 @@
         var b = document.getElementById('det-rol-badge');
         b.className = 'insignia-rol insignia-rol--tabla ' + (rol === 'Entrenador' ? 'insignia-rol--entrenador' : 'insignia-rol--atleta');
         b.textContent = rol;
+
+        /* volver al tope del overlay antes de abrir */
+        document.getElementById('modal-detalles').scrollTop = 0;
         abrirModal('modal-detalles');
     }
 
@@ -764,7 +766,7 @@
         abrirModal('modal-' + accion);
     }
 
-    /* confirmar aprobación o rechazo: actualiza badge y botones sin eliminar la fila */
+    /* confirmar aprobación o rechazo */
     function confirmarAccion(accion) {
         if (!filaSeleccionada) return;
         var f = filaSeleccionada;
@@ -788,14 +790,14 @@
         abrirModal(valorToggle ? 'modal-activar' : 'modal-desactivar');
     }
 
-    /* confirmar cambio de estado de cuenta sin eliminar la fila */
+    /* confirmar cambio de estado de cuenta */
     function confirmarToggle() {
         if (!filaToggle) return;
         var activar = valorToggle;
         filaToggle.dataset.activo = activar;
         var cls = activar ? 'badge--verde' : 'badge--rojo';
         var txt = activar ? 'Activa' : 'Inactiva';
-        filaToggle.children[3].innerHTML = '<span class="badge ' + cls + '">' + txt + '</span>';
+        filaToggle.children[4].innerHTML = '<span class="badge ' + cls + '">' + txt + '</span>';
         filaToggle.querySelector('input[type="checkbox"]').checked = activar;
         cerrarModal(activar ? 'modal-activar' : 'modal-desactivar');
         document.getElementById('exito-titulo').textContent = activar ? '¡Cuenta activada!' : '¡Cuenta desactivada!';
