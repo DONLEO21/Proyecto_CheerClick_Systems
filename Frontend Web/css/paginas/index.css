@@ -1,4 +1,4 @@
-/* index.css — Blood Tigers Cheer · Página pública */
+/* index.css — blood tigers cheer · página pública */
 
 /* ── variables ──────────────────────────────────────────── */
 :root {
@@ -52,51 +52,45 @@ ul { list-style: none; }
   margin-bottom: 10px;
 }
 
-/* ── navbar ─────────────────────────────────────────────── */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-}
+/* ── navbar bootstrap */
 
+/* fondo con blur y borde s*/
 .nav-publica {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(180, 0, 0, 0.1);
   height: 70px;
-  display: flex;
-  align-items: center;
   transition: box-shadow 0.3s;
+  z-index: 1050;
 }
 
+/* sombra al hacer scroll */
 .nav-publica.scrolled {
   box-shadow: 0 2px 24px rgba(180, 0, 0, 0.13);
 }
 
+/* contenedor del navbar que ocupa el ancho completo */
 .nav-publica-contenedor {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 48px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  max-width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
-/* logo */
-.logo {
+/*logo */
+
+.navbar-brand.logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
-.logo img {
+.navbar-brand.logo img {
   width: 45px;
   height: 45px;
   object-fit: contain;
 }
 
-/* texto del logo en dos líneas */
 .logo-texto {
   display: flex;
   flex-direction: column;
@@ -104,7 +98,6 @@ header {
   gap: 2px;
 }
 
-/* "CLUB DEPORTIVO" — pequeño y opaco */
 .logo-club {
   font-size: 9px;
   font-weight: 500;
@@ -113,7 +106,6 @@ header {
   text-transform: uppercase;
 }
 
-/* "BLOOD TIGERS CHEER" — visible y blanco-oscuro */
 .logo-nombre {
   font-size: 15px;
   font-weight: 800;
@@ -122,80 +114,136 @@ header {
 }
 
 /* links del nav */
-.nav-publica-links ul {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
 
-.nav-publica-links ul li a {
+.nav-publica .nav-link {
   font-size: 13.5px;
   font-weight: 500;
   color: var(--texto-medio);
+  padding: 6px 4px;
   transition: color 0.2s;
-}
-
-.nav-publica-links ul li a:hover {
-  color: var(--rojo);
-  border-bottom: 2px solid var(--rojo);
-}
-
-/* "Iniciar sesión" como botón rojo */
-.nav-publica-links > ul > li:last-child > a {
-  background: var(--rojo);
-  color: var(--blanco);
-  padding: 9px 22px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.nav-publica-links > ul > li:last-child > a:hover {
-  background: var(--rojo-oscuro);
-  transform: translateY(-1px);
-}
-
-/* menú desplegable */
-.menu-desplegable {
   position: relative;
 }
 
-.menu-desplegable .submenu {
-  display: none;
-  position: absolute;
-  left: 0;
+.nav-publica .nav-link::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--rojo);
+  margin: 3px auto 0;
+  transition: width 0.3s;
+}
+
+.nav-publica .nav-link:hover,
+.nav-publica .nav-link:focus {
+  color: var(--rojo);
+}
+
+.nav-publica .nav-link:hover::after,
+.nav-publica .nav-link:focus::after {
+  width: 24px;
+}
+
+/* botón "iniciar sesión" — sin línea animada */
+.btn-nav-sesion {
+  background: var(--rojo) !important;
+  color: var(--blanco) !important;
+  padding: 9px 22px !important;
+  border-radius: 8px;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  transition: background 0.2s, transform 0.15s !important;
+}
+
+.btn-nav-sesion::after {
+  display: none !important;
+}
+
+.btn-nav-sesion:hover {
+  background: var(--rojo-oscuro) !important;
+  color: var(--blanco) !important;
+  transform: translateY(-1px);
+}
+
+/* ── dropdown de programas ───────────────────────────────── */
+
+/* flecha dropdown */
+.nav-publica .nav-item.dropdown > .nav-link {
+  padding: 6px 4px;
+}
+
+.nav-publica .dropdown-toggle::after {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  background: none;
+  margin: 0 0 0 4px;
+  border-top: 0.3em solid var(--texto-medio);
+  border-right: 0.3em solid transparent;
+  border-left: 0.3em solid transparent;
+  transition: none;
+  vertical-align: middle;
+}
+
+.nav-publica .dropdown-toggle:hover::after,
+.nav-publica .dropdown-toggle:focus::after {
+  width: auto;
+  border-top-color: var(--rojo);
+}
+
+.nav-publica .dropdown-menu {
   border-radius: 10px;
-  background: var(--blanco);
+  border: none;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   padding: 8px 0;
   min-width: 160px;
-  flex-direction: column;
-  gap: 0;
+  z-index: 1051;
 }
 
-.menu-desplegable:hover .submenu {
-  display: flex;
-}
-
-.menu-desplegable .submenu li a {
-  display: block;
-  padding: 5px 18px;
+.nav-publica .dropdown-item {
   font-size: 13px;
   color: var(--texto-medio);
-  border-bottom: 2px solid transparent;
-  transition: background 0.15s, color 0.15s;
+  padding: 9px 18px;
+  text-align: center;
+  transition: color 0.15s;
+  position: relative;
 }
 
-.menu-desplegable .submenu li a:hover {
-  border-bottom: 2px solid var(--rojo);
+.nav-publica .dropdown-item::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--rojo);
+  margin: 3px auto 0;
+  transition: width 0.3s;
+}
+
+.nav-publica .dropdown-item:hover,
+.nav-publica .dropdown-item:focus {
+  background: transparent;
   color: var(--rojo);
+}
+
+.nav-publica .dropdown-item:hover::after,
+.nav-publica .dropdown-item:focus::after {
+  width: 24px;
+}
+
+.nav-publica .navbar-toggler {
+  border-color: rgba(180, 0, 0, 0.3);
+}
+
+.nav-publica .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(180, 0, 0, 0.15);
 }
 
 /* ── hero ───────────────────────────────────────────────── */
 #hero {
   min-height: 100vh;
   padding-top: 70px;
+  position: relative;
+  z-index: 0;
   background: radial-gradient(
     ellipse at 0% 50%,
     var(--rojo) 0%,
@@ -215,7 +263,6 @@ header {
   padding: 60px 48px;
 }
 
-/* título con jerarquía de dos líneas */
 .hero-contenido h1 {
   display: flex;
   flex-direction: column;
@@ -223,7 +270,6 @@ header {
   margin-bottom: 18px;
 }
 
-/* "CLUB DEPORTIVO" — pequeño y semitransparente */
 .hero-titulo-club {
   font-size: clamp(13px, 1.8vw, 20px);
   font-weight: 700;
@@ -233,7 +279,6 @@ header {
   line-height: 1;
 }
 
-/* "BLOOD TIGERS CHEER" — grande y blanco */
 .hero-titulo-nombre {
   font-size: clamp(32px, 4.8vw, 62px);
   font-weight: 900;
@@ -252,7 +297,6 @@ header {
   margin-bottom: 34px;
 }
 
-/* botones hero */
 .hero-botones {
   display: flex;
   gap: 13px;
@@ -264,7 +308,7 @@ header {
   border-radius: 10px;
   font-size: 15px;
   font-weight: 700;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .btn-primario {
@@ -274,6 +318,8 @@ header {
 }
 
 .btn-primario:hover {
+  background: var(--rojo);
+  color: var(--blanco);
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
 }
@@ -286,10 +332,11 @@ header {
 
 .btn-secundario:hover {
   background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
   border-color: var(--blanco);
+  color: var(--blanco);
 }
 
-/* stats / logros hero */
 .logros {
   display: flex;
   gap: 28px;
@@ -313,7 +360,6 @@ header {
   margin-top: 2px;
 }
 
-/* imagen hero */
 .hero-imagen {
   display: flex;
   align-items: center;
@@ -541,7 +587,6 @@ header {
   box-shadow: 0 16px 36px rgba(180, 0, 0, 0.13);
 }
 
-/* tarjeta central destacada */
 .nivel-tarjetas:nth-child(5) {
   background: var(--rojo);
   border-color: var(--rojo);
@@ -561,7 +606,6 @@ header {
   position: relative;
 }
 
-/* badge de nivel (h3 en niveles) */
 .tarjeta-encabezado h3 {
   font-size: 10px;
   font-weight: 700;
@@ -638,7 +682,6 @@ header {
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 1;
-
   color: var(--negro);
   margin-bottom: 14px;
 }
@@ -664,7 +707,6 @@ header {
   border: 1px solid rgba(180, 0, 0, 0.07);
 }
 
-/* encabezado rojo de horario — sobreescribe el base */
 .horario-tarjeta .tarjeta-encabezado {
   background: var(--rojo);
   padding: 18px 22px;
@@ -725,7 +767,6 @@ header {
   padding: 96px 48px;
 }
 
-/* texto introductorio centrado */
 .inscripcion-intro {
   text-align: center;
   margin-bottom: 48px;
@@ -756,7 +797,6 @@ header {
   margin: 0 auto;
 }
 
-/* tarjeta blanca para el formulario */
 .inscripcion-form-wrap {
   background: var(--blanco);
   border-radius: 20px;
@@ -781,7 +821,6 @@ header {
   margin-bottom: 30px;
 }
 
-/* fila de dos columnas */
 .form-fila {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -843,7 +882,6 @@ header {
   min-height: 100px;
 }
 
-/* botón enviar */
 .form-btn-enviar {
   display: block;
   width: 100%;
@@ -948,7 +986,6 @@ footer {
   color: var(--blanco);
 }
 
-
 /* ── animaciones ────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(26px); }
@@ -975,9 +1012,6 @@ footer {
 }
 
 @media (max-width: 860px) {
-  .nav-publica-contenedor { padding: 0 20px; }
-  .nav-publica-links      { display: none; }
-
   .hero-layout   { grid-template-columns: 1fr; padding: 40px 24px; }
   .hero-imagen   { display: none; }
 
@@ -992,6 +1026,18 @@ footer {
   .inscripcion-form-wrap { padding: 28px 20px; }
   .form-fila         { grid-template-columns: 1fr; }
   .contenedor        { padding: 0 24px; }
+
+  .nav-publica .navbar-collapse {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 12px 20px 16px;
+    border-top: 1px solid rgba(180, 0, 0, 0.08);
+  }
+
+  .btn-nav-sesion {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+  }
 }
 
 @media (max-width: 480px) {

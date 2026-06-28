@@ -9,38 +9,86 @@
     <link rel="icon" href="/img/logo/logo-btc.png" type="image">
 </head>
 <body class="pagina-publica">
+
     <header>
-        <nav class="nav-publica">
-            <div class="nav-publica-contenedor">
-                <div class="logo">
+        <!-- navbar con bootstrap 5.3 — fijo arriba, efecto blur -->
+        <!-- FIX 1: se eliminó justify-content-center del collapse y se usa ms-auto en la ul
+             para que el logo quede a la izquierda y los links a la derecha -->
+        <nav class="navbar navbar-expand-lg nav-publica fixed-top">
+            <div class="container-fluid nav-publica-contenedor">
+
+                <!-- logo con imagen y texto en dos líneas -->
+                <a class="navbar-brand logo" href="#hero">
                     <img src="/img/logo/logo-btc.png" alt="Logo">
                     <div class="logo-texto">
                         <span class="logo-club">CLUB DEPORTIVO</span>
                         <span class="logo-nombre">BLOOD TIGERS CHEER</span>
                     </div>
-                </div>
-                <div class="nav-publica-links">
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li class="menu-desplegable">
-                            <a href="#">Programas</a>
-                            <ul class="submenu">
-                                <li><a href="#servicios">Servicios</a></li>
-                                <li><a href="#niveles">Niveles</a></li>
-                                <li><a href="#horarios">Horarios</a></li>
+                </a>
+
+                <!-- botón hamburguesa para móvil -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menú"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- FIX 1: se quitó justify-content-center; los links van a la derecha con ms-auto -->
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hero">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#nosotros">Nosotros</a>
+                        </li>
+
+                        <!-- dropdown de programas con bootstrap -->
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Programas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#servicios">Servicios</a></li>
+                                <li><a class="dropdown-item" href="#niveles">Niveles</a></li>
+                                <li><a class="dropdown-item" href="#horarios">Horarios</a></li>
                             </ul>
                         </li>
-                        <li><a href="#footer">Contacto</a></li>
-                        <li><a href="/paginas/autenticacion/panel-acceso.html?view=inicio-sesion">Iniciar sesión</a></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">Contacto</a>
+                        </li>
+
+                        <!-- botón de iniciar sesión separado visualmente -->
+                        <li class="nav-item ms-lg-3">
+                            <a class="nav-link btn-nav-sesion" href="/paginas/autenticacion/panel-acceso.html?view=inicio-sesion">
+                                Iniciar sesión
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
+
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Sección Principal -->
+        <!-- sección principal -->
         <section id="hero">
             <div class="contenedor hero-layout">
                 <div class="hero-contenido">
@@ -82,7 +130,7 @@
             </div>
         </section>
 
-        <!-- Sección Nosotros -->
+        <!-- sección nosotros -->
         <section id="nosotros">
             <div class="contenedor">
                 <div class="seccion-titulo">
@@ -137,7 +185,7 @@
             </div>
         </section>
 
-        <!-- Sección Servicios -->
+        <!-- sección servicios -->
         <section id="servicios">
             <div class="contenedor">
                 <div class="servicios-contenido">
@@ -148,7 +196,6 @@
                     <p>En Blood Tigers preparamos atletas completos, fuertes y disciplinados. A través de nuestras diferentes áreas de entrenamiento,<br>garantizamos un proceso técnico y seguro adaptado a todas las edades y niveles de rendimiento.</p>
 
                     <div class="servicios-valores">
-                        
                         <article class="servicio-tarjetas">
                             <img src="/img/club-img/BTC-salto.jpg" alt="Foto Blood Tigers Cheer Salto">
                             <h2>Acrobacia</h2>
@@ -181,7 +228,7 @@
             </div>
         </section>
 
-        <!-- Sección Niveles -->
+        <!-- sección niveles -->
         <section id="niveles">
             <div class="contenedor">
                 <div class="contenido-niveles">
@@ -252,7 +299,7 @@
             </div>
         </section>
 
-        <!-- Sección Horarios -->
+        <!-- sección horarios -->
         <section id="horarios">
             <div class="contenedor">
                 <div class="horarios-contenido">
@@ -365,5 +412,7 @@
         </section>
     </footer>
 
+   <!-- script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
