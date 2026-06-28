@@ -6,6 +6,7 @@
     <title>Asistencia</title>
     <link rel="stylesheet" href="css/stylesAdmi.css">
     <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -102,17 +103,29 @@
     <!-- Inicio de Vista de Entrenador -->
     <div class="contenedor-principal">
 
-        <!-- Radios para control de pestañas (CSS-only) -->
         <input type="radio" id="switch-formativos" name="pestanas" checked>
         <input type="radio" id="switch-queen" name="pestanas">
         <input type="radio" id="switch-princess" name="pestanas">
         <input type="radio" id="switch-magic" name="pestanas">
         <input type="radio" id="switch-blood" name="pestanas">
+        <input type="radio" id="switch-just" name="pestanas">
+
+        <input type="radio" id="filtro-pendientes" name="filtro-estado" checked>
+        <input type="radio" id="filtro-aprobadas"  name="filtro-estado">
+        <input type="radio" id="filtro-rechazadas" name="filtro-estado">
+        <input type="radio" id="filtro-todas"      name="filtro-estado">
+
+        <input type="radio" id="nivel-todos"      name="filtro-nivel" checked>
+        <input type="radio" id="nivel-formativo"  name="filtro-nivel">
+        <input type="radio" id="nivel-queen"      name="filtro-nivel">
+        <input type="radio" id="nivel-princess"   name="filtro-nivel">
+        <input type="radio" id="nivel-magic"      name="filtro-nivel">
+        <input type="radio" id="nivel-blood"      name="filtro-nivel">
 
         <div class="asist-header">
             <div class="asist-header__titulo-bloque">
                 <h1>Registrar asistencia</h1>
-                <p>Gestione la asistencia y el historial de sus registros aquí.</p>
+                <p>Gestiona la asistencia, visualiza el historial de tus registros aquí y lleva el control de las justificaciones de los atletas</p>
             </div>
 
             <div class="asist-header__tabs-bloque">
@@ -122,6 +135,11 @@
                     <label for="switch-princess" class="tab-btn btn-princess">Princess</label>
                     <label for="switch-magic" class="tab-btn btn-magic">Magic</label>
                     <label for="switch-blood" class="tab-btn btn-blood">Blood Tigers</label>
+                    <label for="switch-just" class="tab-btn btn-just">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Justificaciones
+                        <span class="tab-just-badge">3</span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -513,7 +531,7 @@
                 </div>
             </div>
 
-            <!-- Tip / aviso informativo -->
+            <!-- aviso informativo -->
             <div class="asist-tip">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
                 Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
@@ -906,13 +924,316 @@
                 </div>
             </div>
 
-            <!-- Tip / aviso informativo -->
+            <!-- Aviso informativo -->
             <div class="asist-tip">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
                 Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
             </div>
         </div>
+
+        <!--  JUSTIFICACIONES  -->
+        <div class="switch-just">
+            <div class="just-admi-intro">
+                <p>Revisa, aprueba o rechaza las justificaciones enviadas por los atletas de todos los niveles.</p>
+
+                <!-- Filtro por estado -->
+                <div class="just-admi-filtros filtro-estado-labels" style="margin-bottom:12px;">
+                    <label for="filtro-pendientes">
+                        <span class="just-filtro-dot just-filtro-dot--rojo"></span> Pendientes
+                        <span class="just-filtro-num">3</span>
+                    </label>
+                    <label for="filtro-aprobadas">
+                        <span class="just-filtro-dot just-filtro-dot--verde"></span> Aprobadas
+                        <span class="just-filtro-num">4</span>
+                    </label>
+                    <label for="filtro-rechazadas">
+                        <span class="just-filtro-dot just-filtro-dot--gris"></span> Rechazadas
+                        <span class="just-filtro-num">1</span>
+                    </label>
+                    <label for="filtro-todas">Todas</label>
+                </div>
+
+                <!-- Filtro por nivel -->
+                <div class="just-admi-filtros-nivel filtro-nivel-labels">
+                    <span class="just-nivel-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                        Nivel:
+                    </span>
+                    <label for="nivel-todos">Todos</label>
+                    <div class="filtro-nivel-separador"></div>
+                    <label for="nivel-formativo">Formativo King</label>
+                    <label for="nivel-queen">Queen</label>
+                    <label for="nivel-princess">Princess</label>
+                    <label for="nivel-magic">Magic</label>
+                    <label for="nivel-blood">Blood Tigers</label>
+                </div>
+            </div>
+
+            <div class="just-admi-grid">
+
+                <!-- ── PENDIENTES ── -->
+                <div class="just-admi-card just-admi-card--pendiente" data-estado="pendientes" data-nivel="magic">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar">MF</div>
+                            <div>
+                                <span class="just-admi-nombre">Maria Fernanda Rodrigues</span>
+                                <span class="just-admi-categoria">Magic</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--pendiente">Pendiente</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Consulta médica urgente por dolor en la rodilla derecha."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>certificado_medico.pdf</span><span class="just-admi-archivo-size">· 124 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__acciones">
+                        <button class="just-btn-rechazar" type="button" onclick="abrirModalRechazo('Maria Fernanda Rodrigues','Magic','27 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazar</button>
+                        <button class="just-btn-aprobar" type="button" onclick="abrirModalAprobacion('Maria Fernanda Rodrigues','Magic','27 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Aprobar</button>
+                    </div>
+                </div>
+
+                <div class="just-admi-card just-admi-card--pendiente" data-estado="pendientes" data-nivel="queen">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar">JP</div>
+                            <div>
+                                <span class="just-admi-nombre">Juan Pablo Martínez Soler</span>
+                                <span class="just-admi-categoria">Queen</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--pendiente">Pendiente</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>24 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Viaje de estudio programado con la institución educativa."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>permiso_colegio.jpg</span><span class="just-admi-archivo-size">· 87 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__acciones">
+                        <button class="just-btn-rechazar" type="button" onclick="abrirModalRechazo('Juan Pablo Martínez Soler','Queen','24 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazar</button>
+                        <button class="just-btn-aprobar" type="button" onclick="abrirModalAprobacion('Juan Pablo Martínez Soler','Queen','24 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Aprobar</button>
+                    </div>
+                </div>
+
+                <div class="just-admi-card just-admi-card--pendiente" data-estado="pendientes" data-nivel="magic">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar">LA</div>
+                            <div>
+                                <span class="just-admi-nombre">Leonardo Jara Acosta</span>
+                                <span class="just-admi-categoria">Magic</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--pendiente">Pendiente</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>12 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Enfermedad general, reposo médico por dos días."</p>
+                        <div class="just-admi-archivo just-admi-archivo--sin-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                            Sin archivo adjunto
+                        </div>
+                    </div>
+                    <div class="just-admi-card__acciones">
+                        <button class="just-btn-rechazar" type="button" onclick="abrirModalRechazo('Leonardo Jara Acosta','Magic','12 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazar</button>
+                        <button class="just-btn-aprobar" type="button" onclick="abrirModalAprobacion('Leonardo Jara Acosta','Magic','12 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Aprobar</button>
+                    </div>
+                </div>
+
+                <!-- ── APROBADAS ── -->
+                <div class="just-admi-card just-admi-card--aprobada" data-estado="aprobadas" data-nivel="princess">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar just-admi-avatar--verde">SR</div>
+                            <div>
+                                <span class="just-admi-nombre">Sofia Ramírez Leal</span>
+                                <span class="just-admi-categoria">Princess</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--aprobada"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Aprobada</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>10:00 – 12:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Competencia departamental de gimnasia."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>permiso_competencia.pdf</span><span class="just-admi-archivo-size">· 96 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__revision">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Aprobada por Stuart Pérez · 21 Jun 2026
+                    </div>
+                </div>
+
+                <div class="just-admi-card just-admi-card--aprobada" data-estado="aprobadas" data-nivel="blood">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar just-admi-avatar--verde">KM</div>
+                            <div>
+                                <span class="just-admi-nombre">Karen Mejía Torres</span>
+                                <span class="just-admi-categoria">Blood Tigers</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--aprobada"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Aprobada</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>05 May 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Cita médica especialista, orden adjunta."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>orden_medica.pdf</span><span class="just-admi-archivo-size">· 210 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__revision">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Aprobada por Stuart Pérez · 06 May 2026
+                    </div>
+                </div>
+
+                <!-- ── RECHAZADAS ── -->
+                <div class="just-admi-card just-admi-card--rechazada" data-estado="rechazadas" data-nivel="formativo">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar just-admi-avatar--rojo">AC</div>
+                            <div>
+                                <span class="just-admi-nombre">Andrés Castro Peña</span>
+                                <span class="just-admi-categoria">Nivel Formativo</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--rechazada"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazada</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>18 Abr 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Viaje familiar de fin de semana."</p>
+                        <div class="just-admi-archivo just-admi-archivo--sin-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                            Sin archivo adjunto
+                        </div>
+                    </div>
+                    <div class="just-admi-card__revision just-admi-card__revision--rechazada">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Rechazada por Stuart Pérez · 19 Abr 2026
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
+
+    <!-- ═══ MODAL: APROBAR JUSTIFICACIÓN ═══ -->
+    <dialog id="modal-aprobar-just" class="modal-just">
+        <div class="modal-just-header">
+            <div class="modal-just-icono modal-just-icono--verde">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h2>Aprobar justificación</h2>
+            <p>Estás por aprobar la justificación de inasistencia de:</p>
+            <div class="modal-just-atleta-info">
+                <div class="mini-avatar mini-avatar--verde" id="aprobar-avatar">MF</div>
+                <div class="mini-datos">
+                    <strong id="aprobar-nombre">Maria Fernanda Rodrigues</strong>
+                    <span id="aprobar-meta">Magic · 27 Jun 2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-just-body">
+            <div class="modal-just-campo">
+                <label for="aprobar-obs">Observación <span class="modal-opcional">(opcional)</span></label>
+                <textarea id="aprobar-obs" rows="3" placeholder="Ej: Certificado médico verificado. Justificación válida."></textarea>
+            </div>
+        </div>
+        <div class="modal-just-footer">
+            <button type="button" class="modal-btn-cancelar" onclick="document.getElementById('modal-aprobar-just').close()">Cancelar</button>
+            <button type="button" class="modal-btn-aprobar" onclick="confirmarAprobacion()">
+                Confirmar 
+            </button>
+        </div>
+    </dialog>
+
+    <!-- ═══ MODAL: RECHAZAR JUSTIFICACIÓN ═══ -->
+    <dialog id="modal-rechazar-just" class="modal-just">
+        <div class="modal-just-header">
+            <div class="modal-just-icono modal-just-icono--rojo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+            <h2>Rechazar justificación</h2>
+            <p>Estás por rechazar la justificación de inasistencia de:</p>
+            <div class="modal-just-atleta-info">
+                <div class="mini-avatar mini-avatar--rojo" id="rechazar-avatar">MF</div>
+                <div class="mini-datos">
+                    <strong id="rechazar-nombre">Maria Fernanda Rodrigues</strong>
+                    <span id="rechazar-meta">Magic · 27 Jun 2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-just-body">
+            <div class="modal-just-campo">
+                <label for="rechazar-motivo">Motivo del rechazo <span class="modal-opcional">(opcional)</span></label>
+                <textarea id="rechazar-motivo" rows="3" placeholder="Ej: Documento adjunto no corresponde a la fecha indicada."></textarea>
+            </div>
+        </div>
+        <div class="modal-just-footer">
+            <button type="button" class="modal-btn-cancelar" onclick="document.getElementById('modal-rechazar-just').close()">Cancelar</button>
+            <button type="button" class="modal-btn-rechazar" onclick="confirmarRechazo()">
+                Confirmar
+            </button>
+        </div>
+    </dialog>
+
+    <!-- ═══ MODAL: CONFIRMACIÓN ÉXITO APROBACIÓN ═══ -->
+    <dialog id="modal-aprobado-ok" class="modal-just">
+        <div class="modal-just-confirm-inner">
+            <div class="modal-just-icono modal-just-icono--verde">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h2>¡Justificación aprobada!</h2>
+            <p>La justificación ha sido aprobada exitosamente y el atleta ha sido notificado.</p>
+            <button type="button" class="modal-confirm-aceptar modal-confirm-aceptar--verde" onclick="document.getElementById('modal-aprobado-ok').close()">Aceptar</button>
+        </div>
+    </dialog>
+
+    <!-- ═══ MODAL: CONFIRMACIÓN RECHAZO ═══ -->
+    <dialog id="modal-rechazado-ok" class="modal-just">
+        <div class="modal-just-confirm-inner">
+            <div class="modal-just-icono modal-just-icono--rojo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+            <h2>Justificación rechazada</h2>
+            <p>La justificación ha sido rechazada y el atleta ha sido notificado con el motivo indicado.</p>
+            <button type="button" class="modal-confirm-aceptar modal-confirm-aceptar--rojo" onclick="document.getElementById('modal-rechazado-ok').close()">Aceptar</button>
+        </div>
+    </dialog>
 
     <!-- Modal de Asistencia registrada correctamente -->
     <dialog id="modal-guardado">
@@ -951,17 +1272,17 @@
                     </svg>
                 </div>
 
-                <div class="asist-contador contador-presente" style="min-width:unset; padding:6px 12px;">
+                <div class="asist-contador contador-presente">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     <span class="num">33</span>
                     <span class="label">Presentes</span>
                 </div>
-                <div class="asist-contador contador-inpuntual" style="min-width:unset; padding:6px 12px;">
+                <div class="asist-contador contador-inpuntual">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     <span class="num">2</span>
                     <span class="label">Inpuntual</span>
                 </div>
-                <div class="asist-contador contador-falta" style="min-width:unset; padding:6px 12px;">
+                <div class="asist-contador contador-falta">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                     <span class="num">8</span>
                     <span class="label">Faltas</span>
@@ -1344,25 +1665,54 @@
                 </table>
             </div>
 
-            <div class="calendario-leyenda" style="margin-top:14px;">
+            <div class="calendario-leyenda">
                 <span class="leyenda-item">
-                    <span class="leyenda-circulo" style="background:#1eaf52;"></span> Presente
+                    <span class="leyenda-circulo"></span> Presente
                 </span>
                 <span class="leyenda-item">
-                    <span class="leyenda-circulo" style="background:#f59e0b;"></span> Inpuntual
+                    <span class="leyenda-circulo"></span> Inpuntual
                 </span>
                 <span class="leyenda-item">
-                    <span class="leyenda-circulo" style="background:#cc0000; border-radius:4px;"></span> Falta
+                    <span class="leyenda-circulo"></span> Falta
                 </span>
                 <span class="leyenda-item">
-                    <span class="leyenda-circulo" style="background:#e5e7eb; border:2px solid #222; border-radius:4px;"></span> Hoy
+                    <span class="leyenda-circulo"></span> Hoy
                 </span>
             </div>
         </div>
     </dialog>
 </body>
 <script>
-    // Menú flotante único que se mueve al hacer click en cualquier btn-mas
+    /* Modales de justificación */
+    function abrirModalAprobacion(nombre, nivel, fecha) {
+        var iniciales = nombre.split(' ').slice(0,2).map(function(p){ return p[0]; }).join('');
+        document.getElementById('aprobar-avatar').textContent = iniciales;
+        document.getElementById('aprobar-nombre').textContent = nombre;
+        document.getElementById('aprobar-meta').textContent = nivel + ' · ' + fecha;
+        document.getElementById('aprobar-obs').value = '';
+        document.getElementById('modal-aprobar-just').showModal();
+    }
+
+    function abrirModalRechazo(nombre, nivel, fecha) {
+        var iniciales = nombre.split(' ').slice(0,2).map(function(p){ return p[0]; }).join('');
+        document.getElementById('rechazar-avatar').textContent = iniciales;
+        document.getElementById('rechazar-nombre').textContent = nombre;
+        document.getElementById('rechazar-meta').textContent = nivel + ' · ' + fecha;
+        document.getElementById('rechazar-motivo').value = '';
+        document.getElementById('modal-rechazar-just').showModal();
+    }
+
+    function confirmarAprobacion() {
+        document.getElementById('modal-aprobar-just').close();
+        document.getElementById('modal-aprobado-ok').showModal();
+    }
+
+    function confirmarRechazo() {
+        document.getElementById('modal-rechazar-just').close();
+        document.getElementById('modal-rechazado-ok').showModal();
+    }
+</script>
+<script>
     var floatingMenu = null;
     var activeBtn    = null;
 
@@ -1433,15 +1783,11 @@
         var menuW  = floatingMenu.offsetWidth;
         var menuH  = floatingMenu.offsetHeight;
 
-        // Aparece a la DERECHA del botón, centrado verticalmente con él
         var top  = rect.top + (rect.height / 2) - (menuH / 2);
         var left = rect.right + 8;
 
-        // No salir por la derecha → mostrar a la izquierda del botón
         if (left + menuW > window.innerWidth - 8) left = rect.left - menuW - 8;
-        // No salir por arriba
         if (top < 8) top = 8;
-        // No salir por abajo
         if (top + menuH > window.innerHeight - 8) top = window.innerHeight - menuH - 8;
 
         floatingMenu.style.top  = top  + 'px';

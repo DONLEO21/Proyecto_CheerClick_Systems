@@ -384,7 +384,8 @@ h1, h2, h3, h4, h5, h6 {
 #switch-queen:checked      ~ .asist-header .btn-queen,
 #switch-princess:checked   ~ .asist-header .btn-princess,
 #switch-magic:checked      ~ .asist-header .btn-magic,
-#switch-blood:checked      ~ .asist-header .btn-blood {
+#switch-blood:checked      ~ .asist-header .btn-blood,
+#switch-just:checked       ~ .asist-header .btn-just {
     color: var(--color-primario);
     border-bottom-color: var(--color-primario);
 }
@@ -1259,7 +1260,8 @@ h1, h2, h3, h4, h5, h6 {
 .switch-queen,
 .switch-princess,
 .switch-magic,
-.switch-blood {
+.switch-blood,
+.switch-just {
     display: none;
 }
 
@@ -1267,7 +1269,8 @@ h1, h2, h3, h4, h5, h6 {
 #switch-queen:checked      ~ .switch-queen,
 #switch-princess:checked   ~ .switch-princess,
 #switch-magic:checked      ~ .switch-magic,
-#switch-blood:checked      ~ .switch-blood {
+#switch-blood:checked      ~ .switch-blood,
+#switch-just:checked       ~ .switch-just {
     display: block;
 }
 
@@ -1290,7 +1293,8 @@ h1, h2, h3, h4, h5, h6 {
 #switch-queen,
 #switch-princess,
 #switch-magic,
-#switch-blood {
+#switch-blood,
+#switch-just {
     display: none;
 }
 
@@ -1337,3 +1341,820 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
     cursor: not-allowed;
 }
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN JUSTIFICACIONES — VISTA ADMINISTRADOR / ENTRENADOR
+   ═══════════════════════════════════════════════════════════════ */
+
+.just-admi-seccion {
+    margin-left: 56px;
+    padding: 24px 20px 48px;
+    background: #f5f5f5;
+}
+
+/* Encabezado de la sección */
+.just-admi-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: white;
+    border-radius: 10px 10px 0 0;
+    border: 1.5px solid #e5e7eb;
+    border-bottom: none;
+    padding: 24px 24px 20px;
+    margin-bottom: 0;
+}
+
+.just-admi-titulo-bloque h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+.just-admi-titulo-bloque p {
+    font-size: 0.9rem;
+    color: var(--gris-texto);
+    margin: 0;
+}
+
+/* Botones de filtro */
+.just-admi-filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.just-filtro-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #e5e7eb;
+    background: white;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--gris-texto);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.just-filtro-btn:hover { border-color: var(--color-primario); color: var(--color-primario); }
+.just-filtro-btn--activo { background: var(--color-primario); color: white; border-color: var(--color-primario); }
+.just-filtro-btn--activo:hover { color: white; }
+
+.just-filtro-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.just-filtro-dot--rojo  { background: #dc2626; }
+.just-filtro-dot--verde { background: #16a34a; }
+.just-filtro-dot--gris  { background: #9ca3af; }
+
+.just-filtro-num {
+    border-radius: 20px;
+    font-size: 0.75rem;
+    background: #f3f4f6;
+    color: var(--color-texto);
+    padding: 1px 7px;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Número visible cuando el label-filtro está activo (fondo rojo) */
+#filtro-pendientes:checked ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-pendientes"] .just-filtro-num,
+#filtro-aprobadas:checked  ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-aprobadas"]  .just-filtro-num,
+#filtro-rechazadas:checked ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-rechazadas"] .just-filtro-num {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+/* Grid de tarjetas */
+.just-admi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    background: white;
+    border: 1.5px solid #e5e7eb;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+}
+
+/* Tarjeta individual */
+.just-admi-card {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.just-admi-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+.just-admi-card--pendiente { border-color: #fca5a5; background: #fff8f8; }
+.just-admi-card--aprobada  { border-color: #bbf7d0; background: #f0fdf4; }
+.just-admi-card--rechazada { border-color: #e5e7eb; background: #fafafa; opacity: 0.85; }
+
+.just-admi-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 10px;
+}
+
+.just-admi-atleta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.just-admi-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--color-primario-claro);
+    color: var(--color-primario);
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+.just-admi-avatar--verde { background: #d1fae5; color: #065f46; }
+.just-admi-avatar--rojo  { background: #fee2e2; color: #991b1b; }
+
+.just-admi-nombre {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1a202c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.just-admi-categoria {
+    display: inline-block;
+    font-size: 0.72rem;
+    color: var(--color-primario);
+    background: var(--color-primario-claro);
+    padding: 1px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.just-admi-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.just-admi-pill--pendiente { background: #fee2e2; color: #991b1b; }
+.just-admi-pill--aprobada  { background: #d1fae5; color: #065f46; }
+.just-admi-pill--rechazada { background: #f3f4f6; color: #6b7280; }
+
+/* Cuerpo de la tarjeta */
+.just-admi-card__body {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.just-admi-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.just-admi-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: var(--gris-texto);
+}
+
+.just-admi-motivo {
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Archivo adjunto */
+.just-admi-archivo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #2563eb;
+    padding: 6px 10px;
+    background: #eff6ff;
+    border-radius: 6px;
+    border: 1px solid #bfdbfe;
+}
+.just-admi-archivo-size { color: var(--gris-texto); }
+.just-admi-ver {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2563eb;
+    text-decoration: none;
+}
+.just-admi-ver:hover { text-decoration: underline; }
+
+.just-admi-archivo--sin-archivo {
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+    color: #9ca3af;
+}
+
+/* Acciones (Aprobar / Rechazar) */
+.just-admi-card__acciones {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid #f0f0f0;
+    background: rgba(0,0,0,0.015);
+}
+
+.just-btn-rechazar,
+.just-btn-aprobar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 7px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+    border: none;
+    flex: 1;
+    justify-content: center;
+}
+
+.just-btn-rechazar {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1.5px solid #e5e7eb;
+}
+.just-btn-rechazar:hover { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+
+.just-btn-aprobar {
+    background: #1eaf52;
+    color: white;
+}
+.just-btn-aprobar:hover { background: #15803d; }
+
+/* Línea de revisión (aprobadas/rechazadas) */
+.just-admi-card__revision {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.76rem;
+    color: #16a34a;
+    background: rgba(22,163,74,0.05);
+    font-weight: 600;
+}
+.just-admi-card__revision--rechazada {
+    color: #9ca3af;
+    background: rgba(0,0,0,0.02);
+}
+
+/* Ocultar tarjetas según filtro activo */
+.just-admi-grid[data-vista="pendientes"] .just-admi-card:not([data-estado="pendientes"]),
+.just-admi-grid[data-vista="aprobadas"]  .just-admi-card:not([data-estado="aprobadas"]),
+.just-admi-grid[data-vista="rechazadas"] .just-admi-card:not([data-estado="rechazadas"]) {
+    display: none;
+}
+/*  Filtro por nivel en justificaciones  */
+.just-admi-filtros-nivel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.just-nivel-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gris-texto);
+    margin-right: 2px;
+}
+
+.just-nivel-btn {
+    padding: 5px 13px;
+    border-radius: 6px;
+    border: 1.5px solid #e5e7eb;
+    background: white;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gris-texto);
+    cursor: pointer;
+    transition: all 0.18s;
+}
+
+.just-nivel-btn:hover { border-color: var(--color-primario); color: var(--color-primario); }
+.just-nivel-btn--activo { background: #1a202c; color: white; border-color: #1a202c; }
+.just-nivel-btn--activo:hover { color: white; border-color: #1a202c; }
+
+/*  Modales Aprobar / Rechazar justificación  */
+#modal-aprobar-just,
+#modal-rechazar-just {
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 420px;
+    width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+#modal-aprobar-just::backdrop,
+#modal-rechazar-just::backdrop {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
+}
+
+#modal-aprobar-just[open],
+#modal-rechazar-just[open] {
+    animation: modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#modal-aprobar-just[open]::backdrop,
+#modal-rechazar-just[open]::backdrop {
+    animation: modal-overlay-in 0.22s ease forwards;
+}
+
+.modal-just-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 28px 28px;
+    text-align: center;
+    gap: 12px;
+}
+
+.modal-just-icono {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.modal-just-icono--aprobar { background-color: #1eaf52; }
+.modal-just-icono--rechazar { background-color: #cc0000; }
+
+.modal-just-contenido h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.modal-just-contenido p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.modal-just-nota {
+    font-size: 0.8rem !important;
+    color: #888 !important;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: left !important;
+}
+
+.modal-just-campo {
+    width: 100%;
+    text-align: left;
+}
+
+.modal-just-campo label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.modal-just-opcional {
+    font-weight: 400;
+    color: #9ca3af;
+    font-size: 0.78rem;
+}
+
+.modal-just-campo textarea {
+    width: 100%;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.88rem;
+    color: #374151;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-just-campo textarea:focus { border-color: var(--color-primario); }
+
+.modal-just-acciones {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.modal-just-btn-cancelar {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1.5px solid #e5e7eb;
+    background: white;
+    border-radius: 8px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+.modal-just-btn-cancelar:hover { background: #f3f4f6; }
+
+.modal-just-btn-confirmar {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+.modal-just-btn-confirmar--aprobar { background: #1eaf52; }
+.modal-just-btn-confirmar--aprobar:hover { background: #15803d; }
+.modal-just-btn-confirmar--rechazar { background: #cc0000; }
+.modal-just-btn-confirmar--rechazar:hover { background: #991b1b; }
+
+/* intro de justificaciones */
+.just-admi-intro {
+    background: white;
+    border: 1.5px solid #e5e7eb;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 20px 20px 16px;
+}
+
+.just-admi-intro > p {
+    font-size: 0.9rem;
+    color: var(--gris-texto);
+    margin-bottom: 14px;
+}
+
+/* Ocultar radios de control */
+#filtro-pendientes, #filtro-aprobadas, #filtro-rechazadas, #filtro-todas,
+#nivel-todos, #nivel-formativo, #nivel-queen, #nivel-princess,
+#nivel-magic, #nivel-blood {
+    display: none;
+}
+
+/* ── Filtro estado: label activo ── */
+#filtro-pendientes:checked ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-pendientes"],
+#filtro-aprobadas:checked  ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-aprobadas"],
+#filtro-rechazadas:checked ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-rechazadas"],
+#filtro-todas:checked      ~ .switch-just .just-admi-intro .filtro-estado-labels label[for="filtro-todas"] {
+    background: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
+/* ── Filtro estado: ocultar cards ── */
+#filtro-pendientes:checked ~ .switch-just .just-admi-grid .just-admi-card:not([data-estado="pendientes"]) { display: none; }
+#filtro-aprobadas:checked  ~ .switch-just .just-admi-grid .just-admi-card:not([data-estado="aprobadas"])  { display: none; }
+#filtro-rechazadas:checked ~ .switch-just .just-admi-grid .just-admi-card:not([data-estado="rechazadas"]) { display: none; }
+
+/* ── Filtro nivel: label activo ── */
+#nivel-todos:checked     ~ .switch-just .just-admi-intro .filtro-nivel-labels label[for="nivel-todos"],
+#nivel-formativo:checked ~ .switch-just .just-admi-intro .filtro-nivel-labels label[for="nivel-formativo"],
+#nivel-queen:checked     ~ .switch-just .just-admi-intro .filtro-nivel-labels label[for="nivel-queen"],
+#nivel-princess:checked  ~ .switch-just .just-admi-intro .filtro-nivel-labels label[for="nivel-princess"],
+#nivel-magic:checked     ~ .switch-just .just-admi-intro .filtro-nivel-labels label[for="nivel-magic"],
+#nivel-blood:checked     ~ .switch-just .just-admi-intro .filtro-nivel-labels label[for="nivel-blood"] {
+    background: #1a202c;
+    color: white;
+    border-color: #1a202c;
+}
+
+/* ── Filtro nivel: ocultar cards ── */
+#nivel-formativo:checked ~ .switch-just .just-admi-grid .just-admi-card:not([data-nivel="formativo"]) { display: none !important; }
+#nivel-queen:checked     ~ .switch-just .just-admi-grid .just-admi-card:not([data-nivel="queen"])     { display: none !important; }
+#nivel-princess:checked  ~ .switch-just .just-admi-grid .just-admi-card:not([data-nivel="princess"])  { display: none !important; }
+#nivel-magic:checked     ~ .switch-just .just-admi-grid .just-admi-card:not([data-nivel="magic"])     { display: none !important; }
+#nivel-blood:checked     ~ .switch-just .just-admi-grid .just-admi-card:not([data-nivel="blood"])     { display: none !important; }
+
+/* ── Labels como botones de filtro ── */
+.filtro-estado-labels label,
+.filtro-nivel-labels label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #e5e7eb;
+    background: white;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #64748B;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+.filtro-estado-labels label:hover,
+.filtro-nivel-labels label:hover {
+    border-color: var(--color-primario);
+    color: var(--color-primario);
+}
+
+.filtro-nivel-labels label[for="nivel-todos"] { border-radius: 20px; }
+
+.filtro-nivel-separador {
+    height: 20px;
+    width: 1px;
+    background: #e5e7eb;
+    margin: 0 4px;
+}
+
+
+/* MODALES APROBAR / RECHAZAR JUSTIFICACIÓN*/
+
+dialog.modal-just {
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 430px;
+    width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+}
+
+dialog.modal-just::backdrop {
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(3px);
+}
+
+dialog.modal-just[open] {
+    animation: modalSlideIn 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 18px)) scale(0.97); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.modal-just-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 28px 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.modal-just-icono {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.modal-just-icono--verde { background: #1eaf52; }
+.modal-just-icono--rojo  { background: #cc0000; }
+
+.modal-just-header h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.modal-just-header p {
+    font-size: 0.88rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.modal-just-atleta-info {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.modal-just-atleta-info .mini-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.76rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.mini-avatar--verde { background: #d1fae5; color: #065f46; }
+.mini-avatar--rojo  { background: #fee2e2; color: #991b1b; }
+.mini-avatar--base  { background: #fdeaea; color: var(--color-primario); }
+
+.modal-just-atleta-info .mini-datos strong {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+.modal-just-atleta-info .mini-datos span {
+    font-size: 0.76rem;
+    color: #6b7280;
+}
+
+.modal-just-body {
+    padding: 0 28px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-just-campo label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.modal-just-campo textarea {
+    width: 100%;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.87rem;
+    color: #374151;
+    resize: vertical;
+    min-height: 80px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fcfcfc;
+}
+.modal-just-campo textarea:focus { border-color: var(--color-primario); }
+
+.modal-opcional {
+    font-weight: 400;
+    color: #9ca3af;
+    font-size: 0.77rem;
+}
+
+.modal-just-footer {
+    display: flex;
+    gap: 10px;
+    padding: 16px 28px 26px;
+}
+
+.modal-just-footer button {
+    flex: 1;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.18s;
+}
+
+.modal-btn-cancelar {
+    background: white;
+    border: 1.5px solid #e5e7eb !important;
+    color: #374151;
+}
+.modal-btn-cancelar:hover { background: #f3f4f6; }
+
+.modal-btn-aprobar  { background: #1eaf52; color: white; }
+.modal-btn-aprobar:hover { background: #15803d; }
+
+.modal-btn-rechazar { background: #cc0000; color: white; }
+.modal-btn-rechazar:hover { background: #991b1b; }
+
+.modal-just-confirm {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 28px 28px;
+    text-align: center;
+    gap: 10px;
+}
+.modal-just-confirm h2 { font-size: 1.1rem; font-weight: 700; margin: 0; }
+.modal-just-confirm p  { font-size: 0.88rem; color: #6b7280; margin: 0; }
+
+/* ── Modales de confirmación aprobado/rechazado ── */
+.modal-just-confirm-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 28px 28px;
+    text-align: center;
+    gap: 12px;
+}
+
+.modal-just-confirm-inner h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.modal-just-confirm-inner p {
+    font-size: 0.88rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+.modal-confirm-aceptar {
+    margin-top: 6px;
+    padding: 10px 32px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.1s;
+}
+.modal-confirm-aceptar:active { transform: scale(0.97); }
+.modal-confirm-aceptar--verde { background: #1eaf52; }
+.modal-confirm-aceptar--verde:hover { background: #15803d; }
+.modal-confirm-aceptar--rojo  { background: #cc0000; }
+.modal-confirm-aceptar--rojo:hover  { background: #991b1b; }
