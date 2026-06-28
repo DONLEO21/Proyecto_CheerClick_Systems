@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implementos Deportivos – CheerClick Systems</title>
-    <link rel="stylesheet" href="css/stylesAdmi.css">
-    <link rel="stylesheet" href="css/stylesAtle.css">
+    <title>Implementos Deportivos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="img/logo_transparent.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="css/stylesAtle.css">
 </head>
 <body>
 
@@ -26,11 +28,6 @@
                     </a>
                 </li>
                 <li class="menu-lateral__elemento">
-                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Estado de cuentas">
-                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
-                    </a>
-                </li>
-                <li class="menu-lateral__elemento">
                     <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
@@ -39,6 +36,11 @@
                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
                     <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
                         <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Pagos">
                     </a>
                 </li>
                 <li class="menu-lateral__elemento">
@@ -733,70 +735,96 @@
     </dialog>
 
     <script>
-        /* ── Modal solicitar ── */
-        const modalSolicitud = document.getElementById('modalDialog');
-        function abrirModal() {
-            modalSolicitud.showModal();
-        }
-        function cerrarModal() {
-            modalSolicitud.classList.add('cerrando');
-            modalSolicitud.addEventListener('transitionend', () => {
-                modalSolicitud.classList.remove('cerrando');
-                modalSolicitud.close();
-            }, { once: true });
-        }
+    /* ── Pestañas ── */
+    const secCatalogo    = document.querySelector('.seccion-catalogo');
+    const secSolicitudes = document.querySelector('.seccion-solicitudes');
 
-        /* ── Modal cancelar ── */
-        const modalCancelar = document.getElementById('modalCancelarDialog');
-        function abrirModalCancelar() {
-            modalCancelar.showModal();
+    function mostrarPestana(pestana) {
+        if (pestana === 'lista') {
+            secCatalogo.style.display    = 'block';
+            secSolicitudes.style.display = 'none';
+            document.getElementById('switch-lista').checked = true;
+        } else {
+            secCatalogo.style.display    = 'none';
+            secSolicitudes.style.display = 'block';
+            document.getElementById('switch-solicitudes').checked = true;
         }
-        function cerrarModalCancelar() {
-            modalCancelar.classList.add('cerrando');
-            modalCancelar.addEventListener('transitionend', () => {
-                modalCancelar.classList.remove('cerrando');
-                modalCancelar.close();
-            }, { once: true });
-        }
-        function ejecutarCancelacionPedido() {
-            alert("Pedido cancelado correctamente.");
-            cerrarModalCancelar();
-        }
+    }
 
-        /* ── Stepper cantidad ── */
-        function cambiarCantidad(delta) {
-            const input = document.getElementById('cantidad');
-            const nuevo = Math.max(1, Math.min(99, parseInt(input.value || 1) + delta));
-            input.value = nuevo;
-            actualizarTotal();
-        }
+    document.querySelector('.btn-deportivos').addEventListener('click',  () => mostrarPestana('lista'));
+    document.querySelector('.btn-solicitudes').addEventListener('click', () => mostrarPestana('solicitudes'));
+    mostrarPestana('lista');
 
-        /* ── Calcular total ── */
-        function actualizarTotal() {
-            const precio = parseInt(
-                (document.getElementById('resumen-unitario').textContent || '0')
-                .replace(/\D/g, '')
-            );
-            const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
-            const total = precio * cantidad;
-            document.getElementById('resumen-cantidad').textContent = '× ' + cantidad;
-            document.getElementById('resumen-total').textContent =
-                '$' + total.toLocaleString('es-CO') + '.000'.replace(/\.000\.000/, '.000');
-        }
+    /* ── Modal solicitar ── */
+    const modalSolicitud = document.getElementById('modalDialog');
+    function abrirModal() {
+        modalSolicitud.classList.remove('cerrando');
+        modalSolicitud.showModal();
+    }
+    function cerrarModal() {
+        modalSolicitud.classList.add('cerrando');
+        setTimeout(() => {
+            modalSolicitud.classList.remove('cerrando');
+            modalSolicitud.close();
+        }, 220);
+    }
 
-        /* ── Nombre de archivo subido ── */
-        function mostrarNombreArchivo(input) {
-            const label = document.getElementById('nombre-archivo');
-            const zona  = document.getElementById('zona-drop');
-            if (input.files && input.files[0]) {
-                label.textContent = input.files[0].name;
-                zona.classList.add('zona-upload--activa');
-            } else {
-                label.textContent = 'Ningún archivo seleccionado';
-                zona.classList.remove('zona-upload--activa');
-            }
+    /* ── Modal cancelar ── */
+    const modalCancelar = document.getElementById('modalCancelarDialog');
+    function abrirModalCancelar() {
+        modalCancelar.classList.remove('cerrando');
+        modalCancelar.showModal();
+    }
+    function cerrarModalCancelar() {
+        modalCancelar.classList.add('cerrando');
+        setTimeout(() => {
+            modalCancelar.classList.remove('cerrando');
+            modalCancelar.close();
+        }, 220);
+    }
+    function ejecutarCancelacionPedido() {
+        alert("Pedido cancelado correctamente.");
+        cerrarModalCancelar();
+    }
+
+    /* ── Cerrar al hacer clic en el backdrop ── */
+    modalSolicitud.addEventListener('click', (e) => { if (e.target === modalSolicitud) cerrarModal(); });
+    modalCancelar.addEventListener('click',  (e) => { if (e.target === modalCancelar)  cerrarModalCancelar(); });
+
+    /* ── Stepper cantidad ── */
+    function cambiarCantidad(delta) {
+        const input = document.getElementById('cantidad');
+        const nuevo = Math.max(1, Math.min(99, parseInt(input.value || 1) + delta));
+        input.value = nuevo;
+        actualizarTotal();
+    }
+
+    /* ── Calcular total ── */
+    function actualizarTotal() {
+        const precio = parseInt(
+            (document.getElementById('resumen-unitario').textContent || '0')
+            .replace(/\D/g, '')
+        );
+        const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
+        const total = precio * cantidad;
+        document.getElementById('resumen-cantidad').textContent = '× ' + cantidad;
+        document.getElementById('resumen-total').textContent =
+            '$' + total.toLocaleString('es-CO') + '.000'.replace(/\.000\.000/, '.000');
+    }
+
+    /* ── Nombre de archivo subido ── */
+    function mostrarNombreArchivo(input) {
+        const label = document.getElementById('nombre-archivo');
+        const zona  = document.getElementById('zona-drop');
+        if (input.files && input.files[0]) {
+            label.textContent = input.files[0].name;
+            zona.classList.add('zona-upload--activa');
+        } else {
+            label.textContent = 'Ningún archivo seleccionado';
+            zona.classList.remove('zona-upload--activa');
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>
