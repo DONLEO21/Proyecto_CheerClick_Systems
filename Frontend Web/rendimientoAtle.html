@@ -592,78 +592,207 @@
                 </div>
             </div>
 
-            <!-- Calendario -->
-            <div class="calendario-asistencia">
-                <div class="calendario-asistencia__header">
-                    <h3>Calendario de asistencia — Junio 2026</h3>
-                    <div class="calendario-nav">
-                        <button class="btn-nav-cal" type="button" aria-label="Mes anterior">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                        </button>
-                        <span class="calendario-mes">Junio 2026</span>
-                        <button class="btn-nav-cal" type="button" aria-label="Mes siguiente">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                        </button>
+            <!--  Calendario + Panel Justificaciones -->
+            <div class="asist-layout">
+                <!-- Calendario -->
+                <div class="calendario-asistencia">
+                    <div class="calendario-asistencia__header">
+                        <h3>Calendario de asistencia — Junio 2026</h3>
+                        <div class="calendario-nav">
+                            <button class="btn-nav-cal" type="button" aria-label="Mes anterior">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <span class="calendario-mes">Junio 2026</span>
+                            <button class="btn-nav-cal" type="button" aria-label="Mes siguiente">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cal-grid">
+                        <div class="cal-grid__dia-nombre">Lun</div>
+                        <div class="cal-grid__dia-nombre">Mar</div>
+                        <div class="cal-grid__dia-nombre">Mié</div>
+                        <div class="cal-grid__dia-nombre">Jue</div>
+                        <div class="cal-grid__dia-nombre">Vie</div>
+                        <div class="cal-grid__dia-nombre">Sáb</div>
+                        <div class="cal-grid__dia-nombre">Dom</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">1</div>
+                        <div class="cal-dia cal-dia--sin-sesion">2</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">3</div>
+                        <div class="cal-dia cal-dia--sin-sesion">4</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">5</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">6</div>
+                        <div class="cal-dia cal-dia--sin-sesion">7</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">8</div>
+                        <div class="cal-dia cal-dia--sin-sesion">9</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">10</div>
+                        <div class="cal-dia cal-dia--sin-sesion">11</div>
+                        <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">12</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">13</div>
+                        <div class="cal-dia cal-dia--sin-sesion">14</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">15</div>
+                        <div class="cal-dia cal-dia--sin-sesion">16</div>
+                        <div class="cal-dia cal-dia--inpuntual" title="Inpuntual · Llegó 15 min tarde">17</div>
+                        <div class="cal-dia cal-dia--sin-sesion">18</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">19</div>
+                        <div class="cal-dia cal-dia--justificado" title="Justificado · Consulta médica">20</div>
+                        <div class="cal-dia cal-dia--sin-sesion">21</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">22</div>
+                        <div class="cal-dia cal-dia--sin-sesion">23</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">24</div>
+                        <div class="cal-dia cal-dia--sin-sesion">25</div>
+                        <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">26</div>
+                        <div class="cal-dia cal-dia--hoy cal-dia--sin-sesion" title="Hoy">27</div>
+                        <div class="cal-dia cal-dia--sin-sesion">28</div>
+
+                        <div class="cal-dia cal-dia--sin-sesion">29</div>
+                        <div class="cal-dia cal-dia--sin-sesion">30</div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                    </div>
+
+                    <div class="cal-leyenda">
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--presente"></div>Asistí</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--falta"></div>Falté</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--inpuntual"></div>Inpuntual</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--justificado"></div>Justificado</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--sin-sesion"></div>Sin sesión</div>
                     </div>
                 </div>
 
-                <div class="cal-grid">
-                    <div class="cal-grid__dia-nombre">Lun</div>
-                    <div class="cal-grid__dia-nombre">Mar</div>
-                    <div class="cal-grid__dia-nombre">Mié</div>
-                    <div class="cal-grid__dia-nombre">Jue</div>
-                    <div class="cal-grid__dia-nombre">Vie</div>
-                    <div class="cal-grid__dia-nombre">Sáb</div>
-                    <div class="cal-grid__dia-nombre">Dom</div>
+                <!-- Panel de justificaciones-->
+                <div class="panel-justificaciones">
+                    <div class="panel-just__header">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Justificaciones
+                        </h3>
+                        <span class="panel-just__badge">2 pendientes</span>
+                    </div>
 
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">1</div>
-                    <div class="cal-dia cal-dia--sin-sesion">2</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">3</div>
-                    <div class="cal-dia cal-dia--sin-sesion">4</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">5</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">6</div>
-                    <div class="cal-dia cal-dia--sin-sesion">7</div>
+                    <!-- Falta pendiente 1 -->
+                    <div class="just-item just-item--pendiente">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap">
+                                <span class="just-item__dia">27</span>
+                                <span class="just-item__mes">Jun</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Falta sin justificar</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                            </div>
+                            <button class="btn-justificar just-item__btn" type="button" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">Justificar</button>
+                        </div>
+                    </div>
 
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">8</div>
-                    <div class="cal-dia cal-dia--sin-sesion">9</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">10</div>
-                    <div class="cal-dia cal-dia--sin-sesion">11</div>
-                    <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">12</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">13</div>
-                    <div class="cal-dia cal-dia--sin-sesion">14</div>
+                    <!-- Falta pendiente 2 -->
+                    <div class="just-item just-item--pendiente">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap">
+                                <span class="just-item__dia">12</span>
+                                <span class="just-item__mes">Jun</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Falta sin justificar</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                            </div>
+                            <button class="btn-justificar just-item__btn" type="button" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">Justificar</button>
+                        </div>
+                    </div>
 
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">15</div>
-                    <div class="cal-dia cal-dia--sin-sesion">16</div>
-                    <div class="cal-dia cal-dia--inpuntual" title="Inpuntual · Llegó 15 min tarde">17</div>
-                    <div class="cal-dia cal-dia--sin-sesion">18</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">19</div>
-                    <div class="cal-dia cal-dia--justificado" title="Justificado · Consulta médica">20</div>
-                    <div class="cal-dia cal-dia--sin-sesion">21</div>
+                    <!-- Justificación aprobada con archivo -->
+                    <div class="just-item just-item--enviada">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap just-item__fecha-wrap--azul">
+                                <span class="just-item__dia">20</span>
+                                <span class="just-item__mes">Jun</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Justificación</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                                <span class="just-item__motivo">Consulta médica</span>
+                            </div>
+                            <span class="just-item__estado just-item__estado--aprobado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                                Aprobada
+                            </span>
+                        </div>
+                        <div class="just-item__archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>certificado_medico_jun.pdf</span>
+                            <span class="just-item__archivo-size">· 124 KB</span>
+                        </div>
+                    </div>
 
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">22</div>
-                    <div class="cal-dia cal-dia--sin-sesion">23</div>
-                    <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">24</div>
-                    <div class="cal-dia cal-dia--sin-sesion">25</div>
-                    <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">26</div>
-                    <div class="cal-dia cal-dia--hoy cal-dia--sin-sesion" title="Hoy">27</div>
-                    <div class="cal-dia cal-dia--sin-sesion">28</div>
+                    <div class="just-separador">Anteriores</div>
 
-                    <div class="cal-dia cal-dia--sin-sesion">29</div>
-                    <div class="cal-dia cal-dia--sin-sesion">30</div>
-                    <div class="cal-dia cal-dia--vacio"></div>
-                    <div class="cal-dia cal-dia--vacio"></div>
-                    <div class="cal-dia cal-dia--vacio"></div>
-                    <div class="cal-dia cal-dia--vacio"></div>
-                    <div class="cal-dia cal-dia--vacio"></div>
-                </div>
+                    <!-- Anteriores -->
+                    <div class="just-item just-item--enviada just-item--historica">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap just-item__fecha-wrap--azul">
+                                <span class="just-item__dia">05</span>
+                                <span class="just-item__mes">May</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Justificación</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                                <span class="just-item__motivo">Competencia departamental</span>
+                            </div>
+                            <span class="just-item__estado just-item__estado--aprobado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                                Aprobada
+                            </span>
+                        </div>
+                        <div class="just-item__archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>permiso_competencia.jpg</span>
+                            <span class="just-item__archivo-size">· 87 KB</span>
+                        </div>
+                    </div>
 
-                <div class="cal-leyenda">
-                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--presente"></div>Asistí</div>
-                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--falta"></div>Falté</div>
-                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--inpuntual"></div>Inpuntual</div>
-                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--justificado"></div>Justificado</div>
-                    <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--sin-sesion"></div>Sin sesión</div>
-                </div>
+                    <div class="just-item just-item--rechazada just-item--historica">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap just-item__fecha-wrap--rojo">
+                                <span class="just-item__dia">18</span>
+                                <span class="just-item__mes">Abr</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Justificación</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                                <span class="just-item__motivo">Viaje familiar</span>
+                            </div>
+                            <span class="just-item__estado just-item__estado--rechazado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                Rechazada
+                            </span>
+                        </div>
+                    </div>
+
+            </div>
+
             </div>
 
             <!-- Historial de sesiones — Bootstrap table -->
@@ -683,7 +812,7 @@
                         <tbody>
                             <tr>
                                 <td>27 Jun 2026</td>
-                                <td>18:00 – 20:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--falta"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Falta</span></td>
                                 <td>
@@ -695,42 +824,42 @@
                             </tr>
                             <tr>
                                 <td>24 Jun 2026</td>
-                                <td>18:00 – 20:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
                                 <td>—</td>
                             </tr>
                             <tr>
                                 <td>22 Jun 2026</td>
-                                <td>18:00 – 20:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
                                 <td>—</td>
                             </tr>
                             <tr>
                                 <td>20 Jun 2026</td>
-                                <td>10:00 – 12:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--justificado"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Justificado</span></td>
                                 <td><span style="font-size:.8rem;color:var(--texto-muted)">Consulta médica</span></td>
                             </tr>
                             <tr>
                                 <td>19 Jun 2026</td>
-                                <td>18:00 – 20:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
                                 <td>—</td>
                             </tr>
                             <tr>
                                 <td>17 Jun 2026</td>
-                                <td>18:00 – 20:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--inpuntual"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Inpuntual</span></td>
                                 <td><span style="font-size:.8rem;color:var(--texto-muted)">15 min tarde</span></td>
                             </tr>
                             <tr>
                                 <td>12 Jun 2026</td>
-                                <td>18:00 – 20:00</td>
+                                <td>16:00 – 17:00</td>
                                 <td>Stuart Pérez</td>
                                 <td><span class="estado-pill estado-pill--falta"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Falta</span></td>
                                 <td>
@@ -764,7 +893,7 @@
                         <div class="modal-fecha-grande" id="modal-fecha">08 Abril</div>
                         <div class="modal-meta-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            <span id="modal-hora">18:00 – 20:00</span>
+                            <span id="modal-hora">16:00 – 17:00</span>
                         </div>
                         <div class="modal-meta-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
