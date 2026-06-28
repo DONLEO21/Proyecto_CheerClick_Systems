@@ -2158,3 +2158,46 @@ dialog.modal-just[open] {
 .modal-confirm-aceptar--verde:hover { background: #15803d; }
 .modal-confirm-aceptar--rojo  { background: #cc0000; }
 .modal-confirm-aceptar--rojo:hover  { background: #991b1b; }
+
+/* ── Observación/motivo en justificaciones ── */
+.just-item__observacion {
+    margin-top: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.just-item__observacion--rechazo {
+    background: #fff1f1;
+    border: 1px solid #fca5a5;
+}
+
+.just-item__observacion--nota {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+}
+
+.just-item__observacion-icono {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.just-item__observacion-texto {
+    font-size: .8rem;
+    line-height: 1.5;
+    color: var(--texto-dark);
+}
+
+.just-item__observacion-label {
+    display: block;
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 2px;
+}
+
+.just-item__observacion--rechazo .just-item__observacion-label { color: #991b1b; }
+.just-item__observacion--nota    .just-item__observacion-label { color: #0369a1; }
