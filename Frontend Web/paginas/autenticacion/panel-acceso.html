@@ -53,10 +53,9 @@
 
       <label class="etiqueta" for="inicio-rol">Rol</label>
       <select class="campo" id="inicio-rol">
-        <option value="">Seleccione su rol...</option>
+        <option value="" disabled selected hidden>Seleccione su rol...</option>
         <option value="atleta">Atleta</option>
         <option value="entrenador">Entrenador</option>
-        <option value="admin">Administrador</option>
       </select>
 
       <div class="mensaje-error oculto" id="inicio-error"></div>
@@ -173,7 +172,7 @@
       </div>
 
       <!-- ── DaTOS PLAN -->
-      <div class="titulo-seccion" style="margin-top: 1.4rem;">DATOS DE AFILIACIÓN</div>
+      <div class="titulo-seccion" style="margin-top: 1.4rem;">DATOS DE PLAN</div>
 
       <div class="fila-dos">
         <div class="campo-grupo">
@@ -187,7 +186,7 @@
             <option value="blood-tigers">Blood Tigers</option>
           </select>
         </div>
-        <div class="campo-grupo">
+        <div class="campo-grupo" id="grupo-plan-mensualidad">
           <label class="etiqueta" for="plan-mensualidad">Plan de mensualidad *</label>
           <select class="campo" id="plan-mensualidad">
             <option value="" disabled selected hidden>Seleccionar...</option>
@@ -526,35 +525,45 @@
       const rol = document.getElementById('inicio-rol').value;
       if (!rol) return mostrarError('inicio-error', 'Selecciona un rol para continuar.');
 
-      /* prellena y bloquea el rol en el paso 1 */
       document.getElementById('registro-rol').value = rol;
+
+      /* si el rol es entrenador, no visualizara el plan de mensualidad */
+      const grupoPlan = document.getElementById('grupo-plan-mensualidad');
+      if (rol === 'entrenador') {
+        grupoPlan.style.display = 'none';
+        document.getElementById('plan-mensualidad').value = '';
+      } else {
+        grupoPlan.style.display = '';
+      }
 
       mostrarPantalla('pantalla-registro-1');
     }
 
-    /* registro, paso 1 a paso 2 */
     function irAPaso2() {
-      limpiarMensajes('registro1-error');
+  limpiarMensajes('registro1-error');
 
-      /* estos IDs deben coincidir EXACTAMENTE con los id="" de los inputs/selects del paso 1 */
-      const campos = [
-        'nombres-personales','apellidos-personales','tipo-documento','numero-doc',
-        'genero','fecha-nacimiento','eps-nombre','telefono-personal',
-        'nivel-perteneciente','plan-mensualidad',
-        'emergencia-nombre','emergencia-apellido','emergencia-telefono','parentesco-tipo'
-      ];
+  const campos = [
+    'nombres-personales','apellidos-personales','tipo-documento','numero-doc',
+    'genero','fecha-nacimiento','eps-nombre','telefono-personal',
+    'nivel-perteneciente',
+    'emergencia-nombre','emergencia-apellido','emergencia-telefono','parentesco-tipo'
+  ];
 
-      for (const id of campos) {
-        const elemento = document.getElementById(id);
+  /* solo se exige plan de mensualidad si el rol no es entrenador */
+  if (document.getElementById('registro-rol').value !== 'entrenador') {
+    campos.push('plan-mensualidad');
+  }
 
-        if (!elemento || !elemento.value.trim()) {
-          console.log('Campo vacío o no encontrado:', id);
-          return mostrarError('registro1-error', 'Completa todos los campos obligatorios (*).');
-        }
-      }
-
-      mostrarPantalla('pantalla-registro-2');
+  for (const id of campos) {
+    const elemento = document.getElementById(id);
+    if (!elemento || !elemento.value.trim()) {
+      console.log('Campo vacío o no encontrado:', id);
+      return mostrarError('registro1-error', 'Completa todos los campos obligatorios (*).');
     }
+  }
+
+  mostrarPantalla('pantalla-registro-2');
+}
 
     /* registro, paso 2 a pantalla pendiente */
     function registrarCuenta() {
