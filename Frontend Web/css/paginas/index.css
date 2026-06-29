@@ -1,6 +1,4 @@
-/* index.css — blood tigers cheer · página pública */
-
-/* ── variables ──────────────────────────────────────────── */
+/*variables */
 :root {
   --rojo: #cc0000;
   --rojo-oscuro: #8b0000;
@@ -11,7 +9,7 @@
   --texto-medio: #444;
 }
 
-/* ── reset ──────────────────────────────────────────────── */
+/* reset*/
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -34,7 +32,7 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* ── contenedor base ────────────────────────────────────── */
+/* contenedor base*/
 .contenedor {
   max-width: 1200px;
   margin: 0 auto;
@@ -144,7 +142,7 @@ ul { list-style: none; }
   width: 24px;
 }
 
-/* botón "iniciar sesión" — sin línea animada */
+/* botón "iniciar sesión" sin linea d link*/
 .btn-nav-sesion {
   background: var(--rojo) !important;
   color: var(--blanco) !important;
@@ -335,6 +333,37 @@ ul { list-style: none; }
   transform: translateY(-2px);
   border-color: var(--blanco);
   color: var(--blanco);
+}
+
+/* ── estados de click/foco iguales al hover ─────────────── */
+
+.btn-primario:hover,
+.btn-primario:focus,
+.btn-primario:active,
+.btn-primario:focus-visible {
+  background: var(--rojo);
+  color: var(--blanco);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  outline: none;
+}
+
+.btn-secundario:hover,
+.btn-secundario:focus,
+.btn-secundario:active,
+.btn-secundario:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  border-color: var(--blanco);
+  color: var(--blanco);
+  outline: none;
+  box-shadow: none;
+}
+
+/* anula específicamente los estilos por defecto de bootstrap en :active */
+.btn-primario:active,
+.btn-secundario:active {
+  box-shadow: none;
 }
 
 .logros {
@@ -918,10 +947,17 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: start;
   padding-bottom: 44px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer-columnas {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px;
 }
 
 .footer-columna img {
@@ -945,6 +981,13 @@ footer {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 14px;
+}
+
+/* anula el padding-left: 2rem que Bootstrap aplica a todo <ul> por defecto,
+   así "Explorar" y "Redes Sociales" quedan alineados con su título igual
+   que "Contacto" (que usa <p>, sin ese padding) */
+.footer-columna ul {
+  padding-left: 0;
 }
 
 .footer-columna ul li {
@@ -972,6 +1015,45 @@ footer {
   height: 18px;
   object-fit: contain;
   margin-bottom: 0;
+}
+
+/* ── footer: "cómo llegar" + mapa ─────────────────────────
+   Columna derecha: el título y la dirección quedan como
+   encabezado, justo arriba del mapa, que ahora es más compacto. */
+.footer-mapa {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-mapa-info h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.footer-mapa-info p {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.footer-mapa-embed {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 4px solid var(--blanco);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  aspect-ratio: 16 / 10;
+}
+
+.footer-mapa-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .footer-copy {
@@ -1009,6 +1091,7 @@ footer {
   .niveles-valores   { grid-template-columns: repeat(3, 1fr); }
   .horario-valores   { grid-template-columns: repeat(2, 1fr); }
   .servicios-valores { grid-template-columns: repeat(2, 1fr); }
+  .footer-contenido  { grid-template-columns: 1fr 320px; gap: 36px; }
 }
 
 @media (max-width: 860px) {
@@ -1022,7 +1105,8 @@ footer {
   .servicios-valores { grid-template-columns: 1fr; }
   .niveles-valores   { grid-template-columns: repeat(2, 1fr); }
   .horario-valores   { grid-template-columns: 1fr; }
-  .footer-contenido  { grid-template-columns: 1fr 1fr; }
+  .footer-contenido  { grid-template-columns: 1fr; gap: 32px; }
+  .footer-columnas   { grid-template-columns: 1fr 1fr; gap: 28px; }
   .inscripcion-form-wrap { padding: 28px 20px; }
   .form-fila         { grid-template-columns: 1fr; }
   .contenedor        { padding: 0 24px; }
@@ -1038,9 +1122,14 @@ footer {
     text-align: center;
     margin-top: 8px;
   }
+
+  .footer-mapa-embed {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 @media (max-width: 480px) {
   .niveles-valores  { grid-template-columns: 1fr; }
-  .footer-contenido { grid-template-columns: 1fr; }
+  .footer-columnas  { grid-template-columns: 1fr; }
+  .footer-mapa-embed { aspect-ratio: 4 / 3; }
 }
