@@ -272,33 +272,59 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.2px;
     user-select: none;
 }
+/* Íconos del encabezado */
 .encabezado__iconos-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 4px;
 }
+
 .icono-accion {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    width: 18px; height: 18px;
+    padding: 6px;
 }
-.icono-accion img {
-    height: 20px; width: auto;
-    transition: all 0.3s ease;
+
+.icono-accion:hover {
+    background: none;
 }
-.icono-accion:hover img {
-    transform: scale(1.15);
-    filter: brightness(0) saturate(100%) invert(17%) sepia(99%)
-            saturate(4973%) hue-rotate(350deg) brightness(92%) contrast(95%);
+
+.icono-accion img,
+.icono-accion svg {
+    height: 22px;
+    width: 22px;
+    color: #222;
+    stroke: #222;
+    transition: transform .25s, color .25s, stroke .25s, filter .25s;
 }
-.logo-club { display: flex; align-items: center; margin: 0; }
+
+.icono-accion:hover img,
+.icono-accion:hover svg {
+    transform: scale(1.1);
+    color: var(--color-primario);
+    stroke: var(--color-primario);
+}
+
+/* Separador vertical entre íconos y logo */
+.encabezado__separador {
+    width: 1px;
+    height: 28px;
+    background: var(--color-borde);
+    margin: 0 12px;
+}
+
+/* Logo */
 .logo-club img {
-    height: 38px; width: 38px;
-    object-fit: cover;
-    border-radius: 50%;
+    height: 40px; 
+    width: 40px;
+    object-fit: contain;
+    border-radius: 0;
+    border: none;
+    background: transparent;
 }
+
 
 /* CONTENIDO PRINCIPAL*/
 .contenido-principal {
@@ -2023,4 +2049,54 @@ dialog[open].modal-diseno-visualizar .modal-footer {
 .modal-diseno-inhabilitar::backdrop {
     background: rgba(0, 0, 0, 0.52);
     backdrop-filter: blur(3px);
+}
+
+/* ── Dropdown Rol ── */
+.dropdown-rol__toggle {
+    display: none !important;
+}
+
+.dropdown-rol {
+    position: relative;
+}
+
+.dropdown-rol__boton {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.dropdown-rol__menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-boton);
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    list-style: none;
+    min-width: 160px;
+    z-index: 1000;
+    padding: 4px 0;
+}
+
+.dropdown-rol__toggle:checked ~ .dropdown-rol__menu {
+    display: block;
+}
+
+.dropdown-rol__opcion {
+    display: block;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-family: 'Arimo', sans-serif;
+    color: var(--color-texto);
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.dropdown-rol__opcion:hover {
+    background: var(--color-primario-claro);
 }
