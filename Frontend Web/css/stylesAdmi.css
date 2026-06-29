@@ -279,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 4px;
 }
 
-.icono-accion {
+.icono-accion-ba {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -287,12 +287,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 6px;
 }
 
-.icono-accion:hover {
+.icono-accion-ba:hover {
     background: none;
 }
 
-.icono-accion img,
-.icono-accion svg {
+.icono-accion-ba img,
+.icono-accion-ba svg {
     height: 22px;
     width: 22px;
     color: #222;
@@ -300,8 +300,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform .25s, color .25s, stroke .25s, filter .25s;
 }
 
-.icono-accion:hover img,
-.icono-accion:hover svg {
+.icono-accion-ba:hover img,
+.icono-accion-ba:hover svg {
     transform: scale(1.1);
     color: var(--color-primario);
     stroke: var(--color-primario);
@@ -2049,54 +2049,4 @@ dialog[open].modal-diseno-visualizar .modal-footer {
 .modal-diseno-inhabilitar::backdrop {
     background: rgba(0, 0, 0, 0.52);
     backdrop-filter: blur(3px);
-}
-
-/* ── Dropdown Rol ── */
-.dropdown-rol__toggle {
-    display: none !important;
-}
-
-.dropdown-rol {
-    position: relative;
-}
-
-.dropdown-rol__boton {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    border: none;
-}
-
-.dropdown-rol__menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    background: var(--color-blanco);
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-boton);
-    box-shadow: 0 4px 12px rgba(0,0,0,.12);
-    list-style: none;
-    min-width: 160px;
-    z-index: 1000;
-    padding: 4px 0;
-}
-
-.dropdown-rol__toggle:checked ~ .dropdown-rol__menu {
-    display: block;
-}
-
-.dropdown-rol__opcion {
-    display: block;
-    padding: 9px 16px;
-    font-size: 13px;
-    font-family: 'Arimo', sans-serif;
-    color: var(--color-texto);
-    text-decoration: none;
-    transition: background .2s;
-}
-
-.dropdown-rol__opcion:hover {
-    background: var(--color-primario-claro);
 }
