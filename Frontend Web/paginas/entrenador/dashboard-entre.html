@@ -4,70 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Entrenador | Blood Tigers Cheer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/paginas/dashboard-entre.css">
-    <link rel="icon" type="image/x-icon" href="/img/logo/logo-btc.png">
+    <link rel="icon" type="image/x-icon" href="/img/logo/Logo-Club.png">
 </head>
 
 <body class="pagina-entrenador">
 
-    <div class="Barra2">
-        <div class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="sidebar-menu">
-            <li>
-                <a href="./perfil-entre.html" title="Perfil" id="perfil-icon">
-                    <img src="/img/iconos/perfil.png" alt="Perfil usuario">
-                </a>
-            </li>
-            <li>
-                <a href="./mis-entrenamientos.html" title="Asistencia">
-                    <img src="/img/iconos/asistencia.png" alt="Icono asistencia">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Horarios">
-                    <img src="/img/iconos/calendario.png" alt="Icono calendario">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="PQRS">
-                    <img src="/img/iconos/comentarios.png" alt="Icono comentarios">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Rendimiento">
-                    <img src="/img/iconos/estadistica-barras.png" alt="Icono rendimiento">
-                </a>
-            </li>
-        </ul>
-    </div>
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
 
-    <header>
-        <nav>
-            <div class="contenedor">
-                <div class="Barra1">
-                    <ul class="nav-btns">
-                        <li><a href="/paginas/publico/index.html" class="btn-cerrar">Cerrar Sesión</a></li>
-                        <li><span class="admin-btn">Entrenador</span></li>
-                    </ul>
-                    <div id="Logo">
-                        <a href="#" class="icon-link" title="Notificaciones">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
-                        </a>
-                        <a href="/paginas/entrenador/dashboard-entre.html" class="icon-link" title="Inicio">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                        </a>
-                        <div class="logo-club">
-                            <img src="/img/logo/logo-btc.png" alt="Logo del club">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="/paginas/entrenador/perfil-entre.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="/img/iconos/perfil.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="/img/iconos/asistencia.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                 <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="/img/iconos/horarios.png" alt="Horarios">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="/img/iconos/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="/img/iconos/estadistica-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                
+
+            </ul>
         </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="/paginas/autenticacion/panel-acceso.html"  class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Entrenador</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="/paginas/entrenador/dashboard-entre.html"class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="/img/logo/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
     </header>
 
     <main class="admin-main">
@@ -183,7 +205,7 @@
                                             <img src="/img/iconos/circle-user.svg" alt="Foto atleta">
                                             <div class="atleta-info__texto">
                                                 <span class="atleta-info__nombre">Ana López</span>
-                                                <span class="atleta-info__subtitulo">Senior - Nivel 1</span>
+                                                
                                             </div>
                                         </div>
                                     </td>
@@ -196,7 +218,7 @@
                                             <img src="/img/iconos/circle-user.svg" alt="Foto atleta">
                                             <div class="atleta-info__texto">
                                                 <span class="atleta-info__nombre">Juan Pérez</span>
-                                                <span class="atleta-info__subtitulo">Senior - Nivel 1</span>
+                                               
                                             </div>
                                         </div>
                                     </td>
@@ -209,7 +231,7 @@
                                             <img src="/img/iconos/circle-user.svg" alt="Foto atleta">
                                             <div class="atleta-info__texto">
                                                 <span class="atleta-info__nombre">Gabriela Deaquiz</span>
-                                                <span class="atleta-info__subtitulo">Senior - Nivel 1</span>
+                            
                                             </div>
                                         </div>
                                     </td>
@@ -221,48 +243,96 @@
                     </div>
                 </article>
 
+                <!-- ===== CALENDARIO (actualizado: cabecera de mes + leyenda + círculo verde) ===== -->
                 <article class="tarjeta-dashboard tarjeta-calendario">
                     <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
                         <h2>Calendario</h2>
                     </header>
+
                     <div class="tarjeta-dashboard__contenido">
+
+                        <!-- cabecera del mes, con flechas solo visuales (no funcionales) -->
+                        <div class="calendario__cabecera">
+                            <button type="button" class="calendario__flecha" aria-label="Mes anterior" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <span class="calendario__mes-actual">Junio, 2026</span>
+                            <button type="button" class="calendario__flecha" aria-label="Mes siguiente" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+
                         <table class="calendario">
                             <thead>
-                                <tr><th colspan="7">Abril, 2026</th></tr>
                                 <tr>
-                                    <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>
+                                    <th>Dom</th>
+                                    <th>Lun</th>
+                                    <th>Mar</th>
+                                    <th>Mié</th>
+                                    <th>Jue</th>
+                                    <th>Vie</th>
+                                    <th>Sáb</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th></th><th></th>
-                                    <th class="dia-entrenamiento">1</th><th>2</th>
-                                    <th class="dia-entrenamiento">3</th><th>4</th><th>5</th>
+                                    <th></th>
+                                    <th><span class="calendario__num">1</span></th>
+                                    <th><span class="calendario__num">2</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">3</span></th>
+                                    <th><span class="calendario__num">4</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">5</span></th>
+                                    <th><span class="calendario__num">6</span></th>
                                 </tr>
                                 <tr>
-                                    <th>6</th><th>7</th>
-                                    <th class="dia-entrenamiento">8</th><th>9</th>
-                                    <th class="dia-entrenamiento">10</th><th>11</th>
-                                    <th class="dia-entrenamiento">12</th>
+                                    <th><span class="calendario__num">7</span></th>
+                                    <th><span class="calendario__num">8</span></th>
+                                    <th><span class="calendario__num">9</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">10</span></th>
+                                    <th><span class="calendario__num">11</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">12</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">13</span></th>
                                 </tr>
                                 <tr>
-                                    <th>13</th><th>14</th>
-                                    <th class="dia-entrenamiento">15</th><th>16</th>
-                                    <th class="dia-entrenamiento">17</th><th>18</th>
-                                    <th class="dia-entrenamiento">19</th>
+                                    <th><span class="calendario__num">14</span></th>
+                                    <th><span class="calendario__num">15</span></th>
+                                    <th><span class="calendario__num">16</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">17</span></th>
+                                    <th><span class="calendario__num">18</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">19</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">20</span></th>
                                 </tr>
                                 <tr>
-                                    <th>20</th><th>21</th>
-                                    <th class="dia-entrenamiento">22</th><th>23</th>
-                                    <th>24</th><th>25</th><th>26</th>
+                                    <th><span class="calendario__num">21</span></th>
+                                    <th><span class="calendario__num">22</span></th>
+                                    <th><span class="calendario__num">23</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">24</span></th>
+                                    <th><span class="calendario__num">25</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">26</span></th>
+                                    <th><span class="calendario__num">27</span></th>
                                 </tr>
                                 <tr>
-                                    <th>27</th><th>28</th><th>29</th><th>30</th><th>31</th><th></th><th></th>
+                                    <th><span class="calendario__num">28</span></th>
+                                    <th><span class="calendario__num">29</span></th>
+                                    <th><span class="calendario__num">30</span></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <ul class="calendario__leyenda">
+                            <li class="calendario__leyenda-item">
+                                <span class="calendario__punto calendario__punto--verde"></span>
+                                Día de entrenamiento
+                            </li>
+                        </ul>
+
                     </div>
+
                     <a href="./mis-entrenamientos.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
                         Ver mis entrenamientos
                     </a>
