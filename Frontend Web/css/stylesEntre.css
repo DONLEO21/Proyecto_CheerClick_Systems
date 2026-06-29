@@ -273,32 +273,57 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.2px;
     user-select: none;
 }
+/* Íconos del encabezado */
 .encabezado__iconos-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 4px;
 }
+
 .icono-accion {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    width: 18px; height: 18px;
+    padding: 6px;
 }
-.icono-accion img {
-    height: 20px; width: auto;
-    transition: all 0.3s ease;
+
+.icono-accion:hover {
+    background: none;
 }
-.icono-accion:hover img {
-    transform: scale(1.15);
-    filter: brightness(0) saturate(100%) invert(17%) sepia(99%)
-            saturate(4973%) hue-rotate(350deg) brightness(92%) contrast(95%);
+
+.icono-accion img,
+.icono-accion svg {
+    height: 22px;
+    width: 22px;
+    color: #222;
+    stroke: #222;
+    transition: transform .25s, color .25s, stroke .25s, filter .25s;
 }
-.logo-club { display: flex; align-items: center; margin: 0; }
+
+.icono-accion:hover img,
+.icono-accion:hover svg {
+    transform: scale(1.1);
+    color: var(--color-primario);
+    stroke: var(--color-primario);
+}
+
+/* Separador vertical entre íconos y logo */
+.encabezado__separador {
+    width: 1px;
+    height: 28px;
+    background: var(--color-borde);
+    margin: 0 12px;
+}
+
+/* Logo */
 .logo-club img {
-    height: 38px; width: 38px;
-    object-fit: cover;
-    border-radius: 50%;
+    height: 40px; 
+    width: 40px;
+    object-fit: contain;
+    border-radius: 0;
+    border: none;
+    background: transparent;
 }
 
 /* Inicio del CSS del entrenador */
