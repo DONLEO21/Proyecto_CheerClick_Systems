@@ -3,76 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheerClick Systems</title>
+    <title>Mis PQRS | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/stylePQRSEntre.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
 </head>
 <body>
+      <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
 
-<aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <!-- Botón hamburguesa -->
         <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
         </button>
-        <nav>
-            <ul class="menu-lateral" role="list">
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Perfil">
-                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Horarios">
+                    <a href="perfil-entre.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
                     </a>
                 </li>
-                <li class="menu-lateral__elemento">
+                 <li class="menu-lateral__elemento">
+                    <a href="asistenciaEntre.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
                     <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
                 </li>
-                <li class="menu-lateral__elemento">
-                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
-                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
-                    </a>
-                </li>
-                <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Registro Asistencia">
-                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Horarios">
-                    </a>
-                </li>
-
                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
                     <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
                     </a>
                 </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                
+
             </ul>
         </nav>
     </aside>
 
-    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <!-- ===== ENCABEZADO ===== -->
     <header class="encabezado" role="banner">
-        <div class="encabezado__contenedor">
-            <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
-                <ul class="encabezado__lista-botones" role="list">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
                     <li>
-                        <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
                     </li>
                     <li>
-                        <span class="etiqueta-rol" aria-label="Rol: Administrador">Entrenador</span>
+                        <span class="etiqueta-rol">Entrenador</span>
                     </li>
                 </ul>
             </nav>
-            <div class="encabezado__iconos-logo">
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
                 <a href="#" class="icono-accion" aria-label="Ver notificaciones">
-                    <img src="img/campana-de-notificacion.png" alt="Notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
                 </a>
-                <a href="#" class="icono-accion" aria-label="Ir al inicio">
-                    <img src="img/casa.png" alt="Inicio">
+                <a href="dashboard-entre.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 </a>
-                <figure class="logo-club">
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
                     <img src="img/Logo-Club.png" alt="Logo del club deportivo">
                 </figure>
             </div>
+
         </div>
     </header>
-
 <!-- ══════════════════════════════════════════
      CONTENIDO PRINCIPAL
 ══════════════════════════════════════════ -->
@@ -146,13 +162,6 @@
                 <time datetime="2026-06-10" class="meta-fecha">10 jun 2026</time>
             </div>
             <p class="descripcion-solicitud">Propongo añadir 15 minutos de estiramiento guiado antes de cada entrenamiento para reducir el riesgo de lesiones en las prácticas de alto impacto.</p>
-            <div class="info-atleta">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                </svg>
-                <span>Gabriela Deaquiz <em>· Atleta</em></span>
-            </div>
             <div class="info-asignacion">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -160,14 +169,19 @@
                 <em>Aún no ha sido asignada a un responsable.</em>
             </div>
             <div class="tarjeta-pie">
-                <div class="tarjeta-pie-acciones">
-                    <a href="#modal-responder-1" class="btn-responder-solicitud">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        Responder
-                    </a>
-                </div>
+                <a href="#modal-editar-1" class="btn-editar-solicitud">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar
+                </a>
+                <a href="#modal-detalle-1" class="enlace-ver-detalles">
+                    Ver detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
             </div>
         </article>
 
@@ -729,74 +743,6 @@
                     <polyline points="7 3 7 8 15 8"/>
                 </svg>
                 Guardar Cambios
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     MODAL — RESPONDER SOLICITUD 1 (Sugerencia · Pendiente)
-══════════════════════════════════════════ -->
-<div id="modal-responder-1" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-responder-1">
-    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
-    <div class="modal-caja modal-caja-grande">
-        <div class="modal-cabecera">
-            <div class="modal-icono-titulo">
-                <div class="modal-avatar-icon pendiente">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                    </svg>
-                </div>
-                <div>
-                    <h2 id="tit-responder-1" class="modal-titulo">Responder Solicitud</h2>
-                    <p class="modal-subtitulo">Radicado: PQ125 · Gabriela Deaquiz</p>
-                </div>
-            </div>
-            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </a>
-        </div>
-        <div class="modal-cuerpo">
-            <div class="detalle-chips">
-                <div class="detalle-chip">
-                    <span class="chip-label">Atleta</span>
-                    <span class="chip-valor">Gabriela Deaquiz</span>
-                </div>
-                <div class="detalle-chip">
-                    <span class="chip-label">Tipo</span>
-                    <span class="chip-valor">Sugerencia</span>
-                </div>
-                <div class="detalle-chip">
-                    <span class="chip-label">Estado</span>
-                    <span class="insignia-estado pendiente">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
-                            <line x1="4" y1="22" x2="4" y2="15"/>
-                        </svg>
-                        Pendiente
-                    </span>
-                </div>
-            </div>
-            <div class="campo-form">
-                <span class="etiqueta-campo">Descripción de la solicitud</span>
-                <div class="detalle-desc-caja">Propongo añadir 15 minutos de estiramiento guiado antes de cada entrenamiento para reducir el riesgo de lesiones en las prácticas de alto impacto.</div>
-            </div>
-            <div class="campo-form">
-                <label for="resp-texto-1" class="etiqueta-campo">Tu respuesta como entrenador <span class="requerido">*</span></label>
-                <textarea id="resp-texto-1" class="entrada-campo" rows="4"
-                          placeholder="Escribe la respuesta para la atleta..."></textarea>
-            </div>
-        </div>
-        <div class="modal-pie">
-            <a href="#" class="btn-modal-cancelar">Cancelar</a>
-            <button type="button" class="btn-modal-enviar">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
-                Enviar respuesta
             </button>
         </div>
     </div>

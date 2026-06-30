@@ -3,83 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheerClick Systems</title>
+    <title>Mis PQRS| Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/stylePQRSAtleta.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
 </head>
 <body>
-  <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
+  <!-- ===== BARRA LATERAL ===== -->
     <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
         <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
             <span class="boton-menu__linea"></span>
         </button>
-        <nav>
-           <ul class="menu-lateral" role="list">
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Perfil">
+                    <a href="perfil-atleta.html" class="menu-lateral__enlace" title="Perfil">
                         <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
                     </a>
                 </li>
-
-                <li class="menu-lateral__elemento">
-                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Estado de cuentas">
-                        <img class="menu-lateral__icono" src="img/grafico-circular.png" alt="Estado de cuentas">
-                    </a>
-                </li>
-
-                <li class="menu-lateral__elemento">
+                 <li class="menu-lateral__elemento">
                     <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
                         <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
                     </a>
                 </li>
-
                 <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Implementos Deportivos">
+                    <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
                         <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
                     </a>
                 </li>
 
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Estado de cuentas">
+                    </a>
+                </li>
                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
                     <a href="PQRSAtleta.html" class="menu-lateral__enlace" title="PQRS">
                         <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
                     </a>
                 </li>
                  <li class="menu-lateral__elemento">
-                    <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                    <a href="rendimientoAtle.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
                         <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
                     </a>
                 </li>
+
+                
+
             </ul>
         </nav>
     </aside>
 
-    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <!-- ===== ENCABEZADO ===== -->
     <header class="encabezado" role="banner">
-        <div class="encabezado__contenedor">
-            <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
-                <ul class="encabezado__lista-botones" role="list">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
                     <li>
-                        <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
                     </li>
                     <li>
-                        <span class="etiqueta-rol" aria-label="Rol: Administrador">Atleta</span>
+                        <span class="etiqueta-rol">Atleta</span>
                     </li>
                 </ul>
             </nav>
-            <div class="encabezado__iconos-logo">
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
                 <a href="#" class="icono-accion" aria-label="Ver notificaciones">
-                    <img src="img/campana-de-notificacion.png" alt="Notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
                 </a>
-                <a href="#" class="icono-accion" aria-label="Ir al inicio">
-                    <img src="img/casa.png" alt="Inicio">
+                <a href="dashboard-atleta.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 </a>
-                <figure class="logo-club">
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
                     <img src="img/Logo-Club.png" alt="Logo del club deportivo">
                 </figure>
             </div>
+
         </div>
     </header>
+
 <!-- ═══════════════════════════════════════════════════════════════
      CONTENIDO PRINCIPAL
      ═══════════════════════════════════════════════════════════════ -->
@@ -755,3 +771,4 @@
 
 </body>
 </html>
+

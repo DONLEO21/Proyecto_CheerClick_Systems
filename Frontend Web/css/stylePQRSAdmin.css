@@ -1,14 +1,15 @@
 
 /* ── Fuentes ──────────────────────────────────────────────── */
+/* ── Fuentes ──────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
-h1,h2,h3,h4,h5,h6 { 
-    font-family: "Varela Round", sans-serif;
+h1, h2, h3, h4, h5, h6 { 
+    font-family: "Varela Round", sans-serif; 
 }
-p,a,li,label,input,select,textarea,span,em,time,button { 
-    font-family: "Arimo", sans-serif;
+p, a, li, label, input  { font-family: "Arimo", sans-serif; 
 }
+
 /* ── Variables globales ───────────────────────────────────── */
 :root {
     --color-primario:        #d71920;
@@ -40,20 +41,21 @@ p,a,li,label,input,select,textarea,span,em,time,button {
     --color-resuelto-titulo: #025bc2;
     --color-resuelto-sub:    #007fc9;
 
-    --ancho-barra-lateral: 56px;
-    --alto-encabezado:     55px;
-    --radio-borde:         8px;
-    --radio-boton:         5px;
+    --ancho-barra:     56px;
+    --alto-encabezado: 55px;
+    --radio-enlace:    6px;
+    --radio-boton:     5px;
 }
 
-/* ── Reinicio ─────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════
+   REINICIO / BASE
+   ══════════════════════════════════════════════ */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ── Base ─────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
 body {
@@ -62,35 +64,35 @@ body {
     color: var(--color-texto);
     min-height: 100vh;
 }
-/* Clase de accesibilidad: texto solo visible para lectores de pantalla */
+
+/* Accesibilidad: solo para lectores de pantalla */
 .visualmente-oculto {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: rect(0,0,0,0);
     white-space: nowrap;
     border: 0;
 }
 
-/* ── Barra Lateral ────────────────────────────────────────── */
+/* ══════════════════════════════════════════════
+   BARRA LATERAL
+   ══════════════════════════════════════════════ */
 .barra-lateral {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--ancho-barra-lateral);
+    top: 0; left: 0;
+    width: var(--ancho-barra);
     height: 100vh;
     background-color: var(--color-primario);
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1000;
-    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 3px 0 10px rgba(0,0,0,.15);
 }
 
-/* Botón hamburguesa */
+/* ── Botón hamburguesa ── */
 .boton-menu {
     width: 100%;
     height: var(--alto-encabezado);
@@ -103,166 +105,172 @@ body {
     background: none;
     border: none;
     padding: 0;
-    transition: background 0.3s;
+    transition: background .3s;
+    flex-shrink: 0;
 }
 
 .boton-menu:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255,255,255,.15);
 }
 
 .boton-menu__linea {
     display: block;
-    width: 22px;
-    height: 3px;
+    width: 22px; height: 3px;
     background: white;
     border-radius: 3px;
-    transition: transform 0.3s;
+    transition: transform .3s;
 }
 
-.boton-menu:hover .boton-menu__linea:first-child  { transform: translateY(-2px); }
-.boton-menu:hover .boton-menu__linea:last-child   { transform: translateY(2px); }
+.boton-menu:hover .boton-menu__linea:first-child { transform: translateY(-2px); }
+.boton-menu:hover .boton-menu__linea:last-child  { transform: translateY(2px);  }
 
-/* Lista del menú lateral */
+/* ── Lista de ítems ── */
 .menu-lateral {
     width: 100%;
-    list-style: none;
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 0;
 }
 
 .menu-lateral__elemento {
     width: 100%;
-    margin: 12px 0;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     position: relative;
+
+    /* Animación de entrada */
     opacity: 0;
-    animation: aparecer 0.5s ease forwards;
+    animation: aparecer .45s ease forwards;
 }
 
-.menu-lateral__elemento:nth-child(1) { animation-delay: 0.10s; }
-.menu-lateral__elemento:nth-child(2) { animation-delay: 0.15s; }
-.menu-lateral__elemento:nth-child(3) { animation-delay: 0.20s; }
-.menu-lateral__elemento:nth-child(4) { animation-delay: 0.25s; }
-.menu-lateral__elemento:nth-child(5) { animation-delay: 0.30s; }
+.menu-lateral__elemento:nth-child(1) { animation-delay: .10s; }
+.menu-lateral__elemento:nth-child(2) { animation-delay: .16s; }
+.menu-lateral__elemento:nth-child(3) { animation-delay: .22s; }
+.menu-lateral__elemento:nth-child(4) { animation-delay: .28s; }
+.menu-lateral__elemento:nth-child(5) { animation-delay: .34s; }
+.menu-lateral__elemento:nth-child(6) { animation-delay: .40s; }
 
 @keyframes aparecer {
-    from { opacity: 0; transform: translateX(-20px); }
+    from { opacity: 0; transform: translateX(-18px); }
     to   { opacity: 1; transform: translateX(0); }
 }
 
+/* ── Enlace / ícono ── */
 .menu-lateral__enlace {
-    width: 42px;
-    height: 42px;
+    width: 42px; height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: var(--radio-enlace);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background .25s, transform .25s;
     position: relative;
 }
 
 .menu-lateral__icono {
-    width: 24px;
-    height: 24px;
+    width: 24px; height: 24px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: all 0.3s ease;
+    filter: brightness(0) invert(1) opacity(0.45);   /* gris apagado por defecto */
+    transition: filter .25s;
 }
 
+/* HOVER: ícono blanco brillante, fondo rojo se mantiene */
 .menu-lateral__enlace:hover {
-    transform: scale(1.15);
+    background: transparent;
+    transform: scale(1.12);
 }
 
-/* Tooltip emergente */
+.menu-lateral__enlace:hover .menu-lateral__icono {
+    filter: brightness(0) invert(1) opacity(1);   /* blanco puro al hacer hover */
+}
+
+/* ── Tooltip ── */
 .menu-lateral__enlace::after {
     content: attr(title);
-    position: absolute;
-    left: 55px;
-    background: #222;
-    color: white;
-    padding: 6px 10px;
+    position: fixed;
+    left: calc(var(--ancho-barra) + 10px);
+    top: var(--tooltip-y, 50%);
+    transform: translateY(-50%) translateX(-6px);
+    background: #1e1e1e;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 6px;
     font-size: 12px;
     font-family: 'Arimo', sans-serif;
+    font-weight: 400;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transform: translateX(-10px);
-    transition: all 0.3s;
-    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0,0,0,.30);
+    transition: opacity .2s, transform .2s;
+    z-index: 2000;
 }
 
 .menu-lateral__enlace:hover::after {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(-50%) translateX(0);
 }
 
-/* Elemento activo */
+/* ── Ítem activo ── */
 .menu-lateral__elemento--activo::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 50%;
+    left: 0; top: 50%;
     transform: translateY(-50%);
-    width: 4px;
-    height: 30px;
+    width: 4px; height: 30px;
     background: #000;
     border-radius: 0 5px 5px 0;
 }
 
 .menu-lateral__elemento--activo .menu-lateral__enlace {
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    background: var(--color-blanco);
+    box-shadow: 0 4px 12px rgba(0,0,0,.18);
 }
 
 .menu-lateral__elemento--activo .menu-lateral__icono {
-    filter: brightness(0);
+    filter: brightness(0);   /* ícono negro sobre fondo blanco */
 }
 
-/* ── Encabezado Superior ──────────────────────────────────── */
+/* El activo sí escala al hover */
+.menu-lateral__elemento--activo .menu-lateral__enlace:hover {
+    background: var(--color-blanco);
+    transform: scale(1.12);
+}
+
+.menu-lateral__elemento--activo .menu-lateral__enlace:hover .menu-lateral__icono {
+    filter: brightness(0);   /* mantiene ícono negro, no blanco */
+}
+
+/* ══════════════════════════════════════════════
+   ENCABEZADO SUPERIOR
+   ══════════════════════════════════════════════ */
 .encabezado {
     position: fixed;
     top: 0;
-    left: var(--ancho-barra-lateral);
+    left: var(--ancho-barra);
     right: 0;
     height: var(--alto-encabezado);
     background-color: var(--color-blanco);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 1px 6px rgba(0,0,0,.10);
     z-index: 999;
 }
 
-.encabezado__contenedor {
-    height: 100%;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.encabezado__lista-botones {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0;
-}
-
+/* Botón cerrar sesión */
 .boton-cerrar-sesion {
     display: inline-flex;
     align-items: center;
-    padding: 7px 16px;
-    border: 1.5px solid #cccccc;
+    padding: 6px 15px;
+    border: 1.5px solid #ccc;
     background-color: var(--color-blanco);
-    color: #444444;
+    color: #444;
     text-decoration: none;
     border-radius: var(--radio-boton);
     font-size: 13px;
     font-family: 'Arimo', sans-serif;
     font-weight: 500;
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color .2s, color .2s;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .boton-cerrar-sesion:hover {
@@ -270,23 +278,26 @@ body {
     color: var(--color-primario);
 }
 
+/* Etiqueta de rol */
 .etiqueta-rol {
     display: inline-block;
-    padding: 7px 18px;
+    padding: 6px 16px;
     background-color: var(--color-primario);
     color: var(--color-blanco);
     border-radius: var(--radio-boton);
     font-size: 13px;
     font-family: 'Arimo', sans-serif;
     font-weight: 700;
-    letter-spacing: 0.2px;
+    letter-spacing: .2px;
     user-select: none;
+    white-space: nowrap;
 }
 
+/* Íconos del encabezado */
 .encabezado__iconos-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 4px;
 }
 
 .icono-accion {
@@ -294,39 +305,55 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    padding: 6px;
 }
 
-.icono-accion img {
-    height: 20px;
-    width: auto;
-    transition: all 0.3s ease;
+.icono-accion:hover {
+    background: none;
 }
 
-.icono-accion:hover img {
-    transform: scale(1.15);
-    filter: brightness(0) saturate(100%) invert(17%) sepia(99%)
-            saturate(4973%) hue-rotate(350deg) brightness(92%) contrast(95%);
+.icono-accion img,
+.icono-accion svg {
+    height: 22px;
+    width: 22px;
+    color: #222;
+    stroke: #222;
+    transition: transform .25s, color .25s, stroke .25s, filter .25s;
 }
 
-.logo-club {
-    display: flex;
-    align-items: center;
-    margin: 0;
+.icono-accion:hover img,
+.icono-accion:hover svg {
+    transform: scale(1.1);
+    color: var(--color-primario);
+    stroke: var(--color-primario);
 }
 
+/* Separador vertical entre íconos y logo */
+.encabezado__separador {
+    width: 1px;
+    height: 28px;
+    background: var(--color-borde);
+    margin: 0 12px;
+}
+
+/* Logo */
 .logo-club img {
-    height: 38px;
-    width: 38px;
-    object-fit: cover;
-    border-radius: 50%;
+    height: 40px; 
+    width: 40px;
+    object-fit: contain;
+    border-radius: 0;
+    border: none;
+    background: transparent;
 }
+
+
 
 /* ── Contenido Principal ──────────────────────────────────── */
 .contenido-principal {
-    margin-left: var(--ancho-barra-lateral);
-    margin-top: var(--alto-encabezado);
-    padding: 28px 30px 40px;
-    min-height: calc(100vh - var(--alto-encabezado));
+  margin-left: var(--ancho-barra);
+  margin-top: var(--alto-encabezado);
+  padding: 28px;
+  min-height: calc(100vh - var(--alto-encabezado));
 }
 
 /* ── Cabecera de sección ──────────────────────────────────── */
