@@ -3,637 +3,1033 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheerClick Systems</title>
+    <title>Mis Horarios | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/styleHoraAdmin.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
 </head>
 <body>
-    <!-- BARRA 2 - Lateral izquierda -->
-    <div class="Barra2">
-        <div class="icono-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="menu-lateral">
-            <li class="activo">
-                <a href="#" title="Horarios">
-                    <img src="img/calendario.png" alt="Calendario">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Estado de cuentas">
-                    <img src="img/grafico-circular.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="PQRS">
-                    <img src="img/comentarios.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Implementos">
-                    <img src="img/Camisa.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Validación de Cuentas">
-                    <img src="img/usuarios.png" alt="">
-                </a>
-            </li>
-        </ul>
-    </div>
-    <!-- BARRA 1 - Superior -->
-    <header>
-        <nav>
-            <div class="contenedor">
-                <div class="Barra1">
-                    <ul class="botones-nav">
-                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
-                        <li><span class="btn-administrador">Administrador</span></li>
-                    </ul>
-                    <div id="logo-iconos">
-                        <a href="#" class="enlace-icono">
-                            <img src="img/campana-de-notificacion.png" alt="Icono campana">
-                        </a>
-                        <a href="#" class="enlace-icono">
-                            <img src="img/casa.png" alt="Icono casa">
-                        </a>
-                        <div class="logo-club">
-                            <img src="img/Logo-Club.png" alt="Logo del club">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-admin.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="asistenciaAdmin.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Aistencia">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="cuentas.html" class="menu-lateral__enlace" title="Cuentas de Usuarios">
+                        <img class="menu-lateral__icono" src="img/usuarios.png" alt="Validación de cuentas">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="HoraAdmin.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ImplementosAdmi.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_admi.html" class="menu-lateral__enlace"  title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Pagos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento ">
+                    <a href="PQRSAdmin.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
+                    </a>
+                </li>
+
+                
+
+            </ul>
         </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li class="selector-rol" id="selector-rol">
+                        <button class="etiqueta-rol" type="button" onclick="toggleMenuRol()" aria-haspopup="true" aria-expanded="false" id="btn-rol">
+                            Administrador
+                            <svg class="chevron-rol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="menu-rol" id="menu-rol" role="menu">
+                            <a href="HoraEntre.html" class="menu-rol__opcion" role="menuitem" style="display:block;padding:11px 16px;margin:0;font-size:13px;font-weight:600;font-family:'Arimo',sans-serif;color:#222222;text-decoration:none;white-space:nowrap;line-height:1.4;">Vista Entrenador</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-admin.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="contenido">
-        <!-- Título + botón -->
-        <div class="encabezado-pagina">
-            <div class="titulo-pagina">
-                <h1>Niveles &amp; Entrenadores</h1>
-                <p>Gestiona los Niveles de entrenamiento</p>
-            </div>
-            <button class="btn-nueva-categoria" onclick="abrirModalNuevo()">+ Nuevo Nivel</button>
-        </div>
-        <!-- Cuadrícula de categorías -->
-        <div class="cuadricula-categorias" id="cuadricula-categorias">
+<main class="contenido">
+    <input type="radio" id="pestania-niveles"      name="pestanias" class="radio-pestania" checked>
+    <input type="radio" id="pestania-competencias" name="pestanias" class="radio-pestania">
 
-            <!-- Tarjeta 0 -->
+    <div class="encabezado-pagina">
+        <div class="titulo-pagina"><h1>Panel de Gestión</h1><p>Niveles, horarios y competencias del club</p></div>
+    </div>
+
+    <nav class="barra-pestanias">
+        <label for="pestania-niveles" class="etiqueta-pestania pestania-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Niveles &amp; Horarios
+        </label>
+        <label for="pestania-competencias" class="etiqueta-pestania pestania-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            Competencias
+        </label>
+    </nav>
+
+    <!-- PANEL 1 — NIVELES -->
+    <section class="panel-pestania panel-niveles">
+        <div class="encabezado-panel">
+            <div class="informacion-panel"><h2 class="titulo-panel">Niveles de Entrenamiento</h2><p class="descripcion-panel">Gestiona los niveles y sus entrenadores</p></div>
+            <button type="button" class="btn-nueva-categoria" onclick="abrirModalNuevo()">+ Nuevo Nivel</button>
+        </div>
+        <div class="cuadricula-categorias" id="cuadricula-categorias">
             <div class="tarjeta-categoria" data-tarjeta="0">
-                <div class="encabezado-categoria">Nivel 1.1 Formativo</div>
+                <div class="encabezado-categoria">Nivel Formativo King</div>
                 <div class="cuerpo-categoria">
-                    <div class="info-entrenador">
-                        <img src="img/Entrenador 1.png" alt="Jonathan Cruz" class="foto-entrenador">
-                        <div class="datos-entrenador">
-                            <h3>Jonathan Cruz</h3>
-                            <div class="horarios">
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Martes, Jueves y Sábados · 6:00 PM - 8:00 PM
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="acciones-categoria">
-                        <button class="btn-modificar" onclick="abrirModal(0)">Modificar</button>
-                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
-                    </div>
+                    <div class="info-entrenador"><img src="img/Entrenador 1.png" alt="Jonathan Cruz" class="foto-entrenador"><div class="datos-entrenador"><h3>Jonathan Cruz</h3><div class="horarios"><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Martes, Jueves y Sábados · 6:00 PM - 8:00 PM</span></div></div></div>
+                    <div class="acciones-categoria"><button class="btn-modificar" onclick="abrirModal(0)">Modificar</button><button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button></div>
                 </div>
             </div>
-            <!-- Tarjeta 1 -->
             <div class="tarjeta-categoria" data-tarjeta="1">
                 <div class="encabezado-categoria">Nivel 1 Princess</div>
                 <div class="cuerpo-categoria">
-                    <div class="info-entrenador">
-                        <img src="img/alexandra.png" alt="Alexandra Rivera" class="foto-entrenador">
-                        <div class="datos-entrenador">
-                            <h3>Alexandra Rivera</h3>
-                            <div class="horarios">
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Martes, Jueves y Sábados · 6:00 PM - 8:00 PM
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="acciones-categoria">
-                        <button class="btn-modificar" onclick="abrirModal(1)">Modificar</button>
-                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
-                    </div>
+                    <div class="info-entrenador"><img src="img/alexandra.png" alt="Alexandra Rivera" class="foto-entrenador"><div class="datos-entrenador"><h3>Alexandra Rivera</h3><div class="horarios"><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Martes, Jueves y Sábados · 6:00 PM - 8:00 PM</span></div></div></div>
+                    <div class="acciones-categoria"><button class="btn-modificar" onclick="abrirModal(1)">Modificar</button><button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button></div>
                 </div>
             </div>
-            <!-- Tarjeta 2 -->
             <div class="tarjeta-categoria" data-tarjeta="2">
-                <div class="encabezado-categoria">Nivel 1 Queens</div>
+                <div class="encabezado-categoria">Nivel 1 Queen</div>
                 <div class="cuerpo-categoria">
-                    <div class="info-entrenador">
-                        <img src="img/yari.png" alt="Yari Guitierrez" class="foto-entrenador">
-                        <div class="datos-entrenador">
-                            <h3>Yari Guitierrez</h3>
-                            <div class="horarios">
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Lunes y Viernes · 6:00 PM - 8:00 PM
-                                </span>
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Sábado · 9:00 AM - 11:00 AM
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="acciones-categoria">
-                        <button class="btn-modificar" onclick="abrirModal(2)">Modificar</button>
-                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
-                    </div>
+                    <div class="info-entrenador"><img src="img/yari.png" alt="Yari Guitierrez" class="foto-entrenador"><div class="datos-entrenador"><h3>Yari Guitierrez</h3><div class="horarios"><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Lunes y Viernes · 6:00 PM - 8:00 PM</span><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Sábado · 9:00 AM - 11:00 AM</span></div></div></div>
+                    <div class="acciones-categoria"><button class="btn-modificar" onclick="abrirModal(2)">Modificar</button><button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button></div>
                 </div>
             </div>
-            <!-- Tarjeta 3 -->
             <div class="tarjeta-categoria" data-tarjeta="3">
                 <div class="encabezado-categoria">Nivel 3 Magic</div>
                 <div class="cuerpo-categoria">
-                    <div class="info-entrenador">
-                        <img src="img/stuard.png" alt="Stuard Reyes" class="foto-entrenador">
-                        <div class="datos-entrenador">
-                            <h3>Stuard Reyes</h3>
-                            <div class="horarios">
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Martes y Viernes · 8:00 PM - 10:00 PM
-                                </span>
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Sábado · 3:00 PM - 5:00 PM
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="acciones-categoria">
-                        <button class="btn-modificar" onclick="abrirModal(3)">Modificar</button>
-                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
-                    </div>
+                    <div class="info-entrenador"><img src="img/stuard.png" alt="Stuard Reyes" class="foto-entrenador"><div class="datos-entrenador"><h3>Stuard Reyes</h3><div class="horarios"><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Martes y Viernes · 8:00 PM - 10:00 PM</span><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Sábado · 3:00 PM - 5:00 PM</span></div></div></div>
+                    <div class="acciones-categoria"><button class="btn-modificar" onclick="abrirModal(3)">Modificar</button><button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button></div>
                 </div>
             </div>
-            <!-- Tarjeta 4 -->
             <div class="tarjeta-categoria" data-tarjeta="4">
                 <div class="encabezado-categoria">Nivel 4 Blood Tigers</div>
                 <div class="cuerpo-categoria">
-                    <div class="info-entrenador">
-                        <img src="img/ronald.png" alt="Ronald Linares" class="foto-entrenador">
-                        <div class="datos-entrenador">
-                            <h3>Ronald Linares</h3>
-                            <div class="horarios">
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Miércoles y Sábados · 8:00 PM - 10:00 PM
-                                </span>
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="Logo Calendario">
-                                    Domingos · 8:00 AM - 10:00 AM
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="acciones-categoria">
-                        <button class="btn-modificar" onclick="abrirModal(4)">Modificar</button>
-                        <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
-                    </div>
+                    <div class="info-entrenador"><img src="img/ronald.png" alt="Ronald Linares" class="foto-entrenador"><div class="datos-entrenador"><h3>Ronald Linares</h3><div class="horarios"><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Miércoles y Sábados · 8:00 PM - 10:00 PM</span><span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">Domingos · 8:00 AM - 10:00 AM</span></div></div></div>
+                    <div class="acciones-categoria"><button class="btn-modificar" onclick="abrirModal(4)">Modificar</button><button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button></div>
                 </div>
             </div>
-
         </div>
-    </main>
-    <!-- MODAL — EDITAR / NUEVA CATEGORÍA-->
-    <div id="superposicion-modal" class="superposicion-modal" onclick="cerrarModalFondo(event)">
-        <div class="contenedor-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+    </section>
+    <!-- PANEL 2 — COMPETENCIAS -->
+    <section class="panel-pestania panel-competencias">
+        <input type="radio" id="sub-queen"    name="sub-comp" class="radio-sub" checked>
+        <input type="radio" id="sub-princess" name="sub-comp" class="radio-sub">
+        <input type="radio" id="sub-magic"    name="sub-comp" class="radio-sub">
+        <input type="radio" id="sub-blood"    name="sub-comp" class="radio-sub">
 
-            <!-- Encabezado -->
-            <div class="encabezado-modal">
-                <div class="contenido-encabezado">
-                    <img  class="icono-modal" src="img/Icono editar.png" alt="icono Editar">
-                    <h2 id="titulo-modal">Editar Horario</h2>
+        <div class="encabezado-panel">
+            <div class="informacion-panel"><h2 class="titulo-panel">Competencias Activas</h2><p class="descripcion-panel">Torneos programados por equipo</p></div>
+            <button type="button" class="btn-nueva-competencia" onclick="document.getElementById('modal-competencia').showModal()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                Registrar Competencia
+            </button>
+        </div>
+
+        <!-- Sub-pestañas — trofeo en todos los filtros -->
+        <nav class="barra-sub-pestanias">
+            <label for="sub-queen"    class="sub-etiqueta sq"><svg class="sub-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Blood Tigers Queen<span class="sub-count">5</span></label>
+            <label for="sub-princess" class="sub-etiqueta sp"><svg class="sub-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Blood Tigers Princess<span class="sub-count">7</span></label>
+            <label for="sub-magic"    class="sub-etiqueta sm"><svg class="sub-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Blood Tiger Magic<span class="sub-count">5</span></label>
+            <label for="sub-blood"    class="sub-etiqueta sb"><svg class="sub-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Blood Tigers Cheer<span class="sub-count">6</span></label>
+        </nav>
+        <div class="sub-panel sub-panel-queen">
+                <article class="tarjeta-competencia tarjeta-omd">
+                    <figure class="figura-competencia fig-omd">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">One More Dream</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>17 de mayo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Timiza</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$65.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 8 de mayo</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('omd','queen')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-universal">
+                    <figure class="figura-competencia fig-universal">
+                        <img src="" alt="Universal" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Universal</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>25 de julio</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Colegio San Viator</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 10 de julio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('universal','queen')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-nfinity">
+                    <figure class="figura-competencia fig-nfinity">
+                        <img src="" alt="Nfinity League" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Nfinity League</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>20 de septiembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – City Hall Auto. Norte</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$160.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Abono 50%: 4 de julio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('nfinity','queen')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-summer">
+                    <figure class="figura-competencia fig-summer">
+                        <img src="" alt="Summer" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Summer</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>10 de octubre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Tocaima – Parque acuático</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 15 de septiembre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('summer','queen')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-xiua">
+                    <figure class="figura-competencia fig-xiua">
+                        <img src="" alt="Xiua" class="imagen-competencia imagen-oficial-torneo">
+
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Xiua</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>29 de noviembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Sibaté – Coliseo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$90.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 5 de octubre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('xiua','queen')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+        </div>
+        <div class="sub-panel sub-panel-princess">
+                <article class="tarjeta-competencia tarjeta-omd">
+                    <figure class="figura-competencia fig-omd">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">One More Dream</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>17 de mayo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Timiza</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$65.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 8 de mayo</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('omd','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-allcheer">
+                    <figure class="figura-competencia fig-allcheer">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">All Cheer</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>6 y 7 de junio</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – CC. el Edén</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 13 de mayo</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('allcheer','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-universal">
+                    <figure class="figura-competencia fig-universal">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Universal</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>25 de julio</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Colegio San Viator</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 10 de julio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('universal','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-continental">
+                    <figure class="figura-competencia fig-continental">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Continental</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>25 al 27 de septiembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Medellín – Conv. Plaza Mayor</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$160.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Abono 50%: 4 de junio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('continental','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-summer">
+                    <figure class="figura-competencia fig-summer">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Summer</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>10 de octubre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Tocaima – Parque acuático</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 15 de septiembre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('summer','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-xiua">
+                    <figure class="figura-competencia fig-xiua">
+                        <img src="" alt="Xiua" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Xiua</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>29 de noviembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Sibaté – Coliseo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$90.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 5 de octubre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('xiua','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-lastcount">
+                    <figure class="figura-competencia fig-lastcount">
+                        <img src="" alt="Last Count" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Last Count</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>13 de diciembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Colegio La Merced</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$130.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 12 de junio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('lastcount','princess')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+        </div>
+        <div class="sub-panel sub-panel-magic">
+                <article class="tarjeta-competencia tarjeta-omd">
+                    <figure class="figura-competencia fig-omd">
+                        <img src="" alt="One More Dream" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">One More Dream</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>17 de mayo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Timiza</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$65.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 8 de mayo</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('omd','magic')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-universal">
+                    <figure class="figura-competencia fig-universal">
+                        <img src="" alt="Universal" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Universal</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>25 de julio</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Colegio San Viator</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 10 de julio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('universal','magic')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-nfinity">
+                    <figure class="figura-competencia fig-nfinity">
+                        <img src="" alt="Nfinity League" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Nfinity League</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>20 de septiembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – City Hall Auto. Norte</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$160.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Abono 50%: 4 de julio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('nfinity','magic')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-summer">
+                    <figure class="figura-competencia fig-summer">
+                        <img src="" alt="Summer" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Summer</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>10 de octubre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Tocaima – Parque acuático</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 15 de septiembre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('summer','magic')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-xiua">
+                    <figure class="figura-competencia fig-xiua">
+                        <img src="" alt="Xiua" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Xiua</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>29 de noviembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Sibaté – Coliseo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$90.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 5 de octubre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('xiua','magic')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+        </div>
+        <div class="sub-panel sub-panel-blood">
+                <article class="tarjeta-competencia tarjeta-allcheer">
+                    <figure class="figura-competencia fig-allcheer">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">All Cheer</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>6 y 7 de junio</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – CC. el Edén</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 13 de mayo</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('allcheer','blood')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-universal">
+                    <figure class="figura-competencia fig-universal">
+                        <img src="" alt="Universal" class="imagen-competencia imagen-oficial-torneo">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Universal</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>25 de julio</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Colegio San Viator</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 10 de julio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('universal','blood')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-continentalx">
+                    <figure class="figura-competencia fig-continental">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Continental</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>25 al 27 de septiembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Medellín – Conv. Plaza Mayor</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$160.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Abono 50%: 4 de junio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('continental','blood')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-summer">
+                    <figure class="figura-competencia fig-summer">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Summer</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>10 de octubre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Tocaima – Parque acuático</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$150.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 15 de septiembre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('summer','blood')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-xiua">
+                    <figure class="figura-competencia fig-xiua">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Xiua</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>29 de noviembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Sibaté – Coliseo</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$90.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 5 de octubre</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('xiua','blood')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-competencia tarjeta-lastcount">
+                    <figure class="figura-competencia fig-lastcount">
+                        <span class="insignia-estado insignia-activa">Activa</span>
+                    </figure>
+                    <div class="cuerpo-competencia">
+                        <h3 class="nombre-competencia">Last Count</h3>
+                        <ul class="lista-datos">
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>13 de diciembre</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Bogotá – Colegio La Merced</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>$130.000</span></li>
+                            <li class="dato-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Límite de pago: 12 de junio</span></li>
+                        </ul>
+                        <div class="acciones-competencia">
+                            <button class="btn-modificar" onclick="abrirModificarTorneo('lastcount','blood')">Modificar</button>
+                            <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
+                        </div>
+                    </div>
+                </article>
+        </div>
+    </section>
+</main>
+
+<!-- MODAL — EDITAR / NUEVA CATEGORÍA -->
+<div id="superposicion-modal" class="superposicion-modal" onclick="cerrarModalFondo(event)">
+    <div class="contenedor-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+        <div class="encabezado-modal">
+            <div class="contenido-encabezado">
+                <svg class="icono-modal" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                <h2 id="titulo-modal">Editar Horario</h2>
+            </div>
+        </div>
+        <div class="cuerpo-modal">
+            <div class="grupo-formulario"><label class="etiqueta-formulario" for="modal-categoria">Nombre del Nivel</label><input type="text" id="modal-categoria" class="campo-formulario" placeholder="Ej: Nivel 1.1 Formativo"></div>
+            <div class="grupo-formulario">
+                <label class="etiqueta-formulario">Foto del Entrenador</label>
+                <div class="zona-subida-foto" id="zona-subida-foto" onclick="document.getElementById('archivo-foto').click()" title="Haz clic para subir una foto">
+                    <div class="contenedor-vista-previa"><img id="vista-previa-foto" src="" alt="Vista previa"></div>
+                    <div class="texto-subida"><p class="texto-principal-subida">Haz clic para subir foto</p><p class="pista-subida">JPG, PNG · MÁX 5 MB</p></div>
+                    <input type="file" id="archivo-foto" accept="image/jpeg,image/png" style="display:none" onchange="previsualizarFoto(event)">
                 </div>
             </div>
-
-            <!-- Cuerpo -->
-            <div class="cuerpo-modal">
-
-                <!-- Nombre categoría -->
-                <div class="grupo-formulario">
-                    <label class="etiqueta-formulario" for="modal-categoria">Nombre del Nivel</label>
-                    <input type="text" id="modal-categoria" class="campo-formulario"
-                           placeholder="Ej: Nivel 1.1 Formativo">
+            <div class="grupo-formulario"><label class="etiqueta-formulario" for="modal-entrenador">Nombre del Entrenador</label><input type="text" id="modal-entrenador" class="campo-formulario" placeholder="Ej: Jonathan Cruz"></div>
+            <div class="grupo-formulario">
+                <label class="etiqueta-formulario">Días de Entrenamiento</label>
+                <div class="selector-dias">
+                    <button class="btn-dia" data-dia="lun" onclick="alternarDia(this)">Lun</button>
+                    <button class="btn-dia" data-dia="mar" onclick="alternarDia(this)">Mar</button>
+                    <button class="btn-dia" data-dia="mie" onclick="alternarDia(this)">Mié</button>
+                    <button class="btn-dia" data-dia="jue" onclick="alternarDia(this)">Jue</button>
+                    <button class="btn-dia" data-dia="vie" onclick="alternarDia(this)">Vie</button>
+                    <button class="btn-dia" data-dia="sab" onclick="alternarDia(this)">Sáb</button>
+                    <button class="btn-dia" data-dia="dom" onclick="alternarDia(this)">Dom</button>
                 </div>
-
-                <!-- Foto entrenador -->
-                <div class="grupo-formulario">
-                    <label class="etiqueta-formulario">Foto del Entrenador</label>
-                    <div class="zona-subida-foto" id="zona-subida-foto"
-                         onclick="document.getElementById('archivo-foto').click()"
-                         title="Haz clic para subir una foto">
-                        <div class="contenedor-vista-previa">
-                            <img id="vista-previa-foto" src="" alt="Vista previa">
-                        </div>
-                        <div class="texto-subida">
-                            <p class="texto-principal-subida">Haz clic para subir foto</p>
-                            <p class="pista-subida">JPG, PNG MÁX 5MB</p>
-                        </div>
-                        <input type="file" id="archivo-foto" accept="image/jpeg,image/png"
-                               style="display:none" onchange="previsualizarFoto(event)">
-                    </div>
-                </div>
-                <!-- Nombre entrenador -->
-                <div class="grupo-formulario">
-                    <label class="etiqueta-formulario" for="modal-entrenador">Nombre del Entrenador</label>
-                    <input type="text" id="modal-entrenador" class="campo-formulario"
-                           placeholder="Ej: Jonathan Cruz">
-                </div>
-                <!-- Días -->
-                <div class="grupo-formulario">
-                    <label class="etiqueta-formulario">Días de Entrenamiento</label>
-                    <div class="selector-dias">
-                        <button class="btn-dia" data-dia="lun" onclick="alternarDia(this)">Lun</button>
-                        <button class="btn-dia" data-dia="mar" onclick="alternarDia(this)">Mar</button>
-                        <button class="btn-dia" data-dia="mie" onclick="alternarDia(this)">Mié</button>
-                        <button class="btn-dia" data-dia="jue" onclick="alternarDia(this)">Jue</button>
-                        <button class="btn-dia" data-dia="vie" onclick="alternarDia(this)">Vie</button>
-                        <button class="btn-dia" data-dia="sab" onclick="alternarDia(this)">Sáb</button>
-                        <button class="btn-dia" data-dia="dom" onclick="alternarDia(this)">Dom</button>
-                    </div>
-                </div>
-                <!-- Horarios -->
-                <div class="grupo-formulario">
-                    <label class="etiqueta-formulario">Horarios</label>
-                    <div id="lista-horarios"></div>
-                    <button type="button" class="btn-agregar-horario" onclick="agregarCampoHorario('')">
-                        + Agregar Horario
-                    </button>
-                </div>
-
-            </div><!-- /cuerpo-modal -->
-            <!-- Pie de modal -->
-            <div class="pie-modal">
-                <button type="button" class="btn-cancelar-modal" onclick="cerrarModal()">Cancelar</button>
-                <button type="button" class="btn-guardar-modal" onclick="guardarCambios()">Guardar Cambios</button>
             </div>
-
+            <div class="grupo-formulario">
+                <label class="etiqueta-formulario">Horarios</label>
+                <div id="lista-horarios"></div>
+                <button type="button" class="btn-agregar-horario" onclick="agregarCampoHorario('')">+ Agregar Horario</button>
+            </div>
+        </div>
+        <div class="pie-modal">
+            <button type="button" class="btn-cancelar-modal" onclick="cerrarModal()">Cancelar</button>
+            <button type="button" class="btn-guardar-modal" onclick="guardarCambios()">Guardar Cambios</button>
         </div>
     </div>
-    <!-- AVISO DE CONFIRMACIÓN -->
-    <div id="aviso" class="aviso" aria-live="polite"></div>
-    <!-- CÓDIGO JAVASCRIPT -->
-    <script>
-    /* ─────────────────────────────────────────────────────
-       DATOS DE LAS CATEGORÍAS (espejo del HTML inicial)
-    ───────────────────────────────────────────────────── */
-    const datosTarjetas = [
-        {
-            categoria : 'Nivel 1.1 Formativo',
-            entrenador: 'Jonathan Cruz',
-            foto      : 'img/Entrenador 1.png',
-            fotoBase64: null,
-            dias      : ['mar','jue','sab'],
-            horarios  : ['6:00 PM - 8:00 PM']
-        },
-        {
-            categoria : 'Nivel 1 Princess',
-            entrenador: 'Alexandra Rivera',
-            foto      : 'img/alexandra.png',
-            fotoBase64: null,
-            dias      : ['mar','jue','sab'],
-            horarios  : ['6:00 PM - 8:00 PM']
-        },
-        {
-            categoria : 'Nivel 1 Queens',
-            entrenador: 'Yari Guitierrez',
-            foto      : 'img/yari.png',
-            fotoBase64: null,
-            dias      : ['lun','vie','sab'],
-            horarios  : ['6:00 PM - 8:00 PM', '9:00 AM - 11:00 AM']
-        },
-        {
-            categoria : 'Nivel 3 Magic',
-            entrenador: 'Stuard Reyes',
-            foto      : 'img/stuard.png',
-            fotoBase64: null,
-            dias      : ['mar','vie','sab'],
-            horarios  : ['8:00 PM - 10:00 PM', '3:00 PM - 5:00 PM']
-        },
-        {
-            categoria : 'Nivel 4 Blood Tigers',
-            entrenador: 'Ronald Linares',
-            foto      : 'img/ronald.png',
-            fotoBase64: null,
-            dias      : ['mie','sab','dom'],
-            horarios  : ['8:00 PM - 10:00 PM', '8:00 AM - 10:00 AM']
-        }
-    ];
+</div>
 
-    /* Mapa día → etiqueta en español */
-    const etiquetaDias = {
-        lun:'Lunes', mar:'Martes', mie:'Miércoles',
-        jue:'Jueves', vie:'Viernes', sab:'Sábados', dom:'Domingos'
-    };
-
-    /* Índice de la tarjeta que se está editando (-1 = nueva) */
-    let indiceActual = -1;
-
-    /* ─────────────────────────────────────────────────────
-       ABRIR MODAL — EDITAR
-    ───────────────────────────────────────────────────── */
-    function abrirModal(indice) {
-        indiceActual = indice;
-        const d = datosTarjetas[indice];
-
-        document.getElementById('titulo-modal').textContent = 'Editar Horario';
-        document.getElementById('modal-categoria').value   = d.categoria;
-        document.getElementById('modal-entrenador').value  = d.entrenador;
-
-        /* Foto */
-        const vistaPrevia = document.getElementById('vista-previa-foto');
-        vistaPrevia.src = d.fotoBase64 || d.foto;
-
-        /* Días */
-        document.querySelectorAll('.btn-dia').forEach(btn => {
-            btn.classList.toggle('activo', d.dias.includes(btn.dataset.dia));
-        });
-
-        /* Horarios */
-        const lista = document.getElementById('lista-horarios');
-        lista.innerHTML = '';
-        d.horarios.forEach(h => agregarCampoHorario(h));
-
-        mostrarFondo();
-    }
-
-    /* ─────────────────────────────────────────────────────
-       ABRIR MODAL — NUEVA CATEGORÍA
-    ───────────────────────────────────────────────────── */
-    function abrirModalNuevo() {
-        indiceActual = -1;
-
-        document.getElementById('titulo-modal').textContent    = 'Nuevo Nivel';
-        document.getElementById('modal-categoria').value       = '';
-        document.getElementById('modal-entrenador').value      = '';
-        document.getElementById('vista-previa-foto').src       = '';
-
-        document.querySelectorAll('.btn-dia').forEach(b => b.classList.remove('activo'));
-
-        const lista = document.getElementById('lista-horarios');
-        lista.innerHTML = '';
-        agregarCampoHorario('');
-
-        mostrarFondo();
-    }
-
-    /* ─────────────────────────────────────────────────────
-       MOSTRAR / CERRAR FONDO DEL MODAL
-    ───────────────────────────────────────────────────── */
-    function mostrarFondo() {
-        const fondo = document.getElementById('superposicion-modal');
-        fondo.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        /* pequeño retraso para que la animación CSS se active */
-        requestAnimationFrame(() => fondo.classList.add('visible'));
-    }
-
-    function cerrarModal() {
-        const fondo = document.getElementById('superposicion-modal');
-        fondo.classList.remove('visible');
-        setTimeout(() => {
-            fondo.style.display = 'none';
-            document.body.style.overflow = '';
-        }, 260);
-    }
-
-    function cerrarModalFondo(e) {
-        if (e.target === document.getElementById('superposicion-modal')) cerrarModal();
-    }
-
-    /* Tecla Escape */
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') cerrarModal();
-    });
-
-    /* ─────────────────────────────────────────────────────
-       ALTERNAR DÍAS
-    ───────────────────────────────────────────────────── */
-    function alternarDia(btn) {
-        btn.classList.toggle('activo');
-    }
-
-    /* ─────────────────────────────────────────────────────
-       HORARIOS — AGREGAR / ELIMINAR
-    ───────────────────────────────────────────────────── */
-    function agregarCampoHorario(valor) {
-        const lista = document.getElementById('lista-horarios');
-        const fila  = document.createElement('div');
-        fila.className = 'fila-horario';
-        fila.innerHTML = `
-            <input type="text"
-                   class="campo-formulario entrada-horario"
-                   value="${valor}"
-                   placeholder="Ej: 4:00 PM - 6:00 PM">
-            <button type="button" class="btn-quitar-horario"
-                    onclick="quitarHorario(this)"
-                    title="Eliminar horario">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2.5" stroke-linecap="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>`;
-        lista.appendChild(fila);
-    }
-
-    function quitarHorario(btn) {
-        const lista = document.getElementById('lista-horarios');
-        if (lista.children.length <= 1) {
-            mostrarAviso('Debe haber al menos un horario.', 'advertencia');
-            return;
-        }
-        btn.closest('.fila-horario').remove();
-    }
-
-    /* ─────────────────────────────────────────────────────
-       FOTO — PREVISUALIZAR
-    ───────────────────────────────────────────────────── */
-    function previsualizarFoto(event) {
-        const archivo = event.target.files[0];
-        if (!archivo) return;
-        if (archivo.size > 5 * 1024 * 1024) {
-            mostrarAviso('La foto supera los 5 MB permitidos.', 'error');
-            return;
-        }
-        const lector = new FileReader();
-        lector.onload = e => {
-            document.getElementById('vista-previa-foto').src = e.target.result;
-            /* guarda la base64 temporalmente */
-            if (indiceActual >= 0) datosTarjetas[indiceActual]._fotoTemp = e.target.result;
-            else window._fotoTempNueva = e.target.result;
-        };
-        lector.readAsDataURL(archivo);
-    }
-
-    /* ─────────────────────────────────────────────────────
-       GUARDAR CAMBIOS
-    ───────────────────────────────────────────────────── */
-    function guardarCambios() {
-
-        const categoria  = document.getElementById('modal-categoria').value.trim();
-        const entrenador = document.getElementById('modal-entrenador').value.trim();
-
-        if (!categoria)  { mostrarAviso('El nombre de la categoría es obligatorio.', 'error'); return; }
-        if (!entrenador) { mostrarAviso('El nombre del entrenador es obligatorio.', 'error'); return; }
-
-        /* Días seleccionados */
-        const diasSel = [...document.querySelectorAll('.btn-dia.activo')]
-                            .map(b => b.dataset.dia);
-        if (diasSel.length === 0) {
-            mostrarAviso('Selecciona al menos un día de entrenamiento.', 'error');
-            return;
-        }
-
-        /* Horarios */
-        const horarios = [...document.querySelectorAll('.entrada-horario')]
-                             .map(i => i.value.trim())
-                             .filter(Boolean);
-        if (horarios.length === 0) {
-            mostrarAviso('Añade al menos un horario.', 'error');
-            return;
-        }
-
-        if (indiceActual >= 0) {
-            /* ── EDITAR existente ── */
-            const d      = datosTarjetas[indiceActual];
-            d.categoria  = categoria;
-            d.entrenador = entrenador;
-            d.dias       = diasSel;
-            d.horarios   = horarios;
-            if (d._fotoTemp) { d.fotoBase64 = d._fotoTemp; delete d._fotoTemp; }
-
-            actualizarTarjeta(indiceActual);
-            mostrarAviso('Cambios guardados correctamente.', 'ok');
-
-        } else {
-            /* ── NUEVA categoría ── */
-            const nueva = {
-                categoria,
-                entrenador,
-                foto      : '',
-                fotoBase64: window._fotoTempNueva || null,
-                dias      : diasSel,
-                horarios
-            };
-            delete window._fotoTempNueva;
-            datosTarjetas.push(nueva);
-            crearTarjeta(datosTarjetas.length - 1);
-            mostrarAviso('Categoría creada correctamente.', 'ok');
-        }
-
-        cerrarModal();
-    }
-
-    /* ─────────────────────────────────────────────────────
-       ACTUALIZAR TARJETA EN EL DOM
-    ───────────────────────────────────────────────────── */
-    function actualizarTarjeta(indice) {
-        const d       = datosTarjetas[indice];
-        const tarjeta = document.querySelector(`.tarjeta-categoria[data-tarjeta="${indice}"]`);
-        if (!tarjeta) return;
-
-        tarjeta.querySelector('.encabezado-categoria').textContent  = d.categoria;
-        tarjeta.querySelector('.datos-entrenador h3').textContent   = d.entrenador;
-
-        const fotoEl = tarjeta.querySelector('.foto-entrenador');
-        if (d.fotoBase64) fotoEl.src = d.fotoBase64;
-
-        /* Reconstruir insignias */
-        const diasTexto = formatearDias(d.dias);
-        tarjeta.querySelector('.horarios').innerHTML =
-            d.horarios.map(h => `
-                <span class="insignia-horario">
-                    <img src="img/Imagen calendario.png" alt="">
-                    ${diasTexto} · ${h}
-                </span>`).join('');
-    }
-
-    /* ─────────────────────────────────────────────────────
-       CREAR TARJETA NUEVA EN LA CUADRÍCULA
-    ───────────────────────────────────────────────────── */
-    function crearTarjeta(indice) {
-        const d            = datosTarjetas[indice];
-        const cuadricula   = document.getElementById('cuadricula-categorias');
-        const foto         = d.fotoBase64 || d.foto || 'img/Entrenador 1.png';
-        const dias         = formatearDias(d.dias);
-
-        const html = `
-        <div class="tarjeta-categoria tarjeta-nueva" data-tarjeta="${indice}">
-            <div class="encabezado-categoria">${d.categoria}</div>
-            <div class="cuerpo-categoria">
-                <div class="info-entrenador">
-                    <img src="${foto}" alt="${d.entrenador}" class="foto-entrenador">
-                    <div class="datos-entrenador">
-                        <h3>${d.entrenador}</h3>
-                        <div class="horarios">
-                            ${d.horarios.map(h => `
-                                <span class="insignia-horario">
-                                    <img src="img/Imagen calendario.png" alt="">
-                                    ${dias} · ${h}
-                                </span>`).join('')}
-                        </div>
-                    </div>
-                </div>
-                <div class="acciones-categoria">
-                    <button class="btn-modificar" onclick="abrirModal(${indice})">Modificar</button>
-                    <button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button>
-                </div>
+<!-- DIÁLOGO — REGISTRAR NUEVA COMPETENCIA -->
+<dialog id="modal-competencia" class="dialog-competencia" aria-labelledby="titulo-competencia">
+    <header class="encabezado-modal">
+        <div class="contenido-encabezado">
+            <img src="img/trofeo.png" alt="" class="icono-modal-img" aria-hidden="true">
+            <h2 id="titulo-competencia">Registrar Nueva Competencia</h2>
+        </div>
+    </header>
+    <form method="dialog" id="form-competencia" class="cuerpo-modal">
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="comp-nombre">Nombre del Torneo</label><input type="text" id="comp-nombre" class="campo-formulario" placeholder="Ej: Copa Nacional CheerClick" autocomplete="off" required></div>
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="comp-fecha">Fecha de la Competencia</label><input type="date" id="comp-fecha" class="campo-formulario" required></div>
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="comp-ciudad">Ciudad / Lugar</label><input type="text" id="comp-ciudad" class="campo-formulario" placeholder="Ej: Bogotá — Coliseo El Campín" autocomplete="off" required></div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="comp-costo">Costo de Inscripción (COP)</label>
+            <div class="campo-con-prefijo"><span class="prefijo-campo" aria-hidden="true">$</span><input type="number" id="comp-costo" class="campo-formulario campo-con-simbolo" placeholder="0" min="0" step="1000" required></div>
+        </div>
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="comp-limite">Fecha Límite de Pago</label><input type="date" id="comp-limite" class="campo-formulario" required></div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="comp-nivel">Nivel al que Está Dirigido</label>
+            <select id="comp-nivel" class="campo-formulario" required>
+                <option value="" disabled selected>Selecciona un nivel…</option>
+                <option value="queen">Blood Tigers Queen (Nivel 1 Youth)</option>
+                <option value="princess">Blood Tigers Princess (Nivel 1 Youth)</option>
+                <option value="magic">Blood Tiger Magic (Nivel 3 Open)</option>
+                <option value="blood">Blood Tigers Cheer (Nivel 4 Open Large)</option>
+            </select>
+        </div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="comp-imagen">Imagen del Torneo <span class="etiqueta-opcional">(opcional)</span></label>
+            <div class="zona-imagen-torneo" onclick="document.getElementById('comp-imagen').click()" role="button" tabindex="0">
+                <figure class="figura-preview-torneo">
+                    <img id="preview-img-torneo" src="" alt="Vista previa" style="display:none">
+                    <figcaption class="placeholder-img-torneo" id="placeholder-img-torneo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span class="placeholder-titulo">Haz clic para subir imagen</span>
+                        <span class="pista-subida">JPG, PNG, WEBP · MÁX 5 MB</span>
+                    </figcaption>
+                </figure>
+                <input type="file" id="comp-imagen" accept="image/jpeg,image/png,image/webp" style="display:none" onchange="previsualizarImagenTorneo(event)">
             </div>
-        </div>`;
+        </div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="comp-link">Link de Publicidad <span class="etiqueta-opcional">(opcional)</span></label>
+            <div class="campo-con-prefijo">
+                <span class="prefijo-campo prefijo-icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+                <input type="url" id="comp-link" class="campo-formulario campo-con-icono" placeholder="https://ejemplo.com/torneo" autocomplete="off">
+            </div>
+        </div>
+    </form>
+    <footer class="pie-modal">
+        <button type="button" class="btn-cancelar-modal" onclick="this.closest('dialog').close()">Cancelar</button>
+        <button type="submit" form="form-competencia" value="registrar" class="btn-guardar-modal">Registrar Competencia</button>
+    </footer>
+</dialog>
 
-        cuadricula.insertAdjacentHTML('beforeend', html);
-        /* activa la animación de entrada */
-        requestAnimationFrame(() => {
-            const tarjeta = document.querySelector(`.tarjeta-categoria[data-tarjeta="${indice}"]`);
-            if (tarjeta) tarjeta.classList.add('visible');
-        });
+<!-- DIÁLOGO — MODIFICAR COMPETENCIA (pre-llenado) -->
+<dialog id="modal-modificar-torneo" class="dialog-competencia" aria-labelledby="titulo-mod">
+    <header class="encabezado-modal">
+        <div class="contenido-encabezado">
+            <img src="img/trofeo.png" alt="" class="icono-modal-img" aria-hidden="true">
+            <h2 id="titulo-mod">Modificar Competencia</h2>
+        </div>
+    </header>
+    <form method="dialog" id="form-mod-torneo" class="cuerpo-modal">
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="mod-nombre">Nombre del Torneo</label><input type="text" id="mod-nombre" class="campo-formulario" placeholder="Nombre del torneo" autocomplete="off" required></div>
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="mod-fecha">Fecha de la Competencia</label><input type="date" id="mod-fecha" class="campo-formulario" required></div>
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="mod-ciudad">Ciudad / Lugar</label><input type="text" id="mod-ciudad" class="campo-formulario" placeholder="Ciudad y sede" autocomplete="off" required></div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="mod-costo">Costo de Inscripción (COP)</label>
+            <div class="campo-con-prefijo"><span class="prefijo-campo" aria-hidden="true">$</span><input type="number" id="mod-costo" class="campo-formulario campo-con-simbolo" placeholder="0" min="0" step="1000" required></div>
+        </div>
+        <div class="grupo-formulario"><label class="etiqueta-formulario" for="mod-limite">Fecha Límite de Pago</label><input type="date" id="mod-limite" class="campo-formulario" required></div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="mod-nivel">Nivel al que Está Dirigido</label>
+            <select id="mod-nivel" class="campo-formulario" required>
+                <option value="queen">Blood Tigers Queen (Nivel 1 Youth)</option>
+                <option value="princess">Blood Tigers Princess (Nivel 1 Youth)</option>
+                <option value="magic">Blood Tiger Magic (Nivel 3 Open)</option>
+                <option value="blood">Blood Tigers Cheer (Nivel 4 Open Large)</option>
+            </select>
+        </div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="mod-imagen">Imagen Oficial del Torneo <span class="etiqueta-opcional">(opcional)</span></label>
+            <div class="zona-imagen-torneo" onclick="document.getElementById('mod-imagen').click()" role="button" tabindex="0">
+                <figure class="figura-preview-torneo">
+                    <img id="preview-img-mod" src="" alt="Vista previa" style="display:none">
+                    <figcaption class="placeholder-img-torneo" id="placeholder-img-mod">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span class="placeholder-titulo">Haz clic para subir imagen</span>
+                        <span class="pista-subida">JPG, PNG, WEBP · MÁX 5 MB</span>
+                    </figcaption>
+                </figure>
+                <input type="file" id="mod-imagen" accept="image/jpeg,image/png,image/webp" style="display:none" onchange="previsualizarImagenMod(event)">
+            </div>
+        </div>
+        <div class="grupo-formulario">
+            <label class="etiqueta-formulario" for="mod-link">Link de Publicidad <span class="etiqueta-opcional">(opcional)</span></label>
+            <div class="campo-con-prefijo">
+                <span class="prefijo-campo prefijo-icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+                <input type="url" id="mod-link" class="campo-formulario campo-con-icono" placeholder="https://ejemplo.com/torneo" autocomplete="off">
+            </div>
+        </div>
+    </form>
+    <footer class="pie-modal">
+        <button type="button" class="btn-cancelar-modal" onclick="this.closest('dialog').close()">Cancelar</button>
+        <button type="submit" form="form-mod-torneo" value="guardar" class="btn-guardar-modal">Guardar Cambios</button>
+    </footer>
+</dialog>
+
+<div id="aviso" class="aviso" aria-live="polite"></div>
+
+<script>
+/* ── DATOS DE TORNEOS ── */
+const datosTorneos = {
+    omd:         { nombre:'One More Dream',   fecha:'2025-05-17', ciudad:'Bogotá \u2013 Timiza',                         costo:65000,  limite:'2025-05-08', link:'' },
+    allcheer:    { nombre:'All Cheer',        fecha:'2025-06-06', ciudad:'Bogotá \u2013 CC. el Ed\u00e9n',               costo:150000, limite:'2025-05-13', link:'' },
+    universal:   { nombre:'Universal',         fecha:'2025-07-25', ciudad:'Bogot\u00e1 \u2013 Colegio San Viator',        costo:150000, limite:'2025-07-10', link:'' },
+    nfinity:     { nombre:'Nfinity League',    fecha:'2025-09-20', ciudad:'Bogot\u00e1 \u2013 City Hall Auto. Norte',     costo:160000, limite:'2025-07-04', link:'' },
+    continental: { nombre:'Continental',       fecha:'2025-09-25', ciudad:'Medell\u00edn \u2013 Conv. Plaza Mayor',       costo:160000, limite:'2025-06-04', link:'' },
+    summer:      { nombre:'Summer',            fecha:'2025-10-10', ciudad:'Tocaima \u2013 Parque acu\u00e1tico',          costo:150000, limite:'2025-09-15', link:'' },
+    xiua:        { nombre:'Xiua',              fecha:'2025-11-29', ciudad:'Sibat\u00e9 \u2013 Coliseo',                   costo:90000,  limite:'2025-10-05', link:'' },
+    lastcount:   { nombre:'Last Count',        fecha:'2025-12-13', ciudad:'Bogot\u00e1 \u2013 Colegio La Merced',         costo:130000, limite:'2025-06-12', link:'' },
+};
+let torneoActualId = null;
+
+/* ── ABRIR MODAL MODIFICAR TORNEO ── */
+function abrirModificarTorneo(id, nivel) {
+    const d = datosTorneos[id];
+    if (!d) return;
+    document.getElementById('mod-nombre').value = d.nombre;
+    document.getElementById('mod-fecha').value  = d.fecha;
+    document.getElementById('mod-ciudad').value = d.ciudad;
+    document.getElementById('mod-costo').value  = d.costo;
+    document.getElementById('mod-limite').value = d.limite;
+    document.getElementById('mod-nivel').value  = nivel;
+    document.getElementById('mod-link').value   = d.link || '';
+    torneoActualId = id;
+    resetPreviewMod();
+    document.getElementById('modal-modificar-torneo').showModal();
+}
+
+document.getElementById('modal-modificar-torneo').addEventListener('click', function(e){ if(e.target===this) this.close(); });
+document.getElementById('modal-modificar-torneo').addEventListener('close', function(){
+    if (this.returnValue === 'guardar' && torneoActualId) {
+        const d = datosTorneos[torneoActualId];
+        d.nombre = document.getElementById('mod-nombre').value;
+        d.fecha  = document.getElementById('mod-fecha').value;
+        d.ciudad = document.getElementById('mod-ciudad').value;
+        d.costo  = document.getElementById('mod-costo').value;
+        d.limite = document.getElementById('mod-limite').value;
+        d.link   = document.getElementById('mod-link').value;
+        mostrarAviso('Cambios del torneo guardados.', 'ok');
     }
+    document.getElementById('form-mod-torneo').reset();
+    resetPreviewMod();
+    torneoActualId = null;
+});
 
-    /* ─────────────────────────────────────────────────────
-       INHABILITAR TARJETA
-    ───────────────────────────────────────────────────── */
-    function inhabilitar(btn) {
-        const tarjeta = btn.closest('.tarjeta-categoria');
-        tarjeta.classList.toggle('inhabilitada');
-        btn.textContent = tarjeta.classList.contains('inhabilitada')
-            ? 'Habilitar' : 'Inhabilitar';
+function previsualizarImagenMod(e) {
+    const f = e.target.files[0]; if(!f) return;
+    if(f.size > 5*1024*1024){ mostrarAviso('La imagen supera los 5 MB.','error'); e.target.value=''; return; }
+    const r = new FileReader();
+    r.onload = ev => {
+        const img=document.getElementById('preview-img-mod'), ph=document.getElementById('placeholder-img-mod');
+        img.src=ev.target.result; img.style.display='block'; ph.style.display='none';
+    };
+    r.readAsDataURL(f);
+}
+function resetPreviewMod(){
+    const img=document.getElementById('preview-img-mod'), ph=document.getElementById('placeholder-img-mod');
+    img.src=''; img.style.display='none'; ph.style.display='flex';
+}
+
+/* ── DATOS CATEGORÍAS ── */
+const datosTarjetas = [
+    { categoria:'Nivel Formativo King',  entrenador:'Jonathan Cruz',   foto:'img/Entrenador 1.png', fotoBase64:null, dias:['mar','jue','sab'], horarios:['6:00 PM - 8:00 PM'] },
+    { categoria:'Nivel 1 Princess',      entrenador:'Alexandra Rivera', foto:'img/alexandra.png',    fotoBase64:null, dias:['mar','jue','sab'], horarios:['6:00 PM - 8:00 PM'] },
+    { categoria:'Nivel 1 Queen',         entrenador:'Yari Guitierrez',  foto:'img/yari.png',         fotoBase64:null, dias:['lun','vie','sab'], horarios:['6:00 PM - 8:00 PM','9:00 AM - 11:00 AM'] },
+    { categoria:'Nivel 3 Magic',         entrenador:'Stuard Reyes',     foto:'img/stuard.png',       fotoBase64:null, dias:['mar','vie','sab'], horarios:['8:00 PM - 10:00 PM','3:00 PM - 5:00 PM'] },
+    { categoria:'Nivel 4 Blood Tigers',  entrenador:'Ronald Linares',   foto:'img/ronald.png',       fotoBase64:null, dias:['mie','sab','dom'], horarios:['8:00 PM - 10:00 PM','8:00 AM - 10:00 AM'] },
+];
+const etiquetaDias = { lun:'Lunes', mar:'Martes', mie:'Mi\u00e9rcoles', jue:'Jueves', vie:'Viernes', sab:'S\u00e1bados', dom:'Domingos' };
+let indiceActual = -1;
+
+function abrirModal(i) {
+    indiceActual = i; const d = datosTarjetas[i];
+    document.getElementById('titulo-modal').textContent = 'Editar Horario';
+    document.getElementById('modal-categoria').value    = d.categoria;
+    document.getElementById('modal-entrenador').value   = d.entrenador;
+    document.getElementById('vista-previa-foto').src    = d.fotoBase64 || d.foto;
+    document.querySelectorAll('.btn-dia').forEach(b => b.classList.toggle('activo', d.dias.includes(b.dataset.dia)));
+    const lista = document.getElementById('lista-horarios'); lista.innerHTML = '';
+    d.horarios.forEach(h => agregarCampoHorario(h));
+    mostrarFondo();
+}
+function abrirModalNuevo() {
+    indiceActual = -1;
+    document.getElementById('titulo-modal').textContent = 'Nuevo Nivel';
+    document.getElementById('modal-categoria').value = '';
+    document.getElementById('modal-entrenador').value = '';
+    document.getElementById('vista-previa-foto').src = '';
+    document.querySelectorAll('.btn-dia').forEach(b => b.classList.remove('activo'));
+    document.getElementById('lista-horarios').innerHTML = '';
+    agregarCampoHorario(''); mostrarFondo();
+}
+function mostrarFondo() {
+    const f = document.getElementById('superposicion-modal');
+    f.style.display = 'flex'; document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => f.classList.add('visible'));
+}
+function cerrarModal() {
+    const f = document.getElementById('superposicion-modal');
+    f.classList.remove('visible');
+    setTimeout(() => { f.style.display='none'; document.body.style.overflow=''; }, 260);
+}
+function cerrarModalFondo(e) { if(e.target===document.getElementById('superposicion-modal')) cerrarModal(); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') { cerrarModal(); cerrarMenuRol(); } });
+
+/* ── Menú de rol ── */
+function toggleMenuRol() {
+    const menu = document.getElementById('menu-rol');
+    const btn  = document.getElementById('btn-rol');
+    const sel  = document.getElementById('selector-rol');
+    const open = sel.classList.toggle('abierto');
+    btn.setAttribute('aria-expanded', open);
+    if (open) {
+        setTimeout(() => document.addEventListener('click', cerrarMenuRolFuera), 0);
     }
-
-    /* ─────────────────────────────────────────────────────
-       FUNCIONES AUXILIARES
-    ───────────────────────────────────────────────────── */
-    function formatearDias(dias) {
-        if (!dias || dias.length === 0) return '';
-        const etiquetas = dias.map(d => etiquetaDias[d] || d);
-        if (etiquetas.length === 1) return etiquetas[0];
-        const ultimo = etiquetas.pop();
-        return etiquetas.join(', ') + ' y ' + ultimo;
+}
+function cerrarMenuRol() {
+    const sel = document.getElementById('selector-rol');
+    if (!sel) return;
+    sel.classList.remove('abierto');
+    document.getElementById('btn-rol').setAttribute('aria-expanded', 'false');
+    document.removeEventListener('click', cerrarMenuRolFuera);
+}
+function cerrarMenuRolFuera(e) {
+    if (!document.getElementById('selector-rol').contains(e.target)) cerrarMenuRol();
+}
+function alternarDia(btn) { btn.classList.toggle('activo'); }
+function agregarCampoHorario(v) {
+    const lista = document.getElementById('lista-horarios');
+    const fila  = document.createElement('div'); fila.className='fila-horario';
+    fila.innerHTML = `<input type="text" class="campo-formulario entrada-horario" value="${v}" placeholder="Ej: 4:00 PM - 6:00 PM"><button type="button" class="btn-quitar-horario" onclick="quitarHorario(this)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>`;
+    lista.appendChild(fila);
+}
+function quitarHorario(btn) {
+    const lista = document.getElementById('lista-horarios');
+    if(lista.children.length<=1){ mostrarAviso('Debe haber al menos un horario.','advertencia'); return; }
+    btn.closest('.fila-horario').remove();
+}
+function previsualizarFoto(e) {
+    const f=e.target.files[0]; if(!f) return;
+    if(f.size>5*1024*1024){ mostrarAviso('La foto supera los 5 MB.','error'); return; }
+    const r=new FileReader(); r.onload=ev=>{ document.getElementById('vista-previa-foto').src=ev.target.result; if(indiceActual>=0) datosTarjetas[indiceActual]._fotoTemp=ev.target.result; else window._fotoTempNueva=ev.target.result; }; r.readAsDataURL(f);
+}
+function guardarCambios() {
+    const cat=document.getElementById('modal-categoria').value.trim(), ent=document.getElementById('modal-entrenador').value.trim();
+    if(!cat){ mostrarAviso('El nombre del nivel es obligatorio.','error'); return; }
+    if(!ent){ mostrarAviso('El nombre del entrenador es obligatorio.','error'); return; }
+    const dias=[...document.querySelectorAll('.btn-dia.activo')].map(b=>b.dataset.dia);
+    if(!dias.length){ mostrarAviso('Selecciona al menos un d\u00eda.','error'); return; }
+    const hs=[...document.querySelectorAll('.entrada-horario')].map(i=>i.value.trim()).filter(Boolean);
+    if(!hs.length){ mostrarAviso('A\u00f1ade al menos un horario.','error'); return; }
+    if(indiceActual>=0){
+        const d=datosTarjetas[indiceActual]; d.categoria=cat; d.entrenador=ent; d.dias=dias; d.horarios=hs;
+        if(d._fotoTemp){ d.fotoBase64=d._fotoTemp; delete d._fotoTemp; }
+        actualizarTarjeta(indiceActual); mostrarAviso('Cambios guardados.','ok');
+    } else {
+        const n={categoria:cat,entrenador:ent,foto:'',fotoBase64:window._fotoTempNueva||null,dias,horarios:hs};
+        delete window._fotoTempNueva; datosTarjetas.push(n); crearTarjeta(datosTarjetas.length-1); mostrarAviso('Nivel creado.','ok');
     }
+    cerrarModal();
+}
+function actualizarTarjeta(i) {
+    const d=datosTarjetas[i], t=document.querySelector(`.tarjeta-categoria[data-tarjeta="${i}"]`); if(!t) return;
+    t.querySelector('.encabezado-categoria').textContent=d.categoria;
+    t.querySelector('.datos-entrenador h3').textContent=d.entrenador;
+    if(d.fotoBase64) t.querySelector('.foto-entrenador').src=d.fotoBase64;
+    t.querySelector('.horarios').innerHTML=d.horarios.map(h=>`<span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">${formatearDias(d.dias)} \u00b7 ${h}</span>`).join('');
+}
+function crearTarjeta(i) {
+    const d=datosTarjetas[i], cuad=document.getElementById('cuadricula-categorias'), foto=d.fotoBase64||d.foto||'img/Entrenador 1.png', dias=formatearDias(d.dias);
+    cuad.insertAdjacentHTML('beforeend',`<div class="tarjeta-categoria tarjeta-nueva" data-tarjeta="${i}"><div class="encabezado-categoria">${d.categoria}</div><div class="cuerpo-categoria"><div class="info-entrenador"><img src="${foto}" alt="${d.entrenador}" class="foto-entrenador"><div class="datos-entrenador"><h3>${d.entrenador}</h3><div class="horarios">${d.horarios.map(h=>`<span class="insignia-horario"><img src="img/Imagen calendario.png" alt="">${dias} \u00b7 ${h}</span>`).join('')}</div></div></div><div class="acciones-categoria"><button class="btn-modificar" onclick="abrirModal(${i})">Modificar</button><button class="btn-inhabilitar" onclick="inhabilitar(this)">Inhabilitar</button></div></div></div>`);
+    requestAnimationFrame(()=>{ const t=document.querySelector(`.tarjeta-categoria[data-tarjeta="${i}"]`); if(t) t.classList.add('visible'); });
+}
+function inhabilitar(btn) {
+    const t=btn.closest('.tarjeta-categoria,.tarjeta-competencia'); t.classList.toggle('inhabilitada');
+    btn.textContent=t.classList.contains('inhabilitada')?'Habilitar':'Inhabilitar';
+}
+function formatearDias(dias) {
+    if(!dias||!dias.length) return '';
+    const et=dias.map(d=>etiquetaDias[d]||d); if(et.length===1) return et[0];
+    const ul=et.pop(); return et.join(', ')+' y '+ul;
+}
+function mostrarAviso(msg,tipo='ok'){
+    const a=document.getElementById('aviso'); a.textContent=msg; a.className=`aviso aviso-${tipo} visible`;
+    clearTimeout(a._t); a._t=setTimeout(()=>a.classList.remove('visible'),3000);
+}
 
-    /* ─────────────────────────────────────────────────────
-       AVISOS DE NOTIFICACIÓN
-    ───────────────────────────────────────────────────── */
-    function mostrarAviso(mensaje, tipo = 'ok') {
-        const a = document.getElementById('aviso');
-        a.textContent = mensaje;
-        a.className   = `aviso aviso-${tipo} visible`;
-        clearTimeout(a._temporizador);
-        a._temporizador = setTimeout(() => a.classList.remove('visible'), 3000);
-    }
+/* ── DIÁLOGO REGISTRAR COMPETENCIA ── */
+const dComp=document.getElementById('modal-competencia');
+dComp.addEventListener('click',function(e){ if(e.target===this) this.close(); });
+dComp.addEventListener('close',function(){
+    if(this.returnValue==='registrar') mostrarAviso('Competencia registrada.','ok');
+    document.getElementById('form-competencia').reset(); resetPreviewComp();
+});
+function previsualizarImagenTorneo(e){
+    const f=e.target.files[0]; if(!f) return;
+    if(f.size>5*1024*1024){ mostrarAviso('La imagen supera los 5 MB.','error'); e.target.value=''; return; }
+    const r=new FileReader(); r.onload=ev=>{ const img=document.getElementById('preview-img-torneo'),ph=document.getElementById('placeholder-img-torneo'); img.src=ev.target.result; img.style.display='block'; ph.style.display='none'; }; r.readAsDataURL(f);
+}
+function resetPreviewComp(){
+    const img=document.getElementById('preview-img-torneo'),ph=document.getElementById('placeholder-img-torneo');
+    img.src=''; img.style.display='none'; ph.style.display='flex';
+}
 
-    </script>
+/* ── Menú de rol ── */
+function toggleMenuRol() {
+    const sel  = document.getElementById('selector-rol');
+    const btn  = document.getElementById('btn-rol');
+    const open = sel.classList.toggle('abierto');
+    btn.setAttribute('aria-expanded', open);
+    if (open) setTimeout(() => document.addEventListener('click', cerrarMenuRolFuera), 0);
+}
+function cerrarMenuRol() {
+    const sel = document.getElementById('selector-rol');
+    if (!sel) return;
+    sel.classList.remove('abierto');
+    document.getElementById('btn-rol').setAttribute('aria-expanded', 'false');
+    document.removeEventListener('click', cerrarMenuRolFuera);
+}
+function cerrarMenuRolFuera(e) {
+    if (!document.getElementById('selector-rol').contains(e.target)) cerrarMenuRol();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarMenuRol(); });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const opcion = document.querySelector('.menu-rol__opcion');
+    if (!opcion) return;
+    opcion.addEventListener('mouseenter', () => {
+        opcion.style.backgroundColor = '#fdeaea';
+        opcion.style.color = '#d71920';
+    });
+    opcion.addEventListener('mouseleave', () => {
+        opcion.style.backgroundColor = '';
+        opcion.style.color = '#222222';
+    });
+});
+</script>
 </body>
 </html>

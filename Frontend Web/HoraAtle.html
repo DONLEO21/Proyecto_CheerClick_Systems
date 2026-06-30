@@ -3,727 +3,1109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheerClick Systems</title>
+    <title>Mis Horarios | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/styleHoraAtle.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
 </head>
 <body>
-     <!-- BARRA 2 - Lateral izquierda -->
-    <div class="Barra2">
-        <div class="icono-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-atleta.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento ">
+                    <a href="PQRSAtleta.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="rendimientoAtle.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                
+
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Atleta</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-atleta.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
         </div>
-        <ul class="menu-lateral">
-            <li class="activo">
-                <a href="#" title="Horarios">
-                    <img src="img/calendario.png" alt="Calendario">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Estado de cuentas">
-                    <img src="img/grafico-circular.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Rendimiento Deportivo">
-                    <img src="img/estadisticas-de-barras.png" alt="Iconco Estadistica">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="PQRS">
-                    <img src="img/comentarios.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Implementos">
-                    <img src="img/Camisa.png" alt="">
-                </a>
-            </li>
-        </ul>
+    </header>
+
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="contenido">
+
+        <!-- ══════ SECCIÓN: ENTRENAMIENTOS ══════ -->
+        <section class="envoltura-horario" aria-labelledby="titulo-entrenamientos">
+
+            <header class="encabezado-horario">
+                <div class="bloque-titulo-horario">
+                    <h1 id="titulo-entrenamientos">Próximos Entrenamientos</h1>
+                    <p class="subtitulo-horario">Lunes y Miércoles 6–8 PM · Sábados 4–6 PM</p>
+                </div>
+                <div class="chips-horario" aria-label="Estadísticas de la semana">
+                    <span class="chip-estadistica">
+                        <img class="icono-calendario" src="img/Icono calendario.png" alt="">
+                        <span id="stat-sesiones">0 sesiones</span>
+                    </span>
+                    <span class="chip-estadistica">
+                        <img class="icono-reloj" src="img/reloj.png" alt="">
+                        <span id="stat-tiempo">0h totales</span>
+                    </span>
+                    <span class="chip-estadistica">
+                        <img class="icono-rayo" src="img/Rayo.png" alt="">
+                        <span id="stat-categorias">0 disciplinas</span>
+                    </span>
+                </div>
+            </header>
+
+            <!-- Filtros por tipo de entrenamiento -->
+            <div class="filtros-categoria" id="filtros-categoria"
+                 role="group" aria-label="Filtrar por tipo de entrenamiento"></div>
+
+            <!-- Navegador de semana -->
+            <nav class="navegador-semana" aria-label="Navegación por semanas">
+                <button class="btn-semana" id="btn-anterior" type="button" aria-label="Semana anterior">
+                    <img class="icono-flechaiz" src="img/flecha izquierda.png" alt="">
+                    Semana anterior
+                </button>
+                <div class="centro-semana">
+                    <span class="etiqueta-rango-semana" id="etiqueta-semana" aria-live="polite"></span>
+                    <div class="tira-dias" id="tira-dias" role="list" aria-label="Días de la semana"></div>
+                </div>
+                <button class="btn-semana" id="btn-siguiente" type="button" aria-label="Semana siguiente">
+                    Semana siguiente
+                    <img class="icono-flechader" src="img/flecha derecha.png" alt="">
+                </button>
+            </nav>
+
+            <!-- Cuadrícula de tarjetas de entrenamiento -->
+            <div class="cuadricula-entrenamientos" id="cuadricula-entrenamientos"
+                 role="list" aria-label="Sesiones de entrenamiento"></div>
+
+        </section>
+
+        <!-- ══════ SECCIÓN: CAMPEONATOS NIVEL 3 ══════ -->
+        <section class="seccion-campeonatos" aria-labelledby="titulo-campeonatos">
+
+            <header class="encabezado-seccion-campeonatos">
+                <div class="bloque-titulo-seccion">
+                    <h2 id="titulo-campeonatos">Campeonatos Nivel 3</h2>
+                    <p class="subtitulo-seccion">Blood Tiger Magic — Temporada 2026</p>
+                </div>
+            </header>
+
+            <div class="cuadricula-campeonatos" role="list">
+
+                <!-- CAMPEONATO: One More Dream (OMD) -->
+                <article class="tarjeta-campeonato" role="listitem">
+                    <figure class="imagen-campeonato fig-omd"></figure>
+                    <div class="cuerpo-tarjeta-campeonato">
+                        <header class="cabecera-info-campeonato">
+                            <h3 class="nombre-campeonato">Torneo OMD</h3>
+                            <time class="fecha-campeonato" datetime="2026-05-17">17 mayo</time>
+                        </header>
+                        <p class="ciudad-campeonato"><span aria-hidden="true">📍</span> Bogotá – Timiza</p>
+                        <p class="costo-campeonato">$65.000 inscripción</p>
+                    </div>
+                    <footer class="acciones-campeonato">
+                        <button class="btn-detalles-campeonato" type="button" data-campeonato="omd" aria-label="Ver detalles del Torneo OMD">Ver detalles</button>
+                        <button class="btn-pagar-campeonato" type="button" data-campeonato="omd" data-nombre="Torneo OMD" aria-label="Pagar inscripción Torneo OMD">💳 Pagar</button>
+                    </footer>
+                </article>
+
+                <!-- CAMPEONATO: Universal -->
+                <article class="tarjeta-campeonato" role="listitem">
+                    <figure class="imagen-campeonato fig-universal  "></figure>
+                    <div class="cuerpo-tarjeta-campeonato">
+                        <header class="cabecera-info-campeonato">
+                            <h3 class="nombre-campeonato">Torneo Universal</h3>
+                            <time class="fecha-campeonato" datetime="2026-07-25">25 julio</time>
+                        </header>
+                        <p class="ciudad-campeonato"><span aria-hidden="true">📍</span> Bogotá – Colegio San Viator</p>
+                        <p class="costo-campeonato">$150.000 inscripción</p>
+                    </div>
+                    <footer class="acciones-campeonato">
+                        <button class="btn-detalles-campeonato" type="button" data-campeonato="universal" aria-label="Ver detalles del Torneo Universal">Ver detalles</button>
+                        <button class="btn-pagar-campeonato" type="button" data-campeonato="universal" data-nombre="Torneo Universal" aria-label="Pagar inscripción Torneo Universal">💳 Pagar</button>
+                    </footer>
+                </article>
+
+                <!-- CAMPEONATO: Nfinity League -->
+                <article class="tarjeta-campeonato" role="listitem">
+                    <figure class="imagen-campeonato fig-nfinity  "></figure>
+                    <div class="cuerpo-tarjeta-campeonato">
+                        <header class="cabecera-info-campeonato">
+                            <h3 class="nombre-campeonato">Nfinity League</h3>
+                            <time class="fecha-campeonato" datetime="2026-09-20">20 sept.</time>
+                        </header>
+                        <p class="ciudad-campeonato"><span aria-hidden="true">📍</span> Bogotá – City Hall, Auto. Norte</p>
+                        <p class="costo-campeonato">$160.000 inscripción</p>
+                    </div>
+                    <footer class="acciones-campeonato">
+                        <button class="btn-detalles-campeonato" type="button" data-campeonato="nfinity" aria-label="Ver detalles de Nfinity League">Ver detalles</button>
+                        <button class="btn-pagar-campeonato" type="button" data-campeonato="nfinity" data-nombre="Nfinity League" aria-label="Pagar inscripción Nfinity League">💳 Pagar</button>
+                    </footer>
+                </article>
+
+                <!-- CAMPEONATO: Summer -->
+                <article class="tarjeta-campeonato" role="listitem">
+                    <figure class="imagen-campeonato fig-summer "></figure>
+                    <div class="cuerpo-tarjeta-campeonato">
+                        <header class="cabecera-info-campeonato">
+                            <h3 class="nombre-campeonato">Torneo Summer</h3>
+                            <time class="fecha-campeonato" datetime="2026-10-10">10 oct.</time>
+                        </header>
+                        <p class="ciudad-campeonato"><span aria-hidden="true">📍</span> Tocaima – Parque Acuático</p>
+                        <p class="costo-campeonato">$150.000 inscripción</p>
+                    </div>
+                    <footer class="acciones-campeonato">
+                        <button class="btn-detalles-campeonato" type="button" data-campeonato="summer" aria-label="Ver detalles del Torneo Summer">Ver detalles</button>
+                        <button class="btn-pagar-campeonato" type="button" data-campeonato="summer" data-nombre="Torneo Summer" aria-label="Pagar inscripción Torneo Summer">💳 Pagar</button>
+                    </footer>
+                </article>
+
+                <!-- CAMPEONATO: Xiua -->
+                <article class="tarjeta-campeonato" role="listitem">
+                    <figure class="imagen-campeonato fig-xiua"> </figure>
+                    <div class="cuerpo-tarjeta-campeonato">
+                        <header class="cabecera-info-campeonato">
+                            <h3 class="nombre-campeonato">Torneo Xiua</h3>
+                            <time class="fecha-campeonato" datetime="2026-11-29">29 nov.</time>
+                        </header>
+                        <p class="ciudad-campeonato"><span aria-hidden="true">📍</span> Sibaté – Coliseo</p>
+                        <p class="costo-campeonato">$90.000 inscripción</p>
+                    </div>
+                    <footer class="acciones-campeonato">
+                        <button class="btn-detalles-campeonato" type="button" data-campeonato="xiua" aria-label="Ver detalles del Torneo Xiua">Ver detalles</button>
+                        <button class="btn-pagar-campeonato" type="button" data-campeonato="xiua" data-nombre="Torneo Xiua" aria-label="Pagar inscripción Torneo Xiua">💳 Pagar</button>
+                    </footer>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== MODAL: DETALLE DE ENTRENAMIENTO ===== -->
+    <div class="superposicion-modal" id="superposicion-modal"
+         role="dialog" aria-modal="true" aria-labelledby="titulo-modal-entrenamiento">
+        <div class="contenedor-modal" id="interior-modal"></div>
     </div>
 
-    <!-- BARRA 1 - Superior -->
-    <header>
-        <nav>
-            <div class="contenedor">
-                <div class="Barra1">
-                    <ul class="botones-nav">
-                        <li><a href="#" class="btn-cerrar">Cerrar Sesión</a></li>
-                        <li><span class="btn-administrador">Administrador</span></li>
-                    </ul>
-                    <div id="logo-iconos">
-                        <a href="#" class="enlace-icono">
-                            <img src="img/campana-de-notificacion.png" alt="">
-                        </a>
-                        <a href="#" class="enlace-icono">
-                            <img src="img/casa.png" alt="">
-                        </a>
-                        <div class="logo-club">
-                            <img src="img/Logo-Club.png" alt="Logo del club">
-                        </div>
+    <!-- ===== MODAL: DETALLE DE CAMPEONATO ===== -->
+    <div class="superposicion-modal" id="superposicion-modal-campeonato"
+         role="dialog" aria-modal="true" aria-labelledby="titulo-modal-campeonato">
+        <div class="contenedor-modal contenedor-modal--campeonato" id="interior-modal-campeonato"></div>
+    </div>
+
+    <!-- ===== MODAL: PAGO DE INSCRIPCIÓN ===== -->
+    <div class="superposicion-modal" id="superposicion-modal-pago"
+         role="dialog" aria-modal="true" aria-labelledby="titulo-modal-pago">
+        <div class="contenedor-modal contenedor-modal--pago">
+            <header class="cabecera-modal cabecera-modal--pago">
+                <div class="fila-titulo-modal">
+                    <div class="icono-categoria-modal" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="5" width="20" height="14" rx="2"/>
+                            <line x1="2" y1="10" x2="22" y2="10"/>
+                        </svg>
+                    </div>
+                    <h2 id="titulo-modal-pago" class="titulo-modal">Subir Comprobante de Pago</h2>
+                </div>
+                <button class="cerrar-modal" id="btn-cerrar-pago" type="button" aria-label="Cerrar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </header>
+            <div class="cuerpo-modal cuerpo-modal--pago" id="cuerpo-formulario-pago">
+                <div class="cuadricula-campos-pago">
+                    <div class="campo-formulario">
+                        <label for="metodo-pago" class="etiqueta-campo">Método de pago</label>
+                        <select id="metodo-pago" name="metodo-pago" class="entrada-campo">
+                            <option value="">Metodo Pago</option>
+                            <option value="transferencia">Transferencia bancaria</option>
+                            <option value="pse">PSE</option>
+                            <option value="nequi">Nequi</option>
+                            <option value="daviplata">Daviplata</option>
+                            <option value="efecty">Efecty</option>
+                            <option value="consignacion">Consignación</option>
+                        </select>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="monto-pago" class="etiqueta-campo">Monto Pagado</label>
+                        <input type="number" id="monto-pago" name="monto-pago" class="entrada-campo" placeholder="Ej: 100.000" min="0">
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="referencia-pago" class="etiqueta-campo">N.° de referencia</label>
+                        <input type="text" id="referencia-pago" name="referencia-pago" class="entrada-campo" placeholder="Ej: M000000">
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="fecha-pago" class="etiqueta-campo">Fecha del Pago</label>
+                        <input type="date" id="fecha-pago" name="fecha-pago" class="entrada-campo">
+                    </div>
+                </div>
+                <hr class="divisor-modal">
+                <p class="titulo-zona-carga">Comprobante de pago</p>
+                <label for="archivo-comprobante" class="zona-carga-archivo" id="zona-carga">
+                    <span class="icono-zona-carga" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </span>
+                    <span class="texto-zona-carga">Arrastra tu archivo aquí o <span class="enlace-zona-carga">haz clic para buscarlo</span></span>
+                    <span class="formatos-zona-carga">PDF, JPG o PNG — máximo 5 MB</span>
+                    <input type="file" id="archivo-comprobante" name="archivo-comprobante"
+                           accept=".pdf,.jpg,.jpeg,.png" class="visualmente-oculto"
+                           aria-label="Seleccionar comprobante de pago">
+                </label>
+                <p class="nombre-archivo-cargado" id="nombre-archivo-cargado" aria-live="polite"></p>
+            </div>
+            <footer class="pie-modal-pago">
+                <button class="btn-cancelar-pago" id="btn-cancelar-pago" type="button">Cancelar</button>
+                <button class="btn-enviar-comprobante" id="btn-enviar-comprobante" type="button">Enviar Comprobante</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+    /* ─────────────────────────────────────────────────────────
+       ÍCONOS SVG
+    ───────────────────────────────────────────────────────── */
+    const ICONOS = {
+        calendario: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+        reloj:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+        usuario:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+        flecha:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+        objetivo:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+        personas:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        camiseta:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>`,
+        cerrar:     `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+        trofeo:     `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>`,
+        iconoPartner:`<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        iconoGimnas:`<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6 8 11 4 9"/><path d="M12 6 16 11 20 9"/><path d="M12 6 10 17 7 22"/><path d="M12 6 14 17 17 22"/></svg>`,
+        iconoBaile: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+    };
+
+    /* ─────────────────────────────────────────────────────────
+       CATEGORÍAS DE ENTRENAMIENTO
+    ───────────────────────────────────────────────────────── */
+    const CATEGORIAS = {
+        partner: {
+            nombre: 'Partner', claseCabecera: 'cabecera-partner',
+            claseAvatar: 'avatar-partner', claseRelleno: 'relleno-partner',
+            clasePunto: 'punto-partner', claseModal: 'cm-partner',
+            icono: ICONOS.iconoPartner
+        },
+        gimnasia: {
+            nombre: 'Gimnasia', claseCabecera: 'cabecera-gimnasia',
+            claseAvatar: 'avatar-gimnasia', claseRelleno: 'relleno-gimnasia',
+            clasePunto: 'punto-gimnasia', claseModal: 'cm-gimnasia',
+            icono: ICONOS.iconoGimnas
+        },
+        baile: {
+            nombre: 'Baile', claseCabecera: 'cabecera-baile',
+            claseAvatar: 'avatar-baile', claseRelleno: 'relleno-baile',
+            clasePunto: 'punto-baile', claseModal: 'cm-baile',
+            icono: ICONOS.iconoBaile
+        },
+        campeonato: {
+            nombre: 'Campeonato', claseCabecera: 'cabecera-campeonato',
+            claseAvatar: 'avatar-campeonato', claseRelleno: 'relleno-campeonato',
+            clasePunto: 'punto-campeonato', claseModal: 'cm-campeonato',
+            icono: ICONOS.trofeo
+        }
+    };
+
+    /* ─────────────────────────────────────────────────────────
+       CONSTANTES DE FECHA
+    ───────────────────────────────────────────────────────── */
+    const MESES      = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                        'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const DIAS_NOMBRE = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+    const DIAS_ABREV  = ['L','M','X','J','V','S','D'];
+
+    /* ─────────────────────────────────────────────────────────
+       UTILIDADES DE FECHA
+    ───────────────────────────────────────────────────────── */
+
+    // Convierte Date → 'YYYY-MM-DD' en hora local
+    function fechaAISO(d) {
+        const y  = d.getFullYear();
+        const m  = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${dd}`;
+    }
+
+    // Crea Date en medianoche local para evitar problemas de zona horaria
+    function parsearFecha(iso) {
+        const [y, m, d] = iso.split('-').map(Number);
+        return new Date(y, m - 1, d);
+    }
+
+    function mismaFecha(a, b) {
+        return a.getFullYear() === b.getFullYear()
+            && a.getMonth()    === b.getMonth()
+            && a.getDate()     === b.getDate();
+    }
+
+    // Devuelve el lunes de la semana que contiene 'fecha'
+    function obtenerLunesDeSemana(fecha) {
+        const d   = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
+        const dia = d.getDay(); // 0=Dom, 1=Lun…
+        const diff = dia === 0 ? -6 : 1 - dia;
+        d.setDate(d.getDate() + diff);
+        return d;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       INFORMACIÓN DE CAMPEONATOS NIVEL 3
+    ───────────────────────────────────────────────────────── */
+    const CAMPEONATOS_INFO = {
+        omd: {
+            nombre: 'Torneo "One More Dream" (OMD)', nivel: 'Nivel 3 Open',
+            fechaCompetencia: '17 de mayo de 2026',
+            ciudad: 'Bogotá – Timiza',
+            costoInscripcion: '$65.000', crossover: null,
+            limitesPago: '8 de mayo de 2026',
+            entradaPublico: '$35.000\n$30.000 antes del 10 de mayo',
+            linkPublicidad: 'https://www.facebook.com/share/p/1GjDDqzmgT/'  
+        },
+        universal: {
+            nombre: 'Torneo "Universal"', nivel: 'Nivel 3 Open',
+            fechaCompetencia: '25 de julio de 2026',
+            ciudad: 'Bogotá – Colegio San Viator',
+            costoInscripcion: '$150.000', crossover: '$60.000',
+            limitesPago: '10 de julio de 2026',
+            entradaPublico: '$45.000 Preventa\n$60.000 día del torneo',
+            linkPublicidad: 'https://www.instagram.com/reel/DYaKzx3xCcu/?igsh=MTRleWxwcmJva3VmOQ=='   
+        },
+        nfinity: {
+            nombre: 'Torneo "Nfinity League"', nivel: 'Nivel 3 Open',
+            fechaCompetencia: '20 de septiembre de 2026',
+            ciudad: 'Bogotá – City Hall\nAuto. Norte #153-81',
+            costoInscripcion: '$160.000', crossover: '$160.000',
+            limitesPago: 'Abono obligatorio 50%: 4 de julio\nSaldo 50%: 8 de agosto',
+            entradaPublico: 'Preventa hasta 31 ago: $60.000\nTaquilla: $75.000',
+            linkPublicidad: 'https://www.instagram.com/p/DV9gu-IiYPn/?igsh=MWl5ZDJ4b3dhZWF6cQ=='   
+        },
+        summer: {
+            nombre: 'Torneo "Summer"', nivel: 'Nivel 3 Open',
+            fechaCompetencia: '10 de octubre de 2026',
+            ciudad: 'Tocaima – Parque Acuático',
+            costoInscripcion: '$150.000', crossover: null,
+            limitesPago: '15 de septiembre de 2026',
+            entradaPublico: '$50.000 aproximadamente',
+            linkPublicidad: 'https://www.facebook.com/share/r/1Ec4fQ4cVA/'   
+        },
+        xiua: {
+            nombre: 'Torneo "Xiua"', nivel: 'Nivel 3 Open',
+            fechaCompetencia: '29 de noviembre de 2026',
+            ciudad: 'Sibaté – Coliseo',
+            costoInscripcion: '$90.000', crossover: null,
+            limitesPago: '5 de octubre de 2026',
+            entradaPublico: '$20.000 aproximadamente',
+            linkPublicidad: 'https://www.instagram.com/p/DUE1MI9kSuq/?igsh=MWpwcjlsZWl4azkxZA=='   
+        }
+    };
+
+    /* ─────────────────────────────────────────────────────────
+       GENERACIÓN DINÁMICA DE SESIONES
+       Lunes   → Partner     6:00 – 8:00 PM
+       Miércoles → Gimnasia  6:00 – 8:00 PM
+       Sábado  → Baile       4:00 – 6:00 PM
+       Fechas de campeonato → Campeonato
+    ───────────────────────────────────────────────────────── */
+    const FECHAS_CAMPEONATO = {
+        '2026-05-17': { id: 'omd',      nombre: 'Torneo OMD',        ciudad: 'Bogotá – Timiza' },
+        '2026-07-25': { id: 'universal',nombre: 'Torneo Universal',   ciudad: 'Bogotá – Colegio San Viator' },
+        '2026-09-20': { id: 'nfinity',  nombre: 'Nfinity League',     ciudad: 'Bogotá – City Hall, Auto. Norte' },
+        '2026-10-10': { id: 'summer',   nombre: 'Torneo Summer',      ciudad: 'Tocaima – Parque Acuático' },
+        '2026-11-29': { id: 'xiua',     nombre: 'Torneo Xiua',        ciudad: 'Sibaté – Coliseo' },
+    };
+
+    function generarSesiones() {
+        const sesiones = [];
+        let contador   = 0;
+
+        // Recorre todos los días del año 2026
+        const cursor = new Date(2026, 0, 1);
+        const fin    = new Date(2026, 11, 31);
+
+        while (cursor <= fin) {
+            const iso = fechaAISO(cursor);
+            const dia = cursor.getDay(); // 0=Dom 1=Lun 2=Mar 3=Mié 4=Jue 5=Vie 6=Sáb
+
+            if (FECHAS_CAMPEONATO[iso]) {
+                /* ── Campeonato ── */
+                const camp = FECHAS_CAMPEONATO[iso];
+                sesiones.push({
+                    id: `camp-${contador++}`,
+                    fecha: iso,
+                    cat: 'campeonato',
+                    hora: '8:00 AM – 6:00 PM',
+                    duracion: '10h',
+                    entrenador: 'Stuard Reyes', iniciales: 'SR',
+                    enfoque: `Competencia ${camp.nombre} — ${camp.ciudad}`,
+                    indicaciones: [
+                        'Uniforme oficial obligatorio',
+                        'Llegada 1 hora antes',
+                        'Documentos de identidad'
+                    ],
+                    cupos: { usados: 25, total: 25 }
+                });
+
+            } else if (dia === 1) {
+                /* ── Lunes → Partner 6:00–8:00 PM ── */
+                sesiones.push({
+                    id: `lun-${contador++}`,
+                    fecha: iso,
+                    cat: 'partner',
+                    hora: '6:00 – 8:00 PM',
+                    duracion: '2h',
+                    entrenador: 'Stuard Reyes', iniciales: 'SR',
+                    enfoque: 'Técnica de pareja y sincronización',
+                    indicaciones: ['Llevar uniforme completo', 'Puntualidad obligatoria'],
+                    cupos: { usados: 7, total: 10 }
+                });
+
+            } else if (dia === 3) {
+                /* ── Miércoles → Gimnasia 6:00–8:00 PM ── */
+                sesiones.push({
+                    id: `mie-${contador++}`,
+                    fecha: iso,
+                    cat: 'gimnasia',
+                    hora: '6:00 – 8:00 PM',
+                    duracion: '2h',
+                    entrenador: 'Stuard Reyes', iniciales: 'SR',
+                    enfoque: 'Técnica, flexibilidad y acrobacia',
+                    indicaciones: ['Ropa cómoda para estiramiento', 'Rodilleras recomendadas'],
+                    cupos: { usados: 9, total: 12 }
+                });
+
+            } else if (dia === 6) {
+                /* ── Sábado → Baile 4:00–6:00 PM ── */
+                sesiones.push({
+                    id: `sab-${contador++}`,
+                    fecha: iso,
+                    cat: 'baile',
+                    hora: '4:00 – 6:00 PM',
+                    duracion: '2h',
+                    entrenador: 'Stuard Reyes', iniciales: 'SR',
+                    enfoque: 'Montaje coreográfico y baile',
+                    indicaciones: ['Ropa cómoda de práctica', 'Llevar agua'],
+                    cupos: { usados: 8, total: 12 }
+                });
+            }
+
+            cursor.setDate(cursor.getDate() + 1);
+        }
+
+        return sesiones;
+    }
+
+    // Índice rápido: ISO-fecha → sesión (para buscar por fecha O(1))
+    const SESIONES = generarSesiones();
+    const SESIONES_POR_FECHA = {};
+    SESIONES.forEach(s => {
+        if (!SESIONES_POR_FECHA[s.fecha]) SESIONES_POR_FECHA[s.fecha] = [];
+        SESIONES_POR_FECHA[s.fecha].push(s);
+    });
+
+    /* ─────────────────────────────────────────────────────────
+       ESTADO GLOBAL
+    ───────────────────────────────────────────────────────── */
+    let fechaInicioSemana  = obtenerLunesDeSemana(new Date());
+    let filtroActivo       = 'todos';
+    let campeonatoActual   = null;
+    const HOY             = new Date();
+
+    /* ─────────────────────────────────────────────────────────
+       UTILIDADES DE FORMATO
+    ───────────────────────────────────────────────────────── */
+    function formatearRangoSemana() {
+        const lunes   = fechaInicioSemana;
+        const domingo = new Date(lunes.getFullYear(), lunes.getMonth(), lunes.getDate() + 6);
+        const dL = lunes.getDate(),   mL = MESES[lunes.getMonth()],   aL = lunes.getFullYear();
+        const dD = domingo.getDate(), mD = MESES[domingo.getMonth()], aD = domingo.getFullYear();
+        if (aL !== aD)                        return `${dL} de ${mL} ${aL} – ${dD} de ${mD} ${aD}`;
+        if (lunes.getMonth() !== domingo.getMonth()) return `${dL} de ${mL} – ${dD} de ${mD}, ${aL}`;
+        return `${dL} – ${dD} de ${mL}, ${aL}`;
+    }
+
+    function formatearFechaLarga(iso) {
+        const d = parsearFecha(iso);
+        const i = d.getDay() === 0 ? 6 : d.getDay() - 1;  // 0=Lun … 6=Dom
+        return `${DIAS_NOMBRE[i]}, ${d.getDate()} de ${MESES[d.getMonth()]}`;
+    }
+
+    function formatearFechaCorta(iso) {
+        const d = parsearFecha(iso);
+        return `${d.getDate()} de ${MESES[d.getMonth()]}`;
+    }
+
+    function obtenerInsignia(iso) {
+        const f   = parsearFecha(iso);
+        const hoy = new Date(HOY.getFullYear(), HOY.getMonth(), HOY.getDate());
+        if (mismaFecha(f, hoy)) return 'HOY';
+        if (f < hoy)            return 'PASADO';
+        return 'PRÓXIMO';
+    }
+
+    function esPasada(iso) {
+        const f   = parsearFecha(iso);
+        const hoy = new Date(HOY.getFullYear(), HOY.getMonth(), HOY.getDate());
+        return f < hoy;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       OBTENER LAS SESIONES DE LA SEMANA VISIBLE
+       Usa mismaFecha() — es la comparación más fiable
+    ───────────────────────────────────────────────────────── */
+    function obtenerSesionesDeSemana() {
+        const resultado = [];
+        for (let i = 0; i < 7; i++) {
+            const d   = new Date(fechaInicioSemana.getFullYear(),
+                                 fechaInicioSemana.getMonth(),
+                                 fechaInicioSemana.getDate() + i);
+            const iso = fechaAISO(d);
+            if (SESIONES_POR_FECHA[iso]) {
+                resultado.push(...SESIONES_POR_FECHA[iso]);
+            }
+        }
+        return resultado;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       FILTROS
+    ───────────────────────────────────────────────────────── */
+    const FILTROS_LISTA = ['todos', 'partner', 'gimnasia', 'baile', 'campeonato'];
+
+    function renderizarFiltros() {
+        return FILTROS_LISTA.map(clave => {
+            const activo = filtroActivo === clave;
+            if (clave === 'todos') return `
+                <button class="chip-filtro ${activo ? 'activo' : ''}" data-cat="todos"
+                        type="button" aria-pressed="${activo}" onclick="establecerFiltro('todos')">
+                    ${ICONOS.calendario}<span>Todos</span>
+                </button>`;
+            const cat = CATEGORIAS[clave];
+            return `
+                <button class="chip-filtro ${activo ? 'activo' : ''}" data-cat="${clave}"
+                        type="button" aria-pressed="${activo}" onclick="establecerFiltro('${clave}')">
+                    ${cat.icono}<span>${cat.nombre}</span>
+                </button>`;
+        }).join('');
+    }
+
+    function establecerFiltro(clave) {
+        filtroActivo = (filtroActivo === clave) ? 'todos' : clave;
+        renderizarSemana();
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       TIRA DE DÍAS
+    ───────────────────────────────────────────────────────── */
+    function renderizarTiraDias() {
+        return DIAS_ABREV.map((abrev, i) => {
+            const d   = new Date(fechaInicioSemana.getFullYear(),
+                                 fechaInicioSemana.getMonth(),
+                                 fechaInicioSemana.getDate() + i);
+            const iso = fechaAISO(d);
+            const hoy = new Date(HOY.getFullYear(), HOY.getMonth(), HOY.getDate());
+            const esHoy   = mismaFecha(d, hoy);
+            const puntos  = (SESIONES_POR_FECHA[iso] || [])
+                .map(s => `<span class="punto ${CATEGORIAS[s.cat].clasePunto}"></span>`)
+                .join('');
+            return `
+            <div class="celda-dia ${esHoy ? 'hoy' : ''}" role="listitem"
+                 aria-label="${DIAS_NOMBRE[i]}, ${d.getDate()} de ${MESES[d.getMonth()]}">
+                <span class="abrev-dia" aria-hidden="true">${abrev}</span>
+                <span class="numero-dia">${d.getDate()}</span>
+                <div class="puntos-dia" aria-hidden="true">${puntos}</div>
+            </div>`;
+        }).join('');
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       TARJETA DE ENTRENAMIENTO
+    ───────────────────────────────────────────────────────── */
+    function renderizarTarjeta(sesion) {
+        const cat      = CATEGORIAS[sesion.cat];
+        const pasada   = esPasada(sesion.fecha);
+        const insignia = obtenerInsignia(sesion.fecha);
+        const claseCab = pasada ? 'cabecera-pasado' : cat.claseCabecera;
+        const claseAv  = pasada ? 'avatar-pasado'   : cat.claseAvatar;
+        const fillPct  = Math.round((sesion.cupos.usados / sesion.cupos.total) * 100);
+        const claseRel = pasada ? 'relleno-pasado'
+                       : fillPct >= 90 ? 'relleno-completo'
+                       : cat.claseRelleno;
+        const partes    = sesion.hora.split('–');
+        const horaInicio = partes[0] ? partes[0].trim() : sesion.hora;
+        const horaFin    = partes[1] ? partes[1].trim() : '';
+
+        return `
+        <article class="tarjeta-entrenamiento" role="listitem">
+            <header class="cabecera-tarjeta ${claseCab}">
+                <div class="fila-superior">
+                    <span class="insignia ${obtenerClaseInsignia(insignia)}">${insignia}</span>
+                    <span class="pastilla-duracion">${ICONOS.reloj} ${sesion.duracion}</span>
+                </div>
+                <div class="fila-categoria">
+                    <div class="icono-categoria-contenedor" aria-hidden="true">${cat.icono}</div>
+                    <span class="nombre-categoria">${cat.nombre}</span>
+                </div>
+            </header>
+            <div class="cuerpo-tarjeta">
+                <div class="fila-info">
+                    <span class="icono-info" aria-hidden="true">${ICONOS.calendario}</span>
+                    <span class="texto-info">${formatearFechaLarga(sesion.fecha)}</span>
+                </div>
+                <div class="fila-info">
+                    <span class="icono-info" aria-hidden="true">${ICONOS.reloj}</span>
+                    <span class="texto-info"><strong>${horaInicio}</strong>${horaFin ? ' – ' + horaFin : ''}</span>
+                </div>
+                <div class="fila-info fila-entrenador">
+                    <div class="avatar-entrenador ${claseAv}" aria-hidden="true">${sesion.iniciales}</div>
+                    <div class="info-entrenador">
+                        <span class="nombre-entrenador">${sesion.entrenador}</span>
+                        <span class="rol-entrenador">Entrenador principal</span>
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <!-- ══ CONTENIDO PRINCIPAL ════════════════════════════════ -->
-<main class="contenido">
-<div class="envoltura-horario">
-
-    <!-- Encabezado de sección -->
-    <div class="encabezado-horario">
-        <div class="bloque-titulo-horario">
-            <h1>Próximos Entrenamientos</h1>
-            <p class="subtitulo-horario">Sus sesiones programadas para este mes</p>
-        </div>
-        <div class="chips-horario">
-            <span class="chip-estadistica">
-               <img class="icono-calendario" src="img/Icono calendario.png" alt="Icono calendario">
-                <span id="stat-sesiones">3 sesiones</span>
-            </span>
-            <span class="chip-estadistica">
-                <img class="icono-reloj" src="img/reloj.png" alt="Icono reloj">
-                <span id="stat-tiempo">6h totales</span>
-            </span>
-            <span class="chip-estadistica">
-                <img class="icono-rayo" src="img/Rayo.png" alt="Icono Rayo">
-                <span id="stat-categorias">2 disciplinas</span>
-            </span>
-        </div>
-    </div>
-
-    <!-- Filtros por tipo de entrenamiento -->
-    <div class="filtros-categoria" id="filtros-categoria"></div>
-
-    <!-- Navegador de semana -->
-    <div class="navegador-semana">
-        <button class="btn-semana" id="btn-anterior" onclick="cambiarSemana(-1)">
-            <img class="icono-flechaiz" src="img/flecha izquierda.png" alt="Icono felcha izquierda">
-            Semana anterior
-        </button>
-        <div class="centro-semana">
-            <span class="etiqueta-rango-semana" id="etiqueta-semana"></span>
-            <div class="tira-dias" id="tira-dias"></div>
-        </div>
-        <button class="btn-semana" id="btn-siguiente" onclick="cambiarSemana(1)">
-            Semana siguiente
-            <img class="icono-flechader" src="img/flecha derecha.png" alt=" Icono flecha derecha">
-        </button>
-    </div>
-
-    <!-- Grid de tarjetas (JS lo rellena) -->
-    <div class="cuadricula-entrenamientos" id="cuadricula-entrenamientos"></div>
-
-</div>
-</main>
-
-<!-- ══ MODAL ═══════════════════════════════════════════════ -->
-<div class="superposicion-modal" id="superposicion-modal">
-    <div class="contenedor-modal" id="interior-modal"></div>
-</div>
-<img src="img/calendario.png" alt="Icono calendario">
-
-<!-- ══ JAVASCRIPT ══════════════════════════════════════════ -->
-<script>
-/* ─────────────────────────────────────────────────────────
-   ÍCONOS SVG (reutilizables)
-───────────────────────────────────────────────────────── */
-const ICONOS = {
-    calendar:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
-    clock:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-    user:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
-    arrow:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
-    target:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
-    users:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-    shirt:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>`,
-    x:         `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
-    partnerIc: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-    dumbbellIc:`<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="4" height="14" rx="1"/><rect x="18" y="5" width="4" height="14" rx="1"/><line x1="6" y1="12" x2="18" y2="12"/></svg>`,
-    trophyIc:  `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>`,
-    gymnastIc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6 8 11 4 9"/><path d="M12 6 16 11 20 9"/><path d="M12 6 10 17 7 22"/><path d="M12 6 14 17 17 22"/></svg>`,
-    pulseIc:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
-    musicIc:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
-};
-
-/* ─────────────────────────────────────────────────────────
-   DEFINICIÓN DE CATEGORÍAS
-───────────────────────────────────────────────────────── */
-const CATEGORIAS = {
-    partner: {
-        name:        'Partner',
-        claseCabecera: 'cabecera-partner',
-        claseAvatar: 'avatar-partner',
-        claseRelleno:   'relleno-partner',
-        clasePunto:    'punto-partner',
-        claseModal:  'cm-partner',
-        icon:        ICONOS.partnerIc
-    },
-    gimnasia: {
-        name:        'Gimnasia',
-        claseCabecera: 'cabecera-gimnasia',
-        claseAvatar: 'avatar-gimnasia',
-        claseRelleno:   'relleno-gimnasia',
-        clasePunto:    'punto-gimnasia',
-        claseModal:  'cm-gimnasia',
-        icon:        ICONOS.gymnastIc
-    },
-    acondi: {
-        name:        'Físico / Cardio',
-        claseCabecera: 'cabecera-fisico',
-        claseAvatar: 'avatar-fisico',
-        claseRelleno:   'relleno-fisico',
-        clasePunto:    'punto-fisico',
-        claseModal:  'cm-fisico',
-        icon:        ICONOS.pulseIc
-    },
-    coreografia: {
-        name:        'Coreografía',
-        claseCabecera: 'cabecera-coreografia',
-        claseAvatar: 'avatar-coreografia',
-        claseRelleno:   'relleno-coreografia',
-        clasePunto:    'punto-coreografia',
-        claseModal:  'cm-coreografia',
-        icon:        ICONOS.musicIc
-    },
-    campeonato: {
-        name:        'Campeonato',
-        claseCabecera: 'cabecera-campeonato',
-        claseAvatar: 'avatar-campeonato',
-        claseRelleno:   'relleno-campeonato',
-        clasePunto:    'punto-campeonato',
-        claseModal:  'cm-campeonato',
-        icon:        ICONOS.trophyIc
+            <footer class="pie-tarjeta">
+                <button class="btn-detalles" data-sesion-id="${sesion.id}" type="button">
+                    Ver detalles ${ICONOS.flecha}
+                </button>
+            </footer>
+        </article>`;
     }
-};
 
-/* ─────────────────────────────────────────────────────────
-   DATOS DE LAS SEMANAS
-───────────────────────────────────────────────────────── */
-/* ─────────────────────────────────────────────────────────
-   HORARIO FIJO DEL NIVEL (3 días por semana):
-   - Lunes      18:00 – 20:00 (6:00 – 8:00 PM)  → Partner
-   - Miércoles  18:00 – 20:00 (6:00 – 8:00 PM)  → Gimnasia
-   - Sábado     16:00 – 18:00 (4:00 – 6:00 PM)  → Físico / Cardio
-   En el tira-dias (L-M-X-J-V-S-D) esto corresponde a
-   dayIdx 0 (Lunes), dayIdx 2 (Miércoles) y dayIdx 5 (Sábado).
-
-   EXCEPCIÓN: en la semana del campeonato, los 3 días
-   (Lunes, Miércoles y Sábado) son sesiones de Coreografía,
-   como preparación previa a la competencia.
-
-   CALENDARIO REAL DE ABRIL 2026 (1 de abril = miércoles):
-   Lunes:     6, 13, 20, 27
-   Miércoles: 1, 8, 15, 22, 29
-   Sábado:    4, 11, 18, 25
-   Domingo de campeonato: 26 (único día de campeonato del mes)
-───────────────────────────────────────────────────────── */
-const SEMANAS = [
-    /* ── SEMANA PASADA (parcial): Abril 1 – Abril 5 (Mié–Dom) ── */
-    {
-        range:    'Abril 1 – Abril 5, 2026',
-        startDay: -1,
-        isPast:   true,
-        indiceHoy: null,
-        dots: [
-            { dayIdx: 2, cat: 'gimnasia' },
-            { dayIdx: 5, cat: 'acondi' }
-        ],
-        cards: [
-            {
-                id: 'a1', cat: 'gimnasia', insignia: 'PASADO',
-                dateLabel: 'Miércoles, Abril 1', dateShort: 'Abril 1',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Flexibilidad y técnica',
-                notes: ['Ropa cómoda para estiramiento'],
-                spots: { used: 10, total: 12 }
-            },
-            {
-                id: 'a2', cat: 'acondi', insignia: 'PASADO',
-                dateLabel: 'Sábado, Abril 4', dateShort: 'Abril 4',
-                time: '4:00 – 6:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Fuerza funcional',
-                notes: ['Ropa deportiva cómoda'],
-                spots: { used: 9, total: 12 }
-            }
-        ]
-    },
-
-    /* ── SEMANA PASADA: Abril 6 – Abril 12 (Lun–Dom) ──────── */
-    {
-        range:     'Abril 6 – Abril 12, 2026',
-        startDay:  6,
-        isPast:    true,
-        indiceHoy:  null,
-        dots: [
-            { dayIdx: 0, cat: 'partner' },
-            { dayIdx: 2, cat: 'gimnasia' },
-            { dayIdx: 5, cat: 'acondi' }
-        ],
-        cards: [
-            {
-                id: 'p1', cat: 'partner', insignia: 'PASADO',
-                dateLabel: 'Lunes, Abril 6', dateShort: 'Abril 6',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Confianza y sincronización',
-                notes: ['Llevar uniforme completo'],
-                spots: { used: 10, total: 10 }
-            },
-            {
-                id: 'p2', cat: 'gimnasia', insignia: 'PASADO',
-                dateLabel: 'Miércoles, Abril 8', dateShort: 'Abril 8',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Flexibilidad y técnica',
-                notes: ['Ropa cómoda para estiramiento'],
-                spots: { used: 12, total: 12 }
-            },
-            {
-                id: 'p3', cat: 'acondi', insignia: 'PASADO',
-                dateLabel: 'Sábado, Abril 11', dateShort: 'Abril 11',
-                time: '4:00 – 6:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Fuerza funcional',
-                notes: ['Ropa deportiva cómoda'],
-                spots: { used: 8, total: 10 }
-            }
-        ]
-    },
-
-    /* ── SEMANA ACTUAL: Abril 13 – Abril 19 (Lun–Dom) ─────── */
-    {
-        range:     'Abril 13 – Abril 19, 2026',
-        startDay:  13,
-        isPast:    false,
-        indiceHoy:  0,           // Lunes = hoy
-        dots: [
-            { dayIdx: 0, cat: 'partner' },
-            { dayIdx: 2, cat: 'gimnasia' },
-            { dayIdx: 5, cat: 'acondi' }
-        ],
-        cards: [
-            {
-                id: 'c1', cat: 'partner', insignia: 'HOY',
-                dateLabel: 'Lunes, Abril 13', dateShort: 'Abril 13',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Confianza y sincronización',
-                notes: ['Llevar uniforme completo'],
-                spots: { used: 7, total: 10 }
-            },
-            {
-                id: 'c2', cat: 'gimnasia', insignia: 'PRÓXIMO',
-                dateLabel: 'Miércoles, Abril 15', dateShort: 'Abril 15',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Flexibilidad y técnica',
-                notes: ['Ropa cómoda para estiramiento'],
-                spots: { used: 9, total: 12 }
-            },
-            {
-                id: 'c3', cat: 'acondi', insignia: 'PRÓXIMO',
-                dateLabel: 'Sábado, Abril 18', dateShort: 'Abril 18',
-                time: '4:00 – 6:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Fuerza funcional',
-                notes: ['Ropa deportiva cómoda'],
-                spots: { used: 11, total: 12 }
-            }
-        ]
-    },
-
-    /* ── SEMANA SIGUIENTE: Abril 20 – Abril 26 (Lun–Dom) ──── */
-    {
-        range:     'Abril 20 – Abril 26, 2026',
-        startDay:  20,
-        isPast:    false,
-        indiceHoy:  null,
-        dots: [
-            { dayIdx: 0, cat: 'coreografia' },
-            { dayIdx: 2, cat: 'coreografia' },
-            { dayIdx: 5, cat: 'coreografia' },
-            { dayIdx: 6, cat: 'campeonato' }
-        ],
-        cards: [
-            {
-                id: 'n1', cat: 'coreografia', insignia: 'PRÓXIMO',
-                dateLabel: 'Lunes, Abril 20', dateShort: 'Abril 20',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Inicio de montaje coreográfico',
-                notes: ['Llevar uniforme completo', 'Repasar formaciones'],
-                spots: { used: 6, total: 10 }
-            },
-            {
-                id: 'n2', cat: 'coreografia', insignia: 'PRÓXIMO',
-                dateLabel: 'Miércoles, Abril 22', dateShort: 'Abril 22',
-                time: '6:00 – 8:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Ensayo de coreografía',
-                notes: ['Repasar montaje completo', 'Llevar música de respaldo'],
-                spots: { used: 8, total: 12 }
-            },
-            {
-                id: 'n3', cat: 'coreografia', insignia: 'PRÓXIMO',
-                dateLabel: 'Sábado, Abril 25', dateShort: 'Abril 25',
-                time: '4:00 – 6:00 PM', duration: '2h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Ensayo general previo al campeonato',
-                notes: ['Vestuario de competencia', 'Llegada puntual obligatoria'],
-                spots: { used: 9, total: 12 }
-            },
-            {
-                id: 'n4', cat: 'campeonato', insignia: 'PRÓXIMO',
-                dateLabel: 'Domingo, Abril 26', dateShort: 'Abril 26',
-                time: '2:00 – 7:00 PM', duration: '5h',
-                trainer: 'Stuard Reyes', initials: 'SP',
-                focus: 'Rendimiento competitivo',
-                notes: ['Uniforme oficial obligatorio', 'Llegada 30 min antes'],
-                spots: { used: 20, total: 25 }
-            }
-        ]
-    },
-
-    /* ── SEMANA SIGUIENTE (parcial): Abril 27 – Abril 30 (Lun–Jue) ── */
-    {
-        range:    'Abril 27 – Abril 30, 2026',
-        startDay: 27,
-        isPast:   false,
-        indiceHoy: null,
-        dots: [
-            { dayIdx: 0, cat: 'partner' },
-            { dayIdx: 2, cat: 'gimnasia' }
-        ],
-        cards: [
-            {
-                id: 'f1',
-                cat: 'partner',
-                insignia: 'PRÓXIMO',
-                dateLabel: 'Lunes, Abril 27',
-                dateShort: 'Abril 27',
-                time: '18:00 – 20:00',
-                duration: '2h',
-                trainer: 'Stuard Reyes',
-                initials: 'SP',
-                focus: 'Confianza y sincronización',
-                notes: ['Llevar uniforme completo'],
-                spots: { used: 5, total: 10 }
-            },
-            {
-                id: 'f2',
-                cat: 'gimnasia',
-                insignia: 'PRÓXIMO',
-                dateLabel: 'Miércoles, Abril 29',
-                dateShort: 'Abril 29',
-                time: '6:00 – 8:00 PM',
-                duration: '2h',
-                trainer: 'Stuard Reyes',
-                initials: 'SP',
-                focus: 'Flexibilidad y técnica',
-                notes: ['Ropa cómoda para estiramiento'],
-                spots: { used: 7, total: 12 }
-            }
-        ]
+    function obtenerClaseInsignia(ins) {
+        if (ins === 'HOY')    return 'insignia-hoy';
+        if (ins === 'PASADO') return 'insignia-pasado';
+        return 'insignia-proximo';
     }
-];
 
-/* ─────────────────────────────────────────────────────────
-   ESTADO GLOBAL
-───────────────────────────────────────────────────────── */
-let indiceSemanaActual = 2;  // Empieza en la semana actual
-let filtroActivo   = 'todos'; // Filtro de categoría activo
+    /* ─────────────────────────────────────────────────────────
+       RENDERIZADO COMPLETO DE LA SEMANA
+    ───────────────────────────────────────────────────────── */
+    function renderizarSemana() {
+        const todas = obtenerSesionesDeSemana();
+        const filtradas = filtroActivo === 'todos'
+            ? todas
+            : todas.filter(s => s.cat === filtroActivo);
 
-/* ─────────────────────────────────────────────────────────
-   FILTROS POR TIPO DE ENTRENAMIENTO
-───────────────────────────────────────────────────────── */
-const FILTROS = ['todos', 'partner', 'gimnasia', 'acondi', 'coreografia'];
+        document.getElementById('etiqueta-semana').textContent        = formatearRangoSemana();
+        document.getElementById('tira-dias').innerHTML                = renderizarTiraDias();
+        document.getElementById('filtros-categoria').innerHTML        = renderizarFiltros();
 
-function renderizarFiltros() {
-    return FILTROS.map(key => {
-        const esActivo = filtroActivo === key;
-        if (key === 'todos') {
-            return `
-            <button class="chip-filtro ${esActivo ? 'activo' : ''}" data-cat="todos" onclick="establecerFiltro('todos')">
-                ${ICONOS.calendar}
-                <span>Todos</span>
-            </button>`;
+        const cuadricula = document.getElementById('cuadricula-entrenamientos');
+        if (filtradas.length) {
+            cuadricula.innerHTML = filtradas.map(s => renderizarTarjeta(s)).join('');
+        } else {
+            cuadricula.innerHTML = `
+                <div class="estado-vacio">
+                    <span class="icono-vacio" aria-hidden="true">${ICONOS.calendario}</span>
+                    <p>${filtroActivo !== 'todos'
+                        ? `No hay sesiones de "${CATEGORIAS[filtroActivo]?.nombre}" esta semana.`
+                        : 'No hay entrenamientos programados para esta semana.'}</p>
+                </div>`;
         }
-        const cat = CATEGORIAS[key];
-        return `
-        <button class="chip-filtro ${esActivo ? 'activo' : ''}" data-cat="${key}" onclick="establecerFiltro('${key}')">
-            ${cat.icon}
-            <span>${cat.name}</span>
-        </button>`;
-    }).join('');
-}
 
-function establecerFiltro(key) {
-    filtroActivo = (filtroActivo === key) ? 'todos' : key;
-    renderizarSemana();
-}
+        // Estadísticas
+        const totalH = filtradas.reduce((s, c) => s + parseFloat(c.duracion), 0);
+        const cats   = new Set(filtradas.map(s => s.cat)).size;
+        document.getElementById('stat-sesiones').textContent   = `${filtradas.length} sesión${filtradas.length !== 1 ? 'es' : ''}`;
+        document.getElementById('stat-tiempo').textContent     = `${totalH}h totales`;
+        document.getElementById('stat-categorias').textContent = `${cats} disciplina${cats !== 1 ? 's' : ''}`;
+    }
 
-/* ─────────────────────────────────────────────────────────
-   RENDERIZADO DEL STRIP DE DÍAS
-───────────────────────────────────────────────────────── */
-function renderizarTiraDias(week) {
-    const ABBRS = ['L','M','X','J','V','S','D'];
-    return ABBRS.map((abbr, i) => {
-        let num = week.startDay + i;
-        if (num > 30 || num < 1) {
-        return '';
-}
-        const esHoy = week.indiceHoy === i;
-        const dotsHtml = week.dots
-            .filter(d => d.dayIdx === i)
-            .map(d => `<span class="punto ${CATEGORIAS[d.cat].clasePunto}"></span>`)
-            .join('');
-        return `
-        <div class="celda-dia ${esHoy ? 'hoy' : ''}">
-            <span class="abrev-dia">${abbr}</span>
-            <span class="numero-dia">${num}</span>
-            <div class="puntos-dia">${dotsHtml}</div>
-        </div>`;
-    }).join('');
-}
+    /* ─────────────────────────────────────────────────────────
+       NAVEGACIÓN ENTRE SEMANAS (sin límite)
+    ───────────────────────────────────────────────────────── */
+    function cambiarSemana(delta) {
+        // Mover 7 días en la dirección indicada
+        fechaInicioSemana = new Date(
+            fechaInicioSemana.getFullYear(),
+            fechaInicioSemana.getMonth(),
+            fechaInicioSemana.getDate() + delta * 7
+        );
 
-/* ─────────────────────────────────────────────────────────
-   RENDERIZADO DE UNA TARJETA
-───────────────────────────────────────────────────────── */
-function renderizarTarjeta(card, isPast) {
-    const cat         = CATEGORIAS[card.cat];
-    const claseCabecera = isPast ? 'cabecera-pasado' : cat.claseCabecera;
-    const claseAvatar = isPast ? 'avatar-pasado' : cat.claseAvatar;
-    const fillPct     = Math.round((card.spots.used / card.spots.total) * 100);
-    let   claseRelleno   = isPast ? 'relleno-pasado'
-                      : fillPct >= 90 ? 'relleno-completo'
-                      : cat.claseRelleno;
+        // Animación sencilla en el contenedor
+        const cuadricula = document.getElementById('cuadricula-entrenamientos');
+        cuadricula.classList.remove('cuadricula-animada');
+        // Forzar reflow para reiniciar la animación
+        void cuadricula.offsetWidth;
+        cuadricula.classList.add('cuadricula-animada');
 
-    const [tStart, tEnd] = card.time.split('–').map(s => s.trim());
-
-    return `
-    <div class="tarjeta-entrenamiento">
-        <!-- Cabecera -->
-        <div class="cabecera-tarjeta ${claseCabecera}">
-            <div class="fila-superior">
-                <span class="insignia ${obtenerClaseInsignia(card.insignia)}">${card.insignia}</span>
-                <span class="pastilla-duracion">
-                    ${ICONOS.clock}
-                    ${card.duration}
-                </span>
-            </div>
-            <div class="fila-categoria">
-                <div class="icono-categoria-contenedor">${cat.icon}</div>
-                <span class="nombre-categoria">${cat.name}</span>
-            </div>
-        </div>
-        <!-- Cuerpo -->
-        <div class="cuerpo-tarjeta">
-            <div class="fila-info">
-                <span class="icono-info">${ICONOS.calendar}</span>
-                <span class="texto-info">${card.dateLabel}</span>
-            </div>
-            <div class="fila-info">
-                <span class="icono-info">${ICONOS.clock}</span>
-                <span class="texto-info"><strong>${tStart}</strong> – ${tEnd}</span>
-            </div>
-            <div class="fila-info fila-entrenador">
-                <div class="avatar-entrenador ${claseAvatar}">${card.initials}</div>
-                <div class="info-entrenador">
-                    <span class="nombre-entrenador">${card.trainer}</span>
-                    <span class="rol-entrenador">Entrenador principal</span>
-                </div>
-            </div>
-        </div>
-        <!-- Pie -->
-        <div class="pie-tarjeta">
-            <button class="btn-detalles" data-card-id="${card.id}">
-                Ver detalles ${ICONOS.arrow}
-            </button>
-        </div>
-    </div>`;
-}
-
-function obtenerClaseInsignia(insignia) {
-    if (insignia === 'HOY')    return 'insignia-hoy';
-    if (insignia === 'PASADO') return 'insignia-pasado';
-    return 'insignia-proximo';
-}
-
-/* ─────────────────────────────────────────────────────────
-   RENDERIZADO COMPLETO DE LA SEMANA
-───────────────────────────────────────────────────────── */
-function renderizarSemana() {
-    const week = SEMANAS[indiceSemanaActual];
-
-    // Etiqueta de rango
-    document.getElementById('etiqueta-semana').textContent = week.range;
-
-    // Strip de días
-    document.getElementById('tira-dias').innerHTML = renderizarTiraDias(week);
-
-    // Filtros de tipo de entrenamiento
-    document.getElementById('filtros-categoria').innerHTML = renderizarFiltros();
-
-    // Tarjetas (aplicando filtro activo)
-    const visibleCards = filtroActivo === 'todos'
-        ? week.cards
-        : week.cards.filter(c => c.cat === filtroActivo);
-
-    document.getElementById('cuadricula-entrenamientos').innerHTML = visibleCards.length
-        ? visibleCards.map(card => renderizarTarjeta(card, week.isPast)).join('')
-        : `<div class="estado-vacio">
-               <span class="icono-vacio">${ICONOS.calendar}</span>
-               <p>No hay entrenamientos de tipo "${CATEGORIAS[filtroActivo]?.name ?? filtroActivo}" en esta semana.</p>
-           </div>`;
-
-    // Chips de estadísticas (sobre las tarjetas visibles)
-    const totalH = visibleCards.reduce((s, c) => s + parseFloat(c.duration), 0);
-    const cats   = new Set(visibleCards.map(c => c.cat)).size;
-    document.getElementById('stat-sesiones').textContent = `${visibleCards.length} sesion${visibleCards.length !== 1 ? 'es' : ''}`;
-    document.getElementById('stat-tiempo').textContent     = `${totalH}h totales`;
-    document.getElementById('stat-categorias').textContent     = `${cats} disciplina${cats !== 1 ? 's' : ''}`;
-
-    // Botones de navegación
-    document.getElementById('btn-anterior').disabled = (indiceSemanaActual === 0);
-    document.getElementById('btn-siguiente').disabled = (indiceSemanaActual === SEMANAS.length - 1);
-}
-
-/* ─────────────────────────────────────────────────────────
-   NAVEGACIÓN ENTRE SEMANAS (con animación)
-───────────────────────────────────────────────────────── */
-function cambiarSemana(delta) {
-    const newIdx = indiceSemanaActual + delta;
-    if (newIdx < 0 || newIdx >= SEMANAS.length) return;
-
-    const grid      = document.getElementById('cuadricula-entrenamientos');
-    const direction = delta > 0 ? -1 : 1;   // -1 = slide izquierda, 1 = slide derecha
-
-    // Fase 1: sacar hacia afuera
-    grid.style.transition = 'opacity .18s ease, transform .18s ease';
-    grid.style.opacity    = '0';
-    grid.style.transform  = `translateX(${direction * -24}px)`;
-
-    setTimeout(() => {
-        indiceSemanaActual = newIdx;
         renderizarSemana();
+    }
 
-        // Fase 2: posicionar en el lado opuesto sin animación
-        grid.style.transition = 'none';
-        grid.style.opacity    = '0';
-        grid.style.transform  = `translateX(${direction * 24}px)`;
+    /* ─────────────────────────────────────────────────────────
+       MODAL: DETALLE DE ENTRENAMIENTO
+    ───────────────────────────────────────────────────────── */
+    function abrirModalEntrenamiento(idSesion) {
+        const sesion = SESIONES.find(s => s.id === idSesion);
+        if (!sesion) return;
 
-        // Fase 3: entrar con animación
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-            grid.style.transition = 'opacity .28s ease, transform .28s ease';
-            grid.style.opacity    = '1';
-            grid.style.transform  = 'translateX(0)';
-        }));
-    }, 180);
-}
+        const cat      = CATEGORIAS[sesion.cat];
+        const pasada   = esPasada(sesion.fecha);
+        const cModal   = pasada ? 'cm-pasado' : cat.claseModal;
 
-/* ─────────────────────────────────────────────────────────
-   MODAL – ABRIR
-───────────────────────────────────────────────────────── */
-function abrirModal(cardId) {
-    const week = SEMANAS[indiceSemanaActual];
-    const card = week.cards.find(c => c.id === cardId);
-    if (!card) return;
+        const indicacionesHtml = sesion.indicaciones.map(ind => `
+            <div class="item-seccion-modal">
+                <span class="icono-item-modal" aria-hidden="true">${ICONOS.camiseta}</span>
+                <span class="texto-item-modal">${ind}</span>
+            </div>`).join('');
 
-    const cat         = CATEGORIAS[card.cat];
-    const modalHeader = week.isPast ? 'cm-pasado' : cat.claseModal;
-
-    const notesHtml = card.notes.map(note => `
-        <div class="item-seccion-modal">
-            <span class="icono-item-modal">${ICONOS.shirt}</span>
-            <span class="texto-item-modal">${note}</span>
-        </div>`).join('');
-
-    document.getElementById('interior-modal').innerHTML = `
-        <!-- Cabecera del modal -->
-        <div class="cabecera-modal ${modalHeader}">
-            <div class="fila-titulo-modal">
-                <div class="icono-categoria-modal">${cat.icon}</div>
-                <span class="titulo-modal">${cat.name}</span>
-            </div>
-            <button class="cerrar-modal" onclick="cerrarModal()">${ICONOS.x}</button>
-        </div>
-        <!-- Cuerpo del modal -->
-        <div class="cuerpo-modal">
-            <h3 class="fecha-modal">${card.dateShort}</h3>
-            <div class="info-modal">
-                <div class="fila-info-modal">
-                    <span class="icono-info-modal">${ICONOS.clock}</span>
-                    <span class="texto-info-modal">${card.time}</span>
+        document.getElementById('interior-modal').innerHTML = `
+            <header class="cabecera-modal ${cModal}">
+                <div class="fila-titulo-modal">
+                    <div class="icono-categoria-modal" aria-hidden="true">${cat.icono}</div>
+                    <span class="titulo-modal" id="titulo-modal-entrenamiento">${cat.nombre}</span>
                 </div>
-                <div class="fila-info-modal">
-                    <span class="icono-info-modal">${ICONOS.user}</span>
-                    <span class="texto-info-modal">${card.trainer}</span>
+                <button class="cerrar-modal" onclick="cerrarModalEntrenamiento()" type="button" aria-label="Cerrar">
+                    ${ICONOS.cerrar}
+                </button>
+            </header>
+            <div class="cuerpo-modal">
+                <h3 class="fecha-modal">${formatearFechaCorta(sesion.fecha)}</h3>
+                <div class="info-modal">
+                    <div class="fila-info-modal">
+                        <span class="icono-info-modal" aria-hidden="true">${ICONOS.reloj}</span>
+                        <span class="texto-info-modal">${sesion.hora}</span>
+                    </div>
+                    <div class="fila-info-modal">
+                        <span class="icono-info-modal" aria-hidden="true">${ICONOS.usuario}</span>
+                        <span class="texto-info-modal">${sesion.entrenador}</span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="divisor-modal"></div>
-
-            <!-- Sección: Enfoque -->
-            <div class="seccion-modal">
-                <div class="titulo-seccion-modal">
-                    <span class="icono-seccion-modal">${ICONOS.target}</span>
-                    <span class="texto-titulo-seccion-modal">Enfoque</span>
+                <div class="divisor-modal"></div>
+                <div class="seccion-modal">
+                    <div class="titulo-seccion-modal">
+                        <span class="icono-seccion-modal" aria-hidden="true">${ICONOS.objetivo}</span>
+                        <span class="texto-titulo-seccion-modal">Enfoque</span>
+                    </div>
+                    <div class="item-seccion-modal">
+                        <span class="icono-item-modal" aria-hidden="true">${ICONOS.personas}</span>
+                        <span class="texto-item-modal">${sesion.enfoque}</span>
+                    </div>
                 </div>
-                <div class="item-seccion-modal">
-                    <span class="icono-item-modal">${ICONOS.users}</span>
-                    <span class="texto-item-modal">${card.focus}</span>
+                <div class="divisor-modal"></div>
+                <div class="seccion-modal">
+                    <div class="titulo-seccion-modal">
+                        <span class="texto-titulo-seccion-modal">Indicaciones</span>
+                    </div>
+                    ${indicacionesHtml}
                 </div>
-            </div>
+            </div>`;
 
-            <div class="divisor-modal"></div>
+        document.getElementById('superposicion-modal').classList.add('activo');
+        document.body.style.overflow = 'hidden';
+    }
 
-            <!-- Sección: Indicaciones -->
-            <div class="seccion-modal">
-                <div class="titulo-seccion-modal">
-                    <span class="texto-titulo-seccion-modal">Indicaciones</span>
+    function cerrarModalEntrenamiento() {
+        const el = document.getElementById('superposicion-modal');
+        el.classList.add('cerrando');
+        setTimeout(() => {
+            el.classList.remove('activo', 'cerrando');
+            document.body.style.overflow = '';
+        }, 280);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       MODAL: DETALLE DE CAMPEONATO
+    ───────────────────────────────────────────────────────── */
+    function abrirModalCampeonato(idCamp) {
+        campeonatoActual = idCamp;
+        const camp = CAMPEONATOS_INFO[idCamp];
+        if (!camp) return;
+
+        const crossoverFila = camp.crossover ? `
+            <div class="fila-info-campeonato">
+                <dt class="etiqueta-info-campeonato">Crossover</dt>
+                <dd class="valor-info-campeonato">${camp.crossover}</dd>
+            </div>` : '';
+
+        document.getElementById('interior-modal-campeonato').innerHTML = `
+            <header class="cabecera-modal cm-campeonato">
+                <div class="fila-titulo-modal">
+                    <div class="icono-categoria-modal" aria-hidden="true">${ICONOS.trofeo}</div>
+                    <span class="titulo-modal" id="titulo-modal-campeonato">${camp.nombre}</span>
                 </div>
-                ${notesHtml}
-            </div>
-        </div>`;
+                <button class="cerrar-modal" onclick="cerrarModalCampeonato()" type="button" aria-label="Cerrar">
+                    ${ICONOS.cerrar}
+                </button>
+            </header>
+            <div class="cuerpo-modal cuerpo-modal-campeonato-det">
+                <span class="etiqueta-nivel-camp">${camp.nivel}</span>
+                <dl class="tabla-info-campeonato">
+                    <div class="fila-info-campeonato">
+                        <dt class="etiqueta-info-campeonato">📅 Fecha</dt>
+                        <dd class="valor-info-campeonato">${camp.fechaCompetencia}</dd>
+                    </div>
+                    <div class="fila-info-campeonato">
+                        <dt class="etiqueta-info-campeonato">📍 Ciudad</dt>
+                        <dd class="valor-info-campeonato texto-multilinea">${camp.ciudad}</dd>
+                    </div>
+                    <div class="fila-info-campeonato">
+                        <dt class="etiqueta-info-campeonato">💰 Inscripción</dt>
+                        <dd class="valor-info-campeonato"><strong>${camp.costoInscripcion}</strong></dd>
+                    </div>
+                    ${crossoverFila}
+                    <div class="fila-info-campeonato">
+                        <dt class="etiqueta-info-campeonato">⏰ Límite de pago</dt>
+                        <dd class="valor-info-campeonato texto-multilinea">${camp.limitesPago}</dd>
+                    </div>
+                    <div class="fila-info-campeonato fila-info-campeonato--ultimo">
+                        <dt class="etiqueta-info-campeonato">🎟️ Entrada público</dt>
+                        <dd class="valor-info-campeonato texto-multilinea">${camp.entradaPublico}</dd>
+                    </div>
+                </dl>
+                <div class="bloque-publicidad-modal">
+                    <div class="encabezado-publicidad">
+                        <span class="icono-publicidad" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </span>
+                        <span class="titulo-publicidad">Información oficial del torneo</span>
+                    </div>
+                    ${camp.linkPublicidad
+                        ? `<a class="btn-link-publicidad" href="${camp.linkPublicidad}" target="_blank" rel="noopener noreferrer">
+                               🌐 Ver publicidad y detalles oficiales
+                           </a>`
+                        : `<div class="btn-link-publicidad btn-link-publicidad--vacio" aria-disabled="true">
+                               🔗 Link de publicidad próximamente
+                           </div>`
+                    }
+                </div>
+                <div class="acciones-modal-campeonato">
+                    <button class="btn-pagar-desde-modal" type="button" onclick="pagarDesdeModal()">
+                        💳 Pagar inscripción
+                    </button>
+                </div>
+            </div>`;
 
-    document.getElementById('superposicion-modal').classList.add('activo');
-    document.body.style.overflow = 'hidden';
-}
+        document.getElementById('superposicion-modal-campeonato').classList.add('activo');
+        document.body.style.overflow = 'hidden';
+    }
 
-/* ─────────────────────────────────────────────────────────
-   MODAL – CERRAR
-───────────────────────────────────────────────────────── */
-function cerrarModal() {
-    document.getElementById('superposicion-modal').classList.remove('activo');
-    document.body.style.overflow = '';
-}
+    function cerrarModalCampeonato() {
+        const el = document.getElementById('superposicion-modal-campeonato');
+        el.classList.add('cerrando');
+        setTimeout(() => {
+            el.classList.remove('activo', 'cerrando');
+            document.body.style.overflow = '';
+        }, 280);
+    }
 
-/* ─────────────────────────────────────────────────────────
-   INICIALIZACIÓN
-───────────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-    // Render inicial
-    renderizarSemana();
+    function pagarDesdeModal() {
+        const camp = CAMPEONATOS_INFO[campeonatoActual];
+        cerrarModalCampeonato();
+        setTimeout(() => abrirModalPago(campeonatoActual, camp ? camp.nombre : ''), 200);
+    }
 
-    // Delegación de eventos: "Ver detalles"
-    document.getElementById('cuadricula-entrenamientos').addEventListener('click', e => {
-        const btn = e.target.closest('.btn-detalles[data-card-id]');
-        if (btn) abrirModal(btn.dataset.cardId);
+    /* ─────────────────────────────────────────────────────────
+       MODAL: PAGO
+    ───────────────────────────────────────────────────────── */
+    function abrirModalPago(idCamp, nombreCamp) {
+        const titulo = document.getElementById('titulo-modal-pago');
+        titulo.textContent = nombreCamp
+            ? `Subir Comprobante — ${nombreCamp}`
+            : 'Subir Comprobante de Pago';
+
+        ['metodo-pago','monto-pago','referencia-pago','fecha-pago'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) { el.value = ''; el.classList.remove('entrada-campo--error'); }
+        });
+        const nombreArch = document.getElementById('nombre-archivo-cargado');
+        if (nombreArch) nombreArch.textContent = '';
+
+        document.getElementById('superposicion-modal-pago').classList.add('activo');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarModalPago() {
+        const el = document.getElementById('superposicion-modal-pago');
+        el.classList.add('cerrando');
+        setTimeout(() => {
+            el.classList.remove('activo', 'cerrando');
+            document.body.style.overflow = '';
+        }, 280);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       INICIALIZACIÓN
+    ───────────────────────────────────────────────────────── */
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Animación de entrada de filtros
+        const elFiltros = document.getElementById('filtros-categoria');
+        elFiltros.classList.add('entrada-escalonada', 'horizontal');
+        renderizarSemana();
+        setTimeout(() => elFiltros.classList.remove('entrada-escalonada', 'horizontal'), 700);
+
+        // Navegación de semana
+        document.getElementById('btn-anterior').addEventListener('click', () => cambiarSemana(-1));
+        document.getElementById('btn-siguiente').addEventListener('click', () => cambiarSemana(1));
+
+        // Abrir modal de entrenamiento (delegación)
+        document.getElementById('cuadricula-entrenamientos').addEventListener('click', e => {
+            const btn = e.target.closest('.btn-detalles[data-sesion-id]');
+            if (btn) abrirModalEntrenamiento(btn.dataset.sesionId);
+        });
+
+        // Cerrar modal entrenamiento al hacer clic en el fondo
+        document.getElementById('superposicion-modal').addEventListener('click', e => {
+            if (e.target === document.getElementById('superposicion-modal'))
+                cerrarModalEntrenamiento();
+        });
+
+        // Campeonatos: ver detalles
+        document.querySelectorAll('.btn-detalles-campeonato').forEach(btn => {
+            btn.addEventListener('click', () => abrirModalCampeonato(btn.dataset.campeonato));
+        });
+
+        // Campeonatos: pagar
+        document.querySelectorAll('.btn-pagar-campeonato').forEach(btn => {
+            btn.addEventListener('click', () => abrirModalPago(btn.dataset.campeonato, btn.dataset.nombre));
+        });
+
+        // Cerrar modal campeonato
+        document.getElementById('superposicion-modal-campeonato').addEventListener('click', e => {
+            if (e.target === document.getElementById('superposicion-modal-campeonato'))
+                cerrarModalCampeonato();
+        });
+
+        // Cerrar modal de pago
+        document.getElementById('btn-cerrar-pago').addEventListener('click', cerrarModalPago);
+        document.getElementById('btn-cancelar-pago').addEventListener('click', cerrarModalPago);
+        document.getElementById('superposicion-modal-pago').addEventListener('click', e => {
+            if (e.target === document.getElementById('superposicion-modal-pago')) cerrarModalPago();
+        });
+
+        // Archivo seleccionado
+        document.getElementById('archivo-comprobante').addEventListener('change', function () {
+            const nombre = this.files[0]?.name ?? '';
+            document.getElementById('nombre-archivo-cargado').textContent = nombre ? `📎 ${nombre}` : '';
+        });
+
+        // Drag & drop
+        const zonaArchivo = document.getElementById('zona-carga');
+        zonaArchivo.addEventListener('dragover', e => { e.preventDefault(); zonaArchivo.classList.add('zona-carga-activa'); });
+        zonaArchivo.addEventListener('dragleave', () => zonaArchivo.classList.remove('zona-carga-activa'));
+        zonaArchivo.addEventListener('drop', e => {
+            e.preventDefault();
+            zonaArchivo.classList.remove('zona-carga-activa');
+            const arch = e.dataTransfer.files[0];
+            if (arch) document.getElementById('nombre-archivo-cargado').textContent = `📎 ${arch.name}`;
+        });
+
+        // Enviar comprobante
+        document.getElementById('btn-enviar-comprobante').addEventListener('click', () => {
+            const campos = ['metodo-pago','monto-pago','referencia-pago','fecha-pago'];
+            let valido   = true;
+            campos.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el.value) { el.classList.add('entrada-campo--error'); valido = false; }
+            });
+            if (!valido) return;
+
+            document.getElementById('cuerpo-formulario-pago').innerHTML = `
+                <div class="estado-exito-pago" aria-live="assertive">
+                    <span class="icono-exito-pago" aria-hidden="true">✅</span>
+                    <h3>¡Comprobante enviado!</h3>
+                    <p>Tu comprobante ha sido enviado exitosamente.<br>
+                       Te notificaremos cuando sea verificado.</p>
+                </div>`;
+            setTimeout(cerrarModalPago, 2500);
+        });
+
+        // Quitar error al modificar campo
+        ['metodo-pago','monto-pago','referencia-pago','fecha-pago'].forEach(id => {
+            document.getElementById(id)?.addEventListener('input', function () {
+                this.classList.remove('entrada-campo--error');
+            });
+        });
+
+        // Cerrar cualquier modal con Escape
+        document.addEventListener('keydown', e => {
+            if (e.key !== 'Escape') return;
+            cerrarModalEntrenamiento();
+            cerrarModalCampeonato();
+            cerrarModalPago();
+        });
     });
-
-    // Cerrar modal al hacer clic en el overlay
-    document.getElementById('superposicion-modal').addEventListener('click', e => {
-        if (e.target === document.getElementById('superposicion-modal')) cerrarModal();
-    });
-
-    // Cerrar modal con tecla ESC
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') cerrarModal();
-    });
-});
-</script>
+    </script>
 </body>
 </html>
