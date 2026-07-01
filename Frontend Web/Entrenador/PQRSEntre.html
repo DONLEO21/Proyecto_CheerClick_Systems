@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis PQRS | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="css/stylePQRSEntre.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+</head>
+<body>
+      <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-entre.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="asistenciaEntre.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                
+
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Entrenador</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-entre.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
+    </header>
+<!-- ══════════════════════════════════════════
+     CONTENIDO PRINCIPAL
+══════════════════════════════════════════ -->
+<main class="contenido-principal">
+
+    <!-- RADIO INPUTS — FILTROS (ocultos) -->
+    <input type="radio" name="filtro" id="f-todas"     class="radio-filtro" checked>
+    <input type="radio" name="filtro" id="f-pendiente" class="radio-filtro">
+    <input type="radio" name="filtro" id="f-tramite"   class="radio-filtro">
+    <input type="radio" name="filtro" id="f-resuelta"  class="radio-filtro">
+
+
+    <!-- Encabezado sección -->
+    <div class="encabezado-solicitudes">
+        <div>
+            <h1 class="titulo-seccion">Mis Solicitudes PQRS</h1>
+            <p class="subtitulo-seccion">Consulta el estado de tus peticiones, quejas, reclamos y sugerencias, o registra una nueva.</p>
+        </div>
+        <a href="#modal-nueva-pqrs" class="btn-nueva-solicitud">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Registrar Nueva PQRS
+        </a>
+    </div>
+
+    <hr class="separador-guionado">
+
+    <!-- Zona filtros -->
+    <div class="zona-filtros">
+        <div class="campo-busqueda">
+            <svg class="icono-busqueda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <label for="busqueda-solicitudes" class="visualmente-oculto">Buscar solicitudes</label>
+            <input type="search" id="busqueda-solicitudes" class="entrada-busqueda"
+                   placeholder="Buscar por radicado, asunto o categoría">
+        </div>
+        <nav class="grupo-pestanas" aria-label="Filtrar por estado">
+            <label for="f-todas"     class="pestana-filtro">TODAS     <span class="pestana-contador">4</span></label>
+            <label for="f-pendiente" class="pestana-filtro">PENDIENTES <span class="pestana-contador">1</span></label>
+            <label for="f-tramite"   class="pestana-filtro">EN TRÁMITE <span class="pestana-contador">1</span></label>
+            <label for="f-resuelta"  class="pestana-filtro">RESUELTAS  <span class="pestana-contador">2</span></label>
+        </nav>
+    </div>
+
+    <!-- ── Lista de solicitudes ─────────────────── -->
+    <div class="lista-solicitudes" id="lista-solicitudes">
+
+        <!-- TARJETA 1 · PENDIENTE · SUGERENCIA -->
+        <article class="tarjeta-solicitud pendiente" data-estado="pendiente">
+            <div class="tarjeta-fila-superior">
+                <div class="tarjeta-avatar pendiente">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                        <line x1="4" y1="22" x2="4" y2="15"/>
+                    </svg>
+                </div>
+                <span class="insignia-estado pendiente" role="status">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                        <line x1="4" y1="22" x2="4" y2="15"/>
+                    </svg>
+                    Pendiente
+                </span>
+            </div>
+            <span class="etiqueta-tipo">Sugerencia</span>
+            <h2 class="titulo-solicitud">Estiramiento guiado antes del entrenamiento</h2>
+            <div class="meta-solicitud">
+                <span class="meta-radicado">Radicado <strong>PQ402</strong></span>
+                <time datetime="2026-06-10" class="meta-fecha">10 jun 2026</time>
+            </div>
+            <p class="descripcion-solicitud">Propongo añadir 15 minutos de estiramiento guiado antes de cada entrenamiento para reducir el riesgo de lesiones en las prácticas de alto impacto.</p>
+            <div class="info-asignacion">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <em>Aún no ha sido asignada a un responsable.</em>
+            </div>
+            <div class="tarjeta-pie">
+                <a href="#modal-editar-1" class="btn-editar-solicitud">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar
+                </a>
+                <a href="#modal-detalle-1" class="enlace-ver-detalles">
+                    Ver detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+
+        <!-- TARJETA 2 · EN TRÁMITE · RECLAMO -->
+        <article class="tarjeta-solicitud en-tramite" data-estado="en-tramite">
+            <div class="tarjeta-fila-superior">
+                <div class="tarjeta-avatar en-tramite">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <span class="insignia-estado en-tramite" role="status">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    En trámite
+                </span>
+            </div>
+            <span class="etiqueta-tipo">Reclamo</span>
+            <h2 class="titulo-solicitud">Falta de implementación deportiva para los entrenamientos</h2>
+            <div class="meta-solicitud">
+                <span class="meta-radicado">Radicado <strong>PQ382</strong></span>
+                <time datetime="2026-06-02" class="meta-fecha">2 jun 2026</time>
+            </div>
+            <p class="descripcion-solicitud">Presento este reclamo debido a que algunos implementos deportivos necesarios para los entrenamientos se encuentran deteriorados o son insuficientes para la cantidad de atletas. Esta situación dificulta el desarrollo adecuado de las sesiones programadas.</p>
+            <div class="info-asignacion en-tramite">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <em>En revisión por el equipo administrativo.</em>
+            </div>
+            <div class="tarjeta-pie">
+                <a href="#modal-aviso-noeditar" class="btn-editar-solicitud">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar
+                </a>
+                <a href="#modal-detalle-2" class="enlace-ver-detalles">
+                    Ver detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+
+        <!-- TARJETA 3 · RESUELTA · PETICIÓN -->
+        <article class="tarjeta-solicitud resuelta" data-estado="resuelta">
+            <div class="tarjeta-fila-superior">
+                <div class="tarjeta-avatar resuelta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <span class="insignia-estado resuelta" role="status">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Resuelta
+                </span>
+            </div>
+            <span class="etiqueta-tipo">Queja</span>
+            <h2 class="titulo-solicitud">Retraso en la comunicación de eventos deportivos</h2>
+            <div class="meta-solicitud">
+                <span class="meta-radicado">Radicado <strong>PQ891</strong></span>
+                <time datetime="2026-04-13" class="meta-fecha">13 abr 2026</time>
+            </div>
+            <p class="descripcion-solicitud">Presento esta queja debido a que la información sobre competencias y eventos deportivos suele comunicarse con muy poca anticipación. Esto dificulta la planificación de entrenamientos, la preparación de los atletas y la coordinación logística necesaria para participar en dichos eventos.</p>
+            <div class="caja-respuesta">
+                <div class="respuesta-cabecera">
+                    <span class="respuesta-etiqueta">Respuesta de administración</span>
+                    <time class="respuesta-fecha">15 abr 2026</time>
+                </div>
+                <p class="respuesta-texto">Hemos ajustado el proceso: a partir de ahora los eventos y competencias se publicarán con al menos 8 días de anticipación a través de la plataforma. Gracias por tu observación.</p>
+            </div>
+            <div class="tarjeta-pie tarjeta-pie--solo-detalle">
+                <a href="#modal-detalle-3" class="enlace-ver-detalles">
+                    Ver detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+
+        <!-- TARJETA 4 · RESUELTA · QUEJA -->
+        <article class="tarjeta-solicitud resuelta" data-estado="resuelta">
+            <div class="tarjeta-fila-superior">
+                <div class="tarjeta-avatar resuelta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <span class="insignia-estado resuelta" role="status">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Resuelta
+                </span>
+            </div>
+            <span class="etiqueta-tipo">Queja</span>
+            <h2 class="titulo-solicitud">Queja por mal trato del entrenador</h2>
+            <div class="meta-solicitud">
+                <span class="meta-radicado">Radicado <strong>PQ570</strong></span>
+                <time datetime="2026-03-20" class="meta-fecha">20 mar 2026</time>
+            </div>
+            <p class="descripcion-solicitud">Me preocupa el trato que estoy recibiendo por parte del entrenador. He notado que su actitud no es la adecuada y que no es paciente con los atletas.</p>
+            <div class="caja-respuesta">
+                <div class="respuesta-cabecera">
+                    <span class="respuesta-etiqueta">Respuesta de administración</span>
+                    <time class="respuesta-fecha">23 mar 2026</time>
+                </div>
+                <p class="respuesta-texto">Hemos revisado tu caso y hablado con el entrenador. Se tomaron las medidas correspondientes para mejorar la comunicación con el equipo.</p>
+            </div>
+            <div class="tarjeta-pie tarjeta-pie--solo-detalle">
+                <a href="#modal-detalle-4" class="enlace-ver-detalles">
+                    Ver detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+
+    </div><!-- /lista-solicitudes -->
+
+    <!-- Banner informativo -->
+    <div class="banner-informativo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        <p>Tus solicitudes se revisan y responden en un plazo máximo de 5 días hábiles. Te avisaremos aquí y por notificación cuando haya una respuesta.</p>
+    </div>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     MODAL — REGISTRAR NUEVA PQRS  (diseño imagen 1)
+══════════════════════════════════════════ -->
+<div id="modal-nueva-pqrs" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-nueva">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja">
+        <div class="modal-cabecera modal-cabecera--simple">
+            <div>
+                <h2 id="tit-nueva" class="modal-titulo">Registrar nueva PQRS</h2>
+                <p class="modal-subtitulo">Cuéntanos qué necesitas. Tu entrenador y el equipo administrativo revisarán tu solicitud.</p>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="campo-form">
+                <label for="nueva-tipo" class="etiqueta-campo">Tipo de solicitud</label>
+                <select id="nueva-tipo" class="entrada-campo">
+                    <option value="">Selecciona el tipo de solicitud</option>
+                    <option value="peticion">Petición</option>
+                    <option value="queja">Queja</option>
+                    <option value="reclamo">Reclamo</option>
+                    <option value="sugerencia">Sugerencia</option>
+                </select>
+            </div>
+            <div class="campo-form">
+                <label for="nueva-asunto" class="etiqueta-campo">Asunto</label>
+                <input type="text" id="nueva-asunto" class="entrada-campo"
+                       placeholder="Ej. Cambio de horario de entrenamiento" maxlength="90">
+            </div>
+            <div class="campo-form">
+                <label for="nueva-descripcion" class="etiqueta-campo">Descripción</label>
+                <textarea id="nueva-descripcion" class="entrada-campo" rows="4"
+                          placeholder="Describe tu solicitud con el mayor detalle posible"></textarea>
+            </div>
+            <div class="campo-form">
+                <label class="etiqueta-campo">Adjuntar evidencia</label>
+                <div class="fila-archivo">
+                    <label for="nueva-archivo" class="btn-archivo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                        </svg>
+                        Seleccionar archivo
+                    </label>
+                    <span class="nombre-archivo">Ningún archivo seleccionado</span>
+                    <input type="file" id="nueva-archivo" class="visualmente-oculto" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <p class="pista-archivo">Opcional. PDF, JPG o PNG, máx. 5 MB.</p>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-cancelar">Cancelar</a>
+            <button type="button" class="btn-modal-enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Enviar solicitud
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL — DETALLE 1 · SUGERENCIA · PENDIENTE
+══════════════════════════════════════════ -->
+<div id="modal-detalle-1" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-det-1">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja modal-caja-grande">
+        <div class="modal-cabecera">
+            <div class="modal-icono-titulo">
+                <div class="modal-avatar-icon pendiente">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                        <line x1="4" y1="22" x2="4" y2="15"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 id="tit-det-1" class="modal-titulo">Estiramiento guiado antes del entrenamiento</h2>
+                    <p class="modal-subtitulo">Radicado PQ402 · 10 jun 2026</p>
+                </div>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="detalle-chips">
+                <div class="detalle-chip">
+                    <span class="chip-label">Tipo</span>
+                    <span class="chip-valor">Sugerencia</span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Estado</span>
+                    <span class="insignia-estado pendiente">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                            <line x1="4" y1="22" x2="4" y2="15"/>
+                        </svg>
+                        Pendiente
+                    </span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Registrado</span>
+                    <span class="chip-valor">10 jun 2026</span>
+                </div>
+            </div>
+            <div class="campo-form">
+                <span class="etiqueta-campo">Descripción de la solicitud</span>
+                <div class="detalle-desc-caja">Propongo añadir 15 minutos de estiramiento guiado antes de cada entrenamiento para reducir el riesgo de lesiones en las prácticas de alto impacto.</div>
+            </div>
+            <div class="info-asignacion">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <em>Aún no ha sido asignada a un responsable.</em>
+            </div>
+            <div class="campo-form zona-responder">
+                <label for="seg-1" class="etiqueta-campo">Agregar información adicional</label>
+                <textarea id="seg-1" class="entrada-campo" rows="3"
+                          placeholder="Puedes añadir detalles adicionales mientras esperas respuesta..."></textarea>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-cancelar">Cerrar</a>
+            <button type="button" class="btn-modal-enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Enviar seguimiento
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL — DETALLE 2 · RECLAMO · EN TRÁMITE
+══════════════════════════════════════════ -->
+<div id="modal-detalle-2" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-det-2">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja modal-caja-grande">
+        <div class="modal-cabecera">
+            <div class="modal-icono-titulo">
+                <div class="modal-avatar-icon en-tramite">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 id="tit-det-2" class="modal-titulo">Falta de implementación deportiva para los entrenamientos</h2>
+                    <p class="modal-subtitulo">Radicado PQ382 · 2 jun 2026</p>
+                </div>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="detalle-chips">
+                <div class="detalle-chip">
+                    <span class="chip-label">Tipo</span>
+                    <span class="chip-valor">Reclamo</span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Estado</span>
+                    <span class="insignia-estado en-tramite">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        En trámite
+                    </span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Registrado</span>
+                    <span class="chip-valor">2 jun 2026</span>
+                </div>
+            </div>
+            <div class="campo-form">
+                <span class="etiqueta-campo">Descripción de la solicitud</span>
+                <div class="detalle-desc-caja">Presento este reclamo debido a que algunos implementos deportivos necesarios para los entrenamientos se encuentran deteriorados o son insuficientes para la cantidad de atletas. Esta situación dificulta el desarrollo adecuado de las sesiones programadas.</div>
+            </div>
+            <div class="info-asignacion en-tramite">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <em>En revisión por el equipo administrativo.</em>
+            </div>
+            <div class="campo-form zona-responder">
+                <label for="seg-2" class="etiqueta-campo">Agregar información adicional</label>
+                <textarea id="seg-2" class="entrada-campo" rows="3"
+                          placeholder="Puedes añadir detalles adicionales mientras esperas respuesta..."></textarea>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-cancelar">Cerrar</a>
+            <button type="button" class="btn-modal-enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Enviar seguimiento
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL — DETALLE 3 · PETICIÓN · RESUELTA
+══════════════════════════════════════════ -->
+<div id="modal-detalle-3" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-det-3">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja modal-caja-grande">
+        <div class="modal-cabecera">
+            <div class="modal-icono-titulo">
+                <div class="modal-avatar-icon resuelta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 id="tit-det-3" class="modal-titulo">Retraso en la comunicación de eventos deportivos</h2>
+                    <p class="modal-subtitulo">Radicado PQ891 · 13 abr 2026</p>
+                </div>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="detalle-chips">
+                <div class="detalle-chip">
+                    <span class="chip-label">Tipo</span>
+                    <span class="chip-valor">Queja</span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Estado</span>
+                    <span class="insignia-estado resuelta">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Resuelta
+                    </span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Registrado</span>
+                    <span class="chip-valor">13 abr 2026</span>
+                </div>
+            </div>
+            <div class="campo-form">
+                <span class="etiqueta-campo">Descripción de la solicitud</span>
+                <div class="detalle-desc-caja">Presento esta queja debido a que la información sobre competencias y eventos deportivos suele comunicarse con muy poca anticipación. Esto dificulta la planificación de entrenamientos, la preparación de los atletas y la coordinación logística necesaria para participar en dichos eventos.</div>
+            </div>
+            <div class="campo-form">
+                <span class="etiqueta-campo">Respuesta de administración</span>
+                <div class="caja-respuesta">
+                    <div class="respuesta-cabecera">
+                        <span class="respuesta-etiqueta">Respuesta de administración</span>
+                        <time class="respuesta-fecha">15 abr 2026</time>
+                    </div>
+                    <p class="respuesta-texto">Hemos ajustado el proceso: a partir de ahora los eventos y competencias se publicarán con al menos 8 días de anticipación a través de la plataforma. Gracias por tu observación.</p>
+                </div>
+            </div>
+            <div class="campo-form zona-responder">
+                <label for="seg-3" class="etiqueta-campo">¿Tienes algún seguimiento o nueva información?</label>
+                <textarea id="seg-3" class="entrada-campo" rows="3"
+                          placeholder="Escribe tu seguimiento sobre esta respuesta..."></textarea>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-cancelar">Cerrar</a>
+            <button type="button" class="btn-modal-enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Enviar seguimiento
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL — DETALLE 4 · QUEJA · RESUELTA
+══════════════════════════════════════════ -->
+<div id="modal-detalle-4" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-det-4">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja modal-caja-grande">
+        <div class="modal-cabecera">
+            <div class="modal-icono-titulo">
+                <div class="modal-avatar-icon resuelta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 id="tit-det-4" class="modal-titulo">Queja por mal trato del entrenador</h2>
+                    <p class="modal-subtitulo">Radicado PQ570 · 20 mar 2026</p>
+                </div>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="detalle-chips">
+                <div class="detalle-chip">
+                    <span class="chip-label">Tipo</span>
+                    <span class="chip-valor">Queja</span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Estado</span>
+                    <span class="insignia-estado resuelta">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Resuelta
+                    </span>
+                </div>
+                <div class="detalle-chip">
+                    <span class="chip-label">Registrado</span>
+                    <span class="chip-valor">20 mar 2026</span>
+                </div>
+            </div>
+            <div class="campo-form">
+                <span class="etiqueta-campo">Descripción de la solicitud</span>
+                <div class="detalle-desc-caja">Me preocupa el trato que estoy recibiendo por parte del entrenador. He notado que su actitud no es la adecuada y que no es paciente con los atletas.</div>
+            </div>
+            <div class="campo-form">
+                <span class="etiqueta-campo">Respuesta de administración</span>
+                <div class="caja-respuesta">
+                    <div class="respuesta-cabecera">
+                        <span class="respuesta-etiqueta">Respuesta de administración</span>
+                        <time class="respuesta-fecha">23 mar 2026</time>
+                    </div>
+                    <p class="respuesta-texto">Hemos revisado tu caso y hablado con el entrenador. Se tomaron las medidas correspondientes para mejorar la comunicación con el equipo.</p>
+                </div>
+            </div>
+            <div class="campo-form zona-responder">
+                <label for="seg-4" class="etiqueta-campo">¿Tienes algún seguimiento o nueva información?</label>
+                <textarea id="seg-4" class="entrada-campo" rows="3"
+                          placeholder="Escribe tu seguimiento sobre esta respuesta..."></textarea>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-cancelar">Cerrar</a>
+            <button type="button" class="btn-modal-enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Enviar seguimiento
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL — EDITAR SOLICITUD 1 (Sugerencia · Pendiente)
+══════════════════════════════════════════ -->
+<div id="modal-editar-1" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-editar-1">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja">
+        <div class="modal-cabecera">
+            <div class="modal-icono-titulo">
+                <div class="modal-avatar-icon amarillo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 id="tit-editar-1" class="modal-titulo">Editar Solicitud</h2>
+                    <p class="modal-subtitulo">Radicado: </p>
+                </div>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="campo-form">
+                <label for="edit-tipo" class="etiqueta-campo">Tipo de solicitud <span class="requerido">*</span></label>
+                <select id="edit-tipo" class="entrada-campo">
+                    <option value="peticion">Petición</option>
+                    <option value="queja">Queja</option>
+                    <option value="reclamo">Reclamo</option>
+                    <option value="sugerencia" selected>Sugerencia</option>
+                </select>
+            </div>
+            <div class="campo-form">
+                <label for="edit-asunto" class="etiqueta-campo">Asunto <span class="requerido">*</span></label>
+                <input type="text" id="edit-asunto" class="entrada-campo" maxlength="90"
+                       value="Estiramiento guiado antes del entrenamiento">
+            </div>
+            <div class="campo-form">
+                <label for="edit-descripcion" class="etiqueta-campo">Descripción <span class="requerido">*</span></label>
+                <textarea id="edit-descripcion" class="entrada-campo" rows="4">Propongo añadir 15 minutos de estiramiento guiado antes de cada entrenamiento para reducir el riesgo de lesiones en las prácticas de alto impacto.</textarea>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-cancelar">Cancelar</a>
+            <button type="button" class="btn-modal-enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/>
+                    <polyline points="7 3 7 8 15 8"/>
+                </svg>
+                Guardar Cambios
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL — AVISO: NO SE PUEDE EDITAR
+══════════════════════════════════════════ -->
+<div id="modal-aviso-noeditar" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="tit-aviso">
+    <a href="#" class="modal-cerrar-fondo" aria-label="Cerrar modal"></a>
+    <div class="modal-caja modal-caja-angosta">
+        <div class="modal-cabecera modal-cabecera--simple">
+            <div>
+                <h2 id="tit-aviso" class="modal-titulo">No se puede editar</h2>
+                <p class="modal-subtitulo">La solicitud está en trámite</p>
+            </div>
+            <a href="#" class="modal-btn-cerrar" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </a>
+        </div>
+        <div class="modal-cuerpo">
+            <div class="aviso-caja">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <p>Solo puedes editar solicitudes en estado <strong>Pendiente</strong>. Esta solicitud ya está siendo revisada por el equipo administrativo.</p>
+            </div>
+        </div>
+        <div class="modal-pie">
+            <a href="#" class="btn-modal-enviar">Entendido</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

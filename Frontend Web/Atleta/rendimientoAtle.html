@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Rendimeinto | Blood Tigers Cheer/title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+    <link rel="stylesheet" href="css/stylesRendAtle.css">
+</head>
+<body>
+     <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+        <nav>
+            <ul class="menu-lateral" role="list">
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-atleta.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Pagos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="PQRSAtleta.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                <!-- Rendimiento Activo -->
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="rendimientoAtle.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor">
+            <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
+                <ul class="encabezado__lista-botones" role="list">
+                    <li><a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a></li>
+                    <li><span class="etiqueta-rol" aria-label="Rol: Atleta">Atleta</span></li>
+                </ul>
+            </nav>
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-atleta.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="contenido">
+        <div class="page-header">
+            <h1>Mi Rendimiento Deportivo</h1>
+            <p>Consulta tu historial de asistencia, nivel de desempeño, habilidades adquiridas y las notas de tu entrenador.</p>
+        </div>
+
+        <!-- Perfil del atleta -->
+        <div class="perfil-atleta">
+            <img class="perfil-atleta__foto" src="img/Foto1.jpg" alt="Foto de perfil">
+            <div class="perfil-atleta__info">
+                <h3>Leonardo Jara</h3>
+                <p>Edad: 20 años</p>
+                <span class="badge-nivel">Nivel 3 · Magic</span>
+            </div>
+        </div>
+
+        <!-- Tabs de navegación -->
+        <div class="tabs-nav" role="tablist">
+            <button class="tab-btn activo" data-tab="rendimiento" role="tab" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                Rendimiento
+            </button>
+            <button class="tab-btn" data-tab="asistencia" role="tab" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Asistencia
+            </button>
+        </div>
+
+        <!-- TAB: RENDIMIENTO-->
+        <div class="tab-panel activo" id="tab-rendimiento">
+
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-md-4">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Puntaje Total</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--azul">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">59%</span>
+                        <span class="rcard__nota rcard__nota--up">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
+                            +4 pts respecto al mes anterior
+                        </span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--amarillo" style="width:59%"></div></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Habilidades</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">32<span style="font-size:1rem;color:var(--texto-muted)"> / 54</span></span>
+                        <span class="rcard__nota">30 base + 2 nuevas este mes</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--verde" style="width:59%"></div></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Asistencia</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor rcard__valor--verde">91%</span>
+                        <span class="rcard__nota">20 de 22 sesiones</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--verde" style="width:91%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de habilidades -->
+            <div class="panel-rendimiento">
+                <div class="panel-rendimiento__header">
+                    <h3>Desempeño por habilidades</h3>
+                    <div class="filtros-habilidad" role="group" aria-label="Filtrar por nivel">
+                        <button class="btn-filtro btn-filtro--activo" data-nivel="apropiada" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19.06 12.501 2.78-2.707a.53.53 0 0 0-.294-.905l-5.166-.755a2.1 2.1 0 0 1-1.595-1.16l-2.31-4.68a.53.53 0 0 0-.95.001L9.216 6.974a2.1 2.1 0 0 1-1.597 1.16l-5.165.755a.53.53 0 0 0-.294.906l3.736 3.637a2.1 2.1 0 0 1 .611 1.879l-.88 5.139a.53.53 0 0 0 .769.56l4.617-2.428.027-.014"/><path d="m15 18 2 2 4-4"/></svg>
+                            Apropiadas
+                        </button>
+                        <button class="btn-filtro" data-nivel="avanzada" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                            Avanzadas
+                        </button>
+                        <button class="btn-filtro" data-nivel="elite" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+                            Élite
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Nivel Apropiada -->
+                <div class="nivel-habilidades activo" data-nivel="apropiada">
+                    <div class="grid-habilidades">
+                        <!-- 1 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="10"/><path d="M5 17c0-3 3.5-5 7-5s7 2 7 5"/><circle cx="12" cy="5" r="2"/><path d="M9 22v-3"/><path d="M15 22v-3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Invertida debajo del nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 2 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg id="icon-btn-habi" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 8c-2 2-4 3-4 6"/><path d="M12 8c2 2 4 3 4 6"/><circle cx="12" cy="2" r="1.5"/><line x1="8" y1="22" x2="16" y2="22"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Invertida en nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 3 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12"/><path d="M12 12 8 6"/><path d="M12 12l4-6"/><circle cx="12" cy="4" r="2"/><path d="M8 22h8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión descendente debajo del nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 4 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M5 12c0-4 3-7 7-7"/><path d="M19 12c0 4-3 7-7 7"/><circle cx="12" cy="5" r="1.5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Movimiento suelto hacia nivel PREP o inferior</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 5 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 0 1 0 18"/><path d="M12 3a9 9 0 0 0 0 18"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con 3/4 de giro hacia 1-pierna en nivel PREP</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 6 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M12 2a5 5 0 0 1 5 5"/><path d="M12 22a5 5 0 0 1-5-5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con giro completo debajo del nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 7 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 6-6 8-6 14h12c0-6-6-8-6-14z"/><line x1="9" y1="22" x2="15" y2="22"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Mortal suspendido – Suspended Roll</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 8 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l4-4 4 4 4-4 4 4"/><path d="M4 7l4 4 4-4 4 4 4-4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Walk-in / Toss a manos</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 9 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v7"/><path d="M9 14l3 6 3-6"/><path d="M7 10h10"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Cuna recta desde 1- Pierna en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 10 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="m8 16 4-4 4 4"/><circle cx="12" cy="5" r="2"/><path d="M9 8h6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">1/4 de giro desde 1- Pierna en nivel extendido a Cuna</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 11 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/><path d="M5 5l7 7-7 7"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac / Flic Flac Salida con Paso – Flic Flac / Flic Flac Salida con Paso</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 12 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M12 10c-3 2-5 5-3 9"/><path d="M12 10c3 2 5 5 3 9"/><circle cx="12" cy="2" r="2"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Salto Avanzado – Flic Flac / Flic Flac Salida con Paso</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 13 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac / Serie de Flic Flacs – Salto Avanzado</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 14 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v5l-3 5h6l-3-5V7"/><path d="M9 12l-4 6"/><path d="M15 12l4 6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Rondada – Mortal Atrás Agrupado</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 15 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-4 5-4 13 0 18"/><path d="M12 2c4 5 4 13 0 18"/><line x1="6" y1="12" x2="18" y2="12"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Rueda Libre – Aerial</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nivel Avanzada -->
+                <div class="nivel-habilidades" data-nivel="avanzada">
+                    <div class="grid-habilidades">
+                        <!-- 1 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V2"/><path d="M17 7l-5-5-5 5"/><circle cx="12" cy="17" r="3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión desde nivel de cintura / PREP hacia 1-pierna en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 2 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c-3-3-5-6-2-10"/><path d="M12 12c3-3 5-6 2-10"/><circle cx="12" cy="4" r="1.5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión desde nivel suelo hacia LIB en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 3 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-6 8-8 10-10"/><path d="M22 12c-2-6-8-8-10-10"/><path d="M12 2v20"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Movimiento suelto desde nivel suelo a LIB en nivel PREP (Switch Up)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 4 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h12"/><path d="M6 8l6 4-6 4"/><path d="M18 8l-6 4 6 4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Tic Toc desde LIB en nivel de extensión</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 5 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2v10l6 3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con giro completo hacia POS del cuerpo en nivel PREP</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 6 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="M12 12l-4 8"/><path d="M12 12l4 8"/><circle cx="12" cy="2" r="2"/><path d="M8 10h8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">TIC TOC con giro completo en nivel de PREP (LIB a LIB)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 7 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-4 4-4 10 0 14"/><path d="M12 2c4 4 4 10 0 14"/><line x1="12" y1="16" x2="12" y2="22"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión con giro completo hacia 2-piernas en nivel PREP</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 8 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 6 6v2a6 6 0 0 1-12 0V9a6 6 0 0 1 6-6z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión con 1/2 giro hacia LIB en nivel extendido</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 9 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v6l4 3"/><path d="M12 12l-4 3"/><path d="M12 18v4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Mortal suspendido con 1/2 giro – 1/2 Twisting Suspended Roll</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 10 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h5l3-8 4 16 3-8h3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Walk-in a manos, impulso a 1-pierna en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 11 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"/><path d="M4 16h16"/><path d="M8 4l-4 4 4 4"/><path d="M16 20l4-4-4-4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Arco Pasado Atrás – Serie de Flic Flacs</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 12 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M5 8l4 4-4 4"/><path d="M19 8l-4 4 4 4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac – Flic Flac – Flic Flac o Más</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 13 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-4 6-6 10-6s8 2 10 6"/><path d="M2 12c2 4 6 6 10 6s8-2 10-6"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac – Flic Flac Salida con Paso – Flic Flac (BHS – BHS Step Out – BHS)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 14 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5"/><path d="M12 8c0 4-4 6-4 10"/><path d="M12 8c0 4 4 6 4 10"/><path d="M8 18h8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Salto Avanzado – Serie de Flic Flac</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 15 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 5-4 8-4 12h8c0-4-4-7-4-12z"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="14" x2="12" y2="22"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Mortal Adelante Agrupado – Punch Front (PF)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 16 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c2-5 6-8 8-8s6 3 8 8"/><path d="M4 12c2 5 6 8 8 8s6-3 8-8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Rondada – Serie de Flic Flacs – Mortal Atrás Agrupado</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nivel Élite -->
+                <div class="nivel-habilidades" data-nivel="elite">
+                    <div class="grid-habilidades">
+                        <!-- 1 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M2 7l10-5 10 5"/><path d="M2 17l10 5 10-5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión desde nivel de suelo hacia POS del cuerpo en nivel extendido</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 2 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c0 5-5 7-5 12"/><path d="M12 3c0 5 5 7 5 12"/><path d="M9 21h6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Movimiento suelto desde nivel suelo a POS del cuerpo en nivel PREP (Switch Up)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 3 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20"/><path d="M12 2v10l5 5"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con giro completo en nivel PREP (POS del cuerpo – POS del cuerpo)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 4 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v8"/><path d="M8 14l4 6 4-6"/><path d="M6 10h12"/><path d="M9 6l-3 4"/><path d="M15 6l3 4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con giro completo hacia 2-piernas en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 5 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M6 8l6-6 6 6"/><path d="M6 16l6 6 6-6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Transición con 1/2 giro hacia POS del cuerpo en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 6 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7-7 7 7"/><path d="M5 15l7 7 7-7"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">TIC TOC con giro completo en nivel PREP (LIB – POS del cuerpo)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 7 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V2"/><path d="M5 5l7-3 7 3"/><path d="M5 19l7 3 7-3"/><path d="M3 12h18"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión con giro completo desde nivel suelo o inferior hacia 1-pierna en nivel PREP</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 8 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 5-3 14 0 20"/><path d="M12 2c3 5 3 14 0 20"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Inversión con 1/2 giro desde nivel suelo hacia POS del cuerpo en nivel extendido</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 9 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v6"/><path d="M12 12l-5 8h10l-5-8z"/><path d="M7 22h10"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Mortal suspendido con giro completo – Full Twisting Suspended Roll</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 10 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><path d="M9 3l3 3 3-3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Desmonte en giro desde PREP o extensión a Cuna</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 11 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-10 5 7 3-4 5 7"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Walk-in a manos, impulso a 1-pierna en nivel extendido (no asistido)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 12 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-8 4 16 2-8h6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac / Serie de Flic Flacs – Salto Avanzado – Flic Flac / Serie de Flic Flacs</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 13 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v5"/><path d="M12 7c-3 3-3 7 0 10"/><path d="M12 7c3 3 3 7 0 10"/><circle cx="12" cy="2" r="1.5"/><path d="M9 22h6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Salto Avanzado – Flic Flac – Salto Avanzado – Flic Flac</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 14 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/><path d="M9 9l6 6"/><path d="M15 9l-6 6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac Salida con Paso – Serie de Flic Flacs</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 15 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h12"/><path d="M3 6h18"/><path d="M3 18h18"/><path d="M9 6v12"/><path d="M15 6v12"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Flic Flac Salida con Paso – Pasada de Arco – Serie de Flic Flacs (BHS Step Out – BWO – BHS Series)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 16 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v10"/><path d="M8 10l4-3 4 3"/><path d="M9 17l3 4 3-4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Pasada de Arco – Flic Flac – Salto Avanzado – Flic Flac / Serie de Flic Flacs (BWO – BHS – Advanced Jump – BHS / BHS Series)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 17 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-5 5-5 15 0 20"/><path d="M12 2c5 5 5 15 0 20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Arco Pasado Adelante – Rueda Aérea (FWO – Aerial)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 18 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l4 5-4 5"/><path d="M12 7l4 5-4 5"/><line x1="20" y1="7" x2="20" y2="17"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Salto Tigre – Rueda Libre (Bounder/Flyspring – Aerial)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 19 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17A7 7 0 0 1 12 5a7 7 0 0 1 7 12"/><path d="M9 17l3 4 3-4"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Rondada – Flic Flac – Mortal Atrás Agrupado (Round Off – BHS – Tuck)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 20 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-7 17"/><path d="M12 2a10 10 0 0 1 7 17"/><path d="M12 12v8"/><path d="M9 17l3 3 3-3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">RO – FF Salida con Paso – 1/2 Giro – RO – A – Mortal Atrás Agrupado</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 21 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9 6 9-6"/><path d="M3 12l9 6 9-6"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Arco Pasado Adelante – Rondada – A – Mortal Atrás Agrupado (FWO – RO – TO – Tuck)</span>
+                            <span class="badge-estado badge-estado--pendiente"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>No logrado</span>
+                        </div>
+                        <!-- 22 -->
+                        <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l4-8 4 8 4-8 4 8"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Salto Tigre – Rondada – A – Mortal Atrás Agrupado (Bounder/Flyspring – RO – TO – Tuck)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                        <!-- 23 -->
+                         <div class="tarjeta-habilidad">
+                            <div class="tarjeta-habilidad__icono"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div>
+                            <span class="tarjeta-habilidad__nombre">Paloma – Mortal Adelante Agrupado (Front Handspring – Punch Front / FHS – PF)</span>
+                            <span class="badge-estado badge-estado--completado"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Completado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notas del entrenador -->
+            <div class="notas-entrenador">
+                <h3>Notas del Entrenador</h3>
+                <div class="nota-card">
+                    <div class="nota-card__fecha">14 Jun 2026 · Entrenador</div>
+                    <p class="nota-card__texto">Leonardo mostró gran mejora en parada de manos. Se recomienda reforzar la técnica de palomas antes de la competencia del 28 de junio.</p>
+                </div>
+                <div class="nota-card">
+                    <div class="nota-card__fecha">05 Jun 2026 · Entrenador</div>
+                    <p class="nota-card__texto">Sesión de evaluación general. Flexibilidad mejoró notablemente respecto al mes anterior. Mantener rutina de estiramiento post-entrenamiento.</p>
+                </div>
+                <div class="nota-card">
+                    <div class="nota-card__fecha">28 May 2026 · Entrenador</div>
+                    <p class="nota-card__texto">Primer ensayo con la nueva coreografía. El atleta se adaptó rápido pero necesita más repetición en la transición del segundo al tercer bloque.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB: ASISTENCIA-->
+        <div class="tab-panel" id="tab-asistencia">
+
+            <!-- Cards resumen asistencia -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Sesiones totales</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--azul">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">22</span>
+                        <span class="rcard__nota">En lo que va del mes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Presentes</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor rcard__valor--verde">20</span>
+                        <span class="rcard__nota">91% del total</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--verde" style="width:91%"></div></div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Faltas</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--rojo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor rcard__valor--rojo">2</span>
+                        <span class="rcard__nota">9% del total</span>
+                        <div class="rcard__barra-wrap"><div class="rcard__barra-fill rcard__barra-fill--rojo" style="width:9%"></div></div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="rcard">
+                        <div class="rcard__header">
+                            <span class="rcard__titulo">Inpuntuales</span>
+                            <div class="rcard__icono-wrap rcard__icono-wrap--amarillo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                        </div>
+                        <span class="rcard__valor">1</span>
+                        <span class="rcard__nota">En este período</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Calendario + Panel Justificaciones -->
+            <div class="asist-layout">
+                <!-- Calendario -->
+                <div class="calendario-asistencia">
+                    <div class="calendario-asistencia__header">
+                        <h3>Calendario de asistencia — Junio 2026</h3>
+                        <div class="calendario-nav">
+                            <button class="btn-nav-cal" type="button" aria-label="Mes anterior">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <span class="calendario-mes">Junio 2026</span>
+                            <button class="btn-nav-cal" type="button" aria-label="Mes siguiente">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cal-grid">
+                        <div class="cal-grid__dia-nombre">Lun</div>
+                        <div class="cal-grid__dia-nombre">Mar</div>
+                        <div class="cal-grid__dia-nombre">Mié</div>
+                        <div class="cal-grid__dia-nombre">Jue</div>
+                        <div class="cal-grid__dia-nombre">Vie</div>
+                        <div class="cal-grid__dia-nombre">Sáb</div>
+                        <div class="cal-grid__dia-nombre">Dom</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">1</div>
+                        <div class="cal-dia cal-dia--sin-sesion">2</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">3</div>
+                        <div class="cal-dia cal-dia--sin-sesion">4</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">5</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">6</div>
+                        <div class="cal-dia cal-dia--sin-sesion">7</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">8</div>
+                        <div class="cal-dia cal-dia--sin-sesion">9</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">10</div>
+                        <div class="cal-dia cal-dia--sin-sesion">11</div>
+                        <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">12</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 10:00">13</div>
+                        <div class="cal-dia cal-dia--sin-sesion">14</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">15</div>
+                        <div class="cal-dia cal-dia--sin-sesion">16</div>
+                        <div class="cal-dia cal-dia--inpuntual" title="Inpuntual · Llegó 15 min tarde">17</div>
+                        <div class="cal-dia cal-dia--sin-sesion">18</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">19</div>
+                        <div class="cal-dia cal-dia--justificado" title="Justificado · Consulta médica">20</div>
+                        <div class="cal-dia cal-dia--sin-sesion">21</div>
+
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">22</div>
+                        <div class="cal-dia cal-dia--sin-sesion">23</div>
+                        <div class="cal-dia cal-dia--presente" title="Presente · Entrenamiento 18:00">24</div>
+                        <div class="cal-dia cal-dia--sin-sesion">25</div>
+                        <div class="cal-dia cal-dia--falta cal-dia--justificable" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez" title="Falta · Clic para justificar">26</div>
+                        <div class="cal-dia cal-dia--hoy cal-dia--sin-sesion" title="Hoy">27</div>
+                        <div class="cal-dia cal-dia--sin-sesion">28</div>
+
+                        <div class="cal-dia cal-dia--sin-sesion">29</div>
+                        <div class="cal-dia cal-dia--sin-sesion">30</div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                        <div class="cal-dia cal-dia--vacio"></div>
+                    </div>
+
+                    <div class="cal-leyenda">
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--presente"></div>Asistí</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--falta"></div>Falté</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--inpuntual"></div>Inpuntual</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--justificado"></div>Justificado</div>
+                        <div class="cal-leyenda__item"><div class="cal-leyenda__punto cal-leyenda__punto--sin-sesion"></div>Sin sesión</div>
+                    </div>
+                </div>
+
+                <!-- Panel de justificaciones-->
+                <div class="panel-justificaciones">
+                    <div class="panel-just__header">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Justificaciones
+                        </h3>
+                        <span class="panel-just__badge">2 pendientes</span>
+                    </div>
+
+                    <!-- Falta pendiente 1 -->
+                    <div class="just-item just-item--pendiente">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap">
+                                <span class="just-item__dia">27</span>
+                                <span class="just-item__mes">Jun</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Falta sin justificar</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                            </div>
+                            <button class="btn-justificar just-item__btn" type="button" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">Justificar</button>
+                        </div>
+                    </div>
+
+                    <!-- Falta pendiente 2 -->
+                    <div class="just-item just-item--pendiente">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap">
+                                <span class="just-item__dia">12</span>
+                                <span class="just-item__mes">Jun</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Falta sin justificar</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                            </div>
+                            <button class="btn-justificar just-item__btn" type="button" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">Justificar</button>
+                        </div>
+                    </div>
+
+                    <!-- Justificación aprobada con archivo -->
+                    <div class="just-item just-item--enviada">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap just-item__fecha-wrap--azul">
+                                <span class="just-item__dia">20</span>
+                                <span class="just-item__mes">Jun</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Justificación</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                                <span class="just-item__motivo">Consulta médica</span>
+                            </div>
+                            <span class="just-item__estado just-item__estado--aprobado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                                Aprobada
+                            </span>
+                        </div>
+                        <div class="just-item__archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>certificado_medico_jun.pdf</span>
+                            <span class="just-item__archivo-size">· 124 KB</span>
+                        </div>
+                        <div class="just-item__observacion just-item__observacion--nota">
+                            <span class="just-item__observacion-icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </span>
+                            <span class="just-item__observacion-texto">
+                                Justificación válida. Recuerda avisar con anticipación cuando sea posible.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="just-separador">Anteriores</div>
+
+                    <!-- Anteriores -->
+                    <div class="just-item just-item--enviada just-item--historica">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap just-item__fecha-wrap--azul">
+                                <span class="just-item__dia">05</span>
+                                <span class="just-item__mes">May</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Justificación</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                                <span class="just-item__motivo">Competencia departamental</span>
+                            </div>
+                            <span class="just-item__estado just-item__estado--aprobado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                                Aprobada
+                            </span>
+                        </div>
+                        <div class="just-item__archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>permiso_competencia.jpg</span>
+                            <span class="just-item__archivo-size">· 87 KB</span>
+                        </div>
+                    </div>
+
+                    <div class="just-item just-item--rechazada just-item--historica">
+                        <div class="just-item__top">
+                            <div class="just-item__fecha-wrap just-item__fecha-wrap--rojo">
+                                <span class="just-item__dia">18</span>
+                                <span class="just-item__mes">Abr</span>
+                            </div>
+                            <div class="just-item__info">
+                                <span class="just-item__titulo">Justificación</span>
+                                <span class="just-item__hora">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    16:00 – 17:00 · Stuart Pérez
+                                </span>
+                                <span class="just-item__motivo">Viaje familiar</span>
+                            </div>
+                            <span class="just-item__estado just-item__estado--rechazado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                Rechazada
+                            </span>
+                        </div>
+                        <div class="just-item__observacion just-item__observacion--rechazo">
+                            <span class="just-item__observacion-icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            </span>
+                            <span class="just-item__observacion-texto">
+                                Los viajes familiares no están contemplados como causal válida de inasistencia según el reglamento del club.
+                            </span>
+                        </div>
+                    </div>
+
+            </div>
+
+            </div>
+
+            <!-- Historial de sesiones — Bootstrap table -->
+            <div class="historial-sesiones">
+                <h3>Historial de sesiones</h3>
+                <div class="table-responsive">
+                    <table class="table historial-tabla">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Horario</th>
+                                <th>Entrenador</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>27 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--falta"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Falta</span></td>
+                                <td>
+                                    <button class="btn-justificar" type="button" data-fecha="27 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Justificar
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>24 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>22 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>20 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--justificado"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Justificado</span></td>
+                                <td><span style="font-size:.8rem;color:var(--texto-muted)">Consulta médica</span></td>
+                            </tr>
+                            <tr>
+                                <td>19 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--presente"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presente</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>17 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--inpuntual"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Inpuntual</span></td>
+                                <td><span style="font-size:.8rem;color:var(--texto-muted)">15 min tarde</span></td>
+                            </tr>
+                            <tr>
+                                <td>12 Jun 2026</td>
+                                <td>16:00 – 17:00</td>
+                                <td>Stuart Pérez</td>
+                                <td><span class="estado-pill estado-pill--falta"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Falta</span></td>
+                                <td>
+                                    <button class="btn-justificar" type="button" data-fecha="12 Junio" data-hora="18:00 – 20:00" data-entrenador="Stuart Pérez">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Justificar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- MODAL JUSTIFICACIÓN -->
+    <div class="modal fade" id="modal-justificacion" tabindex="-1" role="dialog" aria-labelledby="modal-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal-titulo">Justificar inasistencia</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <div class="modal-fecha-grande" id="modal-fecha">08 Abril</div>
+                        <div class="modal-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <span id="modal-hora">16:00 – 17:00</span>
+                        </div>
+                        <div class="modal-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <span id="modal-entrenador">Stuart Pérez</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-campo">
+                        <label for="motivo-textarea">Motivo de la inasistencia <span>*</span></label>
+                        <textarea class="modal-textarea" id="motivo-textarea" placeholder="Consulta médica, viaje..."></textarea>
+                    </div>
+
+                    <div class="text-end">
+                        <span class="modal-adjunto-label">Adjuntar archivo (Opcional)</span>
+                        <div>
+                            <input type="file" id="archivo-adjunto" class="d-none" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                            <button class="btn-subir-archivo" type="button" onclick="document.getElementById('archivo-adjunto').click()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                                Subir archivo
+                            </button>
+                            <span id="nombre-archivo" class="ms-2" style="font-size:.8rem;color:var(--texto-muted);"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-cancelar-modal" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn-enviar-modal" id="btn-enviar-justificacion" type="button" disabled>Enviar justificación</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-custom" id="toast">✓ Justificación enviada correctamente</div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ── Tabs propios ──────────────────────────────────────────────
+        const tabBtns   = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+                tabBtns.forEach(b => b.classList.remove('activo'));
+                tabPanels.forEach(p => p.classList.remove('activo'));
+                btn.classList.add('activo');
+                document.getElementById('tab-' + target).classList.add('activo');
+            });
+        });
+
+        // ── Filtros de habilidades ────────────────────────────────────
+        const btnsFiltro = document.querySelectorAll('.btn-filtro');
+        const niveles    = document.querySelectorAll('.nivel-habilidades');
+
+        btnsFiltro.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const nivel = btn.dataset.nivel;
+                btnsFiltro.forEach(b => b.classList.remove('btn-filtro--activo'));
+                niveles.forEach(n => n.classList.remove('activo'));
+                btn.classList.add('btn-filtro--activo');
+                document.querySelector(`.nivel-habilidades[data-nivel="${nivel}"]`).classList.add('activo');
+            });
+        });
+
+        // ── Modal Bootstrap ───────────────────────────────────────────
+        const modalEl    = document.getElementById('modal-justificacion');
+        const bsModal    = new bootstrap.Modal(modalEl);
+        const textarea   = document.getElementById('motivo-textarea');
+        const btnEnviar  = document.getElementById('btn-enviar-justificacion');
+        const toast      = document.getElementById('toast');
+
+        function abrirModal(fecha, hora, entrenador) {
+            document.getElementById('modal-fecha').textContent      = fecha;
+            document.getElementById('modal-hora').textContent       = hora;
+            document.getElementById('modal-entrenador').textContent = entrenador;
+            textarea.value = '';
+            document.getElementById('nombre-archivo').textContent   = '';
+            btnEnviar.disabled = true;
+            bsModal.show();
+        }
+
+        // Abrir desde días del calendario con falta
+        document.querySelectorAll('.cal-dia--justificable').forEach(dia => {
+            dia.addEventListener('click', () => {
+                abrirModal(dia.dataset.fecha, dia.dataset.hora, dia.dataset.entrenador);
+            });
+        });
+
+        // Abrir desde botón "Justificar" de la tabla
+        document.querySelectorAll('.btn-justificar').forEach(btn => {
+            btn.addEventListener('click', () => {
+                abrirModal(btn.dataset.fecha, btn.dataset.hora, btn.dataset.entrenador);
+            });
+        });
+
+        // Habilitar botón enviar cuando hay texto suficiente
+        textarea.addEventListener('input', () => {
+            btnEnviar.disabled = textarea.value.trim().length < 5;
+        });
+
+        // Mostrar nombre del archivo adjunto
+        document.getElementById('archivo-adjunto').addEventListener('change', function () {
+            document.getElementById('nombre-archivo').textContent = this.files[0]?.name ?? '';
+        });
+
+        // Enviar justificación
+        btnEnviar.addEventListener('click', () => {
+            bsModal.hide();
+            setTimeout(() => {
+                toast.classList.add('visible');
+                setTimeout(() => toast.classList.remove('visible'), 3500);
+            }, 350);
+        });
+    </script>
+</body>
+</html>

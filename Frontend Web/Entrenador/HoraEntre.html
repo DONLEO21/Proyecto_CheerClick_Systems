@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios| Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styleHoraEntre.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+</head>
+<body>
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-entre.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="cuentas.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="horarios.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento ">
+                    <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="cuentas.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                
+
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="../Home Page/index.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Entrenador</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-entre.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
+    </header>
+    
+<!-- ══════════════════════════════════════════
+     CONTENIDO PRINCIPAL
+══════════════════════════════════════════ -->
+<main class="contenido">
+
+    <!-- Encabezado de página -->
+    <div class="encabezado-pagina">
+        <div class="contenedor-titulos">
+            <h2 class="titulo-pagina">Calendario de Entrenamientos</h2>
+            <p class="subtitulo-horario">Gestione los horarios de entrenamiento de su nivel</p>
+        </div>
+        <div class="asistencia-badge registrada" id="insignia-asistencia">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></svg>
+            <div class="texto-insignia">
+                <small>Asistencia del día:</small>
+                <strong id="estado-insignia">Registrada</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="disposicion-calendario">
+
+        <!-- ── PANEL IZQUIERDO ── -->
+        <div class="panel-izquierdo">
+
+            <!-- TARJETA DEL DÍA -->
+            <section class="tarjeta tarjeta-dia" aria-labelledby="etiqueta-dia-seleccionado">
+
+                <div class="encabezado-tarjeta-dia">
+                    <div class="encabezado-dia-izquierda">
+                        <span class="etiqueta-dia" id="etiqueta-dia-seleccionado">Miércoles, 22 de abril</span>
+                        <span class="indicador-guardado" id="indicador-guardado" style="display:none">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Guardado
+                        </span>
+                    </div>
+                    <div class="encabezado-dia-derecha">
+                        <span class="etiqueta-hoy" id="etiqueta-hoy" style="display:none">Hoy</span>
+                    </div>
+                </div>
+
+                <!-- Estado: CON entrenamiento -->
+                <div id="estado-con-entrenamiento">
+
+                    <!-- Banner de estado especial (cancelada / suspendida) -->
+                    <div class="banner-estado" id="banner-estado" style="display:none">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <span id="texto-banner-estado">Sesión cancelada</span>
+                    </div>
+
+                    <div class="lista-detalles">
+                        <!-- Hora -->
+                        <div class="elemento-detalle">
+                            <span class="icono-detalle">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </span>
+                            <span id="hora-entrenamiento">6:00 p.m. – 8:00 p.m.</span>
+                        </div>
+                        <!-- Categoría -->
+                        <div class="elemento-detalle">
+                            <span class="icono-detalle">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </span>
+                            <span id="texto-categoria">Nivel 3 Magic</span>
+                        </div>
+                        <!-- Tipo de entrenamiento -->
+                        <div class="elemento-detalle">
+                            <span class="icono-detalle">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                            </span>
+                            <span id="texto-objetivo-entrenamiento">—</span>
+                        </div>
+                        <!-- Lugar -->
+                        <div class="elemento-detalle" id="fila-lugar" style="display:none">
+                            <span class="icono-detalle">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            <span id="texto-lugar"></span>
+                        </div>
+                        <!-- Notas -->
+                        <div class="elemento-detalle" id="fila-notas" style="display:none">
+                            <span class="icono-detalle">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </span>
+                            <span id="texto-notas" class="texto-notas"></span>
+                        </div>
+                    </div>
+
+                    <div class="acciones-tarjeta-dia">
+                        <button class="btn-marcar" id="btn-marcar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Marcar asistencia
+                        </button>
+                        <button class="btn-editar-horario" id="btn-editar-sesion">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                            Editar sesión
+                        </button>
+                         <button class="btn-registrar-asistencia" id="btn-registrar-asistencia">
+                            <a href="asistenciaEntre.html"><svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-check-icon lucide-calendar-check"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path></a>
+                            </svg>
+                            <a href="asistenciaEntre.html">Registrar Asistencia del Día</a>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Estado: SIN entrenamiento -->
+                <div id="estado-sin-entrenamiento" style="display:none">
+                    <div class="mensaje-sin-entrenamiento">
+                        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <line x1="9" y1="16" x2="15" y2="16"></line>
+                        </svg>
+                        <p>No hay entrenamiento programado.</p>
+                        <small>Los entrenamientos son <strong>Lunes, Miércoles y Sábados</strong>.</small>
+                    </div>
+                </div>
+
+            </section><!-- /tarjeta-dia -->
+
+            <!-- TARJETA TIPO DE ENTRENAMIENTO -->
+            <section class="tarjeta tarjeta-tipo-entrenamiento" aria-labelledby="titulo-tipos">
+                <div class="encabezado-tipos">
+                    <div>
+                        <h3 class="titulo-tipos">Tipo de Entrenamiento</h3>
+                        <p class="subtitulo-tipos">Selecciona y guarda para el día activo</p>
+                    </div>
+                    <button class="btn-guardar-tipo" id="btn-guardar-tipo">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Guardar
+                    </button>
+                </div>
+
+                <div class="contenedor-tipos" id="contenedor-tipos">
+                    <button class="etiqueta-tipo" data-tipo="Partner">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Partner
+                    </button>
+                    <button class="etiqueta-tipo" data-tipo="Gimnasia">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="5" r="2"></circle><path d="M12 7v7"></path>
+                            <path d="M7 10l5 2 5-2"></path><path d="M9 19l-1 2"></path><path d="M15 19l1 2"></path>
+                        </svg>
+                        Gimnasia
+                    </button>
+                    <button class="etiqueta-tipo" data-tipo="Físico / Cardio">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        Físico / Cardio
+                    </button>
+                    <button class="etiqueta-tipo" data-tipo="Coreografía">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle>
+                        </svg>
+                        Coreografía
+                    </button>
+                </div>
+
+                <!-- Horario informativo -->
+                <div class="info-horario">
+                    <p class="titulo-info-horario">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Horario — Nivel 3 Magic
+                    </p>
+                    <div class="filas-horario">
+                        <div class="fila-horario"><span class="dia-horario">Lunes</span><span class="hora-horario">6:00 p.m. – 8:00 p.m.</span></div>
+                        <div class="fila-horario"><span class="dia-horario">Miércoles</span><span class="hora-horario">6:00 p.m. – 8:00 p.m.</span></div>
+                        <div class="fila-horario"><span class="dia-horario">Sábado</span><span class="hora-horario">4:00 p.m. – 6:00 p.m.</span></div>
+                    </div>
+                </div>
+
+                <!-- Tipo personalizado -->
+                <div class="fila-tipo-personalizado">
+                    <div class="contenedor-entrada-personalizada">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <label for="entrada-tipo-personalizado" class="visualmente-oculto">Añadir tipo de entrenamiento personalizado</label>
+                        <input type="text" class="entrada-tipo-personalizado" id="entrada-tipo-personalizado" placeholder="Añadir tipo personalizado…" maxlength="40">
+                    </div>
+                    <button class="btn-agregar-personalizado" id="btn-agregar-personalizado">Añadir</button>
+                </div>
+
+                <!-- Vista previa seleccionados -->
+                <div class="vista-previa-seleccion" role="status" aria-live="polite" aria-label="Tipos activos seleccionados">
+                    <span class="etiqueta-vista-previa" aria-hidden="true">Activos:</span>
+                    <div class="fichas-seleccionadas" id="fichas-seleccionadas"><span class="ficha-vacia">Ninguno seleccionado</span></div>
+                </div>
+            </section><!-- /tarjeta-tipo-entrenamiento -->
+
+        </div><!-- /panel-izquierdo -->
+
+        <!-- ── PANEL DERECHO ── -->
+        <div class="panel-derecho">
+
+            <section class="tarjeta tarjeta-calendario" aria-labelledby="titulo-mes-calendario">
+                <div class="encabezado-nav-calendario">
+                    <button class="btn-nav-calendario" id="mes-anterior" aria-label="Mes anterior">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="titulo-mes-calendario" id="titulo-mes-calendario">Abril, 2026</span>
+                    <button class="btn-nav-calendario" id="mes-siguiente" aria-label="Mes siguiente">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+                <div class="encabezado-cuadricula-cal" aria-hidden="true">
+                    <span title="Domingo">D</span><span title="Lunes">L</span><span title="Martes">M</span><span title="Miércoles">M</span><span title="Jueves">J</span><span title="Viernes">V</span><span title="Sábado">S</span>
+                </div>
+                <div class="dias-cuadricula-cal" id="dias-cuadricula-calendario"></div>
+                <ul class="leyenda-calendario" aria-label="Leyenda del calendario">
+                    <li class="elemento-leyenda"><span class="punto-leyenda punto-entrenamiento" aria-hidden="true"></span><span>Entrenamiento</span></li>
+                    <li class="elemento-leyenda"><span class="punto-leyenda punto-guardado" aria-hidden="true"></span><span>Tipo guardado</span></li>
+                    <li class="elemento-leyenda"><span class="punto-leyenda punto-hoy" aria-hidden="true"></span><span>Hoy</span></li>
+                    <li class="elemento-leyenda"><span class="punto-leyenda punto-seleccionado" aria-hidden="true"></span><span>Seleccionado</span></li>
+                </ul>
+            </section><!-- /tarjeta-calendario -->
+
+            <section class="tarjeta tarjeta-resumen-mes" aria-labelledby="titulo-resumen">
+                <div class="fila-encabezado-resumen">
+                    <h3 class="titulo-resumen" id="titulo-resumen">Resumen del Mes</h3>
+                    <span class="etiqueta-mes-resumen" id="etiqueta-mes-resumen">Abril 2026</span>
+                </div>
+                <div class="cuadricula-resumen" role="list">
+                    <div class="elemento-resumen" role="listitem" aria-label="Sesiones totales">
+                        <span class="valor-resumen" id="total-sesiones" aria-live="polite">13</span>
+                        <span class="etiqueta-resumen" aria-hidden="true">Sesiones</span>
+                    </div>
+                    <div class="elemento-resumen" role="listitem" aria-label="Sesiones asistidas">
+                        <span class="valor-resumen color-verde" id="total-asistidas" aria-live="polite">11</span>
+                        <span class="etiqueta-resumen" aria-hidden="true">Asistidas</span>
+                    </div>
+                    <div class="elemento-resumen" role="listitem" aria-label="Sesiones faltadas">
+                        <span class="valor-resumen color-rojo" id="total-faltadas" aria-live="polite">2</span>
+                        <span class="etiqueta-resumen" aria-hidden="true">Faltadas</span>
+                    </div>
+                    <div class="elemento-resumen" role="listitem" aria-label="Llegadas tardes">
+                        <span class="valor-resumen color-naranja" id="total-llegadas-tardes">3</span>
+                        <span class="etiqueta-resumen" aria-hidden="true">Llegadas Tardes</span>
+                    </div>
+                    <div class="elemento-resumen" role="listitem" aria-label="Porcentaje de asistencia">
+                        <span class="valor-resumen color-azul">85%</span>
+                        <span class="etiqueta-resumen" aria-hidden="true">Asistencia</span>
+                    </div>
+                </div>
+                <div class="contenedor-barra-asistencia" aria-label="Barra de asistencia: 85%">
+                    <div class="barra-asistencia" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                        <div class="relleno-barra-asistencia" style="width:85%"></div>
+                    </div>
+                    <span class="porcentaje-barra-asistencia" aria-hidden="true">85 %</span>
+                </div>
+            </section><!-- /tarjeta-resumen-mes -->
+
+        </div><!-- /panel-derecho -->
+
+    </div><!-- /disposicion-calendario -->
+</main>
+
+<!-- ══════════════════════════════════════════
+     MODAL EDITAR SESIÓN
+══════════════════════════════════════════ -->
+<div class="fondo-modal" id="fondo-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+    <div class="tarjeta-modal" id="tarjeta-modal">
+
+        <div class="encabezado-modal">
+            <div class="info-encabezado-modal">
+                <div class="fila-titulo-modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    <h3 class="titulo-modal">Editar Sesión</h3>
+                </div>
+                <p class="subtitulo-fecha-modal" id="subtitulo-fecha-modal">Miércoles, 22 de abril de 2026</p>
+            </div>
+            <button class="btn-cerrar-modal" id="btn-cerrar-modal" aria-label="Cerrar modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="cuerpo-modal">
+
+            <!-- Estado -->
+            <div class="seccion-formulario">
+                <p class="etiqueta-formulario" id="lbl-estado-sesion">Estado de la sesión</p>
+                <div class="pastillas-estado" role="radiogroup" aria-labelledby="lbl-estado-sesion">
+                    <label class="pastilla-estado">
+                        <input type="radio" name="estado-sesion" value="activa" id="estado-activa" checked>
+                        <span class="contenido-pastilla pastilla-activa">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Activa
+                        </span>
+                    </label>
+                    <label class="pastilla-estado">
+                        <input type="radio" name="estado-sesion" value="cancelada" id="estado-cancelada">
+                        <span class="contenido-pastilla pastilla-cancelada">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            Cancelada
+                        </span>
+                    </label>
+                    <label class="pastilla-estado">
+                        <input type="radio" name="estado-sesion" value="suspendida" id="estado-suspendida">
+                        <span class="contenido-pastilla pastilla-suspendida">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                            Suspendida
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Horario -->
+            <div class="seccion-formulario">
+                <label class="etiqueta-formulario" for="hora-inicio-edicion">Horario de la sesión</label>
+                <div class="fila-formulario-2">
+                    <div class="campo-grupo">
+                        <label class="etiqueta-campo" for="hora-inicio-edicion">Hora inicio</label>
+                        <input type="time" id="hora-inicio-edicion" class="entrada-formulario">
+                    </div>
+                    <div class="campo-grupo">
+                        <label class="etiqueta-campo" for="hora-fin-edicion">Hora fin</label>
+                        <input type="time" id="hora-fin-edicion" class="entrada-formulario">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoría -->
+            <div class="seccion-formulario">
+                <label class="etiqueta-formulario" for="categoria-edicion">Categoría</label>
+                <div class="contenedor-icono-entrada">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                    <input type="text" id="categoria-edicion" class="entrada-formulario con-icono" placeholder="Ej: Categoría Nivel 3 Magic">
+                </div>
+            </div>
+
+            <!-- Lugar -->
+            <div class="seccion-formulario">
+                <label class="etiqueta-formulario" for="lugar-edicion">Lugar / Instalación <span class="formulario-opcional">(opcional)</span></label>
+                <div class="contenedor-icono-entrada">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <input type="text" id="lugar-edicion" class="entrada-formulario con-icono" placeholder="Ej: Gimnasio Principal, Sala B">
+                </div>
+            </div>
+
+            <!-- Notas -->
+            <div class="seccion-formulario">
+                <label class="etiqueta-formulario" for="notas-edicion">Notas / Observaciones <span class="formulario-opcional">(opcional)</span></label>
+                <textarea id="notas-edicion" class="area-texto" rows="3"
+                    placeholder="Indicaciones especiales, temas a trabajar, materiales…"></textarea>
+            </div>
+
+        </div><!-- /cuerpo-modal -->
+
+        <div class="pie-modal">
+            <button class="btn-cancelar-modal" id="btn-cancelar-modal">Cancelar</button>
+            <button class="btn-guardar-modal" id="btn-guardar-modal">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                Guardar cambios
+            </button>
+        </div>
+
+    </div><!-- /tarjeta-modal -->
+</div>
+
+<!-- Aviso -->
+<div class="aviso" id="aviso"></div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+(function () {
+
+    /* ═══ Constantes ══════════════════════════════════════ */
+    const MESES_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                      'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const DIAS_ES  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+    const DIAS_ENTRENAMIENTO = [1, 3, 6]; // Lunes, Miércoles, Sábado
+
+    /* ═══ Funciones auxiliares ════════════════════════════ */
+    function esDiaEntrenamiento(a, m, d) {
+        return DIAS_ENTRENAMIENTO.includes(new Date(a, m, d).getDay());
+    }
+
+    function horariosPorDefecto(diaSemana) {
+        if (diaSemana === 1 || diaSemana === 3) return { inicio: '18:00', fin: '20:00' };
+        if (diaSemana === 6)                    return { inicio: '16:00', fin: '18:00' };
+        return { inicio: '18:00', fin: '20:00' };
+    }
+
+    function a12h(t) {
+        const [h, m] = t.split(':').map(Number);
+        const ampm = h >= 12 ? 'p.m.' : 'a.m.';
+        const h12  = h % 12 || 12;
+        return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
+    }
+
+    function formatearRangoHora(inicio, fin) {
+        return `${a12h(inicio)} – ${a12h(fin)}`;
+    }
+
+    function claveDia(a, m, d) { return `${a}-${m}-${d}`; }
+
+    function contarDiasEntrenamiento(a, m) {
+        const total = new Date(a, m + 1, 0).getDate();
+        let n = 0;
+        for (let d = 1; d <= total; d++) if (esDiaEntrenamiento(a, m, d)) n++;
+        return n;
+    }
+
+    /* ═══ Almacenamiento por día ══════════════════════════ */
+    const datosSesion = {};
+
+    function asegurarSesion(a, m, d) {
+        const k = claveDia(a, m, d);
+        if (!datosSesion[k]) {
+            const diaSemana = new Date(a, m, d).getDay();
+            const t = horariosPorDefecto(diaSemana);
+            datosSesion[k] = {
+                tipos:      new Set(),
+                horaInicio: t.inicio,
+                horaFin:    t.fin,
+                categoria:  'Categoría Nivel 3 Magic',
+                lugar:      '',
+                notas:      '',
+                estado:     'activa'
+            };
+        }
+        return datosSesion[k];
+    }
+
+    function tieneTiposGuardados(a, m, d) {
+        const k = claveDia(a, m, d);
+        return datosSesion[k] && datosSesion[k].tipos.size > 0;
+    }
+
+    /* ═══ Estado ══════════════════════════════════════════ */
+    let mesActual       = 3;
+    let anioActual      = 2026;
+    let diaSeleccionado = 22;
+    let asistenciaMarcada = true;
+    let tiposActuales   = new Set();
+
+    /* ═══ Referencias DOM ════════════════════════════════ */
+    const cuadriculaCal       = document.getElementById('dias-cuadricula-calendario');
+    const tituloCal           = document.getElementById('titulo-mes-calendario');
+    const etiquetaDia         = document.getElementById('etiqueta-dia-seleccionado');
+    const indicadorGuardado   = document.getElementById('indicador-guardado');
+    const etiquetaHoy         = document.getElementById('etiqueta-hoy');
+    const horaEntrenamientoEl = document.getElementById('hora-entrenamiento');
+    const categoriaEl         = document.getElementById('texto-categoria');
+    const textoObjetivoEl     = document.getElementById('texto-objetivo-entrenamiento');
+    const filaLugar           = document.getElementById('fila-lugar');
+    const textoLugarEl        = document.getElementById('texto-lugar');
+    const filaNotas           = document.getElementById('fila-notas');
+    const textoNotasEl        = document.getElementById('texto-notas');
+    const bannerEstado        = document.getElementById('banner-estado');
+    const textoBannerEstado   = document.getElementById('texto-banner-estado');
+    const insigniaEl          = document.getElementById('insignia-asistencia');
+    const estadoInsigniaEl    = document.getElementById('estado-insignia');
+    const btnMarcar           = document.getElementById('btn-marcar');
+    const fichasEl            = document.getElementById('fichas-seleccionadas');
+    const avisoEl             = document.getElementById('aviso');
+    const etiquetaResumen     = document.getElementById('etiqueta-mes-resumen');
+    const estadoCon           = document.getElementById('estado-con-entrenamiento');
+    const estadoSin           = document.getElementById('estado-sin-entrenamiento');
+
+    /* ═══ CALENDARIO ══════════════════════════════════════ */
+    function renderizarCalendario() {
+        tituloCal.textContent       = `${MESES_ES[mesActual]}, ${anioActual}`;
+        etiquetaResumen.textContent = `${MESES_ES[mesActual]} ${anioActual}`;
+        cuadriculaCal.innerHTML     = '';
+
+        const primerDiaSemana = new Date(anioActual, mesActual, 1).getDay();
+        const diasEnMes       = new Date(anioActual, mesActual + 1, 0).getDate();
+        const hoy             = new Date();
+        const esMesActual     = hoy.getMonth() === mesActual && hoy.getFullYear() === anioActual;
+        const diaHoy          = hoy.getDate();
+
+        document.getElementById('total-sesiones').textContent =
+            contarDiasEntrenamiento(anioActual, mesActual);
+
+        for (let i = 0; i < primerDiaSemana; i++) {
+            const celda = document.createElement('div');
+            celda.className = 'dia-calendario vacio';
+            cuadriculaCal.appendChild(celda);
+        }
+
+        for (let d = 1; d <= diasEnMes; d++) {
+            const celda = document.createElement('div');
+            celda.className   = 'dia-calendario';
+            celda.textContent = d;
+
+            if (esDiaEntrenamiento(anioActual, mesActual, d)) celda.classList.add('entrenamiento');
+            if (tieneTiposGuardados(anioActual, mesActual, d)) celda.classList.add('con-tipo-guardado');
+            if (esMesActual && d === diaHoy)                   celda.classList.add('hoy');
+            if (d === diaSeleccionado)                         celda.classList.add('seleccionado');
+
+            celda.addEventListener('click', () => seleccionarDia(d));
+            cuadriculaCal.appendChild(celda);
+        }
+    }
+
+    /* ═══ SELECCIÓN DE DÍA ════════════════════════════════ */
+    function seleccionarDia(d) {
+        diaSeleccionado = d;
+        renderizarCalendario();
+        cargarDia(d);
+    }
+
+    function cargarDia(d) {
+        const fecha   = new Date(anioActual, mesActual, d);
+        const diaSem  = fecha.getDay();
+        const nombre  = DIAS_ES[diaSem];
+        const esTrain = DIAS_ENTRENAMIENTO.includes(diaSem);
+
+        etiquetaDia.textContent =
+            `${nombre[0].toUpperCase()}${nombre.slice(1)}, ${d} de ${MESES_ES[mesActual].toLowerCase()}`;
+
+        const hoy   = new Date();
+        const esHoy = hoy.getMonth() === mesActual &&
+                      hoy.getFullYear() === anioActual &&
+                      hoy.getDate() === d;
+        etiquetaHoy.style.display = esHoy ? 'inline-block' : 'none';
+
+        if (esTrain) {
+            estadoCon.style.display = 'block';
+            estadoSin.style.display = 'none';
+
+            const sesion = asegurarSesion(anioActual, mesActual, d);
+
+            tiposActuales = new Set(sesion.tipos);
+            actualizarEtiquetasTipoUI();
+            sincronizarTextoObjetivo();
+
+            horaEntrenamientoEl.textContent = formatearRangoHora(sesion.horaInicio, sesion.horaFin);
+            categoriaEl.textContent         = sesion.categoria;
+
+            if (sesion.lugar) {
+                filaLugar.style.display  = 'flex';
+                textoLugarEl.textContent = sesion.lugar;
+            } else {
+                filaLugar.style.display = 'none';
+            }
+
+            if (sesion.notas) {
+                filaNotas.style.display  = 'flex';
+                textoNotasEl.textContent = sesion.notas;
+            } else {
+                filaNotas.style.display = 'none';
+            }
+
+            if (sesion.estado !== 'activa') {
+                bannerEstado.style.display    = 'flex';
+                textoBannerEstado.textContent =
+                    sesion.estado === 'cancelada' ? 'Sesión cancelada' : 'Sesión suspendida';
+                bannerEstado.className = `banner-estado banner-${sesion.estado}`;
+            } else {
+                bannerEstado.style.display = 'none';
+            }
+
+            indicadorGuardado.style.display = sesion.tipos.size > 0 ? 'inline-flex' : 'none';
+
+            asistenciaMarcada = false;
+            reiniciarUIAsistencia();
+
+        } else {
+            estadoCon.style.display         = 'none';
+            estadoSin.style.display         = 'block';
+            bannerEstado.style.display      = 'none';
+            indicadorGuardado.style.display = 'none';
+            insigniaEl.className            = 'asistencia-badge pendiente';
+            estadoInsigniaEl.textContent    = 'Sin entrenamiento';
+        }
+    }
+
+    /* Navegación de mes */
+    document.getElementById('mes-anterior').addEventListener('click', () => {
+        if (--mesActual < 0) { mesActual = 11; anioActual--; }
+        diaSeleccionado = null;
+        renderizarCalendario();
+        limpiarPanel();
+    });
+    document.getElementById('mes-siguiente').addEventListener('click', () => {
+        if (++mesActual > 11) { mesActual = 0; anioActual++; }
+        diaSeleccionado = null;
+        renderizarCalendario();
+        limpiarPanel();
+    });
+
+    function limpiarPanel() {
+        etiquetaDia.textContent         = 'Selecciona un día del calendario';
+        etiquetaHoy.style.display       = 'none';
+        indicadorGuardado.style.display = 'none';
+        estadoCon.style.display         = 'none';
+        estadoSin.style.display         = 'none';
+    }
+
+    /* ═══ TIPOS DE ENTRENAMIENTO ══════════════════════════ */
+    document.getElementById('contenedor-tipos').addEventListener('click', e => {
+        const btn = e.target.closest('.etiqueta-tipo');
+        if (!btn) return;
+        const tipo = btn.dataset.tipo;
+        if (tiposActuales.has(tipo)) {
+            tiposActuales.delete(tipo);
+            btn.classList.remove('activo');
+        } else {
+            tiposActuales.add(tipo);
+            btn.classList.add('activo');
+        }
+        sincronizarTextoObjetivo();
+    });
+
+    function actualizarEtiquetasTipoUI() {
+        document.querySelectorAll('.etiqueta-tipo').forEach(btn => {
+            btn.classList.toggle('activo', tiposActuales.has(btn.dataset.tipo));
+        });
+    }
+
+    function sincronizarTextoObjetivo() {
+        fichasEl.innerHTML = '';
+        if (tiposActuales.size === 0) {
+            fichasEl.innerHTML = '<span class="ficha-vacia">Ninguno seleccionado</span>';
+            textoObjetivoEl.textContent = '—';
+        } else {
+            tiposActuales.forEach(t => {
+                const ficha = document.createElement('span');
+                ficha.className   = 'ficha';
+                ficha.textContent = t;
+                fichasEl.appendChild(ficha);
+            });
+            textoObjetivoEl.textContent = [...tiposActuales].join(' + ');
+        }
+    }
+
+    /* Guardar tipos para el día actual */
+    document.getElementById('btn-guardar-tipo').addEventListener('click', () => {
+        if (!diaSeleccionado || !esDiaEntrenamiento(anioActual, mesActual, diaSeleccionado)) {
+            mostrarAviso('Selecciona un día de entrenamiento primero', 'advertencia');
+            return;
+        }
+        const sesion  = asegurarSesion(anioActual, mesActual, diaSeleccionado);
+        sesion.tipos  = new Set(tiposActuales);
+
+        indicadorGuardado.style.display = sesion.tipos.size > 0 ? 'inline-flex' : 'none';
+        renderizarCalendario();
+        textoObjetivoEl.textContent = sesion.tipos.size > 0 ? [...sesion.tipos].join(' + ') : '—';
+
+        const btn  = document.getElementById('btn-guardar-tipo');
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Guardado`;
+        btn.classList.add('guardado-correcto');
+        setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('guardado-correcto'); }, 2000);
+
+        mostrarAviso(`Tipos guardados para el ${etiquetaDia.textContent}`);
+    });
+
+    /* Tipo personalizado */
+    const entradaPersonalizada = document.getElementById('entrada-tipo-personalizado');
+    document.getElementById('btn-agregar-personalizado').addEventListener('click', agregarPersonalizado);
+    entradaPersonalizada.addEventListener('keydown', e => { if (e.key === 'Enter') agregarPersonalizado(); });
+
+    function agregarPersonalizado() {
+        const val = entradaPersonalizada.value.trim();
+        if (!val) return;
+        const duplicado = [...document.querySelectorAll('.etiqueta-tipo')]
+                          .some(b => b.dataset.tipo.toLowerCase() === val.toLowerCase());
+        if (duplicado) { mostrarAviso(`"${val}" ya existe`, 'advertencia'); return; }
+
+        const btn = document.createElement('button');
+        btn.className    = 'etiqueta-tipo activo';
+        btn.dataset.tipo = val;
+        btn.innerHTML    = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line></svg>${val}`;
+        document.getElementById('contenedor-tipos').appendChild(btn);
+        tiposActuales.add(val);
+        sincronizarTextoObjetivo();
+        entradaPersonalizada.value = '';
+        mostrarAviso(`"${val}" añadido`);
+    }
+
+    /* ═══ BOTÓN MARCAR ASISTENCIA ═════════════════════════ */
+    btnMarcar.addEventListener('click', function () {
+        asistenciaMarcada = !asistenciaMarcada;
+        if (asistenciaMarcada) {
+            this.innerHTML = svgVerificacion() + ' Asistencia marcada';
+            this.classList.add('marcada');
+            insigniaEl.className         = 'asistencia-badge registrada';
+            estadoInsigniaEl.textContent = 'Registrada';
+            mostrarAviso('¡Asistencia registrada!');
+        } else {
+            reiniciarUIAsistencia();
+            mostrarAviso('Asistencia desmarcada', 'advertencia');
+        }
+    });
+
+    function reiniciarUIAsistencia() {
+        btnMarcar.innerHTML = svgVerificacion() + ' Marcar asistencia';
+        btnMarcar.classList.remove('marcada');
+        insigniaEl.className         = 'asistencia-badge pendiente';
+        estadoInsigniaEl.textContent = 'Pendiente';
+    }
+
+    function svgVerificacion() {
+        return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline></svg>`;
+    }
+
+    /* ═══ MODAL EDITAR SESIÓN ═════════════════════════════ */
+    const fondoModal          = document.getElementById('fondo-modal');
+    const subtituloFechaModal = document.getElementById('subtitulo-fecha-modal');
+    const horaInicioEdicion   = document.getElementById('hora-inicio-edicion');
+    const horaFinEdicion      = document.getElementById('hora-fin-edicion');
+    const categoriaEdicion    = document.getElementById('categoria-edicion');
+    const lugarEdicion        = document.getElementById('lugar-edicion');
+    const notasEdicion        = document.getElementById('notas-edicion');
+
+    /* Abrir modal */
+    document.getElementById('btn-editar-sesion').addEventListener('click', () => {
+        if (!diaSeleccionado || !esDiaEntrenamiento(anioActual, mesActual, diaSeleccionado)) return;
+
+        const sesion = asegurarSesion(anioActual, mesActual, diaSeleccionado);
+
+        subtituloFechaModal.textContent = etiquetaDia.textContent;
+        horaInicioEdicion.value  = sesion.horaInicio;
+        horaFinEdicion.value     = sesion.horaFin;
+        categoriaEdicion.value   = sesion.categoria;
+        lugarEdicion.value       = sesion.lugar;
+        notasEdicion.value       = sesion.notas;
+
+        document.querySelectorAll('input[name="estado-sesion"]').forEach(r => {
+            r.checked = r.value === sesion.estado;
+        });
+
+        abrirModal();
+    });
+
+    function abrirModal() {
+        fondoModal.classList.add('activo');
+        document.body.style.overflow = 'hidden';
+    }
+    function cerrarModal() {
+        fondoModal.classList.remove('activo');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('btn-cerrar-modal').addEventListener('click', cerrarModal);
+    document.getElementById('btn-cancelar-modal').addEventListener('click', cerrarModal);
+    fondoModal.addEventListener('click', e => { if (e.target === fondoModal) cerrarModal(); });
+
+    /* Guardar cambios del modal */
+    document.getElementById('btn-guardar-modal').addEventListener('click', () => {
+        if (!diaSeleccionado) return;
+
+        const valInicio = horaInicioEdicion.value;
+        const valFin    = horaFinEdicion.value;
+
+        if (!valInicio || !valFin) {
+            mostrarAviso('Ingresa las horas de inicio y fin', 'error');
+            return;
+        }
+        if (valInicio >= valFin) {
+            mostrarAviso('La hora de fin debe ser mayor a la de inicio', 'error');
+            return;
+        }
+
+        const estadoSesion = document.querySelector('input[name="estado-sesion"]:checked').value;
+        const sesion       = asegurarSesion(anioActual, mesActual, diaSeleccionado);
+
+        sesion.horaInicio = valInicio;
+        sesion.horaFin    = valFin;
+        sesion.categoria  = categoriaEdicion.value.trim() || 'Categoría Nivel 3 Magic';
+        sesion.lugar      = lugarEdicion.value.trim();
+        sesion.notas      = notasEdicion.value.trim();
+        sesion.estado     = estadoSesion;
+
+        horaEntrenamientoEl.textContent = formatearRangoHora(sesion.horaInicio, sesion.horaFin);
+        categoriaEl.textContent         = sesion.categoria;
+
+        if (sesion.lugar) {
+            filaLugar.style.display  = 'flex';
+            textoLugarEl.textContent = sesion.lugar;
+        } else {
+            filaLugar.style.display = 'none';
+        }
+
+        if (sesion.notas) {
+            filaNotas.style.display  = 'flex';
+            textoNotasEl.textContent = sesion.notas;
+        } else {
+            filaNotas.style.display = 'none';
+        }
+
+        if (sesion.estado !== 'activa') {
+            bannerEstado.style.display    = 'flex';
+            textoBannerEstado.textContent =
+                sesion.estado === 'cancelada' ? 'Sesión cancelada' : 'Sesión suspendida';
+            bannerEstado.className = `banner-estado banner-${sesion.estado}`;
+        } else {
+            bannerEstado.style.display = 'none';
+        }
+
+        cerrarModal();
+        mostrarAviso('Sesión actualizada correctamente');
+    });
+
+    /* ═══ AVISO (TOAST) ══════════════════════════════════ */
+    let temporizadorAviso;
+    function mostrarAviso(mensaje, tipo = 'exito') {
+        avisoEl.textContent = mensaje;
+        avisoEl.className   = `aviso mostrar ${tipo}`;
+        clearTimeout(temporizadorAviso);
+        temporizadorAviso = setTimeout(() => avisoEl.classList.remove('mostrar'), 3200);
+    }
+
+    /* ═══ INICIO ══════════════════════════════════════════ */
+    renderizarCalendario();
+    cargarDia(diaSeleccionado);
+
+})();
+</script>
+</body>
+</html>
