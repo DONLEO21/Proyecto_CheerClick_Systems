@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementos Deportivos| Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="css/stylesimpleAdmi.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+</head>
+<body>
+    <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+        <nav>
+            <ul class="menu-lateral" role="list">
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-admin.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="asistenciaAdmin.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Asistencia">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="cuentas.html" class="menu-lateral__enlace" title="Cuentas de Usuarios">
+                        <img class="menu-lateral__icono" src="img/usuarios.png" alt="Cuentas de Usuarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="HoraAdmin.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <!-- Implementos Activos -->
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="ImplementosAdmi.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_admi.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Pagos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="PQRSAdmin.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <div class="d-flex align-items-center gap-2">
+                    <a href="login.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+
+                    <div class="dropdown-rol">
+                        <label for="toggle-rol" class="etiqueta-rol dropdown-rol__boton">
+                            Administrador
+                        </label>
+                    </div>
+                </div>
+            </nav>
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion-ba" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-admin.html" class="icono-accion-ba" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contendido Principal -->
+    <div class="contenido-principal">
+        <h1>Implementos Deportivos</h1>
+        <p>Controle los implementos deportivos y sus solicitudes aquí.</p>
+
+        <input type="radio" id="switch-deportivos" name="pestanas" checked style="display: none;">
+        <input type="radio" id="switch-solicitados" name="pestanas" style="display: none;">
+
+        <div class="tabla-contenido">
+            <label for="switch-deportivos" class="tab-btn btn-deportivos">Implementos Deportivos</label>
+            <label for="switch-solicitados" class="tab-btn btn-solicitados">Productos Solicitados</label>
+        </div>
+
+        <!-- ===== SECCIÓN: Lista de Productos ===== -->
+        <section id="implementos-deportivos">
+
+            <!-- Barra de acciones -->
+            <div class="acciones-barra">
+                <input type="search" placeholder="Buscar Implemento..." class="search-input">
+
+                <button type="button" class="btn-agregar" onclick="document.getElementById('modal-agregar').showModal()">
+                    Agregar nuevo Implemento
+                </button>
+
+                <div class="filtro-grupo">
+                    <span class="filtro">Tipo:</span>
+                    <select class="filtro-seleccion">
+                        <option value="todos">Todos</option>
+                        <option value="ropa">Ropa</option>
+                        <option value="accesorios">Accesorios</option>
+                        <option value="calzado">Calzado</option>
+                    </select>
+                </div>
+
+                <div class="filtro-grupo">
+                    <span class="filtro">Estado:</span>
+                    <select class="filtro-seleccion">
+                        <option value="todos">Todos</option>
+                        <option value="disponible">Disponible</option>
+                        <option value="nodisponible">No Disponible</option>
+                    </select>
+                </div>
+
+                <div class="filtro-grupo">
+                    <span class="filtro">Cantidad:</span>
+                    <select class="filtro-seleccion">
+                        <option value="todos">Todos</option>
+                        <option value="0-10">0 – 10</option>
+                        <option value="11-25">11 – 25</option>
+                        <option value="+25">+25</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tabla implementos -->
+            <div class="contenedor-tabla">
+                <table class="tabla-implementos">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre del Producto</th>
+                            <th>Tipo</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IM125</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Uniforme Femenino.jpeg" alt="Uniforme" class="img-producto">
+                                    <span>Uniforme de competencia Femenino</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>20</td>
+                            <td>$350.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Habilitar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM213</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Zapatillas.jpeg" alt="Zapatillas" class="img-producto">
+                                    <span>Zapatillas BTC</span>
+                                </div>
+                            </td>
+                            <td>Calzado</td>
+                            <td>4</td>
+                            <td>$100.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM124</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Bolso.jpeg" alt="Mochila" class="img-producto">
+                                    <span>Bolso BTC</span>
+                                </div>
+                            </td>
+                            <td>Accesorios</td>
+                            <td>13</td>
+                            <td>$100.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM154</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Moño.jpeg" alt="Moño" class="img-producto">
+                                    <span>Moños Cheer</span>
+                                </div>
+                            </td>
+                            <td>Accesorios</td>
+                            <td>12</td>
+                            <td>$25.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM875</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Esqueleto.jpeg" alt="Esqueleto" class="img-producto">
+                                    <span>Esqueleto Masculino</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>2</td>
+                            <td>$50.000</td>
+                            <td><span class="badge no-disponible">No Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM156</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Esqueleto Fem.jpeg" alt="Esqueleto Femenino" class="img-producto">
+                                    <span>Esqueleto Femenino</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>4</td>
+                            <td>$40.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM156</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Esqueleto Fem.jpeg" alt="Esqueleto Femenino" class="img-producto">
+                                    <span>Top Femenino</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>4</td>
+                            <td>$40.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM124</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Uniforme Masculino.jpeg" alt="Uniforme Masculino" class="img-producto">
+                                    <span>Uniforme de Competencia Masculino</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>11</td>
+                            <td>$350.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM242</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Pantaloneta Mas.jpeg" alt="Pantaloneta" class="img-producto">
+                                    <span>Pantaloneta de Entrenamiento</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>6</td>
+                            <td>$50.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM156</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Pantaloneta.jpeg" alt="Short" class="img-producto">
+                                    <span>Short de Entrenamiento</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>6</td>
+                            <td>$40.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM148</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Sudadera.jpeg" alt="Buso" class="img-producto">
+                                    <span>Buso BTC</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>5</td>
+                            <td>$130.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IM242</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Camiseta.jpeg" alt="Camiseta" class="img-producto">
+                                    <span>Camiseta BTC</span>
+                                </div>
+                            </td>
+                            <td>Ropa</td>
+                            <td>15</td>
+                            <td>$50.000</td>
+                            <td><span class="badge disponible">Disponible</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion editar" title="Editar" onclick="document.getElementById('modal-editar').showModal()">
+                                        <img src="img/boton-editar.png" alt="Editar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion eliminar" title="Inhabilitar">
+                                        <img src="img/basura.png" alt="Eliminar" class="icono-accion">
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN: Productos Solicitados ===== -->
+        <section id="implementos-solicitados">
+            <div class="acciones-barra">
+                <input type="search" placeholder="Buscar Solicitud..." class="search-input">
+
+                <div class="filtro-grupo">
+                    <span class="filtro">Estado:</span>
+                    <select class="filtro-seleccion">
+                        <option value="todos">Todos</option>
+                        <option value="pendiente">Pendientes</option>
+                        <option value="aprobado">Aprobados</option>
+                        <option value="rechazados">Rechazados</option>
+                    </select>
+                </div>
+
+                <div class="filtro-grupo">
+                    <span class="filtro">Fecha:</span>
+                    <select class="filtro-seleccion">
+                        <option value="todos">Todos</option>
+                        <option value="hoy">Hoy</option>
+                        <option value="esta-semana">Esta Semana</option>
+                        <option value="este-mes">Este Mes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="contenedor-tabla">
+                <table class="tabla-implementos">
+                    <thead>
+                        <tr>
+                            <th>Código de Solicitud</th>
+                            <th>Nombre del Producto</th>
+                            <th>Solicitante</th>
+                            <th>Cantidad</th>
+                            <th>Fecha Solicitud</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SL263</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Uniforme Femenino.jpeg" alt="Uniforme" class="img-producto">
+                                    <span>Uniforme de Competencia Femenino</span>
+                                </div>
+                            </td>
+                            <td>Gabriela Deaquiz</td>
+                            <td>2</td>
+                            <td>03 Abr 2026</td>
+                            <td><span class="badge disponible">Aprobado</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion aprobar" title="Aprobar" onclick="document.getElementById('modal-aprobar').showModal()">
+                                        <img src="img/controlar (1).png" alt="Aprobar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion rechazar" title="Rechazar" onclick="document.getElementById('modal-rechazar').showModal()">
+                                        <img src="img/x.png" alt="Rechazar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion visualizar" title="Visualizar" onclick="document.getElementById('modal-visualizar').showModal()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye">
+                                            <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>SL156</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Zapatillas.jpeg" alt="Zapatillas" class="img-producto">
+                                    <span>Zapatillas BTC</span>
+                                </div>
+                            </td>
+                            <td>Dilan Reyes</td>
+                            <td>2</td>
+                            <td>04 Abr 2026</td>
+                            <td><span class="badge disponible">Aprobado</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion aprobar" title="Aprobar" onclick="document.getElementById('modal-aprobar').showModal()">
+                                        <img src="img/controlar (1).png" alt="Aprobar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion rechazar" title="Rechazar" onclick="document.getElementById('modal-rechazar').showModal()">
+                                        <img src="img/x.png" alt="Rechazar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion visualizar" title="Visualizar" onclick="document.getElementById('modal-visualizar').showModal()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye">
+                                            <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>SL156</td>
+                            <td>
+                                <div class="celda-producto">
+                                    <img src="img/Sudadera.jpeg" alt="Buso" class="img-producto">
+                                    <span>Buso BTC</span>
+                                </div>
+                            </td>
+                            <td>Leonardo Jara</td>
+                            <td>1</td>
+                            <td>08 Abr 2026</td>
+                            <td><span class="badge pendiente">Pendiente</span></td>
+                            <td>
+                                <div class="contenedor-acciones-celda">
+                                    <button type="button" class="btn-accion aprobar" title="Aprobar" onclick="document.getElementById('modal-aprobar').showModal()">
+                                        <img src="img/controlar (1).png" alt="Aprobar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion rechazar" title="Rechazar" onclick="document.getElementById('modal-rechazar').showModal()">
+                                        <img src="img/x.png" alt="Rechazar" class="icono-accion">
+                                    </button>
+                                    <button type="button" class="btn-accion visualizar" title="Visualizar" onclick="document.getElementById('modal-visualizar').showModal()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye">
+                                            <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== MODAL: Visualizar Detalles del Pedido ===== -->
+        <dialog id="modal-visualizar" class="modal-diseno-visualizar">
+            <header class="modal-header">
+            <div class="modal-header-titulo">
+                <span class="modal-header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt-text-icon lucide-receipt-text">
+                        <path d="M13 16H8"/>
+                        <path d="M14 8H8"/>
+                        <path d="M16 12H8"/>
+                        <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/>
+                    </svg>
+                </span>
+                <div>
+                    <h2>Detalle del Pedido</h2>
+                    <span class="modal-header-id">SL263</span>
+                </div>
+            </div>
+            <button class="modal-close" onclick="document.getElementById('modal-visualizar').close()" aria-label="Cerrar">✕</button>
+            </header>
+        
+            <main class="modal-body">
+
+                <section class="seccion">
+                    <p class="seccion-label">
+                    <span class="seccion-dot"></span>
+                    IMPLEMENTO DEPORTIVO
+                    </p>
+                    <div class="producto-card">
+                        <img src="img/Uniforme Femenino.jpeg" alt="Uniforme Femenino">
+                        <div class="producto-card-info">
+                            <strong class="producto-card-nombre">Uniforme de Competencia Femenino</strong>
+                            <div class="calificacion" aria-label="Calificación: 4 de 5 estrellas">
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <i class="fa-regular fa-star" aria-hidden="true"></i>
+                                <span class="conteo-resenas">(15)</span>
+                            </div>
+                            <span class="producto-card-precio">$350.000</span>
+                        </div>
+                    </div>
+                </section>
+            
+                <section class="seccion">
+                    <p class="seccion-label">
+                    <span class="seccion-dot"></span>
+                    SOLICITANTE
+                    </p>
+                    <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-item-key">Atleta</span>
+                        <span class="info-item-value">Gabriela Deaquiz</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-item-key">Categoría</span>
+                        <span class="info-item-value">Magic</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-item-key">Fecha solicitud</span>
+                        <span class="info-item-value">02 Abr. 2026</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-item-key">Estado</span>
+                        <span class="badge badge-pendiente">Pendiente</span>
+                    </div>
+                    </div>
+                </section>
+            
+                <section class="seccion">
+                    <p class="seccion-label">
+                    <span class="seccion-dot"></span>
+                    DETALLES DEL PEDIDO
+                    </p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-item-key">Cantidad</span>
+                            <span class="info-item-value">× 2</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-item-key">Talla</span>
+                            <span class="info-item-value">M</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-item-key">Precio unitario</span>
+                            <span class="info-item-value">$350.000</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-item-key">Total</span>
+                            <span class="info-item-value info-item-value-total">$700.000</span>
+                        </div>
+                    </div>
+                </section>
+            
+                <section class="seccion">
+                    <p class="seccion-label">
+                    <span class="seccion-dot"></span>
+                    MÉTODO DE PAGO
+                    </p>
+                    <div class="pago-metodo">
+                    <div class="pago-opcion pago-opcion-activo">
+                        <span class="pago-opcion__icono">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="1.8"
+                                         stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>Pago presencial</strong>
+                        </div>
+                        <span class="pago-check">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check">
+                                <path d="M20 6 9 17l-5-5"/>
+                            </svg>
+                        </span>
+                    </div>
+                    </div>
+                </section>
+            
+                <section class="seccion">
+                    <p class="seccion-label">
+                    <span class="seccion-dot"></span>
+                    COMPROBANTE ADJUNTO
+                    </p>
+                    <div class="comprobante-vacio">
+                    <span class="comprobante-vacio-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paperclip-icon lucide-paperclip">
+                            <path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/>
+                        </svg>
+                    </span>
+                    <span>No se adjuntó comprobante</span>
+                    </div>
+                </section>
+            </main>
+        
+            <footer class="modal-footer">
+                <div class="modal-footer-resumen">
+                    <span class="modal-footer-label">Total del pedido</span>
+                    <strong class="modal-footer-total">$700.000</strong>
+                </div>
+            </footer>
+        </dialog>       
+
+        <!-- ===== MODAL: Editar Implemento ===== -->
+        <dialog id="modal-editar" class="modal-diseno-editar">
+            <form method="dialog" class="form-modal-completo">
+                <header class="modal-header-rojo">
+                    <h1>Editar Implemento</h1>
+                    <p>Uniforme de competencia Femenino</p>
+                    <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-editar').close()">×</button>
+                </header>
+
+                <div class="modal-cuerpo-editar">
+                    <div class="modal-fila-editar">
+                        <div class="contenedor-vista">
+                            <img src="img/Uniforme.png" alt="Uniforme" class="img-modal">
+                        </div>
+                        <div class="modal-input-editar input-nombre-completo">
+                            <label>Nombre del Producto</label>
+                            <input type="text" class="modal-editar-comic" value="Uniforme de Competencia Femenino">
+                        </div>
+                    </div>
+
+                    <hr class="modal-separador-editar">
+
+                    <div class="campos-grid-editar">
+                        <div class="imp-editar">
+                            <label>Cantidad</label>
+                            <div class="control-cantidad-editarc">
+                                <button type="button" class="btn-cant-fn">−</button>
+                                <input type="number" class="input-cant-fn" value="20" readonly>
+                                <button type="button" class="btn-cant-fn">+</button>
+                            </div>
+                        </div>
+                        <div class="imp-editar">
+                            <label>Tipo</label>
+                            <select id="tipo" class="modal-editar-comic">
+                                <option value="ropa">Ropa</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="calzado">Calzado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="campos-grid-editar">
+                        <div class="imp-editar">
+                            <label>Estado</label>
+                            <select id="estado" class="modal-editar-comic">
+                                <option value="disponible">Disponible</option>
+                                <option value="noDisponible">No disponible</option>
+                            </select>
+                        </div>
+                        <div class="imp-editar">
+                            <label>Precio</label>
+                            <input type="text" id="precio" class="modal-editar-comic" value="$ 250,000">
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="modal-footer-editar">
+                    <button type="button" class="btn-editar btn-editar-gris" onclick="document.getElementById('modal-editar').close()">Cancelar</button>
+                    <button type="submit" class="btn-editar btn-editar-rojo">Guardar Cambios</button>
+                </footer>
+            </form>
+        </dialog>
+
+        <!-- ===== MODAL: Inhabilitar Implemento ===== -->
+        <dialog id="modal-inhabilitar" class="modal-diseno-inhabilitar">
+            <div class="modal-cuerpo-inhabilitar">
+                <div class="btn-inhabilitar">
+                    <i class="fas fa-bolt icono-inhabilitar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-off-icon lucide-zap-off">
+                            <path d="M10.513 4.856 13.12 2.17a.5.5 0 0 1 .86.46l-1.377 4.317"/>
+                            <path d="M15.656 10H20a1 1 0 0 1 .78 1.63l-1.72 1.773"/>
+                            <path d="M16.273 16.273 10.88 21.83a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14H4a1 1 0 0 1-.78-1.63l4.507-4.643"/>
+                            <path d="m2 2 20 20"/>
+                        </svg>
+                    </i> 
+                </div>
+                <h1>¿Inhabilitar Elemento Deportivo?</h1>
+                <p>¿Está seguro/a de que desea inhabilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
+                <p class="nota-alerta">Esta acción cambiará su estado a No Disponible.</p>
+                <div class="modal-footer-ihnabilitar">
+                    <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-inhabilitar').close()">Cancelar</button>
+                    <button type="button" class="btn-modal-peligro" onclick="document.getElementById('modal-inhabilitar').close()">Inhabilitar</button>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- ===== MODAL: Habilitar Implemento ===== -->
+        <dialog id="modal-habilitar" class="modal-diseno-inhabilitar">
+            <div class="modal-cuerpo-inhabilitar">
+                <div class="btn-habilitar">
+                    <i class="fas fa-bolt icono-habilitar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap">
+                            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                        </svg>
+                    </i> 
+                </div>
+                <h1>¿Habilitar Elemento Deportivo?</h1>
+                <p>¿Está seguro/a de que desea habilitar el Implemento Deportivo <strong>"Uniforme de competencia Femenino"</strong>?</p>
+                <p class="nota-alerta">Esta acción cambiará su estado a Disponible.</p>
+                <div class="modal-footer-ihnabilitar">
+                    <button type="button" class="btn-modal-cancelar" onclick="document.getElementById('modal-habilitar').close()">Cancelar</button>
+                    <button type="button" class="btn-modal-habilitar">Habilitar</button>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- ===== MODAL: Solicitud Aprobada ===== -->
+        <dialog id="modal-aprobar" class="modal-aprobadas">
+            <div class="modal-cuerpo-aprobada">
+                <div class="icono-contenedor-exito-v">
+                    <span class="check-icono-v">✓</span>
+                </div>
+                <p class="texto-aprobada-modal">
+                    La solicitud ha sido aprobada exitosamente, se notificará al usuario sobre la fecha de entrega <strong>08/04/2026</strong> y el valor correspondiente del producto.
+                </p>
+                <button type="button" class="btn-aprobada btn-aprobada-verde" onclick="document.getElementById('modal-aprobar').close()">Volver</button>
+            </div>
+        </dialog>
+
+        <!-- ===== MODAL: Rechazar Solicitud ===== -->
+        <dialog id="modal-rechazar" class="modal-diseno-rechazar">
+            <form method="dialog" class="form-modal-rechazar">
+                <header class="modal-header-rojo-rechazar">
+                    <h2>Rechazar Solicitud</h2>
+                    <p>Pedido de Implemento</p>
+                    <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-rechazar').close()">×</button>
+                </header>
+                <div class="modal-cuerpo-rechazar">
+                    <div class="modal-grupo-input">
+                        <label class="label-motivo-negro">Motivo del Rechazo *</label>
+                        <textarea id="motivo-rechazo" class="modal-control-rechazar textarea-modal-rechazar" placeholder="Escriba aquí los inconvenientes con el proveedor o detalles del rechazo..."></textarea>
+                    </div>
+                </div>
+                <footer class="modal-footer-rechazar">
+                    <button type="button" class="btn-rechazar btn-rechazar-gris" onclick="document.getElementById('modal-rechazar').close()">Cancelar</button>
+                    <button type="submit" class="btn-rechazar btn-rechazar-rojo">Confirmar Rechazo</button>
+                </footer>
+            </form>
+        </dialog>
+
+        <!-- ===== MODAL: Agregar Implemento ===== -->
+        <dialog id="modal-agregar" class="modal-agregar">
+            <header class="modal-header-rojo">
+                <h2 class="modal-agregar-titulo">Registrar Nuevo Implemento Deportivo</h2>
+                <p>Introduce los datos detallados del implemento deportivo.</p>
+                <button type="button" class="btn-cerrar-modal-x" onclick="document.getElementById('modal-agregar').close()">×</button>
+            </header>
+                <form class="formulario-registro">
+                    <div class="form-titulo">
+                        <h2>Registrar Implemento</h2>
+                    </div>
+
+                    <div class="grid-campos">
+                        <div class="imp-registro">
+                            <label for="nombre">Nombre del producto</label>
+                            <input type="text" id="nombre" class="form-control" placeholder="Nombre del elemento">
+                        </div>
+                        <div class="imp-registro">
+                            <label for="tipo-re">Tipo</label>
+                            <select id="tipo-re" class="form-control">
+                                <option value="" disabled selected>Seleccione tipo de producto</option>
+                                <option value="ropa">Ropa</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="calzado">Calzado</option>
+                            </select>
+                        </div>
+                        <div class="imp-registro">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" id="cantidad" class="form-control" placeholder="Ingrese cantidad">
+                        </div>
+                        <div class="imp-registro">
+                            <label for="estado-re">Estado</label>
+                            <select id="estado-re" class="form-control">
+                                <option value="" disabled selected>Seleccione estado</option>
+                                <option value="disponible">Disponible</option>
+                                <option value="noDisponible">No disponible</option>
+                            </select>
+                        </div>
+                        <div class="imp-registro full-width">
+                            <label for="precio-re">Precio</label>
+                            <input type="number" id="precio-re" class="form-control" placeholder="Ingrese precio">
+                        </div>
+                    </div>
+
+                    <div class="imp-registro full-width-foto">
+                        <label>Agregar Foto:</label>
+                        <div class="zona-drop" id="zonaDrop">
+                            <input type="file" id="inputFoto" accept="image/*" style="display: none;">
+                            <div class="contenido-drop" id="contenidoDrop">
+                                <div class="icono-nube-placeholder">☁️</div>
+                                <p>Arrastra una imagen aquí o <span class="resaltado-click">haga click para subir</span></p>
+                            </div>
+                            <img id="previstaFoto" style="display:none; max-width:100%; max-height:180px; border-radius:8px; object-fit:contain;">
+                        </div>
+                    </div>
+
+                    <div class="contenedor-bnt-guardar">
+                        <button type="button" class="btn-cancelar-agregar" onclick="document.getElementById('modal-agregar').close()">Cancelar</button>
+                        <button type="button" class="btn-guardar" id="btn-guardar">Guardar Implemento</button>
+                    </div>
+                </form>
+        </dialog>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                // Cantidad en modal editar
+                const contenedorCantidad = document.querySelector('.control-cantidad-editarc');
+                if (contenedorCantidad) {
+                    const btnMenos = contenedorCantidad.querySelector('.btn-cant-fn:first-child');
+                    const btnMas = contenedorCantidad.querySelector('.btn-cant-fn:last-child');
+                    const inputCant = contenedorCantidad.querySelector('.input-cant-fn');
+                    btnMenos.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        let v = parseInt(inputCant.value) || 0;
+                        if (v > 0) inputCant.value = v - 1;
+                    });
+                    btnMas.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        let v = parseInt(inputCant.value) || 0;
+                        inputCant.value = v + 1;
+                    });
+                }
+
+                // Abrir modal EDITAR con datos del implemento
+                document.querySelectorAll('.btn-accion.editar').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const fila = btn.closest('tr');
+                        const nombre = fila.querySelector('span').textContent.trim();
+                        const cantidad = fila.querySelectorAll('td')[3].textContent.trim();
+                        const precio = fila.querySelectorAll('td')[4].textContent.trim();
+                        const tipo = fila.querySelectorAll('td')[2].textContent.trim();
+                        const img = fila.querySelector('.img-producto').src;
+
+                        document.querySelector('#modal-editar .modal-header-rojo p').textContent = nombre;
+                        document.querySelector('#modal-editar .modal-editar-comic[type="text"]').value = nombre;
+                        document.querySelector('#modal-editar .input-cant-fn').value = cantidad;
+                        document.querySelector('#modal-editar #precio').value = precio;
+                        document.querySelector('#modal-editar .img-modal').src = img;
+
+                        const selectTipo = document.querySelector('#modal-editar #tipo');
+                        [...selectTipo.options].forEach(opt => {
+                            opt.selected = opt.text.toLowerCase() === tipo.toLowerCase();
+                        });
+
+                        document.getElementById('modal-editar').showModal();
+                    });
+                });
+
+                // Abrir modal INHABILITAR con nombre del implemento
+                document.querySelector('.tabla-implementos tbody').addEventListener('click', (e) => {
+                    const btn = e.target.closest('.btn-accion.eliminar');
+                    if (!btn) return;
+
+                    const fila = btn.closest('tr');
+                    const nombre = fila.querySelector('span').textContent.trim();
+                    document.querySelector('#modal-inhabilitar strong').textContent = `"${nombre}"`;
+
+                    document.getElementById('modal-inhabilitar').dataset.filaIndex =
+                        [...document.querySelectorAll('.tabla-implementos tbody tr')].indexOf(fila);
+
+                    document.getElementById('modal-inhabilitar').showModal();
+                });
+
+                // Confirmar INHABILITAR
+                document.querySelector('.btn-modal-peligro').addEventListener('click', () => {
+                    const filas = document.querySelectorAll('.tabla-implementos tbody tr');
+                    const index = document.getElementById('modal-inhabilitar').dataset.filaIndex;
+                    const fila = filas[index];
+
+                    const badge = fila.querySelector('.badge');
+                    badge.textContent = 'No Disponible';
+                    badge.classList.remove('disponible');
+                    badge.classList.add('no-disponible');
+
+                    const btnEditar = fila.querySelector('.btn-accion.editar');
+                    btnEditar.disabled = true;
+                    btnEditar.style.opacity = '0.4';
+                    btnEditar.style.cursor = 'not-allowed';
+
+                    const btnEliminar = fila.querySelector('.btn-accion.eliminar');
+                    btnEliminar.classList.remove('eliminar');
+                    btnEliminar.classList.add('habilitar');
+                    btnEliminar.querySelector('.icono-accion').alt = 'Habilitar';
+                    btnEliminar.title = 'Habilitar';
+
+                    document.getElementById('modal-inhabilitar').close();
+                });
+
+                // Abrir modal HABILITAR
+                document.querySelector('.tabla-implementos tbody').addEventListener('click', (e) => {
+                    const btn = e.target.closest('.btn-accion.habilitar');
+                    if (!btn) return;
+
+                    const fila = btn.closest('tr');
+                    const nombre = fila.querySelector('span').textContent.trim();
+                    document.querySelector('#modal-habilitar strong').textContent = `"${nombre}"`;
+
+                    document.getElementById('modal-habilitar').dataset.filaIndex =
+                        [...document.querySelectorAll('.tabla-implementos tbody tr')].indexOf(fila);
+
+                    document.getElementById('modal-habilitar').showModal();
+                });
+
+                // Confirmar HABILITAR
+                document.querySelector('.btn-modal-habilitar').addEventListener('click', () => {
+                    const filas = document.querySelectorAll('.tabla-implementos tbody tr');
+                    const index = document.getElementById('modal-habilitar').dataset.filaIndex;
+                    const fila = filas[index];
+
+                    const badge = fila.querySelector('.badge');
+                    badge.textContent = 'Disponible';
+                    badge.classList.remove('no-disponible');
+                    badge.classList.add('disponible');
+
+                    const btnEditar = fila.querySelector('.btn-accion.editar');
+                    btnEditar.disabled = false;
+                    btnEditar.style.opacity = '';
+                    btnEditar.style.cursor = '';
+
+                    const btnHabilitar = fila.querySelector('.btn-accion.habilitar');
+                    btnHabilitar.classList.remove('habilitar');
+                    btnHabilitar.classList.add('eliminar');
+                    btnHabilitar.querySelector('.icono-accion').alt = 'Eliminar';
+
+                    document.getElementById('modal-habilitar').close();
+                });
+            });
+
+            // Cerrar modal agregar al guardar
+            document.getElementById('btn-guardar').addEventListener('click', () => {
+                document.getElementById('modal-agregar').close();
+            });
+        </script>
+    </div>  
+</body>
+</html>

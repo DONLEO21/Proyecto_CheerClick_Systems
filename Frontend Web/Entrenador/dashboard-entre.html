@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Entrenador | Blood Tigers Cheer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dashboard-entre.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+</head>
+
+<body class="pagina-entrenador">
+
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-entre.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="asistenciaEntre.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                 <li class="menu-lateral__elemento">
+                    <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="Gestion_renDeportivo_entre.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+
+                
+
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="../Home Page/index.html"  class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Entrenador</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-entre.html"class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="contenedor">
+
+            <section class="bienvenida-entrenador" aria-labelledby="titulo-dashboard">
+                <h1 id="titulo-dashboard">Hola, Coach Stuard 👋</h1>
+                <a href="#" class="btn btn-primario bienvenida-admin__perfil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+                    Perfil
+                </a>
+            </section>
+
+            <section class="panel-resumen" aria-label="resumen del entrenador">
+
+                <article class="tarjeta-dashboard resumen-rapido">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Resumen rápido</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido resumen-rapido__lista">
+
+                        <div class="resumen-rapido__item">
+                            <span class="resumen-rapido__icono resumen-rapido__icono--rojo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+                            </span>
+                            <span class="resumen-rapido__valor">20</span>
+                            <span class="resumen-rapido__etiqueta">Atletas activos</span>
+                        </div>
+
+                        <div class="resumen-rapido__separador"></div>
+
+                        <div class="resumen-rapido__item">
+                            <span class="resumen-rapido__icono resumen-rapido__icono--azul">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                            </span>
+                            <span class="resumen-rapido__valor">3</span>
+                            <span class="resumen-rapido__etiqueta">Entrenamientos hoy</span>
+                        </div>
+
+                        <div class="resumen-rapido__separador"></div>
+
+                        <div class="resumen-rapido__item">
+                            <span class="resumen-rapido__icono resumen-rapido__icono--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                            </span>
+                            <span class="resumen-rapido__valor">85%</span>
+                            <span class="resumen-rapido__etiqueta">Rendimiento promedio</span>
+                        </div>
+
+                        <div class="resumen-rapido__separador"></div>
+
+                        <div class="resumen-rapido__item">
+                            <span class="resumen-rapido__icono resumen-rapido__icono--morado">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            </span>
+                            <span class="resumen-rapido__valor">92%</span>
+                            <span class="resumen-rapido__etiqueta">Asistencia promedio</span>
+                        </div>
+
+                    </div>
+                </article>
+
+                <article class="tarjeta-dashboard tarjeta-progreso">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Progreso últimas 4 semanas</h2>
+                    </header>
+                    <div class="tarjeta-dashboard__contenido">
+                        <p class="tarjeta-progreso__variacion">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                            <strong>5.2%</strong> vs. semana anterior
+                        </p>
+                        <figure class="grafico-progreso">
+                            <img src="img/grafica progreso.png" alt="Grafica progreso semanal">
+                        </figure>
+                    </div>
+                </article>
+
+                <article class="tarjeta-dashboard tarjeta-atletas">
+                    <div class="buscador-filtros">
+                        <label class="buscador" aria-label="buscar atleta">
+                            <span class="buscador__icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                            </span>
+                            <input type="search" placeholder="Buscar atleta">
+                        </label>
+                        <label class="filtro-categoria" aria-label="filtrar por categoría">
+                            <span class="filtro-categoria__icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20a1 1 0 0 0 .55.9l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"/></svg>
+                            </span>
+                            <input type="text" placeholder="Filtrar por categoría">
+                        </label>
+                    </div>
+
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--espacio">
+                        <h2>Lista de Atletas</h2>
+                        <span class="insignia-conteo">20 atletas</span>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        <table class="tabla-dashboard tabla-atletas">
+                            <thead>
+                                <tr>
+                                    <th>Atleta</th>
+                                    <th>Categoría</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="atleta-info">
+                                            <img src="/img/iconos/circle-user.svg" alt="Foto atleta">
+                                            <div class="atleta-info__texto">
+                                                <span class="atleta-info__nombre">Ana López</span>
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="insignia-categoria">Nivel 3 Magic</span></td>
+                                    <td><span class="estado-pill estado-pill--activo">Activo</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="atleta-info">
+                                            <img src="/img/iconos/circle-user.svg" alt="Foto atleta">
+                                            <div class="atleta-info__texto">
+                                                <span class="atleta-info__nombre">Juan Pérez</span>
+                                               
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="insignia-categoria">Nivel 3 Magic</span></td>
+                                    <td><span class="estado-pill estado-pill--activo">Activo</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="atleta-info">
+                                            <img src="/img/iconos/circle-user.svg" alt="Foto atleta">
+                                            <div class="atleta-info__texto">
+                                                <span class="atleta-info__nombre">Gabriela Deaquiz</span>
+                            
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="insignia-categoria">Nivel 3 Magic</span></td>
+                                    <td><span class="estado-pill estado-pill--inactivo">Inactivo</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- ===== CALENDARIO (actualizado: cabecera de mes + leyenda + círculo verde) ===== -->
+                <article class="tarjeta-dashboard tarjeta-calendario">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                        <h2>Calendario</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+
+                        <!-- cabecera del mes, con flechas solo visuales (no funcionales) -->
+                        <div class="calendario__cabecera">
+                            <button type="button" class="calendario__flecha" aria-label="Mes anterior" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <span class="calendario__mes-actual">Junio, 2026</span>
+                            <button type="button" class="calendario__flecha" aria-label="Mes siguiente" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+
+                        <table class="calendario">
+                            <thead>
+                                <tr>
+                                    <th>Dom</th>
+                                    <th>Lun</th>
+                                    <th>Mar</th>
+                                    <th>Mié</th>
+                                    <th>Jue</th>
+                                    <th>Vie</th>
+                                    <th>Sáb</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <th><span class="calendario__num">1</span></th>
+                                    <th><span class="calendario__num">2</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">3</span></th>
+                                    <th><span class="calendario__num">4</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">5</span></th>
+                                    <th><span class="calendario__num">6</span></th>
+                                </tr>
+                                <tr>
+                                    <th><span class="calendario__num">7</span></th>
+                                    <th><span class="calendario__num">8</span></th>
+                                    <th><span class="calendario__num">9</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">10</span></th>
+                                    <th><span class="calendario__num">11</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">12</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">13</span></th>
+                                </tr>
+                                <tr>
+                                    <th><span class="calendario__num">14</span></th>
+                                    <th><span class="calendario__num">15</span></th>
+                                    <th><span class="calendario__num">16</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">17</span></th>
+                                    <th><span class="calendario__num">18</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">19</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">20</span></th>
+                                </tr>
+                                <tr>
+                                    <th><span class="calendario__num">21</span></th>
+                                    <th><span class="calendario__num">22</span></th>
+                                    <th><span class="calendario__num">23</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">24</span></th>
+                                    <th><span class="calendario__num">25</span></th>
+                                    <th class="dia-entrenamiento"><span class="calendario__num">26</span></th>
+                                    <th><span class="calendario__num">27</span></th>
+                                </tr>
+                                <tr>
+                                    <th><span class="calendario__num">28</span></th>
+                                    <th><span class="calendario__num">29</span></th>
+                                    <th><span class="calendario__num">30</span></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="calendario__leyenda">
+                            <li class="calendario__leyenda-item">
+                                <span class="calendario__punto calendario__punto--verde"></span>
+                                Día de entrenamiento
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <a href="HoraEntre.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                        Ver mis entrenamientos
+                    </a>
+                </article>
+
+                <article class="tarjeta-dashboard tarjeta-rendimiento-equipo">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Rendimiento del Equipo</h2>
+                    </header>
+                    <div class="tarjeta-dashboard__contenido lista-progreso">
+                        <div class="barra-progreso">
+                            <div class="barra-progreso__etiqueta">
+                                <span>Coreografía</span><span>80%</span>
+                            </div>
+                            <div class="barra-progreso__pista">
+                                <div class="barra-progreso__relleno barra-progreso__relleno--verde" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="barra-progreso">
+                            <div class="barra-progreso__etiqueta">
+                                <span>Partner</span><span>60%</span>
+                            </div>
+                            <div class="barra-progreso__pista">
+                                <div class="barra-progreso__relleno barra-progreso__relleno--azul" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="barra-progreso">
+                            <div class="barra-progreso__etiqueta">
+                                <span>Gimnasia</span><span>100%</span>
+                            </div>
+                            <div class="barra-progreso__pista">
+                                <div class="barra-progreso__relleno barra-progreso__relleno--magenta" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="barra-progreso">
+                            <div class="barra-progreso__etiqueta">
+                                <span>Acrobacia</span><span>60%</span>
+                            </div>
+                            <div class="barra-progreso__pista">
+                                <div class="barra-progreso__relleno barra-progreso__relleno--azul" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>

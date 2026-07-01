@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Atleta | Blood Tigers Cheer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dashboard-atleta.css">
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+</head>
+
+<body class="pagina-atleta">
+
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+
+        <!-- Botón hamburguesa -->
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+
+        <!-- Navegación lateral -->
+        <nav class="w-100">
+            <ul class="menu-lateral list-unstyled mb-0" role="list">
+
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-atleta.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+
+                 <li class="menu-lateral__elemento">
+                    <a href="HoraAtle.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ImplementosAtle.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/camisa.png" alt="Implementos">
+                    </a>
+                </li>
+
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_atle.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Estado de cuentas">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="PQRSAtleta.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                 <li class="menu-lateral__elemento">
+                    <a href="rendimientoAtle.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento">
+                    </a>
+                </li>
+
+                
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
+
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+                    <li>
+                        <a href="../Home Page/index.html"  class="boton-cerrar-sesion">Cerrar Sesión</a>
+                    </li>
+                    <li>
+                        <span class="etiqueta-rol">Atleta</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="dashboard-atleta.html"class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="contenedor">
+
+            <!-- encabezado principal -->
+            <section class="bienvenida-atleta" aria-labelledby="titulo-dashboard">
+                <h1 id="titulo-dashboard">
+                    Hola, Gabriela 👋
+                </h1>
+
+                <a href="perfil-atleta.html" class="btn btn-primario bienvenida-atleta__perfil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-pen-icon lucide-square-pen"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+                    Perfil
+                </a>
+            </section>
+
+            <!-- tarjetas principales -->
+            <section class="panel-resumen" aria-label="resumen del atleta">
+
+                <!-- tu rendimiento -->
+                <article class="tarjeta-dashboard tarjeta-rendimiento">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Tu rendimiento</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido tarjeta-rendimiento__contenido">
+                        <figure class="grafico-rendimiento">
+                            
+                            <img src="img/grafica-habilidades.png" alt="Grafica habilidades dominadas">
+                        </figure>
+
+                        <p class="tarjeta-progreso__variacion">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up-icon lucide-trending-up"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                            <strong>+5%</strong> respecto a la semana pasada
+                        </p>
+
+                        <a href="rendimientoAtle.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                            Ver mi Rendimiento
+                        </a>
+                    </div>
+                </article>
+
+                <!-- progreso semanal -->
+                <article class="tarjeta-dashboard tarjeta-progreso">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Progreso semanal</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+                        
+                        <figure class="grafico-progreso">
+                            <img src="img/grafica progreso.png" alt="Grafica progreso semanal">
+                        </figure>
+
+                        <div class="lista-progreso">
+
+                            <div class="barra-progreso">
+                                <div class="barra-progreso__etiqueta">
+                                    <span>Mortales</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="barra-progreso__pista">
+                                    <div class="barra-progreso__relleno barra-progreso__relleno--rojo" style="width: 40%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="barra-progreso">
+                                <div class="barra-progreso__etiqueta">
+                                    <span>Palomas</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="barra-progreso__pista">
+                                    <div class="barra-progreso__relleno barra-progreso__relleno--verde" style="width: 100%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="barra-progreso">
+                                <div class="barra-progreso__etiqueta">
+                                    <span>Flips</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="barra-progreso__pista">
+                                    <div class="barra-progreso__relleno barra-progreso__relleno--amarillo" style="width: 75%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+
+                <!-- calendario -->
+                <article class="tarjeta-dashboard tarjeta-calendario">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                        <h2>Calendario</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido">
+
+                        <!-- cabecera del mes, con flechas solo visuales (no funcionales) -->
+                        <div class="calendario__cabecera">
+                            <button type="button" class="calendario__flecha" aria-label="Mes anterior" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <span class="calendario__mes-actual">Junio, 2026</span>
+                            <button type="button" class="calendario__flecha" aria-label="Mes siguiente" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+
+                        <table class="calendario">
+                            <thead>
+                                <tr>
+                                    <th>Dom</th>
+                                    <th>Lun</th>
+                                    <th>Mar</th>
+                                    <th>Mié</th>
+                                    <th>Jue</th>
+                                    <th>Vie</th>
+                                    <th>Sáb</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <th>1</th>
+                                    <th class="dia-asistio">2</th>
+                                    <th>3</th>
+                                    <th class="dia-asistio">4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                </tr>
+                                <tr>
+                                    <th class="dia-asistio">7</th>
+                                    <th class="dia-asistio">8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th class="dia-fallo">11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                </tr>
+                                <tr>
+                                    <th class="dia-fallo">14</th>
+                                    <th class="dia-asistio">15</th>
+                                    <th class="dia-asistio">16</th>
+                                    <th>17</th>
+                                    <th class="dia-asistio">18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                </tr>
+                                <tr>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th class="dia-fallo">23</th>
+                                    <th>24</th>
+                                    <th class="dia-asistio">25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                </tr>
+                                <tr>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th class="dia-asistio">30</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="calendario__leyenda">
+                            <li class="calendario__leyenda-item">
+                                <span class="calendario__punto calendario__punto--verde"></span>
+                                Asistí
+                            </li>
+                            <li class="calendario__leyenda-item">
+                                <span class="calendario__punto calendario__punto--rojo"></span>
+                                Falté
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="HoraAtle.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                        Ver entrenamientos
+                    </a>
+                </article>
+
+                <!-- tarjeta perfil -->
+                <article class="tarjeta-dashboard tarjeta-perfil-atleta">
+                    <div class="tarjeta-dashboard__contenido perfil-atleta">
+
+                        <figure class="perfil-atleta__foto">
+                            <img src="img/foto-perfil-g.jpg" alt="Foto de Gabriela Deaquiz">
+                        </figure>
+
+                        <h3 class="perfil-atleta__nombre">Gabriela Deaquiz</h3>
+
+                        <span class="insignia-categoria">Nivel 3 Magic</span>
+
+                        <div class="perfil-atleta__stats">
+                            <div class="perfil-atleta__stat">
+                                <span class="perfil-atleta__stat-valor">20</span>
+                                <span class="perfil-atleta__stat-etiqueta">Entrenamientos</span>
+                            </div>
+                            <div class="perfil-atleta__stat">
+                                <span class="perfil-atleta__stat-valor">1</span>
+                                <span class="perfil-atleta__stat-etiqueta">Coreografía</span>
+                            </div>
+                        </div>
+
+                        <!-- proximos entrenamientos-->
+                        <div class="perfil-atleta__proximo">
+                            <div class="perfil-atleta__proximo-etiqueta">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                                Próximo entrenamiento
+                            </div>
+                            <div class="perfil-atleta__proximo-info">
+                                <span class="perfil-atleta__proximo-fecha">Lun 23 · 4:00 PM</span>
+                                <span class="perfil-atleta__proximo-tipo">Rutina de partner</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- ultimas actividades -->
+                <article class="tarjeta-dashboard tarjeta-actividades">
+                    <header class="tarjeta-dashboard__header">
+                        <h2>Últimas actividades</h2>
+                    </header>
+
+                    <div class="tarjeta-dashboard__contenido lista-actividades">
+
+                        <div class="actividad-item">
+                            <span class="actividad-item__icono actividad-item__icono--verde">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            </span>
+                            <div class="actividad-item__texto">
+                                <span class="actividad-item__titulo">Entrenamiento completado</span>
+                                <span class="actividad-item__subtitulo">Rutina de partner</span>
+                            </div>
+                            <span class="actividad-item__tiempo">Hoy</span>
+                        </div>
+
+                        <div class="actividad-item">
+                            <span class="actividad-item__icono actividad-item__icono--amarillo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                            </span>
+                            <div class="actividad-item__texto">
+                                <span class="actividad-item__titulo">Torneo</span>
+                                <span class="actividad-item__subtitulo">ALLCHEER - Nivel 2</span>
+                            </div>
+                            <span class="actividad-item__tiempo">Lun</span>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- pqrs -->
+                <article class="tarjeta-dashboard tarjeta-pqrs">
+                    <header class="tarjeta-dashboard__header tarjeta-dashboard__header--icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <h2>PQRS</h2>
+                    </header>
+
+                    <!-- tarjetas de PQRS estados-->
+                    <div class="tarjeta-dashboard__contenido pqrs__resumen">
+                        <span class="insignia-pqrs insignia-pqrs--respondida">2 resuelta</span>
+                        <span class="insignia-pqrs insignia-pqrs--proceso">1 en trámite</span>
+                        <span class="insignia-pqrs insignia-pqrs--pendiente">1 pendiente</span>
+                        
+                    </div>
+
+                    <a href="PQRSAtleta.html" class="btn btn-primario tarjeta-dashboard__accion tarjeta-dashboard__accion--completo">
+                        Ver mis Solicitudes
+                    </a>
+                </article>
+
+            </section>
+
+            <!-- proximos torneos -->
+            <section class="tarjeta-dashboard tarjeta-torneos" aria-label="proximos torneos">
+                <header class="tarjeta-dashboard__header torneos__header">
+                    <div class="torneos__titulo-grupo">
+                        <h2>Próximos Torneos</h2>
+                        <p class="torneos__subtitulo">Competencias programadas para este año</p>
+                    </div>
+                    <span class="torneos__contador">4 eventos</span>
+                </header>
+
+                <div class="torneos__lista">
+
+                    <a href="./torneo-detalle.html?id=universal" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--rojo">
+                            <span class="torneo-card__dia">25</span>
+                            <span class="torneo-card__mes">Jul</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Universal</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Bogotá - Colegio San Viator
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--inscrita">Inscrita</span>
+                    </a>
+
+                    <a href="./torneo-detalle.html?id=nfinity" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--rojo">
+                            <span class="torneo-card__dia">20</span>
+                            <span class="torneo-card__mes">Sep</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Nfinity League</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Bogotá - City Hall
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--pendiente">Por inscribir</span>
+                    </a>
+
+                    <a href="./torneo-detalle.html?id=summer" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--oscuro">
+                            <span class="torneo-card__dia">10</span>
+                            <span class="torneo-card__mes">Oct</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Summer</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Tocaima - Parque acuático
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--pendiente">Por inscribir</span>
+                    </a>
+
+                    <a href="./torneo-detalle.html?id=xiua" class="torneo-card">
+                        <div class="torneo-card__fecha torneo-card__fecha--oscuro">
+                            <span class="torneo-card__dia">29</span>
+                            <span class="torneo-card__mes">Nov</span>
+                        </div>
+                        <div class="torneo-card__info">
+                            <span class="torneo-card__nombre">Torneo Xiua</span>
+                            <span class="torneo-card__lugar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                                Sibaté - Coliseo
+                            </span>
+                        </div>
+                        <span class="torneo-card__estado torneo-card__estado--pendiente">Por inscribir</span>
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
