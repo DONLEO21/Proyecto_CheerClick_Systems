@@ -1,0 +1,168 @@
+{
+  "implementos": [
+    {
+      "id": "IM213",
+      "nombre": "Zapatillas BTC",
+      "tipo": "Calzado",
+      "genero": "Unisex",
+      "cantidad": 8,
+      "precio": 100000,
+      "estado": "Disponible",
+      "imagen": "",
+      "calificacion": 4,
+      "resenas": 30
+    },
+    {
+      "id": "IM124",
+      "nombre": "Bolso BTC",
+      "tipo": "Accesorios",
+      "genero": "Unisex",
+      "cantidad": 13,
+      "precio": 100000,
+      "estado": "Disponible",
+      "imagen": "",
+      "calificacion": 3,
+      "resenas": 5
+    }
+  ],
+  "solicitudes": [
+    {
+      "id": "SL263",
+      "implementoId": "IM125",
+      "implementoNombre": "Uniforme de Competencia Femenino",
+      "implementoImagen": "",
+      "atleta": "Gabriela Deaquiz",
+      "categoria": "Magic",
+      "cantidad": 2,
+      "talla": "M",
+      "precioUnitario": 350000,
+      "fechaSolicitud": "2026-04-02",
+      "metodoPago": "Pago presencial",
+      "estado": "Aprobado",
+      "motivoRechazo": "",
+      "recibido": true,
+      "resenaEnviada": true
+    },
+    {
+      "id": "SL156",
+      "implementoId": "IM213",
+      "implementoNombre": "Zapatillas BTC",
+      "implementoImagen": "",
+      "atleta": "Juan Torres",
+      "categoria": "Queen",
+      "cantidad": 1,
+      "talla": "40",
+      "precioUnitario": 100000,
+      "fechaSolicitud": "2026-04-04",
+      "metodoPago": "Transferencia",
+      "estado": "Aprobado",
+      "motivoRechazo": ""
+    },
+    {
+      "id": "SL589",
+      "implementoId": "IM124",
+      "implementoNombre": "Bolso BTC",
+      "implementoImagen": "",
+      "atleta": "Maria Mercado",
+      "categoria": "Princess",
+      "cantidad": 2,
+      "talla": "N/A",
+      "precioUnitario": 100000,
+      "fechaSolicitud": "2026-04-04",
+      "metodoPago": "Transferencia",
+      "estado": "Aprobado",
+      "motivoRechazo": "",
+      "recibido": false,
+      "resenaEnviada": false
+    },
+    {
+      "id": "TP62itmnPmY",
+      "estado": "Aprobado",
+      "motivoRechazo": "",
+      "implementoId": "IM125",
+      "implementoNombre": "Uniforme de competencia Femenino",
+      "implementoImagen": "",
+      "atleta": "Gabriela Deaquiz",
+      "categoria": "Magic",
+      "cantidad": 1,
+      "talla": "N/A",
+      "precioUnitario": 350000,
+      "fechaSolicitud": "2026-09-14",
+      "metodoPago": "Pago presencial",
+      "comprobante": "",
+      "recibido": true,
+      "resenaEnviada": true
+    },
+    {
+      "id": "OlS7xMhyREc",
+      "estado": "Cancelado",
+      "motivoRechazo": "",
+      "implementoId": "IM213",
+      "implementoNombre": "Zapatillas BTC",
+      "implementoImagen": "",
+      "atleta": "Gabriela Deaquiz",
+      "categoria": "Magic",
+      "cantidad": 1,
+      "talla": "N/A",
+      "precioUnitario": 100000,
+      "fechaSolicitud": "2026-09-16",
+      "metodoPago": "Pago presencial",
+      "comprobante": ""
+    },
+    {
+      "id": "j59aPKeYhw4",
+      "estado": "Aprobado",
+      "motivoRechazo": "",
+      "implementoId": "IM125",
+      "implementoNombre": "Uniforme de competencia Femenino",
+      "implementoImagen": "",
+      "atleta": "Gabriela Deaquiz",
+      "categoria": "Magic",
+      "cantidad": 1,
+      "talla": "N/A",
+      "precioUnitario": 350000,
+      "fechaSolicitud": "2026-09-16",
+      "metodoPago": "Pago presencial",
+      "comprobante": ""
+    }
+  ],
+  "resenasComunidad": [
+    {
+      "id": "RC001",
+      "implementoId": "IM213",
+      "implementoNombre": "Zapatillas BTC",
+      "atleta": "Mariana Vélez",
+      "calificacion": 5,
+      "comentario": "Las zapatillas son súper cómodas y tienen excelente agarre para las bases.",
+      "fecha": "2026-03-18"
+    },
+    {
+      "id": "RC002",
+      "implementoId": "IM124",
+      "implementoNombre": "Bolso BTC",
+      "atleta": "Carlos Mendoza",
+      "calificacion": 4,
+      "comentario": "El bolso es muy práctico y tiene buen material. Me gustaría que tuvieran más colores disponibles.",
+      "fecha": "2026-03-20"
+    },
+    {
+      "implementoId": "IM125",
+      "implementoNombre": "Uniforme de Competencia Femenino",
+      "atleta": "Gabriela Deaquiz",
+      "calificacion": 4,
+      "comentario": "La tela es muy buena.",
+      "fecha": "2026-09-14",
+      "id": "E8Q8O2ld32g"
+    },
+    {
+      "implementoId": "IM125",
+      "implementoNombre": "Uniforme de competencia Femenino",
+      "atleta": "Gabriela Deaquiz",
+      "calificacion": 4,
+      "comentario": "Holaa",
+      "fecha": "2026-09-17",
+      "id": "_pWTSEVv3Gs"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

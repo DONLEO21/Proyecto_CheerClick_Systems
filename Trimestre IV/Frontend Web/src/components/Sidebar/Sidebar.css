@@ -1,0 +1,164 @@
+/* ══════════════════════════════════════════════
+   BARRA LATERAL
+   ══════════════════════════════════════════════ */
+.barra-lateral {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--ancho-barra);
+    height: 100vh;
+    background-color: var(--color-primario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 3px 0 10px rgba(0,0,0,.15);
+}
+
+/* ── Botón hamburguesa ── */
+.boton-menu {
+    width: 100%;
+    height: var(--alto-encabezado);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: background .3s;
+    flex-shrink: 0;
+}
+
+.boton-menu:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.boton-menu__linea {
+    display: block;
+    width: 22px; height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: transform .3s;
+}
+
+.boton-menu:hover .boton-menu__linea:first-child { transform: translateY(-2px); }
+.boton-menu:hover .boton-menu__linea:last-child  { transform: translateY(2px);  }
+
+/* ── Lista de ítems ── */
+.menu-lateral {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.menu-lateral__elemento {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    /* Animación de entrada */
+    opacity: 0;
+    animation: aparecer .45s ease forwards;
+}
+
+.menu-lateral__elemento:nth-child(1) { animation-delay: .10s; }
+.menu-lateral__elemento:nth-child(2) { animation-delay: .16s; }
+.menu-lateral__elemento:nth-child(3) { animation-delay: .22s; }
+.menu-lateral__elemento:nth-child(4) { animation-delay: .28s; }
+.menu-lateral__elemento:nth-child(5) { animation-delay: .34s; }
+.menu-lateral__elemento:nth-child(6) { animation-delay: .40s; }
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateX(-18px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Enlace / ícono ── */
+.menu-lateral__enlace {
+    width: 42px; height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radio-enlace);
+    text-decoration: none;
+    transition: background .25s, transform .25s;
+    position: relative;
+}
+
+.menu-lateral__icono {
+    width: 24px; height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.45);   /* gris apagado por defecto */
+    transition: filter .25s;
+}
+
+/* HOVER: ícono blanco brillante, fondo rojo se mantiene */
+.menu-lateral__enlace:hover {
+    background: transparent;
+    transform: scale(1.12);
+}
+
+.menu-lateral__enlace:hover .menu-lateral__icono {
+    filter: brightness(0) invert(1) opacity(1);   /* blanco puro al hacer hover */
+}
+
+/* ── Tooltip ── */
+.menu-lateral__enlace::after {
+    content: attr(title);
+    position: fixed;
+    left: calc(var(--ancho-barra) + 10px);
+    top: var(--tooltip-y, 50%);
+    transform: translateY(-50%) translateX(-6px);
+    background: #1e1e1e;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,.30);
+    transition: opacity .2s, transform .2s;
+    z-index: 2000;
+}
+
+.menu-lateral__enlace:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* ── Ítem activo ── */
+.menu-lateral__elemento--activo::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 4px; height: 30px;
+    background: #000;
+    border-radius: 0 5px 5px 0;
+}
+
+.menu-lateral__elemento--activo .menu-lateral__enlace {
+    background: var(--color-blanco);
+    box-shadow: 0 4px 12px rgba(0,0,0,.18);
+}
+
+.menu-lateral__elemento--activo .menu-lateral__icono {
+    filter: brightness(0);   /* ícono negro sobre fondo blanco */
+}
+
+/* El activo sí escala al hover */
+.menu-lateral__elemento--activo .menu-lateral__enlace:hover {
+    background: var(--color-blanco);
+    transform: scale(1.12);
+}
+
+.menu-lateral__elemento--activo .menu-lateral__enlace:hover .menu-lateral__icono {
+    filter: brightness(0);   /* mantiene ícono negro, no blanco */
+}
