@@ -1,6 +1,5 @@
 import './Header.css';
 import logoClub from '../../assets/icons/Logo-Club.png';
-import SelectorRol from './SelectorRol';
 
 function Header({ rol = 'Administrador', onCerrarSesion, onIrInicio }) {
   return (
@@ -19,7 +18,7 @@ function Header({ rol = 'Administrador', onCerrarSesion, onIrInicio }) {
               </button>
             </li>
             <li>
-              <SelectorRol rol={rol} />
+              <span className="etiqueta-rol">{rol}</span>
             </li>
           </ul>
         </nav>

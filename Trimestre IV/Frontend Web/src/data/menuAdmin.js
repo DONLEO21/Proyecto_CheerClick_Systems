@@ -9,10 +9,10 @@ import estadisticas from '../assets/icons/estadisticas-de-barras.png';
 
 const menuAdmin = [
   { href: '/Admin/Perfil', titulo: 'Perfil', icono: usuario, alt: 'Perfil' },
-  { href: '/Admin/Cuentas', titulo: 'Asistencia', icono: listaVerificacion, alt: 'Estado de cuentas' },
+  { href: './pages/Admin/Asistencia/Asistencia.jsx', titulo: 'Asistencia', icono: listaVerificacion, alt: 'Asistencia' },
   { href: '/Admin/Usuarios', titulo: 'Cuentas de Usuarios', icono: usuarios, alt: 'Validación de cuentas' },
   { href: '/Admin/Horarios', titulo: 'Horarios', icono: calendario, alt: 'Horarios' },
-  { href: '/Admin/Implementos', titulo: 'Implementos Deportivos', icono: camisa, alt: 'Implementos' },
+  { href: './pages/Admin/Implementos/Implementos.jsx', titulo: 'Implementos Deportivos', icono: camisa, alt: 'Implementos' },
   { href: '/Admin/Pagos', titulo: 'Pagos', icono: factura, alt: 'Estado de cuentas' },
   { href: '/Admin/Pqrs', titulo: 'PQRS', icono: comentarios, alt: 'PQRS' },
   { href: '/Admin/Rendimiento', titulo: 'Rendimiento Deportivo', icono: estadisticas, alt: 'Estado de cuentas' },
