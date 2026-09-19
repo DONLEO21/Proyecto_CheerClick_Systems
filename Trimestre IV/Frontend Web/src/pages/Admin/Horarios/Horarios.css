@@ -1,0 +1,267 @@
+/* ══════════════════════════════════════════════════════════
+   MÓDULO HORARIOS (Admin) — pega esto AL FINAL de tu App.css
+   Reutiliza Bootstrap para grid/flex/responsive; estas clases
+   solo aportan color, tipografía y forma (lo que Bootstrap no
+   puede replicar exacto del diseño original).
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  --color-primario: #d71920;
+  --color-primario-oscuro: #b8141a;
+  --color-primario-claro: #fdeaea;
+  --color-primario-badge: #f9dede;
+  --color-borde: #dcdcdc;
+  --color-texto: #222222;
+  --color-texto-suave: #777777;
+  --radio-boton: 5px;
+  --radio-tarjeta: 4px;
+}
+
+@keyframes entrada-escala {
+  from { opacity: 0; transform: scale(0.95) translateY(14px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Encabezado de panel y botones de acción ── */
+.titulo-panel { font-size: 17px; font-weight: 700; color: var(--color-texto); margin-bottom: 3px; }
+.descripcion-panel { font-size: 12px; color: var(--color-texto-suave); }
+
+.btn-nueva-categoria {
+  display: inline-flex; align-items: center; gap: 5px;
+  background-color: var(--color-primario); color: #fff;
+  border: none; padding: 10px 20px; border-radius: var(--radio-boton);
+  font-size: 13.5px; font-weight: 700; cursor: pointer;
+  transition: background-color .2s, transform .1s; white-space: nowrap;
+}
+.btn-nueva-categoria:hover { background-color: var(--color-primario-oscuro); }
+.btn-nueva-categoria:active { transform: scale(0.98); }
+
+.btn-nueva-competencia {
+  display: inline-flex; align-items: center; gap: 7px;
+  background-color: #fff; color: var(--color-primario);
+  border: 1.5px solid var(--color-primario);
+  padding: 9px 18px; border-radius: var(--radio-boton);
+  font-size: 13.5px; font-weight: 700; cursor: pointer;
+  transition: background-color .2s, color .2s, transform .1s; white-space: nowrap;
+}
+.btn-nueva-competencia:hover { background-color: var(--color-primario); color: #fff; }
+.btn-nueva-competencia:active { transform: scale(0.98); }
+
+/* ── Pestañas principales ── */
+.etiqueta-pestania {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; font-size: 14px; font-weight: 600;
+  color: var(--color-texto-suave); cursor: pointer;
+  border: none; background: none;
+  border-bottom: 3px solid transparent; margin-bottom: -2px;
+  transition: color .2s, border-color .2s; white-space: nowrap;
+}
+.etiqueta-pestania:hover { color: var(--color-primario); }
+.etiqueta-pestania.activa { color: var(--color-primario); border-bottom-color: var(--color-primario); font-weight: 700; }
+.barra-pestanias { border-bottom: 2px solid var(--color-borde); }
+
+/* ── Tarjetas de NIVEL ── */
+.tarjeta-categoria {
+  background: #fff; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+  transition: transform .3s, box-shadow .3s;
+  animation: entrada-escala .5s ease both;
+  display: flex; flex-direction: column; height: 100%;
+}
+.tarjeta-categoria:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.tarjeta-categoria.inhabilitada { opacity: .48; filter: grayscale(55%); }
+.tarjeta-categoria.inhabilitada .encabezado-categoria { background: #9e9e9e; }
+
+.encabezado-categoria {
+  background-color: var(--color-primario); color: #fff;
+  text-align: center; padding: 12px 16px;
+  font-size: 14.5px; font-weight: 700; letter-spacing: .2px; line-height: 1.3;
+}
+
+.cuerpo-categoria { padding: 18px 16px 16px; display: flex; flex-direction: column; flex: 1; }
+.info-entrenador { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; flex: 1; }
+
+.foto-entrenador {
+  width: 72px; height: 90px; object-fit: cover; object-position: center top;
+  border-radius: var(--radio-tarjeta); flex-shrink: 0; background-color: #e8e8e8;
+}
+
+.datos-entrenador h3 { font-size: 15px; font-weight: 700; color: var(--color-texto); margin-bottom: 9px; line-height: 1.2; }
+.horarios { display: flex; flex-direction: column; gap: 6px; }
+
+.insignia-horario {
+  display: inline-flex; align-items: center; gap: 7px;
+  background-color: var(--color-primario-badge); color: var(--color-primario);
+  padding: 5px 10px 5px 8px; border-radius: 10px;
+  font-size: 10.5px; font-weight: 750; line-height: 1.3;
+  white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis;
+}
+.insignia-horario i { font-size: 12px; }
+
+.acciones-categoria, .acciones-competencia {
+  display: flex; gap: 10px; justify-content: center;
+  padding-top: 14px; margin-top: auto; border-top: 1px solid #f0f0f0;
+}
+
+.btn-modificar, .btn-inhabilitar {
+  padding: 7px 0; width: 110px; border: 1.5px solid var(--color-primario);
+  background-color: #fff; color: var(--color-primario);
+  border-radius: var(--radio-boton); font-size: 12.5px; font-weight: 600;
+  cursor: pointer; transition: background-color .18s, color .18s; text-align: center;
+}
+.btn-modificar:hover, .btn-inhabilitar:hover { background-color: var(--color-primario); color: #fff; }
+
+/* ── Sub-pestañas de competencias ── */
+.barra-sub-pestanias { border-bottom: 1px solid var(--color-borde); padding-bottom: 16px; }
+
+.sub-etiqueta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 24px; font-size: 13px; font-weight: 600;
+  color: var(--color-texto-suave); background: #f0f0f0; border: 1.5px solid transparent;
+  cursor: pointer; transition: color .22s, background .22s, border-color .22s; white-space: nowrap;
+}
+.sub-etiqueta:hover { color: var(--color-primario); border-color: var(--color-primario); background: var(--color-primario-claro); }
+.sub-etiqueta.activa { color: #fff; background: var(--color-primario); border-color: var(--color-primario); }
+
+.sub-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px;
+  font-size: 11px; font-weight: 700; background: rgba(0,0,0,.08);
+}
+.sub-etiqueta.activa .sub-count { background: rgba(255,255,255,.25); }
+
+/* ── Tarjetas de COMPETENCIA ── */
+.tarjeta-competencia {
+  background: #fff; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08); transition: transform .3s, box-shadow .3s;
+  display: flex; flex-direction: column; height: 100%;
+  animation: entrada-escala .5s ease both;
+}
+.tarjeta-competencia:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.tarjeta-competencia.inhabilitada { opacity: .48; filter: grayscale(55%); }
+
+.figura-competencia { position: relative; height: 200px; margin: 0; background: #f5f5f5; flex-shrink: 0; overflow: hidden; }
+.imagen-competencia { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.figura-competencia .placeholder-trofeo { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #c9c9c9; font-size: 2.2rem; }
+
+.insignia-estado { position: absolute; top: 10px; right: 10px; padding: 4px 11px; border-radius: 20px; font-size: 10.5px; font-weight: 700; letter-spacing: .2px; }
+.insignia-activa { background: #d4edda; color: #1a6b30; }
+.insignia-inactiva { background: #e9e9e9; color: #777777; }
+
+.cuerpo-competencia { padding: 16px 16px 14px; display: flex; flex-direction: column; flex: 1; }
+.nombre-competencia { font-size: 14.5px; font-weight: 700; color: var(--color-texto); margin-bottom: 12px; line-height: 1.3; }
+
+.lista-datos { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 6px; }
+.dato-item { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: var(--color-texto-suave); line-height: 1.4; }
+.dato-item i { color: var(--color-primario); margin-top: 1px; font-size: 13px; }
+
+/* ── Modal (Nuevo/Editar Nivel) ── */
+.superposicion-modal { position: fixed; inset: 0; background: rgba(0,0,0,.52); z-index: 3000; padding: 20px; backdrop-filter: blur(2px); }
+.contenedor-modal { background: #fff; border-radius: 14px; width: 100%; max-width: 470px; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 64px rgba(0,0,0,.28); }
+.encabezado-modal { background: var(--color-primario); padding: 15px 20px; border-radius: 14px 14px 0 0; }
+.encabezado-modal h2 { font-size: 17px; font-weight: 700; color: #fff; margin: 0; letter-spacing: .1px; }
+.cuerpo-modal { padding: 22px 22px 8px; display: flex; flex-direction: column; gap: 16px; }
+.grupo-formulario { display: flex; flex-direction: column; gap: 7px; }
+.etiqueta-formulario { font-size: 12.5px; font-weight: 700; color: var(--color-texto); letter-spacing: .1px; }
+
+.campo-formulario {
+  padding: 9px 13px; border: 1.5px solid var(--color-borde); border-radius: 7px;
+  font-size: 13.5px; color: var(--color-texto); outline: none; background: #fff;
+  transition: border-color .18s, box-shadow .18s; width: 100%;
+}
+.campo-formulario:focus { border-color: var(--color-primario); box-shadow: 0 0 0 3px rgba(215,25,32,.10); }
+.campo-formulario::placeholder { color: #bbbbbb; }
+
+.zona-subida-foto, .zona-imagen-torneo {
+  display: flex; align-items: center; gap: 14px; padding: 10px 14px;
+  border: 1.5px solid var(--color-borde); border-radius: 7px; cursor: pointer;
+  transition: border-color .18s, background .18s; background: #fafafa;
+}
+.zona-subida-foto:hover, .zona-imagen-torneo:hover { border-color: var(--color-primario); background: var(--color-primario-claro); }
+.zona-imagen-torneo { flex-direction: column; text-align: center; padding: 20px 14px; }
+
+.contenedor-vista-previa { width: 52px; height: 66px; border-radius: 5px; overflow: hidden; background: #e5e5e5; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.contenedor-vista-previa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.texto-principal-subida { font-size: 13px; font-weight: 600; color: var(--color-texto); margin-bottom: 3px; }
+.pista-subida { font-size: 11.5px; color: var(--color-texto-suave); font-weight: 400; }
+
+.selector-dias { display: flex; gap: 7px; flex-wrap: wrap; }
+.btn-dia {
+  padding: 7px 10px; min-width: 42px; border: 1.5px solid #d9d9d9; background: #fff;
+  border-radius: 7px; font-size: 12px; font-weight: 700; cursor: pointer;
+  transition: background .18s, border-color .18s, color .18s, transform .12s;
+  color: #999999; text-align: center;
+}
+.btn-dia:hover:not(.activo) { border-color: var(--color-primario); color: var(--color-primario); }
+.btn-dia:active { transform: scale(.94); }
+.btn-dia.activo { background: var(--color-primario); border-color: var(--color-primario); color: #fff; }
+
+.fila-horario { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+
+/* ── Bloque de horario (días propios + hora propia, agrupados) ── */
+.bloque-horario {
+  border: 1.5px solid var(--color-borde);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fafafa;
+}
+.selector-dias--bloque { margin-bottom: 10px; }
+.fila-horario--bloque { margin-bottom: 0; }
+.separador-hora { color: var(--color-texto-suave); font-weight: 600; }
+.btn-quitar-horario {
+  width: 30px; height: 30px; border: none; background: var(--color-primario-claro); color: var(--color-primario);
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background .18s, color .18s, transform .12s;
+}
+.btn-quitar-horario:hover { background: var(--color-primario); color: #fff; }
+.btn-quitar-horario:active { transform: scale(.9); }
+
+.btn-agregar-horario {
+  width: 100%; padding: 9px 12px; border: 1.5px dashed #cccccc; background: #fafafa;
+  color: #999999; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer;
+  text-align: center; transition: all .18s;
+}
+.btn-agregar-horario:hover { border-color: var(--color-primario); color: var(--color-primario); background: var(--color-primario-claro); }
+
+.pie-modal { padding: 16px 22px 20px; display: flex; gap: 10px; justify-content: flex-end; border-top: 1px solid #f2f2f2; }
+.btn-cancelar-modal {
+  padding: 9px 22px; border: 1.5px solid #cccccc; background: #fff; color: #666666;
+  border-radius: var(--radio-boton); font-size: 13.5px; font-weight: 600; cursor: pointer;
+  transition: border-color .18s, color .18s;
+}
+.btn-cancelar-modal:hover { border-color: var(--color-primario); color: var(--color-primario); }
+.btn-guardar-modal {
+  padding: 9px 22px; border: none; background: var(--color-primario); color: #fff;
+  border-radius: var(--radio-boton); font-size: 13.5px; font-weight: 700; cursor: pointer;
+  transition: background .18s, transform .1s; letter-spacing: .1px;
+}
+.btn-guardar-modal:hover { background: var(--color-primario-oscuro); }
+.btn-guardar-modal:active { transform: scale(.97); }
+
+/* ── Campos con prefijo ($ / link) ── */
+.campo-con-prefijo { position: relative; display: flex; align-items: center; }
+.prefijo-campo { position: absolute; left: 12px; color: var(--color-texto-suave); font-weight: 600; font-size: 13.5px; pointer-events: none; }
+.prefijo-icono { display: flex; align-items: center; }
+.prefijo-icono i { font-size: 14px; color: var(--color-texto-suave); }
+.campo-con-simbolo { padding-left: 26px !important; }
+.campo-con-icono { padding-left: 34px !important; }
+.campo-con-prefijo:focus-within .prefijo-icono i { color: var(--color-primario); }
+
+.figura-preview-torneo { width: 100%; }
+.figura-preview-torneo img { max-height: 100px; border-radius: 6px; }
+.placeholder-img-torneo i { font-size: 1.9rem; color: #cccccc; }
+.etiqueta-opcional { font-weight: 400; font-size: 11px; color: var(--color-texto-suave); margin-left: 4px; }
+
+/* ── Aviso / Toast ── */
+.aviso-toast {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: #222222; color: #fff; padding: 11px 22px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 500; white-space: nowrap; z-index: 4000;
+  opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
+  box-shadow: 0 6px 24px rgba(0,0,0,.22);
+}
+.aviso-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.aviso-toast.aviso-ok { background: #1d8348; }
+.aviso-toast.aviso-advertencia { background: #b7770d; }
+.aviso-toast.aviso-error { background: var(--color-primario); }
