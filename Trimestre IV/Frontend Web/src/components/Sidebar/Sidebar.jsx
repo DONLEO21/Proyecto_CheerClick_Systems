@@ -1,11 +1,50 @@
-import { useState } from 'react';
+// src/components/Sidebar/Sidebar.jsx
+import { useEffect, useRef, useState } from 'react';
 import './Sidebar.css';
 
- function Sidebar({ items, activeHref, onNavigate }) {
+// Compara sin distinguir mayúsculas ("/Atleta/Horarios" = "/atleta/horarios")
+// y marca activa también una subruta ("/admin/horarios/algo").
+function esRutaActiva(activeHref, href) {
+  if (!activeHref) return false;
+  const actual = activeHref.toLowerCase().replace(/\/+$/, '');
+  const destino = href.toLowerCase().replace(/\/+$/, '');
+  return actual === destino || actual.startsWith(destino + '/');
+}
+
+// OJO con el tooltip (::after de .menu-lateral__enlace): no hace falta posicionarlo con JS.
+// Al pasar el mouse el enlace se escala (transform), y eso lo convierte en el contenedor
+// del tooltip, que ya queda centrado en su ícono con `top: 50%`. Si se le da una
+// coordenada de pantalla en --tooltip-y, el tooltip se desplaza muy por debajo del ícono.
+
+function Sidebar({ items, activeHref, onNavigate }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const barraRef = useRef(null);
+
+  // Con el menú abierto: Escape o un clic fuera de la barra lo cierran
+  useEffect(() => {
+    if (!menuAbierto) return;
+
+    const alPresionar = (e) => {
+      if (e.key === 'Escape') setMenuAbierto(false);
+    };
+    const alHacerClic = (e) => {
+      if (barraRef.current && !barraRef.current.contains(e.target)) setMenuAbierto(false);
+    };
+
+    document.addEventListener('keydown', alPresionar);
+    document.addEventListener('mousedown', alHacerClic);
+    return () => {
+      document.removeEventListener('keydown', alPresionar);
+      document.removeEventListener('mousedown', alHacerClic);
+    };
+  }, [menuAbierto]);
 
   return (
-    <aside className="barra-lateral" aria-label="Menú de navegación principal">
+    <aside
+      ref={barraRef}
+      className={'barra-lateral' + (menuAbierto ? ' barra-lateral--abierta' : '')}
+      aria-label="Menú de navegación principal"
+    >
       <button
         className="boton-menu"
         type="button"
@@ -20,27 +59,40 @@ import './Sidebar.css';
 
       <nav className="w-100">
         <ul className="menu-lateral list-unstyled mb-0" role="list">
-          {items.map((item) => (
-            <li
-              key={item.href}
-              className={
-                'menu-lateral__elemento' +
-                (activeHref === item.href ? ' menu-lateral__elemento--activo' : '')
-              }
-            >
-              <a
-                href={item.href}
-                className="menu-lateral__enlace"
-                title={item.titulo}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate(item.href);
-                }}
+          {items.map((item) => {
+            const activo = esRutaActiva(activeHref, item.href);
+
+            return (
+              <li
+                key={item.href}
+                className={'menu-lateral__elemento' + (activo ? ' menu-lateral__elemento--activo' : '')}
               >
-                <img className="menu-lateral__icono" src={item.icono} alt={item.alt} />
-              </a>
-            </li>
-          ))}
+                <a
+                  href={item.href}
+                  className="menu-lateral__enlace"
+                  // Abierto: el nombre ya se ve, así que se quita el tooltip
+                  title={menuAbierto ? undefined : item.titulo}
+                  aria-current={activo ? 'page' : undefined}
+                  onClick={(e) => {
+                    setMenuAbierto(false);
+                    // Sin onNavigate se deja el comportamiento normal del enlace
+                    if (!onNavigate) return;
+                    e.preventDefault();
+                    onNavigate(item.href);
+                  }}
+                >
+                  <img
+                    className="menu-lateral__icono"
+                    src={item.icono}
+                    alt={menuAbierto ? '' : item.alt}
+                  />
+                  <span className="menu-lateral__texto" aria-hidden={!menuAbierto}>
+                    {item.titulo}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </aside>

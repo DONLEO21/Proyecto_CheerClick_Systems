@@ -162,3 +162,95 @@
 .menu-lateral__elemento--activo .menu-lateral__enlace:hover .menu-lateral__icono {
     filter: brightness(0);   /* mantiene ícono negro, no blanco */
 }
+
+/* ══════════════════════════════════════════════
+   MENÚ DESPLEGABLE (botón hamburguesa) + FOCO
+   Se agrega al final: no modifica las reglas anteriores.
+   ══════════════════════════════════════════════ */
+.barra-lateral {
+    --ancho-abierta: 230px;
+    transition: width .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s;
+}
+
+/* Barra abierta: se despliega por encima del contenido (no lo desplaza) */
+.barra-lateral--abierta {
+    width: var(--ancho-abierta);
+    box-shadow: 6px 0 24px rgba(0,0,0,.25);
+}
+
+.barra-lateral--abierta .boton-menu {
+    align-items: flex-start;
+    padding-left: 17px;   /* las líneas quedan donde estaban con la barra cerrada */
+}
+
+/* Nombre de la sección: oculto con la barra cerrada, aparece al abrirla */
+.menu-lateral__texto {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition: opacity .15s ease;
+}
+
+.menu-lateral__icono {
+    flex-shrink: 0;
+}
+
+.barra-lateral--abierta .menu-lateral__texto {
+    width: auto;
+    opacity: 1;
+    transition: opacity .2s ease .12s;   /* espera a que la barra ya se haya ensanchado */
+}
+
+.barra-lateral--abierta .menu-lateral__elemento {
+    padding: 0 10px;
+}
+
+.barra-lateral--abierta .menu-lateral__enlace {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 0 9px;
+}
+
+/* Con los nombres a la vista, el tooltip sobra y el hover no escala */
+.barra-lateral--abierta .menu-lateral__enlace::after {
+    display: none;
+}
+
+.barra-lateral--abierta .menu-lateral__enlace:hover {
+    background: rgba(255,255,255,.15);
+    transform: none;
+}
+
+.barra-lateral--abierta .menu-lateral__elemento--activo .menu-lateral__enlace:hover {
+    background: var(--color-blanco);
+    transform: none;
+}
+
+.barra-lateral--abierta .menu-lateral__elemento--activo .menu-lateral__texto {
+    color: #000;
+    font-weight: 700;
+}
+
+/* ── Anillo de foco (solo al navegar con teclado) ── */
+.menu-lateral__enlace:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.boton-menu:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .barra-lateral,
+    .menu-lateral__texto {
+        transition: none;
+    }
+}

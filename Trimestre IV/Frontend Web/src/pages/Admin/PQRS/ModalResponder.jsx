@@ -1,7 +1,7 @@
 // src/pages/Admin/PQRS/ModalResponder.jsx
 import React from "react";
 import ModalBase from "./ModalBase";
-import { ESTADOS } from "./pqrsData";
+import { ESTADOS, radicadoDe } from "./pqrsData";
 
 // Al responder, la PQRS ya no puede quedar en "Pendiente"
 const ESTADOS_RESPUESTA = ESTADOS.filter((e) => e.valor !== "pendiente");
@@ -14,7 +14,7 @@ export default function ModalResponder({ abierto, pqrs, form, setForm, enviando,
   return (
     <ModalBase
       titulo="Responder PQRS"
-      subtitulo={`Radicado ${pqrs.id} · ${pqrs.remitente}`}
+      subtitulo={`Radicado ${radicadoDe(pqrs)} · ${pqrs.remitente}`}
       icono="bi-chat-square"
       textoAccion="Enviar respuesta"
       iconoAccion="bi-send"
@@ -26,6 +26,17 @@ export default function ModalResponder({ abierto, pqrs, form, setForm, enviando,
         <strong>{pqrs.asunto}</strong>
         <p>{pqrs.descripcion}</p>
       </div>
+
+      {pqrs.seguimientos?.length > 0 && (
+        <div className="pqrs-mensaje mb-4">
+          <strong>Información adicional del atleta</strong>
+          {pqrs.seguimientos.map((s, i) => (
+            <p key={i}>
+              {s.fecha.split("-").reverse().join("/")} · {s.texto}
+            </p>
+          ))}
+        </div>
+      )}
 
       <div className="mb-4">
         <label htmlFor="responder-texto" className="form-label">Respuesta para el atleta</label>
