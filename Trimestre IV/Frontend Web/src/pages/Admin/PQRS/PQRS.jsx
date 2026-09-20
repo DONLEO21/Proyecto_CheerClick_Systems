@@ -9,7 +9,7 @@ import ModalResponder from "./ModalResponder";
 import ModalModificar from "./ModalModificar";
 import AvisoToast from "../../../components/Compartidos/AvisoToast";
 
-import { FILTROS_INICIALES } from "./pqrsData";
+import { FILTROS_INICIALES, radicadoDe } from "./pqrsData";
 
 // ── Configuración de la API (json-server) ──────────────────
 // Levantar con: npx json-server db.json --port 3001
@@ -29,6 +29,13 @@ const ESTADO_INICIAL_MODIFICAR = {
   descripcion: "",
   estado: "",
   prioridad: "",
+};
+
+// Fecha de hoy en formato ISO (AAAA-MM-DD), en hora local
+const fechaHoy = () => {
+  const h = new Date();
+  const dos = (n) => String(n).padStart(2, "0");
+  return `${h.getFullYear()}-${dos(h.getMonth() + 1)}-${dos(h.getDate())}`;
 };
 
 // Búsqueda sin distinguir mayúsculas ni tildes
@@ -101,15 +108,15 @@ export default function PQRS() {
         (!filtros.tipo || p.tipo === filtros.tipo) &&
         (!filtros.estado || p.estado === filtros.estado) &&
         (!filtros.prioridad || p.prioridad === filtros.prioridad) &&
-        (!consulta || normalizar(`${p.id} ${p.asunto} ${p.descripcion} ${p.remitente}`).includes(consulta))
+        (!consulta || normalizar(`${radicadoDe(p)} ${p.asunto} ${p.descripcion} ${p.remitente}`).includes(consulta))
     );
 
     if (filtros.orden) {
       const sentido = filtros.orden === "asc" ? 1 : -1;
-      return resultado.sort((a, b) => sentido * a.id.localeCompare(b.id));
+      return resultado.sort((a, b) => sentido * radicadoDe(a).localeCompare(radicadoDe(b)));
     }
     // Por defecto: las más recientes primero
-    return resultado.sort((a, b) => b.fecha.localeCompare(a.fecha) || b.id.localeCompare(a.id));
+    return resultado.sort((a, b) => b.fecha.localeCompare(a.fecha) || radicadoDe(b).localeCompare(radicadoDe(a)));
   }, [pqrs, filtros]);
 
   const cambiarFiltro = (campo, valor) =>
@@ -137,7 +144,7 @@ export default function PQRS() {
     fetch(`${API_URL}/pqrs/${id}`, {
       method: "PATCH",
       headers: jsonHeaders,
-      body: JSON.stringify({ respuesta, estado: formResponder.estado }),
+      body: JSON.stringify({ respuesta, estado: formResponder.estado, fechaRespuesta: fechaHoy() }),
     })
       .then(manejarRespuesta)
       .then((actualizada) => {
@@ -198,7 +205,7 @@ export default function PQRS() {
       .then((actualizada) => {
         setPqrs((prev) => prev.map((p) => (p.id === solicitud.id ? actualizada : p)));
         mostrarAviso(
-          `${solicitud.id} ${inhabilitada ? "inhabilitada" : "habilitada"}.`,
+          `${radicadoDe(solicitud)} ${inhabilitada ? "inhabilitada" : "habilitada"}.`,
           inhabilitada ? "advertencia" : "ok"
         );
       })

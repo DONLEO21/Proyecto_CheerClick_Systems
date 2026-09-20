@@ -9,7 +9,9 @@ import menuEntrenador from './data/menuEntrenador';
 import AdminHorarios from "./pages/Admin/Horarios/Horarios.jsx";
 import AdminPQRS from "./pages/Admin/PQRS/PQRS.jsx";
 import AtletaHorarios from './pages/Atleta/Horarios/Horarios.jsx';
+import AtletaPQRS from "./pages/Atleta/PQRS/PQRS.jsx";
 import EntrenadorHorarios from './pages/Entrenador/Horarios/Horarios.jsx';
+import Proximamente from './components/Compartidos/Proximamente.jsx';
 
 export default function App() {
   return (
@@ -28,12 +30,19 @@ export default function App() {
           {/* Vista Entrenador del Admin: es entrenador de TODOS los niveles,
               por eso esAdmin=true habilita el selector para cambiar de nivel. */}
           <Route path="calendario" element={<EntrenadorHorarios esAdmin={true} />} />
+
+          {/* Secciones del menú que aún no existen */}
+          <Route path="*" element={<Proximamente />} />
         </Route>
 
         {/* Área Atleta */}
         <Route path="/atleta" element={<PanelLayout items={menuAtleta} rol="Atleta" inicioHref="/atleta/horarios" />}>
           <Route index element={<Navigate to="horarios" replace />} />
           <Route path="horarios" element={<AtletaHorarios />} />
+          {/* TODO: `remitente` debe salir de la sesión real cuando exista login/auth.
+              Por ahora simula al atleta con el que se prueban las PQRS. */}
+          <Route path="pqrs" element={<AtletaPQRS remitente="Leonardo Jara Molina" />} />
+          <Route path="*" element={<Proximamente />} />
         </Route>
 
         {/* Área Entrenador */}
@@ -43,6 +52,7 @@ export default function App() {
               cuando exista login/auth. Por ahora, esAdmin=false simula un
               entrenador normal viendo solo su propio nivel (id 3 = Magic). */}
           <Route path="horarios" element={<EntrenadorHorarios esAdmin={false} nivelIdEntrenador={3} />} />
+          <Route path="*" element={<Proximamente />} />
         </Route>
       </Routes>
     </BrowserRouter>

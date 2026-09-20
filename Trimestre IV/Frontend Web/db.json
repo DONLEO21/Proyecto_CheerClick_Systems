@@ -3489,18 +3489,23 @@
   "pqrs": [
     {
       "id": "PQ0006",
+      "radicado": "PQ0006",
       "tipo": "peticion",
-      "asunto": "h",
+      "asunto": "Acoso Entrenador",
       "descripcion": "hh",
       "estado": "pendiente",
       "prioridad": "media",
       "fecha": "2026-09-14",
       "remitente": "Leonardo Jara Molina",
       "respuesta": "",
-      "inhabilitada": false
+      "inhabilitada": false,
+      "fechaRespuesta": "",
+      "evidencia": "",
+      "seguimientos": []
     },
     {
       "id": "PQ0005",
+      "radicado": "PQ0005",
       "tipo": "queja",
       "asunto": "Queja por mal trato del entrenador",
       "descripcion": "Durante el entrenamiento del sábado hubo un trato irrespetuoso hacia varias atletas.",
@@ -3509,10 +3514,14 @@
       "fecha": "2026-09-10",
       "remitente": "Gabriela Deaquiz",
       "respuesta": "",
-      "inhabilitada": false
+      "inhabilitada": false,
+      "fechaRespuesta": "",
+      "evidencia": "",
+      "seguimientos": []
     },
     {
       "id": "PQ0004",
+      "radicado": "PQ0004",
       "tipo": "peticion",
       "asunto": "Cambio de horario",
       "descripcion": "Cordial Saludo\nPueden cambiar el horario siento que esta muy pesado y muy tarde",
@@ -3521,10 +3530,14 @@
       "fecha": "2026-09-06",
       "remitente": "Leonardo Jara Molina",
       "respuesta": "Ajustamos el horario a partir de la próxima semana.",
-      "inhabilitada": false
+      "inhabilitada": false,
+      "fechaRespuesta": "2026-09-08",
+      "evidencia": "",
+      "seguimientos": []
     },
     {
       "id": "PQ0003",
+      "radicado": "PQ0003",
       "tipo": "sugerencia",
       "asunto": "Mejorar horarios de entrenamiento",
       "descripcion": "Sería bueno tener un turno adicional en la mañana para quienes estudian en la tarde.",
@@ -3533,10 +3546,14 @@
       "fecha": "2026-09-02",
       "remitente": "Leonardo Jara Molina",
       "respuesta": "Estamos revisando la disponibilidad del gimnasio.",
-      "inhabilitada": false
+      "inhabilitada": false,
+      "fechaRespuesta": "2026-09-04",
+      "evidencia": "",
+      "seguimientos": []
     },
     {
       "id": "PQ0002",
+      "radicado": "PQ0002",
       "tipo": "sugerencia",
       "asunto": "Sugerencia para la competencia",
       "descripcion": "Propongo agregar una categoría intermedia para el próximo torneo.",
@@ -3545,6 +3562,25 @@
       "fecha": "2026-08-28",
       "remitente": "Santiago Ramírez",
       "respuesta": "",
+      "inhabilitada": false,
+      "fechaRespuesta": "",
+      "evidencia": "",
+      "seguimientos": []
+    },
+    {
+      "id": "PQ0001",
+      "radicado": "PQ0001",
+      "tipo": "reclamo",
+      "asunto": "Demora en la entrega del uniforme",
+      "descripcion": "Llevo más de tres semanas esperando la entrega de mi uniforme oficial para la competencia regional y aún no tengo una fecha confirmada.",
+      "estado": "resuelto",
+      "prioridad": "media",
+      "fecha": "2026-08-18",
+      "remitente": "Leonardo Jara Molina",
+      "respuesta": "Tu uniforme ya está disponible en la sede. Puedes recogerlo en horario de entrenamiento.",
+      "fechaRespuesta": "2026-08-21",
+      "evidencia": "",
+      "seguimientos": [],
       "inhabilitada": false
     }
   ],

@@ -1,6 +1,6 @@
 // src/pages/Admin/PQRS/FilaPqrs.jsx
 import React from "react";
-import { ESTADOS, PRIORIDADES, etiquetaDe } from "./pqrsData";
+import { ESTADOS, PRIORIDADES, etiquetaDe, radicadoDe } from "./pqrsData";
 
 const formatearFecha = (iso) => {
   const [anio, mes, dia] = iso.split("-");
@@ -19,7 +19,7 @@ export default function FilaPqrs({ pqrs, onResponder, onModificar, onInhabilitar
 
   return (
     <tr className={inhabilitada ? "pqrs-fila--inhabilitada" : ""}>
-      <td>{pqrs.id}</td>
+      <td>{radicadoDe(pqrs)}</td>
       <td>{pqrs.asunto}</td>
       <td>
         <span className={`pqrs-insignia pqrs-estado--${pqrs.estado}`}>
