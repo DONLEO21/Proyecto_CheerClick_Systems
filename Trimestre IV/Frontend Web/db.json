@@ -1,167 +1,3551 @@
 {
-  "implementos": [
+  "niveles": [
     {
-      "id": "IM213",
-      "nombre": "Zapatillas BTC",
-      "tipo": "Calzado",
-      "genero": "Unisex",
-      "cantidad": 8,
-      "precio": 100000,
-      "estado": "Disponible",
-      "imagen": "",
-      "calificacion": 4,
-      "resenas": 30
+      "id": "0",
+      "categoria": "Nivel Formativo King",
+      "entrenador": "Jonathan Cruz",
+      "foto": "/img/Entrenador 1.png",
+      "inhabilitado": false,
+      "horarios": [
+        {
+          "dias": [
+            "mar",
+            "jue",
+            "sab"
+          ],
+          "inicio": "18:00",
+          "fin": "20:00"
+        }
+      ]
     },
     {
-      "id": "IM124",
-      "nombre": "Bolso BTC",
-      "tipo": "Accesorios",
-      "genero": "Unisex",
-      "cantidad": 13,
-      "precio": 100000,
-      "estado": "Disponible",
-      "imagen": "",
-      "calificacion": 3,
-      "resenas": 5
+      "id": "1",
+      "categoria": "Nivel 1 Princess",
+      "entrenador": "Alexandra Rivera",
+      "foto": "/img/alexandra.png",
+      "inhabilitado": false,
+      "horarios": [
+        {
+          "dias": [
+            "mar",
+            "jue",
+            "sab"
+          ],
+          "inicio": "18:00",
+          "fin": "20:00"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "categoria": "Nivel 1 Queen",
+      "entrenador": "Yari Guitierrez",
+      "foto": "/img/yari.png",
+      "inhabilitado": false,
+      "horarios": [
+        {
+          "dias": [
+            "lun",
+            "vie"
+          ],
+          "inicio": "18:00",
+          "fin": "20:00"
+        },
+        {
+          "dias": [
+            "sab"
+          ],
+          "inicio": "09:00",
+          "fin": "11:00"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "categoria": "Nivel 3 Magic",
+      "entrenador": "Ronald Linares",
+      "foto": "/img/stuard.png",
+      "inhabilitado": false,
+      "horarios": [
+        {
+          "dias": [
+            "mar",
+            "vie"
+          ],
+          "inicio": "20:00",
+          "fin": "22:00"
+        },
+        {
+          "dias": [
+            "sab"
+          ],
+          "inicio": "15:00",
+          "fin": "17:00"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "categoria": "Nivel 4 Blood Tigers",
+      "entrenador": "Ronald Linares",
+      "foto": "/img/ronald.png",
+      "inhabilitado": false,
+      "horarios": [
+        {
+          "dias": [
+            "mie",
+            "sab"
+          ],
+          "inicio": "20:00",
+          "fin": "22:00"
+        },
+        {
+          "dias": [
+            "dom"
+          ],
+          "inicio": "08:00",
+          "fin": "10:00"
+        }
+      ]
     }
   ],
-  "solicitudes": [
+  "torneos": [
     {
-      "id": "SL263",
-      "implementoId": "IM125",
-      "implementoNombre": "Uniforme de Competencia Femenino",
-      "implementoImagen": "",
-      "atleta": "Gabriela Deaquiz",
-      "categoria": "Magic",
-      "cantidad": 2,
-      "talla": "M",
-      "precioUnitario": 350000,
-      "fechaSolicitud": "2026-04-02",
-      "metodoPago": "Pago presencial",
-      "estado": "Aprobado",
-      "motivoRechazo": "",
-      "recibido": true,
-      "resenaEnviada": true
+      "id": "omd-queen",
+      "clave": "omd",
+      "nivel": "queen",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "One More Dream",
+      "fecha": "2026-05-17",
+      "ciudad": "Bogotá – Timiza",
+      "costo": 65000,
+      "limite": "2026-05-08",
+      "etiquetaLimite": "Límite de pago"
     },
     {
-      "id": "SL156",
-      "implementoId": "IM213",
-      "implementoNombre": "Zapatillas BTC",
-      "implementoImagen": "",
-      "atleta": "Juan Torres",
-      "categoria": "Queen",
-      "cantidad": 1,
-      "talla": "40",
-      "precioUnitario": 100000,
-      "fechaSolicitud": "2026-04-04",
-      "metodoPago": "Transferencia",
-      "estado": "Aprobado",
-      "motivoRechazo": ""
+      "id": "universal-queen",
+      "clave": "universal",
+      "nivel": "queen",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Universal",
+      "fecha": "2026-07-25",
+      "ciudad": "Bogotá – Colegio San Viator",
+      "costo": 150000,
+      "limite": "2026-07-10",
+      "etiquetaLimite": "Límite de pago"
     },
     {
-      "id": "SL589",
-      "implementoId": "IM124",
-      "implementoNombre": "Bolso BTC",
-      "implementoImagen": "",
-      "atleta": "Maria Mercado",
-      "categoria": "Princess",
-      "cantidad": 2,
-      "talla": "N/A",
-      "precioUnitario": 100000,
-      "fechaSolicitud": "2026-04-04",
-      "metodoPago": "Transferencia",
-      "estado": "Aprobado",
-      "motivoRechazo": "",
-      "recibido": false,
-      "resenaEnviada": false
+      "id": "nfinity-queen",
+      "clave": "nfinity",
+      "nivel": "queen",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Nfinity League",
+      "fecha": "2026-09-20",
+      "ciudad": "Bogotá – City Hall Auto. Norte",
+      "costo": 160000,
+      "limite": "2026-07-04",
+      "etiquetaLimite": "Abono 50%"
     },
     {
-      "id": "TP62itmnPmY",
-      "estado": "Aprobado",
-      "motivoRechazo": "",
-      "implementoId": "IM125",
-      "implementoNombre": "Uniforme de competencia Femenino",
-      "implementoImagen": "",
-      "atleta": "Gabriela Deaquiz",
-      "categoria": "Magic",
-      "cantidad": 1,
-      "talla": "N/A",
-      "precioUnitario": 350000,
-      "fechaSolicitud": "2026-09-14",
-      "metodoPago": "Pago presencial",
-      "comprobante": "",
-      "recibido": true,
-      "resenaEnviada": true
+      "id": "summer-queen",
+      "clave": "summer",
+      "nivel": "queen",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Summer",
+      "fecha": "2026-10-10",
+      "ciudad": "Tocaima – Parque acuático",
+      "costo": 150000,
+      "limite": "2026-09-15",
+      "etiquetaLimite": "Límite de pago"
     },
     {
-      "id": "OlS7xMhyREc",
-      "estado": "Cancelado",
-      "motivoRechazo": "",
-      "implementoId": "IM213",
-      "implementoNombre": "Zapatillas BTC",
-      "implementoImagen": "",
-      "atleta": "Gabriela Deaquiz",
-      "categoria": "Magic",
-      "cantidad": 1,
-      "talla": "N/A",
-      "precioUnitario": 100000,
-      "fechaSolicitud": "2026-09-16",
-      "metodoPago": "Pago presencial",
-      "comprobante": ""
+      "id": "xiua-queen",
+      "clave": "xiua",
+      "nivel": "queen",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Xiua",
+      "fecha": "2026-11-29",
+      "ciudad": "Sibaté – Coliseo",
+      "costo": 90000,
+      "limite": "2026-10-05",
+      "etiquetaLimite": "Límite de pago"
     },
     {
-      "id": "j59aPKeYhw4",
-      "estado": "Aprobado",
-      "motivoRechazo": "",
-      "implementoId": "IM125",
-      "implementoNombre": "Uniforme de competencia Femenino",
-      "implementoImagen": "",
-      "atleta": "Gabriela Deaquiz",
-      "categoria": "Magic",
-      "cantidad": 1,
-      "talla": "N/A",
-      "precioUnitario": 350000,
-      "fechaSolicitud": "2026-09-16",
-      "metodoPago": "Pago presencial",
-      "comprobante": ""
+      "id": "omd-princess",
+      "clave": "omd",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "One More Dream",
+      "fecha": "2026-05-17",
+      "ciudad": "Bogotá – Timiza",
+      "costo": 65000,
+      "limite": "2026-05-08",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "allcheer-princess",
+      "clave": "allcheer",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "All Cheer",
+      "fecha": "2026-06-06",
+      "ciudad": "Bogotá – CC. el Edén",
+      "costo": 150000,
+      "limite": "2026-05-13",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "universal-princess",
+      "clave": "universal",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Universal",
+      "fecha": "2026-07-25",
+      "ciudad": "Bogotá – Colegio San Viator",
+      "costo": 150000,
+      "limite": "2026-07-10",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "continental-princess",
+      "clave": "continental",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Continental",
+      "fecha": "2026-09-25",
+      "ciudad": "Medellín – Conv. Plaza Mayor",
+      "costo": 160000,
+      "limite": "2026-06-04",
+      "etiquetaLimite": "Abono 50%"
+    },
+    {
+      "id": "summer-princess",
+      "clave": "summer",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Summer",
+      "fecha": "2026-10-10",
+      "ciudad": "Tocaima – Parque acuático",
+      "costo": 150000,
+      "limite": "2026-09-15",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "xiua-princess",
+      "clave": "xiua",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Xiua",
+      "fecha": "2026-11-29",
+      "ciudad": "Sibaté – Coliseo",
+      "costo": 90000,
+      "limite": "2026-10-05",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "lastcount-princess",
+      "clave": "lastcount",
+      "nivel": "princess",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Last Count",
+      "fecha": "2026-12-13",
+      "ciudad": "Bogotá – Colegio La Merced",
+      "costo": 130000,
+      "limite": "2026-06-12",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "omd-magic",
+      "clave": "omd",
+      "nivel": "magic",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "One More Dream",
+      "fecha": "2026-05-17",
+      "ciudad": "Bogotá – Timiza",
+      "costo": 65000,
+      "limite": "2026-05-08",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "universal-magic",
+      "clave": "universal",
+      "nivel": "magic",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Universal",
+      "fecha": "2026-07-25",
+      "ciudad": "Bogotá – Colegio San Viator",
+      "costo": 150000,
+      "limite": "2026-07-10",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "nfinity-magic",
+      "clave": "nfinity",
+      "nivel": "magic",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Nfinity League",
+      "fecha": "2026-09-22",
+      "ciudad": "Bogotá – City Hall Auto. Norte",
+      "costo": 160000,
+      "limite": "2026-07-04",
+      "etiquetaLimite": "Abono 50%"
+    },
+    {
+      "id": "summer-magic",
+      "clave": "summer",
+      "nivel": "magic",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Summer",
+      "fecha": "2026-10-10",
+      "ciudad": "Tocaima – Parque acuático",
+      "costo": 150000,
+      "limite": "2026-09-15",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "xiua-magic",
+      "clave": "xiua",
+      "nivel": "magic",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Xiua",
+      "fecha": "2026-11-29",
+      "ciudad": "Sibaté – Coliseo",
+      "costo": 90000,
+      "limite": "2026-10-05",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "allcheer-blood",
+      "clave": "allcheer",
+      "nivel": "blood",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "All Cheer",
+      "fecha": "2026-06-06",
+      "ciudad": "Bogotá – CC. el Edén",
+      "costo": 150000,
+      "limite": "2026-05-13",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "universal-blood",
+      "clave": "universal",
+      "nivel": "blood",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Universal",
+      "fecha": "2026-07-25",
+      "ciudad": "Bogotá – Colegio San Viator",
+      "costo": 150000,
+      "limite": "2026-07-10",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "continental-blood",
+      "clave": "continental",
+      "nivel": "blood",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Continental",
+      "fecha": "2026-09-25",
+      "ciudad": "Medellín – Conv. Plaza Mayor",
+      "costo": 160000,
+      "limite": "2026-06-04",
+      "etiquetaLimite": "Abono 50%"
+    },
+    {
+      "id": "summer-blood",
+      "clave": "summer",
+      "nivel": "blood",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Summer",
+      "fecha": "2026-10-10",
+      "ciudad": "Tocaima – Parque acuático",
+      "costo": 150000,
+      "limite": "2026-09-15",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "xiua-blood",
+      "clave": "xiua",
+      "nivel": "blood",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Xiua",
+      "fecha": "2026-11-29",
+      "ciudad": "Sibaté – Coliseo",
+      "costo": 90000,
+      "limite": "2026-10-05",
+      "etiquetaLimite": "Límite de pago"
+    },
+    {
+      "id": "lastcount-blood",
+      "clave": "lastcount",
+      "nivel": "blood",
+      "imagen": "",
+      "link": "",
+      "activa": true,
+      "inhabilitada": false,
+      "nombre": "Last Count",
+      "fecha": "2026-12-13",
+      "ciudad": "Bogotá – Colegio La Merced",
+      "costo": 130000,
+      "limite": "2026-06-12",
+      "etiquetaLimite": "Límite de pago"
     }
   ],
-  "resenasComunidad": [
+  "sesiones": [],
+  "sesionesAtleta": [
     {
-      "id": "RC001",
-      "implementoId": "IM213",
-      "implementoNombre": "Zapatillas BTC",
-      "atleta": "Mariana Vélez",
-      "calificacion": 5,
-      "comentario": "Las zapatillas son súper cómodas y tienen excelente agarre para las bases.",
-      "fecha": "2026-03-18"
+      "id": "sab-0",
+      "fecha": "2026-01-03",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
     },
     {
-      "id": "RC002",
-      "implementoId": "IM124",
-      "implementoNombre": "Bolso BTC",
-      "atleta": "Carlos Mendoza",
-      "calificacion": 4,
-      "comentario": "El bolso es muy práctico y tiene buen material. Me gustaría que tuvieran más colores disponibles.",
-      "fecha": "2026-03-20"
+      "id": "lun-1",
+      "fecha": "2026-01-05",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
     },
     {
-      "implementoId": "IM125",
-      "implementoNombre": "Uniforme de Competencia Femenino",
-      "atleta": "Gabriela Deaquiz",
-      "calificacion": 4,
-      "comentario": "La tela es muy buena.",
+      "id": "mie-2",
+      "fecha": "2026-01-07",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-3",
+      "fecha": "2026-01-10",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-4",
+      "fecha": "2026-01-12",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-5",
+      "fecha": "2026-01-14",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-6",
+      "fecha": "2026-01-17",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-7",
+      "fecha": "2026-01-19",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-8",
+      "fecha": "2026-01-21",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-9",
+      "fecha": "2026-01-24",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-10",
+      "fecha": "2026-01-26",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-11",
+      "fecha": "2026-01-28",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-12",
+      "fecha": "2026-01-31",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-13",
+      "fecha": "2026-02-02",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-14",
+      "fecha": "2026-02-04",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-15",
+      "fecha": "2026-02-07",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-16",
+      "fecha": "2026-02-09",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-17",
+      "fecha": "2026-02-11",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-18",
+      "fecha": "2026-02-14",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-19",
+      "fecha": "2026-02-16",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-20",
+      "fecha": "2026-02-18",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-21",
+      "fecha": "2026-02-21",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-22",
+      "fecha": "2026-02-23",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-23",
+      "fecha": "2026-02-25",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-24",
+      "fecha": "2026-02-28",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-25",
+      "fecha": "2026-03-02",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-26",
+      "fecha": "2026-03-04",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-27",
+      "fecha": "2026-03-07",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-28",
+      "fecha": "2026-03-09",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-29",
+      "fecha": "2026-03-11",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-30",
+      "fecha": "2026-03-14",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-31",
+      "fecha": "2026-03-16",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-32",
+      "fecha": "2026-03-18",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-33",
+      "fecha": "2026-03-21",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-34",
+      "fecha": "2026-03-23",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-35",
+      "fecha": "2026-03-25",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-36",
+      "fecha": "2026-03-28",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-37",
+      "fecha": "2026-03-30",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-38",
+      "fecha": "2026-04-01",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-39",
+      "fecha": "2026-04-04",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-40",
+      "fecha": "2026-04-06",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-41",
+      "fecha": "2026-04-08",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-42",
+      "fecha": "2026-04-11",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-43",
+      "fecha": "2026-04-13",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-44",
+      "fecha": "2026-04-15",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-45",
+      "fecha": "2026-04-18",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-46",
+      "fecha": "2026-04-20",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-47",
+      "fecha": "2026-04-22",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-48",
+      "fecha": "2026-04-25",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-49",
+      "fecha": "2026-04-27",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-50",
+      "fecha": "2026-04-29",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-51",
+      "fecha": "2026-05-02",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-52",
+      "fecha": "2026-05-04",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-53",
+      "fecha": "2026-05-06",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-54",
+      "fecha": "2026-05-09",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-55",
+      "fecha": "2026-05-11",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-56",
+      "fecha": "2026-05-13",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-57",
+      "fecha": "2026-05-16",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "camp-58",
+      "fecha": "2026-05-17",
+      "nivelId": 3,
+      "cat": "campeonato",
+      "horaInicio": "08:00",
+      "horaFin": "18:00",
+      "duracion": "10h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Competencia One More Dream — Bogotá – Timiza",
+      "indicaciones": [
+        "Uniforme oficial obligatorio",
+        "Llegada 1 hora antes",
+        "Documentos de identidad"
+      ],
+      "cuposUsados": 25,
+      "cuposTotal": 25,
+      "torneoId": "omd-magic"
+    },
+    {
+      "id": "lun-59",
+      "fecha": "2026-05-18",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-60",
+      "fecha": "2026-05-20",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-61",
+      "fecha": "2026-05-23",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-62",
+      "fecha": "2026-05-25",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-63",
+      "fecha": "2026-05-27",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-64",
+      "fecha": "2026-05-30",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-65",
+      "fecha": "2026-06-01",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-66",
+      "fecha": "2026-06-03",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-67",
+      "fecha": "2026-06-06",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-68",
+      "fecha": "2026-06-08",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-69",
+      "fecha": "2026-06-10",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-70",
+      "fecha": "2026-06-13",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-71",
+      "fecha": "2026-06-15",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-72",
+      "fecha": "2026-06-17",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-73",
+      "fecha": "2026-06-20",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-74",
+      "fecha": "2026-06-22",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-75",
+      "fecha": "2026-06-24",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-76",
+      "fecha": "2026-06-27",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-77",
+      "fecha": "2026-06-29",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-78",
+      "fecha": "2026-07-01",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-79",
+      "fecha": "2026-07-04",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-80",
+      "fecha": "2026-07-06",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-81",
+      "fecha": "2026-07-08",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-82",
+      "fecha": "2026-07-11",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-83",
+      "fecha": "2026-07-13",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-84",
+      "fecha": "2026-07-15",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-85",
+      "fecha": "2026-07-18",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-86",
+      "fecha": "2026-07-20",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-87",
+      "fecha": "2026-07-22",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "camp-88",
+      "fecha": "2026-07-25",
+      "nivelId": 3,
+      "cat": "campeonato",
+      "horaInicio": "08:00",
+      "horaFin": "18:00",
+      "duracion": "10h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Competencia Universal — Bogotá – Colegio San Viator",
+      "indicaciones": [
+        "Uniforme oficial obligatorio",
+        "Llegada 1 hora antes",
+        "Documentos de identidad"
+      ],
+      "cuposUsados": 25,
+      "cuposTotal": 25,
+      "torneoId": "universal-magic"
+    },
+    {
+      "id": "lun-89",
+      "fecha": "2026-07-27",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-90",
+      "fecha": "2026-07-29",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-91",
+      "fecha": "2026-08-01",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-92",
+      "fecha": "2026-08-03",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-93",
+      "fecha": "2026-08-05",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-94",
+      "fecha": "2026-08-08",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-95",
+      "fecha": "2026-08-10",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-96",
+      "fecha": "2026-08-12",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-97",
+      "fecha": "2026-08-15",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-98",
+      "fecha": "2026-08-17",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-99",
+      "fecha": "2026-08-19",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-100",
+      "fecha": "2026-08-22",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-101",
+      "fecha": "2026-08-24",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-102",
+      "fecha": "2026-08-26",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-103",
+      "fecha": "2026-08-29",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-104",
+      "fecha": "2026-08-31",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-105",
+      "fecha": "2026-09-02",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-106",
+      "fecha": "2026-09-05",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-107",
+      "fecha": "2026-09-07",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-108",
+      "fecha": "2026-09-09",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-109",
+      "fecha": "2026-09-12",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-110",
       "fecha": "2026-09-14",
-      "id": "E8Q8O2ld32g"
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
     },
     {
-      "implementoId": "IM125",
-      "implementoNombre": "Uniforme de competencia Femenino",
-      "atleta": "Gabriela Deaquiz",
-      "calificacion": 4,
-      "comentario": "Holaa",
-      "fecha": "2026-09-17",
-      "id": "_pWTSEVv3Gs"
+      "id": "mie-111",
+      "fecha": "2026-09-16",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-112",
+      "fecha": "2026-09-19",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "camp-113",
+      "fecha": "2026-09-20",
+      "nivelId": 3,
+      "cat": "campeonato",
+      "horaInicio": "08:00",
+      "horaFin": "18:00",
+      "duracion": "10h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Competencia Nfinity League — Bogotá – City Hall Auto. Norte",
+      "indicaciones": [
+        "Uniforme oficial obligatorio",
+        "Llegada 1 hora antes",
+        "Documentos de identidad"
+      ],
+      "cuposUsados": 25,
+      "cuposTotal": 25,
+      "torneoId": "nfinity-magic"
+    },
+    {
+      "id": "lun-114",
+      "fecha": "2026-09-21",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-115",
+      "fecha": "2026-09-23",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-116",
+      "fecha": "2026-09-26",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-117",
+      "fecha": "2026-09-28",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-118",
+      "fecha": "2026-09-30",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-119",
+      "fecha": "2026-10-03",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-120",
+      "fecha": "2026-10-05",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-121",
+      "fecha": "2026-10-07",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "camp-122",
+      "fecha": "2026-10-10",
+      "nivelId": 3,
+      "cat": "campeonato",
+      "horaInicio": "08:00",
+      "horaFin": "18:00",
+      "duracion": "10h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Competencia Summer — Tocaima – Parque acuático",
+      "indicaciones": [
+        "Uniforme oficial obligatorio",
+        "Llegada 1 hora antes",
+        "Documentos de identidad"
+      ],
+      "cuposUsados": 25,
+      "cuposTotal": 25,
+      "torneoId": "summer-magic"
+    },
+    {
+      "id": "lun-123",
+      "fecha": "2026-10-12",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-124",
+      "fecha": "2026-10-14",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-125",
+      "fecha": "2026-10-17",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-126",
+      "fecha": "2026-10-19",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-127",
+      "fecha": "2026-10-21",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-128",
+      "fecha": "2026-10-24",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-129",
+      "fecha": "2026-10-26",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-130",
+      "fecha": "2026-10-28",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-131",
+      "fecha": "2026-10-31",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-132",
+      "fecha": "2026-11-02",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-133",
+      "fecha": "2026-11-04",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-134",
+      "fecha": "2026-11-07",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-135",
+      "fecha": "2026-11-09",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-136",
+      "fecha": "2026-11-11",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-137",
+      "fecha": "2026-11-14",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-138",
+      "fecha": "2026-11-16",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-139",
+      "fecha": "2026-11-18",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-140",
+      "fecha": "2026-11-21",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-141",
+      "fecha": "2026-11-23",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-142",
+      "fecha": "2026-11-25",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-143",
+      "fecha": "2026-11-28",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "camp-144",
+      "fecha": "2026-11-29",
+      "nivelId": 3,
+      "cat": "campeonato",
+      "horaInicio": "08:00",
+      "horaFin": "18:00",
+      "duracion": "10h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Competencia Xiua — Sibaté – Coliseo",
+      "indicaciones": [
+        "Uniforme oficial obligatorio",
+        "Llegada 1 hora antes",
+        "Documentos de identidad"
+      ],
+      "cuposUsados": 25,
+      "cuposTotal": 25,
+      "torneoId": "xiua-magic"
+    },
+    {
+      "id": "lun-145",
+      "fecha": "2026-11-30",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-146",
+      "fecha": "2026-12-02",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-147",
+      "fecha": "2026-12-05",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-148",
+      "fecha": "2026-12-07",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-149",
+      "fecha": "2026-12-09",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-150",
+      "fecha": "2026-12-12",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-151",
+      "fecha": "2026-12-14",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-152",
+      "fecha": "2026-12-16",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-153",
+      "fecha": "2026-12-19",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-154",
+      "fecha": "2026-12-21",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-155",
+      "fecha": "2026-12-23",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "sab-156",
+      "fecha": "2026-12-26",
+      "nivelId": 3,
+      "cat": "baile",
+      "horaInicio": "16:00",
+      "horaFin": "18:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Montaje coreográfico y baile",
+      "indicaciones": [
+        "Ropa cómoda de práctica",
+        "Llevar agua"
+      ],
+      "cuposUsados": 8,
+      "cuposTotal": 12,
+      "torneoId": null
+    },
+    {
+      "id": "lun-157",
+      "fecha": "2026-12-28",
+      "nivelId": 3,
+      "cat": "partner",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica de pareja y sincronización",
+      "indicaciones": [
+        "Llevar uniforme completo",
+        "Puntualidad obligatoria"
+      ],
+      "cuposUsados": 7,
+      "cuposTotal": 10,
+      "torneoId": null
+    },
+    {
+      "id": "mie-158",
+      "fecha": "2026-12-30",
+      "nivelId": 3,
+      "cat": "gimnasia",
+      "horaInicio": "18:00",
+      "horaFin": "20:00",
+      "duracion": "2h",
+      "entrenador": "Stuard Reyes",
+      "iniciales": "SR",
+      "enfoque": "Técnica, flexibilidad y acrobacia",
+      "indicaciones": [
+        "Ropa cómoda para estiramiento",
+        "Rodilleras recomendadas"
+      ],
+      "cuposUsados": 9,
+      "cuposTotal": 12,
+      "torneoId": null
+    }
+  ],
+  "pagos": [],
+  "pqrs": [
+    {
+      "id": "PQ0006",
+      "tipo": "peticion",
+      "asunto": "h",
+      "descripcion": "hh",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "fecha": "2026-09-14",
+      "remitente": "Leonardo Jara Molina",
+      "respuesta": "",
+      "inhabilitada": false
+    },
+    {
+      "id": "PQ0005",
+      "tipo": "queja",
+      "asunto": "Queja por mal trato del entrenador",
+      "descripcion": "Durante el entrenamiento del sábado hubo un trato irrespetuoso hacia varias atletas.",
+      "estado": "pendiente",
+      "prioridad": "alta",
+      "fecha": "2026-09-10",
+      "remitente": "Gabriela Deaquiz",
+      "respuesta": "",
+      "inhabilitada": false
+    },
+    {
+      "id": "PQ0004",
+      "tipo": "peticion",
+      "asunto": "Cambio de horario",
+      "descripcion": "Cordial Saludo\nPueden cambiar el horario siento que esta muy pesado y muy tarde",
+      "estado": "resuelto",
+      "prioridad": "media",
+      "fecha": "2026-09-06",
+      "remitente": "Leonardo Jara Molina",
+      "respuesta": "Ajustamos el horario a partir de la próxima semana.",
+      "inhabilitada": false
+    },
+    {
+      "id": "PQ0003",
+      "tipo": "sugerencia",
+      "asunto": "Mejorar horarios de entrenamiento",
+      "descripcion": "Sería bueno tener un turno adicional en la mañana para quienes estudian en la tarde.",
+      "estado": "tramite",
+      "prioridad": "media",
+      "fecha": "2026-09-02",
+      "remitente": "Leonardo Jara Molina",
+      "respuesta": "Estamos revisando la disponibilidad del gimnasio.",
+      "inhabilitada": false
+    },
+    {
+      "id": "PQ0002",
+      "tipo": "sugerencia",
+      "asunto": "Sugerencia para la competencia",
+      "descripcion": "Propongo agregar una categoría intermedia para el próximo torneo.",
+      "estado": "tramite",
+      "prioridad": "baja",
+      "fecha": "2026-08-28",
+      "remitente": "Santiago Ramírez",
+      "respuesta": "",
+      "inhabilitada": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
