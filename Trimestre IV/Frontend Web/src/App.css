@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap');
+
+:root {
+    --text-texto: "Arimo", sans-serif;
+    --text-titulo: "Varela Round", sans-serif;
+}
+
+
+.swal-atl-popup {
+  border-radius: 18px !important;
+  font-family: var(--text-texto), sans-serif;
+}
+
+.swal-atl-titulo {
+  font-family: var(--text-titulo), sans-serif !important;
+  font-size: 22px !important;
+}
+
+.swal-atl-confirmar {
+  font-family: var(--text-texto), sans-serif;
+  font-weight: 700;
+  border-radius: 10px !important;
+  padding: 10px 22px !important;
+  font-size: 15px !important;
+}
+
+.swal-atl-cancelar {
+  font-family: var(--text-texto), sans-serif;
+  font-weight: 700;
+  border-radius: 10px !important;
+  padding: 10px 22px !important;
+  font-size: 15px !important;
+  color: #696969 !important;
+}
