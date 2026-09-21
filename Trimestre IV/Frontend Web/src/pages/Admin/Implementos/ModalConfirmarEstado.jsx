@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { cambiarEstadoImplemento } from "../../../services/ImplementosService";
 
 const ModalConfirmarEstado = forwardRef(function ModalConfirmarEstado(
-  { implemento, accion, onConfirmado },
+  { implemento, accion, onConfirmado, onError },
   ref
 ) {
   const [procesando, setProcesando] = useState(false);
@@ -17,6 +17,9 @@ const ModalConfirmarEstado = forwardRef(function ModalConfirmarEstado(
       await cambiarEstadoImplemento(implemento, esInhabilitar ? "No Disponible" : "Disponible");
       onConfirmado();
       cerrar();
+    } catch (err) {
+      cerrar();
+      onError?.(err.message);
     } finally {
       setProcesando(false);
     }

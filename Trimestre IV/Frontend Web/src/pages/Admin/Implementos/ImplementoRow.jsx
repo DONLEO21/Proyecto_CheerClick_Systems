@@ -59,7 +59,7 @@ export default function ImplementoRow({ implemento, onEditar, onPedirCambioEstad
 
           <button
             type="button"
-            className={`btn-accion-cuadrado ${disponible ? "btn-accion-eliminar" : "btn-accion-habilitar"}`}
+            className={`btn-accion-cuadrado ${disponible ? "btn-accion--x" : "btn-accion--check"}`}
             title={disponible ? "Inhabilitar" : "Habilitar"}
             onClick={() => onPedirCambioEstado(implemento)}
           >

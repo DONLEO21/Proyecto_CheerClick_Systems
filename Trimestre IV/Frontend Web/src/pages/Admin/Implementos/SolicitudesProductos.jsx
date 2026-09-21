@@ -10,7 +10,7 @@ const badgePorEstado = {
   Cancelado: "badge-roja"
 };
 
-export default function SolicitudesProductos() {
+export default function SolicitudesProductos({ onAviso }) {
   const [solicitudes, setSolicitudes] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
@@ -53,8 +53,9 @@ export default function SolicitudesProductos() {
     try {
       await aprobarSolicitud(s);
       cargar();
+      onAviso("Solicitud aprobada.");
     } catch (err) {
-      setError(err.message);
+      onAviso(err.message, "error");
     }
   };
 
@@ -205,7 +206,14 @@ export default function SolicitudesProductos() {
       </div>
 
       <ModalVerSolicitud ref={modalVerRef} solicitud={seleccionada} />
-      <ModalRechazarSolicitud ref={modalRechazarRef} solicitud={seleccionada} onRechazado={cargar} />
+      <ModalRechazarSolicitud
+        ref={modalRechazarRef}
+        solicitud={seleccionada}
+        onRechazado={() => {
+          cargar();
+          onAviso("Solicitud rechazada.");
+        }}
+      />
     </>
   );
 }

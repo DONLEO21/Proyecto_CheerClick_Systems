@@ -4,7 +4,7 @@ import { getResenas } from "../../../services/ResenaService";
 import ProductoCard from "./ProductoCard";
 import ModalSolicitarPedido from "./ModalSolicitarPedido";
 
-export default function CatalogoImplementos() {
+export default function CatalogoImplementos({ onAviso }) {
   const [implementos, setImplementos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
@@ -105,7 +105,14 @@ export default function CatalogoImplementos() {
           ))}
       </div>
 
-      <ModalSolicitarPedido ref={modalRef} implemento={productoSeleccionado} onEnviado={cargar} />
+      <ModalSolicitarPedido
+        ref={modalRef}
+        implemento={productoSeleccionado}
+        onEnviado={() => {
+          cargar();
+          onAviso("Solicitud enviada correctamente.");
+        }}
+      />
 
       <div className="seccion-comentarios-comunidad">
         <h2 className="subtitulo-seccion">Opiniones de la Comunidad</h2>

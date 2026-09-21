@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CatalogoImplementos from "./CatalogoImplementos";
 import MisSolicitudes from "./MisSolicitudes";
+import AvisoToast from "../../../components/Compartidos/AvisoToast";
 import "./Implementos.css";
 
 export default function Implementos() {
+  // ── Aviso / toast ────────────────────────────────────────
+  const [aviso, setAviso] = useState({ visible: false, mensaje: "", tipo: "ok" });
+
+  useEffect(() => {
+    if (!aviso.visible) return;
+    const id = setTimeout(() => setAviso((a) => ({ ...a, visible: false })), 3000);
+    return () => clearTimeout(id);
+  }, [aviso.visible, aviso.mensaje]);
+
+  const mostrarAviso = (mensaje, tipo = "ok") => setAviso({ visible: true, mensaje, tipo });
+
   const [pestana, setPestana] = useState("catalogo"); // "catalogo" | "solicitudes"
 
   return (
@@ -38,7 +50,13 @@ export default function Implementos() {
         </button>
       </div>
 
-      {pestana === "catalogo" ? <CatalogoImplementos /> : <MisSolicitudes />}
+      {pestana === "catalogo" ? (
+        <CatalogoImplementos onAviso={mostrarAviso} />
+      ) : (
+        <MisSolicitudes onAviso={mostrarAviso} />
+      )}
+
+      <AvisoToast aviso={aviso} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import ModalAgregar from "./ModalAgregar";
 import ModalEditar from "./ModalEditar";
 import ModalConfirmarEstado from "./ModalConfirmarEstado";
 
-export default function ListaImplementos() {
+export default function ListaImplementos({ onAviso }) {
   const [implementos, setImplementos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
@@ -84,7 +84,7 @@ export default function ListaImplementos() {
           />
         </div>
 
-        <button type="button" className="btn btn-danger ms-md-auto" onClick={abrirAgregar}>
+        <button type="button" className="btn btn-danger btn-agregar ms-md-auto " onClick={abrirAgregar}>
           + Agregar nuevo Implemento
         </button>
 
@@ -153,13 +153,30 @@ export default function ListaImplementos() {
         </table>
       </div>
 
-      <ModalAgregar ref={modalAgregarRef} onGuardado={cargarImplementos} />
-      <ModalEditar ref={modalEditarRef} implemento={implementoSeleccionado} onGuardado={cargarImplementos} />
+      <ModalAgregar
+        ref={modalAgregarRef}
+        onGuardado={() => {
+          cargarImplementos();
+          onAviso("Implemento creado correctamente.");
+        }}
+      />
+      <ModalEditar
+        ref={modalEditarRef}
+        implemento={implementoSeleccionado}
+        onGuardado={() => {
+          cargarImplementos();
+          onAviso("Implemento actualizado correctamente.");
+        }}
+      />
       <ModalConfirmarEstado
         ref={modalEstadoRef}
         implemento={implementoSeleccionado}
         accion={accionEstado}
-        onConfirmado={cargarImplementos}
+        onConfirmado={() => {
+          cargarImplementos();
+          onAviso(accionEstado === "inhabilitar" ? "Implemento inhabilitado." : "Implemento habilitado.");
+        }}
+        onError={(mensaje) => onAviso(mensaje, "error")}
       />
     </>
   );

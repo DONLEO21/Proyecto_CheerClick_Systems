@@ -11,7 +11,7 @@ const claseEstado = {
   Cancelado: "estado-cancelado",
 };
 
-export default function MisSolicitudes() {
+export default function MisSolicitudes({ onAviso }) {
   const [solicitudes, setSolicitudes] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
@@ -63,8 +63,9 @@ export default function MisSolicitudes() {
     try {
       await marcarRecibido(s);
       cargar();
+      onAviso("Pedido marcado como recibido.");
     } catch (err) {
-      setError(err.message);
+      onAviso(err.message, "error");
     }
   };
 
@@ -151,13 +152,27 @@ export default function MisSolicitudes() {
               </div>
 
               {s.estado === "Aprobado" && s.recibido && !s.resenaEnviada && (
-                <FormularioResena solicitud={s} onEnviada={cargar} />
+                <FormularioResena
+                  solicitud={s}
+                  onEnviada={() => {
+                    cargar();
+                    onAviso("¡Gracias por tu reseña!");
+                  }}
+                />
               )}
             </article>
           ))}
       </div>
 
-      <ModalCancelarSolicitud ref={modalCancelarRef} solicitud={seleccionada} onCancelado={cargar} />
+      <ModalCancelarSolicitud
+        ref={modalCancelarRef}
+        solicitud={seleccionada}
+        onCancelado={() => {
+          cargar();
+          onAviso("Solicitud cancelada.");
+        }}
+        onError={(mensaje) => onAviso(mensaje, "error")}
+      />
     </section>
   );
 }

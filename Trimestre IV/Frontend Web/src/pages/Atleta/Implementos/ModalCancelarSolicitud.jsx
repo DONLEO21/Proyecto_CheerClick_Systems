@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { cancelarSolicitud } from "../../../services/SolicitudesService";
 
 const ModalCancelarSolicitud = forwardRef(function ModalCancelarSolicitud(
-  { solicitud, onCancelado },
+  { solicitud, onCancelado, onError },
   ref
 ) {
   const [procesando, setProcesando] = useState(false);
@@ -16,6 +16,9 @@ const ModalCancelarSolicitud = forwardRef(function ModalCancelarSolicitud(
       await cancelarSolicitud(solicitud);
       onCancelado();
       cerrar();
+    } catch (err) {
+      cerrar();
+      onError?.(err.message);
     } finally {
       setProcesando(false);
     }

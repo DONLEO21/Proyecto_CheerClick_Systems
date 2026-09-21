@@ -49,11 +49,11 @@
   --verde-bg-suave: #eafaf1;
 
   --verde-light: #e6f9ee;
-    --amarillo: #f59e0b;
-    --amarillo-light: #fef3c7;
-    --azul: #2f80ed;
-    --azul-light: #dbeafe;
-    --azul-oscuro: #1d4ed8;
+  --amarillo: #f59e0b;
+  --amarillo-light: #fef3c7;
+  --azul: #2f80ed;
+  --azul-light: #dbeafe;
+  --azul-oscuro: #1d4ed8;
 }
 
 .tabs-implementos {
@@ -86,7 +86,7 @@
   gap: 8px;
   border: 1px solid var(--gris-borde-input);
   border-radius: 8px;
-  padding: 7px 12px;
+  padding: 5px 12px;
   background: var(--blanco);
   min-width: 240px;
   color: var(--gris-suave);
@@ -97,6 +97,13 @@
   outline: none;
   flex: 1;
   font-size: 0.85rem;
+}
+
+.btn-agregar {
+  gap: 8px;
+  border-radius: 8px;
+  padding: 5px 12px;
+  min-width: 240px;
 }
 
 /* Filtros tipo */
@@ -186,6 +193,7 @@
   transition: background 0.15s ease;
   border-left: 3px solid transparent;
 }
+
 .tabla-implementos tbody tr:hover {
   background: #f8fafc;
   border-left-color: var(--color-primario);
@@ -270,53 +278,58 @@
   background: var(--naranja);
 }
 
-.btn-accion-eliminar {
-  background: var(--rojo-bootstrap);
-}
-
-.btn-accion-habilitar {
-  background: var(--verde);
-}
-
 .btn-accion-visualizar {
   background: var(--azul-visualizar);
 }
 
 .btn-accion--ojo {
-    background: var(--azul-light);
-    color: var(--azul-oscuro);
-    border: 1.5px solid #bfdbfe;
+  background: var(--azul-light);
+  color: var(--azul-oscuro);
+  border: 1.5px solid #bfdbfe;
 }
 
 .btn-accion--ojo:hover {
-    background: var(--azul);
-    color: var(--blanco);
-    border-color: var(--azul);
+  background: var(--azul);
+  color: var(--blanco);
+  border-color: var(--azul);
 }
 
 .btn-accion--check {
-    background: var(--verde-light);
-    color: var(--verde);
-    border: 1.5px solid #bbf7d0;
+  background: var(--verde-light);
+  color: var(--verde);
+  border: 1.5px solid #bbf7d0;
 }
 
 .btn-accion--check:hover {
-    background: var(--verde);
-    color: var(--blanco);
-    border-color: var(--verde);
+  background: var(--verde);
+  color: var(--blanco);
+  border-color: var(--verde);
 }
 
 .btn-accion--x {
-    background: var(--rojo-light);
-    color: var(--rojo);
-    border: 1.5px solid #fecaca;
+  background: var(--rojo-light);
+  color: var(--rojo);
+  border: 1.5px solid #fecaca;
 }
 
 .btn-accion--x:hover {
-    background: var(--rojo);
-    color: var(--blanco);
-    border-color: var(--rojo);
+  background: var(--rojo);
+  color: var(--blanco);
+  border-color: var(--rojo);
 }
+
+.btn-accion-editar {
+    background: #fef9c3; 
+    color: var(--dorado-oscuro);
+    border: 1.5px solid var(--dorado);
+}
+
+.btn-accion-editar:hover {
+    background: var(--dorado);
+    color: var(--blanco);
+    border-color: var(--dorado);
+}
+
 
 .dialog-bootstrap {
   position: fixed;

@@ -91,7 +91,7 @@ const ModalVerSolicitud = forwardRef(function ModalVerSolicitud({ solicitud }, r
             <div className="col-6">
               <div className="caja-gris">
                 <small className="dato-label">Cantidad</small>
-                <div>× {solicitud.cantidad}</div>
+                <div> {solicitud.cantidad}</div>
               </div>
             </div>
             <div className="col-6">

@@ -7,7 +7,7 @@
       "genero": "Unisex",
       "cantidad": 8,
       "precio": 100000,
-      "estado": "Disponible",
+      "estado": "No Disponible",
       "imagen": "",
       "calificacion": 4,
       "resenas": 30
@@ -23,6 +23,16 @@
       "imagen": "",
       "calificacion": 3,
       "resenas": 5
+    },
+    {
+      "codigo": "IM470",
+      "nombre": "Moño Cheer",
+      "tipo": "Accesorios",
+      "cantidad": 10,
+      "estado": "Disponible",
+      "precio": 10000,
+      "imagen": "",
+      "id": "sx-D-ekNwM0"
     }
   ],
   "solicitudes": [
@@ -77,7 +87,7 @@
     },
     {
       "id": "TP62itmnPmY",
-      "estado": "Aprobado",
+      "estado": "Pendiente",
       "motivoRechazo": "",
       "implementoId": "IM125",
       "implementoNombre": "Uniforme de competencia Femenino",
