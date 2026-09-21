@@ -1,11 +1,13 @@
-// Color de la barra del puntaje según el porcentaje
+import TarjetaResumen from "./TarjetaResumen";
+
+// Color de la barra según el porcentaje
 function colorBarra(porcentaje) {
   if (porcentaje >= 80) return "verde";
   if (porcentaje >= 50) return "amarillo";
   return "rojo";
 }
 
-function TarjetasResumen({ puntaje, completadas, total }) {
+function TarjetasResumen({ puntaje, completadas, total, asistencia }) {
   const porcentajeHabilidades = total ? Math.round((completadas / total) * 100) : 0;
 
   return (
@@ -46,6 +48,21 @@ function TarjetasResumen({ puntaje, completadas, total }) {
           />
         </div>
       </div>
+
+      {asistencia && (
+        <TarjetaResumen
+          titulo="Asistencia"
+          icono="bi-calendar-event"
+          colorIcono="verde"
+          valor={asistencia.total ? `${asistencia.porcentaje}%` : "—"}
+          nota={
+            asistencia.total
+              ? `${asistencia.asistidas} de ${asistencia.total} sesiones`
+              : "Sin sesiones registradas este mes"
+          }
+          barra={{ porcentaje: asistencia.porcentaje, color: colorBarra(asistencia.porcentaje) }}
+        />
+      )}
     </section>
   );
 }

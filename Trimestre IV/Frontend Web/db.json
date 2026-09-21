@@ -6910,6 +6910,20 @@
       "estado": "rechazada",
       "observacion": "No se recibió ningún soporte dentro del plazo establecido.",
       "fechaRevision": "2026-08-12"
+    },
+    {
+      "atletaId": 1,
+      "nivelId": 0,
+      "fecha": "2026-09-20",
+      "horaInicio": "",
+      "horaFin": "",
+      "motivo": "Holaaaaaaaaaa",
+      "archivoNombre": "",
+      "archivoTamano": "",
+      "estado": "pendiente",
+      "observacion": "",
+      "fechaRevision": "",
+      "id": "7UrI6qv9Bu8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
