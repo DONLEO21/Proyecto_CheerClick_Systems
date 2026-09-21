@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap');
+
+/* ── Variables globales ───────────────────────────────────── */
+:root {
+
+    --rojo: #d71920;
+    --rojo-hover: #b8141a;
+    --rojo-light: #fdeaea;
+
+
+    --verde: #1eaf52;
+    --verde-light: #e6f9ee;
+    --amarillo: #f59e0b;
+    --amarillo-light: #fef3c7;
+    --azul: #2f80ed;
+    --azul-light: #dbeafe;
+    --azul-oscuro: #1d4ed8;
+
+
+    --blanco: #ffffff;
+    --gris-fondo: #f5f5f5;
+    --gris-borde: #dcdcdc;
+    --gris-claro: #c9c9c9;
+    --gris-oscuro: #4d4d4d;
+
+
+    --texto-dark: #222222;
+    --texto-muted: #777777;
+
+    /* ── Colores principales ── */
+    --color-primario:         #d71920;
+    --color-primario-oscuro:  #b8141a;
+    --color-primario-claro:   #fdeaea;
+
+    --color-blanco:    #ffffff;
+    --color-fondo:     #f5f5f5;
+    --color-borde:     #dcdcdc;
+    --color-texto:     #222222;
+    --color-texto-suave: #777777;
+
+    --ancho-barra:     56px;
+    --alto-encabezado: 55px;
+    --radio-enlace:    6px;
+    --radio-boton:     5px;
+
+    --sombra-tarjeta: 0 2px 10px rgba(0,0,0,.07);
+    --sombra-boton:   0 2px 8px rgba(215,25,32,.25);
+
+    /* Colores nuestros */
+
+    --rojo-noso: #cc0000;
+    --verde-noso: #1eaf52;
+    --amarillo-noso: #fad755;
+    --gris-noso: #dddddd;
+    --azul-noso: #3b82f6;
+
+    /* Tipografia */
+
+    --text-texto: "Arimo", sans-serif;
+    --text-titulo: "Varela Round", sans-serif;
+}
+
+#hiper{
+    text-decoration: none;
+}
+
+
+#titu-ren{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#titu-ren h3{
+    font-family: var(--text-titulo);
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#titu-ren p{
+    font-family: var(--text-texto);
+    font-size: 15px;
+    color: #858585;
+}
+
+#targetas{
+    display: flex;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+
+.targe-ren{
+    background: #ffffff;
+    border: 1px solid #d4d4d4;
+    padding: 20px;
+    height: 120px;
+    border-radius: 15px;
+}
+
+.titu-targe{
+    font-size: 20px;
+    font-family: var(--text-texto);
+    margin-bottom:15px;
+}
+
+.conte-targe{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 15px;
+    margin-right: 10px;
+}
+
+.numero{
+    font-size: 27px;
+    font-family: var(--text-texto);
+    font-weight: 700;
+}
+
+.search-input{
+    border: 1px solid #d4d4d4;
+    color: #333333;
+    font-size: 15px;
+    padding: 10px 36px;
+    border-radius: 10px;
+    height: 35px;
+    font-family:var(--text-texto) ;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    margin-bottom: 20px;
+}
+
+#filtros{
+    padding: 0px 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+#btn-habil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--rojo-noso);
+    border: var(--rojo-noso);
+    height: 35px;
+    width: 250px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: var(--text-titulo);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#habil{
+    height: 18px;
+    width: 18px;
+    margin-right: 7px;
+}
+
+
+.select{
+    border: 1px solid #d4d4d4;
+    color: #333333;
+    font-size: 15px;
+    padding: 5px 10px 5px 10px;
+    height: 35px;
+    font-family:var(--text-texto) ;
+    margin: 0px 20px 0px 20px;
+}
+
+#panel{
+    background: #ffffff;
+    padding: 30px;
+    height: auto;
+    border-radius: 15px;
+}
+
+#tabla{
+    border-collapse: collapse;
+    border: 1px solid #e5e7eb;
+}
+
+#tabla td{
+    padding: 14px 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+#tabla thead{
+    text-align: center;
+    height: 40px;
+    background: #e5e7eb;
+    border: 1px solid #e5e7eb;
+    font-family: var(--text-titulo);
+    font-weight: 600;
+}
+
+#tabla tbody{
+    text-align: center;
+}
+
+.conte-a{
+    display: flex;
+}
+
+.conte-inforUsu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+
+.conte-nombre{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+
+
+#con-hiper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+
+#con-acci{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.hiper{
+    margin: 0;
+}
+
+.img-tabla{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-left: 20px;
+}
+.btn-nivel{
+    border:none;
+    font-family: var(--text-texto);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    height:27px;
+}
+
+
+
+.barra-ren {
+    width: 160px;
+    height: 12px;
+    background: #e2e2e2;
+    border-radius: 99px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.barra-fill {
+    height: 100%;
+    background: #cc0000;
+    border-radius: 99px;
+}
+
+.btn-ojo{
+    height: 35px;
+    width: 35px;
+    border-radius: 7px;
+    border: 1.5px solid #bfdbfe;
+    background: var(--azul-light);
+    color: var(--azul-oscuro);
+    cursor: pointer;
+}
+
+.btn-ojo:hover {
+    background: var(--azul);
+    color: var(--blanco);
+    border-color: var(--azul);
+}
+
+.btn-lapiz:hover {
+    background: var(--amarillo);
+    color: var(--blanco);
+    border-color: var(--amarillo);
+}
+
+.btn-archivo:hover {
+    background: var(--verde);
+    color: var(--blanco);
+    border-color: var(--verde);
+}
+.btn-basura:hover {
+    background: var(--rojo);
+    color: var(--blanco);
+    border-color: var(--rojo);
+}
+
+
+
+.btn-lapiz{
+    height: 35px;
+    width: 35px;
+    border-radius: 7px;
+    border: 2px solid #fff2c2;
+    background: var(--amarillo-light);
+    cursor: pointer;
+    color: var(--amarillo);
+}
+
+.btn-archivo{
+    height: 35px;
+    width: 35px;
+    border-radius: 7px;
+    border: 1.5px solirgb(101, 160, 255)f6;
+    background: var(--verde-light);
+    cursor: pointer;
+    color: var(--verde);
+}
+
+.btn-basura{
+    height: 35px;
+    width: 35px;
+    border-radius: 7px;
+    border: 1.5px solid #f8e7e7;
+    background: var(--rojo-light);
+    cursor: pointer;
+    color: var(--rojo);
+}
+
+.svg-ojo{
+    width: 23px;
+    height: 23px;
+}
+
+.svg-de{
+    width: 23px;
+    height: 23px;
+}
+
+.svg-dee{
+    width: 23px;
+    height: 23px;
+}
+.svg-deee{
+    width: 23px;
+    height: 23px;
+}
+
+
+#botones{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.btn-largo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    width: 110px;
+    height: 35px;
+    border: 2px solid #c2c2c3;
+    background: #ffffff;
+    border-radius:8px ;
+    cursor: pointer;
+}
+
+.acti{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #cc0000;
+    background: #cc0000;
+    border-radius:8px ;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.desac{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #cc0000;
+    background: #ffffff;
+    border-radius:8px ;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    cursor: pointer;
+}
+
+.footer-cont{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 60px ;
+}
+
+/* MENSAJE DIALOG */
+
+#menu-regis{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 657px;
+    min-width: 470px;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius:15px ;
+    
+}
+#menu-regis[open] {
+    gap: 30px;
+}
+
+#menu-regis::backdrop{
+    background: #00000062;
+    backdrop-filter: blur(2px);
+}

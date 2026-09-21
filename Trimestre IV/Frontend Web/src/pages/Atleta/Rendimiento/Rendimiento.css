@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* Todo va dentro de .rend-atleta para no afectar otras pantallas
+   (las variables ya no se declaran en :root). */
+.rend-atleta {
+    --rojo: #d71920;
+    --rojo-hover: #b8141a;
+    --rojo-light: #fdeaea;
+    --gris-fondo: #f5f5f5;
+    --gris-borde: #e0e0e0;
+    --texto-dark: #1e1e1e;
+    --texto-muted: #888888;
+    --verde-noso: #1eaf52;
+    --azul-noso: #3b82f6;
+    --amarillo-noso: #f59e0b;
+    --rojo-noso: #cc0000;
+    --radio-md: 12px;
+    --sombra-tarjeta: 0 2px 12px rgba(0, 0, 0, .07);
+
+    padding: 28px 28px 50px;
+    text-align: left;
+    font-family: 'Arimo', 'Segoe UI', Arial, sans-serif;
+    color: var(--texto-dark);
+}
+
+.rend-atleta *,
+.rend-atleta *::before,
+.rend-atleta *::after {
+    box-sizing: border-box;
+}
+
+.rend-atleta h1,
+.rend-atleta h3,
+.rend-atleta p {
+    margin: 0;
+}
+
+/* ── Encabezado de página ── */
+.rend-atleta .page-header { margin-bottom: 24px; }
+.rend-atleta .page-header h1 { font-size: 1.45rem; color: var(--texto-dark); }
+.rend-atleta .page-header p { font-size: .9rem; color: var(--texto-muted); margin-top: 4px; }
+
+/* ── Perfil del atleta ── */
+.rend-atleta .perfil-atleta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    gap: 16px;
+    background: white;
+    border-radius: var(--radio-md);
+    padding: 18px 22px;
+    box-shadow: var(--sombra-tarjeta);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--rojo);
+}
+.rend-atleta .perfil-atleta__foto {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--rojo-light);
+}
+.rend-atleta .perfil-atleta__info h3 { font-size: 1.1rem; }
+.rend-atleta .perfil-atleta__info p { font-size: .85rem; color: var(--texto-muted); margin-top: 2px; }
+
+/* Los colores del nivel llegan por style={obtenerEstiloNivel(...)};
+   estos son solo los valores por defecto. */
+.rend-atleta .badge-nivel {
+    display: inline-block;
+    background: var(--rojo-light);
+    color: var(--rojo);
+    font-size: .78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 6px;
+}
+
+/* ── Tabs de navegación ── */
+.rend-atleta .tabs-nav {
+    display: flex;
+    gap: 6px;
+    background: white;
+    border-radius: var(--radio-md);
+    padding: 6px;
+    box-shadow: var(--sombra-tarjeta);
+    margin-bottom: 24px;
+    width: fit-content;
+}
+.rend-atleta .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    font-family: 'Arimo', sans-serif;
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--texto-muted);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.rend-atleta .tab-btn:hover { background: var(--gris-fondo); color: var(--texto-dark); }
+.rend-atleta .tab-btn.activo,
+.rend-atleta .tab-btn.activo:hover { background: var(--rojo); color: white; }
+
+/* ── Tarjetas resumen ── */
+.rend-atleta .resumen-cards {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.rend-atleta .rcard {
+    background: white;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-tarjeta);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 8px;
+}
+.rend-atleta .rcard__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+.rend-atleta .rcard__titulo {
+    font-size: .8rem;
+    font-weight: 700;
+    color: var(--texto-muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+.rend-atleta .rcard__valor {
+    font-size: 1.9rem;
+    font-weight: 700;
+    font-family: 'Varela Round', sans-serif;
+    color: var(--texto-dark);
+    line-height: 1;
+}
+.rend-atleta .rcard__valor-total { font-size: 1rem; color: var(--texto-muted); }
+.rend-atleta .rcard__nota { font-size: .78rem; color: var(--texto-muted); }
+
+.rend-atleta .rcard__icono-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.rend-atleta .rcard__icono-wrap--verde { background: #d1fae5; color: var(--verde-noso); }
+.rend-atleta .rcard__icono-wrap--azul { background: #dbeafe; color: var(--azul-noso); }
+
+.rend-atleta .rcard__barra-wrap {
+    width: 100%;
+    flex-shrink: 0;
+    height: 6px;
+    background: var(--gris-borde);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 2px;
+}
+.rend-atleta .rcard__barra-fill { height: 100%; border-radius: 3px; transition: width .5s ease; }
+.rend-atleta .rcard__barra-fill--verde { background: var(--verde-noso); }
+.rend-atleta .rcard__barra-fill--rojo { background: var(--rojo-noso); }
+.rend-atleta .rcard__barra-fill--amarillo { background: var(--amarillo-noso); }
+
+/* ── Panel de habilidades ── */
+.rend-atleta .panel-rendimiento {
+    background: white;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-tarjeta);
+    padding: 24px;
+    margin-bottom: 22px;
+}
+.rend-atleta .panel-rendimiento__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+.rend-atleta .panel-rendimiento__header h3 { font-size: 1.05rem; }
+
+.rend-atleta .filtros-habilidad { display: flex; gap: 6px; flex-wrap: wrap; }
+.rend-atleta .btn-filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--gris-borde);
+    background: white;
+    font-family: 'Arimo', sans-serif;
+    font-size: .83rem;
+    font-weight: 600;
+    color: var(--texto-muted);
+    cursor: pointer;
+    transition: all .2s;
+}
+.rend-atleta .btn-filtro:hover { border-color: var(--rojo); color: var(--rojo); }
+.rend-atleta .btn-filtro--activo,
+.rend-atleta .btn-filtro--activo:hover {
+    background: var(--rojo);
+    color: white;
+    border-color: var(--rojo);
+}
+
+.rend-atleta .grid-habilidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+}
+.rend-atleta .tarjeta-habilidad {
+    align-items: stretch;
+    text-align: left;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fafafa;
+    transition: box-shadow .2s, border-color .2s;
+}
+.rend-atleta .tarjeta-habilidad:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .09);
+    border-color: #c8c8c8;
+}
+.rend-atleta .tarjeta-habilidad__icono {
+    width: 40px;
+    height: 40px;
+    background: var(--rojo-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rojo);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.rend-atleta .tarjeta-habilidad__nombre {
+    font-size: .85rem;
+    color: var(--texto-dark);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.rend-atleta .badge-estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 700;
+    width: fit-content;
+}
+.rend-atleta .badge-estado--completado { background: #d1fae5; color: #065f46; }
+.rend-atleta .badge-estado--pendiente { background: #fee2e2; color: #991b1b; }
+
+/* ── Notas del entrenador ── */
+.rend-atleta .notas-entrenador {
+    background: white;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-tarjeta);
+    padding: 24px;
+}
+.rend-atleta .notas-entrenador h3 { font-size: 1.05rem; margin-bottom: 16px; }
+
+.rend-atleta .nota-card {
+    border-left: 3px solid var(--rojo);
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    background: #fafafa;
+    border-radius: 0 8px 8px 0;
+}
+.rend-atleta .nota-card:last-child { margin-bottom: 0; }
+.rend-atleta .nota-card__fecha {
+    font-size: .78rem;
+    color: var(--texto-muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.rend-atleta .nota-card__texto {
+    font-size: .9rem;
+    color: var(--texto-dark);
+    line-height: 1.55;
+}
+
+/* ── Estados vacíos / carga ── */
+.rend-atleta .rend-vacio {
+    color: var(--texto-muted);
+    text-align: center;
+    padding: 24px 0;
+}
+.rend-atleta .rend-vacio--izq { text-align: left; padding: 0; }
+
+/* ── Animación de entrada (una sola secuencia al cargar) ── */
+.rend-atleta .page-header { animation: rendEntradaArriba .6s ease .10s both; }
+.rend-atleta .perfil-atleta { animation: rendEntradaArriba .6s ease .22s both; }
+.rend-atleta .tabs-nav { animation: rendEntradaArriba .6s ease .32s both; }
+.rend-atleta .resumen-cards .rcard:nth-child(1) { animation: rendEntradaTarjeta .6s ease .42s both; }
+.rend-atleta .resumen-cards .rcard:nth-child(2) { animation: rendEntradaTarjeta .6s ease .54s both; }
+
+@keyframes rendEntradaArriba {
+    from { opacity: 0; transform: translateY(-14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rendEntradaTarjeta {
+    from { opacity: 0; transform: translateY(20px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rend-atleta .page-header,
+    .rend-atleta .perfil-atleta,
+    .rend-atleta .tabs-nav,
+    .rend-atleta .resumen-cards .rcard {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .rend-atleta { padding: 20px 16px 40px; }
+}
