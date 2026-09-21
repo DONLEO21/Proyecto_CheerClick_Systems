@@ -1,0 +1,621 @@
+:root {
+  --rojo-primario: #d92b2b;
+  --rojo-oscuro: #b71f1f;
+  --gris-texto: #333;
+  --gris-suave: #6b6b6b;
+  --fondo-app: #f4f5f7;
+  --borde-suave: #eee;
+  --ancho-sidebar: 60px; /* debe ser igual al ancho real de tu Sidebar */
+}
+
+.pagina-admin {
+  background: var(--fondo-app);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- estructura general (sidebar fijo + contenido) ---------- */
+.admin-main {
+  margin-left: var(--ancho-sidebar); /* pegado a la barra lateral, sin hueco */
+  padding-top: 0; /* el header ya ocupa su propio espacio; antes había 64px de más */
+}
+
+.contenedor {
+  /* sin max-width/centrado: en pantallas anchas ese centrado metía un espacio
+     extra entre la sidebar y las tarjetas */
+  max-width: none;
+  margin: 0;
+  /* arriba se ven ~34px (24 + lo que aporta el header), por eso los lados
+     llevan 34px: así el espacio es igual en vertical y en horizontal */
+  padding: 24px 34px;
+}
+
+/* ---------- encabezado principal (saludo) ---------- */
+.bienvenida-admin {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.bienvenida-admin__texto h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--gris-texto);
+}
+
+/* ---------- botón principal (rojo plano) ---------- */
+.admin-main .btn-primario {
+  background: var(--rojo-primario);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.admin-main .btn-primario:hover {
+  background: var(--rojo-oscuro);
+  color: #fff;
+}
+
+.admin-main .btn-primario:active {
+  transform: scale(0.98);
+}
+
+/* ---------- grid de tarjetas ---------- */
+.panel-resumen-admin {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tarjeta-dashboard {
+  background: #fff;
+  border-radius: 20px;
+  border-top: 4px solid var(--rojo-primario);
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tarjeta-dashboard--ancha {
+  grid-column: span 2;
+}
+
+.tarjeta-dashboard__header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--gris-texto);
+}
+
+.tarjeta-dashboard__header--icono {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tarjeta-dashboard__header--espacio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-dashboard__contenido {
+  flex: 1;
+}
+
+.tarjeta-dashboard__accion {
+  justify-content: center;
+}
+
+.tarjeta-dashboard .tarjeta-dashboard__accion--ancho {
+  width: 100%;
+  text-align: center;
+}
+
+.tarjeta-dashboard .tarjeta-dashboard__accion--centrado {
+  align-self: center;
+  margin-inline: auto; /* centrado aunque otro estilo global cambie align-self */
+}
+
+/* icono de cabecera en cuadro suave */
+.icono-cabecera {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fde8e8;
+  color: var(--rojo-primario);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* ---------- tarjeta usuarios: fondo blanco, solo el icono lleva color ---------- */
+.lista-usuarios-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-usuarios {
+  --tono: #2b56c9;
+  --tono-fondo: #e6edfb;
+  --tono-borde: #e6e8ee;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--tono-borde);
+  cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* al pasar el mouse la fila "sobresale" un poco */
+.stat-usuarios:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--tono);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.stat-usuarios:hover .stat-usuarios__icono {
+  transform: scale(1.08);
+}
+
+.stat-usuarios--total {
+  --tono: #2b56c9;
+  --tono-fondo: #e6edfb;
+  --tono-borde: #e6e8ee;
+}
+
+.stat-usuarios--activos {
+  --tono: #1e9e4e;
+  --tono-fondo: #dff5e8;
+  --tono-borde: #d3efdf;
+}
+
+.stat-usuarios--inactivos {
+  --tono: var(--rojo-primario);
+  --tono-fondo: #fde8e8;
+  --tono-borde: #f6dada;
+}
+
+.stat-usuarios__icono {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  background: var(--tono-fondo);
+  color: var(--tono);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.stat-usuarios__texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.stat-usuarios__numero {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1c1c1c;
+}
+
+.stat-usuarios__etiqueta {
+  font-size: 0.8rem;
+  color: var(--gris-suave);
+}
+
+/* ---------- tarjeta resumen de pagos ---------- */
+.contenido-estadisticas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* leyenda: cada estado dentro de una "píldora" */
+.leyenda-estados {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 150px;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+}
+
+.leyenda-estados li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #f3f3f3;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  cursor: default;
+  outline: none;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.leyenda-estados li.activo,
+.leyenda-estados li:focus-visible {
+  background: #fff;
+  border-color: var(--color-estado);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(3px);
+}
+
+.leyenda-estados__valor {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--gris-suave);
+}
+
+.punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* torta con el total (o el %) al centro */
+.grafico-estados {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.grafico-estados__centro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* deja pasar el mouse a la torta */
+  line-height: 1.1;
+}
+
+.grafico-estados__centro strong {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #1c1c1c;
+}
+
+.grafico-estados__centro span {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gris-suave);
+}
+
+.segmento-torta {
+  cursor: pointer;
+  transition: fill-opacity 0.2s ease, filter 0.2s ease;
+}
+
+.segmento-torta--activo {
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.28));
+}
+
+/* ---------- próximas actividades y novedades ---------- */
+.lista-actividades,
+.lista-novedades {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.lista-actividades__item,
+.lista-novedades__item {
+  border-bottom: 1px solid var(--borde-suave);
+}
+
+.lista-actividades__item:last-child,
+.lista-novedades__item:last-child {
+  border-bottom: none;
+}
+
+.lista-actividades__item a,
+.lista-novedades__item a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.lista-actividades__icono,
+.lista-novedades__icono {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdecec;
+  color: var(--rojo-primario);
+}
+
+.lista-actividades__icono--amarillo {
+  background: #fff3d6;
+  color: #d99a1c;
+}
+
+.lista-actividades__icono--alerta {
+  background: #fbe0e0;
+  color: var(--rojo-oscuro);
+}
+
+.lista-actividades__texto h3,
+.lista-novedades__texto h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 2px;
+  color: var(--gris-texto);
+}
+
+.lista-actividades__texto p,
+.lista-novedades__texto p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: var(--gris-suave);
+}
+
+/* enlace "Ver todas" (solo aparece si hay más de 3) */
+.enlace-ver-todas {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  align-self: flex-end;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--rojo-primario);
+  cursor: pointer;
+}
+
+.enlace-ver-todas:hover {
+  color: var(--rojo-oscuro);
+  text-decoration: underline;
+}
+
+/* ---------- solicitudes pendientes ---------- */
+.titulo-con-contador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contador-pendientes {
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--rojo-primario);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-grid;
+  place-items: center;
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f5f7;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: var(--gris-suave);
+}
+
+.buscador input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.9rem;
+  width: 160px;
+}
+
+.tabla-dashboard__scroll {
+  overflow-x: auto;
+}
+
+.tabla-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.tabla-dashboard th {
+  text-align: left;
+  color: var(--gris-suave);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--borde-suave);
+}
+
+.tabla-dashboard td {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--borde-suave);
+  color: var(--gris-texto);
+}
+
+.tabla-dashboard__vacio {
+  text-align: center;
+  color: var(--gris-suave);
+  padding: 20px 8px;
+}
+
+.btn-tabla {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-tabla--ver {
+  background: var(--rojo-primario);
+  color: #fff;
+}
+
+.btn-tabla--ver:hover {
+  background: var(--rojo-oscuro);
+  color: #fff;
+}
+
+/* pie de la tabla: "Mostrando 1–3 de 5" + paginador */
+.pie-tabla {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--gris-suave);
+}
+
+.pie-tabla__acciones {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pie-tabla .enlace-ver-todas {
+  align-self: auto;
+}
+
+.paginador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paginador button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--borde-suave);
+  background: #fff;
+  color: var(--gris-texto);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.paginador button:hover:not(:disabled) {
+  background: #fdecec;
+  border-color: var(--rojo-primario);
+  color: var(--rojo-primario);
+}
+
+.paginador button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.paginador__indicador {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--gris-texto);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .panel-resumen-admin {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tarjeta-dashboard--ancha {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-main {
+    margin-left: 0;
+  }
+
+  .panel-resumen-admin {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-dashboard--ancha {
+    grid-column: span 1;
+  }
+
+  .contenido-estadisticas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buscador,
+  .buscador input {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-usuarios,
+  .stat-usuarios__icono,
+  .leyenda-estados li {
+    transition: none;
+  }
+
+  .stat-usuarios:hover,
+  .stat-usuarios:hover .stat-usuarios__icono {
+    transform: none;
+  }
+}
