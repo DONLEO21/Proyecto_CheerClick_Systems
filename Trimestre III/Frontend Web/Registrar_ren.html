@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheerClick Systems</title>
+    <link rel="stylesheet" href="css/Registrar_ren.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     BARRA LATERAL
+══════════════════════════════════════════ -->
+<aside class="barra-lateral" aria-label="Menú de navegación principal">
+    <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+        <span class="boton-menu__linea"></span>
+        <span class="boton-menu__linea"></span>
+        <span class="boton-menu__linea"></span>
+    </button>
+    <nav>
+        <ul class="menu-lateral" role="list">
+            <li class="menu-lateral__elemento">
+                <a href="#" class="menu-lateral__enlace" title="Perfil">
+                    <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento">
+                <a href="HoraEntre.html" class="menu-lateral__enlace" title="Horarios">
+                    <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                <a href="#" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                    <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento">
+                <a href="#" class="menu-lateral__enlace" title="Registro Asistencia">
+                    <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Registro Asistencia">
+                </a>
+            </li>
+            <li class="menu-lateral__elemento">
+                <a href="PQRSEntre.html" class="menu-lateral__enlace" title="PQRS">
+                    <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+<!-- ══════════════════════════════════════════
+     ENCABEZADO SUPERIOR
+══════════════════════════════════════════ -->
+<header class="encabezado" role="banner">
+    <div class="encabezado__contenedor">
+        <nav class="encabezado__nav-usuario" aria-label="Opciones de sesión">
+            <ul class="encabezado__lista-botones" role="list">
+                <li>
+                    <a href="#" class="boton-cerrar-sesion">Cerrar Sesión</a>
+                </li>
+                <li>
+                    <span class="etiqueta-rol" aria-label="Rol: Entrenador">Entrenador</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="encabezado__iconos-logo">
+            <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                <img src="img/campana-de-notificacion.png" alt="Notificaciones">
+            </a>
+            <a href="#" class="icono-accion" aria-label="Ir al inicio">
+                <img src="img/casa.png" alt="Inicio">
+            </a>
+            <figure class="logo-club">
+                <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+            </figure>
+        </div>
+    </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     CONTENIDO PRINCIPAL
+══════════════════════════════════════════ -->
+<main id="contenido">
+    <div id="volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+        <a href="Gestion_renDeportivo_entre.html"> Volver al Rendimiento de los Atletas</a>
+    </div>
+        <h3 id="titu-prin">Nuevo Registro de Rendimiento</h3>
+    <aside id="conte-infor">
+        <div>
+            <img  id="foto" src="img/Foto1.jpg" alt="Foto Atleta">
+        </div>
+        <div>
+            <h3>Detalle del Atleta</h3>
+            <h4>Leonardo Jara</h4>
+            <h5>Edad: 20 - Nivel 3 Magic </h5>
+        </div>
+    </aside>
+    <section id="panel-prin">
+        <div class="conte-prin">
+            <h4 class="titu-conte"><svg class="sim-conte" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-line-icon lucide-chart-line"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg>Datos de Registro</h4>
+            <div id="targetas-ren">
+                <div class="tar">
+                    <h5 id="ti-tar">ID rendimiento</h5>
+                    <span id="va-tar">RE852</span>
+                </div>
+                <div class="tar">
+                    <h5 id="ti-tar">ID usuario</h5>
+                    <span id="va-tar">747</span>
+                </div>
+            </div>
+            <div id="detalle-linea"></div>
+            <section id="datos-a">
+                <h4 class="titu-conte"><svg class="sim-conte" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days-icon lucide-calendar-days"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>Datos de la sesión</h4>
+                <div class="conte-input">
+                    <label class="titu-input" for="">Fecha</label>
+                    <input id="fecha" type="date">
+                </div>
+                <div class="conte-input">
+                    <label class="titu-input" for="">Notas de la sesión</label>
+                    <textarea name="" id="ob" placeholder="Ej. Reforzar la parada de manos"></textarea>
+                </div>
+                <div class="conte-input">
+                    <label class="titu-input" for="">Descripción de habilidades</label>
+                    <textarea name="" id="des" placeholder="Describe las habilidades trabajadas..."></textarea>
+                </div>
+            </section>
+        </div>
+        <div class="conte-prin">
+            <h4 class="titu-conte" ><svg class="sim-conte" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-spline-icon lucide-chart-spline"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7"/></svg>Métricas de desempeño</h4>
+            <div id="conte-circu">
+                <button id="circulo" type="button">0 <br>Puntaje</button>
+            </div>
+            <div class="targe-slider">
+                <div class="conte-1">
+                    <div class="con-1">
+                        <img id="img-habi" src="img/habi1.png" alt="">
+                        <span id="titu-barras">Habilidades de arcos</span>
+                    </div>
+                    <div id="con-2">
+                        <button class="btn">0%</button>
+                    </div>
+                </div>
+                <div class="conte-barra">
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:2%"></div></div>
+                    </div>  
+                </div>
+                <div class="conte-barra">
+                    <input class="slider" type="range" >
+                </div>
+            </div>
+            <div class="targe-slider">
+                <div class="conte-1">
+                    <div class="con-1">
+                        <img id="img-habi" src="img/habi2.png" alt="">
+                        <span id="titu-barras">Habilidades de palomas</span>
+                    </div>
+                    <div id="con-2">
+                        <button class="btn">0%</button>
+                    </div>
+                </div>
+                <div class="conte-barra">
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:2%"></div></div>
+                    </div>  
+                </div>
+                <div class="conte-barra">
+                    <input class="slider" type="range" >
+                </div>
+            </div>
+            <div class="targe-slider">
+                <div class="conte-1">
+                    <div class="con-1">
+                        <img id="img-habi" src="img/habi3.png" alt="">
+                        <span id="titu-barras">Parada de manos</span>
+                    </div>
+                    <div id="con-2">
+                        <button class="btn">0%</button>
+                    </div>
+                </div>
+                <div class="conte-barra">
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:2%"></div></div>
+                    </div>  
+                </div>
+                <div class="conte-barra">
+                    <input class="slider" type="range" >
+                </div>
+            </div>
+            <div class="targe-slider">
+                <div class="conte-1">
+                    <div class="con-1">
+                        <img id="img-habi" src="img/habi4.png" alt="">
+                        <span id="titu-barras">Flexibilidad</span>
+                    </div>
+                    <div id="con-2">
+                        <button class="btn">0%</button>
+                    </div>
+                </div>
+                <div class="conte-barra">
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:2%"></div></div>
+                    </div>  
+                </div>
+                <div class="conte-barra">
+                    <input class="slider" type="range" >
+                </div>
+            </div>
+            <div class="targe-slider">
+                <div class="conte-1">
+                    <div class="con-1">
+                        <img id="img-habi" src="img/habi5.png" alt="">
+                        <span id="titu-barras">Habilidades de parther</span>
+                    </div>
+                    <div id="con-2">
+                        <button class="btn">0%</button>
+                    </div>
+                </div>
+                <div class="conte-barra">
+                    <div class="tar-progress">
+                        <div class="barra-ren"><div class="barra-fill" style="width:2%"></div></div>
+                    </div>  
+                </div>
+                <div class="conte-barra">
+                    <input class="slider" type="range" >
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="guardar-cam">
+        <div id="conte-final">
+            <svg class="sim-conte" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert-icon lucide-circle-alert"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>Completa los campos obligatorios para guardar</span>
+        </div>  
+        <div id="conte-final">
+            <a href="Gestion_renDeportivo_entre.html"><button id="cancelar">Cancelar</button></a>
+            <a href="Gestion_renDeportivo_entre.html"><button id="guardar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save-icon lucide-save"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/></svg>Guardar registro</button></a>
+        </div>
+    </footer>
+</main>
+</body>

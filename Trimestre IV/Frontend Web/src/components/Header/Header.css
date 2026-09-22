@@ -123,6 +123,17 @@ button.etiqueta-rol:hover {
 .menu-rol__opcion:hover {
     background-color: #fdeaea;
     color: var(--color-primario);
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-radius: var(--radio-boton);
+    font-size: 13px;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 700;
+    letter-spacing: .2px;
+    user-select: none;
+    white-space: nowrap;
 }
 
 /* Íconos del encabezado */
@@ -159,6 +170,7 @@ button.etiqueta-rol:hover {
     color: var(--color-primario);
     stroke: var(--color-primario);
 }
+
 .encabezado__separador {
     width: 1px;
     height: 28px;
@@ -173,4 +185,21 @@ button.etiqueta-rol:hover {
     border-radius: 0;
     border: none;
     background: transparent;
+}
+
+.encabezado__contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 16px;
+}
+
+.encabezado nav ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

@@ -7,6 +7,9 @@ export default function SelectorRol({ rol }) {
   const { pathname } = useLocation();
 
   useEffect(() => setAbierto(false), [pathname]);
+
+  useEffect(() => setAbierto(false), [pathname]);
+
   useEffect(() => {
     if (!abierto) return;
     const alClicFuera = (e) => {
@@ -22,21 +25,24 @@ export default function SelectorRol({ rol }) {
     };
   }, [abierto]);
 
-  let etiqueta = rol;
-  let opciones = [];
-  const ruta = pathname.toLowerCase().replace(/\/+$/, "");
-  const esRutaAdmin = ruta.startsWith("/admin");
+const ruta = pathname.toLowerCase().replace(/\/+$/, "");
 
-  if (esRutaAdmin && ruta.includes("horarios")) {
+let etiqueta = rol;
+let opciones = [];
+
+if (ruta.startsWith("/admin")) {
+  if (ruta.includes("horarios")) {
     etiqueta = "Administrador";
     opciones = [{ texto: "Vista Entrenador", ruta: "/admin/calendario" }];
-  } else if (esRutaAdmin && ruta.includes("calendario")) {
+  } else if (ruta.includes("calendario")) {
     etiqueta = "Entrenador";
     opciones = [{ texto: "Vista Administrador", ruta: "/admin/horarios" }];
   }
-  if (!opciones.length) {
-    return <span className="etiqueta-rol">{etiqueta}</span>;
-  }
+}
+
+if (!opciones.length) {
+  return <span className="etiqueta-rol">{etiqueta}</span>;
+}
 
   return (
     <div className={`selector-rol ${abierto ? "abierto" : ""}`} ref={contenedorRef}>

@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia</title>
+    <link rel="icon" type="image/x-icon" href="img/Logo-Club.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Arimo:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="css/stylesAdmi.css">
+</head>
+<body>
+
+    <!-- ===== BARRA LATERAL DE NAVEGACIÓN ===== -->
+    <aside class="barra-lateral" aria-label="Menú de navegación principal">
+        <button class="boton-menu" type="button" aria-label="Abrir o cerrar menú" aria-expanded="false">
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+            <span class="boton-menu__linea"></span>
+        </button>
+        <nav>
+            <ul class="menu-lateral" role="list">
+                <li class="menu-lateral__elemento">
+                    <a href="perfil-admin.html" class="menu-lateral__enlace" title="Perfil">
+                        <img class="menu-lateral__icono" src="img/usuario.png" alt="Perfil">
+                    </a>
+                </li>
+                <!-- Asistencia Activa -->
+                <li class="menu-lateral__elemento menu-lateral__elemento--activo">
+                    <a href="ValidarCuenta.html" class="menu-lateral__enlace" title="Asistencia">
+                        <img class="menu-lateral__icono" src="img/lista-de-verificacion.png" alt="Asistencia">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ValidarCuenta.html" class="menu-lateral__enlace" title="Cuentas de Usuarios">
+                        <img class="menu-lateral__icono" src="img/usuarios.png" alt="Cuentas de Usuarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="HoraAdmin.html" class="menu-lateral__enlace" title="Horarios">
+                        <img class="menu-lateral__icono" src="img/calendario.png" alt="Horarios">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ImplementosAdmi.html" class="menu-lateral__enlace" title="Implementos Deportivos">
+                        <img class="menu-lateral__icono" src="img/Camisa.png" alt="Implementos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="Gestion_Pagos_admi.html" class="menu-lateral__enlace" title="Pagos">
+                        <img class="menu-lateral__icono" src="img/factura.png" alt="Pagos">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="PQRSAdmin.html" class="menu-lateral__enlace" title="PQRS">
+                        <img class="menu-lateral__icono" src="img/comentarios.png" alt="PQRS">
+                    </a>
+                </li>
+                <li class="menu-lateral__elemento">
+                    <a href="ValidarCuenta.html" class="menu-lateral__enlace" title="Rendimiento Deportivo">
+                        <img class="menu-lateral__icono" src="img/estadisticas-de-barras.png" alt="Rendimiento Deportivo">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ===== ENCABEZADO SUPERIOR ===== -->
+    <header class="encabezado" role="banner">
+        <div class="encabezado__contenedor">
+            <!-- Izquierda: sesión y rol -->
+            <nav aria-label="Opciones de sesión">
+                <div class="d-flex align-items-center gap-2">
+                    <a href="login.html" class="boton-cerrar-sesion">Cerrar Sesión</a>
+
+                    <div class="dropdown-rol">
+                        <input type="checkbox" id="toggle-rol" class="dropdown-rol__toggle">
+                        <label for="toggle-rol" class="etiqueta-rol dropdown-rol__boton">
+                            Administrador
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                        </label>
+                        <ul class="dropdown-rol__menu">
+                            <li><a href="entrenador.html" class="dropdown-rol__opcion">Vista Entrenador</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Derecha: notificaciones, inicio, separador, logo -->
+            <div class="encabezado__iconos-logo d-flex align-items-center">
+                <a href="#" class="icono-accion" aria-label="Ver notificaciones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                </a>
+                <a href="index.html" class="icono-accion" aria-label="Ir al inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+                <div class="encabezado__separador"></div>
+                <figure class="logo-club mb-0">
+                    <img src="img/Logo-Club.png" alt="Logo del club deportivo">
+                </figure>
+            </div>
+        </div>
+    </header>
+
+    <input type="checkbox" id="toggle-guardado" style="display:none;">
+    <!-- Inicio de Vista de Entrenador -->
+    <div class="contenedor-principal">
+
+        <input type="radio" id="switch-formativos" name="pestanas" checked>
+        <input type="radio" id="switch-queen" name="pestanas">
+        <input type="radio" id="switch-princess" name="pestanas">
+        <input type="radio" id="switch-magic" name="pestanas">
+        <input type="radio" id="switch-blood" name="pestanas">
+        <input type="radio" id="switch-just" name="pestanas">
+
+        <input type="radio" id="filtro-pendientes" name="filtro-estado" checked>
+        <input type="radio" id="filtro-aprobadas"  name="filtro-estado">
+        <input type="radio" id="filtro-rechazadas" name="filtro-estado">
+        <input type="radio" id="filtro-todas"      name="filtro-estado">
+
+        <input type="radio" id="nivel-todos"      name="filtro-nivel" checked>
+        <input type="radio" id="nivel-formativo"  name="filtro-nivel">
+        <input type="radio" id="nivel-queen"      name="filtro-nivel">
+        <input type="radio" id="nivel-princess"   name="filtro-nivel">
+        <input type="radio" id="nivel-magic"      name="filtro-nivel">
+        <input type="radio" id="nivel-blood"      name="filtro-nivel">
+
+        <div class="asist-header">
+            <div class="asist-header__titulo-bloque">
+                <h1>Registrar asistencia</h1>
+                <p>Gestiona la asistencia, visualiza el historial de tus registros aquí y lleva el control de las justificaciones de los atletas</p>
+            </div>
+
+            <div class="asist-header__tabs-bloque">
+                <div class="tabla-contenido">
+                    <label for="switch-formativos" class="tab-btn btn-formativos">Nivel Formativo King</label>
+                    <label for="switch-queen" class="tab-btn btn-queen">Queen</label>
+                    <label for="switch-princess" class="tab-btn btn-princess">Princess</label>
+                    <label for="switch-magic" class="tab-btn btn-magic">Magic</label>
+                    <label for="switch-blood" class="tab-btn btn-blood">Blood Tigers</label>
+                    <label for="switch-just" class="tab-btn btn-just">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Justificaciones
+                        <span class="tab-just-badge">3</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nivel Formativo -->
+        <div class="switch-formativos">
+            <!-- Cards de resumen rápido -->
+            <div class="resumen-cards">
+                <div class="rcard rcard-total">
+                    <div class="rcard-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num">11</span>
+                        <span class="rcard-label">Total atletas</span>
+                    </div>
+                </div>
+                <div class="rcard rcard-pct">
+                    <div class="rcard-icon rcard-icon-pct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-pct">63%</span>
+                        <span class="rcard-label">Asistencia hoy</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-pct"></div></div>
+                </div>
+                <div class="rcard rcard-presente">
+                    <div class="rcard-icon rcard-icon-presente">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1eaf52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-presente">7</span>
+                        <span class="rcard-label">Presentes + Inpuntuales</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-presente"></div></div>
+                </div>
+                <div class="rcard rcard-falta">
+                    <div class="rcard-icon rcard-icon-falta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-falta">4</span>
+                        <span class="rcard-label">Faltas registradas</span>
+                    </div>
+                    <div class="rcard-bar-wrap">
+                        <div class="rcard-bar rcard-bar-falta"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barra de filtros y contadores -->
+            <div class="asist-controles">
+                <div class="asist-fecha">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    <span>29/04/2026</span>
+                </div>
+
+                <button type="button" class="btn-consultar" onclick="document.getElementById('modal-consultar').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="7" height="7" x="3" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="14" rx="1"/>
+                        <rect width="7" height="7" x="3" y="14" rx="1"/>
+                    </svg>
+                    Consultar asistencia
+                </button>
+
+                <div class="asist-contador contador-presente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                    <span class="num">6</span>
+                    <span class="label">Presentes</span>
+                </div>
+
+                <div class="asist-contador contador-inpuntual">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span class="num">1</span>
+                    <span class="label">Inpuntual</span>
+                </div>
+
+                <div class="asist-contador contador-falta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                    <span class="num">4</span>
+                    <span class="label">Faltas</span>
+                </div>
+            </div>
+
+            <!-- Tabla de atletas -->
+            <div class="asist-tabla-wrapper">
+                <table class="asist-tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Fernanda</td>
+                            <td>Rodrigues Rivera</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Pablo</td>
+                            <td>Martínez Soler</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Alberto</td>
+                            <td>Castro Peña</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Victoria</td>
+                            <td>Delgado Ortiz</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Eduardo</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paola Valentina</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón guardar + Paginación -->
+            <div class="asist-footer-bar">
+                <button type="button" class="btn-guardar btn-guardar-normal" onclick="document.getElementById('modal-guardado').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" x2="12" y1="3" y2="15"/>
+                    </svg>
+                    Guardar asistencia
+                </button>
+                <label for="toggle-guardado" class="btn-guardar btn-editar-guardado">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar asistencia
+                </label>
+                <div class="asist-paginacion asist-paginacion-footer">
+                    <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
+                    <div class="paginacion-btns">
+                        <button type="button" class="btn-pag">← Anterior</button>
+                        <button type="button" class="btn-pag btn-pag-num-activo">1</button>
+                        <button type="button" class="btn-pag btn-pag-num">2</button>
+                        <button type="button" class="btn-pag btn-pag-num">3</button>
+                        <button type="button" class="btn-pag">Siguiente →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- aviso informativo -->
+            <div class="asist-tip">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
+            </div>
+        </div>
+
+        <div class="switch-queen">
+            <!-- Cards de resumen rápido -->
+            <div class="resumen-cards">
+                <div class="rcard rcard-total">
+                    <div class="rcard-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num">11</span>
+                        <span class="rcard-label">Total atletas</span>
+                    </div>
+                </div>
+                <div class="rcard rcard-pct">
+                    <div class="rcard-icon rcard-icon-pct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-pct">63%</span>
+                        <span class="rcard-label">Asistencia hoy</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-pct"></div></div>
+                </div>
+                <div class="rcard rcard-presente">
+                    <div class="rcard-icon rcard-icon-presente">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1eaf52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-presente">7</span>
+                        <span class="rcard-label">Presentes + Inpuntuales</span>
+                    </div>
+                    <div class="rcard-bar-wrap"><div class="rcard-bar rcard-bar-presente"></div></div>
+                </div>
+                <div class="rcard rcard-falta">
+                    <div class="rcard-icon rcard-icon-falta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-num rcard-num-falta">4</span>
+                        <span class="rcard-label">Faltas registradas</span>
+                    </div>
+                    <div class="rcard-bar-wrap">
+                        <div class="rcard-bar rcard-bar-falta"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barra de filtros y contadores -->
+            <div class="asist-controles">
+                <div class="asist-fecha">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    <span>29/04/2026</span>
+                </div>
+
+                <button type="button" class="btn-consultar" onclick="document.getElementById('modal-consultar').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="7" height="7" x="3" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="14" rx="1"/>
+                        <rect width="7" height="7" x="3" y="14" rx="1"/>
+                    </svg>
+                    Consultar asistencia
+                </button>
+
+                <div class="asist-contador contador-presente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                    <span class="num">6</span>
+                    <span class="label">Presentes</span>
+                </div>
+
+                <div class="asist-contador contador-inpuntual">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span class="num">1</span>
+                    <span class="label">Inpuntual</span>
+                </div>
+
+                <div class="asist-contador contador-falta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                    <span class="num">4</span>
+                    <span class="label">Faltas</span>
+                </div>
+            </div>
+
+            <!-- Tabla de atletas -->
+            <div class="asist-tabla-wrapper">
+                <table class="asist-tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Fernanda</td>
+                            <td>Rodrigues Rivera</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Pablo</td>
+                            <td>Martínez Soler</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Alberto</td>
+                            <td>Castro Peña</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Victoria</td>
+                            <td>Delgado Ortiz</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Eduardo</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paola Valentina</td>
+                            <td>Rojas Mendoza</td>
+                            <td></td>
+                            <td class="acciones-cell">
+                                <button type="button" class="btn-accion btn-presente" title="Presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 6 9 17l-5-5"/>
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn-accion btn-falta" title="Falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-wrapper">
+                                    <button type="button" class="btn-accion btn-mas" title="Más opciones">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            Inpuntual
+                                        </button>
+                                        <button type="button" class="dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14 2 14 8 20 8"/>
+                                            </svg>
+                                            Justificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón guardar + Paginación -->
+            <div class="asist-footer-bar">
+                <button type="button" class="btn-guardar btn-guardar-normal" onclick="document.getElementById('modal-guardado').showModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" x2="12" y1="3" y2="15"/>
+                    </svg>
+                    Guardar asistencia
+                </button>
+                <label for="toggle-guardado" class="btn-guardar btn-editar-guardado">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Editar asistencia
+                </label>
+                <div class="asist-paginacion asist-paginacion-footer">
+                    <span class="paginacion-info">Mostrando 5 de 11 atletas</span>
+                    <div class="paginacion-btns">
+                        <button type="button" class="btn-pag">← Anterior</button>
+                        <button type="button" class="btn-pag btn-pag-num-activo">1</button>
+                        <button type="button" class="btn-pag btn-pag-num">2</button>
+                        <button type="button" class="btn-pag btn-pag-num">3</button>
+                        <button type="button" class="btn-pag">Siguiente →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aviso informativo -->
+            <div class="asist-tip">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Recuerda guardar la asistencia antes de cerrar la sesión. Los cambios no guardados se perderán.
+            </div>
+        </div>
+
+        <!--  JUSTIFICACIONES  -->
+        <div class="switch-just">
+            <div class="just-admi-intro">
+                <p>Revisa, aprueba o rechaza las justificaciones enviadas por los atletas de todos los niveles.</p>
+
+                <!-- Filtro por estado -->
+                <div class="just-admi-filtros filtro-estado-labels" style="margin-bottom:12px;">
+                    <label for="filtro-pendientes">
+                        <span class="just-filtro-dot just-filtro-dot--rojo"></span> Pendientes
+                        <span class="just-filtro-num">3</span>
+                    </label>
+                    <label for="filtro-aprobadas">
+                        <span class="just-filtro-dot just-filtro-dot--verde"></span> Aprobadas
+                        <span class="just-filtro-num">4</span>
+                    </label>
+                    <label for="filtro-rechazadas">
+                        <span class="just-filtro-dot just-filtro-dot--gris"></span> Rechazadas
+                        <span class="just-filtro-num">1</span>
+                    </label>
+                    <label for="filtro-todas">Todas</label>
+                </div>
+
+                <!-- Filtro por nivel -->
+                <div class="just-admi-filtros-nivel filtro-nivel-labels">
+                    <span class="just-nivel-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                        Nivel:
+                    </span>
+                    <label for="nivel-todos">Todos</label>
+                    <div class="filtro-nivel-separador"></div>
+                    <label for="nivel-formativo">Formativo King</label>
+                    <label for="nivel-queen">Queen</label>
+                    <label for="nivel-princess">Princess</label>
+                    <label for="nivel-magic">Magic</label>
+                    <label for="nivel-blood">Blood Tigers</label>
+                </div>
+            </div>
+
+            <div class="just-admi-grid">
+
+                <!-- ── PENDIENTES ── -->
+                <div class="just-admi-card just-admi-card--pendiente" data-estado="pendientes" data-nivel="magic">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar">MF</div>
+                            <div>
+                                <span class="just-admi-nombre">Maria Fernanda Rodrigues</span>
+                                <span class="just-admi-categoria">Magic</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--pendiente">Pendiente</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Consulta médica urgente por dolor en la rodilla derecha."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>certificado_medico.pdf</span><span class="just-admi-archivo-size">· 124 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__acciones">
+                        <button class="just-btn-rechazar" type="button" onclick="abrirModalRechazo('Maria Fernanda Rodrigues','Magic','27 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazar</button>
+                        <button class="just-btn-aprobar" type="button" onclick="abrirModalAprobacion('Maria Fernanda Rodrigues','Magic','27 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Aprobar</button>
+                    </div>
+                </div>
+
+                <div class="just-admi-card just-admi-card--pendiente" data-estado="pendientes" data-nivel="queen">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar">JP</div>
+                            <div>
+                                <span class="just-admi-nombre">Juan Pablo Martínez Soler</span>
+                                <span class="just-admi-categoria">Queen</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--pendiente">Pendiente</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>24 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Viaje de estudio programado con la institución educativa."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>permiso_colegio.jpg</span><span class="just-admi-archivo-size">· 87 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__acciones">
+                        <button class="just-btn-rechazar" type="button" onclick="abrirModalRechazo('Juan Pablo Martínez Soler','Queen','24 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazar</button>
+                        <button class="just-btn-aprobar" type="button" onclick="abrirModalAprobacion('Juan Pablo Martínez Soler','Queen','24 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Aprobar</button>
+                    </div>
+                </div>
+
+                <div class="just-admi-card just-admi-card--pendiente" data-estado="pendientes" data-nivel="magic">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar">LA</div>
+                            <div>
+                                <span class="just-admi-nombre">Leonardo Jara Acosta</span>
+                                <span class="just-admi-categoria">Magic</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--pendiente">Pendiente</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>12 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Enfermedad general, reposo médico por dos días."</p>
+                        <div class="just-admi-archivo just-admi-archivo--sin-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                            Sin archivo adjunto
+                        </div>
+                    </div>
+                    <div class="just-admi-card__acciones">
+                        <button class="just-btn-rechazar" type="button" onclick="abrirModalRechazo('Leonardo Jara Acosta','Magic','12 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazar</button>
+                        <button class="just-btn-aprobar" type="button" onclick="abrirModalAprobacion('Leonardo Jara Acosta','Magic','12 Jun 2026')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Aprobar</button>
+                    </div>
+                </div>
+
+                <!-- ── APROBADAS ── -->
+                <div class="just-admi-card just-admi-card--aprobada" data-estado="aprobadas" data-nivel="princess">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar just-admi-avatar--verde">SR</div>
+                            <div>
+                                <span class="just-admi-nombre">Sofia Ramírez Leal</span>
+                                <span class="just-admi-categoria">Princess</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--aprobada"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Aprobada</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 Jun 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>10:00 – 12:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Competencia departamental de gimnasia."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>permiso_competencia.pdf</span><span class="just-admi-archivo-size">· 96 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__revision">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Aprobada por Stuart Pérez · 21 Jun 2026
+                    </div>
+                </div>
+
+                <div class="just-admi-card just-admi-card--aprobada" data-estado="aprobadas" data-nivel="blood">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar just-admi-avatar--verde">KM</div>
+                            <div>
+                                <span class="just-admi-nombre">Karen Mejía Torres</span>
+                                <span class="just-admi-categoria">Blood Tigers</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--aprobada"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Aprobada</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>05 May 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Cita médica especialista, orden adjunta."</p>
+                        <div class="just-admi-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                            <span>orden_medica.pdf</span><span class="just-admi-archivo-size">· 210 KB</span>
+                            <a href="#" class="just-admi-ver">Ver archivo</a>
+                        </div>
+                    </div>
+                    <div class="just-admi-card__revision">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Aprobada por Stuart Pérez · 06 May 2026
+                    </div>
+                </div>
+
+                <!-- ── RECHAZADAS ── -->
+                <div class="just-admi-card just-admi-card--rechazada" data-estado="rechazadas" data-nivel="formativo">
+                    <div class="just-admi-card__top">
+                        <div class="just-admi-atleta">
+                            <div class="just-admi-avatar just-admi-avatar--rojo">AC</div>
+                            <div>
+                                <span class="just-admi-nombre">Andrés Castro Peña</span>
+                                <span class="just-admi-categoria">Nivel Formativo</span>
+                            </div>
+                        </div>
+                        <span class="just-admi-pill just-admi-pill--rechazada"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Rechazada</span>
+                    </div>
+                    <div class="just-admi-card__body">
+                        <div class="just-admi-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>18 Abr 2026</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>18:00 – 20:00</span>
+                        </div>
+                        <p class="just-admi-motivo">"Viaje familiar de fin de semana."</p>
+                        <div class="just-admi-archivo just-admi-archivo--sin-archivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                            Sin archivo adjunto
+                        </div>
+                    </div>
+                    <div class="just-admi-card__revision just-admi-card__revision--rechazada">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Rechazada por Stuart Pérez · 19 Abr 2026
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ═══ MODAL: APROBAR JUSTIFICACIÓN ═══ -->
+    <dialog id="modal-aprobar-just" class="modal-just">
+        <div class="modal-just-header">
+            <div class="modal-just-icono modal-just-icono--verde">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h2>Aprobar justificación</h2>
+            <p>Estás por aprobar la justificación de inasistencia de:</p>
+            <div class="modal-just-atleta-info">
+                <div class="mini-avatar mini-avatar--verde" id="aprobar-avatar">MF</div>
+                <div class="mini-datos">
+                    <strong id="aprobar-nombre">Maria Fernanda Rodrigues</strong>
+                    <span id="aprobar-meta">Magic · 27 Jun 2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-just-body">
+            <div class="modal-just-campo">
+                <label for="aprobar-obs">Observación <span class="modal-opcional">(opcional)</span></label>
+                <textarea id="aprobar-obs" rows="3" placeholder="Ej: Certificado médico verificado. Justificación válida."></textarea>
+            </div>
+        </div>
+        <div class="modal-just-footer">
+            <button type="button" class="modal-btn-cancelar" onclick="document.getElementById('modal-aprobar-just').close()">Cancelar</button>
+            <button type="button" class="modal-btn-aprobar" onclick="confirmarAprobacion()">
+                Confirmar 
+            </button>
+        </div>
+    </dialog>
+
+    <!-- ═══ MODAL: RECHAZAR JUSTIFICACIÓN ═══ -->
+    <dialog id="modal-rechazar-just" class="modal-just">
+        <div class="modal-just-header">
+            <div class="modal-just-icono modal-just-icono--rojo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+            <h2>Rechazar justificación</h2>
+            <p>Estás por rechazar la justificación de inasistencia de:</p>
+            <div class="modal-just-atleta-info">
+                <div class="mini-avatar mini-avatar--rojo" id="rechazar-avatar">MF</div>
+                <div class="mini-datos">
+                    <strong id="rechazar-nombre">Maria Fernanda Rodrigues</strong>
+                    <span id="rechazar-meta">Magic · 27 Jun 2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-just-body">
+            <div class="modal-just-campo">
+                <label for="rechazar-motivo">Motivo del rechazo <span class="modal-opcional">(opcional)</span></label>
+                <textarea id="rechazar-motivo" rows="3" placeholder="Ej: Documento adjunto no corresponde a la fecha indicada."></textarea>
+            </div>
+        </div>
+        <div class="modal-just-footer">
+            <button type="button" class="modal-btn-cancelar" onclick="document.getElementById('modal-rechazar-just').close()">Cancelar</button>
+            <button type="button" class="modal-btn-rechazar" onclick="confirmarRechazo()">
+                Confirmar
+            </button>
+        </div>
+    </dialog>
+
+    <!-- ═══ MODAL: CONFIRMACIÓN ÉXITO APROBACIÓN ═══ -->
+    <dialog id="modal-aprobado-ok" class="modal-just">
+        <div class="modal-just-confirm-inner">
+            <div class="modal-just-icono modal-just-icono--verde">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h2>¡Justificación aprobada!</h2>
+            <p>La justificación ha sido aprobada exitosamente y el atleta ha sido notificado.</p>
+            <button type="button" class="modal-confirm-aceptar modal-confirm-aceptar--verde" onclick="document.getElementById('modal-aprobado-ok').close()">Aceptar</button>
+        </div>
+    </dialog>
+
+    <!-- ═══ MODAL: CONFIRMACIÓN RECHAZO ═══ -->
+    <dialog id="modal-rechazado-ok" class="modal-just">
+        <div class="modal-just-confirm-inner">
+            <div class="modal-just-icono modal-just-icono--rojo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+            <h2>Justificación rechazada</h2>
+            <p>La justificación ha sido rechazada y el atleta ha sido notificado con el motivo indicado.</p>
+            <button type="button" class="modal-confirm-aceptar modal-confirm-aceptar--rojo" onclick="document.getElementById('modal-rechazado-ok').close()">Aceptar</button>
+        </div>
+    </dialog>
+
+    <!-- Modal de Asistencia registrada correctamente -->
+    <dialog id="modal-guardado">
+        <div class="modal-exito">
+            <div class="modal-exito-icono">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                </svg>
+            </div>
+            <h2>Asistencia registrada correctamente</h2>
+            <p>La lista de asistencia para la categoría Magic del día 29 de abril del 2026 ha sido registrada con éxito dentro del sistema.</p>
+            <label for="toggle-guardado" class="btn-aceptar" onclick="document.getElementById('modal-guardado').close()">Aceptar</label>
+        </div>
+    </dialog>
+
+    <!-- Modal de Consultar asistencia -->
+    <dialog id="modal-consultar">
+        <div class="modal-consultar-contenido">
+            <div class="modal-consultar-header">
+                <h2>Asistencia</h2>
+                <span class="badge-categoria">Magic</span>
+                <button type="button" class="btn-modal-x" onclick="document.getElementById('modal-consultar').close()">×</button>
+            </div>
+
+            <div class="consultar-mes-selector">
+                <div class="asist-fecha">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    Abril
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </div>
+
+                <div class="asist-contador contador-presente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    <span class="num">33</span>
+                    <span class="label">Presentes</span>
+                </div>
+                <div class="asist-contador contador-inpuntual">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <span class="num">2</span>
+                    <span class="label">Inpuntual</span>
+                </div>
+                <div class="asist-contador contador-falta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    <span class="num">8</span>
+                    <span class="label">Faltas</span>
+                </div>
+            </div>
+
+            <!-- Tabla mensual de asistencia -->
+            <div class="consultar-tabla-wrapper">
+                <table class="consultar-tabla-mes">
+                    <thead>
+                        <tr>
+                            <th class="col-nombre-mes">Nombre</th>
+                            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                            <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+                            <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+                            <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th>
+                            <th>21</th><th>22</th><th>23</th><th>24</th><th>25</th>
+                            <th>26</th><th>27</th><th>28</th><th class="dia-hoy">29</th><th>30</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-nombre-mes">Maria Fernanda Rodrigues Rivera</td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="dia-hoy">
+                                <span class="ico-inpuntual">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="col-nombre-mes">Juan Pablo Martínez Soler</td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="dia-hoy">
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="col-nombre-mes">Juan Alberto Castro Peña</td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="dia-hoy">
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="col-nombre-mes">Ana Victoria Delgado Ortiz</td>
+                            <td></td>
+                            <td>
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="dia-hoy">
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="col-nombre-mes">Carlos Eduardo Rojas Mendoza</td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td><td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-inpuntual">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="dia-hoy">
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="col-nombre-mes">Paola Valentina Rojas Mendoza</td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <span class="ico-presente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td>
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="dia-hoy">
+                                <span class="ico-falta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="calendario-leyenda">
+                <span class="leyenda-item">
+                    <span class="leyenda-circulo"></span> Presente
+                </span>
+                <span class="leyenda-item">
+                    <span class="leyenda-circulo"></span> Inpuntual
+                </span>
+                <span class="leyenda-item">
+                    <span class="leyenda-circulo"></span> Falta
+                </span>
+                <span class="leyenda-item">
+                    <span class="leyenda-circulo"></span> Hoy
+                </span>
+            </div>
+        </div>
+    </dialog>
+</body>
+<script>
+    /* Modales de justificación */
+    function abrirModalAprobacion(nombre, nivel, fecha) {
+        var iniciales = nombre.split(' ').slice(0,2).map(function(p){ return p[0]; }).join('');
+        document.getElementById('aprobar-avatar').textContent = iniciales;
+        document.getElementById('aprobar-nombre').textContent = nombre;
+        document.getElementById('aprobar-meta').textContent = nivel + ' · ' + fecha;
+        document.getElementById('aprobar-obs').value = '';
+        document.getElementById('modal-aprobar-just').showModal();
+    }
+
+    function abrirModalRechazo(nombre, nivel, fecha) {
+        var iniciales = nombre.split(' ').slice(0,2).map(function(p){ return p[0]; }).join('');
+        document.getElementById('rechazar-avatar').textContent = iniciales;
+        document.getElementById('rechazar-nombre').textContent = nombre;
+        document.getElementById('rechazar-meta').textContent = nivel + ' · ' + fecha;
+        document.getElementById('rechazar-motivo').value = '';
+        document.getElementById('modal-rechazar-just').showModal();
+    }
+
+    function confirmarAprobacion() {
+        document.getElementById('modal-aprobar-just').close();
+        document.getElementById('modal-aprobado-ok').showModal();
+    }
+
+    function confirmarRechazo() {
+        document.getElementById('modal-rechazar-just').close();
+        document.getElementById('modal-rechazado-ok').showModal();
+    }
+</script>
+<script>
+    var floatingMenu = null;
+    var activeBtn    = null;
+
+    function buildFloatingMenu() {
+        var m = document.createElement('div');
+        m.id = 'floating-dropdown';
+        m.style.cssText = [
+            'position:fixed',
+            'z-index:99999',
+            'background:#fff',
+            'border:1px solid #e5e7eb',
+            'border-radius:8px',
+            'box-shadow:0 4px 16px rgba(0,0,0,0.14)',
+            'min-width:148px',
+            'overflow:hidden',
+            'display:none'
+        ].join(';');
+
+        var items = [
+            {
+                svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+                label: 'Inpuntual'
+            },
+            {
+                svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+                label: 'Justificado'
+            }
+        ];
+
+        items.forEach(function(item) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.style.cssText = [
+                'display:flex',
+                'align-items:center',
+                'gap:10px',
+                'width:100%',
+                'padding:10px 14px',
+                'background:none',
+                'border:none',
+                'font-size:0.9rem',
+                'font-family:inherit',
+                'color:#222',
+                'cursor:pointer',
+                'text-align:left'
+            ].join(';');
+            btn.innerHTML = item.svg + item.label;
+            btn.addEventListener('mouseenter', function() { this.style.background = '#f3f4f6'; });
+            btn.addEventListener('mouseleave', function() { this.style.background = 'none'; });
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+            m.appendChild(btn);
+        });
+
+        document.body.appendChild(m);
+        return m;
+    }
+
+    function openMenu(btn) {
+        if (!floatingMenu) floatingMenu = buildFloatingMenu();
+
+        activeBtn = btn;
+        floatingMenu.style.display = 'block';
+
+        var rect   = btn.getBoundingClientRect();
+        var menuW  = floatingMenu.offsetWidth;
+        var menuH  = floatingMenu.offsetHeight;
+
+        var top  = rect.top + (rect.height / 2) - (menuH / 2);
+        var left = rect.right + 8;
+
+        if (left + menuW > window.innerWidth - 8) left = rect.left - menuW - 8;
+        if (top < 8) top = 8;
+        if (top + menuH > window.innerHeight - 8) top = window.innerHeight - menuH - 8;
+
+        floatingMenu.style.top  = top  + 'px';
+        floatingMenu.style.left = left + 'px';
+    }
+
+    function closeMenu() {
+        if (floatingMenu) floatingMenu.style.display = 'none';
+        activeBtn = null;
+    }
+
+    document.querySelectorAll('.btn-mas').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (activeBtn === btn && floatingMenu && floatingMenu.style.display !== 'none') {
+                closeMenu();
+            } else {
+                openMenu(btn);
+            }
+        });
+    });
+
+    document.addEventListener('click', closeMenu);
+    window.addEventListener('scroll', closeMenu, true);
+    window.addEventListener('resize', closeMenu);
+</script>
+</html>

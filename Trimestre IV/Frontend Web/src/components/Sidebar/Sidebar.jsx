@@ -1,10 +1,6 @@
-
 import { useEffect, useRef, useState } from 'react';
 import './Sidebar.css';
-// El admin también es entrenador de TODOS los niveles: cuando entra en
-// "Vista Entrenador" navega a /admin/calendario, pero esa pantalla sigue
-// siendo, para efectos del menú, la sección "Horarios". Por eso su ruta
-// se trata como un alias de /admin/horarios al decidir qué ícono resaltar.
+
 const ALIAS_RUTAS = {
   '/admin/calendario': '/admin/horarios',
 };
@@ -21,7 +17,7 @@ function esRutaActiva(activeHref, href) {
   return actual === destino || actual.startsWith(destino + '/');
 }
 
-function Sidebar({ items, activeHref, onNavigate }) {
+function Sidebar({ items = [], activeHref, onNavigate }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const barraRef = useRef(null);
 
@@ -32,7 +28,9 @@ function Sidebar({ items, activeHref, onNavigate }) {
       if (e.key === 'Escape') setMenuAbierto(false);
     };
     const alHacerClic = (e) => {
-      if (barraRef.current && !barraRef.current.contains(e.target)) setMenuAbierto(false);
+      if (barraRef.current && !barraRef.current.contains(e.target)) {
+        setMenuAbierto(false);
+      }
     };
 
     document.addEventListener('keydown', alPresionar);
@@ -46,7 +44,7 @@ function Sidebar({ items, activeHref, onNavigate }) {
   return (
     <aside
       ref={barraRef}
-      className={'barra-lateral' + (menuAbierto ? ' barra-lateral--abierta' : '')}
+      className={`barra-lateral${menuAbierto ? ' barra-lateral--abierta' : ''}`}
       aria-label="Menú de navegación principal"
     >
       <button
@@ -69,7 +67,9 @@ function Sidebar({ items, activeHref, onNavigate }) {
             return (
               <li
                 key={item.href}
-                className={'menu-lateral__elemento' + (activo ? ' menu-lateral__elemento--activo' : '')}
+                className={`menu-lateral__elemento${
+                  activo ? ' menu-lateral__elemento--activo' : ''
+                }`}
               >
                 <a
                   href={item.href}
@@ -86,9 +86,12 @@ function Sidebar({ items, activeHref, onNavigate }) {
                   <img
                     className="menu-lateral__icono"
                     src={item.icono}
-                    alt={menuAbierto ? '' : item.alt}
+                    alt={menuAbierto ? '' : item.alt || ''}
                   />
-                  <span className="menu-lateral__texto" aria-hidden={!menuAbierto}>
+                  <span
+                    className="menu-lateral__texto"
+                    aria-hidden={!menuAbierto}
+                  >
                     {item.titulo}
                   </span>
                 </a>
@@ -100,4 +103,5 @@ function Sidebar({ items, activeHref, onNavigate }) {
     </aside>
   );
 }
-export default Sidebar
+
+export default Sidebar;
