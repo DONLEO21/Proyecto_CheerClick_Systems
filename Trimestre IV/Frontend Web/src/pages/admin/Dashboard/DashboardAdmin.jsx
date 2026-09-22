@@ -196,7 +196,7 @@ function DashboardAdmin({
   };
 
   const irAInicio = () => {
-    window.location.href = "/";
+    window.location.href = "/admin";
   };
 
   // Navega a la pantalla de cuentas. Con un id, esa pantalla abre el modal de esa solicitud.
@@ -414,7 +414,7 @@ function DashboardAdmin({
                   <span className="icono-cabecera">
                     <CalendarClock size={22} strokeWidth={2} />
                   </span>
-                  <h2>Próximas actividades</h2>
+                  <h2>Próximos campeonatos</h2>
                 </header>
 
                 <div className="tarjeta-dashboard__contenido">
@@ -655,12 +655,6 @@ function DashboardAdmin({
                     )}
                   </ul>
                 </div>
-
-                <VerTodas
-                  total={NOVEDADES.length}
-                  etiqueta="Ver todas las novedades"
-                  onClick={() => onNavigate(RUTA_NOVEDADES)}
-                />
               </article>
             </section>
           </div>

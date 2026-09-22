@@ -4,7 +4,7 @@ import { supabase } from '../services/supabase'
 
 const LOGIN = '/acceso?view=login'
 const INICIO = {
-  administrador: '/admin',
+  administrador: '/administrador',
   entrenador: '/entrenador',
   atleta: '/atleta',
 }

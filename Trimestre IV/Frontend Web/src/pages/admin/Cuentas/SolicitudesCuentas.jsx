@@ -181,7 +181,7 @@ export default function SolicitudesCuentas() {
     await supabase.auth.signOut()
     window.location.href = '/acceso'
   }
-  const irAInicio = () => { window.location.href = '/' }
+  const irAInicio = () => { window.location.href = '/admin' }
 
   // Abre el modal de detalle. Si la cuenta está aprobada, trae también el
   // perfil editado por el usuario (tabla `perfiles` vía la Edge Function).

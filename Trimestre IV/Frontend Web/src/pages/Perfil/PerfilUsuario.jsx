@@ -528,12 +528,7 @@ export default function PerfilUsuario({ rol = 'atleta' }) {
         telefono: borrador.telefono,
         eps: borrador.eps,
         certificado_eps_nombre: borrador.certificadoEpsNombre,
-        certificado_eps_url: certificadoEpsPath, // se guarda la RUTA, no una URL firmada (esa expira)
-        // Solo se guardan tantos contactos como aplica al rol (2 atleta / 1 entrenador-admin)
         contactos: borrador.contactos.slice(0, cantidadContactos),
-        // OJO: nivel y planMensualidad NO se mandan aquí a propósito.
-        // Son de solo lectura para el usuario; el trigger de la base de datos
-        // rechazaría el update si intentáramos cambiarlos desde este formulario.
       });
 
       // Si el correo cambió, se actualiza aparte vía supabase.auth.updateUser
@@ -850,15 +845,6 @@ export default function PerfilUsuario({ rol = 'atleta' }) {
                   )}
                 </div>
               </div>
-
-              {/* Solo lectura: los define el administrador desde "Gestionar cuentas" */}
-              <Campo id="nivel" label="Nivel" icono={BadgeCheck} aviso="Lo asigna el administrador">
-                <input type="text" id="nivel" value={vista.nivel || 'Sin asignar'} disabled />
-              </Campo>
-
-              <Campo id="plan" label="Plan / mensualidad" icono={Wallet} aviso="Lo asigna el administrador">
-                <input type="text" id="plan" value={vista.planMensualidad || 'Sin asignar'} disabled />
-              </Campo>
 
             </div>
           </div>
