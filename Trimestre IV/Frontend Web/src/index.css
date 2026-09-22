@@ -61,3 +61,20 @@ body {
     padding-top: var(--alto-encabezado);
     min-height: 100vh;
 }
+
+
+/* ══════════════════════════════════════════════
+   AVISO TOAST (componente Compartidos/AvisoToast)
+   Tipos: aviso-ok | aviso-advertencia | aviso-error
+   ══════════════════════════════════════════════ */
+.aviso-toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: #222222; color: #fff; padding: 11px 22px; border-radius: 8px;
+    font-size: 13.5px; font-weight: 500; white-space: nowrap; z-index: 4000;
+    opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
+    box-shadow: 0 6px 24px rgba(0,0,0,.22);
+}
+.aviso-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.aviso-toast.aviso-ok { background: #1d8348; }
+.aviso-toast.aviso-advertencia { background: #b7770d; }
+.aviso-toast.aviso-error { background: var(--color-primario); }

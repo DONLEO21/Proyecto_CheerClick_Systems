@@ -8,8 +8,12 @@ import menuEntrenador from './data/menuEntrenador';
 
 import AdminHorarios from "./pages/Admin/Horarios/Horarios.jsx";
 import AdminPQRS from "./pages/Admin/PQRS/PQRS.jsx";
+import AdminImplementos from './pages/Admin/Implementos/Implementos';
+
+import AtletaImplementos from './pages/Atleta/Implementos/Implementos';
 import AtletaHorarios from './pages/Atleta/Horarios/Horarios.jsx';
 import AtletaPQRS from "./pages/Atleta/PQRS/PQRS.jsx";
+
 import EntrenadorHorarios from './pages/Entrenador/Horarios/Horarios.jsx';
 import Proximamente from './components/Compartidos/Proximamente.jsx';
 
@@ -24,12 +28,10 @@ export default function App() {
           <Route index element={<Navigate to="horarios" replace />} />
           <Route path="horarios" element={<AdminHorarios />} />
           <Route path="pqrs" element={<AdminPQRS />} />
+          <Route path="/admin/implementos" element={<AdminImplementos />} />
 
-          {/* Vista Entrenador del Admin: es entrenador de TODOS los niveles,
-              por eso esAdmin=true habilita el selector para cambiar de nivel. */}
           <Route path="calendario" element={<EntrenadorHorarios esAdmin={true} />} />
 
-          {/* Secciones del menú que aún no existen */}
           <Route path="*" element={<Proximamente />} />
         </Route>
 
@@ -37,18 +39,14 @@ export default function App() {
         <Route path="/atleta" element={<PanelLayout items={menuAtleta} rol="Atleta" inicioHref="/atleta/horarios" />}>
           <Route index element={<Navigate to="horarios" replace />} />
           <Route path="horarios" element={<AtletaHorarios />} />
-          {/* TODO: `remitente` debe salir de la sesión real cuando exista login/auth.
-              Por ahora simula al atleta con el que se prueban las PQRS. */}
           <Route path="pqrs" element={<AtletaPQRS remitente="Leonardo Jara Molina" />} />
           <Route path="*" element={<Proximamente />} />
+          <Route path="/atleta/implementos" element={<AtletaImplementos />} />
         </Route>
 
         {/* Área Entrenador */}
         <Route path="/entrenador" element={<PanelLayout items={menuEntrenador} rol="Entrenador" inicioHref="/entrenador/horarios" />}>
           <Route index element={<Navigate to="horarios" replace />} />
-          {/* TODO: esAdmin y nivelIdEntrenador deben salir de la sesión real
-              cuando exista login/auth. Por ahora, esAdmin=false simula un
-              entrenador normal viendo solo su propio nivel (id 3 = Magic). */}
           <Route path="horarios" element={<EntrenadorHorarios esAdmin={false} nivelIdEntrenador={3} />} />
           <Route path="*" element={<Proximamente />} />
         </Route>
