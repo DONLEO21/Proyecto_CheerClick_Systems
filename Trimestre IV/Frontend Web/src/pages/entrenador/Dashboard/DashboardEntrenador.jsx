@@ -33,11 +33,23 @@ const DEMO_SI_NO_HAY_NIVEL = true
 
 const MAX_ITEMS = 3 // atletas visibles por página
 
+// NOTA: los "id" deben coincidir EXACTAMENTE con los nombres de las columnas
+// de la tabla `evaluaciones` en Supabase (fecha, apropiada, avanzada, elite).
+// Si tus columnas se llaman distinto, ajusta los id aquí.
 const CATEGORIAS = [
-  { id: 'baile',    nombre: 'Baile',    color: '#a847e0' },
-  { id: 'gimnasia', nombre: 'Gimnasia', color: '#f8df3e' },
-  { id: 'partner',  nombre: 'Partner',  color: '#2f80ed' },
+  { id: 'apropiada', nombre: 'Apropiada', color: '#a847e0' },
+  { id: 'avanzada',  nombre: 'Avanzada',  color: '#f8df3e' },
+  { id: 'elite',     nombre: 'Elite',     color: '#2f80ed' },
 ]
+
+// TEMPORAL: valores quemados mientras se conecta el módulo de evaluaciones
+// (tabla `evaluaciones` con columnas apropiada/avanzada/elite). En cuanto ese
+// módulo empiece a guardar registros, `base.evals` dejará de estar vacío y
+// estos tres bloques (barras, gráfica y "Rendimiento promedio") dejan de
+// usarse automáticamente — no hay que tocar nada más (ver `metricas`).
+const EQUIPO_DEMO = { apropiada: 79, avanzada: 83, elite: 65 }
+const SERIE_DEMO = [62, 68, 74, 76] // Sem 1 → Sem 4
+const RENDIMIENTO_DEMO = 76 // promedio general (coincide con EQUIPO_DEMO)
 
 const MESES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const DIAS = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB']
@@ -78,7 +90,7 @@ async function cargarBase(uid) {
     seguro(DB.usuarios, (t) =>
       t.select('id,codigo,nombre,activo,id_nivel').eq('rol', 'atleta').eq('estado', 'aprobada').in('id_nivel', ids).order('nombre')),
     seguro(DB.evaluaciones, (t) =>
-      t.select('fecha,baile,gimnasia,partner').in('id_nivel', ids).gte('fecha', iso(hace(27)))),
+      t.select('fecha,apropiada,avanzada,elite').in('id_nivel', ids).gte('fecha', iso(hace(27)))),
     seguro(DB.asistencias, (t) =>
       t.select('fecha,presente').in('id_nivel', ids).gte('fecha', iso(hace(29)))),
   ])
@@ -104,7 +116,7 @@ const DEMO_BASE = (() => {
   const base = [62, 68, 74, 80] // sube semana a semana
   const evals = base.map((b, w) => ({
     fecha: iso(hace(3 + 7 * (3 - w))),
-    baile: b + 8, gimnasia: b + 12, partner: b - 6,
+    apropiada: b + 8, avanzada: b + 12, elite: b - 6,
   }))
   const asist = Array.from({ length: 25 }, (_, i) => ({ fecha: iso(hace(i)), presente: i % 13 !== 0 }))
   return { niveles, atletas, evals, asist, errores: [] }
@@ -262,18 +274,24 @@ export default function DashboardEntrenador({
 
   // ── métricas calculadas con los datos reales
   const metricas = useMemo(() => {
+    // Mientras no haya ninguna evaluación real registrada, se usan los valores
+    // de EQUIPO_DEMO / SERIE_DEMO / RENDIMIENTO_DEMO como marcador temporal.
+    const esDemo = base.evals.length === 0
+
     const notas = base.evals.map(notaEval).filter((n) => n !== null)
-    const rendimiento = notas.length ? Math.round(prom(notas)) : null
+    const rendimiento = notas.length ? Math.round(prom(notas)) : (esDemo ? RENDIMIENTO_DEMO : null)
 
     // 4 semanas, la más antigua primero (Sem 1 … Sem 4)
-    const serie = [0, 1, 2, 3].map((i) => {
-      const desde = iso(hace(7 * (4 - i) - 1))
-      const hasta = iso(hace(7 * (3 - i)))
-      const v = base.evals
-        .filter((e) => dia10(e.fecha) >= desde && dia10(e.fecha) <= hasta)
-        .map(notaEval).filter((n) => n !== null)
-      return { semana: `Sem ${i + 1}`, valor: v.length ? Math.round(prom(v)) : null }
-    })
+    const serie = esDemo
+      ? SERIE_DEMO.map((v, i) => ({ semana: `Sem ${i + 1}`, valor: v }))
+      : [0, 1, 2, 3].map((i) => {
+          const desde = iso(hace(7 * (4 - i) - 1))
+          const hasta = iso(hace(7 * (3 - i)))
+          const v = base.evals
+            .filter((e) => dia10(e.fecha) >= desde && dia10(e.fecha) <= hasta)
+            .map(notaEval).filter((n) => n !== null)
+          return { semana: `Sem ${i + 1}`, valor: v.length ? Math.round(prom(v)) : null }
+        })
     const [previa, actual] = [serie[2].valor, serie[3].valor]
     const variacion = previa && actual !== null ? ((actual - previa) / previa) * 100 : null
 
@@ -284,10 +302,11 @@ export default function DashboardEntrenador({
 
     const equipo = CATEGORIAS.map((c) => {
       const v = base.evals.map((e) => Number(e[c.id])).filter((n) => Number.isFinite(n))
-      return { ...c, valor: v.length ? Math.round(prom(v)) : null }
+      const valor = v.length ? Math.round(prom(v)) : (esDemo ? EQUIPO_DEMO[c.id] : null)
+      return { ...c, valor }
     })
 
-    return { rendimiento, serie, variacion, asistencia, equipo, hayProgreso: serie.some((s) => s.valor !== null) }
+    return { rendimiento, serie, variacion, asistencia, equipo, esDemo, hayProgreso: serie.some((s) => s.valor !== null) }
   }, [base.evals, base.asist])
 
   const atletasActivos = base.atletas.filter((a) => a.activo).length
@@ -390,8 +409,8 @@ export default function DashboardEntrenador({
                     dot={{ r: 5, fill: '#d71920', stroke: '#d71920' }} activeDot={{ r: 6 }} connectNulls />
                 </LineChart>
               </ResponsiveContainer>
-              {!cargando && !metricas.hayProgreso && (
-                <p className="de-grafico__vacio">Aún no hay evaluaciones registradas.</p>
+              {!cargando && metricas.esDemo && (
+                <p className="de-grafico__vacio">Datos de ejemplo — se reemplazarán cuando haya evaluaciones registradas.</p>
               )}
             </div>
           </article>
@@ -525,7 +544,9 @@ export default function DashboardEntrenador({
                 </li>
               ))}
             </ul>
-            {!cargando && !metricas.hayProgreso && <p className="de-nota">Aún no hay evaluaciones registradas.</p>}
+            {!cargando && metricas.esDemo && (
+              <p className="de-nota">Datos de ejemplo — se reemplazarán cuando haya evaluaciones registradas.</p>
+            )}
           </article>
 
         </div>

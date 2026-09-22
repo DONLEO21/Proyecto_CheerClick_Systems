@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 
 import './DashboardAtleta.css';
-import fotoPerfil from "../../../assets/img/tik-tok.png";
 
 /* ───────── configuración ───────── */
 // AJUSTA nombres de tablas/columnas a tu BD real
@@ -45,10 +44,17 @@ const DEMO_SI_FALLA = true;         // true = si no hay datos/BD, usa quemados
 const TORNEOS_POR_PAGINA = 4;
 
 const CATEGORIAS = [
-  { id: 'baile', nombre: 'Baile', color: 'morado' },
-  { id: 'gimnasia', nombre: 'Gimnasia', color: 'amarillo' },
-  { id: 'partner', nombre: 'Partner', color: 'azul' },
+  { id: 'apropiadas', nombre: 'Apropiadas', color: 'morado' },
+  { id: 'avanzada', nombre: 'Avanzada', color: 'amarillo' },
+  { id: 'elite', nombre: 'Elite', color: 'azul' },
 ];
+
+// valores de respaldo (quemados) cuando una categoría no tiene datos reales todavía
+const VALORES_RESPALDO = {
+  apropiadas: 79,
+  avanzada: 83,
+  elite: 65,
+};
 
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const MESES_CORTO = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
@@ -91,7 +97,7 @@ async function cargarBase(uid) {
       ? seguro(DB.niveles, (t) => t.select('id,nombre').eq('id', yo.id_nivel).limit(1))
       : Promise.resolve([]),
     seguro(DB.asistencias, (t) => t.select('fecha,presente').eq('id_atleta', uid)),
-    seguro(DB.evaluaciones, (t) => t.select('fecha,baile,gimnasia,partner').eq('id_atleta', uid).gte('fecha', iso(hace(27)))),
+    seguro(DB.evaluaciones, (t) => t.select('fecha,apropiadas,avanzada,elite').eq('id_atleta', uid).gte('fecha', iso(hace(27)))),
     seguro(DB.habilidades, (t) => t.select('estado').eq('id_atleta', uid)),
     seguro(DB.pagos, (t) => t.select('fecha_pago,valor,mes,estado,fecha_vencimiento').eq('id_atleta', uid).order('fecha_vencimiento', { ascending: false }).limit(12)),
     seguro(DB.torneos, (t) => t.select('id,nombre,fecha,lugar').gte('fecha', iso(new Date())).order('fecha')),
@@ -117,9 +123,21 @@ async function cargarEntrenos(idNivel, desde, hasta) {
 const DEMO_BASE = (() => {
   const estados = ['aprobado','aprobado','aprobado','reprobado','aprobado','aprobado','aprobado','reprobado','aprobado','reprobado','reprobado','aprobado'];
   const evals = [62, 68, 74, 80].map((b, w) => ({
-    fecha: iso(hace(3 + 7 * (3 - w))), baile: b + 8, gimnasia: b + 12, partner: b - 6,
+    fecha: iso(hace(3 + 7 * (3 - w))), apropiadas: b + 8, avanzada: b + 12, elite: b - 6,
   }));
-  const asist = Array.from({ length: 60 }, (_, i) => ({ fecha: iso(hace(i)), presente: i % 5 !== 0 }));
+  // Los entrenos demo caen Mar/Jue/Sáb (ver demoEntrenos). La asistencia demo
+  // se genera SOLO para esos días (máx. 3 por semana coloreados), y de esos,
+  // exactamente 2 en todo el mes quedan en rojo (falté) — el resto, asistió.
+  const diasEntrenoDemo = Array.from({ length: 60 }, (_, i) => hace(i))
+    .filter((f) => [2, 4, 6].includes(f.getDay()))
+    .sort((a, b) => a - b); // de más antiguo a más reciente
+  // Se eligen entre los entrenos MÁS RECIENTES (no los más antiguos) para que
+  // caigan dentro del mes que se ve por defecto en el calendario.
+  const INDICES_FALTA = [diasEntrenoDemo.length - 3, diasEntrenoDemo.length - 8];
+  const asist = diasEntrenoDemo.map((f, i) => ({
+    fecha: iso(f),
+    presente: !INDICES_FALTA.includes(i),
+  }));
   const y = new Date().getFullYear();
   return {
     yo: { id: 'demo', nombre: 'Gabriela Deaquiz', id_nivel: 1, foto: null },
@@ -144,7 +162,7 @@ const DEMO_BASE = (() => {
   };
 })();
 
-const TIPOS_ENTRENO = ['Baile', 'Gimnasia', 'Partner'];
+const TIPOS_ENTRENO = ['Bailes', 'Gimnasia', 'Partner'];
 function demoEntrenos(desde, hasta) {
   const out = [];
   const fin = new Date(`${hasta}T00:00:00`);
@@ -297,7 +315,8 @@ export default function DashboardAtleta({
   const metricas = useMemo(() => {
     const porCat = CATEGORIAS.map((c) => {
       const v = base.evals.map((e) => Number(e[c.id])).filter(Number.isFinite);
-      return { ...c, valor: v.length ? Math.round(prom(v)) : null };
+      const valor = v.length ? Math.round(prom(v)) : (VALORES_RESPALDO[c.id] ?? null);
+      return { ...c, valor };
     });
     const semana = (i) => {
       const desde = iso(hace(7 * (i + 1) - 1)), hasta = iso(hace(7 * i));
@@ -347,7 +366,13 @@ export default function DashboardAtleta({
   const cerrarSesion = async () => { await supabase.auth.signOut(); window.location.href = '/acceso'; };
   const irAInicio = () => { window.location.href = '/'; };
 
-  const foto = base.yo?.foto || fotoPerfil;
+  const foto = usuario.foto || null;
+  const iniciales = nombreCompleto
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase())
+    .join('');
   const nombreNivel = base.nivel?.nombre ?? 'Sin nivel';
   const prox = proximo
     ? {
@@ -447,9 +472,13 @@ export default function DashboardAtleta({
                     {Array.from({ length: diasDelMes }, (_, i) => i + 1).map((d) => {
                       const f = `${prefijoMes}-${pad(d)}`;
                       const clases = ['cal-grid__dia'];
-                      if (asistPorDia[f] === true) clases.push('cal-grid__dia--asistio');
-                      if (asistPorDia[f] === false) clases.push('cal-grid__dia--fallo');
-                      if (porDia[f]) clases.push('cal-grid__dia--entreno');
+                      // Solo se pinta de rojo/verde si ese día tenía entrenamiento
+                      // programado (porDia). Un día sin entreno no debería mostrar
+                      // "asistí" ni "faltó", aunque haya algún registro suelto de asistencia.
+                      const huboEntreno = !!porDia[f];
+                      if (huboEntreno && asistPorDia[f] === true) clases.push('cal-grid__dia--asistio');
+                      if (huboEntreno && asistPorDia[f] === false) clases.push('cal-grid__dia--fallo');
+                      if (huboEntreno) clases.push('cal-grid__dia--entreno');
                       if (f === hoy) clases.push('cal-grid__dia--hoy');
                       if (f === diaSel) clases.push('cal-grid__dia--sel');
                       return (
@@ -498,7 +527,13 @@ export default function DashboardAtleta({
               {/* perfil */}
               <article className="tarjeta-dashboard tarjeta-perfil-atleta">
                 <div className="tarjeta-dashboard__contenido perfil-atleta">
-                  <figure className="perfil-atleta__foto"><img src={foto} alt={`Foto de ${nombreCompleto}`} /></figure>
+                  <figure className="perfil-atleta__foto">
+                    {foto ? (
+                      <img src={foto} alt={`Foto de ${nombreCompleto}`} />
+                    ) : (
+                      <span className="perfil-atleta__foto-vacia" aria-hidden="true">{iniciales}</span>
+                    )}
+                  </figure>
                   <h3 className="perfil-atleta__nombre">{nombreCompleto}</h3>
                   <span className="insignia-categoria">{nombreNivel}</span>
 

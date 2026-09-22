@@ -1084,10 +1084,13 @@ input, select { font: inherit; outline: none; }
     margin-top: var(--espacio-lg);
 }
 
-/* ── Modal de detalles (más delgado) ── */
+/* ── Modal de detalles (más delgado) ──
+   Ancho ampliado de 400px a 460px: con documento, EPS y contactos de
+   emergencia (texto más largo), 400px hacía que el contenido se sintiera
+   apretado. 460px le da aire sin volverlo un modal enorme. */
 .modal--detalles {
-    max-width: 400px;
-    width: min(400px, 92vw);
+    max-width: 460px;
+    width: min(460px, 92vw);
     padding: var(--espacio-md);
 }
 
@@ -1097,9 +1100,11 @@ input, select { font: inherit; outline: none; }
     padding: var(--espacio-sm) var(--espacio-md);
 }
 
-/* Una sola columna */
+/* Columnas más parejas: con 1fr / 1.6fr la columna izquierda (p. ej.
+   "Documento", "Contacto 1") quedaba demasiado angosta y el texto se
+   veía cortado antes de alcanzar a bajar de línea. */
 .modal--detalles .detalle-grid {
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px 16px;
 }
 
@@ -1125,6 +1130,19 @@ input, select { font: inherit; outline: none; }
     grid-column: 1 / -1;
 }
 
+/* Bloque de cada contacto de emergencia: separa un contacto del otro
+   con un pequeño encabezado, en vez de meter todo en un solo campo. */
+.detalle-contacto-bloque + .detalle-contacto-bloque {
+    margin-top: var(--espacio-sm);
+}
+
+.detalle-contacto-nombre {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--texto-dark);
+    margin-bottom: 6px;
+}
+
 .detalle-grupo {
     display: flex;
     flex-direction: column;
@@ -1139,6 +1157,29 @@ input, select { font: inherit; outline: none; }
     letter-spacing: .4px;
 }
 
+/* Valor de solo lectura dentro del modal de detalles.
+   Reemplaza al <input readOnly> anterior: un input de una sola línea
+   cortaba o desbordaba texto largo (documento, teléfono, contactos).
+   Un contenedor flex con word-break permite que el texto baje de línea
+   y se muestre completo, sin verse como un campo editable. */
+.detalle-valor {
+    width: 100%;
+    min-height: 38px;
+    padding: 9px 12px;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: var(--radio-sm);
+    background: var(--gris-fondo);
+    color: var(--texto-dark);
+    font-size: var(--texto-sm);
+    display: flex;
+    align-items: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+}
+
+/* Se mantiene por compatibilidad con cualquier <input> de solo lectura
+   que siga existiendo en otras partes del formulario. */
 .detalle-grupo input {
     width: 100%;
     padding: 9px 12px;

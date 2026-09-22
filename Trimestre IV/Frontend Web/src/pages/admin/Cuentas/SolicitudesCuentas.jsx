@@ -3,10 +3,10 @@ import Header from '../../../components/Header/Header.jsx'
 import Sidebar from '../../../components/Sidebar/Sidebar.jsx'
 import menuAdmin from '../../../data/menuAdmin.js'
 import { supabase } from '../../../services/supabase'
-import { llamarAdmin as llamar, cargarUsuarios } from '../../../services/adminUsuarios'
+import { llamarAdmin as llamar, cargarUsuarios, obtenerDetalleUsuario } from '../../../services/adminUsuarios'
 import AvisoToast from '../../../components/AvisoToast'
 import useAviso from '../../../hooks/useAviso'
-import './SolicitudCuentas.css' // tu CSS, en esta misma carpeta
+import './SolicitudCuentas.css'
 
 const FILAS_POR_PAGINA = 5
 const TABS = { pendiente: 'Pendientes', aprobada: 'Aprobadas', rechazada: 'Rechazadas' }
@@ -14,8 +14,48 @@ const BADGE_ESTADO = { pendiente: 'amarillo', aprobada: 'verde', rechazada: 'roj
 const NOMBRE_ROL = { atleta: 'Atleta', entrenador: 'Entrenador' }
 const fecha = (iso) => new Date(iso).toLocaleDateString('es-CO')
 
-// Textos de cada confirmación + mensaje y tipo del toast de éxito
-// tipo: 'ok' | 'advertencia' | 'error'  (clases aviso-ok, aviso-advertencia, aviso-error)
+// Placeholder para campos de solo lectura que llegan vacíos o nulos
+const val = (v) => (v === null || v === undefined || v === '' ? '—' : v)
+
+// Formatea una fecha tipo "2026-09-21" a "21/09/2026". Si no es una fecha
+// válida (vacía, null, formato raro) devuelve el placeholder de val().
+const fechaVal = (iso) => {
+  if (!iso) return '—'
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return val(iso)
+  return d.toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit', year: 'numeric' })
+}
+
+const NOMBRE_GENERO = {
+  femenino: 'Femenino', masculino: 'Masculino', otro: 'Otro', 'no-decir': 'Prefiere no decirlo',
+}
+const NOMBRE_TIPO_DOC = {
+  cedula: 'Cédula de ciudadanía', tarjeta: 'Tarjeta de identidad',
+  pasaporte: 'Pasaporte', extranjeria: 'Cédula de extranjería',
+}
+const NOMBRE_EPS = {
+  compensar: 'Compensar', coomeva: 'Coomeva', famisanar: 'Famisanar',
+  nuevaeps: 'Nueva EPS', 'salud-total': 'Salud Total', sanitas: 'Sanitas',
+  sura: 'SURA', otra: 'Otra',
+}
+const NOMBRE_PARENTESCO = {
+  'madre-padre': 'Madre / Padre',
+  tutor: 'Tutor',
+  'conyuge-pareja': 'Cónyuge / Pareja',
+  otro: 'Otro',
+}
+// Respaldo genérico: si llegara una clave que no está en el mapa de arriba
+// (por datos antiguos o un valor libre), convierte "algo-otra-cosa" en
+// "Algo / Otra Cosa" en vez de mostrar el valor crudo.
+const parentescoLegible = (clave) => {
+  if (!clave) return null
+  if (NOMBRE_PARENTESCO[clave]) return NOMBRE_PARENTESCO[clave]
+  return clave
+    .split('-')
+    .map((palabra) => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+    .join(' / ')
+}
+
 const ACCIONES = {
   aprobar: {
     titulo: '¿Aprobar solicitud?',
@@ -55,8 +95,10 @@ const IconoOjo = () => <Svg><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7
 const IconoCheck = () => <Svg sw={2.5}><path d="m5 12 5 5L20 7"/></Svg>
 const IconoX = ({ size }) => <Svg size={size} sw={2.5}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></Svg>
 const IconoChevron = ({ dir }) => <Svg size={18} sw={2.2}><path d={dir === 'izq' ? 'm15 18-6-6 6-6' : 'm9 18 6-6-6-6'}/></Svg>
+const IconoArchivo = ({ size = 14 }) => (
+  <Svg size={size}><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2Z"/><path d="M14 2v6h6"/></Svg>
+)
 
-// Paginación (máx. FILAS_POR_PAGINA filas visibles), todo en este mismo archivo
 const paginar = (lista, pagina) => {
   const total = lista.length
   const totalPaginas = Math.max(1, Math.ceil(total / FILAS_POR_PAGINA))
@@ -65,7 +107,6 @@ const paginar = (lista, pagina) => {
   return { visibles: lista.slice(inicio, inicio + FILAS_POR_PAGINA), actual, totalPaginas, total, inicio }
 }
 
-// Pie de tabla: solo aparece si hay más filas de las que caben en una página
 function PieTabla({ p, onCambiar }) {
   if (p.total <= FILAS_POR_PAGINA) return null
   return (
@@ -93,9 +134,6 @@ const IconoUsuarios = ({ size = 15 }) => (
 export default function SolicitudesCuentas() {
   const { aviso, mostrarAviso } = useAviso()
 
-  // La vista vive en la URL (?vista=gestion). Así entrar a gestión crea una
-  // entrada en el historial y la flecha "atrás" vuelve a solicitudes
-  // en lugar de saltar al dashboard.
   const leerVista = () => new URLSearchParams(window.location.search).get('vista') === 'gestion'
   const [esGestion, setEsGestion] = useState(leerVista)
 
@@ -104,6 +142,8 @@ export default function SolicitudesCuentas() {
   const [busqueda, setBusqueda] = useState('')
   const [cargando, setCargando] = useState(true)
   const [detalle, setDetalle] = useState(null)
+  const [perfilDetalle, setPerfilDetalle] = useState(null) // datos de la tabla `perfiles`, solo para aprobadas
+  const [cargandoDetalle, setCargandoDetalle] = useState(false)
   const [confirmar, setConfirmar] = useState(null) // { usuario, accion }
 
   const cargar = async () => {
@@ -117,14 +157,12 @@ export default function SolicitudesCuentas() {
   }
   useEffect(() => { cargar() }, [])
 
-  // Flechas atrás/adelante del navegador: sincroniza la vista con la URL
   useEffect(() => {
     const onPop = () => setEsGestion(leerVista())
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
-  // Al cambiar de vista (botón, flecha atrás o adelante) se limpia la búsqueda
   useEffect(() => { setBusqueda('') }, [esGestion])
 
   const alternarVista = () => {
@@ -132,9 +170,8 @@ export default function SolicitudesCuentas() {
       window.history.pushState({ vista: 'gestion' }, '', `${window.location.pathname}?vista=gestion`)
       setEsGestion(true)
     } else if (window.history.state?.vista === 'gestion') {
-      window.history.back() // deshace el push; popstate actualiza la vista
+      window.history.back()
     } else {
-      // entraste directo a ?vista=gestion: no hay nada a qué volver, solo cambia la URL
       window.history.replaceState({}, '', window.location.pathname)
       setEsGestion(false)
     }
@@ -146,14 +183,31 @@ export default function SolicitudesCuentas() {
   }
   const irAInicio = () => { window.location.href = '/' }
 
-  // Si llegas desde el dashboard con ?ver=<id>, abre el modal de esa solicitud
+  // Abre el modal de detalle. Si la cuenta está aprobada, trae también el
+  // perfil editado por el usuario (tabla `perfiles` vía la Edge Function).
+  const abrirDetalle = async (u) => {
+    setDetalle(u)
+    setPerfilDetalle(null)
+    if (u.estado !== 'aprobada') return
+    setCargandoDetalle(true)
+    try {
+      const { perfil } = await obtenerDetalleUsuario(u.id)
+      setPerfilDetalle(perfil) // null si el usuario nunca ha editado su perfil
+    } catch (e) {
+      mostrarAviso(e.message, 'error')
+    } finally {
+      setCargandoDetalle(false)
+    }
+  }
+
   useEffect(() => {
     if (cargando) return
     const id = new URLSearchParams(window.location.search).get('ver')
     if (!id) return
     const u = usuarios.find((x) => x.id === id)
-    if (u) { setTab(u.estado); setDetalle(u) }
-    window.history.replaceState({}, '', window.location.pathname) // limpia la URL
+    if (u) { setTab(u.estado); abrirDetalle(u) }
+    window.history.replaceState({}, '', window.location.pathname)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cargando, usuarios])
 
   useEffect(() => {
@@ -176,7 +230,7 @@ export default function SolicitudesCuentas() {
         await llamar({ accion: 'cambiar-activo', id: usuario.id, activo: accion === 'activar' })
       }
       setConfirmar(null)
-      mostrarAviso(ACCIONES[accion].exito, ACCIONES[accion].tipo) // toast de éxito
+      mostrarAviso(ACCIONES[accion].exito, ACCIONES[accion].tipo)
       cargar()
     } catch (e) {
       setConfirmar(null)
@@ -187,23 +241,19 @@ export default function SolicitudesCuentas() {
   const coincide = (u) =>
     `${u.nombre} ${u.email}`.toLowerCase().includes(busqueda.toLowerCase())
 
-  // Vista solicitudes
   const filtradas = usuarios.filter((u) => u.estado === tab && coincide(u))
   const conteo = usuarios.filter((u) => u.estado === tab).length
   const colorConteo = tab === 'pendiente' ? 'azul' : tab === 'aprobada' ? 'verde' : 'rojo'
 
-  // Vista gestión (solo cuentas aprobadas)
   const aprobadas = usuarios.filter((u) => u.estado === 'aprobada')
   const gestion = aprobadas.filter(coincide)
   const totalActivas = aprobadas.filter((u) => u.activo).length
 
-  // Paginación (5 filas por página), una por cada tabla
   const [paginaSol, setPaginaSol] = useState(1)
   const [paginaGes, setPaginaGes] = useState(1)
   const pagSol = paginar(filtradas, paginaSol)
   const pagGes = paginar(gestion, paginaGes)
 
-  // Al cambiar de pestaña o de búsqueda se vuelve a la página 1
   useEffect(() => { setPaginaSol(1) }, [tab, busqueda])
   useEffect(() => { setPaginaGes(1) }, [busqueda])
 
@@ -283,7 +333,7 @@ export default function SolicitudesCuentas() {
                       </td>
                       <td><span className="fecha-celda">{fecha(u.created_at)}</span></td>
                       <td className="acciones-celda">
-                        <button className="btn-accion btn-accion--ojo" title="Ver detalles" onClick={() => setDetalle(u)}>
+                        <button className="btn-accion btn-accion--ojo" title="Ver detalles" onClick={() => abrirDetalle(u)}>
                           <IconoOjo />
                         </button>
                         {u.estado === 'pendiente' && (
@@ -378,7 +428,7 @@ export default function SolicitudesCuentas() {
         )}
       </div>
 
-      {/* ───────── Modal ojito: 3 campos del registro ───────── */}
+      {/* ───────── Modal ojito ───────── */}
       {detalle && (
         <div className="modal-overlay modal-overlay--scroll"
           onClick={(e) => e.target === e.currentTarget && setDetalle(null)}>
@@ -403,13 +453,112 @@ export default function SolicitudesCuentas() {
                 </div>
                 <div className="detalle-grupo">
                   <label>Nombre</label>
-                  <input type="text" readOnly value={detalle.nombre} />
+                  <div className="detalle-valor">{val(detalle.nombre)}</div>
                 </div>
                 <div className="detalle-grupo detalle-grupo--full">
                   <label>Correo electrónico</label>
-                  <input type="text" readOnly value={detalle.email} />
+                  <div className="detalle-valor">{val(detalle.email)}</div>
                 </div>
               </div>
+
+              {/* Información del perfil: solo se consulta/muestra para cuentas aprobadas */}
+              {detalle.estado === 'aprobada' && (
+                <>
+                  {cargandoDetalle && (
+                    <p className="perfil-modal-descripcion">Cargando información del perfil…</p>
+                  )}
+
+                  {!cargandoDetalle && perfilDetalle && (
+                    <>
+                      <div className="detalle-titulo-seccion">
+                        <Svg size={14}><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12Z"/><path d="M4 21.5c0-4.4 3.6-8 8-8s8 3.6 8 8"/></Svg>
+                        Información del perfil
+                      </div>
+                      <div className="detalle-grid">
+                        <div className="detalle-grupo">
+                          <label>Tipo de documento</label>
+                          <div className="detalle-valor">{val(NOMBRE_TIPO_DOC[perfilDetalle.tipo_documento])}</div>
+                        </div>
+                        <div className="detalle-grupo">
+                          <label>Número de documento</label>
+                          <div className="detalle-valor">{val(perfilDetalle.numero_documento)}</div>
+                        </div>
+                        <div className="detalle-grupo">
+                          <label>Género</label>
+                          <div className="detalle-valor">{val(NOMBRE_GENERO[perfilDetalle.genero])}</div>
+                        </div>
+                        <div className="detalle-grupo">
+                          <label>Fecha de nacimiento</label>
+                          <div className="detalle-valor">{fechaVal(perfilDetalle.fecha_nacimiento)}</div>
+                        </div>
+                        <div className="detalle-grupo">
+                          <label>Teléfono</label>
+                          <div className="detalle-valor">{val(perfilDetalle.telefono)}</div>
+                        </div>
+                        <div className="detalle-grupo">
+                          <label>EPS</label>
+                          <div className="detalle-valor">{val(NOMBRE_EPS[perfilDetalle.eps] ?? perfilDetalle.eps)}</div>
+                        </div>
+                        <div className="detalle-grupo detalle-grupo--full">
+                          <label>Certificado de EPS</label>
+                          <div className="detalle-valor detalle-valor--archivo">
+                            <IconoArchivo />
+                            {perfilDetalle.certificado_eps_url_firmada ? (
+                              <a
+                                href={perfilDetalle.certificado_eps_url_firmada}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="detalle-archivo-enlace"
+                              >
+                                {val(perfilDetalle.certificado_eps_nombre) !== '—'
+                                  ? perfilDetalle.certificado_eps_nombre
+                                  : 'Ver certificado'}
+                              </a>
+                            ) : (
+                              <span>{val(perfilDetalle.certificado_eps_nombre)}</span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      {Array.isArray(perfilDetalle.contactos) && perfilDetalle.contactos.length > 0 && (
+                        <>
+                          <div className="detalle-titulo-seccion">Contactos de emergencia</div>
+                          {perfilDetalle.contactos.map((c, i) => (
+                            <div key={i} className="detalle-contacto-bloque">
+                              <p className="detalle-contacto-nombre">Contacto {i + 1}</p>
+                              <div className="detalle-grid">
+                                <div className="detalle-grupo">
+                                  <label>Nombre</label>
+                                  <div className="detalle-valor">{val(c.nombre)}</div>
+                                </div>
+                                <div className="detalle-grupo">
+                                  <label>Apellido</label>
+                                  <div className="detalle-valor">{val(c.apellido)}</div>
+                                </div>
+                                <div className="detalle-grupo">
+                                  <label>Teléfono</label>
+                                  <div className="detalle-valor">{val(c.telefono)}</div>
+                                </div>
+                                {c.parentesco && (
+                                  <div className="detalle-grupo">
+                                    <label>Parentesco</label>
+                                    <div className="detalle-valor">{parentescoLegible(c.parentesco)}</div>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </>
+                  )}
+
+                  {!cargandoDetalle && !perfilDetalle && (
+                    <p className="perfil-modal-descripcion">Este usuario aún no ha completado su perfil.</p>
+                  )}
+                </>
+              )}
             </div>
             {detalle.estado === 'pendiente' && (
               <div className="modal-pie">
@@ -446,12 +595,11 @@ export default function SolicitudesCuentas() {
         </div>
       )}
 
-      {/* Toast (reemplaza al modal de éxito) */}
+      {/* Toast */}
       <AvisoToast aviso={aviso} />
     </main>
   )
 
-  // Misma estructura que DashboardAdmin (Sidebar + Header + main)
   return (
     <div className="dashboard">
       <Sidebar
