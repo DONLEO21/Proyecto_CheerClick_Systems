@@ -1,7 +1,4 @@
-// src/components/Compartidos/Proximamente.jsx
-// Se muestra dentro del layout (con su sidebar y header) cuando una sección aún no existe.
 import React from "react";
-
 export default function Proximamente() {
   return (
     <div className="container-fluid py-5 text-center text-secondary">

@@ -1,4 +1,4 @@
-// src/components/Horarios/NivelCard.jsx
+
 import React from "react";
 import { formatearDias } from "./horariosData";
 import { formatearRangoHora } from "../../Entrenador/Horarios/calendarioData";
@@ -29,7 +29,6 @@ export default function NivelCard({ nivel, onModificar, onInhabilitar, delay = 0
           <button className="btn-modificar" onClick={() => onModificar(nivel)}>
             Modificar
           </button>
-          {/* Se pasa el nivel completo: el PATCH necesita saber el estado actual */}
           <button className="btn-inhabilitar" onClick={() => onInhabilitar(nivel)}>
             {nivel.inhabilitado ? "Habilitar" : "Inhabilitar"}
           </button>

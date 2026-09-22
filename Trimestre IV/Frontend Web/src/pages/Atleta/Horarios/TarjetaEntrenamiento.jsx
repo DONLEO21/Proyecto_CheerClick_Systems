@@ -1,4 +1,4 @@
-// src/components/Horarios/TarjetaEntrenamiento.jsx
+
 import React from "react";
 import { CATEGORIAS, formatearFechaLarga, obtenerInsignia, esPasada, a12h } from "./horariosAtletaData";
 

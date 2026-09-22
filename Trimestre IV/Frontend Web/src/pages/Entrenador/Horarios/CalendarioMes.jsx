@@ -1,4 +1,4 @@
-// src/components/Horarios/CalendarioMes.jsx
+
 import React from "react";
 import {
   MESES_ES,
@@ -8,14 +8,6 @@ import {
   claveFecha,
 } from "./calendarioData";
 
-/**
- * props:
- *  - anio, mes                 : mes visible
- *  - diaSeleccionado           : número de día activo
- *  - diasEntrenamiento         : [1,3,6] días de la semana del nivel
- *  - sesiones                  : lista de sesiones (para marcar las que ya tienen tipos)
- *  - onSeleccionarDia, onMesAnterior, onMesSiguiente
- */
 export default function CalendarioMes({
   anio,
   mes,

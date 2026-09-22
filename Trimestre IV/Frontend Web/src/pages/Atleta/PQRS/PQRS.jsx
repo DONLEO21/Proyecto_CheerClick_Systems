@@ -1,4 +1,4 @@
-// src/pages/Atleta/PQRS/PQRS.jsx
+
 import "./PQRS.css";
 import React, { useMemo, useState, useEffect } from "react";
 
@@ -17,8 +17,7 @@ import {
   radicadoDe,
 } from "./pqrsData";
 
-// ── Configuración de la API (json-server) ──────────────────
-// Levantar con: npx json-server db.json --port 3001
+
 const API_URL = "http://localhost:3001";
 const jsonHeaders = { "Content-Type": "application/json" };
 
@@ -27,8 +26,6 @@ async function manejarRespuesta(res) {
   return res.json();
 }
 
-// El radicado es global (PQ0001, PQ0002…): se calcula con TODAS las PQRS,
-// no solo con las del atleta, para no repetir el de otro remitente.
 const siguienteRadicado = () =>
   fetch(`${API_URL}/pqrs`)
     .then(manejarRespuesta)
@@ -40,24 +37,21 @@ const siguienteRadicado = () =>
       return `PQ${String(mayor + 1).padStart(4, "0")}`;
     });
 
-// Búsqueda sin distinguir mayúsculas ni tildes
+
 const normalizar = (texto) =>
   texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-// TODO: `remitente` debe salir de la sesión real cuando exista login/auth.
-// Mientras tanto se recibe por prop desde App.jsx.
 export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
-  // ── Estado de los datos ──────────────────────────────────
+
   const [pqrs, setPqrs] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
   const [enviando, setEnviando] = useState(false);
 
-  // ── Filtros ──────────────────────────────────────────────
+
   const [busqueda, setBusqueda] = useState("");
   const [filtroEstado, setFiltroEstado] = useState("todas");
 
-  // ── READ: solo las PQRS de este atleta (GET) ─────────────
   useEffect(() => {
     let activo = true;
     setCargando(true);
@@ -77,7 +71,6 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
     };
   }, [remitente]);
 
-  // ── Aviso / toast ────────────────────────────────────────
   const [aviso, setAviso] = useState({ visible: false, mensaje: "", tipo: "ok" });
 
   useEffect(() => {
@@ -90,15 +83,13 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
   const avisoErrorApi = () =>
     mostrarAviso("No se pudo conectar con la API (json-server). ¿Está corriendo?", "error");
 
-  // ── Modales ──────────────────────────────────────────────
+ 
   const [modalNueva, setModalNueva] = useState({ abierto: false, editando: null });
   const [formNueva, setFormNueva] = useState(ESTADO_INICIAL_FORM);
 
   const [modalDetalle, setModalDetalle] = useState({ abierto: false, id: null });
   const [seguimiento, setSeguimiento] = useState("");
 
-  // ── Datos derivados ──────────────────────────────────────
-  // Las PQRS que el administrador inhabilitó no se muestran al atleta
   const visibles = useMemo(() => pqrs.filter((p) => !p.inhabilitada), [pqrs]);
 
   const contadores = useMemo(
@@ -124,7 +115,6 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
       .sort((a, b) => b.fecha.localeCompare(a.fecha) || radicadoDe(b).localeCompare(radicadoDe(a)));
   }, [visibles, busqueda, filtroEstado]);
 
-  // El detalle se calcula desde la lista, así siempre muestra los datos al día
   const seleccionada = useMemo(
     () => pqrs.find((p) => p.id === modalDetalle.id) ?? null,
     [pqrs, modalDetalle.id]
@@ -167,7 +157,6 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
       return mostrarAviso("La evidencia no puede superar los 5 MB.", "error");
     }
 
-    // json-server no guarda archivos: se conserva solo el nombre
     const datos = {
       tipo: formNueva.tipo,
       asunto,
@@ -197,7 +186,6 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
       // CREATE
       siguienteRadicado()
         .then((radicado) =>
-          // json-server asigna el `id` interno; el número visible va en `radicado`
           fetch(`${API_URL}/pqrs`, {
             method: "POST",
             headers: jsonHeaders,
@@ -237,7 +225,7 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
 
   const cerrarModalDetalle = () => setModalDetalle((m) => ({ ...m, abierto: false }));
 
-  // UPDATE parcial: agrega información adicional a la solicitud
+  // UPDATE parcial agrega información adicional a la solicitud
   const enviarSeguimiento = (e) => {
     e.preventDefault();
     const texto = seguimiento.trim();
@@ -263,7 +251,6 @@ export default function PQRS({ remitente = "Leonardo Jara Molina" }) {
       .finally(() => setEnviando(false));
   };
 
-  /* ═══════════════════ RENDER ═══════════════════ */
 
   if (cargando) {
     return (

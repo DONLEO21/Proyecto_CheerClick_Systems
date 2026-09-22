@@ -1,4 +1,3 @@
-// src/components/Horarios/FiltrosCategoria.jsx
 import React from "react";
 import { CATEGORIAS, FILTROS_LISTA } from "./horariosAtletaData";
 

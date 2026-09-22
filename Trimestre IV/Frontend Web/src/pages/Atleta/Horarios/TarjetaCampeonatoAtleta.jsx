@@ -1,4 +1,4 @@
-// src/components/Horarios/TarjetaCampeonatoAtleta.jsx
+
 import React from "react";
 import { formatearFechaCorta, formatearMoneda } from "./horariosAtletaData";
 

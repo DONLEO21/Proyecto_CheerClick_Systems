@@ -1,4 +1,4 @@
-// src/pages/Atleta/Horarios/Horarios.jsx
+
 import "./Horarios.css";
 import React, { useState, useEffect, useMemo } from "react";
 
@@ -13,7 +13,6 @@ import AvisoToast from "../../../components/Compartidos/AvisoToast";
 
 import { fechaAISO, obtenerLunesDeSemana, formatearRangoSemana, obtenerIniciales } from "./horariosAtletaData";
 
-// ── API (json-server) ──────────────────────────────────────
 const API_URL = "http://localhost:3001";
 const jsonHeaders = { "Content-Type": "application/json" };
 
@@ -22,13 +21,7 @@ async function manejarRespuesta(res) {
   return res.json();
 }
 
-/**
- * props:
- *  - nivelId: id del nivel del atleta (por defecto 3 = Nivel 3 Magic,
- *    igual que el resto del proyecto mientras no exista login/auth real).
- */
 export default function HorariosAtleta({ nivelId = 3 }) {
-  // ── Datos ────────────────────────────────────────────────
   const [sesiones, setSesiones] = useState([]);
   const [torneos, setTorneos] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -45,7 +38,6 @@ export default function HorariosAtleta({ nivelId = 3 }) {
     ])
       .then(([s, t, nivel]) => {
         if (!activo) return;
-        // El entrenador se toma del nivel (fuente única), no de cada sesión
         setSesiones(
           s.map((ses) => ({
             ...ses,
@@ -62,7 +54,6 @@ export default function HorariosAtleta({ nivelId = 3 }) {
     };
   }, [nivelId]);
 
-  // ── Aviso ────────────────────────────────────────────────
   const [aviso, setAviso] = useState({ visible: false, mensaje: "", tipo: "ok" });
   useEffect(() => {
     if (!aviso.visible) return;
@@ -71,7 +62,6 @@ export default function HorariosAtleta({ nivelId = 3 }) {
   }, [aviso.visible, aviso.mensaje]);
   const mostrarAviso = (mensaje, tipo = "ok") => setAviso({ visible: true, mensaje, tipo });
 
-  // ── Semana visible + filtro ──────────────────────────────
   const [lunes, setLunes] = useState(() => obtenerLunesDeSemana(new Date()));
   const [filtroActivo, setFiltroActivo] = useState("todos");
 
@@ -108,7 +98,6 @@ export default function HorariosAtleta({ nivelId = 3 }) {
     setLunes((prev) => new Date(prev.getFullYear(), prev.getMonth(), prev.getDate() + delta * 7));
   };
 
-  // ── Modales ──────────────────────────────────────────────
   const [sesionModal, setSesionModal] = useState(null);
   const [campeonatoModal, setCampeonatoModal] = useState(null);
   const [pagoModal, setPagoModal] = useState(null); // torneo para el que se está pagando
@@ -118,7 +107,7 @@ export default function HorariosAtleta({ nivelId = 3 }) {
     setPagoModal(torneo);
   };
 
-  // CREATE (POST): enviar comprobante de pago
+  // CREATE (POST) enviar comprobante de pago
   const enviarPago = (datosPago) => {
     return fetch(`${API_URL}/pagos`, {
       method: "POST",
@@ -132,7 +121,7 @@ export default function HorariosAtleta({ nivelId = 3 }) {
       });
   };
 
-  // ── Render ───────────────────────────────────────────────
+
   if (cargando) {
     return (
       <main className="contenido container-fluid py-5 text-center text-secondary">

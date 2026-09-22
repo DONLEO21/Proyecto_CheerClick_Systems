@@ -1,4 +1,4 @@
-// src/pages/Atleta/PQRS/FiltrosSolicitudes.jsx
+
 import React from "react";
 import { PESTANAS } from "./pqrsData";
 

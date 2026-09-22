@@ -17,11 +17,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Mientras se une el resto del proyecto (login, home, etc.),
-            la raíz redirige directo al módulo de horarios del admin. */}
+
         <Route path="/" element={<Navigate to="/admin/horarios" replace />} />
 
-        {/* Área Admin */}
         <Route path="/admin" element={<PanelLayout items={menuAdmin} rol="Administrador" inicioHref="/admin/horarios" />}>
           <Route index element={<Navigate to="horarios" replace />} />
           <Route path="horarios" element={<AdminHorarios />} />

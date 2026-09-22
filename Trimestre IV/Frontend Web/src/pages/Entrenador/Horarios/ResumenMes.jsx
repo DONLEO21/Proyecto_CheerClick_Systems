@@ -1,12 +1,7 @@
-// src/components/Horarios/ResumenMes.jsx
+
 import React from "react";
 import { MESES_ES } from "./calendarioData";
 
-/**
- * props:
- *  - anio, mes
- *  - totales: { sesiones, asistidas, faltadas, tardes, porcentaje }
- */
 export default function ResumenMes({ anio, mes, totales }) {
   const { sesiones, asistidas, faltadas, tardes, porcentaje } = totales;
 

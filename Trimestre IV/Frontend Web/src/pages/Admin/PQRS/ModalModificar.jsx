@@ -1,4 +1,4 @@
-// src/pages/Admin/PQRS/ModalModificar.jsx
+
 import React from "react";
 import ModalBase from "./ModalBase";
 import { ESTADOS, PRIORIDADES, TIPOS } from "./pqrsData";

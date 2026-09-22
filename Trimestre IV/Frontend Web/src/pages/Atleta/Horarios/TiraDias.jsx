@@ -1,4 +1,4 @@
-// src/components/Horarios/TiraDias.jsx
+
 import React from "react";
 import { DIAS_ABREV, DIAS_NOMBRE, MESES, fechaAISO, mismaFecha, CATEGORIAS } from "./horariosAtletaData";
 

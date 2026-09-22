@@ -1,4 +1,4 @@
-// src/components/Horarios/CompetenciaCard.jsx
+
 import React from "react";
 import { formatearFechaCorta, formatearMoneda } from "./horariosData";
 
@@ -46,7 +46,7 @@ export default function CompetenciaCard({ torneo, onModificar, onInhabilitar, de
           <button className="btn-modificar" onClick={() => onModificar(torneo)}>
             Modificar
           </button>
-          {/* Se pasa el torneo completo: el PATCH necesita saber el estado actual */}
+          
           <button className="btn-inhabilitar" onClick={() => onInhabilitar(torneo)}>
             {torneo.inhabilitada ? "Habilitar" : "Inhabilitar"}
           </button>

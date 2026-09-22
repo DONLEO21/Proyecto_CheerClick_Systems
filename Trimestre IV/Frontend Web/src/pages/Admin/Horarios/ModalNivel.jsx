@@ -1,22 +1,20 @@
-// src/components/Horarios/ModalNivel.jsx
+
 import React, { useRef, useEffect } from "react";
 import { diasSemana, etiquetaDias, comprimirImagen } from "./horariosData";
 
-// Un bloque de horario vacío: sus propios días + su propio rango de hora
 const BLOQUE_VACIO = () => ({ dias: [], inicio: "18:00", fin: "20:00" });
 
 export default function ModalNivel({ abierto, formNivel, setFormNivel, onCerrar, onGuardar }) {
   const inputFotoRef = useRef(null);
   const primerCampoRef = useRef(null);
 
-  // Enfoca el primer campo cada vez que se abre el modal.
+
   useEffect(() => {
     if (abierto) primerCampoRef.current?.focus();
   }, [abierto]);
 
   if (!abierto) return null;
 
-  // ── Manejo de cada bloque de horario (días + hora propios) ──
   const alternarDiaDelBloque = (idxBloque, dia) => {
     setFormNivel((f) => {
       const horarios = f.horarios.map((b, i) => {
@@ -48,7 +46,6 @@ export default function ModalNivel({ abierto, formNivel, setFormNivel, onCerrar,
   const previsualizarFoto = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    // Se comprime antes de guardar: json-server rechaza cuerpos muy grandes
     comprimirImagen(file, 400, 0.7)
       .then((dataUrl) => setFormNivel((f) => ({ ...f, foto: dataUrl })))
       .catch(() => alert("No se pudo procesar la imagen. Intenta con otra."));
@@ -117,12 +114,9 @@ export default function ModalNivel({ abierto, formNivel, setFormNivel, onCerrar,
             />
           </div>
 
-          {/* ── Bloques de horario: cada uno con SUS PROPIOS días ── */}
           <div className="grupo-formulario">
             <label className="etiqueta-formulario">Horarios</label>
             <p className="pista-subida mb-2" style={{ marginTop: -6 }}>
-              Si el nivel entrena distinto algún día (por ejemplo sábado a otra hora),
-              agrégalo como un horario aparte en vez de mezclarlo con los demás.
             </p>
 
             <div className="d-flex flex-column gap-3">

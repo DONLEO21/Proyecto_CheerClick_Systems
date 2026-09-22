@@ -55,8 +55,6 @@
     box-sizing: border-box !important;
 }
 
-/* Cuando la etiqueta es un <button> (SelectorRol), quitamos los estilos
-   nativos del navegador para que se vea igual que el <span> de antes */
 button.etiqueta-rol {
     border: none !important;
     cursor: pointer !important;
@@ -71,7 +69,7 @@ button.etiqueta-rol:hover {
     filter: brightness(0.92);
 }
 
-/* Selector de rol desplegable (Admin ↔ Vista Entrenador) */
+
 .selector-rol {
     position: relative;
 }
@@ -161,8 +159,6 @@ button.etiqueta-rol:hover {
     color: var(--color-primario);
     stroke: var(--color-primario);
 }
-
-/* Separador vertical entre íconos y logo */
 .encabezado__separador {
     width: 1px;
     height: 28px;
@@ -170,7 +166,6 @@ button.etiqueta-rol:hover {
     margin: 0 12px;
 }
 
-/* Logo */
 .logo-club img {
     height: 40px;
     width: 40px;

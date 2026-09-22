@@ -1,14 +1,9 @@
-// src/components/Horarios/ModalCompetencia.jsx
+
 import React, { useRef, useEffect } from "react";
 import { nivelesCompetencia, comprimirImagen } from "./horariosData";
-
-/**
- * Modal genérico de competencia. Se usa tanto para "Registrar" como para
- * "Modificar" — el modo se controla con la prop `modo`.
- */
 export default function ModalCompetencia({
   abierto,
-  modo, // "registrar" | "modificar"
+  modo, 
   form,
   setForm,
   onCerrar,
@@ -28,7 +23,6 @@ export default function ModalCompetencia({
   const previsualizarImagen = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    // Se comprime antes de guardar: json-server rechaza cuerpos > 100 KB
     comprimirImagen(file, 600, 0.7)
       .then((dataUrl) => setForm((f) => ({ ...f, imagen: dataUrl })))
       .catch(() => alert("No se pudo procesar la imagen. Intenta con otra."));

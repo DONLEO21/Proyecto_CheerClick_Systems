@@ -2,14 +2,6 @@
 import React from "react";
 import { formatearRangoHora, etiquetaFechaLarga, esHoy, DIAS_ES } from "./calendarioData";
 
-/**
- * props:
- *  - anio, mes, dia      : fecha activa
- *  - sesion              : objeto de sesión (o null si no hay entrenamiento ese día)
- *  - hayEntrenamiento    : boolean
- *  - diasEntrenamiento   : [1,3,6] para el mensaje de "no hay entrenamiento"
- *  - onMarcarAsistencia, onEditarSesion
- */
 export default function TarjetaDia({
   anio,
   mes,

@@ -5,7 +5,6 @@ import factura from '../assets/icons/factura.png';
 import comentarios from '../assets/icons/comentarios.png';
 import estadisticas from '../assets/icons/estadisticas-de-barras.png';
 
-// Tomado de BarraAtleta.html
 const menuAtleta = [
   { href: '/Atleta/Perfil', titulo: 'Perfil', icono: usuario, alt: 'Perfil' },
   { href: '/Atleta/Horarios', titulo: 'Horarios', icono: calendario, alt: 'Horarios' },

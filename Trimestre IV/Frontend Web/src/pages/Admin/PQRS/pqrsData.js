@@ -1,5 +1,3 @@
-// src/pages/Admin/PQRS/pqrsData.js
-// Catálogos y constantes. Los datos vienen de db.json (ver pqrsApi.js).
 
 export const TIPOS = [
   { valor: "peticion", etiqueta: "Petición" },
@@ -28,8 +26,6 @@ export const FILTROS_INICIALES = {
   busqueda: "",
 };
 
-// El radicado es el número que ve la gente (PQ0007). json-server v1 asigna su propio
-// `id` interno al crear, por eso los registros nuevos guardan el número en `radicado`.
 export const radicadoDe = (pqrs) => pqrs.radicado ?? pqrs.id;
 
 export const etiquetaDe = (lista, valor) =>

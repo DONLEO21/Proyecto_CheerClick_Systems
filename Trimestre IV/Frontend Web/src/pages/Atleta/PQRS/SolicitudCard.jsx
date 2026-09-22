@@ -1,4 +1,4 @@
-// src/pages/Atleta/PQRS/SolicitudCard.jsx
+
 import React from "react";
 import { ESTADOS, etiquetaTipo, formatearFecha, radicadoDe } from "./pqrsData";
 
