@@ -11,11 +11,13 @@ import AdminPQRS from "./pages/Admin/PQRS/PQRS.jsx";
 import AdminImplementos from './pages/Admin/Implementos/Implementos';
 import AdminAsistencia from './pages/Admin/Asistencia/Asistencia';
 import RendimientoAdmin from './pages/Admin/Rendimiento/Rendimiento.jsx'
+import AdminPagos from './pages/Admin/Pagos/Pagos.jsx';
 
 import RendimientoAtleta from './pages/Atleta/Rendimiento/Rendimiento.jsx'
 import AtletaImplementos from './pages/Atleta/Implementos/Implementos';
 import AtletaHorarios from './pages/Atleta/Horarios/Horarios.jsx';
 import AtletaPQRS from "./pages/Atleta/PQRS/PQRS.jsx";
+import AtletaPagos from './pages/Atleta/Pagos/Pagos.jsx';
 
 import EntrenadorHorarios from './pages/Entrenador/Horarios/Horarios.jsx';
 import EntreAsistencia from './pages/Entrenador/Asistencia/Asistencia'
@@ -34,6 +36,7 @@ export default function App() {
           <Route path="/admin/implementos" element={<AdminImplementos />} />
           <Route path="/admin/asistencia" element={<AdminAsistencia />} />
           <Route path="/admin/rendimiento" element={<RendimientoAdmin />} />
+          <Route path="/admin/pagos" element={<AdminPagos />} />
 
           <Route path="calendario" element={<EntrenadorHorarios esAdmin={true} />} />
 
@@ -45,9 +48,10 @@ export default function App() {
           <Route index element={<Navigate to="horarios" replace />} />
           <Route path="horarios" element={<AtletaHorarios />} />
           <Route path="pqrs" element={<AtletaPQRS remitente="Leonardo Jara Molina" />} />
-          <Route path="*" element={<Proximamente />} />
           <Route path="/atleta/implementos" element={<AtletaImplementos />} />
           <Route path="/atleta/rendimiento" element={<RendimientoAtleta />} />
+          <Route path="/atleta/pagos" element={<AtletaPagos />} />
+          <Route path="*" element={<Proximamente />} />
         </Route>
 
         {/* Área Entrenador */}
@@ -55,6 +59,7 @@ export default function App() {
           <Route index element={<Navigate to="horarios" replace />} />
           <Route path="horarios" element={<EntrenadorHorarios esAdmin={false} nivelIdEntrenador={3} />} />
           <Route path="/entrenador/asistencia" element={<EntreAsistencia />} />
+          <Route path="/entrenador/rendimiento" element={<RendimientoAdmin />} />
           <Route path="*" element={<Proximamente />} />
         </Route>
       </Routes>
