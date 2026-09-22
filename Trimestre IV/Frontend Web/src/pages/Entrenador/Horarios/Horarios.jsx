@@ -1,4 +1,4 @@
-// src/pages/Entrenador/Horarios/Horarios.jsx
+
 import "./Horarios.css";
 import React, { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
@@ -21,7 +21,6 @@ import {
   sesionPorDefecto,
 } from "./calendarioData";
 
-// ── API (json-server) ──────────────────────────────────────
 const API_URL = "http://localhost:3001";
 const jsonHeaders = { "Content-Type": "application/json" };
 
@@ -30,33 +29,17 @@ async function manejarRespuesta(res) {
   return res.json();
 }
 
-/**
- * props:
- *  - esAdmin : (opcional) fuerza el modo. Si no se pasa, se deduce de la ruta:
- *              /admin/...      -> administrador: ve y administra TODOS los niveles
- *                                 (con selector de nivel).
- *              /entrenador/... -> entrenador real: SOLO ve y administra su nivel
- *                                 asignado, sin selector ni acceso a los demás.
- *  - nivelIdEntrenador : id del nivel asignado al entrenador que inició sesión
- *              (solo aplica cuando no es admin).
- *              TODO: cuando exista login real, este id debe venir del usuario
- *              autenticado. Mientras tanto, por defecto es 3 (Nivel 3 Magic),
- *              igual que en la vista del Atleta.
- */
 export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntrenador = 3 }) {
   const { pathname } = useLocation();
   const esAdmin = esAdminProp ?? pathname.toLowerCase().startsWith("/admin");
 
-  // ── Datos ────────────────────────────────────────────────
   const [niveles, setNiveles] = useState([]);
   const [sesiones, setSesiones] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
-  // ── Nivel activo ─────────────────────────────────────────
   const [nivelActivoId, setNivelActivoId] = useState(null);
 
-  // READ: carga inicial (se repite si cambia el modo o el nivel asignado)
   useEffect(() => {
     let activo = true;
     setCargando(true);
@@ -71,7 +54,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
         if (esAdmin) {
           setNiveles(n);
         } else {
-          // Entrenador real: solo se conserva SU nivel; los demás no se exponen
           const propio = n.find((x) => String(x.id) === String(nivelIdEntrenador));
           setNiveles(propio ? [propio] : []);
         }
@@ -85,7 +67,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
     };
   }, [esAdmin, nivelIdEntrenador]);
 
-  // ── Aviso ────────────────────────────────────────────────
   const [aviso, setAviso] = useState({ visible: false, mensaje: "", tipo: "ok" });
 
   useEffect(() => {
@@ -98,8 +79,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
   const avisoErrorApi = () =>
     mostrarAviso("No se pudo conectar con la API (json-server). ¿Está corriendo?", "error");
 
-  // Al cargar los niveles, se elige el nivel inicial
-  // (para el entrenador real la lista ya trae solo su nivel)
   useEffect(() => {
     if (!niveles.length || nivelActivoId !== null) return;
     setNivelActivoId(niveles[0].id);
@@ -115,7 +94,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
     [nivelActivo]
   );
 
-  // ── Fecha seleccionada ───────────────────────────────────
   const hoy = new Date();
   const [anio, setAnio] = useState(hoy.getFullYear());
   const [mes, setMes] = useState(hoy.getMonth());
@@ -123,13 +101,10 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
 
   const fechaActiva = claveFecha(anio, mes, dia);
 
-  // Sesiones que pertenecen al nivel activo
   const sesionesDelNivel = useMemo(
     () => sesiones.filter((s) => String(s.nivelId) === String(nivelActivoId)),
     [sesiones, nivelActivoId]
   );
-
-  // Sesión del día activo: la guardada en la API, o una por defecto
   const sesionGuardada = sesionesDelNivel.find((s) => s.fecha === fechaActiva);
   const numeroDiaSemana = new Date(anio, mes, dia).getDay();
   const sesionActiva =
@@ -138,16 +113,14 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
   const hayEntrenamiento =
     !!nivelActivo && esDiaEntrenamiento(anio, mes, dia, diasEntrenamiento);
 
-  // ── Tipos de entrenamiento ───────────────────────────────
+
   const [tiposPersonalizados, setTiposPersonalizados] = useState([]);
   const [tiposSeleccionados, setTiposSeleccionados] = useState([]);
   const [guardadoOk, setGuardadoOk] = useState(false);
 
-  // Cuando cambia el día o el nivel, se recargan los tipos de esa sesión
   useEffect(() => {
     setTiposSeleccionados(sesionGuardada?.tipos || []);
     setGuardadoOk(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fechaActiva, nivelActivoId, sesionGuardada?.id]);
 
   const tiposDisponibles = useMemo(() => {
@@ -169,8 +142,7 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
     setTiposSeleccionados((prev) => [...prev, tipo]);
   };
 
-  // ── Guardar / crear sesión en la API ─────────────────────
-  // Crea la sesión si no existe (POST) o la actualiza (PATCH).
+
   const persistirSesion = (cambios) => {
     if (sesionGuardada) {
       return fetch(`${API_URL}/sesiones/${sesionGuardada.id}`, {
@@ -225,7 +197,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
       .catch(avisoErrorApi);
   };
 
-  // ── Modal de edición ─────────────────────────────────────
   const [modalAbierto, setModalAbierto] = useState(false);
   const [formSesion, setFormSesion] = useState(sesionPorDefecto(null, ""));
 
@@ -258,7 +229,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
       .catch(avisoErrorApi);
   };
 
-  // ── Navegación de meses ──────────────────────────────────
   const mesAnterior = () => {
     if (mes === 0) {
       setMes(11);
@@ -279,7 +249,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
     setDia(1);
   };
 
-  // ── Resumen del mes ──────────────────────────────────────
   const totales = useMemo(() => {
     const totalSesiones = contarDiasEntrenamiento(anio, mes, diasEntrenamiento);
     const prefijoMes = `${anio}-${String(mes + 1).padStart(2, "0")}`;
@@ -293,7 +262,7 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
     return { sesiones: totalSesiones, asistidas, faltadas, tardes: 0, porcentaje };
   }, [anio, mes, diasEntrenamiento, sesionesDelNivel]);
 
-  // ── Render ───────────────────────────────────────────────
+
   if (cargando) {
     return (
       <main className="contenido container-fluid py-5 text-center text-secondary">
@@ -314,7 +283,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
     );
   }
 
-  // Entrenador sin nivel asignado (o con un id que no existe)
   if (!esAdmin && niveles.length === 0) {
     return (
       <main className="contenido container-fluid py-5 text-center text-secondary">
@@ -369,7 +337,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
       </div>
 
       <div className="disposicion-calendario">
-        {/* ── Panel izquierdo ── */}
         <div className="panel-izquierdo">
           <TarjetaDia
             anio={anio}
@@ -394,7 +361,6 @@ export default function HorariosEntrenador({ esAdmin: esAdminProp, nivelIdEntren
           />
         </div>
 
-        {/* ── Panel derecho ── */}
         <div className="panel-derecho">
           <CalendarioMes
             anio={anio}

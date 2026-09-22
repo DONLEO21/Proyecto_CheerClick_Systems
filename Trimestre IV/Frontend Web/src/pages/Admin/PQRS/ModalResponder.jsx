@@ -1,9 +1,8 @@
-// src/pages/Admin/PQRS/ModalResponder.jsx
+
 import React from "react";
 import ModalBase from "./ModalBase";
 import { ESTADOS, radicadoDe } from "./pqrsData";
 
-// Al responder, la PQRS ya no puede quedar en "Pendiente"
 const ESTADOS_RESPUESTA = ESTADOS.filter((e) => e.valor !== "pendiente");
 
 export default function ModalResponder({ abierto, pqrs, form, setForm, enviando, onCerrar, onGuardar }) {

@@ -1,4 +1,4 @@
-// src/pages/Admin/PQRS/PQRS.jsx
+
 import "./PQRS.css";
 import React, { useMemo, useState, useEffect } from "react";
 
@@ -11,8 +11,6 @@ import AvisoToast from "../../../components/Compartidos/AvisoToast";
 
 import { FILTROS_INICIALES, radicadoDe } from "./pqrsData";
 
-// ── Configuración de la API (json-server) ──────────────────
-// Levantar con: npx json-server db.json --port 3001
 const API_URL = "http://localhost:3001";
 const jsonHeaders = { "Content-Type": "application/json" };
 
@@ -31,26 +29,25 @@ const ESTADO_INICIAL_MODIFICAR = {
   prioridad: "",
 };
 
-// Fecha de hoy en formato ISO (AAAA-MM-DD), en hora local
 const fechaHoy = () => {
   const h = new Date();
   const dos = (n) => String(n).padStart(2, "0");
   return `${h.getFullYear()}-${dos(h.getMonth() + 1)}-${dos(h.getDate())}`;
 };
 
-// Búsqueda sin distinguir mayúsculas ni tildes
+
 const normalizar = (texto) =>
   texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 export default function PQRS() {
-  // ── Estado de los datos ──────────────────────────────────
+
   const [pqrs, setPqrs] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
   const [filtros, setFiltros] = useState(FILTROS_INICIALES);
   const [enviando, setEnviando] = useState(false);
 
-  // ── READ: carga inicial (GET) ────────────────────────────
+
   useEffect(() => {
     let activo = true;
     setCargando(true);
@@ -69,7 +66,7 @@ export default function PQRS() {
     };
   }, []);
 
-  // ── Aviso / toast ────────────────────────────────────────
+  
   const [aviso, setAviso] = useState({ visible: false, mensaje: "", tipo: "ok" });
 
   useEffect(() => {
@@ -82,15 +79,13 @@ export default function PQRS() {
   const avisoErrorApi = () =>
     mostrarAviso("No se pudo conectar con la API (json-server). ¿Está corriendo?", "error");
 
-  // ── Modales ──────────────────────────────────────────────
+
   const [modalResponder, setModalResponder] = useState({ abierto: false, seleccionada: null });
   const [formResponder, setFormResponder] = useState(ESTADO_INICIAL_RESPUESTA);
 
   const [modalModificar, setModalModificar] = useState({ abierto: false, seleccionada: null });
   const [formModificar, setFormModificar] = useState(ESTADO_INICIAL_MODIFICAR);
 
-  // ── Datos derivados ──────────────────────────────────────
-  // "Total activos": las PQRS inhabilitadas no cuentan
   const totales = useMemo(() => {
     const activas = pqrs.filter((p) => !p.inhabilitada);
     return {
@@ -115,7 +110,7 @@ export default function PQRS() {
       const sentido = filtros.orden === "asc" ? 1 : -1;
       return resultado.sort((a, b) => sentido * radicadoDe(a).localeCompare(radicadoDe(b)));
     }
-    // Por defecto: las más recientes primero
+
     return resultado.sort((a, b) => b.fecha.localeCompare(a.fecha) || radicadoDe(b).localeCompare(radicadoDe(a)));
   }, [pqrs, filtros]);
 
@@ -124,7 +119,6 @@ export default function PQRS() {
 
   const limpiarFiltros = () => setFiltros(FILTROS_INICIALES);
 
-  /* ═══════════════════ RESPONDER ═══════════════════ */
 
   const abrirResponder = (solicitud) => {
     setFormResponder({ ...ESTADO_INICIAL_RESPUESTA, respuesta: solicitud.respuesta ?? "" });
@@ -212,7 +206,6 @@ export default function PQRS() {
       .catch(avisoErrorApi);
   };
 
-  /* ═══════════════════ RENDER ═══════════════════ */
 
   if (cargando) {
     return (

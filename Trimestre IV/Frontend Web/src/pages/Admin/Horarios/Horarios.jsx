@@ -1,4 +1,4 @@
-// src/pages/Admin/Horarios/Horarios.jsx
+
 import "./Horarios.css";
 import React, { useMemo, useState, useEffect } from "react";
 
@@ -10,8 +10,6 @@ import AvisoToast from "../../../components/Compartidos/AvisoToast";
 
 import { nivelesCompetencia, contarPorNivel } from "./horariosData";
 
-// ── Configuración de la API (json-server) ──────────────────
-// Levantar con: npx json-server db.json --port 3001
 const API_URL = "http://localhost:3001";
 const jsonHeaders = { "Content-Type": "application/json" };
 
@@ -42,13 +40,11 @@ const ESTADO_INICIAL_TORNEO = {
 };
 
 export default function Horarios() {
-  // ── Estado de los datos ──────────────────────────────────
   const [niveles, setNiveles] = useState([]);
   const [torneos, setTorneos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
-  // ── READ: carga inicial (GET) ────────────────────────────
   useEffect(() => {
     let activo = true;
     setCargando(true);
@@ -70,7 +66,6 @@ export default function Horarios() {
     };
   }, []);
 
-  // ── Aviso / toast ────────────────────────────────────────
   const [aviso, setAviso] = useState({ visible: false, mensaje: "", tipo: "ok" });
 
   useEffect(() => {
@@ -83,11 +78,10 @@ export default function Horarios() {
   const avisoErrorApi = () =>
     mostrarAviso("No se pudo conectar con la API (json-server). ¿Está corriendo?", "error");
 
-  // ── Pestañas ─────────────────────────────────────────────
   const [tabActiva, setTabActiva] = useState("niveles");
   const [subTabActiva, setSubTabActiva] = useState("queen");
 
-  // ── Modales ──────────────────────────────────────────────
+
   const [modalNivelAbierto, setModalNivelAbierto] = useState(false);
   const [formNivel, setFormNivel] = useState(ESTADO_INICIAL_NIVEL);
 
@@ -114,14 +108,12 @@ export default function Horarios() {
     setModalNivelAbierto(true);
   };
 
-  // CREATE (POST) / UPDATE (PATCH)
   const guardarNivel = () => {
     const categoria = formNivel.categoria.trim();
     const entrenador = formNivel.entrenador.trim();
     if (!categoria) return mostrarAviso("El nombre del nivel es obligatorio.", "error");
     if (!entrenador) return mostrarAviso("El nombre del entrenador es obligatorio.", "error");
 
-    // Cada bloque necesita al menos un día y hora inicio < hora fin
     for (const bloque of formNivel.horarios) {
       if (!bloque.dias.length) {
         return mostrarAviso("Cada horario debe tener al menos un día seleccionado.", "error");
@@ -165,7 +157,7 @@ export default function Horarios() {
     }
   };
 
-  // UPDATE parcial: inhabilitar / habilitar
+  // UPDATE parcial inhabilitar / habilitar
   const alternarNivelHandler = (nivel) => {
     fetch(`${API_URL}/niveles/${nivel.id}`, {
       method: "PATCH",
@@ -179,7 +171,7 @@ export default function Horarios() {
       .catch(avisoErrorApi);
   };
 
-  // DELETE (disponible si lo necesitas conectar a un botón)
+  // DELETE 
   const eliminarNivel = (id) => {
     fetch(`${API_URL}/niveles/${id}`, { method: "DELETE" })
       .then(manejarRespuesta)
@@ -264,7 +256,7 @@ export default function Horarios() {
     }
   };
 
-  // UPDATE parcial: inhabilitar / habilitar
+  // UPDATE parcial inhabilitar / habilitar
   const alternarTorneoHandler = (torneo) => {
     fetch(`${API_URL}/torneos/${torneo.id}`, {
       method: "PATCH",
@@ -278,7 +270,7 @@ export default function Horarios() {
       .catch(avisoErrorApi);
   };
 
-  // DELETE (disponible si lo necesitas conectar a un botón)
+  // DELETE 
   const eliminarTorneo = (id) => {
     fetch(`${API_URL}/torneos/${id}`, { method: "DELETE" })
       .then(manejarRespuesta)
@@ -289,7 +281,7 @@ export default function Horarios() {
       .catch(avisoErrorApi);
   };
 
-  /* ═══════════════════ RENDER ═══════════════════ */
+  
 
   if (cargando) {
     return (

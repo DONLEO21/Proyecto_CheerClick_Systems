@@ -1,5 +1,4 @@
-// src/pages/Admin/PQRS/ResumenCard.jsx
-// tipo: "pendiente" | "tramite" | "resuelto"
+
 export default function ResumenCard({ tipo, icono, cantidad, etiqueta }) {
   return (
     <article

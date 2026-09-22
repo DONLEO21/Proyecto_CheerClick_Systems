@@ -1,4 +1,4 @@
-// src/pages/Admin/PQRS/TablaPqrs.jsx
+
 import React from "react";
 import FilaPqrs from "./FilaPqrs";
 

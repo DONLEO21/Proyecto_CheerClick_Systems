@@ -1,6 +1,3 @@
-// src/pages/Admin/horariosData.js
-// Constantes y funciones auxiliares (formato de fechas, días, moneda...).
-// Los datos en sí (niveles y torneos) ahora vienen de src/services/horariosApi.js
 
 export const etiquetaDias = {
   lun: "Lunes",
@@ -53,13 +50,9 @@ export function contarPorNivel(torneos, nivel) {
 }
 
 /**
- * Redimensiona y comprime una imagen en el navegador antes de guardarla.
- * json-server rechaza peticiones mayores a ~100 KB, y una foto sin procesar
- * convertida a base64 las supera fácilmente. Devuelve un data URL liviano.
- *
- * @param {File} file        archivo del input
- * @param {number} maxAncho  ancho máximo en píxeles
- * @param {number} calidad   0 a 1 (0.7 es buen balance)
+@param {File} file        
+@param {number} maxAncho  
+@param {number} calidad   
  */
 export function comprimirImagen(file, maxAncho = 600, calidad = 0.7) {
   return new Promise((resolve, reject) => {
@@ -71,7 +64,6 @@ export function comprimirImagen(file, maxAncho = 600, calidad = 0.7) {
 
       img.onerror = () => reject(new Error("El archivo no es una imagen válida."));
       img.onload = () => {
-        // Calcula el nuevo tamaño manteniendo la proporción
         const escala = Math.min(1, maxAncho / img.width);
         const ancho = Math.round(img.width * escala);
         const alto = Math.round(img.height * escala);
@@ -81,7 +73,6 @@ export function comprimirImagen(file, maxAncho = 600, calidad = 0.7) {
         canvas.height = alto;
         canvas.getContext("2d").drawImage(img, 0, 0, ancho, alto);
 
-        // JPEG comprimido: mucho más liviano que PNG para fotos
         resolve(canvas.toDataURL("image/jpeg", calidad));
       };
 

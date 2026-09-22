@@ -1,5 +1,3 @@
-// src/pages/Atleta/horariosAtletaData.js
-// Constantes y utilidades de fecha para "Mis Horarios" (vista Atleta).
 
 export const MESES = [
   "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -17,15 +15,12 @@ export const CATEGORIAS = {
 
 export const FILTROS_LISTA = ["todos", "partner", "gimnasia", "baile", "campeonato"];
 
-// Date -> 'YYYY-MM-DD' (hora local, sin desfases de zona horaria)
 export function fechaAISO(d) {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
   const dd = String(d.getDate()).padStart(2, "0");
   return `${y}-${m}-${dd}`;
 }
-
-// 'YYYY-MM-DD' -> Date a medianoche local
 export function parsearFecha(iso) {
   const [y, m, d] = iso.split("-").map(Number);
   return new Date(y, m - 1, d);
@@ -35,7 +30,6 @@ export function mismaFecha(a, b) {
   return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
 }
 
-// Lunes de la semana que contiene 'fecha'
 export function obtenerLunesDeSemana(fecha) {
   const d = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
   const dia = d.getDay(); // 0=Dom, 1=Lun...
@@ -78,7 +72,6 @@ export function esPasada(iso, hoy) {
   return f < h;
 }
 
-// "18:00" -> "6:00 PM"
 export function a12h(t) {
   if (!t) return "";
   const [h, m] = t.split(":").map(Number);
@@ -87,7 +80,6 @@ export function a12h(t) {
   return `${h12}:${String(m).padStart(2, "0")} ${ampm}`;
 }
 
-// "Ronald Linares" -> "RL"
 export function obtenerIniciales(nombre = "") {
   return nombre
     .trim()

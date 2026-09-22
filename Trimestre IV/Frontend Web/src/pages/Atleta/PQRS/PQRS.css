@@ -1,8 +1,5 @@
-/* src/pages/Atleta/PQRS/PQRS.css
-   Prefijo "pqa-" para no chocar con el CSS de PQRS del administrador ("pqrs-"). */
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Varela+Round&display=swap");
 
-/* ══════════ Variables (usan las globales si existen) ══════════ */
 .pqa-page {
   --pqa-rojo: var(--color-primario, #d71920);
   --pqa-rojo-oscuro: var(--color-primario-oscuro, #b8141a);
@@ -11,7 +8,6 @@
   --pqa-texto: #1a1a1a;
   --pqa-texto-2: #555555;
   --pqa-suave: #888888;
-
   --pqa-pendiente: #f5c62b;
   --pqa-pendiente-fondo: #fefce8;
   --pqa-pendiente-texto: #7a5a00;
@@ -21,17 +17,22 @@
   --pqa-resuelto: #2563eb;
   --pqa-resuelto-fondo: #eff6ff;
   --pqa-resuelto-texto: #1e40af;
-
   font-family: "Arimo", "Segoe UI", Arial, sans-serif;
   color: var(--pqa-texto);
 }
 
-/* Colores por estado (avatar e icono de modal) */
-.pqa-page .pqa-fondo--pendiente { background: var(--pqa-pendiente); }
-.pqa-page .pqa-fondo--tramite   { background: var(--pqa-tramite); }
-.pqa-page .pqa-fondo--resuelto  { background: var(--pqa-resuelto); }
+.pqa-page .pqa-fondo--pendiente {
+  background: var(--pqa-pendiente);
+}
 
-/* ══════════ Cabecera ══════════ */
+.pqa-page .pqa-fondo--tramite {
+  background: var(--pqa-tramite);
+}
+
+.pqa-page .pqa-fondo--resuelto {
+  background: var(--pqa-resuelto);
+}
+
 .pqa-cabecera {
   display: flex;
   align-items: flex-start;
@@ -66,7 +67,6 @@
   animation: pqa-suave 0.7s ease 0.2s backwards;
 }
 
-/* ══════════ Botones (variables de Bootstrap) ══════════ */
 .pqa-page .pqa-btn-nueva,
 .pqa-page .pqa-btn-primario {
   --bs-btn-color: #fff;
@@ -131,7 +131,6 @@
   font-weight: 600;
 }
 
-/* ══════════ Búsqueda y pestañas ══════════ */
 .pqa-filtros {
   display: flex;
   align-items: center;
@@ -150,7 +149,7 @@
   max-width: 360px;
 }
 
-.pqa-busqueda > i {
+.pqa-busqueda>i {
   position: absolute;
   left: 12px;
   font-size: 14px;
@@ -235,20 +234,38 @@
   color: var(--pqa-suave);
 }
 
-/* ══════════ Tarjeta de solicitud ══════════ */
 @keyframes pqa-tarjeta {
-  from { opacity: 0; transform: translateY(18px) scale(0.98); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes pqa-arriba {
-  from { opacity: 0; transform: translateY(-12px); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes pqa-suave {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .pqa-card {
@@ -256,7 +273,6 @@
   --acento-fondo: var(--pqa-pendiente-fondo);
   --acento-texto: var(--pqa-pendiente-texto);
   --acento-sombra: rgba(245, 198, 43, 0.3);
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -266,7 +282,6 @@
   border: 1px solid var(--pqa-borde);
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.04);
-  /* "backwards": la animación solo aplica al entrar, así el hover sí funciona */
   animation: pqa-tarjeta 0.6s ease backwards;
   transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
@@ -335,9 +350,20 @@
   border-radius: 20px;
 }
 
-.pqa-insignia--pendiente { background: #fef9c3; color: var(--pqa-pendiente-texto); }
-.pqa-insignia--tramite   { background: #dcfce7; color: var(--pqa-tramite-texto); }
-.pqa-insignia--resuelto  { background: #dbeafe; color: var(--pqa-resuelto-texto); }
+.pqa-insignia--pendiente {
+  background: #fef9c3;
+  color: var(--pqa-pendiente-texto);
+}
+
+.pqa-insignia--tramite {
+  background: #dcfce7;
+  color: var(--pqa-tramite-texto);
+}
+
+.pqa-insignia--resuelto {
+  background: #dbeafe;
+  color: var(--pqa-resuelto-texto);
+}
 
 .pqa-tipo {
   display: block;
@@ -400,7 +426,6 @@
   opacity: 0.75;
 }
 
-/* Caja de respuesta del administrador (tarjeta y detalle) */
 .pqa-respuesta {
   margin-bottom: 14px;
   padding: 12px 14px;
@@ -495,7 +520,6 @@
   filter: brightness(0.95);
 }
 
-/* ══════════ Aviso de plazo ══════════ */
 .pqa-aviso-plazo {
   display: flex;
   align-items: flex-start;
@@ -522,10 +546,16 @@
   color: var(--pqa-resuelto-texto);
 }
 
-/* ══════════ Modales ══════════ */
 @keyframes pqa-modal-entrada {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .pqa-modal {
@@ -645,7 +675,6 @@
   border-top: 1px solid var(--pqa-borde);
 }
 
-/* ── Adjuntar evidencia ── */
 .pqa-adjunto {
   display: flex;
   flex-wrap: wrap;
@@ -686,7 +715,6 @@
   color: var(--pqa-suave);
 }
 
-/* ── Detalle ── */
 .pqa-resumen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -796,7 +824,6 @@
   margin-top: 16px;
 }
 
-/* ══════════ Responsive y accesibilidad ══════════ */
 @media (max-width: 740px) {
   .pqa-cabecera {
     flex-direction: column;
@@ -840,6 +867,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .pqa-cabecera,
   .pqa-page hr.pqa-separador,
   .pqa-filtros,

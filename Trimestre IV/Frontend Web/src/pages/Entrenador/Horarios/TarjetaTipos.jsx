@@ -8,15 +8,6 @@ const ICONO_TIPO = {
   Baile: "bi-music-note-beamed",
 };
 
-/**
- * props:
- *  - nivel              : nivel activo (para mostrar su horario)
- *  - tiposSeleccionados : array de strings
- *  - tiposDisponibles   : base + personalizados añadidos
- *  - deshabilitado      : true si el día no tiene entrenamiento
- *  - onAlternarTipo, onAgregarTipo, onGuardar
- *  - guardadoOk         : muestra el botón en verde un momento
- */
 export default function TarjetaTipos({
   nivel,
   tiposSeleccionados = [],
@@ -67,8 +58,6 @@ export default function TarjetaTipos({
           </button>
         ))}
       </div>
-
-      {/* Horario informativo del nivel */}
       <div className="info-horario">
         <p className="titulo-info-horario">
           <i className="bi bi-clock" />
@@ -89,8 +78,6 @@ export default function TarjetaTipos({
           )}
         </div>
       </div>
-
-      {/* Tipo personalizado */}
       <div className="fila-tipo-personalizado">
         <div className="contenedor-entrada-personalizada">
           <i className="bi bi-plus-lg" />
@@ -109,8 +96,6 @@ export default function TarjetaTipos({
           Añadir
         </button>
       </div>
-
-      {/* Vista previa */}
       <div className="vista-previa-seleccion">
         <span className="etiqueta-vista-previa">Activos:</span>
         <div className="fichas-seleccionadas">

@@ -1,14 +1,11 @@
-// src/pages/Admin/PQRS/FiltrosPqrs.jsx
+
 import React from "react";
 import { ESTADOS, PRIORIDADES, TIPOS } from "./pqrsData";
 
 export default function FiltrosPqrs({ filtros, onCambio, onLimpiar }) {
   const cambiar = (campo) => (e) => onCambio(campo, e.target.value);
-
-  // La búsqueda filtra la tabla mientras se escribe
   const escribir = (e) => onCambio("busqueda", e.target.value);
 
-  // Enter o clic en el embudo: evita recargar la página (la tabla ya se filtró al escribir)
   const buscar = (e) => e.preventDefault();
 
   return (

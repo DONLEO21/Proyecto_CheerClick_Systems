@@ -14,7 +14,6 @@ export default function ModalBase({
 }) {
   const idTitulo = useId();
 
-  // Bloquea el scroll de la página mientras el modal está abierto
   useEffect(() => {
     const previo = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -23,12 +22,10 @@ export default function ModalBase({
     };
   }, []);
 
-  // No se puede cerrar mientras se envía al servidor
   const cerrar = () => {
     if (!enviando) onCerrar();
   };
 
-  // Cierra con Escape
   useEffect(() => {
     const alPresionar = (e) => {
       if (e.key === "Escape" && !enviando) onCerrar();

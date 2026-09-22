@@ -1,13 +1,6 @@
-// src/components/Horarios/ModalSesion.jsx
+
 import React, { useEffect, useRef } from "react";
 
-/**
- * props:
- *  - abierto
- *  - subtitulo : "Miércoles, 22 de abril"
- *  - form, setForm
- *  - onCerrar, onGuardar
- */
 export default function ModalSesion({ abierto, subtitulo, form, setForm, onCerrar, onGuardar }) {
   const primerCampoRef = useRef(null);
 
@@ -52,7 +45,6 @@ export default function ModalSesion({ abierto, subtitulo, form, setForm, onCerra
         </div>
 
         <div className="cuerpo-modal">
-          {/* Estado */}
           <div className="seccion-formulario">
             <p className="etiqueta-formulario">Estado de la sesión</p>
             <div className="pastillas-estado" role="radiogroup">

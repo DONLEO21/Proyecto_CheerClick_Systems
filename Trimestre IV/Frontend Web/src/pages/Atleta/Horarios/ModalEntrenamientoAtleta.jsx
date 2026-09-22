@@ -1,4 +1,4 @@
-// src/components/Horarios/ModalEntrenamientoAtleta.jsx
+
 import React, { useEffect } from "react";
 import { CATEGORIAS, formatearFechaCorta } from "./horariosAtletaData";
 

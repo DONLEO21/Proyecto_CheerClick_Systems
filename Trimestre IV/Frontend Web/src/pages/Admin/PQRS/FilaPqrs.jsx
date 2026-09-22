@@ -1,4 +1,4 @@
-// src/pages/Admin/PQRS/FilaPqrs.jsx
+
 import React from "react";
 import { ESTADOS, PRIORIDADES, etiquetaDe, radicadoDe } from "./pqrsData";
 

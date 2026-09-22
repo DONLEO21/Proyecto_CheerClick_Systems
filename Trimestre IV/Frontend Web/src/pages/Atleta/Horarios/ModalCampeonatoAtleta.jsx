@@ -1,4 +1,4 @@
-// src/components/Horarios/ModalCampeonatoAtleta.jsx
+
 import React, { useEffect } from "react";
 import { formatearMoneda } from "./horariosAtletaData";
 

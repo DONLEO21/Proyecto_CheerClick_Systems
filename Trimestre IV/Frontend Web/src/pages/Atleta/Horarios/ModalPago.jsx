@@ -1,4 +1,4 @@
-// src/components/Horarios/ModalPago.jsx
+
 import React, { useState, useRef } from "react";
 import { formatearMoneda } from "./horariosAtletaData";
 
@@ -122,7 +122,6 @@ export default function ModalPago({ torneo, onCerrar, onEnviar }) {
                 </div>
               </div>
 
-              {/* Fila 2: referencia (solo si no es efectivo) + fecha */}
               <div className={`cuadricula-campos-pago ${requiereComprobante ? "" : "cuadricula-campos-pago--una-col"}`}>
                 {requiereComprobante && (
                   <div className="campo-formulario-atleta">

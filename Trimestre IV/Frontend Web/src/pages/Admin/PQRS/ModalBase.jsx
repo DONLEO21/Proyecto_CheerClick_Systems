@@ -1,7 +1,5 @@
-// src/pages/Admin/PQRS/ModalBase.jsx
-// Estructura común de los modales (Bootstrap): cabecera, cuerpo y pie con acciones.
-import { useEffect, useId } from "react";
 
+import { useEffect, useId } from "react";
 export default function ModalBase({
   titulo,
   subtitulo,
@@ -14,8 +12,6 @@ export default function ModalBase({
   children,
 }) {
   const idTitulo = useId();
-
-  // Bloquea el scroll de la página mientras el modal está abierto
   useEffect(() => {
     const previo = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -24,12 +20,11 @@ export default function ModalBase({
     };
   }, []);
 
-  // No se puede cerrar mientras se envía al servidor
+ 
   const cerrar = () => {
     if (!enviando) onCerrar();
   };
 
-  // Cierra con Escape
   useEffect(() => {
     const alPresionar = (e) => {
       if (e.key === "Escape" && !enviando) onCerrar();
