@@ -3,6 +3,19 @@ import logoClub from '../../assets/icons/Logo-Club.png';
 import SelectorRol from './SelectorRol';
 
 function Header({ rol = 'Administrador', onCerrarSesion, onIrInicio }) {
+  // Dashboard de cada rol.
+  const RUTA_DASHBOARD = {
+    Administrador: '/admin',
+    Entrenador: '/entrenador',
+    Atleta: '/atleta',
+  };
+
+  const irAInicio = () => {
+    if (onIrInicio) return onIrInicio();
+    window.location.href = RUTA_DASHBOARD[rol] ?? '/';
+  };
+
+
   return (
     <header className="encabezado" role="banner">
       <div className="encabezado__contenedor d-flex align-items-center justify-content-between h-100 px-3">
@@ -19,7 +32,9 @@ function Header({ rol = 'Administrador', onCerrarSesion, onIrInicio }) {
               </button>
             </li>
             <li>
+
               <SelectorRol rol={rol} />
+
             </li>
           </ul>
         </nav>
@@ -37,7 +52,7 @@ function Header({ rol = 'Administrador', onCerrarSesion, onIrInicio }) {
             aria-label="Ir al inicio"
             onClick={(e) => {
               e.preventDefault();
-              onIrInicio?.();
+              irAInicio();
             }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

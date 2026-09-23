@@ -15,10 +15,6 @@ function PanelLayout({ items, rol, inicioHref = '/' }) {
 
   return (
     <>
-
-      <Sidebar items={items} activeHref={pathname} onNavigate={navigate} />
-      <Header rol={rol} onCerrarSesion={handleCerrarSesion} inicioHref={inicioHref} />
-
       <Sidebar items={items} activeHref={activeHref} onNavigate={navigate} />
       <Header rol={rol} onCerrarSesion={handleCerrarSesion} inicioHref={inicioHref} onIrInicio={() => navigate(inicioHref)} />
 
@@ -30,4 +26,3 @@ function PanelLayout({ items, rol, inicioHref = '/' }) {
 }
 
 export default PanelLayout
-

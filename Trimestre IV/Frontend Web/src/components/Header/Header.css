@@ -171,12 +171,16 @@ button.etiqueta-rol:hover {
     stroke: var(--color-primario);
 }
 
+/* Separador vertical entre íconos y logo */
+
 .encabezado__separador {
     width: 1px;
     height: 28px;
     background: var(--color-borde);
     margin: 0 12px;
 }
+
+/* Logo */
 
 .logo-club img {
     height: 40px;
@@ -185,6 +189,7 @@ button.etiqueta-rol:hover {
     border-radius: 0;
     border: none;
     background: transparent;
+
 }
 
 .encabezado__contenedor {

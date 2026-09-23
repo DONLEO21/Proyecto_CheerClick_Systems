@@ -1,0 +1,1096 @@
+/*variables globales*/
+:root {
+  --color-primario: #d71920;
+  --color-primario-oscuro: #b8141a;
+  --color-primario-claro: #fdeaea;
+
+  --color-blanco: #ffffff;
+  --color-fondo: #f5f5f5;
+  --color-borde: #dcdcdc;
+  --color-texto: #222222;
+  --color-texto-suave: #777777;
+
+  --ancho-barra: 56px;
+  --alto-encabezado: 55px;
+  --radio-enlace: 6px;
+  --radio-boton: 5px;
+
+  --rojo: #d71920;
+  --rojo-hover: #b8141a;
+  --rojo-light: #fdeaea;
+
+  --verde: #1eaf52;
+  --verde-light: #e6f9ee;
+  --amarillo: #f59e0b;
+  --amarillo-light: #fef3c7;
+  --azul: #2f80ed;
+  --azul-claro: #dbeafe;
+  --azul-oscuro: #1d4ed8;
+
+  --magenta: #d6336c;
+  --morado: #a847e0;
+  --morado-claro: #f3e8ff;
+  --morado-oscuro: #6b21a8;
+
+  --blanco: #ffffff;
+  --gris-fondo: #f5f5f5;
+  --gris-borde: #dcdcdc;
+  --gris-claro: #c9c9c9;
+  --gris-oscuro: #4d4d4d;
+
+  --texto-dark: #222222;
+  --texto-muted: #777777;
+
+  --sidebar-width: 62px;
+  --header-height: 55px;
+
+  --espacio-xs: 8px;
+  --espacio-sm: 16px;
+  --espacio-md: 24px;
+  --espacio-lg: 32px;
+
+  --texto-sm: 14px;
+  --texto-md: 16px;
+  --texto-lg: 20px;
+  --texto-xl: 28px;
+  --fuente-titulo: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+
+  --radio-sm: 8px;
+  --radio-md: 16px;
+  --sombra-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --sombra-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  --transicion: 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════
+   REINICIO / BASE
+   ══════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Arimo", "Segoe UI", Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  min-height: 100vh;
+}
+
+.dashboard h1,
+.dashboard h2,
+.dashboard h3,
+.dashboard h4,
+.dashboard h5,
+.dashboard h6 {
+  font-family: "Varela Round", sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+button {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+input,
+select {
+  font: inherit;
+  outline: none;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Botones generales */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-xs);
+  padding: 10px 24px;
+  border-radius: var(--radio-sm);
+  font-weight: 700;
+  font-size: var(--texto-sm);
+  transition: var(--transicion);
+}
+
+.btn-primario {
+  background: var(--rojo);
+  color: var(--blanco);
+  box-shadow: var(--sombra-sm);
+}
+
+.btn-primario:hover {
+  background: var(--rojo-hover);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════
+   ANIMACIONES DE ENTRADA — CONTENIDO PRINCIPAL
+   ══════════════════════════════════════════════ */
+@keyframes entradaArriba {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes entradaAbajo {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes entradaDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes entradaEscala {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.bienvenida-atleta {
+  opacity: 0;
+  animation: entradaArriba 1.1s ease 0.05s forwards;
+}
+
+.tarjeta-rendimiento {
+  opacity: 0;
+  animation: entradaAbajo 1.1s ease 0.15s forwards;
+}
+.tarjeta-progreso {
+  opacity: 0;
+  animation: entradaAbajo 1.1s ease 0.27s forwards;
+}
+.tarjeta-calendario {
+  opacity: 0;
+  animation: entradaAbajo 1.1s ease 0.39s forwards;
+}
+
+.tarjeta-perfil-atleta {
+  opacity: 0;
+  animation: entradaDerecha 1.1s ease 0.22s forwards;
+}
+
+.tarjeta-mensualidades {
+  opacity: 0;
+  animation: entradaAbajo 1.1s ease 0.5s forwards;
+}
+.tarjeta-pqrs {
+  opacity: 0;
+  animation: entradaAbajo 1.1s ease 0.5s forwards;
+}
+
+.tarjeta-torneos {
+  opacity: 0;
+  animation: entradaEscala 1.1s ease 0.62s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bienvenida-atleta,
+  .tarjeta-rendimiento,
+  .tarjeta-progreso,
+  .tarjeta-calendario,
+  .tarjeta-perfil-atleta,
+  .tarjeta-mensualidades,
+  .tarjeta-pqrs,
+  .tarjeta-torneos,
+  .torneo-card {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Layout del contenido principal */
+.panel-atleta {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+  background: var(--gris-fondo);
+}
+
+.panel-atleta .contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-lg);
+  padding: var(--espacio-lg);
+}
+
+/* saludo del atleta */
+.bienvenida-atleta {
+  display: flex;
+  align-items: center;
+  background: var(--blanco);
+  box-shadow: var(--sombra-sm);
+  border-radius: var(--radio-md);
+  padding: var(--espacio-md) var(--espacio-lg);
+  justify-content: space-between;
+}
+
+.bienvenida-atleta h1 {
+  font-size: var(--texto-xl);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Grid principal de tarjetas */
+.panel-resumen-atleta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "rendimiento progreso calendario perfil"
+    "mensualidades mensualidades pqrs perfil";
+  gap: var(--espacio-md);
+  align-items: stretch;
+  align-content: start;
+}
+
+.tarjeta-rendimiento {
+  grid-area: rendimiento;
+}
+.tarjeta-progreso {
+  grid-area: progreso;
+}
+.tarjeta-calendario {
+  grid-area: calendario;
+}
+.tarjeta-perfil-atleta {
+  grid-area: perfil;
+}
+.tarjeta-mensualidades {
+  grid-area: mensualidades;
+}
+.tarjeta-pqrs {
+  grid-area: pqrs;
+}
+
+/* Tarjeta base */
+.tarjeta-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  min-width: 0;
+  padding: var(--espacio-lg);
+  background: var(--blanco);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra-sm);
+}
+
+.tarjeta-dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-sm);
+  flex-wrap: wrap;
+}
+
+.tarjeta-dashboard__header h2 {
+  font-size: var(--texto-lg);
+  font-weight: 700;
+}
+
+.tarjeta-dashboard__header--icono {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--espacio-xs);
+  flex-wrap: nowrap;
+}
+
+.tarjeta-dashboard__header--icono h2 {
+  margin-left: 5px;
+}
+
+.tarjeta-dashboard__accion {
+  align-self: flex-start;
+}
+
+.tarjeta-dashboard__accion--completo {
+  align-self: stretch;
+  margin-top: auto;
+}
+
+.tarjeta-dashboard--ancha .tarjeta-dashboard__contenido {
+  overflow-x: auto;
+}
+
+/* rendimiento*/
+.tarjeta-rendimiento__contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-sm);
+  flex: 1;
+  text-align: center;
+}
+
+.grafico-rendimiento {
+  width: 100%;
+}
+
+.svg-habilidades {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.svg-habilidades text {
+  fill: var(--texto-dark);
+  font-family: inherit;
+}
+
+.svg-habilidades__etiqueta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--verde);
+  font-weight: 600;
+}
+
+.svg-habilidades__etiqueta svg {
+  color: var(--verde);
+}
+
+.tarjeta-progreso__variacion {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--texto-sm);
+  color: var(--texto-muted);
+}
+
+.tarjeta-progreso__variacion svg {
+  color: var(--verde);
+}
+
+.tarjeta-progreso__variacion strong {
+  color: var(--verde);
+  font-size: var(--texto-md);
+}
+
+.tarjeta-progreso__variacion .variacion--baja {
+  color: var(--rojo);
+}
+.tarjeta-progreso__variacion .icono-invertido {
+  transform: scaleY(-1);
+  color: var(--rojo);
+}
+
+/* progreso semanal */
+.lista-progreso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  justify-content: center;
+}
+
+.barra-progreso__etiqueta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--texto-sm);
+  margin-bottom: 6px;
+}
+
+.barra-progreso__pista {
+  width: 100%;
+  height: 18px;
+  background: var(--gris-fondo);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-progreso__relleno {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.barra-progreso__relleno--verde {
+  background: var(--verde);
+}
+.barra-progreso__relleno--azul {
+  background: var(--azul);
+}
+.barra-progreso__relleno--magenta {
+  background: var(--magenta);
+}
+.barra-progreso__relleno--rojo {
+  background: var(--rojo);
+}
+.barra-progreso__relleno--amarillo {
+  background: var(--amarillo);
+}
+.barra-progreso__relleno--morado {
+  background: var(--morado);
+}
+
+/* calendario: cabecera */
+.calendario__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-sm);
+}
+
+.calendario__mes-actual {
+  flex: 1;
+  text-align: center;
+  font-size: var(--texto-sm);
+  font-weight: 700;
+}
+
+.calendario__flecha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--texto-muted);
+  flex-shrink: 0;
+  transition: var(--transicion);
+}
+
+.calendario__flecha:hover:not(:disabled) {
+  background: var(--rojo-light);
+  color: var(--rojo);
+}
+
+.calendario__flecha:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+/* calendario interactivo */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px 0;
+  justify-items: center;
+  transition: opacity 0.2s;
+}
+
+.cal-grid--cargando {
+  opacity: 0.5;
+}
+
+.cal-grid__semana {
+  padding: 6px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--texto-muted);
+}
+
+.cal-grid__dia {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: var(--texto-dark);
+  transition: var(--transicion);
+}
+
+.cal-grid__dia:hover {
+  background: var(--gris-fondo);
+}
+
+.cal-grid__dia--asistio {
+  background: var(--verde-light);
+  color: var(--verde);
+  font-weight: 700;
+}
+.cal-grid__dia--fallo {
+  background: var(--rojo-light);
+  color: var(--rojo);
+  font-weight: 700;
+}
+
+.cal-grid__dia--hoy {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cal-grid__dia--sel {
+  background: var(--rojo) !important;
+  color: var(--blanco) !important;
+}
+
+/* leyenda */
+.calendario__leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  margin-top: var(--espacio-sm);
+  font-size: var(--texto-sm);
+  color: var(--texto-muted);
+}
+
+.calendario__leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendario__punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.calendario__punto--verde {
+  background: var(--verde);
+}
+.calendario__punto--rojo {
+  background: var(--rojo);
+}
+
+/* detalle del día: altura máxima + scroll interno → la tarjeta NO crece */
+.cal-detalle {
+  margin-top: var(--espacio-sm);
+  padding: var(--espacio-xs) var(--espacio-sm);
+  background: var(--gris-fondo);
+  border-radius: var(--radio-sm);
+  font-size: 12px;
+}
+
+.cal-detalle > strong {
+  font-size: 12px;
+}
+.cal-detalle p {
+  margin-top: 4px;
+  color: var(--texto-muted);
+}
+
+.cal-detalle__lista {
+  margin-top: 6px;
+  max-height: 72px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  scrollbar-width: thin;
+}
+
+.cal-detalle__lista li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cal-detalle__hora {
+  font-weight: 700;
+  color: var(--rojo);
+  white-space: nowrap;
+}
+
+/* foto perfil atleta */
+.perfil-atleta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-sm);
+  flex: 1;
+  text-align: center;
+}
+
+.perfil-atleta__foto {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.perfil-atleta__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfil-atleta__nombre {
+  font-size: var(--texto-lg);
+  font-weight: 700;
+}
+
+.perfil-atleta__stats {
+  display: flex;
+  width: 100%;
+  gap: var(--espacio-sm);
+  margin-top: var(--espacio-sm);
+  padding-top: var(--espacio-md);
+  border-top: 1px solid var(--gris-borde);
+}
+
+.perfil-atleta__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.perfil-atleta__stat-valor {
+  font-size: var(--texto-lg);
+  font-weight: 700;
+}
+
+.perfil-atleta__stat-etiqueta {
+  font-size: 12px;
+  color: var(--texto-muted);
+  text-align: center;
+}
+
+.perfil-atleta__proximo {
+  width: 100%;
+  margin-top: var(--espacio-xs);
+  padding: var(--espacio-sm);
+  background: var(--rojo-light);
+  border-radius: var(--radio-sm);
+  border-left: 3px solid var(--rojo);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.perfil-atleta__proximo-etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rojo);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.perfil-atleta__proximo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.perfil-atleta__proximo-fecha {
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  color: var(--texto-dark);
+}
+
+.perfil-atleta__proximo-tipo {
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+
+.insignia-categoria {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--morado-claro);
+  color: var(--morado-oscuro);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* mensualidades */
+.pagos {
+  display: flex;
+  flex-direction: row;
+  gap: var(--espacio-sm);
+  flex: 1;
+}
+
+.pagos .pago-item {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+}
+
+.pago-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pago-estado--aldia {
+  background: rgba(30, 175, 82, 0.12);
+  color: var(--verde);
+}
+.pago-estado--pendiente {
+  background: rgba(250, 215, 85, 0.35);
+  color: #8a6d00;
+}
+.pago-estado--mora {
+  background: var(--rojo-light);
+  color: var(--rojo);
+}
+
+.pago-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--espacio-sm);
+  background: var(--gris-fondo);
+  border-radius: var(--radio-sm);
+  border-left: 3px solid gray;
+}
+
+.pago-item--pendiente {
+  border-left-color: var(--amarillo);
+}
+.pago-item--mora {
+  border-left-color: var(--rojo);
+  background: var(--rojo-light);
+}
+
+.pago-item__etiqueta {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--texto-muted);
+}
+
+.pago-item__valor {
+  font-size: var(--texto-lg);
+}
+.pago-item__detalle {
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+.pago-item__detalle em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--texto-dark);
+}
+
+/* PQRS */
+.pqrs__resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  flex: 1;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.insignia-pqrs {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: var(--texto-sm);
+  font-weight: 600;
+}
+
+.insignia-pqrs--respondida {
+  background: rgba(30, 175, 82, 0.12);
+  color: var(--verde);
+}
+
+.insignia-pqrs--proceso {
+  background: rgba(250, 215, 85, 0.35);
+  color: #8a6d00;
+}
+
+.insignia-pqrs--pendiente {
+  background: var(--azul-claro);
+  color: var(--azul-oscuro);
+}
+
+/* Proximos torneos */
+.torneos__header {
+  align-items: flex-start;
+}
+
+.torneos__titulo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.torneos__subtitulo {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--texto-muted);
+}
+
+.torneos__controles {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+
+.torneos__contador {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  background: var(--rojo-light);
+  color: var(--rojo);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.torneos__paginador {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--texto-muted);
+}
+
+.torneos__paginador button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--gris-borde);
+  color: var(--texto-dark);
+  transition: var(--transicion);
+}
+
+.torneos__paginador button:hover:not(:disabled) {
+  background: var(--rojo-light);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+
+.torneos__paginador button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.torneos__lista {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espacio-sm);
+}
+
+.torneos__vacio {
+  grid-column: 1 / -1;
+  font-size: var(--texto-sm);
+  color: var(--texto-muted);
+}
+
+.torneo-card {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  padding: var(--espacio-sm);
+  background: var(--gris-fondo);
+  border-radius: var(--radio-sm);
+  min-width: 0;
+  text-align: left;
+  transition: var(--transicion);
+  opacity: 0;
+  animation: entradaAbajo 0.5s ease forwards;
+}
+
+.torneo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-sm);
+}
+
+.torneo-card__fecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radio-sm);
+  color: var(--blanco);
+  flex-shrink: 0;
+}
+
+.torneo-card__fecha--rojo {
+  background: var(--rojo);
+}
+.torneo-card__fecha--oscuro {
+  background: var(--texto-dark);
+}
+
+.torneo-card__dia {
+  font-size: var(--texto-md);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.torneo-card__mes {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.torneo-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.torneo-card__nombre {
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.torneo-card__lugar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--texto-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.torneo-card__lugar svg {
+  color: var(--rojo);
+  flex-shrink: 0;
+}
+
+.torneo-card__estado {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.torneo-card__estado--inscrita {
+  background: rgba(30, 175, 82, 0.12);
+  color: var(--verde);
+}
+
+.torneo-card__estado--pendiente {
+  background: var(--gris-borde);
+  color: var(--gris-oscuro);
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .panel-resumen-atleta {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "rendimiento progreso"
+      "calendario perfil"
+      "mensualidades mensualidades"
+      "pqrs pqrs";
+  }
+
+  .torneos__lista {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel-atleta {
+    margin-left: 0;
+  }
+
+  .panel-atleta .contenedor {
+    padding: var(--espacio-md);
+  }
+
+  .panel-resumen-atleta {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "rendimiento"
+      "progreso"
+      "calendario"
+      "perfil"
+      "mensualidades"
+      "pqrs";
+  }
+
+  .tarjeta-dashboard__header--espacio {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .torneos__lista {
+    grid-template-columns: 1fr;
+  }
+
+  .pagos {
+    flex-direction: column;
+  }
+
+  .torneos__controles {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

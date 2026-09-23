@@ -14,6 +14,8 @@
     box-shadow: 3px 0 10px rgba(0,0,0,.15);
 }
 
+/* ── Botón hamburguesa ── */
+
 .boton-menu {
     width: 100%;
     height: var(--alto-encabezado);
@@ -45,6 +47,8 @@
 .boton-menu:hover .boton-menu__linea:first-child { transform: translateY(-2px); }
 .boton-menu:hover .boton-menu__linea:last-child  { transform: translateY(2px);  }
 
+/* ── Lista de ítems ── */
+
 .menu-lateral {
     width: 100%;
     margin-top: 10px;
@@ -57,6 +61,8 @@
     display: flex;
     justify-content: center;
     position: relative;
+
+    /* Animación de entrada */
     opacity: 0;
     animation: aparecer .45s ease forwards;
 }
@@ -72,6 +78,8 @@
     from { opacity: 0; transform: translateX(-18px); }
     to   { opacity: 1; transform: translateX(0); }
 }
+
+/* ── Enlace / ícono ── */
 
 .menu-lateral__enlace {
     width: 42px; height: 42px;
@@ -91,6 +99,8 @@
     transition: filter .25s;
 }
 
+/* HOVER: ícono blanco brillante, fondo rojo se mantiene */
+
 .menu-lateral__enlace:hover {
     background: transparent;
     transform: scale(1.12);
@@ -99,6 +109,8 @@
 .menu-lateral__enlace:hover .menu-lateral__icono {
     filter: brightness(0) invert(1) opacity(1);   
 }
+
+/* ── Tooltip ── */
 
 .menu-lateral__enlace::after {
     content: attr(title);
@@ -126,6 +138,8 @@
     transform: translateY(-50%) translateX(0);
 }
 
+/* ── Ítem activo ── */
+
 .menu-lateral__elemento--activo::before {
     content: "";
     position: absolute;
@@ -145,6 +159,8 @@
     filter: brightness(0) opacity(1);
 }
 
+/* El activo sí escala al hover */
+
 .menu-lateral__elemento--activo .menu-lateral__enlace:hover {
     background: var(--color-blanco);
     transform: scale(1.12);
@@ -154,10 +170,17 @@
     filter: brightness(0);   
 }
 
+
+/* ══════════════════════════════════════════════
+   MENÚ DESPLEGABLE (botón hamburguesa) + FOCO
+   Se agrega al final: no modifica las reglas anteriores.
+   ══════════════════════════════════════════════ */
 .barra-lateral {
     --ancho-abierta: 230px;
     transition: width .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s;
 }
+
+/* Barra abierta: se despliega por encima del contenido (no lo desplaza) */
 
 .barra-lateral--abierta {
     width: var(--ancho-abierta);
@@ -169,6 +192,7 @@
     padding-left: 17px;   
 }
 
+/* Nombre de la sección: oculto con la barra cerrada, aparece al abrirla */
 .menu-lateral__texto {
     width: 0;
     overflow: hidden;
@@ -189,6 +213,7 @@
     width: auto;
     opacity: 1;
     transition: opacity .2s ease .12s;   
+    transition: opacity .2s ease .12s;   /* espera a que la barra ya se haya ensanchado */
 }
 
 .barra-lateral--abierta .menu-lateral__elemento {
@@ -201,6 +226,8 @@
     gap: 14px;
     padding: 0 9px;
 }
+
+/* Con los nombres a la vista, el tooltip sobra y el hover no escala */
 
 .barra-lateral--abierta .menu-lateral__enlace::after {
     display: none;
@@ -220,6 +247,8 @@
     color: #000;
     font-weight: 700;
 }
+
+/* ── Anillo de foco (solo al navegar con teclado) ── */
 
 .menu-lateral__enlace:focus-visible {
     outline: 2px solid #fff;

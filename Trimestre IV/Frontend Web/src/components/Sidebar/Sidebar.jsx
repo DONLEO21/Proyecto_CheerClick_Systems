@@ -74,10 +74,14 @@ function Sidebar({ items = [], activeHref, onNavigate }) {
                 <a
                   href={item.href}
                   className="menu-lateral__enlace"
+                  // Abierto: el nombre ya se ve, así que se quita el tooltip
                   title={menuAbierto ? undefined : item.titulo}
                   aria-current={activo ? 'page' : undefined}
                   onClick={(e) => {
                     setMenuAbierto(false);
+
+                    // Sin onNavigate se deja el comportamiento normal del enlace
+
                     if (!onNavigate) return;
                     e.preventDefault();
                     onNavigate(item.href);
@@ -88,10 +92,7 @@ function Sidebar({ items = [], activeHref, onNavigate }) {
                     src={item.icono}
                     alt={menuAbierto ? '' : item.alt || ''}
                   />
-                  <span
-                    className="menu-lateral__texto"
-                    aria-hidden={!menuAbierto}
-                  >
+                  <span className="menu-lateral__texto" aria-hidden={!menuAbierto}>
                     {item.titulo}
                   </span>
                 </a>
@@ -103,5 +104,5 @@ function Sidebar({ items = [], activeHref, onNavigate }) {
     </aside>
   );
 }
-
 export default Sidebar;
+

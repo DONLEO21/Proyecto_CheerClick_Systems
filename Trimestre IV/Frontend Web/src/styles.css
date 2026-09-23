@@ -1,0 +1,47 @@
+/* ══════════════════════════════════════════════════════════
+   BASE GLOBAL — se aplica a toda la app (landing, auth, etc.)
+   Aquí solo va lo que NO cambia entre páginas.
+   ══════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  font-size: 14px;
+  color: #111;
+  line-height: 1.5;
+}
+
+/* el wrapper de cada página necesita poder ocupar toda la altura */
+#root {
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* utilidad compartida */
+.oculto {
+  display: none !important;
+}

@@ -23,29 +23,43 @@ import EntrenadorHorarios from './pages/Entrenador/Horarios/Horarios.jsx';
 import EntreAsistencia from './pages/Entrenador/Asistencia/Asistencia'
 import Proximamente from './components/Compartidos/Proximamente.jsx';
 
+import './styles.css';
+import Rutaprotegida from './components/Rutaprotegida.jsx';
+import Landing from './components/landing/Landing.jsx';
+import AuthPage from './components/auth/AuthPage.jsx';
+import DashboardAdmin from './pages/admin/Dashboard/DashboardAdmin.jsx';
+import SolicitudesCuentas from './pages/admin/Cuentas/SolicitudesCuentas.jsx';
+import DashboardEntrenador from './pages/entrenador/Dashboard/DashboardEntrenador.jsx';
+import DashboardAtleta from './pages/atleta/Dashboard/DashboardAtleta.jsx';
+import PerfilUsuario from './pages/Perfil/PerfilUsuario.jsx';
+
 export default function App() {
   return (
       <Routes>
 
-        <Route path="/" element={<Navigate to="/admin/horarios" replace />} />
+         {/* Públicas */}
+        <Route path="/" element={<Landing />} />
+        <Route path="/acceso" element={<AuthPage />} />
 
-        <Route path="/admin" element={<PanelLayout items={menuAdmin} rol="Administrador" inicioHref="/admin/horarios" />}>
-          <Route index element={<Navigate to="horarios" replace />} />
+        {/*Área Administrador*/}
+        <Route path="/admin" element={<PanelLayout items={menuAdmin} rol="Administrador" inicioHref="/admin" />}>
+          <Route index element={<Rutaprotegida rolPermitido="administrador"><DashboardAdmin /></Rutaprotegida>} />
+          <Route path="/admin/usuarios" element={<Rutaprotegida rolPermitido="administrador"><SolicitudesCuentas /></Rutaprotegida>}/>
+          <Route path="/admin/perfil" element={<Rutaprotegida rolPermitido="administrador"><PerfilUsuario rol="admin" /></Rutaprotegida>}/>
           <Route path="horarios" element={<AdminHorarios />} />
           <Route path="pqrs" element={<AdminPQRS />} />
           <Route path="/admin/implementos" element={<AdminImplementos />} />
           <Route path="/admin/asistencia" element={<AdminAsistencia />} />
           <Route path="/admin/rendimiento" element={<RendimientoAdmin />} />
           <Route path="/admin/pagos" element={<AdminPagos />} />
-
           <Route path="calendario" element={<EntrenadorHorarios esAdmin={true} />} />
-
           <Route path="*" element={<Proximamente />} />
         </Route>
 
         {/* Área Atleta */}
-        <Route path="/atleta" element={<PanelLayout items={menuAtleta} rol="Atleta" inicioHref="/atleta/horarios" />}>
-          <Route index element={<Navigate to="horarios" replace />} />
+        <Route path="/atleta" element={<PanelLayout items={menuAtleta} rol="Atleta" inicioHref="/atleta" />}>
+          <Route index element={<Rutaprotegida rolPermitido="atleta"><DashboardAtleta /></Rutaprotegida>} />
+          <Route path="/atleta/perfil" element={<Rutaprotegida rolPermitido="atleta"><PerfilUsuario rol="atleta" /></Rutaprotegida>}/>
           <Route path="horarios" element={<AtletaHorarios />} />
           <Route path="pqrs" element={<AtletaPQRS remitente="Leonardo Jara Molina" />} />
           <Route path="/atleta/implementos" element={<AtletaImplementos />} />
@@ -55,13 +69,14 @@ export default function App() {
         </Route>
 
         {/* Área Entrenador */}
-        <Route path="/entrenador" element={<PanelLayout items={menuEntrenador} rol="Entrenador" inicioHref="/entrenador/horarios" />}>
-          <Route index element={<Navigate to="horarios" replace />} />
+        <Route path="/entrenador" element={<PanelLayout items={menuEntrenador} rol="Entrenador" inicioHref="/entrenador" />}>
+          <Route index element={<Rutaprotegida rolPermitido="entrenador"><DashboardEntrenador /></Rutaprotegida>} />
+          <Route path="/entrenador/perfil" element={<Rutaprotegida rolPermitido="entrenador"><PerfilUsuario rol="entrenador" /></Rutaprotegida>}/>
           <Route path="horarios" element={<EntrenadorHorarios esAdmin={false} nivelIdEntrenador={3} />} />
           <Route path="/entrenador/asistencia" element={<EntreAsistencia />} />
           <Route path="/entrenador/rendimiento" element={<RendimientoAdmin />} />
           <Route path="*" element={<Proximamente />} />
         </Route>
       </Routes>
-  );
+  )
 }

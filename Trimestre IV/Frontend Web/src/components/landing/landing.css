@@ -1,0 +1,1044 @@
+
+.pagina-landing {
+  /* variables (antes :root) */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --rojo: #cc0000;
+  --rojo-oscuro: #8b0000;
+  --negro: #111;
+  --blanco: #fff;
+  --gris-claro: #f9f5f5;
+  --texto-suave: #555;
+  --texto-medio: #444;
+  background: var(--blanco);
+  overflow-x: hidden;
+  color: var(--negro);
+}
+
+.pagina-landing .contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  width: 100%;
+}
+
+/* etiqueta roja pequeña de sección */
+.pagina-landing .seccion-titulo h1,
+.pagina-landing .inscripcion-etiqueta {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  margin-bottom: 10px;
+}
+
+/* ── navbar ─────────────────────────────────────────── */
+.pagina-landing .nav-publica {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(180, 0, 0, 0.1);
+  min-height: 70px;
+  transition: box-shadow 0.3s;
+  z-index: 1050;
+}
+.pagina-landing .nav-publica.scrolled {
+  box-shadow: 0 2px 24px rgba(180, 0, 0, 0.13);
+}
+.pagina-landing .nav-publica-contenedor {
+  max-width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.pagina-landing .navbar-brand.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.pagina-landing .navbar-brand.logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+.pagina-landing .logo-texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 2px;
+}
+.pagina-landing .logo-club {
+  font-size: 9px;
+  font-weight: 500;
+  color: #aaa;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.pagina-landing .logo-nombre {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--rojo-oscuro);
+  letter-spacing: 0.3px;
+}
+
+.pagina-landing .nav-publica .nav-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--texto-medio);
+  padding: 6px 4px;
+  transition: color 0.2s;
+  position: relative;
+}
+.pagina-landing .nav-publica .nav-item.dropdown > .nav-link {
+  padding: 6px 4px;
+}
+
+/* subrayado animado */
+.pagina-landing .nav-publica .nav-link::after,
+.pagina-landing .nav-publica .dropdown-item::after {
+  display: block;
+  height: 3px;
+  width: 0;
+  background: var(--rojo);
+  margin: 6px auto 0;
+  border-radius: 2px;
+  transition: width 0.5s;
+}
+.pagina-landing .nav-publica .nav-link:hover,
+.pagina-landing .nav-publica .nav-link:focus,
+.pagina-landing .nav-publica .dropdown-item:hover,
+.pagina-landing .nav-publica .dropdown-item:focus {
+  color: var(--rojo);
+  text-decoration: underline;
+}
+.pagina-landing .nav-publica .dropdown-item:hover,
+.pagina-landing .nav-publica .dropdown-item:focus {
+  background: transparent;
+}
+.pagina-landing .nav-publica .nav-link:hover::after,
+.pagina-landing .nav-publica .nav-link:focus::after,
+.pagina-landing .nav-publica .dropdown-item:hover::after,
+.pagina-landing .nav-publica .dropdown-item:focus::after {
+  width: 24px;
+}
+
+/* .btn-nav-sesion*/
+.pagina-landing .nav-publica .btn-nav-sesion,
+.pagina-landing .nav-publica .btn-nav-sesion:hover,
+.pagina-landing .nav-publica .btn-nav-sesion:focus,
+.pagina-landing .nav-publica .btn-nav-sesion:active {
+  color: var(--blanco);
+  text-decoration: none;
+}
+.pagina-landing .btn-nav-sesion {
+  background: var(--rojo);
+  padding: 9px 18px !important;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+.pagina-landing .btn-nav-sesion::after {
+  display: none;
+}
+.pagina-landing .btn-nav-sesion:hover {
+  background: var(--rojo-oscuro);
+  transform: translateY(-1px);
+}
+
+.pagina-landing .nav-publica .dropdown-toggle::after {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  background: none;
+  margin: 0 0 0 4px;
+  border-top: 0.3em solid var(--texto-medio);
+  border-right: 0.3em solid transparent;
+  border-left: 0.3em solid transparent;
+  transition: none;
+  vertical-align: middle;
+}
+.pagina-landing .nav-publica .dropdown-toggle:hover::after,
+.pagina-landing .nav-publica .dropdown-toggle:focus::after {
+  width: auto;
+  border-top-color: var(--rojo);
+}
+
+.pagina-landing .nav-publica .dropdown-menu {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  min-width: 160px;
+  z-index: 1051;
+}
+.pagina-landing .nav-publica .dropdown-item {
+  font-size: 13px;
+  color: var(--texto-medio);
+  padding: 9px 18px;
+  text-align: center;
+  position: relative;
+  transition: color 0.15s;
+}
+
+.pagina-landing .nav-publica .navbar-toggler {
+  border: none;
+}
+.pagina-landing .nav-publica .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(180, 0, 0, 0.15);
+}
+
+/* ── FIX: fondo blanco del menú colapsado ─────────────
+   Antes esta regla vivía solo dentro de @media (max-width: 640px),
+   pero con navbar-expand-lg el menú se colapsa (y flota como panel)
+   desde los 991.98px hacia abajo. Entre 641px y 991px se quedaba
+   sin fondo y se veía el gradiente rojo del hero por detrás. */
+@media (max-width: 991.98px) {
+  .pagina-landing .nav-publica .navbar-collapse {
+    background: var(--blanco);
+    padding: 12px 20px 16px;
+    border-top: 1px solid rgba(180, 0, 0, 0.08);
+  }
+}
+
+/* ── hero ───────────────────────────────────────────── */
+.pagina-landing #hero {
+  min-height: 100vh;
+  padding-top: 70px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(
+    ellipse at 0% 50%,
+    var(--rojo) 0%,
+    #e04444 22%,
+    #f5aaaa 48%,
+    var(--blanco) 70%
+  );
+}
+.pagina-landing .hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+  padding: 60px 48px;
+}
+.pagina-landing .hero-contenido h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+.pagina-landing .hero-titulo-club {
+  font-size: clamp(13px, 1.8vw, 20px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.pagina-landing .hero-titulo-nombre {
+  font-size: clamp(32px, 4.8vw, 62px);
+  font-weight: 900;
+  color: var(--blanco);
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 4px 20px rgba(100, 0, 0, 0.25);
+}
+.pagina-landing .hero-contenido > p {
+  font-size: 15.5px;
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 420px;
+  text-shadow: 0 1px 4px rgba(100, 0, 0, 0.18);
+  margin-bottom: 34px;
+}
+.pagina-landing .hero-botones {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.pagina-landing .btn {
+  padding: 13px 30px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+}
+.pagina-landing .btn-primario {
+  background: var(--blanco);
+  color: var(--rojo-oscuro);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.14);
+}
+.pagina-landing .btn-secundario {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid rgba(255, 255, 255, 0.65);
+}
+
+.pagina-landing .btn-primario:hover,
+.pagina-landing .btn-primario:focus,
+.pagina-landing .btn-primario:active,
+.pagina-landing .btn-primario:focus-visible {
+  background: var(--rojo);
+  color: var(--blanco);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  outline: none;
+}
+.pagina-landing .btn-secundario:hover,
+.pagina-landing .btn-secundario:focus,
+.pagina-landing .btn-secundario:active,
+.pagina-landing .btn-secundario:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  border-color: var(--blanco);
+  color: var(--blanco);
+  outline: none;
+  box-shadow: none;
+}
+.pagina-landing .btn-primario:active,
+.pagina-landing .btn-secundario:active {
+  box-shadow: none;
+}
+
+.pagina-landing .logros {
+  display: flex;
+  gap: 28px;
+  margin-top: 38px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+.pagina-landing .logros div h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--blanco);
+  line-height: 1;
+}
+.pagina-landing .logros div p {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+}
+
+.pagina-landing .hero-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagina-landing .hero-imagen img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(100, 0, 0, 0.22);
+}
+
+/* ── secciones de contenido ─────────────────────────── */
+.pagina-landing #nosotros,
+.pagina-landing #niveles,
+.pagina-landing #inscripcion {
+  background: var(--gris-claro);
+}
+.pagina-landing #servicios,
+.pagina-landing #horarios {
+  background: var(--blanco);
+}
+.pagina-landing #nosotros,
+.pagina-landing #servicios,
+.pagina-landing #niveles,
+.pagina-landing #horarios,
+.pagina-landing #inscripcion {
+  padding: 96px 48px;
+}
+
+.pagina-landing .nosotros-info h2,
+.pagina-landing .servicios-contenido h2,
+.pagina-landing .contenido-niveles h2,
+.pagina-landing .horarios-contenido h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--negro);
+  margin-bottom: 14px;
+}
+.pagina-landing .nosotros-info h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+}
+.pagina-landing .horarios-contenido h2 {
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.pagina-landing .nosotros-info > p,
+.pagina-landing .servicios-contenido > p,
+.pagina-landing .contenido-niveles > p,
+.pagina-landing .horarios-contenido > p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--texto-suave);
+}
+.pagina-landing .nosotros-info > p {
+  margin-bottom: 28px;
+}
+.pagina-landing .servicios-contenido > p,
+.pagina-landing .contenido-niveles > p,
+.pagina-landing .horarios-contenido > p {
+  margin-bottom: 52px;
+}
+
+/* ── nosotros ───────────────────────────────────────── */
+.pagina-landing .nosotros-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  margin-top: 52px;
+}
+.pagina-landing .nosotros-imagen {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+.pagina-landing .nosotros-imagen img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(180, 0, 0, 0.15);
+}
+
+.pagina-landing .historia-tarjeta {
+  position: absolute;
+  bottom: -18px;
+  right: -18px;
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  background: var(--rojo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(180, 0, 0, 0.3);
+}
+.pagina-landing .historia-tarjeta h3 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--blanco);
+  line-height: 1;
+}
+.pagina-landing .historia-tarjeta p {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.pagina-landing .nosotros-valores {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.pagina-landing .valor-tarjetas {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.pagina-landing .valor-tarjetas img {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(180, 0, 0, 0.09);
+  padding: 8px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.pagina-landing .valor-info h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--negro);
+  margin-bottom: 3px;
+}
+.pagina-landing .valor-info p {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ── servicios ──────────────────────────────────────── */
+.pagina-landing .servicios-valores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.pagina-landing .servicio-tarjetas {
+  background: var(--gris-claro);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(180, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.pagina-landing .servicio-tarjetas img,
+.pagina-landing .competencias-logos img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.pagina-landing .servicio-tarjetas h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--rojo-oscuro);
+  padding: 16px 18px 6px;
+}
+.pagina-landing .servicio-tarjetas p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  padding: 0 18px 18px;
+}
+
+.pagina-landing .servicio-tarjetas,
+.pagina-landing .nivel-tarjetas {
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.pagina-landing .servicio-tarjetas:hover,
+.pagina-landing .nivel-tarjetas:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(180, 0, 0, 0.13);
+}
+
+/* ── niveles ────────────────────────────────────────── */
+.pagina-landing .niveles-valores {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+.pagina-landing .nivel-tarjetas {
+  border-radius: 16px;
+  border: 1.5px solid rgba(180, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  background: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pagina-landing .nivel-tarjetas.nivel-destacado {
+  background: var(--rojo);
+  border-color: var(--rojo);
+}
+.pagina-landing .nivel-tarjetas.nivel-destacado .tarjeta-encabezado h3 {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--blanco);
+}
+.pagina-landing .nivel-tarjetas.nivel-destacado .tarjeta-encabezado h4,
+.pagina-landing .nivel-tarjetas.nivel-destacado .nivel-entrenador p {
+  color: var(--blanco);
+}
+.pagina-landing .nivel-tarjetas.nivel-destacado .tarjeta-encabezado p {
+  color: rgba(255, 255, 255, 0.82);
+}
+.pagina-landing .nivel-tarjetas.nivel-destacado .nivel-entrenador {
+  background: rgba(0, 0, 0, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.pagina-landing .tarjeta-encabezado {
+  padding: 28px 20px 16px;
+  position: relative;
+}
+.pagina-landing .tarjeta-encabezado h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: rgba(180, 0, 0, 0.1);
+  color: var(--rojo-oscuro);
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.pagina-landing .tarjeta-encabezado h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--rojo-oscuro);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.pagina-landing .tarjeta-encabezado p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.pagina-landing .nivel-entrenador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid rgba(180, 0, 0, 0.08);
+  background: rgba(180, 0, 0, 0.03);
+}
+.pagina-landing .nivel-entrenador img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.pagina-landing .nivel-entrenador p {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--negro);
+}
+
+/* ── horarios ───────────────────────────────────────── */
+.pagina-landing .horario-valores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.pagina-landing .horario-tarjeta {
+  background: var(--blanco);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(180, 0, 0, 0.07);
+}
+.pagina-landing .horario-tarjeta .tarjeta-encabezado {
+  background: var(--rojo);
+  padding: 18px 22px;
+}
+.pagina-landing .horario-tarjeta .tarjeta-encabezado h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--blanco);
+  background: none;
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+.pagina-landing .horario-tarjeta .tarjeta-encabezado h4 {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 0;
+  letter-spacing: 0;
+}
+
+.pagina-landing .lista-horarios {
+  padding: 6px 0;
+}
+.pagina-landing .lista-horarios li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 22px;
+  border-bottom: 1px solid #f0e8e8;
+}
+.pagina-landing .lista-horarios li:last-child {
+  border-bottom: none;
+}
+.pagina-landing .lista-horarios .dia {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--negro);
+}
+.pagina-landing .lista-horarios .hora {
+  font-size: 12px;
+  color: var(--rojo);
+  font-weight: 600;
+}
+
+/* ── inscripción ────────────────────────────────────── */
+.pagina-landing .inscripcion-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.pagina-landing .inscripcion-titulo {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--negro);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.pagina-landing .inscripcion-desc {
+  font-size: 15px;
+  color: var(--texto-suave);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.pagina-landing .inscripcion-form-wrap {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(180, 0, 0, 0.08);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
+}
+.pagina-landing .form-titulo {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--rojo-oscuro);
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+.pagina-landing .form-subtitulo {
+  font-size: 13.5px;
+  color: #666;
+  margin-bottom: 30px;
+}
+.pagina-landing .form-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.pagina-landing .form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+.pagina-landing .form-grupo label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagina-landing .form-grupo input,
+.pagina-landing .form-grupo select,
+.pagina-landing .form-grupo textarea {
+  padding: 11px 15px;
+  border-radius: 10px;
+  border: 1.5px solid #e0d5d5;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: var(--negro);
+  background: var(--blanco);
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.pagina-landing .form-grupo input:focus,
+.pagina-landing .form-grupo select:focus,
+.pagina-landing .form-grupo textarea:focus {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px rgba(180, 0, 0, 0.07);
+}
+.pagina-landing .form-grupo input::placeholder,
+.pagina-landing .form-grupo textarea::placeholder {
+  color: #bbb;
+}
+.pagina-landing .form-grupo select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.pagina-landing .form-grupo textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.pagina-landing .form-btn-enviar {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--rojo);
+  color: var(--blanco);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  letter-spacing: 0.2px;
+}
+.pagina-landing .form-btn-enviar:hover {
+  background: var(--rojo-oscuro);
+  transform: translateY(-1px);
+}
+
+/* ── footer ─────────────────────────────────────────── */
+.pagina-landing footer {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+.pagina-landing #footer {
+  padding: 64px 48px 32px;
+}
+.pagina-landing .footer-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: start;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.pagina-landing .footer-columnas {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+.pagina-landing .footer-columna img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.pagina-landing .footer-columna > p {
+  font-size: 13.5px;
+  color: var(--blanco);
+  line-height: 1.75;
+  max-width: 260px;
+}
+.pagina-landing .footer-columna h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Bootstrap añade padding-left a todo <ul> */
+.pagina-landing .footer-columna ul {
+  padding-left: 0;
+}
+.pagina-landing .footer-columna ul li {
+  margin-bottom: 9px;
+}
+.pagina-landing .footer-columna li:hover,
+.pagina-landing .footer-columna a:hover {
+  text-decoration: underline;
+}
+.pagina-landing .footer-columna ul li a,
+.pagina-landing .footer-columna p a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--blanco);
+  transition: color 0.2s;
+}
+.pagina-landing .footer-columna ul li a img,
+.pagina-landing .footer-columna p a img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-bottom: 0;
+}
+
+.pagina-landing .footer-mapa {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pagina-landing .footer-mapa-info h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pagina-landing .footer-mapa-info p {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+.pagina-landing .footer-mapa-link {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 4px solid var(--blanco);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  aspect-ratio: 16 / 10;
+}
+.pagina-landing .footer-mapa-link iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.pagina-landing .footer-copy {
+  max-width: 1200px;
+  margin: 22px auto 0;
+  display: flex;
+  justify-content: center;
+}
+.pagina-landing .footer-copy p {
+  font-size: 12.5px;
+  color: var(--blanco);
+}
+
+/* ── animaciones ────────────────────────────────────── */
+.pagina-landing .hero-contenido > * {
+  animation: landing-fadeUp 0.7s ease both;
+}
+.pagina-landing .hero-contenido h1 {
+  animation-delay: 0.1s;
+}
+.pagina-landing .hero-contenido > p {
+  animation-delay: 0.22s;
+}
+.pagina-landing .hero-botones {
+  animation-delay: 0.34s;
+}
+.pagina-landing .logros {
+  animation-delay: 0.46s;
+}
+.pagina-landing .hero-imagen {
+  animation: landing-fadeIn 0.9s ease 0.3s both;
+}
+
+/* ── responsive ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .pagina-landing .niveles-valores {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pagina-landing .horario-valores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pagina-landing .servicios-valores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pagina-landing .footer-contenido {
+    grid-template-columns: 1fr 320px;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 860px) {
+  .pagina-landing .footer-contenido {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-landing .hero-layout {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+  }
+  .pagina-landing .hero-imagen {
+    display: none;
+  }
+  .pagina-landing #nosotros,
+  .pagina-landing #servicios,
+  .pagina-landing #niveles,
+  .pagina-landing #horarios,
+  .pagina-landing #inscripcion {
+    padding: 64px 24px;
+  }
+  .pagina-landing .nosotros-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .pagina-landing .servicios-valores {
+    grid-template-columns: 1fr;
+  }
+  .pagina-landing .niveles-valores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pagina-landing .horario-valores {
+    grid-template-columns: 1fr;
+  }
+  .pagina-landing .footer-contenido {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pagina-landing .footer-columnas {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .pagina-landing .inscripcion-form-wrap {
+    padding: 28px 20px;
+  }
+  .pagina-landing .form-fila {
+    grid-template-columns: 1fr;
+  }
+  .pagina-landing .contenedor {
+    padding: 0 24px;
+  }
+  /* más aire entre cada item del menú móvil */
+  .pagina-landing .nav-publica .navbar-nav .nav-item {
+    margin-bottom: 6px;
+  }
+  .pagina-landing .nav-publica .navbar-nav .nav-link {
+    padding: 12px 4px;
+  }
+  .pagina-landing .btn-nav-sesion {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .pagina-landing .footer-mapa-link {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagina-landing .niveles-valores {
+    grid-template-columns: 1fr;
+  }
+  .pagina-landing .footer-columnas {
+    grid-template-columns: 1fr;
+  }
+  .pagina-landing .footer-mapa-link {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* los @keyframes NO se pueden anidar: van fuera y con nombre propio
+   para no chocar con los de auth */
+@keyframes landing-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes landing-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

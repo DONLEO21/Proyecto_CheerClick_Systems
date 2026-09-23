@@ -8,6 +8,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import App from './App.jsx'
 import { SesionProvider } from './context/SesionContext.jsx'
 import './index.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,3 +20,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 )
+
