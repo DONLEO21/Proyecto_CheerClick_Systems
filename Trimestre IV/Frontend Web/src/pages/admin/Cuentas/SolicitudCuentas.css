@@ -1323,6 +1323,13 @@ input, select { font: inherit; outline: none; }
 .aviso-toast::before,
 .aviso-toast::after { content: none; display: none; }
 
+.select-rol {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
 /* ══════════════════════════════════════════════
    RESPONSIVO
    ══════════════════════════════════════════════ */
