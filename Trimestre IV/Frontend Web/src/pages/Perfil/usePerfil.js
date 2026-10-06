@@ -1,63 +1,109 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../services/supabase';
-import { cargarPerfilPropio, guardarPerfilPropio } from '../../services/perfil';
+import { guardarPerfilPropio } from '../../services/perfil';
+import { limpiarCacheUsuario } from '../../hooks/useUsuario';
 import {
   CAMPOS_UNA_VEZ, BUCKET_AVATARES, DATOS_INICIALES, BLOQUEOS_INICIALES, perfilDesdeFila,
 } from './perfilData.js';
 
+// Caché en memoria: evita repetir consultas al navegar entre pantallas //
+let cache = null;
+supabase.auth.onAuthStateChange((evento) => {
+  if (evento === 'SIGNED_OUT') cache = null;
+});
+
+// Reduce la foto a 512px y la convierte a JPG para que suba y cargue rápido
+async function comprimirImagen(archivo, lado = 512, calidad = 0.85) {
+  const bitmap = await createImageBitmap(archivo);
+  const escala = Math.min(1, lado / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(bitmap.width * escala);
+  canvas.height = Math.round(bitmap.height * escala);
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#ffffff'; // PNG con transparencia -> fondo blanco
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  const blob = await new Promise((res) => canvas.toBlob(res, 'image/jpeg', calidad));
+  return blob ?? archivo;
+}
+
 export default function usePerfil({ rol, mostrarAviso }) {
-  // Atleta: 2 contactos de emergencia. Entrenador / admin: 1 solo contacto.
+  // Atleta: 2 contactos de emergencia. Entrenador y admin: 1 solo contacto.
   const cantidadContactos = rol === 'atleta' ? 2 : 1;
 
-  const [datos, setDatos] = useState(DATOS_INICIALES);
-  const [borrador, setBorrador] = useState(DATOS_INICIALES);
-  const [bloqueos, setBloqueos] = useState(BLOQUEOS_INICIALES);
+  const [datos, setDatos] = useState(() => cache?.datos ?? DATOS_INICIALES);
+  const [borrador, setBorrador] = useState(() => cache?.datos ?? DATOS_INICIALES);
+  const [bloqueos, setBloqueos] = useState(() => cache?.bloqueos ?? BLOQUEOS_INICIALES);
   const [editando, setEditando] = useState(false);
   const [guardando, setGuardando] = useState(false);
   const [guardandoFoto, setGuardandoFoto] = useState(false);
   const [errorGuardar, setErrorGuardar] = useState('');
-  const [cargandoPerfil, setCargandoPerfil] = useState(true);
+  const [cargandoPerfil, setCargandoPerfil] = useState(() => !cache);
 
   const [modal, setModal] = useState(null); // 'foto' | 'confirmar' | null
 
   // Carga el perfil real desde Supabase al montar
   useEffect(() => {
+    let vivo = true;
+
     (async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        const fila = await cargarPerfilPropio();
-        const correoAuth = user?.email ?? '';
+        // getSession() es local (sin red). La validez de la sesión ya la comprueba Rutaprotegida.
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
+        if (!user) throw new Error('No hay sesión');
 
+        const { data: fila, error } = await supabase
+          .from('perfiles')
+          .select('*')
+          .eq('id', user.id)
+          .maybeSingle();
+        if (error) throw error;
+        if (!vivo) return;
+
+        const correoAuth = user.email ?? '';
         const cargados = fila
           ? perfilDesdeFila(fila, correoAuth)
           : { ...DATOS_INICIALES, correo: correoAuth };
-
-        setDatos(cargados);
-        setBorrador(cargados);
-        setBloqueos({
+        const bloq = {
           genero: !!fila?.genero_editado,
           fechaNacimiento: !!fila?.fecha_nacimiento_editada,
           numeroDocumento: !!fila?.numero_documento_editado,
-        });
+        };
 
-        // El bucket "certificados" es privado: se genera un enlace firmado
-        // temporal para poder ver/descargar el certificado ya guardado.
-        if (cargados.certificadoEpsPath) {
+        // Conserva la URL firmada si ya se había generado antes
+        const urlPrevia = cache?.datos?.certificadoEpsPath === cargados.certificadoEpsPath
+          ? cache.datos.certificadoEpsUrl
+          : '';
+        const inicial = { ...cargados, certificadoEpsUrl: urlPrevia };
+
+        cache = { datos: inicial, bloqueos: bloq };
+        setDatos(inicial);
+        setBorrador(inicial);
+        setBloqueos(bloq);
+        setCargandoPerfil(false); // el formulario aparece YA
+
+        // El certificado (bucket privado) se firma después, sin bloquear la pantalla
+        if (cargados.certificadoEpsPath && !urlPrevia) {
           const { data: firmada } = await supabase.storage
             .from('certificados')
-            .createSignedUrl(cargados.certificadoEpsPath, 60 * 60); // 1 hora
+            .createSignedUrl(cargados.certificadoEpsPath, 60 * 60);
 
-          if (firmada?.signedUrl) {
+          if (vivo && firmada?.signedUrl) {
             setDatos((prev) => ({ ...prev, certificadoEpsUrl: firmada.signedUrl }));
             setBorrador((prev) => ({ ...prev, certificadoEpsUrl: firmada.signedUrl }));
+            if (cache) cache.datos = { ...cache.datos, certificadoEpsUrl: firmada.signedUrl };
           }
         }
       } catch (err) {
-        mostrarAviso('No pudimos cargar tu perfil.', 'error');
-      } finally {
-        setCargandoPerfil(false);
+        if (vivo) {
+          mostrarAviso('No pudimos cargar tu perfil.', 'error');
+          setCargandoPerfil(false);
+        }
       }
     })();
+
+    return () => { vivo = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -103,14 +149,12 @@ export default function usePerfil({ rol, mostrarAviso }) {
     setGuardando(true);
     setErrorGuardar('');
     try {
-      // Si el usuario eligió un archivo nuevo de certificado EPS, se sube primero
-      // a Storage (bucket "certificados", privado) y se genera un enlace firmado
-      // temporal para poder mostrarlo/abrirlo de inmediato.
       let certificadoEpsPath = borrador.certificadoEpsPath;
       let certificadoEpsUrl = borrador.certificadoEpsUrl;
 
       if (borrador.certificadoEpsArchivo) {
-        const { data: { user } } = await supabase.auth.getUser();
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
         if (!user) throw new Error('No hay sesión');
 
         const archivo = borrador.certificadoEpsArchivo;
@@ -120,13 +164,11 @@ export default function usePerfil({ rol, mostrarAviso }) {
         const { error: errSubida } = await supabase.storage
           .from('certificados')
           .upload(ruta, archivo, { upsert: true });
-
         if (errSubida) throw errSubida;
 
         const { data: firmada, error: errFirma } = await supabase.storage
           .from('certificados')
-          .createSignedUrl(ruta, 60 * 60); // 1 hora, solo para mostrar tras guardar
-
+          .createSignedUrl(ruta, 60 * 60);
         if (errFirma) throw errFirma;
 
         certificadoEpsPath = ruta;
@@ -156,13 +198,13 @@ export default function usePerfil({ rol, mostrarAviso }) {
         certificadoEpsUrl,
         certificadoEpsArchivo: null,
       };
+      const nuevosBloqueos = { ...bloqueos };
+      cambiosUnaVez.forEach((c) => { nuevosBloqueos[c] = true; });
+
       setDatos(actualizado);
       setBorrador(actualizado);
-      setBloqueos((prev) => {
-        const siguiente = { ...prev };
-        cambiosUnaVez.forEach((c) => { siguiente[c] = true; });
-        return siguiente;
-      });
+      setBloqueos(nuevosBloqueos);
+      cache = { datos: actualizado, bloqueos: nuevosBloqueos };
       setEditando(false);
       setModal(null);
       mostrarAviso('Cambios guardados con éxito', 'ok');
@@ -173,24 +215,25 @@ export default function usePerfil({ rol, mostrarAviso }) {
     }
   };
 
-  // Sube la foto al bucket "avatares" (público) y guarda la URL en perfiles.foto_url
+  // Sube la foto (comprimida) al bucket de avatares y guarda la URL en perfiles.foto_url
   const guardarFoto = async (archivo) => {
     if (!archivo) return;
     setGuardandoFoto(true);
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { session } } = await supabase.auth.getSession();
+      const user = session?.user;
       if (!user) throw new Error('No hay sesión');
 
-      const extension = archivo.name.split('.').pop();
-      const ruta = `${user.id}/avatar.${extension}`;
+      const comprimida = await comprimirImagen(archivo);
+      const ruta = `${user.id}/avatar.jpg`;
 
       const { error: errSubida } = await supabase.storage
         .from(BUCKET_AVATARES)
-        .upload(ruta, archivo, { upsert: true, contentType: archivo.type });
+        .upload(ruta, comprimida, { upsert: true, contentType: 'image/jpeg' });
       if (errSubida) throw errSubida;
 
       const { data: publica } = supabase.storage.from(BUCKET_AVATARES).getPublicUrl(ruta);
-      // se agrega un parámetro para evitar que el navegador muestre una versión cacheada anterior
+      // parámetro para evitar que el navegador muestre una versión cacheada anterior
       const fotoUrl = `${publica.publicUrl}?t=${Date.now()}`;
 
       const { error: errUpdate } = await supabase
@@ -200,6 +243,8 @@ export default function usePerfil({ rol, mostrarAviso }) {
 
       setDatos((prev) => ({ ...prev, fotoUrl }));
       setBorrador((prev) => ({ ...prev, fotoUrl }));
+      if (cache) cache.datos = { ...cache.datos, fotoUrl };
+      limpiarCacheUsuario(); // la cabecera recarga la foto nueva
       setModal(null);
       mostrarAviso('Foto de perfil actualizada', 'ok');
     } catch (err) {

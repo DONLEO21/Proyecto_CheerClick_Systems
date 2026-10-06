@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react'
-import { llamarAdmin as llamar, cargarUsuarios, obtenerDetalleUsuario } from '../../../services/adminUsuarios'
+import {
+  llamarAdmin as llamar, cargarUsuarios, obtenerDetalleUsuario, usuariosEnCache,
+} from '../../../services/adminUsuarios'
 import { ACCIONES } from './cuentasData.js'
 
 const leerVista = () => new URLSearchParams(window.location.search).get('vista') === 'gestion'
 
 export default function useCuentas(mostrarAviso) {
-  const [usuarios, setUsuarios] = useState([])
-  const [cargando, setCargando] = useState(true)
+  // Si ya hay datos en caché se muestran al instante y se refrescan en segundo plano
+  const [usuarios, setUsuarios] = useState(() => usuariosEnCache() ?? [])
+  const [cargando, setCargando] = useState(() => !usuariosEnCache())
   const [tab, setTab] = useState('pendiente')
   const [esGestion, setEsGestion] = useState(leerVista)
   const [detalle, setDetalle] = useState(null)
-  const [perfilDetalle, setPerfilDetalle] = useState(null) // tabla `perfiles`, solo cuentas aprobadas
+  const [perfilDetalle, setPerfilDetalle] = useState(null)
   const [cargandoDetalle, setCargandoDetalle] = useState(false)
   const [confirmar, setConfirmar] = useState(null) // { usuario, accion, rol? }
 
@@ -92,8 +95,6 @@ export default function useCuentas(mostrarAviso) {
           accion: 'cambiar-estado',
           id: usuario.id,
           estado: accion === 'aprobar' ? 'aprobada' : 'rechazada',
-          // Al aprobar, el rol elegido en el modal viaja junto con la aprobación.
-          // Si se aprueba desde la tabla (sin modal), se conserva el rol actual.
           ...(accion === 'aprobar' ? { rol: rol ?? usuario.rol } : {}),
         })
       } else if (accion === 'cambiar-rol') {
