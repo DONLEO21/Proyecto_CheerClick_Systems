@@ -21,7 +21,7 @@ export default function Implementos() {
   return (
     <div className="container-fluid py-4">
       <h1 className="h3 mb-1">Implementos Deportivos</h1>
-      <p className="text-muted mb-3">Controle los implementos deportivos y sus solicitudes aquí.</p>
+      <p className="text-muted mb-3">Controle los implementos deportivos y las solicitudes aquí.</p>
 
       <div className="tabs-implementos">
         <button

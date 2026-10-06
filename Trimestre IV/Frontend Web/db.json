@@ -48,7 +48,7 @@
       "precioUnitario": 350000,
       "fechaSolicitud": "2026-04-02",
       "metodoPago": "Pago presencial",
-      "estado": "Aprobado",
+      "estado": "Pendiente",
       "motivoRechazo": "",
       "recibido": true,
       "resenaEnviada": true
@@ -65,7 +65,7 @@
       "precioUnitario": 100000,
       "fechaSolicitud": "2026-04-04",
       "metodoPago": "Transferencia",
-      "estado": "Aprobado",
+      "estado": "Pendiente",
       "motivoRechazo": ""
     },
     {
@@ -80,14 +80,14 @@
       "precioUnitario": 100000,
       "fechaSolicitud": "2026-04-04",
       "metodoPago": "Transferencia",
-      "estado": "Aprobado",
+      "estado": "Pendiente",
       "motivoRechazo": "",
       "recibido": false,
       "resenaEnviada": false
     },
     {
       "id": "TP62itmnPmY",
-      "estado": "Pendiente",
+      "estado": "Aprobado",
       "motivoRechazo": "",
       "implementoId": "IM125",
       "implementoNombre": "Uniforme de competencia Femenino",

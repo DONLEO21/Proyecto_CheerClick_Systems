@@ -10,6 +10,72 @@ const badgePorEstado = {
   Cancelado: "badge-roja"
 };
 
+// Subcomponente reutilizable para el Select personalizado
+function FiltroSelectCustom({ label, value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
+
+  // Cerrar el menú si se hace clic por fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value) || options[0];
+
+  return (
+    <div className="filtro-caja-custom" ref={containerRef}>
+      <span className="filtro-label">{label}:</span>
+      <div className="custom-dropdown">
+        <button
+          type="button"
+          className="custom-dropdown-btn"
+          onClick={() => setOpen(!open)}
+        >
+          <span>{selectedOption.label}</span>
+          <svg
+            className={`arrow-icon ${open ? "open" : ""}`}
+            width="10"
+            height="6"
+            viewBox="0 0 10 6"
+            fill="none"
+          >
+            <path
+              d="M1 1L5 5L9 1"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {open && (
+          <ul className="custom-dropdown-menu">
+            {options.map((opt) => (
+              <li
+                key={opt.value}
+                className={`custom-dropdown-item ${value === opt.value ? "active" : ""}`}
+                onClick={() => {
+                  onChange(opt.value);
+                  setOpen(false);
+                }}
+              >
+                {opt.label}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function SolicitudesProductos({ onAviso }) {
   const [solicitudes, setSolicitudes] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -102,25 +168,31 @@ export default function SolicitudesProductos({ onAviso }) {
           />
         </div>
 
-        <div className="filtro-caja">
-          <span>Estado:</span>
-          <select value={filtroEstado} onChange={(e) => setFiltroEstado(e.target.value)}>
-            <option value="Todos">Todos</option>
-            <option value="Pendiente">Pendiente</option>
-            <option value="Aprobado">Aprobado</option>
-            <option value="Rechazado">Rechazado</option>
-          </select>
-        </div>
+        {/* Filtro Estado */}
+        <FiltroSelectCustom
+          label="Estado"
+          value={filtroEstado}
+          onChange={setFiltroEstado}
+          options={[
+            { value: "Todos", label: "Todos" },
+            { value: "Pendiente", label: "Pendiente" },
+            { value: "Aprobado", label: "Aprobado" },
+            { value: "Rechazado", label: "Rechazado" },
+          ]}
+        />
 
-        <div className="filtro-caja">
-          <span>Fecha:</span>
-          <select value={filtroFecha} onChange={(e) => setFiltroFecha(e.target.value)}>
-            <option value="Todos">Todos</option>
-            <option value="Hoy">Hoy</option>
-            <option value="Esta semana">Esta semana</option>
-            <option value="Este mes">Este mes</option>
-          </select>
-        </div>
+        {/* Filtro Fecha */}
+        <FiltroSelectCustom
+          label="Fecha"
+          value={filtroFecha}
+          onChange={setFiltroFecha}
+          options={[
+            { value: "Todos", label: "Todos" },
+            { value: "Hoy", label: "Hoy" },
+            { value: "Esta semana", label: "Esta semana" },
+            { value: "Este mes", label: "Este mes" },
+          ]}
+        />
       </div>
 
       <div className="table-responsive">
@@ -133,7 +205,7 @@ export default function SolicitudesProductos({ onAviso }) {
               <th>Cantidad</th>
               <th>Fecha</th>
               <th>Estado</th>
-              <th className="text-end">Acciones</th>
+              <th className="text-center">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -163,15 +235,15 @@ export default function SolicitudesProductos({ onAviso }) {
                   <td>
                     <span className={`badge-pastilla ${badgePorEstado[s.estado]}`}>{s.estado}</span>
                   </td>
-                  <td className="text-end">
-                    <div className="d-flex justify-content-end gap-2">
+                  <td className="text-end justify-center">
+                    <div className="d-flex gap-2">
                       <button
                         type="button"
                         className="btn-accion-cuadrado btn-accion--ojo"
                         title="Ver detalle"
                         onClick={() => verDetalle(s)}
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                       </button>
                       {s.estado === "Pendiente" && (
                         <>

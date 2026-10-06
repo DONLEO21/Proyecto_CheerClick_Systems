@@ -5,6 +5,72 @@ import ModalAgregar from "./ModalAgregar";
 import ModalEditar from "./ModalEditar";
 import ModalConfirmarEstado from "./ModalConfirmarEstado";
 
+// Componente reútilizable para el filtro elegante
+function FiltroSelectCustom({ label, value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
+
+  // Cerrar al hacer clic afuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value) || options[0];
+
+  return (
+    <div className="filtro-caja-custom" ref={containerRef}>
+      <span className="filtro-label">{label}:</span>
+      <div className="custom-dropdown">
+        <button
+          type="button"
+          className="custom-dropdown-btn"
+          onClick={() => setOpen(!open)}
+        >
+          <span>{selectedOption.label}</span>
+          <svg
+            className={`arrow-icon ${open ? "open" : ""}`}
+            width="10"
+            height="6"
+            viewBox="0 0 10 6"
+            fill="none"
+          >
+            <path
+              d="M1 1L5 5L9 1"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {open && (
+          <ul className="custom-dropdown-menu">
+            {options.map((opt) => (
+              <li
+                key={opt.value}
+                className={`custom-dropdown-item ${value === opt.value ? "active" : ""}`}
+                onClick={() => {
+                  onChange(opt.value);
+                  setOpen(false);
+                }}
+              >
+                {opt.label}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function ListaImplementos({ onAviso }) {
   const [implementos, setImplementos] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -53,7 +119,7 @@ export default function ListaImplementos({ onAviso }) {
         (filtroCantidad === "+25" && item.cantidad > 25);
       return coincideBusqueda && coincideTipo && coincideEstado && coincideCantidad;
     });
-  }, [implementos, busqueda, filtroTipo, filtroEstado]);
+  }, [implementos, busqueda, filtroTipo, filtroEstado, filtroCantidad]);
 
   const abrirAgregar = () => modalAgregarRef.current.showModal();
 
@@ -84,38 +150,47 @@ export default function ListaImplementos({ onAviso }) {
           />
         </div>
 
-        <button type="button" className="btn btn-danger btn-agregar ms-md-auto " onClick={abrirAgregar}>
+        <button type="button" className="btn btn-danger btn-agregar ms-md-auto" onClick={abrirAgregar}>
           + Agregar nuevo Implemento
         </button>
 
-        <div className="filtro-caja">
-          <span>Tipo:</span>
-          <select value={filtroTipo} onChange={(e) => setFiltroTipo(e.target.value)} >
-            <option value="todos">Todos</option>
-            <option value="ropa">Ropa</option>
-            <option value="accesorios">Accesorios</option>
-            <option value="calzado">Calzado</option>
-          </select>
-        </div>
+        {/* Filtro Tipo */}
+        <FiltroSelectCustom
+          label="Tipo"
+          value={filtroTipo}
+          onChange={setFiltroTipo}
+          options={[
+            { value: "todos", label: "Todos" },
+            { value: "ropa", label: "Ropa" },
+            { value: "accesorios", label: "Accesorios" },
+            { value: "calzado", label: "Calzado" },
+          ]}
+        />
 
-        <div className="filtro-caja">
-          <span>Estado:</span>
-          <select value={filtroEstado} onChange={(e) => setFiltroEstado(e.target.value)}>
-            <option value="todos">Todos</option>
-            <option value="disponible">Disponible</option>
-            <option value="nodisponible">No Disponible</option>
-          </select>
-        </div>
+        {/* Filtro Estado */}
+        <FiltroSelectCustom
+          label="Estado"
+          value={filtroEstado}
+          onChange={setFiltroEstado}
+          options={[
+            { value: "todos", label: "Todos" },
+            { value: "disponible", label: "Disponible" },
+            { value: "nodisponible", label: "No Disponible" },
+          ]}
+        />
 
-        <div className="filtro-caja">
-          <span>Cantidad:</span>
-          <select value={filtroEstado} onChange={(e) => setFiltroCantidad(e.target.value)}>
-            <option value="todos">Todos</option>
-            <option value="0-10">0-10</option>
-            <option value="11-25">11-25</option>
-            <option value="+25">+25</option>
-          </select>
-        </div>
+        {/* Filtro Cantidad (Corregido el estado de filtroCantidad) */}
+        <FiltroSelectCustom
+          label="Cantidad"
+          value={filtroCantidad}
+          onChange={setFiltroCantidad}
+          options={[
+            { value: "todos", label: "Todos" },
+            { value: "0-10", label: "0-10" },
+            { value: "11-25", label: "11-25" },
+            { value: "+25", label: "+25" },
+          ]}
+        />
       </div>
 
       {error && <div className="alert alert-danger py-2">{error}</div>}

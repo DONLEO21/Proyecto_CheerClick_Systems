@@ -1,8 +1,74 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+// Corregido: sube 3 niveles hasta src (src/services/...)
 import { getImplementos } from "../../../services/ImplementosService";
 import { getResenas } from "../../../services/ResenaService";
 import ProductoCard from "./ProductoCard";
 import ModalSolicitarPedido from "./ModalSolicitarPedido";
+
+// Subcomponente reutilizable para el Select personalizado
+function FiltroSelectCustom({ label, value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value) || options[0];
+
+  return (
+    <div className="filtro-caja-custom" ref={containerRef}>
+      <span className="filtro-label">{label}:</span>
+      <div className="custom-dropdown">
+        <button
+          type="button"
+          className="custom-dropdown-btn"
+          onClick={() => setOpen(!open)}
+        >
+          <span>{selectedOption.label}</span>
+          <svg
+            className={`arrow-icon ${open ? "open" : ""}`}
+            width="10"
+            height="6"
+            viewBox="0 0 10 6"
+            fill="none"
+          >
+            <path
+              d="M1 1L5 5L9 1"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {open && (
+          <ul className="custom-dropdown-menu">
+            {options.map((opt) => (
+              <li
+                key={opt.value}
+                className={`custom-dropdown-item ${value === opt.value ? "active" : ""}`}
+                onClick={() => {
+                  onChange(opt.value);
+                  setOpen(false);
+                }}
+              >
+                {opt.label}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function CatalogoImplementos({ onAviso }) {
   const [implementos, setImplementos] = useState([]);
@@ -57,38 +123,45 @@ export default function CatalogoImplementos({ onAviso }) {
   return (
     <section aria-label="Catálogo de implementos deportivos">
       <div className="barra-filtros-modulo">
-        <div className="filtro-buscar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="m21 21-4.34-4.34" />
+        <div className="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
           </svg>
           <input
-            type="text"
-            placeholder="Buscar producto…"
+            type="search"
+            placeholder="Buscar Implemento..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
         </div>
 
         <div className="filtro-selectores">
-          <div className="grupo-filtro-item">
-            <label htmlFor="filtro-genero">Género:</label>
-            <select id="filtro-genero" value={filtroGenero} onChange={(e) => setFiltroGenero(e.target.value)}>
-              <option value="todos">Todos</option>
-              <option value="femenino">Femenino</option>
-              <option value="masculino">Masculino</option>
-              <option value="unisex">Unisex</option>
-            </select>
-          </div>
-          <div className="grupo-filtro-item">
-            <label htmlFor="filtro-tipo">Categoría:</label>
-            <select id="filtro-tipo" value={filtroTipo} onChange={(e) => setFiltroTipo(e.target.value)}>
-              <option value="todos">Todos</option>
-              <option value="ropa">Ropa</option>
-              <option value="calzado">Calzado</option>
-              <option value="accesorios">Accesorios</option>
-            </select>
-          </div>
+          {/* Filtro de Género */}
+          <FiltroSelectCustom
+            label="Género"
+            value={filtroGenero}
+            onChange={setFiltroGenero}
+            options={[
+              { value: "todos", label: "Todos" },
+              { value: "femenino", label: "Femenino" },
+              { value: "masculino", label: "Masculino" },
+              { value: "unisex", label: "Unisex" },
+            ]}
+          />
+
+          {/* Filtro de Categoría */}
+          <FiltroSelectCustom
+            label="Categoría"
+            value={filtroTipo}
+            onChange={setFiltroTipo}
+            options={[
+              { value: "todos", label: "Todos" },
+              { value: "ropa", label: "Ropa" },
+              { value: "calzado", label: "Calzado" },
+              { value: "accesorios", label: "Accesorios" },
+            ]}
+          />
         </div>
       </div>
 

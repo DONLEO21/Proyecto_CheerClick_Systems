@@ -21,7 +21,7 @@ export default function Implementos() {
   return (
     <div className="pagina-implementos">
       <h1>Implementos Deportivos</h1>
-      <p>Solicite sus productos y reclámelos en el club.</p>
+      <p>Solicite sus implementos y reclámelos en el club.</p>
 
       <div className="contenedor-informacion" role="note">
         <span className="icono-informacion">
