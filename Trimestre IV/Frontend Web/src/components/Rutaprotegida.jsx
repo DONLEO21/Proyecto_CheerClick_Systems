@@ -4,7 +4,7 @@ import { supabase } from '../services/supabase'
 
 const LOGIN = '/acceso?view=login'
 const INICIO = {
-  administrador: '/administrador',
+  administrador: '/admin',
   entrenador: '/entrenador',
   atleta: '/atleta',
 }
@@ -30,7 +30,7 @@ export default function Rutaprotegida({ rolPermitido, children }) {
       const esAdmin = u.app_metadata?.rol_admin === true
       const estado = u.app_metadata?.estado ?? 'pendiente'
       const desactivada = u.app_metadata?.activo === false
-      const rol = esAdmin ? 'administrador' : u.user_metadata?.rol
+      const rol = esAdmin ? 'administrador' : (u.app_metadata?.rol ?? 'atleta')
 
       if (!esAdmin && (estado !== 'aprobada' || desactivada)) {
         await supabase.auth.signOut()

@@ -88,7 +88,14 @@ export default function useCuentas(mostrarAviso) {
     const { usuario, accion, rol } = confirmar
     try {
       if (accion === 'aprobar' || accion === 'rechazar') {
-        await llamar({ accion: 'cambiar-estado', id: usuario.id, estado: accion === 'aprobar' ? 'aprobada' : 'rechazada' })
+        await llamar({
+          accion: 'cambiar-estado',
+          id: usuario.id,
+          estado: accion === 'aprobar' ? 'aprobada' : 'rechazada',
+          // Al aprobar, el rol elegido en el modal viaja junto con la aprobación.
+          // Si se aprueba desde la tabla (sin modal), se conserva el rol actual.
+          ...(accion === 'aprobar' ? { rol: rol ?? usuario.rol } : {}),
+        })
       } else if (accion === 'cambiar-rol') {
         await llamar({ accion: 'cambiar-rol', id: usuario.id, rol })
       } else {
@@ -105,7 +112,7 @@ export default function useCuentas(mostrarAviso) {
 
   return {
     usuarios, cargando, tab, setTab, esGestion, alternarVista,
-    detalle, perfilDetalle, cargandoDetalle, abrirDetalle, cerrarDetalle,
+    detalle, setDetalle, perfilDetalle, cargandoDetalle, abrirDetalle, cerrarDetalle,
     confirmar, pedirConfirmacion, cancelarConfirmacion, ejecutar,
   }
 }

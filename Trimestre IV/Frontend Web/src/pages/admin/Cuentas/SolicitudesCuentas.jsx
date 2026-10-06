@@ -28,9 +28,21 @@ export default function SolicitudesCuentas() {
   }
   const irAInicio = () => { window.location.href = '/admin' }
 
-  // Desde el modal de detalle: cierra el detalle y pide confirmación
-  const accionDesdeDetalle = (usuario, accion) => {
-    c.pedirConfirmacion(usuario, accion)
+  // Acciones lanzadas desde el modal de detalle
+  const accionDesdeDetalle = (usuario, accion, extra = {}) => {
+    // Solicitud pendiente: el rol es solo una selección local.
+    // No se guarda nada hasta que el admin apruebe.
+    if (accion === 'cambiar-rol' && usuario.estado === 'pendiente') {
+      c.setDetalle({ ...usuario, rol: extra.rol })
+      return
+    }
+
+    // Al aprobar, el rol elegido viaja en la confirmación
+    if (accion === 'aprobar') {
+      c.pedirConfirmacion(usuario, 'aprobar', { rol: usuario.rol })
+    } else {
+      c.pedirConfirmacion(usuario, accion, extra)
+    }
     c.cerrarDetalle()
   }
 

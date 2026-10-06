@@ -1112,6 +1112,13 @@ input, select { font: inherit; outline: none; }
     margin-top: var(--espacio-md);
 }
 
+/* Botones del modal de detalles: más padding y ancho mínimo para mejor UX */
+.modal--detalles .modal-pie .btn {
+    min-width: 128px;
+    padding: 13px 28px;
+    font-size: 15px;
+}
+
 .modal-cuerpo {
     display: flex;
     flex-direction: column;
@@ -1203,7 +1210,8 @@ input, select { font: inherit; outline: none; }
 .detalle-rol {
     display: flex;
     align-items: center;
-    min-height: 42px;
+    width: 100%;
+    min-height: 38px;
 }
 
 .insignia-rol--tabla {
@@ -1225,6 +1233,40 @@ input, select { font: inherit; outline: none; }
 .insignia-rol--entrenador {
     background: var(--amarillo-light);
     color: #92400e;
+}
+
+/* ── Select de rol dentro del modal de detalle ── */
+.select-rol-modal {
+    --color-rol: var(--azul);
+    width: 100%;
+    min-height: 38px;
+    padding: 9px 38px 9px 12px;
+    font-family: inherit;
+    font-size: var(--texto-sm);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--texto-dark);
+    background-color: var(--gris-fondo);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    border: 1.5px solid var(--gris-borde);
+    border-left: 4px solid var(--color-rol);
+    border-radius: var(--radio-sm);
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.select-rol-modal--atleta { --color-rol: var(--azul); }
+.select-rol-modal--entrenador { --color-rol: var(--amarillo); }
+
+.select-rol-modal:hover { background-color: #ececec; }
+
+.select-rol-modal:focus {
+    border-color: var(--color-rol);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-rol) 20%, transparent);
 }
 
 .campo-eps {
@@ -1328,6 +1370,29 @@ input, select { font: inherit; outline: none; }
   cursor: pointer;
   font: inherit;
   font-weight: 600;
+
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 6px 30px 6px 14px;
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 12px;
+}
+
+/* La flecha toma el color del texto de cada variante */
+.select-rol.badge--amarillo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2392400e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.select-rol.badge--azul {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d4ed8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Opciones desplegadas: fondo blanco, sin heredar el color del rol elegido */
+.select-rol option {
+  background: #ffffff;
+  color: var(--texto-dark);
+  font-weight: 500;
 }
 
 /* ══════════════════════════════════════════════

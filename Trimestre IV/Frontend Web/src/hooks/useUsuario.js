@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase'
 export default function useUsuario() {
   const [usuario, setUsuario] = useState({
     nombre: '',
+    apellido: '',
     email: '',
     rol: '',
     foto: null,
@@ -26,12 +27,15 @@ export default function useUsuario() {
           .maybeSingle()
         foto = perfil?.foto_url ?? null
       }
-
+      
       if (!vivo) return
       setUsuario({
         nombre: u?.user_metadata?.nombre ?? '',
+        apellido: u?.user_metadata?.apellido ?? '',
         email: u?.email ?? '',
-        rol: u?.user_metadata?.rol ?? '',
+        rol: u?.app_metadata?.rol_admin === true
+          ? 'administrador'
+          : (u?.app_metadata?.rol ?? 'atleta'),
         foto,
         cargando: false,
       })

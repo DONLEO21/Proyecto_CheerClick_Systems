@@ -7,6 +7,14 @@ export default function VistaGestion({ usuarios, cargando, busqueda, onToggle, o
   const [pagina, setPagina] = useState(1)
   useEffect(() => { setPagina(1) }, [busqueda])
 
+  useEffect(() => {
+    const cerrar = () => {
+      if (document.activeElement?.tagName === 'SELECT') document.activeElement.blur()
+    }
+    window.addEventListener('resize', cerrar)
+    return () => window.removeEventListener('resize', cerrar)
+  }, [])
+
   const aprobadas = usuarios.filter((u) => u.estado === 'aprobada')
   const gestion = aprobadas.filter((u) => coincide(u, busqueda))
   const totalActivas = aprobadas.filter((u) => u.activo).length

@@ -1,6 +1,6 @@
 import { X, User, FileText } from 'lucide-react'
 import {
-  NOMBRE_ROL, NOMBRE_GENERO, NOMBRE_TIPO_DOC, NOMBRE_EPS,
+  NOMBRE_ROL, ROLES, NOMBRE_GENERO, NOMBRE_TIPO_DOC, NOMBRE_EPS,
   val, fechaVal, parentescoLegible,
 } from './cuentasData.js'
 
@@ -83,14 +83,28 @@ export default function ModalDetalle({ detalle, perfil, cargandoPerfil, onCerrar
           </div>
           <div className="detalle-grid">
             <div className="detalle-grupo">
-              <label>Rol</label>
+              <label htmlFor="detalle-rol">Rol</label>
               <div className="detalle-rol">
-                <span className={`insignia-rol insignia-rol--tabla insignia-rol--${detalle.rol}`}>
-                  {NOMBRE_ROL[detalle.rol]}
-                </span>
+                {/* Pendiente: select (selección local, se guarda al aprobar).
+                    Aprobada/rechazada: solo insignia; el cambio de rol se hace en Gestión de cuentas. */}
+                {detalle.estado === 'pendiente' ? (
+                  <select
+                    id="detalle-rol"
+                    className={`select-rol-modal select-rol-modal--${detalle.rol}`}
+                    value={detalle.rol}
+                    onChange={(e) => onAccion(detalle, 'cambiar-rol', { rol: e.target.value })}
+                  >
+                    {ROLES.map((r) => <option key={r} value={r}>{NOMBRE_ROL[r]}</option>)}
+                  </select>
+                ) : (
+                  <span className={`insignia-rol insignia-rol--tabla insignia-rol--${detalle.rol}`}>
+                    {NOMBRE_ROL[detalle.rol]}
+                  </span>
+                )}
               </div>
             </div>
-            <Campo etiqueta="Nombre">{val(detalle.nombre)}</Campo>
+            <Campo etiqueta="Nombre">{val(detalle.primerNombre ?? detalle.nombre)}</Campo>
+            {detalle.apellido && <Campo etiqueta="Apellido">{val(detalle.apellido)}</Campo>}
             <Campo etiqueta="Correo electrónico" completo>{val(detalle.email)}</Campo>
           </div>
 

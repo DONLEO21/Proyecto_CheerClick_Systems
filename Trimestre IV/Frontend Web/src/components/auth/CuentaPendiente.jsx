@@ -1,10 +1,11 @@
-function CuentaPendiente({ irA }) {
+function CuentaPendiente({ irA, nombre }) {
   return (
     <div className="tarjeta tarjeta-pendiente">
       <div className="icono-advertencia">&#9888;</div>
       <h2 className="titulo-pendiente">Cuenta Pendiente<br />de Validación</h2>
       <p className="texto-pendiente">
-        Gracias por registrarte en CheerClick Systems<br />
+        {nombre ? `Gracias por registrarte, ${nombre}.` : 'Gracias por registrarte.'}<br />
+        Bienvenido a CheerClick Systems<br />
         Tu cuenta está en revisión por el Administrador
       </p>
       <div className="caja-info">

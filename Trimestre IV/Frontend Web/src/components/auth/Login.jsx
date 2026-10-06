@@ -49,7 +49,7 @@ function Login({ irA }) {
     const u = data.user
     const esAdmin = u.app_metadata?.rol_admin === true
     const estado = u.app_metadata?.estado ?? 'pendiente' // solo el servidor puede escribirlo
-    const rol = u.user_metadata?.rol
+    const rol = u.app_metadata?.rol ?? 'atleta' // solo el servidor puede escribirlo
 
     if (!esAdmin) {
       if (estado === 'pendiente') {
