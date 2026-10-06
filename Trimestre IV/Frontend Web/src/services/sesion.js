@@ -1,15 +1,17 @@
 import { supabase } from './supabase'
+import { limpiarCacheUsuario } from '../hooks/useUsuario'
 
-// Úsalo en el botón "Cerrar Sesión" del Header:
-//   onClick={() => cerrarSesion(navigate)}
+// Bandera: indica que el cierre de sesión lo inició esta pestaña,
+
+let cierreLocal = false
+export const esCierreLocal = () => cierreLocal
+export const reiniciarCierreLocal = () => { cierreLocal = false }
+
 export async function cerrarSesion(navigate) {
+  cierreLocal = true
   await supabase.auth.signOut()
-  navigate('/acceso?view=login', { replace: true })
-}
-
-export async function cerrarSesion(navigate) {
-  console.log('cerrarSesion ejecutada')
-  const { error } = await supabase.auth.signOut()
-  console.log('signOut error:', error)
-  navigate('/acceso?view=login', { replace: true })
+  limpiarCacheUsuario()
+  navigate('/', { replace: true })
+  // Se reinicia después de que la navegación se aplique
+  setTimeout(reiniciarCierreLocal, 0)
 }

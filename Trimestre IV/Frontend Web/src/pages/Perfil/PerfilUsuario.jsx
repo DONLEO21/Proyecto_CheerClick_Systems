@@ -15,12 +15,16 @@ import TarjetaInfoPersonal from './TarjetaInfoPersonal.jsx';
 import TarjetaContactos from './TarjetaContactos.jsx';
 import ModalFoto from './ModalFoto.jsx';
 import ModalConfirmar from './ModalConfirmar.jsx';
+
+import { cerrarSesion as cerrarSesionSistema } from '../../services/sesion'
+
 import './PerfilUsuario.css';
 
 export default function PerfilUsuario({ rol = 'atleta' }) {
   const esAtleta = rol === 'atleta';
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const cerrarSesion = () => cerrarSesionSistema(navigate)
   const { aviso, mostrarAviso } = useAviso();
 
   const usuario = useUsuario();
@@ -35,11 +39,6 @@ export default function PerfilUsuario({ rol = 'atleta' }) {
     cambiar, cambiarContacto, cambiarArchivoEps,
     activarEdicion, cancelarEdicion, confirmarGuardar, guardarFoto,
   } = usePerfil({ rol, mostrarAviso });
-
-  const cerrarSesion = async () => {
-    await supabase.auth.signOut();
-    navigate('/acceso');
-  };
 
   return (
     <div className="dashboard perfil-pagina">

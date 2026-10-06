@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { supabase } from '../services/supabase'
+import { esCierreLocal } from '../services/sesion'
 
 const LOGIN = '/acceso?view=login'
 const INICIO = {
@@ -44,18 +45,27 @@ export default function Rutaprotegida({ rolPermitido, children }) {
       if (!evaluar(session.user, rolPermitido)) setOk(true)
 
       // 2) Confirmación con el servidor en segundo plano
-      //    (detecta cuentas desactivadas o cambios de rol recientes)
       const { data, error } = await supabase.auth.getUser()
       if (!activo) return
-      if (error || !data.user) { setOk(false); return setDestino(LOGIN) }
+      if (error || !data.user) {
+        setOk(false)
+        // Si el usuario cerró sesión aquí, cerrarSesion() ya navega al inicio
+        if (!esCierreLocal()) setDestino(LOGIN)
+        return
+      }
       await aplicar(data.user)
     }
 
     validar()
 
-    // Si la sesión cambia (cerrar sesión en esta u otra pestaña)
+    // Cerrar sesión en esta u otra pestaña
     const { data: listener } = supabase.auth.onAuthStateChange((evento) => {
-      if (evento === 'SIGNED_OUT') { setOk(false); setDestino(LOGIN) }
+      if (evento === 'SIGNED_OUT') {
+        setOk(false)
+        // Si lo inició esta pestaña, cerrarSesion() navega al homepage.
+        // Si vino de otra pestaña, se manda al login.
+        if (!esCierreLocal()) setDestino(LOGIN)
+      }
     })
 
     // Restaurar página desde el caché de ida/vuelta del navegador

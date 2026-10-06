@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { SquarePen } from 'lucide-react'
 import Header from '../../../components/Header/Header.jsx'
 import Sidebar from '../../../components/Sidebar/Sidebar.jsx'
@@ -16,6 +17,8 @@ import TarjetaAtletas from './TarjetaAtletas.jsx'
 import TarjetaCalendario from './TarjetaCalendario.jsx'
 import TarjetaRendimientoEquipo from './TarjetaRendimientoEquipo.jsx'
 
+import { cerrarSesion as cerrarSesionSistema } from '../../../services/sesion'
+
 import './DashboardEntrenador.css'
 
 export default function DashboardEntrenador({
@@ -32,10 +35,8 @@ export default function DashboardEntrenador({
     metricas, atletasActivos, entrenosHoy, calendario,
   } = useDashboardEntrenador(mostrarAviso)
 
-  const cerrarSesion = async () => {
-    await supabase.auth.signOut()
-    window.location.href = '/acceso'
-  }
+  const navigate = useNavigate()
+  const cerrarSesion = () => cerrarSesionSistema(navigate)
   const irAInicio = () => { window.location.href = '/' }
 
   return (

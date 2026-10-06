@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Search, Users } from 'lucide-react'
+import { useNavigate } from 'react-router-dom';
+
 import Header from '../../../components/Header/Header.jsx'
 import Sidebar from '../../../components/Sidebar/Sidebar.jsx'
 import AvisoToast from '../../../components/AvisoToast'
@@ -12,6 +14,7 @@ import VistaSolicitudes from './VistaSolicitudes.jsx'
 import VistaGestion from './VistaGestion.jsx'
 import ModalDetalle from './ModalDetalle.jsx'
 import ModalConfirmar from './ModalConfirmar.jsx'
+import { cerrarSesion as cerrarSesionSistema } from '../../../services/sesion'
 
 import './SolicitudCuentas.css'
 
@@ -22,10 +25,11 @@ export default function SolicitudesCuentas() {
   const [busqueda, setBusqueda] = useState('')
   useEffect(() => { setBusqueda('') }, [c.esGestion])
 
-  const cerrarSesion = async () => {
-    await supabase.auth.signOut()
-    window.location.href = '/acceso'
-  }
+  
+
+// dentro del componente (con useNavigate ya importado):
+const navigate = useNavigate()
+const cerrarSesion = () => cerrarSesionSistema(navigate)
   const irAInicio = () => { window.location.href = '/admin' }
 
   // Acciones lanzadas desde el modal de detalle

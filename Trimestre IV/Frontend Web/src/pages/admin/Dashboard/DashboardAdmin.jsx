@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from "../../../components/Header/Header.jsx";
 import Sidebar from "../../../components/Sidebar/Sidebar.jsx";
 import menuAdmin from "../../../data/menuAdmin.js";
@@ -15,6 +16,8 @@ import TarjetaCampeonatos from "./TarjetaCampeonatos.jsx";
 import TablaSolicitudes from "./TablaSolicitudes.jsx";
 import TarjetaNovedades from "./TarjetaNovedades.jsx";
 
+import { cerrarSesion as cerrarSesionSistema } from '../../../services/sesion'
+
 import "./DashboardAdmin.css";
 
 // nombreAdmin queda solo como respaldo si la cuenta no tiene nombre guardado
@@ -29,10 +32,8 @@ function DashboardAdmin({
 
   const { stats, pendientes, cargando, error } = useDashboardAdmin();
 
-  const cerrarSesion = async () => {
-    await supabase.auth.signOut();
-    window.location.href = "/acceso";
-  };
+  const navigate = useNavigate()
+  const cerrarSesion = () => cerrarSesionSistema(navigate)
 
   const irAInicio = () => {
     window.location.href = "/admin";
