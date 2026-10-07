@@ -24,6 +24,7 @@ function AuthPage() {
 
   const [pantalla, setPantalla] = useState(vistaInicial);
   const [correoRecuperacion, setCorreoRecuperacion] = useState("");
+  const [nombreRegistrado, setNombreRegistrado] = useState("");
 
   useEffect(() => {
     if (pantalla.startsWith("recuperar")) return;
@@ -37,7 +38,9 @@ function AuthPage() {
       const esAdmin = u.app_metadata?.rol_admin === true;
       const aprobada = u.app_metadata?.estado === "aprobada";
       const desactivada = u.app_metadata?.activo === false;
-      const rol = esAdmin ? "administrador" : u.user_metadata?.rol;
+      const rol = esAdmin
+        ? "administrador"
+        : (u.app_metadata?.rol ?? "atleta");
 
       if ((esAdmin || (aprobada && !desactivada)) && INICIO[rol]) {
         navigate(INICIO[rol], { replace: true });
@@ -53,8 +56,15 @@ function AuthPage() {
     <div className="pagina-auth">
       <div className="contenedor">
         {pantalla === "login" && <Login irA={setPantalla} />}
-        {pantalla === "registro" && <Registro irA={setPantalla} />}
-        {pantalla === "pendiente" && <CuentaPendiente irA={setPantalla} />}
+        {pantalla === "registro" && (
+          <Registro
+            irA={setPantalla}
+            setNombreRegistrado={setNombreRegistrado}
+          />
+        )}
+        {pantalla === "pendiente" && (
+          <CuentaPendiente irA={setPantalla} nombre={nombreRegistrado} />
+        )}
         {pantalla === "recuperar-correo" && (
           <RecuperarCorreo
             irA={setPantalla}

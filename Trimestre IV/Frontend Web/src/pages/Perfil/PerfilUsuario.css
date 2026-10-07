@@ -1,23 +1,34 @@
-/* --- Estilos perfil ---*/
-.perfil-pagina .perfil-main {
-    background: var(--gris-fondo);
+/* === PERFIL DE USUARIO ===*/
+.dashboard.perfil-pagina .dashboard__contenido {
+    padding: 0;
 }
 
-.perfil-pagina .perfil-contenedor {
+.dashboard.perfil-pagina main.panel-atleta.perfil-main {
+    background: var(--gris-fondo);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+
+.dashboard.perfil-pagina .perfil-main .contenedor.perfil-contenedor {
     display: flex;
     flex-direction: column;
     gap: var(--espacio-lg);
-    padding: var(--espacio-lg);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: var(--espacio-md);
 }
 
-/* ── encabezado de página ────────────────────────────────── */
+/* Encabezado de página */
 .perfil-pagina .pagina-encabezado { display: flex; flex-direction: column; gap: 4px; }
 .perfil-pagina .pagina-encabezado h1 { font-size: var(--texto-xl); font-weight: 700; }
 .perfil-pagina .pagina-encabezado__sub { font-size: var(--texto-sm); color: var(--texto-muted); }
 
-/* ── layout: tarjetas apiladas ──────────────────────────────
+/* Tarjetas apiladas:
    1. cabecera  2. seguridad + preferencias (2 columnas)
-   3. información personal  4. contactos de emergencia          */
+   3. información personal  4. contactos de emergencia */
 .perfil-pagina .perfil-layout {
     display: flex;
     flex-direction: column;
@@ -31,15 +42,17 @@
     align-items: stretch;
 }
 
-.perfil-pagina .tarjeta-p--lateral { display: flex; flex-direction: column; }
 
-/* ── tarjeta base ────────────────────────────────────────── */
+/* ── 2. TARJETAS ─────────────────────────────────────────── */
+
 .perfil-pagina .tarjeta-p {
     background: var(--blanco);
     border-radius: var(--radio-md);
     box-shadow: var(--sombra-sm);
     padding: var(--espacio-lg);
 }
+
+.perfil-pagina .tarjeta-p--lateral { display: flex; flex-direction: column; }
 
 .perfil-pagina .tarjeta-p--fila {
     display: flex;
@@ -49,7 +62,9 @@
     gap: var(--espacio-md);
 }
 
-/* ── foto y nombre ───────────────────────────────────────── */
+
+/* ── 3. FOTO Y NOMBRE ────────────────────────────────────── */
+
 .perfil-pagina .perfil-encabezado-foto {
     display: flex;
     align-items: center;
@@ -98,9 +113,7 @@
 }
 
 .perfil-pagina .perfil-encabezado-info { display: flex; flex-direction: column; gap: 2px; }
-
 .perfil-pagina .perfil-nombre { font-size: var(--texto-xl); font-weight: 700; line-height: 1.1; }
-
 .perfil-pagina .perfil-apellido { font-size: var(--texto-lg); font-weight: 500; color: var(--texto-muted); }
 
 .perfil-pagina .insignia-rol {
@@ -136,7 +149,6 @@
     font-weight: 700;
     transition: var(--transicion);
 }
-
 .perfil-pagina .poliza-link:hover { background: var(--rojo); color: var(--blanco); }
 .perfil-pagina .poliza-link svg { flex-shrink: 0; }
 
@@ -146,7 +158,9 @@
     gap: var(--espacio-sm);
 }
 
-/* ── botones (solo los de esta página) ───────────────────── */
+
+/* ── 4. BOTONES (solo los de esta página) ────────────────── */
+
 .perfil-pagina .btn {
     display: inline-flex;
     align-items: center;
@@ -196,7 +210,9 @@
 }
 .perfil-pagina .btn-texto:hover { color: var(--rojo); }
 
-/* ── títulos de sección ──────────────────────────────────── */
+
+/* ── 5. TÍTULOS DE SECCIÓN ───────────────────────────────── */
+
 .perfil-pagina .seccion-titulo { display: flex; align-items: flex-start; gap: var(--espacio-sm); }
 
 .perfil-pagina .seccion-titulo__icono {
@@ -216,12 +232,34 @@
 
 .perfil-pagina .divisor { height: 1px; background: var(--gris-borde); margin: var(--espacio-md) 0; }
 
-/* ── campos ──────────────────────────────────────────────── */
-.perfil-pagina .campos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--espacio-md); }
+
+/* ── 6. CAMPOS DE FORMULARIO ─────────────────────────────── */
+
+.perfil-pagina .campos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-md);
+}
 
 .perfil-pagina .form-grupo { display: flex; flex-direction: column; gap: 6px; }
 .perfil-pagina .form-grupo label { font-size: 13px; font-weight: 600; color: var(--texto-muted); }
 
+/* Etiqueta a la izquierda y aviso "solo una vez" a la derecha, misma línea */
+.perfil-pagina .form-grupo__cabecera {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.perfil-pagina .campo-aviso {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--texto-muted);
+    text-align: right;
+}
+
+/* Input / select base */
 .perfil-pagina .form-grupo input,
 .perfil-pagina .form-grupo select {
     width: 100%;
@@ -248,27 +286,15 @@
     box-shadow: 0 0 0 3px var(--rojo-light);
 }
 
-/* etiqueta a la izquierda y aviso "solo una vez" a la derecha, misma línea */
-.perfil-pagina .form-grupo__cabecera {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 8px;
-}
+/* Campo con icono DENTRO del input.
+   Estructura (Campo.jsx):
+     <div class="campo-icono-perfil"> <svg/> <input|select/> </div>
 
-.perfil-pagina .campo-aviso {
-    font-size: 11.5px;
-    font-weight: 500;
-    color: var(--texto-muted);
-    text-align: right;
-}
-
-/* campo con icono a la izquierda.
-   NOTA: se usa el nombre "campo-icono-perfil" (en vez de "campo-con-icono")
-   a propósito: src/pages/Admin/Horarios/Horarios.css define una clase
-   global ".campo-con-icono { padding-left: 34px !important; }" que,
-   por el !important, rompía este mismo componente aquí en Perfil.
-   Renombrar evita la colisión sin tocar el CSS de Horarios. */
+   NOTA: se usa "campo-icono-perfil" y NO "campo-con-icono" a propósito:
+   src/pages/Admin/Horarios/Horarios.css define globalmente
+   ".campo-con-icono { padding-left: 34px !important; }" y rompe este
+   componente. Si Campo.jsx vuelve a usar "campo-con-icono" (p. ej. tras un
+   merge), los iconos se salen del input. */
 .perfil-pagina .campo-icono-perfil {
     position: relative;
     display: flex;
@@ -278,6 +304,8 @@
 .perfil-pagina .campo-icono-perfil > svg {
     position: absolute;
     left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     color: var(--texto-muted);
     pointer-events: none;
     z-index: 1;
@@ -289,7 +317,7 @@
     padding-left: 38px;
 }
 
-/* flecha propia para los select */
+/* Flecha propia para los select */
 .perfil-pagina .form-grupo select {
     appearance: none;
     -webkit-appearance: none;
@@ -299,7 +327,7 @@
     padding-right: 36px;
 }
 
-/* campo de archivo */
+/* Campo de archivo (certificado EPS) */
 .perfil-pagina .campo-archivo-visualizacion {
     display: flex;
     align-items: center;
@@ -339,7 +367,9 @@
 }
 .perfil-pagina .boton-archivo--perfil:hover { background: var(--rojo); color: var(--blanco); }
 
-/* ── contactos de emergencia ─────────────────────────────── */
+
+/* ── 7. CONTACTOS DE EMERGENCIA ──────────────────────────── */
+
 .perfil-pagina .contactos-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -373,7 +403,9 @@
     font-weight: 700;
 }
 
-/* ── preferencias ────────────────────────────────────────── */
+
+/* ── 8. PREFERENCIAS ─────────────────────────────────────── */
+
 .perfil-pagina .preferencia-item {
     display: flex;
     align-items: center;
@@ -417,7 +449,9 @@
 .perfil-pagina .toggle input:checked + .toggle__pista::before { transform: translateX(18px); }
 .perfil-pagina .toggle input:focus-visible + .toggle__pista { box-shadow: 0 0 0 3px var(--rojo-light); }
 
-/* ── modales ─────────────────────────────────────────────── */
+
+/* ── 9. MODALES ──────────────────────────────────────────── */
+
 .perfil-pagina .perfil-modal-overlay {
     opacity: 1;
     visibility: visible;
@@ -494,7 +528,7 @@
 }
 .perfil-pagina .perfil-modal--centrado .perfil-modal-descripcion { margin-bottom: var(--espacio-lg); }
 
-/* advertencia "no podrás volver a cambiarlo" */
+/* Advertencia "no podrás volver a cambiarlo" */
 .perfil-pagina .perfil-modal-advertencia {
     display: flex;
     align-items: flex-start;
@@ -509,7 +543,7 @@
 }
 .perfil-pagina .perfil-modal-advertencia svg { flex-shrink: 0; margin-top: 2px; }
 
-/* vista previa de la foto */
+/* Vista previa de la foto */
 .perfil-pagina .perfil-modal-foto-preview-zona { display: flex; justify-content: center; margin-bottom: var(--espacio-md); }
 
 .perfil-pagina .perfil-modal-foto-preview {
@@ -522,6 +556,7 @@
 }
 .perfil-pagina .perfil-modal-foto-preview img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Zona de carga */
 .perfil-pagina .zona-carga {
     display: flex;
     flex-direction: column;
@@ -534,9 +569,7 @@
     border-radius: var(--radio-sm);
     transition: var(--transicion);
 }
-
 .perfil-pagina .zona-carga--activa { border-color: var(--rojo); background: var(--rojo-light); }
-
 .perfil-pagina .zona-carga svg { color: var(--gris-claro); }
 .perfil-pagina .zona-carga__texto { font-size: var(--texto-sm); font-weight: 600; color: var(--texto-dark); }
 .perfil-pagina .zona-carga__o { font-size: 12px; }
@@ -558,9 +591,22 @@
     margin-top: var(--espacio-lg);
 }
 
-.perfil-pagina .perfil-exito-icono { display: flex; justify-content: center; margin-bottom: var(--espacio-sm); color: var(--verde); }
+.perfil-pagina .perfil-exito-icono {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--espacio-sm);
+    color: var(--verde);
+}
 
-/* ── responsive ──────────────────────────────────────────── */
+
+/* ── 10. RESPONSIVE ──────────────────────────────────────── */
+
+@media (min-width: 901px) {
+    .dashboard.perfil-pagina .perfil-main .contenedor.perfil-contenedor {
+        padding: var(--espacio-lg);
+    }
+}
+
 @media (max-width: 900px) {
     .perfil-pagina .perfil-fila-doble,
     .perfil-pagina .contactos-grid { grid-template-columns: 1fr; }

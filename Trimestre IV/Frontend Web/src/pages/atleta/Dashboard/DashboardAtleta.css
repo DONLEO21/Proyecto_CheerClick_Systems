@@ -258,6 +258,10 @@ select {
   background: var(--gris-fondo);
 }
 
+.panel-atleta.dashboard-atleta-main {
+  margin: 0;
+}
+
 .panel-atleta .contenedor {
   display: flex;
   flex-direction: column;

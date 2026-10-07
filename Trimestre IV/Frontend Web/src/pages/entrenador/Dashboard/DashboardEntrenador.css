@@ -9,10 +9,11 @@
   --de-muted: var(--texto-muted, #777);
   --de-borde: var(--gris-borde, #dcdcdc);
 
-  margin-left: var(--ancho-barra, 56px);
-  margin-top: var(--alto-encabezado, 55px);
+  /* sin margin-left ni margin-top: main.contenido-principal ya reserva
+     el ancho de la barra lateral y el alto del header */
+  margin: 0;
   min-height: calc(100vh - var(--alto-encabezado, 55px));
-  padding: 32px 36px;
+  padding: var(--espacio-lg, 32px);
   background: var(--gris-fondo, #f5f5f5);
   color: var(--texto-dark, #222);
 }
@@ -584,7 +585,7 @@
 @media (max-width: 800px) {
   .de-pagina {
     margin-left: 0;
-    padding: 20px 16px;
+    padding: var(--espacio-md, 24px);
   }
   .de-stats {
     grid-template-columns: repeat(2, 1fr);

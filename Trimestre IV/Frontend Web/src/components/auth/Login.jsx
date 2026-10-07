@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../services/supabase'
 import CampoClave from './CampoClave'
+import logoClub from '../../assets/icons/Logo-Club.png'
 
 /* Iconos de la alerta (SVG en línea, sin dependencias) */
 const IconoAdvertencia = () => (
@@ -22,6 +24,7 @@ const IconoError = () => (
 )
 
 function Login({ irA }) {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [cargando, setCargando] = useState(false)
@@ -49,7 +52,7 @@ function Login({ irA }) {
     const u = data.user
     const esAdmin = u.app_metadata?.rol_admin === true
     const estado = u.app_metadata?.estado ?? 'pendiente' // solo el servidor puede escribirlo
-    const rol = u.user_metadata?.rol
+    const rol = u.app_metadata?.rol ?? 'atleta' // solo el servidor puede escribirlo
 
     if (!esAdmin) {
       if (estado === 'pendiente') {
@@ -78,15 +81,15 @@ function Login({ irA }) {
       }
     }
 
-    // Aprobada → dashboard (rutas reales de App.jsx)
-    if (esAdmin) window.location.href = '/admin'
-    else if (rol === 'entrenador') window.location.href = '/entrenador'
-    else window.location.href = '/atleta'
+    // Aprobada → dashboard. "replace" sustituye la entrada de /acceso en el historial
+    if (esAdmin) navigate('/admin', { replace: true })
+    else if (rol === 'entrenador') navigate('/entrenador', { replace: true })
+    else navigate('/atleta', { replace: true })
   }
 
   return (
     <div className="tarjeta">
-      <img src="src/assets/icons/Logo-Club.png" alt="Logo BTC" className="logo-imagen" />
+      <img src={logoClub} alt="Logo BTC" className="logo-imagen" />
       <h2>Iniciar sesión</h2>
 
       {alerta && (
