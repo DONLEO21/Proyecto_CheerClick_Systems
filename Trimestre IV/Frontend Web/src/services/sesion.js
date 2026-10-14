@@ -1,5 +1,5 @@
 import { supabase } from './supabase'
-import { limpiarCacheUsuario } from '../hooks/useUsuario'
+import { limpiarCacheUsuario } from '../Hooks/useUsuario'
 
 // Bandera: indica que el cierre de sesión lo inició esta pestaña,
 

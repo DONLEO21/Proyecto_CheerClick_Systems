@@ -3,8 +3,8 @@ import Rutaprotegida from './components/Rutaprotegida'
 
 import Landing from './components/landing/Landing'
 import AuthPage from './components/auth/AuthPage'
-import DashboardAdmin from './pages/admin/Dashboard/DashboardAdmin'
-import SolicitudesCuentas from './pages/admin/Dashboard/SolicitudesCuentas'
+import DashboardAdmin from './pages/Admin/Dashboard/DashboardAdmin'
+import SolicitudesCuentas from './pages/Admin/Dashboard/SolicitudesCuentas'
 
 export default function AppRoutes() {
   return (

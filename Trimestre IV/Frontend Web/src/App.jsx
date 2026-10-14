@@ -27,10 +27,10 @@ import './styles.css';
 import Rutaprotegida from './components/Rutaprotegida.jsx';
 import Landing from './components/landing/Landing.jsx';
 import AuthPage from './components/auth/AuthPage.jsx';
-import DashboardAdmin from './pages/admin/Dashboard/DashboardAdmin.jsx';
-import SolicitudesCuentas from './pages/admin/Cuentas/SolicitudesCuentas.jsx';
-import DashboardEntrenador from './pages/entrenador/Dashboard/DashboardEntrenador.jsx';
-import DashboardAtleta from './pages/atleta/Dashboard/DashboardAtleta.jsx';
+import DashboardAdmin from './pages/Admin/Dashboard/DashboardAdmin.jsx';
+import SolicitudesCuentas from './pages/Admin/Cuentas/SolicitudesCuentas.jsx';
+import DashboardEntrenador from './pages/Entrenador/Dashboard/DashboardEntrenador.jsx';
+import DashboardAtleta from './pages/Atleta/Dashboard/DashboardAtleta.jsx';
 import PerfilUsuario from './pages/Perfil/PerfilUsuario.jsx';
 
 export default function App() {

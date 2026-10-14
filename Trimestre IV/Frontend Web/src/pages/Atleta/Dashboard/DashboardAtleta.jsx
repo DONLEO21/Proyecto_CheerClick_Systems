@@ -4,8 +4,8 @@ import Sidebar from "../../../components/Sidebar/Sidebar.jsx";
 import AvisoToast from "../../../components/AvisoToast";
 import menuAtleta from "../../../data/menuAtleta.js";
 import { supabase } from "../../../services/supabase";
-import useUsuario from "../../../hooks/useUsuario";
-import useAviso from "../../../hooks/useAviso";
+import useUsuario from "../../../Hooks/useUsuario";
+import useAviso from "../../../Hooks/useAviso";
 
 import { SquarePen } from 'lucide-react';
 
