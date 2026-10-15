@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../services/supabase';
 import { guardarPerfilPropio } from '../../services/perfil';
-import { limpiarCacheUsuario } from '../../Hooks/useUsuario';
+import { limpiarCacheUsuario } from '../../hooks/useUsuario';
 import {
   CAMPOS_UNA_VEZ, BUCKET_AVATARES, DATOS_INICIALES, BLOQUEOS_INICIALES, perfilDesdeFila,
 } from './perfilData.js';

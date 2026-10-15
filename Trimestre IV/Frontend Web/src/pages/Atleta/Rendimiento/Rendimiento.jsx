@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useSesion } from "../../../context/SesionContext";
-import useAviso from "../../../Hooks/useAviso";
-import useRendimientoAtleta from "../../../Hooks/useRendimientoAtleta";
+import useAviso from "../../../hooks/useAviso";
+import useRendimientoAtleta from "../../../hooks/useRendimientoAtleta";
 import AvisoToast from "../../../components/Compartidos/AvisoToast";
 import { enviarJustificacion } from "../../../services/rendimientoAtletaService";
 import { fechaHoyISO } from "../../../services/data";

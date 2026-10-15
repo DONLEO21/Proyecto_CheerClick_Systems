@@ -4,7 +4,7 @@ import ResumenCards from "./ResumenCards";
 import ModalGuardado from "./ModalGuardado";
 import ModalConsultar from "./ModalConsultar";
 import AvisoToast from "../../../components/Compartidos/AvisoToast";
-import useAviso from "../../../Hooks/useAviso";
+import useAviso from "../../../hooks/useAviso";
 import {
   obtenerAtletasPorNivel,
   obtenerRegistrosDia,

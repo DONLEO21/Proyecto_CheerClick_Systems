@@ -7,7 +7,7 @@ import Sidebar from '../../../components/Sidebar/Sidebar.jsx'
 import AvisoToast from '../../../components/AvisoToast'
 import menuAdmin from '../../../data/menuAdmin.js'
 import { supabase } from '../../../services/supabase'
-import useAviso from '../../../Hooks/useAviso'
+import useAviso from '../../../hooks/useAviso'
 
 import useCuentas from './useCuentas.js'
 import VistaSolicitudes from './VistaSolicitudes.jsx'

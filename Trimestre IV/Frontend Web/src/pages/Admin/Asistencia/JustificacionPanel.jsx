@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import JustificacionCard from "./JustificacionCard";
 import ModalRevisionJustificacion from "./ModalRevisionJustificacion";
 import AvisoToast from "../../../components/Compartidos/AvisoToast";
-import useAviso from "../../../Hooks/useAviso";
+import useAviso from "../../../hooks/useAviso";
 import {
   obtenerJustificaciones,
   actualizarJustificacion,

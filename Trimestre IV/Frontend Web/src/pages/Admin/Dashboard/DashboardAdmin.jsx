@@ -3,7 +3,7 @@ import Header from "../../../components/Header/Header.jsx";
 import Sidebar from "../../../components/Sidebar/Sidebar.jsx";
 import menuAdmin from "../../../data/menuAdmin.js";
 import { supabase } from "../../../services/supabase";
-import useUsuario from "../../../Hooks/useUsuario";
+import useUsuario from "../../../hooks/useUsuario";
 
 import { SquarePen } from "lucide-react";
 

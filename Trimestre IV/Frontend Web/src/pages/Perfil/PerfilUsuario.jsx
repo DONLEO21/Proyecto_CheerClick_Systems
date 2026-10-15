@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header.jsx';
 import Sidebar from '../../components/Sidebar/Sidebar.jsx';
 import AvisoToast from '../../components/AvisoToast';
-import useAviso from '../../Hooks/useAviso';
-import useUsuario from '../../Hooks/useUsuario';
+import useAviso from '../../hooks/useAviso';
+import useUsuario from '../../hooks/useUsuario';
 import { supabase } from '../../services/supabase';
 
 import usePerfil from './usePerfil.js';
