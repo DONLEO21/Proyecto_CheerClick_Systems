@@ -1,0 +1,28 @@
+info:
+  name: Actualizar una competencia
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/competencias/6ad8e4e8d6a8e885b3d444ec
+  body:
+    type: json
+    data: |-
+      {
+      "nombre": "Competencia Futbol",
+      "fechaCompetencia": "2026-11-10",
+      "lugar": "Coliseo Bosa",
+      "precioinscripcion": 110000,
+      "fechalimite": "2026-11-20",
+      "preciopublico": 50000,
+      "estado": "Activo"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

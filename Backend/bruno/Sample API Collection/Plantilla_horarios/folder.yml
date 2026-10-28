@@ -1,0 +1,7 @@
+info:
+  name: Plantilla_horarios
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit

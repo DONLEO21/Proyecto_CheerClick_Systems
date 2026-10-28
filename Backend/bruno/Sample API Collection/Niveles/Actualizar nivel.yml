@@ -1,0 +1,24 @@
+info:
+  name: Actualizar nivel
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/niveles/6ad64b9005aed7c782a3f67a
+  body:
+    type: json
+    data: |-
+      {
+      "nombre" : "Nivel 3 Magic",
+      "diasEntreno" : "3",
+      "estado" : "Activo"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

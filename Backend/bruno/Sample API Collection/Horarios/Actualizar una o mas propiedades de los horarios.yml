@@ -1,0 +1,29 @@
+info:
+  name: Actualizar una o mas propiedades de los horarios
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/horarios/6ad78df0f04d94df62fbd799
+  body:
+    type: json
+    data: |-
+      {
+       "fecha": "2026/10/15",
+       "enfoque": "Clase de gimnasia para presentacion",
+       "lugar": "Liga BTC",
+       "notasIndicaciones" : "Traer el uniforme y agua",
+       "estado": "Activo",
+       "tipo": "Gimnasia",
+       "franjaInicio": "6:00",
+       "franjaFin": "8:00"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,16 @@
+info:
+  name: Elimina una Pqrs
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/pqrs/6ad963e82cd277957ac1f087
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

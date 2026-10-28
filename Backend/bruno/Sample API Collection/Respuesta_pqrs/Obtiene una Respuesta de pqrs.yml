@@ -1,0 +1,16 @@
+info:
+  name: Obtiene una Respuesta de pqrs
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://localhost:3000/api/respuesta_pqrs/6ad9747c1d6e1c19381b28a7
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

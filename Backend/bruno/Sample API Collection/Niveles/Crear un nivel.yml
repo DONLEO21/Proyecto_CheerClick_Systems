@@ -1,0 +1,24 @@
+info:
+  name: Crear un nivel
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/niveles
+  body:
+    type: json
+    data: |-
+      {
+      "nombre" : "Nivel 3 Magic",
+      "diasEntreno" : "3",
+      "estado" : "Activo"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

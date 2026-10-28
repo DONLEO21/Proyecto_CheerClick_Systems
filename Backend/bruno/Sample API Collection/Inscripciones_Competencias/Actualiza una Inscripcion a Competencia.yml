@@ -1,0 +1,24 @@
+info:
+  name: Actualiza una Inscripcion a Competencia
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/inscripciones_competencias/6ae01111fbe2b2c93548349a
+  body:
+    type: json
+    data: |-
+      {
+      "competencia" : "6ad8e4e8d6a8e885b3d444ec",
+      "usuario": "6adf89aed7fa8dce23b0c41c",
+      "pago": "6adc07effe2674275b32306e"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

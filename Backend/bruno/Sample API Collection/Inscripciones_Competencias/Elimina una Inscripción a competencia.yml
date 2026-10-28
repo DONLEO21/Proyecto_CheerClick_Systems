@@ -1,0 +1,16 @@
+info:
+  name: Elimina una Inscripción a competencia
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/inscripciones_competencias/6ae01111fbe2b2c93548349a
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

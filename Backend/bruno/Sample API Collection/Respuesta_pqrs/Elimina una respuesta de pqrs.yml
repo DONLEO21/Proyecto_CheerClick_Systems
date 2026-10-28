@@ -1,0 +1,16 @@
+info:
+  name: Elimina una respuesta de pqrs
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/respuesta_pqrs/6ad970493e63a9b3a399e165
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

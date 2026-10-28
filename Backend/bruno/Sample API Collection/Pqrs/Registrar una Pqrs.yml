@@ -1,0 +1,27 @@
+info:
+  name: Registrar una Pqrs
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/pqrs
+  body:
+    type: json
+    data: |-
+      {
+      "asunto": "Noseeeeeee",
+      "descripcion": "Sugiero cambiar el horario porque la mayoria de los deportistas estudian y llegan tarde",
+      "fechaCreacion": "2026-10-21",
+      "tipo": "Sugerencia",
+      "estado": "Pendiente",
+      "prioridad": "Media"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

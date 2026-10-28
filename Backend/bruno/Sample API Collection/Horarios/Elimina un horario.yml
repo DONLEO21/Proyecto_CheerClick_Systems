@@ -1,0 +1,16 @@
+info:
+  name: Elimina un horario
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/horarios/6ad78e4bf04d94df62fbd79b
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

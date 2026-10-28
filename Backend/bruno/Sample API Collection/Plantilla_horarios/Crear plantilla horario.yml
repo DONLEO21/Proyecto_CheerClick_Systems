@@ -1,0 +1,25 @@
+info:
+  name: Crear plantilla horario
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/plantilla_horario
+  body:
+    type: json
+    data: |-
+      {
+      "dia": "Lunes",
+      "horaInicio": "16:00",
+      "horaFin": "20:00",
+      "nivel": "6ad64b5405aed7c782a3f679"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,24 @@
+info:
+  name: Actualizar plantilla horarios
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/plantilla_horario/6ad11985037296b265b1f905
+  body:
+    type: json
+    data: |-
+      {
+      "dia" : "Viernes",
+      "horaInicio": "16:00",
+      "horaFin": "20:00"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

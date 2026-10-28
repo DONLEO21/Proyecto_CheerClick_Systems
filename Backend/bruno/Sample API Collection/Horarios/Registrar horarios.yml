@@ -1,0 +1,29 @@
+info:
+  name: Registrar horarios
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/horarios
+  body:
+    type: json
+    data: |
+      {
+      "fecha": "",
+      "enfoque": "Practicar Futbol para el torneo",
+      "lugar": "Liga BTC",
+      "notasIndicaciones": "Llevar agua",
+      "estado": "Activo",
+      "tipo": "Parther",
+      "franjaInicio": "6:00",
+      "franjaFin": "8:00"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

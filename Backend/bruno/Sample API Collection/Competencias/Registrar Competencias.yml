@@ -1,0 +1,28 @@
+info:
+  name: Registrar Competencias
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/competencias
+  body:
+    type: json
+    data: |-
+      {
+      "nombre": "Competencia Xummer",
+      "fechaCompetencia": "2026-11-28",
+      "lugar": "Coliseo Sibate",
+      "precioinscripcion": 140000,
+      "fechalimite": "2026-11-20",
+      "preciopublico": 60000,
+      "estado": "Activo"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

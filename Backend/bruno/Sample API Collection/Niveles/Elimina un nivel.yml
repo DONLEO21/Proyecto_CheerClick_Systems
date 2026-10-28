@@ -1,0 +1,16 @@
+info:
+  name: Elimina un nivel
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/niveles/6ad64b9005aed7c782a3f67a
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

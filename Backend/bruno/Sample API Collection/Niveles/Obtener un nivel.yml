@@ -1,0 +1,16 @@
+info:
+  name: Obtener un nivel
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://localhost:3000/api/niveles/6ad64b5405aed7c782a3f679gsgsdgs
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
