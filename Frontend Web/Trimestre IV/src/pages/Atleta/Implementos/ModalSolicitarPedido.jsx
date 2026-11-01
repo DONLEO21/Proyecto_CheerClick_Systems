@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useState } from "react";
 import { crearSolicitud } from "../../../services/SolicitudesService";
 import { ATLETA_ACTUAL } from "../../../services/AtletaActual";
+import SelectorTalla from "./SelectorTallas";
 
 const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
   { implemento, onEnviado },
@@ -8,6 +9,7 @@ const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
 ) {
   const [cantidad, setCantidad] = useState(1);
   const [talla, setTalla] = useState("");
+  const [seleccion, setSeleccion] = useState(null); // { grupo, talla, stock }
   const [metodoPago, setMetodoPago] = useState("presencial");
   const [comprobante, setComprobante] = useState("");
   const [nombreArchivo, setNombreArchivo] = useState("");
@@ -17,6 +19,9 @@ const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
   useEffect(() => {
     setCantidad(1);
     setTalla("");
+    // Si solo hay una talla disponible (ej. talla única), queda seleccionada
+    const conStock = (implemento?.tallas ?? []).filter((t) => Number(t.stock) > 0);
+    setSeleccion(conStock.length === 1 ? conStock[0] : null);
     setMetodoPago("presencial");
     setComprobante("");
     setNombreArchivo("");
@@ -29,6 +34,16 @@ const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
 
   const total = implemento.precio * cantidad;
 
+  // Tallas del implemento (si no tiene, se usa el campo de texto de siempre)
+  const tallas = implemento.tallas ?? [];
+  const tieneTallas = tallas.length > 0;
+  const maxCantidad = tieneTallas && seleccion ? Math.max(1, Math.min(99, Number(seleccion.stock) || 1)) : 99;
+
+  const elegirTalla = (t) => {
+    setSeleccion(t);
+    setCantidad((c) => Math.min(c, Math.max(1, Number(t.stock) || 1)));
+  };
+
   const handleArchivo = (e) => {
     const archivo = e.target.files[0];
     if (!archivo) return;
@@ -40,6 +55,10 @@ const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
 
   const handleEnviar = async (e) => {
     e.preventDefault();
+    if (tieneTallas && !seleccion) {
+      setError("Seleccione una talla.");
+      return;
+    }
     setEnviando(true);
     setError("");
     try {
@@ -50,7 +69,8 @@ const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
         atleta: ATLETA_ACTUAL.nombre,
         categoria: ATLETA_ACTUAL.categoria,
         cantidad,
-        talla: talla || "N/A",
+        talla: tieneTallas ? seleccion.talla : talla || "N/A",
+        grupoTalla: tieneTallas ? seleccion.grupo : undefined,
         precioUnitario: implemento.precio,
         fechaSolicitud: new Date().toISOString().slice(0, 10),
         metodoPago: metodoPago === "presencial" ? "Pago presencial" : "Transferencia Nequi",
@@ -117,24 +137,33 @@ const ModalSolicitarPedido = forwardRef(function ModalSolicitarPedido(
                     type="number"
                     id="cantidad"
                     min={1}
-                    max={99}
+                    max={maxCantidad}
                     value={cantidad}
-                    onChange={(e) => setCantidad(Math.max(1, Math.min(99, Number(e.target.value) || 1)))}
+                    onChange={(e) => setCantidad(Math.max(1, Math.min(maxCantidad, Number(e.target.value) || 1)))}
                   />
-                  <button type="button" onClick={() => setCantidad((c) => Math.min(99, c + 1))}>+</button>
+                  <button type="button" onClick={() => setCantidad((c) => Math.min(maxCantidad, c + 1))}>+</button>
                 </div>
               </div>
-              <div className="campo-formulario" style={{ flex: 1 }}>
-                <label htmlFor="talla">Talla</label>
-                <input
-                  type="text"
-                  id="talla"
-                  placeholder="Ej: 38, M, XL…"
-                  value={talla}
-                  onChange={(e) => setTalla(e.target.value)}
-                />
-              </div>
+              {!tieneTallas && (
+                <div className="campo-formulario" style={{ flex: 1 }}>
+                  <label htmlFor="talla">Talla</label>
+                  <input
+                    type="text"
+                    id="talla"
+                    placeholder="Ej: 38, M, XL…"
+                    value={talla}
+                    onChange={(e) => setTalla(e.target.value)}
+                  />
+                </div>
+              )}
             </div>
+
+            {tieneTallas && (
+              <div className="campo-formulario" style={{ marginTop: 14 }}>
+                <label>Talla</label>
+                <SelectorTalla tallas={tallas} seleccion={seleccion} onSeleccionar={elegirTalla} />
+              </div>
+            )}
           </div>
 
           <div className="form-section">

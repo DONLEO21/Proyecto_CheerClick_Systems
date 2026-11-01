@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { etiquetaTalla } from "../../../data/tallas";
 
 const badgeEstado = (estado) => {
   const mapa = {
@@ -97,7 +98,7 @@ const ModalVerSolicitud = forwardRef(function ModalVerSolicitud({ solicitud }, r
             <div className="col-6">
               <div className="caja-gris">
                 <small className="dato-label">Talla</small>
-                <div>{solicitud.talla}</div>
+                <div>{etiquetaTalla(solicitud)}</div>
               </div>
             </div>
             <div className="col-6">

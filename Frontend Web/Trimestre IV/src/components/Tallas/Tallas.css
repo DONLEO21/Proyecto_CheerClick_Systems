@@ -1,0 +1,228 @@
+/* ===== Tallas de implementos (compartido Admin / Atleta) ===== */
+
+/* Chips de tallas (solo lectura) */
+.talla-grupos {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.talla-grupo-linea {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.talla-grupo-titulo {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gris-texto, #64748b);
+  margin-right: 2px;
+}
+
+.talla-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--gris-borde, #e2e8f0);
+  background: var(--blanco, #ffffff);
+  color: var(--carbon, #1a1a1a);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.talla-chip-stock {
+  padding-left: 4px;
+  border-left: 1px solid var(--gris-borde, #e2e8f0);
+  color: var(--gris-texto, #64748b);
+  font-weight: 600;
+}
+
+.talla-chip--agotada {
+  background: var(--gris-hielo, #f4f6f8);
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.talla-mas {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gris-texto, #64748b);
+}
+
+.talla-vacio {
+  color: #94a3b8;
+}
+
+/* Tarjeta del catálogo (Atleta) */
+.producto-tallas {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 2px 0 4px;
+}
+
+.producto-tallas-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gris-texto, #64748b);
+}
+
+.producto-tallas .talla-grupos,
+.producto-tallas .talla-grupo-linea {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Editor de tallas (Admin) */
+.talla-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--gris-borde, #e2e8f0);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.talla-editor-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.talla-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+}
+
+.talla-editor-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid var(--gris-borde, #e2e8f0);
+  border-radius: 8px;
+  background: var(--blanco, #ffffff);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.talla-editor-item:focus-within {
+  border-color: var(--rojo, #cc0000);
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+}
+
+.talla-editor-item--activa {
+  border-color: var(--dorado-oscuro, #d4aa00);
+  background: #fffdf2;
+}
+
+.talla-editor-etiqueta {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--carbon, #1a1a1a);
+}
+
+.talla-editor-item input {
+  width: 100%;
+  padding: 2px 4px;
+  border: 1px solid var(--gris-borde, #e2e8f0);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: var(--carbon, #1a1a1a);
+  outline: none;
+}
+
+.talla-editor-item input:focus {
+  border-color: var(--rojo, #cc0000);
+}
+
+.talla-editor-pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.talla-total {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--dorado, #fad755);
+  background: #fff8dc;
+  font-size: 0.78rem;
+  color: var(--carbon, #1a1a1a);
+}
+
+.talla-ayuda {
+  margin: 0;
+  font-size: 0.74rem;
+  color: var(--gris-texto, #64748b);
+}
+
+/* Selector de talla (Atleta, dentro del modal de pedido) */
+.talla-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.talla-selector-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.talla-selector-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.talla-chip--selector {
+  min-width: 44px;
+  justify-content: center;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.talla-chip--selector:hover:not(:disabled) {
+  border-color: var(--rojo, #cc0000);
+  color: var(--rojo, #cc0000);
+}
+
+.talla-chip--selector:disabled {
+  cursor: not-allowed;
+}
+
+.talla-chip--activa,
+.talla-chip--activa:hover:not(:disabled) {
+  background: var(--rojo, #cc0000);
+  border-color: var(--rojo, #cc0000);
+  color: #ffffff;
+}
+
+.talla-stock-info {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--gris-texto, #64748b);
+}

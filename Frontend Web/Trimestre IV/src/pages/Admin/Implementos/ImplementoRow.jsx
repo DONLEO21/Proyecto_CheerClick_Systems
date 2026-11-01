@@ -1,3 +1,5 @@
+import TallasChips from "../../../components/Tallas/TallasChips";
+
 function IconoEditar() {
   return (
     <svg width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -38,6 +40,9 @@ export default function ImplementoRow({ implemento, onEditar, onPedirCambioEstad
         </div>
       </td>
       <td>{implemento.tipo}</td>
+      <td>
+        <TallasChips tallas={implemento.tallas} mostrarStock maximo={8} />
+      </td>
       <td>{implemento.cantidad}</td>
       <td>${Number(implemento.precio).toLocaleString("es-CO")}</td>
       <td>

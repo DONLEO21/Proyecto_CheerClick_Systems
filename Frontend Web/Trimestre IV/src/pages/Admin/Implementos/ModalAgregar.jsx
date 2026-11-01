@@ -1,11 +1,13 @@
 import { forwardRef, useState } from "react";
 import { crearImplemento } from "../../../services/ImplementosService";
+import EditorTallas from "./EditorTallas";
+import { totalStock } from "../../../data/tallas";
 
 const vacio = {
   codigo: "",
   nombre: "",
   tipo: "",
-  cantidad: "",
+  tallas: [],
   estado: "",
   precio: "",
   imagen: "",
@@ -18,7 +20,8 @@ const ModalAgregar = forwardRef(function ModalAgregar({ onGuardado }, ref) {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setForm((prev) => ({ ...prev, [id]: value }));
+    // Al cambiar el tipo, las tallas anteriores dejan de aplicar
+    setForm((prev) => ({ ...prev, [id]: value, ...(id === "tipo" ? { tallas: [] } : {}) }));
   };
 
   const handleFoto = (e) => {
@@ -40,12 +43,16 @@ const ModalAgregar = forwardRef(function ModalAgregar({ onGuardado }, ref) {
       setError("Nombre, tipo y estado son obligatorios.");
       return;
     }
+    if (form.tallas.length === 0) {
+      setError("Configure al menos una talla con su cantidad.");
+      return;
+    }
     setGuardando(true);
     setError("");
     try {
       await crearImplemento({
         ...form,
-        cantidad: Number(form.cantidad) || 0,
+        cantidad: totalStock(form.tallas),
         precio: Number(form.precio) || 0,
         codigo: form.codigo || `IM${Math.floor(Math.random() * 900 + 100)}`,
       });
@@ -60,7 +67,7 @@ const ModalAgregar = forwardRef(function ModalAgregar({ onGuardado }, ref) {
 
   return (
     <dialog ref={ref} className="dialog-bootstrap">
-      <div className="modal-content" style={{ width: "min(520px, 90vw)" }}>
+      <div className="modal-content" style={{ width: "min(560px, 92vw)" }}>
         <div className="modal-header bg-danger text-white">
           <div>
             <h5 className="modal-title mb-0">Registrar Nuevo Implemento Deportivo</h5>
@@ -97,18 +104,6 @@ const ModalAgregar = forwardRef(function ModalAgregar({ onGuardado }, ref) {
               </div>
 
               <div className="col-6">
-                <label htmlFor="cantidad" className="form-label">Cantidad</label>
-                <input
-                  type="number"
-                  id="cantidad"
-                  className="form-control"
-                  placeholder="Ingrese cantidad"
-                  value={form.cantidad}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="col-6">
                 <label htmlFor="estado" className="form-label">Estado</label>
                 <select id="estado" className="form-select" value={form.estado} onChange={handleChange}>
                   <option value="" disabled>Seleccione estado</option>
@@ -117,7 +112,7 @@ const ModalAgregar = forwardRef(function ModalAgregar({ onGuardado }, ref) {
                 </select>
               </div>
 
-              <div className="col-12">
+              <div className="col-6">
                 <label htmlFor="precio" className="form-label">Precio</label>
                 <input
                   type="number"
@@ -126,6 +121,15 @@ const ModalAgregar = forwardRef(function ModalAgregar({ onGuardado }, ref) {
                   placeholder="Ingrese precio"
                   value={form.precio}
                   onChange={handleChange}
+                />
+              </div>
+
+              <div className="col-12">
+                <label className="form-label">Tallas y cantidad por talla</label>
+                <EditorTallas
+                  tipo={form.tipo}
+                  value={form.tallas}
+                  onChange={(tallas) => setForm((prev) => ({ ...prev, tallas }))}
                 />
               </div>
 

@@ -10,7 +10,19 @@
       "estado": "No Disponible",
       "imagen": "",
       "calificacion": 4,
-      "resenas": 30
+      "resenas": 30,
+      "tallas": [
+        {
+          "grupo": "Calzado",
+          "talla": "38",
+          "stock": 3
+        },
+        {
+          "grupo": "Calzado",
+          "talla": "40",
+          "stock": 5
+        }
+      ]
     },
     {
       "id": "IM124",
@@ -22,7 +34,14 @@
       "estado": "Disponible",
       "imagen": "",
       "calificacion": 3,
-      "resenas": 5
+      "resenas": 5,
+      "tallas": [
+        {
+          "grupo": "Unica",
+          "talla": "Única",
+          "stock": 13
+        }
+      ]
     },
     {
       "codigo": "IM470",
@@ -32,7 +51,14 @@
       "estado": "Disponible",
       "precio": 10000,
       "imagen": "",
-      "id": "sx-D-ekNwM0"
+      "id": "sx-D-ekNwM0",
+      "tallas": [
+        {
+          "grupo": "Unica",
+          "talla": "Única",
+          "stock": 10
+        }
+      ]
     }
   ],
   "solicitudes": [
@@ -51,7 +77,8 @@
       "estado": "Pendiente",
       "motivoRechazo": "",
       "recibido": true,
-      "resenaEnviada": true
+      "resenaEnviada": true,
+      "grupoTalla": "Adolescentes"
     },
     {
       "id": "SL156",
@@ -66,7 +93,8 @@
       "fechaSolicitud": "2026-04-04",
       "metodoPago": "Transferencia",
       "estado": "Pendiente",
-      "motivoRechazo": ""
+      "motivoRechazo": "",
+      "grupoTalla": "Calzado"
     },
     {
       "id": "SL589",
@@ -132,6 +160,23 @@
       "talla": "N/A",
       "precioUnitario": 350000,
       "fechaSolicitud": "2026-09-16",
+      "metodoPago": "Pago presencial",
+      "comprobante": ""
+    },
+    {
+      "id": "r1n7lqmVEKI",
+      "estado": "Pendiente",
+      "motivoRechazo": "",
+      "implementoId": "IM124",
+      "implementoNombre": "Bolso BTC",
+      "implementoImagen": "",
+      "atleta": "Gabriela Deaquiz",
+      "categoria": "Magic",
+      "cantidad": 1,
+      "talla": "Única",
+      "grupoTalla": "Unica",
+      "precioUnitario": 100000,
+      "fechaSolicitud": "2026-11-01",
       "metodoPago": "Pago presencial",
       "comprobante": ""
     }

@@ -3,6 +3,7 @@ import { getSolicitudes, marcarRecibido } from "../../../services/SolicitudesSer
 import { ATLETA_ACTUAL } from "../../../services/AtletaActual";
 import ModalCancelarSolicitud from "./ModalCancelarSolicitud";
 import FormularioResena from "./FormularioResena";
+import { etiquetaTalla } from "../../../data/tallas";
 
 const claseEstado = {
   Pendiente: "estado-pendiente",
@@ -197,7 +198,7 @@ export default function MisSolicitudes({ onAviso }) {
                 />
                 <div className="solicitud-detalles">
                   <h4>{s.implementoNombre}</h4>
-                  <p className="cantidad-solicitada">{s.cantidad} unidad(es) · Talla {s.talla}</p>
+                  <p className="cantidad-solicitada">{s.cantidad} unidad(es) · Talla {etiquetaTalla(s)}</p>
                   <p className="precio-solicitado">
                     ${(s.precioUnitario * s.cantidad).toLocaleString("es-CO")}
                   </p>

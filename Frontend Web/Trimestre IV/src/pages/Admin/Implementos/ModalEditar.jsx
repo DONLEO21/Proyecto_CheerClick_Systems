@@ -1,5 +1,7 @@
 import { forwardRef, useEffect, useState, useRef } from "react";
 import { actualizarImplemento } from "../../../services/ImplementosService";
+import EditorTallas from "./EditorTallas";
+import { gruposDeTipo, totalStock } from "../../../data/tallas";
 
 const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, ref) {
   const [form, setForm] = useState(null);
@@ -8,7 +10,7 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
   const fileRef = useRef(null);
 
   useEffect(() => {
-    if (implemento) setForm(implemento);
+    if (implemento) setForm({ ...implemento, tallas: implemento.tallas ?? [] });
   }, [implemento]);
 
   const cerrar = () => {
@@ -20,6 +22,18 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
 
   const handleChange = (campo, valor) => setForm((prev) => ({ ...prev, [campo]: valor }));
 
+  // Al cambiar el tipo se conservan solo las tallas que aplican al nuevo tipo
+  const handleTipo = (tipo) =>
+    setForm((prev) => ({
+      ...prev,
+      tipo,
+      tallas: (prev.tallas ?? []).filter((t) => gruposDeTipo(tipo).includes(t.grupo)),
+    }));
+
+  // La cantidad es la suma de las tallas. Si el implemento aún no tiene tallas, se conserva la actual.
+  const hayTallas = form.tallas.length > 0;
+  const total = hayTallas ? totalStock(form.tallas) : Number(form.cantidad) || 0;
+
   const handleGuardar = async (e) => {
     e.preventDefault();
     setGuardando(true);
@@ -27,7 +41,7 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
     try {
       await actualizarImplemento(form.id, {
         ...form,
-        cantidad: Number(form.cantidad),
+        cantidad: total,
         precio: Number(form.precio),
       });
       onGuardado();
@@ -72,7 +86,7 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
 
   return (
     <dialog ref={ref} className="dialog-bootstrap">
-      <div className="modal-content shadow-lg border-0" style={{ width: "min(450px, 90vw)", borderRadius: "12px", overflow: "hidden" }}>
+      <div className="modal-content shadow-lg border-0" style={{ width: "min(520px, 90vw)", borderRadius: "12px", overflow: "hidden" }}>
 
         <div className="modal-header bg-danger text-white border-0 py-3 px-4">
           <div>
@@ -124,29 +138,15 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
 
             <div className="row g-3">
               <div className="col-6">
-                <label className="form-label small fw-bold text-secondary mb-1">Cantidad</label>
-                <div className="input-group">
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary px-2.5"
-                    onClick={() => handleChange("cantidad", Math.max(0, Number(form.cantidad) - 1))}
-                  >
-                    −
-                  </button>
-                  <input
-                    type="number"
-                    className="form-control text-center px-1"
-                    value={form.cantidad}
-                    onChange={(e) => handleChange("cantidad", e.target.value)}
-                  />
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary px-2.5"
-                    onClick={() => handleChange("cantidad", Number(form.cantidad) + 1)}
-                  >
-                    +
-                  </button>
-                </div>
+                <label className="form-label small fw-bold text-secondary mb-1">Cantidad total</label>
+                <input
+                  type="number"
+                  className="form-control text-center"
+                  value={total}
+                  readOnly
+                  disabled
+                  title="Se calcula con la suma de las tallas"
+                />
               </div>
 
               <div className="col-6">
@@ -154,7 +154,7 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
                 <select
                   className="form-select"
                   value={form.tipo}
-                  onChange={(e) => handleChange("tipo", e.target.value)}
+                  onChange={(e) => handleTipo(e.target.value)}
                 >
                   <option value="Ropa">Ropa</option>
                   <option value="Accesorios">Accesorios</option>
@@ -182,6 +182,20 @@ const ModalEditar = forwardRef(function ModalEditar({ implemento, onGuardado }, 
                   value={form.precio}
                   onChange={(e) => handleChange("precio", e.target.value)}
                 />
+              </div>
+
+              <div className="col-12">
+                <label className="form-label small fw-bold text-secondary mb-1">Tallas y cantidad por talla</label>
+                <EditorTallas
+                  tipo={form.tipo}
+                  value={form.tallas}
+                  onChange={(tallas) => handleChange("tallas", tallas)}
+                />
+                {!hayTallas && (
+                  <small className="text-muted d-block mt-1">
+                    Este implemento aún no tiene tallas; se conserva la cantidad actual ({total}).
+                  </small>
+                )}
               </div>
             </div>
           </div>

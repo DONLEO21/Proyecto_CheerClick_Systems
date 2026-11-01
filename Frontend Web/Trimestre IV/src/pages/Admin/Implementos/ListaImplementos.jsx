@@ -202,6 +202,7 @@ export default function ListaImplementos({ onAviso }) {
               <th>Código</th>
               <th>Nombre del Producto</th>
               <th>Tipo</th>
+              <th>Tallas</th>
               <th>Cantidad</th>
               <th>Precio</th>
               <th>Estado</th>
@@ -210,10 +211,10 @@ export default function ListaImplementos({ onAviso }) {
           </thead>
           <tbody>
             {cargando && (
-              <tr><td colSpan={7} className="text-center text-muted py-4">Cargando implementos...</td></tr>
+              <tr><td colSpan={8} className="text-center text-muted py-4">Cargando implementos...</td></tr>
             )}
             {!cargando && implementosFiltrados.length === 0 && (
-              <tr><td colSpan={7} className="text-center text-muted py-4">No se encontraron implementos.</td></tr>
+              <tr><td colSpan={8} className="text-center text-muted py-4">No se encontraron implementos.</td></tr>
             )}
             {!cargando &&
               implementosFiltrados.map((item) => (

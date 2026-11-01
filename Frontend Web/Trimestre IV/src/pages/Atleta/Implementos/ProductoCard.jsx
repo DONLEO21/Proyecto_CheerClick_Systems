@@ -1,3 +1,5 @@
+import TallasChips from "../../../components/Tallas/TallasChips";
+
 export default function ProductoCard({ implemento, onSolicitar }) {
   const estrellas = Math.round(implemento.calificacion || 0);
 
@@ -14,6 +16,12 @@ export default function ProductoCard({ implemento, onSolicitar }) {
           ))}
           <span className="conteo-resenas">({implemento.resenas || 0})</span>
         </div>
+        {implemento.tallas?.length > 0 && (
+          <div className="producto-tallas">
+            <span className="producto-tallas-label">Tallas</span>
+            <TallasChips tallas={implemento.tallas} maximo={8} />
+          </div>
+        )}
         <p className="precio">${Number(implemento.precio).toLocaleString("es-CO")}</p>
         <button type="button" className="btn-solicitar" onClick={() => onSolicitar(implemento)}>
           Solicitar pedido
