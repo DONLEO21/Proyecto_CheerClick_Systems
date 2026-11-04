@@ -2,7 +2,10 @@ import { dbCreateMensualidad, dbDeleteMensualidad, dbGetMensualidad, dbGetMensua
 
 const CreateMensualidad = async (req, res) => {
     try {
+        const { _id } = req.userFound;
+
         const inputData = req.body;
+        inputData.createBy = _id;
 
         const data = await dbCreateMensualidad(inputData);
 

@@ -6,6 +6,8 @@ import pagosRouter from './routes/pagos.routes.js'; //EsModule
 import mensualidadRouter from './routes/mensualidades.routes.js'
 import PlanAsociadoRouter from './routes/planAsociado.routes.js';
 import MetodoPagoRouter from './routes/metodosPago.routes.js';
+import usuariosRoute from './routes/usuarios.routes.js'
+import authRoute from './routes/auth.routes.js'
 
 const port= process.env.PORT || 3001;
 
@@ -26,6 +28,10 @@ app.use( '/api/pagos' , pagosRouter );
 app.use( '/api/mensualidades', mensualidadRouter);
 app.use( '/api/plan-asociado', PlanAsociadoRouter);
 app.use( '/api/metodo-pago', MetodoPagoRouter);
+
+//Enlazar todas las rutas de la aplicacion 
+app.use( '/api/usuarios' , usuariosRoute );
+app.use('/api/auth', authRoute);
 
 //Iniciar servidor 
 app.listen(port, () => {
