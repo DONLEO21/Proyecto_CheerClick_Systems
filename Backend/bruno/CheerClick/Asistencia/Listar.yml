@@ -1,0 +1,19 @@
+info:
+  name: "Listar "
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:3000/api/asistencia
+  headers:
+    - name: X-token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YWViNjAyYTExYmRmNDZkN2Y0OTkyZjIiLCJub21icmUiOiJMZW8iLCJhcGVsbGlkbyI6Ik1vcmFsZXMiLCJlbWFpbCI6Ikxlb0BnbWFpbC5jb20iLCJyb2wiOiJBdGxldGEiLCJzdGF0dXMiOnRydWUsImlhdCI6MTc5MzgyODEwMiwiZXhwIjoxNzkzODQ2MTAyfQ.atjq2JaFskDRu8y1P3AilLSMBI7SKRcl35GssTSBkWA
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

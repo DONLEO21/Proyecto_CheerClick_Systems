@@ -1,0 +1,27 @@
+info:
+  name: Registrar asistencia
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/asistencia
+  headers:
+    - name: X-token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YWViYTZkOTQ5NGRlZDViNDRjZTIyOGUiLCJub21icmUiOiJMZW9vIiwiYXBlbGxpZG8iOiJNb3JhbGVzIiwiZW1haWwiOiJMZW9vQGdtYWlsLmNvbSIsInJvbCI6IkFkbWluaXN0cmFkb3IiLCJzdGF0dXMiOnRydWUsImlhdCI6MTc5MzgyODU3NywiZXhwIjoxNzkzODQ2NTc3fQ.wJX3_26YAB3hzf5Ztu2FaeJtoWh8j2PNk6HhwN9bAmg
+  body:
+    type: json
+    data: |-
+      {
+        "tipoNovedad": "Inasistencia",
+        "usuario": "6aeaacfcf8a965c39d88a37c",
+        "horario": "6ad78df0f04d94df62fbd799"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

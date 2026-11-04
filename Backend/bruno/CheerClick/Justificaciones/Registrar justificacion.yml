@@ -1,0 +1,27 @@
+info:
+  name: Registrar justificacion
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/justificacion
+  headers:
+    - name: X-token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YWViNjAyYTExYmRmNDZkN2Y0OTkyZjIiLCJub21icmUiOiJMZW8iLCJhcGVsbGlkbyI6Ik1vcmFsZXMiLCJlbWFpbCI6Ikxlb0BnbWFpbC5jb20iLCJyb2wiOiJBdGxldGEiLCJzdGF0dXMiOnRydWUsImlhdCI6MTc5MzgyODk1NSwiZXhwIjoxNzkzODQ2OTU1fQ.b7fUwTgY7GJ8Pv7IcSS7lRm0mFS-nzP3s2R7EoVPeMU
+  body:
+    type: json
+    data: |-
+      {
+        "motivo": "Cita médica",
+        "asistencia": "6aeba6ee494ded5b44ce228f",
+        "archivo": "uploads/incapacidad.pdf"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
