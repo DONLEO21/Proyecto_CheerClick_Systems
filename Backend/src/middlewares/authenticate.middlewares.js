@@ -4,8 +4,6 @@ import { dbGetUserByEmail } from "../services/usuarios.services.js";
 const authMiddleware = async (req, res, next) => {
    const token = req.header('X-Token')
 
-    const msg =  'hola soy el Middleware de Autenticaticon';
-
     console.log('token:', token);
 
     if ( ! token ) {
