@@ -35,7 +35,7 @@ const createUsuario = async (req, res) => {
         const userFound = req.userFound
 
         // Usa un operador ternario para asignar el valor de _id a la variable id, o null si no existe 
-        const id = userFound._id ? userFound._id : null;
+        const id = userFound?._id ? userFound._id : null;
 
         // Extrae los datos del cuerpo de la peticion
         const usuario = req.body;
