@@ -1,0 +1,26 @@
+info:
+  name: Actualizar contacto de emergencia
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/contactoEmergencia/6ad6488db4ebffcb1fe741d6
+  body:
+    type: json
+    data: |-
+      {
+        "parentesco": "Tutor",
+          "nombre": "Caila",
+          "apellido": "Rodriguez",
+          "telefono": "032240",
+          "principal" : false
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

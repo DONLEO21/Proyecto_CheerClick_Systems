@@ -1,0 +1,26 @@
+info:
+  name: Registro Publico Usuario
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/auth/register
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Leo",
+        "apellido": "Morales",
+        "email": "Leo@gmail.com",
+        "contrasena": "012345",
+        "rol": "Atleta"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

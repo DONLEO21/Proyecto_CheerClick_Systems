@@ -1,0 +1,7 @@
+info:
+  name: Eps
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

@@ -1,0 +1,26 @@
+info:
+  name: Crear contacto de emergencia
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/contactoEmergencia
+  body:
+    type: json
+    data: |-
+      {
+        "parentesco": "Madre",
+          "nombre": "Maria",
+          "apellido": "Perez",
+          "telefono": "0322510",
+          "principal": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

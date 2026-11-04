@@ -1,0 +1,16 @@
+info:
+  name: Eliminar contacto de emergencia
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/contactoEmergencia/6ad6488db4ebffcb1fe741d6
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "contributors": [
+    "Karen Tatiana Martinez Gonzales <ktatimartinez03@gmail.com>",
+    "Amy Lee Aroca Español <amyleeespanol@gmail.com>",
+    "Juan Sebastian Serrano Luis <juansebastianserrano2008@gmail.com>"
+  ],
+  "description": "Rest API para CheerClick Systems",
+  "keywords": [
+    "node",
+    "express",
+    "multer",
+    "mongose",
+    "borypt",
+    "jwt"
+  ],
+  "license": "ISC",
+  "author": "Leonardo Jara Molina <jaramolinaleonardo@gmail.com>",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --env-file .env --watch src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.1"
+  }
+}
