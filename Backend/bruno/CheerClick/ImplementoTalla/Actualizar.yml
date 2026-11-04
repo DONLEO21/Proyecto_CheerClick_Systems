@@ -1,0 +1,19 @@
+info:
+  name: Actualizar
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/implementoTalla/6adaa3889a7961f1180b8daf
+  body:
+    type: json
+    data: '{ "stock": 25 }'
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

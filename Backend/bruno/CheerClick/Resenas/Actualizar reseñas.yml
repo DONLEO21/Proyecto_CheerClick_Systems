@@ -1,0 +1,19 @@
+info:
+  name: Actualizar reseñas
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/resena/6adc13712e0a939fed5e88a6
+  body:
+    type: json
+    data: '{ "estrella": 5, "comentario": "Excelente calidad" }'
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

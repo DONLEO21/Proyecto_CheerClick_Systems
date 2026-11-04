@@ -1,0 +1,16 @@
+info:
+  name: Eliminar implemento
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/implementos/6ada85be6c1a2d9915d0dd75
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

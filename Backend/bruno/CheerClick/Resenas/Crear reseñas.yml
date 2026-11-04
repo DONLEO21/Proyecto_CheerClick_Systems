@@ -1,0 +1,24 @@
+info:
+  name: Crear reseñas
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/resena
+  body:
+    type: json
+    data: |-
+      {
+        "estrella": 4.5,
+        "comentario": "El uniforme llegó en buen estado",
+        "solicitud": "6adc111f2e0a939fed5e88a3"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

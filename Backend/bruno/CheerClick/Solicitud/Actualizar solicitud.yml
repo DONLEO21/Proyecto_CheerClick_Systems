@@ -1,0 +1,19 @@
+info:
+  name: Actualizar solicitud
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/solicitud/6adc111f2e0a939fed5e88a3
+  body:
+    type: json
+    data: '{ "condicion": "Entregada" }'
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

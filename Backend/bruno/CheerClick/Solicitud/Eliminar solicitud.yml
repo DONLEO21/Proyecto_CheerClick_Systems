@@ -1,0 +1,16 @@
+info:
+  name: Eliminar solicitud
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/solicitud/6adc105d2988c440a39a5494
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

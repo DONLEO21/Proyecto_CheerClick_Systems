@@ -1,0 +1,19 @@
+info:
+  name: Actualizar
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/solicitudImplementos/6adc11e02e0a939fed5e88a4
+  body:
+    type: json
+    data: '{ "cantidad": 3 }'
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

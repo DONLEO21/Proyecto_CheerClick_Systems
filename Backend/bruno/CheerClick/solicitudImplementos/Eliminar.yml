@@ -1,0 +1,16 @@
+info:
+  name: Eliminar
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/solicitudImplementos/6adc11e02e0a939fed5e88a4
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

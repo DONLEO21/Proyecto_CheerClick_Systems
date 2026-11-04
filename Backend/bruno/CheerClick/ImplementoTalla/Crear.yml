@@ -1,0 +1,25 @@
+info:
+  name: "Crear "
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/implementoTalla
+  body:
+    type: json
+    data: |-
+      {
+        "implemento": "6adaa1f19a7961f1180b8dad",
+        "grupo": "Ninas",
+        "talla": "8",
+        "stock": 10
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

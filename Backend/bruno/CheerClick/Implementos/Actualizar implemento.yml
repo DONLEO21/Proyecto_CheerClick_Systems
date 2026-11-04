@@ -1,0 +1,23 @@
+info:
+  name: Actualizar implemento
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/implementos/6ada85be6c1a2d9915d0dd75
+  body:
+    type: json
+    data: |-
+      {
+        "precio": 200000,
+        "estado": "Inactivo"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

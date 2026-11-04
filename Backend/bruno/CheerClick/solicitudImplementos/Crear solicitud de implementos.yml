@@ -1,0 +1,27 @@
+info:
+  name: Crear solicitud de implementos
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/solicitudImplementos
+  body:
+    type: json
+    data: |-
+      {
+        "solicitud": "6adc111f2e0a939fed5e88a3",
+        "implemento": "6adaa1f19a7961f1180b8dad",
+        "grupo": "Ninas",
+        "talla": "8",
+        "cantidad": 2,
+        "precioUnitario": 180000
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
