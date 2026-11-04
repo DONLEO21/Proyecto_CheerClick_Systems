@@ -1,0 +1,27 @@
+info:
+  name: Actualizar parcialmente las propiedades de los pagos
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/pagos/6ad6c856b03f61d02cfaced3
+  body:
+    type: json
+    data: |-
+      {
+        "estado" : "Vencido",
+        "valorTotal" : 250000,
+        "fechaGenera" : "2026-10-02",
+        "responsableRegis": "Sebastian Serrano",
+        "fechaPago" : "2026-10-18",
+        "observaciones" : "Se pago la totalidad de la mensualidad"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

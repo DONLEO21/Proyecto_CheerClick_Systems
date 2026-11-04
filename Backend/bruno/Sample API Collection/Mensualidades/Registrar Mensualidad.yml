@@ -1,0 +1,27 @@
+info:
+  name: Registrar Mensualidad
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/api/mensualidades
+  body:
+    type: json
+    data: |+
+      {
+            "fechaGeneracion": "2026-10-02",
+            "fechaVencimiento": "2026-10-12",
+            "valor": 150000,
+            "numReferencia": "M-48274294",
+        "planAsociado": "6ad646e514498fbcc3521032"
+      }
+
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

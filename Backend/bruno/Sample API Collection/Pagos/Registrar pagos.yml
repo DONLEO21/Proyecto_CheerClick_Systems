@@ -1,0 +1,26 @@
+info:
+  name: Registrar pagos
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/pagos
+  body:
+    type: json
+    data: |-
+      {
+        "estado" : "Venciddoo",
+        "fechaGenera" : "2026-10-02",
+        "fechaPago" : "2026-10-18",
+        "observaciones" : "Se pago la totalidad de la mensualidad",
+        "metodoPago": "6ad79d62100ccd00b444e11e"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,7 @@
+info:
+  name: Mensualidades
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit

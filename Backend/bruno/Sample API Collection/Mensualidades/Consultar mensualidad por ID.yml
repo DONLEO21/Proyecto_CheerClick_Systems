@@ -1,0 +1,16 @@
+info:
+  name: Consultar mensualidad por ID
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://localhost:3000/api/mensualidades/6ad116582b8d291c0a557358
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

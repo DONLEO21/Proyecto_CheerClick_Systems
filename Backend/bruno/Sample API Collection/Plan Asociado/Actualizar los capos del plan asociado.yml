@@ -1,0 +1,24 @@
+info:
+  name: Actualizar los capos del plan asociado
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/plan-asociado/6ad646e514498fbcc3521032
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Red",
+        "valor": 180000,
+        "estado": "Activo"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

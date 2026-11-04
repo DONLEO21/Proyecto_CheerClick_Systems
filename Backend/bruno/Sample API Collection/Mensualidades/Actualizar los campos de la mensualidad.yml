@@ -1,0 +1,25 @@
+info:
+  name: Actualizar los campos de la mensualidad
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/mensualidades/6ad116582b8d291c0a557358
+  body:
+    type: json
+    data: |-
+      {
+            "fechaGeneracion": "2026-08-01",
+            "fechaVencimiento": "2026-09-16",
+            "valor": 110000,
+            "numReferencia": "M-5472959"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
