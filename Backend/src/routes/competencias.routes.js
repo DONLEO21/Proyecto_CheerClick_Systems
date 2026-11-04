@@ -10,7 +10,7 @@ const router = Router();
 // Atleta: solo las ACTIVAS de su nivel
 router.get('/', [authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getCompetencia);
 
-// UNA competencia por id (el controlador valida que el Atleta solo vea las activas de su nivel)
+// Una competencia por id (el controlador valida que el Atleta solo vea las activas de su nivel)
 router.get('/:id', [authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getCompetencias);
 
 // Crear competencia: solo el Administrador (elige el nivel en el formulario)

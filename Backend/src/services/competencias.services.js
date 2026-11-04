@@ -6,7 +6,7 @@ const dbCreateCompetencia = async (newCompetencia) => {
 }
 
 // LISTA las competencias según el rol del usuario
-// - Atleta: solo las ACTIVAS de SU nivel
+// - Atleta: solo las ACTIVAS de su nivel
 // - Administrador: todas las de todos los niveles (o las de un nivel si envía ?nivel=ID)
 const dbGetCompetencia = async (rol, nivel, nivelQuery) => {
     let filtro = {};

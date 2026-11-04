@@ -12,7 +12,7 @@ const authorizationMiddleware = ( allowedRoles) => {
     // Paso 2: Verificar si el rol del usuario se encuentra en la lista de roles permitidos.... para esta ruta
 
     if ( ! allowedRoles.includes (rol)){
-        return res.status(403).json({msg: `Error: el rol ${rol} no esta autorizao para realizar esta accion`});
+        return res.status(403).json({msg: `Error: el rol ${rol} no esta autorizado para realizar esta accion`});
     }
     console.log(`Usuario autorizado con el rol ${rol}`)
      next();
