@@ -33,11 +33,6 @@ const usuarioSchema = new Schema({
         ref : 'usuario',
         required: false
     },
-    eps : {
-        type : Schema.Types.ObjectId,
-        ref : 'eps',
-        required: [false, 'La EPS es obligatoria']
-    },
     status : {
         type: Boolean,
         default: true,
