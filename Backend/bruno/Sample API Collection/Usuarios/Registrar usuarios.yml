@@ -1,0 +1,27 @@
+info:
+  name: Registrar usuarios
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/usuarios
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Andrés Felipe",
+        "apellido": "Gómez",
+        "email": "andres.admin@email.com",
+        "contrasena": "AdminSecure99!",
+        "rol": "Administrador",
+        "status": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

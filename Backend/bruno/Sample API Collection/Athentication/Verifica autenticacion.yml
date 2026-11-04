@@ -1,0 +1,29 @@
+info:
+  name: Verifica autenticacion
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: http://localhost:3000/api/auth/renew-token
+  headers:
+    - name: X-Token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YWUzNmMzMmFkMGZiNDJiODdkZDUzODYiLCJub21icmUiOiJMZW9uYXJkbyIsImFwZWxsaWRvIjoiTW9yYWxlcyIsImVtYWlsIjoiTGVvbmFyZG9AZ21haWwuY29tIiwicm9sIjoiQXRsZXRhIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE3OTMyODk5MzQsImV4cCI6MTc5MzMwNzkzNH0.MnSYoGk4XMf7S_h692VggdG3awz69GI6o7eSR5eafBA
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Leo",
+        "apellido": "Morales",
+        "email": "Leo@gmail.com",
+        "contrasena": "012345",
+        "rol": "Atleta"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

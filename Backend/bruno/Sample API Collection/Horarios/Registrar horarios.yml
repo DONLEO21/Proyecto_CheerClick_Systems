@@ -10,14 +10,15 @@ http:
     type: json
     data: |
       {
-      "fecha": "",
+      "fecha": "2026-10-27",
       "enfoque": "Practicar Futbol para el torneo",
       "lugar": "Liga BTC",
       "notasIndicaciones": "Llevar agua",
       "estado": "Activo",
       "tipo": "Parther",
       "franjaInicio": "6:00",
-      "franjaFin": "8:00"
+      "franjaFin": "8:00",
+      "nivel": "6ad646d69c4593abe958c652"
       }
   auth: inherit
 
