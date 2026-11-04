@@ -1,0 +1,25 @@
+info:
+  name: Crear rendimineto
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3000/api/rendimiento
+  body:
+    type: json
+    data: |-
+      {
+        "asistencia": "665f1a2b3c4d5e6f7a8b9c0d",
+        "habilidad": "665f1a2b3c4d5e6f7a8b9c0e",
+        "calificacion": true,
+        "observaciones": "Buena ejecución del salto"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

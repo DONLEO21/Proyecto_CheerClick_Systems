@@ -1,0 +1,22 @@
+info:
+  name: Actualizar rendimiento
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/rendimiento/6add2f384204d5fa0c3e281d
+  body:
+    type: json
+    data: |-
+      {
+        "calificacion" : true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
