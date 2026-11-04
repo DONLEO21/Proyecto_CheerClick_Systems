@@ -13,14 +13,19 @@ const NivelSchema = new Schema({
         min: 0
     },
     imagenEntre: {
-        type: String, // En MongoDB/Mongoose lo común es guardar la URL o ruta de la imagen en lugar de un BLOB binario
+        type: String, 
         required: false
     },
     estado: {
-        type: String, // ¡Importante para que el enum funcione correctamente!
-        enum: ['Activo', 'Inactivo'], // Ajusta los valores según los que uses en tu base de datos
+        type: String, 
+        enum: ['Activo', 'Inactivo'],
         required: true,
         default: 'Activo'
+    },
+    usuario : {
+        type: Schema.Types.ObjectId,
+        ref: 'usuario',
+        required: true
     }
 }, 
 {

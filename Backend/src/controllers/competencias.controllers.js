@@ -1,8 +1,6 @@
-import { dbCreateCompetencia, dbDeleteCompetencia, dbGetCompetencia, dbUpdateCompetencia, dbGetCompetencias } from "../services/competencias.services.js";
+import { dbCreateCompetencia, dbGetCompetencia, dbUpdateCompetencia, dbGetCompetencias } from "../services/competencias.services.js";
 
 // LISTA las competencias según el rol del usuario
-// - Administrador: todas las de todos los niveles (o las de un nivel con ?nivel=ID)
-// - Atleta: solo las ACTIVAS de SU nivel
 const getCompetencia = async (req, res) => {
     try {
         // Rol y nivel del usuario autenticado (los deja el authMiddleware en req.userFound)
@@ -65,29 +63,6 @@ const createCompetencia = async (req, res) => {
     }
 }
 
-const deleteCompetencia = async (req, res) => {
-    const id = req.params.id;
-    const user_id = req.userFound._id;
-    try {
-        const data = await dbDeleteCompetencia(id);
-
-        // Si no existe una competencia con ese id
-        if (!data) {
-            return res.status(404).json({ msg: 'Competencia no encontrada' });
-        }
-
-        res.json({ msg: 'Elimina una competencia', data: data, deleteBy: user_id });
-
-    } catch (error) {
-        console.error(error);
-        console.log('ID', id);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({ msg: `El ID debe tener 24 caracteres y el enviado tiene ${id.length}`, [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB` });
-        }
-        res.status(500).json({ msg: "No se pudo eliminar la competencia" });
-    }
-}
 
 const updateCompetencia = async (req, res) => {
     const id = req.params.id;
@@ -142,7 +117,7 @@ const updateCompetencia = async (req, res) => {
 
 // Obtiene UNA competencia por id
 // - Administrador: puede ver cualquiera
-// - Atleta: solo si esta ACTIVA y es de SU nivel
+// - Atleta: solo si esta ACTIVA y es de su nivel
 const getCompetencias = async (req, res) => {
     const id = req.params.id;
     try {
@@ -155,7 +130,7 @@ const getCompetencias = async (req, res) => {
             return res.status(404).json({ msg: 'Competencia no encontrada' });
         }
 
-        // El Atleta solo puede ver competencias ACTIVAS de SU nivel
+        // El Atleta solo puede ver competencias ACTIVAS de su nivel
         if (rol === 'Atleta' && (data.estado !== 'Activo' || !data.nivel.equals(nivel))) {
             return res.status(403).json({ msg: 'No tienes acceso a esta competencia' });
         }
@@ -176,7 +151,6 @@ const getCompetencias = async (req, res) => {
 export {
     getCompetencia,
     createCompetencia,
-    deleteCompetencia,
     updateCompetencia,
     getCompetencias
 }

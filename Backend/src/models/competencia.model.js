@@ -42,7 +42,8 @@ const CompetenciaSchema = new Schema ({
   },
   estado: {
     type: String,
-    enum: ['Activo', 'Inhabilitado'],
+    // CAMBIO: 'Inhabilitado' pasa a 'Inactivo', igual que en niveles
+    enum: ['Activo', 'Inactivo'],
     default: 'Activo',
     required: true
   },
@@ -50,6 +51,10 @@ const CompetenciaSchema = new Schema ({
       type: Schema.Types.ObjectId,
       ref: 'Nivel',          // debe coincidir con el nombre de tu modelo de niveles
       required: true
+    },
+  createBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'usuario'        
     }
 }, {
     timestamps: true,                 // Agrega los campos CreateAt, updateAt automaticamente (los actualiza automaticamente)

@@ -1,37 +1,35 @@
-import Plantilla_horarioModel from "../models/plantilla_horario.model.js"
+import Plantilla_horarioModel from "../models/plantilla_horario.model.js";
 
 const dbCreatePlantilla_horario = async (newPlantilla_horario) => {
-    return await Plantilla_horarioModel.create(newPlantilla_horario);  // Registrar en la base de datos
+    return await Plantilla_horarioModel.create(newPlantilla_horario);
 }
 
-const dbGetPlantilla_horario = async () => {
-   return await Plantilla_horarioModel.find().populate('nivel');     // Consultar todas las plantillas de horarios
+// CAMBIO: ahora se puede filtrar por nivel -> /plantilla_horarios?nivel=ID
+const dbGetPlantilla_horario = async (query = {}) => {
+    const filter = {};
+    if (query.nivel) filter.nivel = query.nivel;
+    return await Plantilla_horarioModel.find(filter).populate('nivel');
 }
 
 const dbDeletePlantilla_horario = async (id) => {
-    //   return await Plantilla_horarioModel.findByIdAndDelete(id);
-
-    return await Plantilla_horarioModel.findOneAndDelete({ _id: id});
-
+    return await Plantilla_horarioModel.findOneAndDelete({ _id: id });
 }
 
-const dbUpdatePlantilla_horario = async (id, plantilla_horarioUpdate) => {
-    // return await Plantilla_horarioModel.findByIdAndUpdate(
-    //     id,                           // El ID del Documento que deseamos actualizar 
-    //     plantilla_horarioUpdate,       // EL objeto con los datos del Documento que deseamos actualizar 
-    //     {new: true}
+// CAMBIO: se usa findById + save() para que el validador de horaFin funcione
+const dbUpdatePlantilla_horario = async (id, data) => {
+    const doc = await Plantilla_horarioModel.findById(id);
+    if (!doc) return null;
 
-       return await Plantilla_horarioModel.findOneAndUpdate(
-        { _id: id} ,                           // El ID del Documento que deseamos actualizar 
-        plantilla_horarioUpdate,       // EL objeto con los datos del Documento que deseamos actualizar 
-        {new: true}
-    );
+    doc.set(data);
+
+    // Si solo cambian horaInicio, forzamos la comparación con horaFin
+    if (data.horaInicio && !data.horaFin) doc.markModified('horaFin');
+
+    return await doc.save();
 }
 
 const dbGetPlantilla_horarios = async (id) => {
-    // return await Plantilla_horarioModel.findById(id);
-    
-    return await Plantilla_horarioModel.findOne({ _id: id}).populate('nivel');
+    return await Plantilla_horarioModel.findOne({ _id: id }).populate('nivel');
 }
 
 export {

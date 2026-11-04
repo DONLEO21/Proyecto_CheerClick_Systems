@@ -1,6 +1,5 @@
 import CompetenciaModel from "../models/competencia.model.js";
 
-// Crea una competencia (el controlador ya agrega createBy y el nivel elegido en el formulario)
 const dbCreateCompetencia = async (newCompetencia) => {
     return await CompetenciaModel.create(newCompetencia);
 }
@@ -22,12 +21,8 @@ const dbGetCompetencia = async (rol, nivel, nivelQuery) => {
         .populate('nivel', 'nombre');    // Trae el nombre del nivel en lugar de solo el ID
 }
 
-// Elimina una competencia por id
-const dbDeleteCompetencia = async (id) => {
-    return await CompetenciaModel.findOneAndDelete({ _id: id });
-}
-
 // Actualiza una competencia por id
+// CAMBIO: aquí también se inhabilita: PATCH con { "estado": "Inactivo" } (ya no existe DELETE)
 // runValidators: aplica las validaciones del modelo (enum, maxlength, etc.) también al actualizar
 const dbUpdateCompetencia = async (id, competenciaUpdate) => {
     return await CompetenciaModel.findOneAndUpdate(
@@ -37,8 +32,6 @@ const dbUpdateCompetencia = async (id, competenciaUpdate) => {
     );
 }
 
-// Obtiene UNA competencia por id
-// No se hace populate de 'nivel' a propósito: el controlador compara data.nivel con el nivel del atleta
 const dbGetCompetencias = async (id) => {
     return await CompetenciaModel.findOne({ _id: id });
 }
@@ -46,7 +39,6 @@ const dbGetCompetencias = async (id) => {
 export {
     dbGetCompetencia,
     dbCreateCompetencia,
-    dbDeleteCompetencia,
     dbUpdateCompetencia,
     dbGetCompetencias
 }

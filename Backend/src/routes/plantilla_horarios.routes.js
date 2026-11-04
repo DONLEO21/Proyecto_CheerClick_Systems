@@ -5,10 +5,6 @@ import { authorizationMiddleware } from "../middlewares/authorizationMiddleware.
 
 const router = Router(); // Crear una instancia de las rutas de express
 
-// Define las rutas para la plantilla_hoarios
-
-
-
 router.get('/', [authMiddleware, authorizationMiddleware(['Administrador', 'Atleta', 'Entrenador'])], getPlantillahorario);
 router.post('/', [authMiddleware, authorizationMiddleware(['Administrador'])], createPlantillahorario);
 // router.put('/', updatePlantillahorarioPut);
