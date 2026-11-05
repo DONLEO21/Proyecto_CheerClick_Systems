@@ -1,20 +1,22 @@
 import { Router } from 'express';
 import { createPago, deletePago, getPago, getPagos, updatePagoPatch } from '../controllers/pagos.controllers.js';
+import { authMiddleware } from "../middlewares/authenticate.middlewares.js";
+import { authorizationMiddleware } from "../middlewares/authorizationMiddleware.middlewares.js";
 
 const router = Router();
 
 //Obtener todos los pagos
-router.get('/', getPagos);
+router.get('/',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getPagos);
 
-router.get('/:id' , getPago)
+router.get('/:id' ,[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])],  getPago)
 
 //Regitrar nuevos pagos
-router.post('/', createPago);
+router.post('/', [authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], createPago);
 
 //Actualizar los pagos parcialmente
-router.patch('/:id', updatePagoPatch)
+router.patch('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], updatePagoPatch)
 
 //Eliminar pago
-router.delete('/:id', deletePago)
+router.delete('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], deletePago)
 
 export default router;
