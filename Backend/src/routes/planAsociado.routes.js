@@ -1,17 +1,19 @@
 import { Router } from 'express';
 import { CreatePlanAsociado, DeletePlanAsociado, GetPlanAsociado, GetPlanesAsociados, UpdatePlanAsociado } from '../controllers/planAsociado.controllers.js';
+import { authMiddleware } from "../middlewares/authenticate.middlewares.js";
+import { authorizationMiddleware } from "../middlewares/authorizationMiddleware.middlewares.js";
 
 const router = Router();
 
-router.get('/', GetPlanAsociado);
+router.get('/',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], GetPlanAsociado);
 
-router.get('/:id',GetPlanesAsociados );
+router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], GetPlanesAsociados );
 
-router.post('/', CreatePlanAsociado);
+router.post('/',[authMiddleware, authorizationMiddleware(['Administrador'])], CreatePlanAsociado);
 
-router.delete('/:id',DeletePlanAsociado)
+router.delete('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], DeletePlanAsociado)
 
-router.patch( '/:id', UpdatePlanAsociado)
+router.patch( '/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], UpdatePlanAsociado)
 
 
 export default router;
