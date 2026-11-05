@@ -1,4 +1,4 @@
-import { dbCreateResena, dbDeleteResena, dbGetResena, dbUpdateResena } from "../services/resena.services.js";
+import { dbCreateResena, dbGetResena, dbUpdateResena } from "../services/resena.services.js";
 
 const createResena = async (req, res) => {
     try {
@@ -100,37 +100,8 @@ const updateResena = async (req, res) => {
     }
 }
 
-const deleteResena = async (req, res) => {
-    try {
-        const id = req.params.id;
-
-        const data = await dbDeleteResena(id);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró la reseña' });
-        }
-
-        res.status(200).json({
-            msg: 'Eliminar reseña',
-            data: data
-        });
-    }
-    catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({ msg: 'Error en el formato del ID', [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB` });
-        }
-
-        res.status(500).json({
-            msg: 'No se ha podido eliminar la reseña'
-        })
-    }
-}
-
 export {
     createResena,
     getResena,
-    updateResena,
-    deleteResena
+    updateResena
 }

@@ -17,7 +17,7 @@ const app = express();
 
 conexion();  
 
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 
 app.get('/health', (req, res) => {
     res.status(200).json({msg : 'Servidor de CheerClick esta funcionando!'})

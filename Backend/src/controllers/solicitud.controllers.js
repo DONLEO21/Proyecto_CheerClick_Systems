@@ -1,4 +1,4 @@
-import { dbCreateSolicitud, dbDeleteSolicitud, dbGetSolicitud, dbUpdateSolicitud } from "../services/solicitud.services.js";
+import { dbCreateSolicitud, dbGetSolicitud, dbUpdateSolicitud } from "../services/solicitud.services.js";
 
 const createSolicitud = async (req, res) => {
     try {
@@ -102,37 +102,8 @@ const updateSolicitud = async (req, res) => {
     }
 }
 
-const deleteSolicitud = async (req, res) => {
-    try {
-        const id = req.params.id;
-
-        const data = await dbDeleteSolicitud(id);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró la solicitud' });
-        }
-
-        res.status(200).json({
-            msg: 'Eliminar solicitud',
-            data: data
-        });
-    }
-    catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({ msg: 'Error en el formato del ID', [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB` });
-        }
-
-        res.status(500).json({
-            msg: 'No se ha podido eliminar la solicitud'
-        })
-    }
-}
-
 export {
     createSolicitud,
     getSolicitud,
-    updateSolicitud,
-    deleteSolicitud
+    updateSolicitud
 }

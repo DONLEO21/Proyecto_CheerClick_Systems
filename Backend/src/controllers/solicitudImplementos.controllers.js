@@ -1,4 +1,4 @@
-import { dbCreateSolicitudImplementos, dbDeleteSolicitudImplementos, dbGetSolicitudImplementos, dbUpdateSolicitudImplementos } from "../services/solicitudImplementos.services.js";
+import { dbCreateSolicitudImplementos, dbGetSolicitudImplementos, dbUpdateSolicitudImplementos } from "../services/solicitudImplementos.services.js";
 
 const createSolicitudImplementos = async (req, res) => {
     try {
@@ -103,37 +103,8 @@ const updateSolicitudImplementos = async (req, res) => {
     }
 }
 
-const deleteSolicitudImplementos = async (req, res) => {
-    try {
-        const id = req.params.id;
-
-        const data = await dbDeleteSolicitudImplementos(id);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró el implemento de solicitud' });
-        }
-
-        res.status(200).json({
-            msg: 'Eliminar implemento de solicitud',
-            data: data
-        });
-    }
-    catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({ msg: 'Error en el formato del ID', [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB` });
-        }
-
-        res.status(500).json({
-            msg: 'No se ha podido eliminar el implemento de solicitud'
-        })
-    }
-}
-
 export {
     createSolicitudImplementos,
     getSolicitudImplementos,
-    updateSolicitudImplementos,
-    deleteSolicitudImplementos
+    updateSolicitudImplementos
 }
