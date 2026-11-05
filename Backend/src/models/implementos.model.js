@@ -8,6 +8,11 @@ const implementoSchema = new Schema(
       trim: true,
       unique: [true, "El nombre del implemento ya se encuentra registrado"],
     },
+    genero: {
+      type: String,
+      enum: ["Femenino", "Masculino", "Unisex"],
+      default: "Unisex",
+    },
     categoria: {
       type: String,
       enum: ["Ropa", "Calzado", "Accesorios"],
@@ -15,8 +20,8 @@ const implementoSchema = new Schema(
     },
     estado: {
       type: String,
-      enum: ["Activo", "Inactivo"],
-      default: "Activo",
+      enum: ["Disponible", "No Disponible"],
+      default: "Disponible",
     },
     precio: {
       type: Number,
@@ -26,7 +31,7 @@ const implementoSchema = new Schema(
     imagen: {
       type: String, 
       required: [true, "La imagen es obligatoria"],
-      trim: true,
+      trim: true
     },
     createdBy: {
       type: Schema.Types.ObjectId,

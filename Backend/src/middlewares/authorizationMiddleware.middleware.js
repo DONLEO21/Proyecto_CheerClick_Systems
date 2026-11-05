@@ -17,11 +17,7 @@ const authorizationMiddleware = ( allowedRoles) => {
     console.log(`Usuario autorizado con el rol ${rol}`)
      next();
     }
-
-
     
-
-
 }
 export {
     authorizationMiddleware

@@ -9,14 +9,20 @@ const solicitudeSchema = new Schema(
     },
     condicion: {
       type: String,
-      enum: ["Pendiente", "Aprobado", "Entregada", "Cancelada", "Rechazada"],
+      enum: ["Pendiente", "Aprobado", "Entregado", "Cancelado", "Rechazado"],
       default: "Pendiente",
+    },
+    motivoRechazo: {
+      type: String,
+      trim: true,
+      default: "",
     },
     pago: {
       type: Schema.Types.ObjectId,
       ref: "pagos",
       required: [true, "El pago es obligatorio"],
       unique: true,
+      sparce: true
     },
     usuario: {
       type: Schema.Types.ObjectId,

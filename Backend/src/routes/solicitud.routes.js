@@ -7,6 +7,6 @@ const router = Router();
 
 router.post('/', [authMiddleware, authorizationMiddleware(['Atleta'])], createSolicitud);
 router.get('/', [authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getSolicitud);
-router.patch('/:id', [authMiddleware, authorizationMiddleware(['Atleta'])], updateSolicitud);
+router.patch('/:id', [authMiddleware, authorizationMiddleware(['Atleta', 'Administrador'])], updateSolicitud);
 
 export default router;
