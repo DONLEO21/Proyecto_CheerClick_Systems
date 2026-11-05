@@ -1,9 +1,11 @@
 import { dbCreateCompetencia, dbGetCompetencia, dbUpdateCompetencia, dbGetCompetencias } from "../services/competencias.services.js";
 
 // LISTA las competencias según el rol del usuario
+// - Administrador: todas las de todos los niveles (o las de un nivel con ?nivel=ID)
+// - Atleta: solo las ACTIVAS de su nivel
 const getCompetencia = async (req, res) => {
     try {
-        // Rol y nivel del usuario autenticado (los deja el authMiddleware en req.userFound)
+        // Rol y nivel del usuario autenticado 
         const { rol, nivel } = req.userFound;
 
         // Filtro opcional por query: GET /api/competencias?nivel=ID (solo aplica al Administrador)
@@ -125,7 +127,6 @@ const getCompetencias = async (req, res) => {
 
         const data = await dbGetCompetencias(id);
 
-        // Si no existe una competencia con ese id
         if (!data) {
             return res.status(404).json({ msg: 'Competencia no encontrada' });
         }

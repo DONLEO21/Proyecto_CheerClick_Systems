@@ -1,12 +1,22 @@
 import {Schema, model} from "mongoose"
 
 const PqrsSchema = new Schema({
+    numero: {
+      type: Number,
+      required: true,
+      unique: true
+    },
+    usuario: {
+      type: Schema.Types.ObjectId,
+      ref: 'usuario',          
+      required: true
+    },
+
     asunto: {
       type: String,
       required: true,
       maxlength: 50,
-      trim: true,
-      unique: true
+      trim: true
     },
 
     descripcion: {
@@ -21,16 +31,10 @@ const PqrsSchema = new Schema({
       required: true,
       default: Date.now
     },
-
     evidencia: {
-      type: Buffer,
+      type: String,
       default: null,
-      validate: {
-        validator: function (archivo) {
-          return !archivo || archivo.length <= 2 * 1024 * 1024;
-        },
-        message: 'La evidencia no puede superar los 2 MB.'
-      }
+      trim: true
     },
 
     tipo: {
@@ -44,7 +48,8 @@ const PqrsSchema = new Schema({
       ]
     },
 
-    estado: {
+    // CAMBIO: el trámite se llama "etapa" (el admin la cambia al responder)
+    etapa: {
       type: String,
       required: true,
       enum: ['Pendiente', 'En tramite', 'Resuelta'],
@@ -56,15 +61,25 @@ const PqrsSchema = new Schema({
       required: true,
       enum: ['Baja', 'Media', 'Alta'],
       default: 'Media'
+    },
+    estado: {
+      type: String,
+      enum: ['Activo', 'Inactivo'],
+      required: true,
+      default: 'Activo'
     }
 
 },
 {
     timestamps: true,
-    versionKey: false
-
+    versionKey: false,
+    id: false,
+    toJSON: { virtuals: true }   
 });
 
+PqrsSchema.virtual('radicado').get(function () {
+    return `PQ${String(this.numero).padStart(4, '0')}`;
+});
 
 const PqrsModel = model('Pqrs', PqrsSchema);
 

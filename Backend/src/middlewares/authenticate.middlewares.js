@@ -9,7 +9,7 @@ const authMiddleware = async (req, res, next) => {
     console.log('token:', token);
 
     if ( ! token ) {
-        res.status(401).json({msg: 'Cadena de token vacia'});
+        return res.status(401).json({msg: 'Cadena de token vacia'});
     }
 
     //Divide la cadena en partes usuando el (.) punto como referencia
@@ -18,13 +18,13 @@ const authMiddleware = async (req, res, next) => {
 
     // Verificar si la cadena tenga  parts separadas por puntos (Forma base de u token)
     if (tokenParts.length !== 3) {
-        res.json({msg: 'EL formato del token no es valido'});
-    } 
+        return res.status(401).json({msg: 'EL formato del token no es valido'});
+    }
 
     const payload = validateToken(token);
 
     if ( ! payload) {
-        res.json({msg: 'Token invalido o inactivo'});
+        return res.status(401).json({msg: 'Token invalido o inactivo'});
     }
 
     console.log('payload (Middleware): ', payload);
@@ -32,7 +32,7 @@ const authMiddleware = async (req, res, next) => {
     const userFound = await dbGetUserByEmail( payload.email );
 
     if ( !userFound) {
-        res.json({msg: 'El usuario no esta Activo o el usuario no esta registrado en el sistema'})
+        return res.status(401).json({msg: 'El usuario no esta Activo o el usuario no esta registrado en el sistema'});
     }
 
     req.userFound = userFound
