@@ -1,5 +1,16 @@
 import { dbCreateMensualidad, dbDeleteMensualidad, dbGetMensualidad, dbGetMensualidades, dbUpdateMensualidad } from "../services/mensualidades.services.js";
 
+const getFiltroPorRol = (user) => {
+    switch (user.rol) {
+        case 'Administrador':
+            return {};         
+        case 'Atleta':
+            return { usuario: user._id };  
+        default:
+            return null;                 
+    }
+};
+
 const CreateMensualidad = async (req, res) => {
     try {
         const { _id } = req.userFound;
@@ -29,7 +40,13 @@ const CreateMensualidad = async (req, res) => {
 
 const GetMensualidad = async (req, res) => {
     try {
-        const data = await dbGetMensualidad();
+        const filter = getFiltroPorRol(req.userFound);
+
+        if (filter === null) {
+            return res.status(403).json({ msg: 'No tienes permisos para consultar las mensualidades' });
+        }
+
+        const data = await dbGetMensualidad(filter);
 
         return res.status(200).json({ msg: 'Consultar todas las mensualidades', data: data });
     } catch (error) {
@@ -105,7 +122,13 @@ const GetMensualidades = async (req, res) => {
     const id = req.params.id;
 
     try {
-        const data = await dbGetMensualidades(id);
+        const filter = getFiltroPorRol(req.userFound);
+
+        if (filter === null) {
+            return res.status(403).json({ msg: 'No tienes permisos para consultar las mensualidades' });
+        }
+
+        const data = await dbGetMensualidades(id, filter);
 
         if (!data) {
             return res.status(404).json({ msg: 'No se encontró la mensualidad' });

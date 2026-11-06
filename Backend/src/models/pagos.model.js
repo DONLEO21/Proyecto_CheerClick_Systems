@@ -37,7 +37,12 @@ const PagosSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref : 'metodoPago',
         required: [true, 'El ID del pago es obligatorio']
-    }
+    },
+    usuario: {
+        type: Schema.Types.ObjectId,
+        ref: 'usuario',
+        required: [true, 'El ID del usuario es obligatorio']
+    },
 },
 //
 {

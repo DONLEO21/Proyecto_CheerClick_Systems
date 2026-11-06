@@ -32,8 +32,13 @@ const MensualidadSchema = new Schema(
             type:Schema.Types.ObjectId,
             ref: 'Pagos',
             required: [true, 'El ID de pagos es obligatorio']
-        }
         },
+        usuario: {
+            type: Schema.Types.ObjectId,
+            ref: 'usuario',
+            required: [true, 'El ID del usuario es obligatorio']
+        },
+},
   //Configuraciones de la estructura de datos 
 {
     timestamps : true,

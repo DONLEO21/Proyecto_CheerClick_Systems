@@ -14,9 +14,7 @@ router.get('/', [authMiddleware, authorizationMiddleware(['Administrador', 'Atle
 
 router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], GetMensualidades);
 
-// router.put('/', );
-
-router.patch('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], UpdateMensualidad );
+router.patch('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], UpdateMensualidad );
 
 router.delete('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], DeleteMensualidad );
 
