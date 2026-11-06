@@ -1,10 +1,27 @@
 import { dbDeletePago, dbgetPagos, dbInsertPago, dbReadPagos, dbUpdatePago } from "../services/pagos.services.js";
 
+const getFiltroPorRol = (user) => {
+    switch (user.rol) {
+        case 'Administrador':
+            return {};         
+        case 'Atleta':
+            return { usuario: user._id };  
+        default:
+            return null;                 
+    }
+};
+
 const getPagos = async (req, res) => {
     try {
-        const data = await dbReadPagos();
+        const filter = getFiltroPorRol(req.userFound);
 
-        return res.status(200).json({ msg: 'Consultar todos los pagos registrados', data: data });
+        if (filter === null) {
+            return res.status(403).json({ msg: 'No tienes permisos para consultar los pagos' });
+        }
+
+        const data = await dbReadPagos(filter);
+
+        return res.status(200).json({ msg: 'Consultar los pagos registrados', data: data });
     } catch (error) {
         console.error(error);
 
@@ -16,7 +33,13 @@ const getPago = async (req, res) => {
     const id = req.params.id;
 
     try {
-        const data = await dbgetPagos(id);
+        const filter = getFiltroPorRol(req.userFound);
+
+        if (filter === null) {
+            return res.status(403).json({ msg: 'No tienes permisos para consultar los pagos' });
+        }
+
+        const data = await dbgetPagos(id, filter);
 
         if (!data) {
             return res.status(404).json({ msg: 'No se encontró el pago' });

@@ -2,12 +2,13 @@ import {Schema, model} from "mongoose";
 
 //Parte 1: Definir la estructura de datos de mi documento
 
-const PagosSchema = new Schema(
+const PagosSchema = new Schema( 
     //Definicion de los campos de documento
     {
     estado : {
         type: String,
         enum: ['Pagado', 'Vencido', 'Pendiente'],    //Tipo de dato
+        default : 'Pendiente',
         required : [true, 'El estado del pago es obligatorio'],    //Regla: Es OBLIGATORIO
         trim: true   //Modificador : 
     },

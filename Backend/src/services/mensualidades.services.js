@@ -5,7 +5,7 @@ const dbCreateMensualidad = async ( newMensualidad ) => {
 }
 
 const dbGetMensualidad = async (filter) => {
-    return await MensualidadModel.find(filter).populate('planAsociado').populate('pago').populate('usuario');  //Consultar todas las mensualidades registradas 
+    return await MensualidadModel.find(filter).populate('planAsociado', 'nombre valor').populate('pago').populate('usuario','nombre apellido email');  //Consultar todas las mensualidades registradas 
 } 
 
 const dbDeleteMensualidad = async ( id ) => {
@@ -27,7 +27,7 @@ const dbGetMensualidades = async (id, filter = {}) => {
 export{
     dbCreateMensualidad,
     dbGetMensualidad,
-    dbDeleteMensualidad,
+    dbDeleteMensualidad, 
     dbUpdateMensualidad,
     dbGetMensualidades
 }
