@@ -6,6 +6,13 @@ info:
 http:
   method: POST
   url: http://localhost:3000/api/auth/login
+  body:
+    type: json
+    data: |-
+      {
+        "email": "Ronald@gmail.com",
+        "contrasena" : "012345"
+      }
   auth: inherit
 
 settings:

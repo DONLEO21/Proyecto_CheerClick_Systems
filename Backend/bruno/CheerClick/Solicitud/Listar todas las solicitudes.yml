@@ -6,6 +6,9 @@ info:
 http:
   method: GET
   url: http://localhost:3000/api/solicitud
+  headers:
+    - name: X-token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YWVhODczZGUyZDU3MDdiYzcxMWFiZGUiLCJub21icmUiOiJSb25hbGQiLCJhcGVsbGlkbyI6IkxpbmFyZXMiLCJlbWFpbCI6IlJvbmFsZEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE3OTM5MDE1OTYsImV4cCI6MTc5MzkxOTU5Nn0.m-fChEvNETwBuJBPGqiBTfGu-d5TfpWHPk1WMHopyeM
   auth: inherit
 
 settings:
