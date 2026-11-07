@@ -4,9 +4,12 @@ const dbCreateMensualidad = async ( newMensualidad ) => {
     return await MensualidadModel.create( newMensualidad );    //Registrar en la base de datos
 }
 
-const dbGetMensualidad = async (filter) => {
-    return await MensualidadModel.find(filter).populate('planAsociado', 'nombre valor').populate('pago').populate('usuario','nombre apellido email');  //Consultar todas las mensualidades registradas 
-} 
+const dbGetMensualidad = async (filter = {}) => {
+    return await MensualidadModel.find(filter)
+        .populate('planAsociado')
+        .populate('pago')
+        .populate('usuario', 'nombre apellido email');
+};
 
 const dbDeleteMensualidad = async ( id ) => {
     return await MensualidadModel.findOneAndDelete({ _id: id}) 

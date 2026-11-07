@@ -19,12 +19,22 @@ const getPagos = async (req, res) => {
             return res.status(403).json({ msg: 'No tienes permisos para consultar los pagos' });
         }
 
-        const data = await dbReadPagos(filter);
+        let data = await dbReadPagos(filter);
 
-        return res.status(200).json({ msg: 'Consultar los pagos registrados', data: data });
+        const { buscar, estado, mes } = req.query;
+
+        if (buscar) {
+            const texto = buscar.toLowerCase();
+            data = data.filter(p =>
+                `${p.usuario?.nombre} ${p.usuario?.apellido}`.toLowerCase().includes(texto)
+            );
+        }
+        if (estado) data = data.filter(p => p.estado === estado);
+        if (mes)    data = data.filter(p => p.fechaGenera.getUTCMonth() + 1 === Number(mes));
+
+        return res.status(200).json({ msg: 'Consultar los pagos registrados', data });
     } catch (error) {
         console.error(error);
-
         return res.status(500).json({ msg: 'No se pudo consultar los pagos registrados' });
     }
 };

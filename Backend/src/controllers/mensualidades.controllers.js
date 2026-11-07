@@ -46,12 +46,24 @@ const GetMensualidad = async (req, res) => {
             return res.status(403).json({ msg: 'No tienes permisos para consultar las mensualidades' });
         }
 
-        const data = await dbGetMensualidad(filter);
+        let data = await dbGetMensualidad(filter);
 
-        return res.status(200).json({ msg: 'Consultar todas las mensualidades', data: data });
+        const { buscar, estado, mes, plan, nivel } = req.query;
+
+        if (buscar) {
+            const texto = buscar.toLowerCase();
+            data = data.filter(m =>
+                `${m.usuario?.nombre} ${m.usuario?.apellido}`.toLowerCase().includes(texto)
+            );
+        }
+        if (estado) data = data.filter(m => m.pago?.estado === estado);
+        if (mes)    data = data.filter(m => m.fechaGeneracion.getUTCMonth() + 1 === Number(mes));
+        if (plan)   data = data.filter(m => String(m.planAsociado?._id) === plan);
+        if (nivel)  data = data.filter(m => String(m.planAsociado?.nivel) === nivel);
+
+        return res.status(200).json({ msg: 'Consultar todas las mensualidades', data });
     } catch (error) {
         console.error(error);
-
         return res.status(500).json({ msg: 'No se pudo consultar las mensualidades' });
     }
 };
