@@ -11,9 +11,7 @@ router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'At
 
 router.post('/',[authMiddleware, authorizationMiddleware(['Administrador'])], CreatePlanAsociado);
 
-router.delete('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], DeletePlanAsociado)
-
-router.patch( '/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], UpdatePlanAsociado)
+router.patch( '/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], UpdatePlanAsociado);
 
 
 export default router;

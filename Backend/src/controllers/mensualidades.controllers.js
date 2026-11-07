@@ -1,4 +1,4 @@
-import { dbCreateMensualidad, dbDeleteMensualidad, dbGetMensualidad, dbGetMensualidades, dbUpdateMensualidad } from "../services/mensualidades.services.js";
+import { dbCreateMensualidad, dbGetMensualidad, dbGetMensualidades, dbUpdateMensualidad } from "../services/mensualidades.services.js";
 
 const getFiltroPorRol = (user) => {
     switch (user.rol) {
@@ -65,31 +65,6 @@ const GetMensualidad = async (req, res) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({ msg: 'No se pudo consultar las mensualidades' });
-    }
-};
-
-const DeleteMensualidad = async (req, res) => {
-    const id = req.params.id;
-
-    try {
-        const data = await dbDeleteMensualidad(id);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró la mensualidad a eliminar' });
-        }
-
-        return res.status(200).json({ msg: 'Elimina una de las mensualidades', data: data });
-    } catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({
-                msg: `Error en el formato del ID debe tener 24 caracteres el enviado tiene ${id.length}`,
-                [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB`
-            });
-        }
-
-        return res.status(500).json({ msg: 'No se pudo eliminar la mensualidad' });
     }
 };
 
@@ -164,7 +139,6 @@ const GetMensualidades = async (req, res) => {
 export {
     CreateMensualidad,
     GetMensualidad,
-    DeleteMensualidad,
     UpdateMensualidad,
     GetMensualidades
 };

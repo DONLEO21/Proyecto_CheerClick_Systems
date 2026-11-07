@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { CreateMensualidad, DeleteMensualidad, GetMensualidad, GetMensualidades, UpdateMensualidad } from "../controllers/mensualidades.controllers.js";
+import { CreateMensualidad, GetMensualidad, GetMensualidades, UpdateMensualidad } from "../controllers/mensualidades.controllers.js";
 import { authMiddleware } from "../middlewares/authenticate.middlewares.js";
 import { authorizationMiddleware } from "../middlewares/authorizationMiddleware.middlewares.js";
 
@@ -15,10 +15,6 @@ router.get('/', [authMiddleware, authorizationMiddleware(['Administrador', 'Atle
 router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], GetMensualidades);
 
 router.patch('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], UpdateMensualidad );
-
-router.delete('/:id',[authMiddleware, authorizationMiddleware(['Administrador'])], DeleteMensualidad );
-
-
 
 //Exportar las rutas definidas de este archivo
 

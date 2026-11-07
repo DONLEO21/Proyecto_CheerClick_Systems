@@ -11,10 +11,6 @@ const dbGetMensualidad = async (filter = {}) => {
         .populate('usuario', 'nombre apellido email');
 };
 
-const dbDeleteMensualidad = async ( id ) => {
-    return await MensualidadModel.findOneAndDelete({ _id: id}) 
-}
-
 const dbUpdateMensualidad = async ( id, mensualidadUpdate) => {
     return await MensualidadModel.findOneAndUpdate(
         { _id: id},
@@ -30,7 +26,6 @@ const dbGetMensualidades = async (id, filter = {}) => {
 export{
     dbCreateMensualidad,
     dbGetMensualidad,
-    dbDeleteMensualidad, 
     dbUpdateMensualidad,
     dbGetMensualidades
 }

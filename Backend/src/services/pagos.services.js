@@ -21,10 +21,6 @@ const dbUpdatePago = async (id, pagosUpdate) => {
     );
 }
 
-const dbDeletePago = async (id) => {
-    return await PagosModel.findOneAndDelete({ _id: id})
-}
-
 const dbgetPagos = async (id, filter = {}) => {
     return await PagosModel.findOne({_id: id, ...filter})
 }
@@ -33,6 +29,5 @@ export {
     dbReadPagos,
     dbInsertPago,
     dbUpdatePago,
-    dbDeletePago,
     dbgetPagos
 }

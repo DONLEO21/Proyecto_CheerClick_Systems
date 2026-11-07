@@ -1,4 +1,4 @@
-import { dbDeletePago, dbgetPagos, dbInsertPago, dbReadPagos, dbUpdatePago } from "../services/pagos.services.js";
+import {dbgetPagos, dbInsertPago, dbReadPagos, dbUpdatePago } from "../services/pagos.services.js";
 
 const getFiltroPorRol = (user) => {
     switch (user.rol) {
@@ -147,35 +147,9 @@ const updatePagoPatch = async (req, res) => {
     }
 };
 
-const deletePago = async (req, res) => {
-    const id = req.params.id;
-
-    try {
-        const data = await dbDeletePago(id);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró el pago a eliminar' });
-        }
-
-        return res.status(200).json({ msg: 'Eliminar un pago', data: data });
-    } catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({
-                msg: `Error en el formato del ID debe tener 24 caracteres el enviado tiene ${id.length}`,
-                [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB`
-            });
-        }
-
-        return res.status(500).json({ msg: 'No se pudo eliminar el pago' });
-    }
-};
-
 export {
     getPagos,
     createPago,
     updatePagoPatch,
-    deletePago,
     getPago
 };

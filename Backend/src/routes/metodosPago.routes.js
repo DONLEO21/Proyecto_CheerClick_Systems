@@ -7,7 +7,7 @@ const router = Router();
 
 router.get('/',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getMetodoPago );
 
-router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getMetodoPagos)
+router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Atleta'])], getMetodoPagos);
 
 router.post('/',[authMiddleware, authorizationMiddleware(['Administrador'])], createMetodoPago );
 
