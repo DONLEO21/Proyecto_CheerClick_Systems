@@ -2,9 +2,18 @@ import { dbCreateHabilidad, dbDeleteHabilidad, dbGetHabilidad, dbGetHabilidades,
 
 const getHabilidades = async (req, res) => {
     try {
-        const data = await dbGetHabilidades();
+        let data = await dbGetHabilidades();
 
-        return res.status(200).json({ msg: 'Consultar todas las habilidades registradas', data: data});
+        const { buscar, estado, tipo } = req.query;
+
+        if (buscar) {
+            const texto = buscar.toLowerCase();
+            data = data.filter(h => h.nombre.toLowerCase().includes(texto));
+        }
+        if (estado) data = data.filter(h => h.estado === estado);
+        if (tipo)   data = data.filter(h => String(h.tipoHabilidad?._id) === tipo);
+
+        return res.status(200).json({ msg: 'Consultar todas las habilidades registradas', data });
     } catch (error) {
         console.error(error);
 

@@ -7,12 +7,10 @@ const router = Router();
 
 router.get('/',[authMiddleware, authorizationMiddleware(['Administrador', 'Entrenador', 'Atleta'])], getHabilidades);
 
-router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Entrenador', 'Atleta'])], getHabilidad)
+router.get('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Entrenador', 'Atleta'])], getHabilidad);
 
 router.post('/',[authMiddleware, authorizationMiddleware(['Administrador', 'Entrenador'])], createHabilidad);
 
 router.patch('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Entrenador'])], updateHabilidad);
-
-router.delete('/:id',[authMiddleware, authorizationMiddleware(['Administrador', 'Entrenador'])], deleteHabilidad);
 
 export default router;

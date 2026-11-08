@@ -1,7 +1,7 @@
 import HabilidadesModel from "../models/habilidades.model.js"
 
 const dbGetHabilidades = async () => {
-    return await HabilidadesModel.find().populate('tipoHabilidad')
+    return await HabilidadesModel.find().populate('tipoHabilidad', 'nombre')
 }
 
 const dbCreateHabilidad = async (newHabilidad) => {
