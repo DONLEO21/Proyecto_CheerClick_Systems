@@ -7,9 +7,9 @@ const router = Router();
 
 // Definicion de las rutas para usuarios
 
-router.get('/:id', getUsuario);
+router.get('/:id', authMiddleware, getUsuario);
 router.post('/', [ authMiddleware , authorizationMiddleware(['Administrador'])], createUsuario);
-router.patch('/:id', updateUsuario);
-router.delete('/:id', deleteUsuario);
+router.patch('/:id', [ authMiddleware , authorizationMiddleware(['Administrador'])], updateUsuario);
+router.delete('/:id', [ authMiddleware , authorizationMiddleware(['Administrador'])], deleteUsuario);
 
 export default router;

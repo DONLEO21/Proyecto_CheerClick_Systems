@@ -9,7 +9,7 @@ const dbCreateUsuario = async ( newUsuario ) => {
 }
 
 const dbGetUsuario = async (id) => {
-    return await usuarioModel.findOne({ _id : id})
+    return await usuarioModel.findOne({ _id : id}).select('-contrasena')
 }
 
 const dbUpdateUsuario = async (id, usuarioUpdate) => {
