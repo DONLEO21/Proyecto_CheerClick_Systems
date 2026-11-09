@@ -12,6 +12,12 @@ const dbGetUsuario = async (id) => {
     return await usuarioModel.findOne({ _id : id}).select('-contrasena')
 }
 
+const dbGetUserForReset = async ( email ) => {
+    return await usuarioModel
+        .findOne({ email: email, status: true })
+        .select('+resetCodeHash +resetCodeExpires +resetAttempts');
+}
+
 const dbUpdateUsuario = async (id, usuarioUpdate) => {
     return await usuarioModel.findByIdAndUpdate (
         id,
@@ -33,5 +39,6 @@ export {
     dbGetUsuario,
     dbUpdateUsuario,
     dbDeleteUsuario,
-    dbGetUserByEmail
+    dbGetUserByEmail,
+    dbGetUserForReset
 }

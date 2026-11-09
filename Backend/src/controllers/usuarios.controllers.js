@@ -41,7 +41,7 @@ const createUsuario = async (req, res) => {
 
         // Contraseña con mínimo de 8 caracteres 
         if (!usuario.contrasena || usuario.contrasena.length < 8) {
-            return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 6 caracteres' } });
+            return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 8 caracteres' } });
         }
 
         // El correo no puede estar ya registrado

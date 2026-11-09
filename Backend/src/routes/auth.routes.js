@@ -1,8 +1,7 @@
 import { Router } from "express";
 import {createUsuario} from '../controllers/usuarios.controllers.js'
-import { loginUser, verifyAuthenticate } from "../controllers/auth.controllers.js";
+import { loginUser, verifyAuthenticate, forgotPassword, verifyCode, resetPassword } from "../controllers/auth.controllers.js";
 import { authMiddleware } from "../middlewares/authenticate.middlewares.js";
-import { authorizationMiddleware } from "../middlewares/authorizationMiddleware.middleware.js";
 import { withRoleMiddleware } from "../middlewares/withrout.middleware.js";
 
 const router = Router();
@@ -18,6 +17,11 @@ router.get( '/renew-token', authMiddleware, verifyAuthenticate );
 
 // Investigarrr
 // 4. Recuperar Contraseña
+
+router.post( '/forgot-password', forgotPassword );   // Paso 1: ingresar correo, se envía el código
+router.post( '/resend-code', forgotPassword );       // Reenviar código (misma lógica, genera uno nuevo)
+router.post( '/verify-code', verifyCode );           // Paso 2: ingresar el código
+router.post( '/reset-password', resetPassword );     // Paso 3: nueva contraseña
 // 5. Habilitar cuenta regustrada publicamente
 
 export default router;

@@ -37,6 +37,20 @@ const usuarioSchema = new Schema({
         type: Boolean,
         default: true,
         required: true
+    },
+    // Recuperación de contraseña. 
+    resetCodeHash: {
+        type: String,
+        select: false
+    },
+    resetCodeExpires: {
+        type: Date,
+        select: false
+    },
+    resetAttempts: {
+        type: Number,
+        default: 0,
+        select: false
     }
 }, 
 //Opciones del esquema
