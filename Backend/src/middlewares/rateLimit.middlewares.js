@@ -12,22 +12,22 @@ const crearLimiter = ( minutos, limite, msg ) => rateLimit({
 // Limitador para login
 // así un usuario que entra bien no gasta su cupo.
 const loginLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    limit: 10,
+    windowMs: 30 * 60 * 1000,
+    limit: 3,
     skipSuccessfulRequests: true,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
-    message: { msg: 'Demasiados intentos de inicio de sesión. Intenta de nuevo en 15 minutos' }
+    message: { msg: 'Demasiados intentos de inicio de sesión. Intenta de nuevo en 30 minutos' }
 });
 
 // Limitador para registro de usuarios
-const registerLimiter = crearLimiter( 60, 20, 'Demasiados registros desde esta red. Intenta más tarde' );
+const registerLimiter = crearLimiter( 60, 10, 'Demasiados registros desde esta red. Intenta más tarde' );
 
 // Limitador para pedir código (forgot-password y resend-code)
-const forgotLimiter = crearLimiter( 15, 5, 'Demasiadas solicitudes de código. Intenta de nuevo en 15 minutos' );
+const forgotLimiter = crearLimiter( 15, 3, 'Demasiadas solicitudes de código. Intenta de nuevo en 15 minutos' );
 
 // Limitador para verificar código y cambiar contraseña.
-const resetLimiter = crearLimiter( 15, 10, 'Demasiados intentos. Intenta de nuevo en 15 minutos' );
+const resetLimiter = crearLimiter( 15, 5, 'Demasiados intentos. Intenta de nuevo en 15 minutos' );
 
 export {
     loginLimiter,
