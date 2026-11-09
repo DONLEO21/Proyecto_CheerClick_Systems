@@ -1,5 +1,4 @@
-
-import { dbCreateUsuario, dbGetUsuario, dbUpdateUsuario, dbDeleteUsuario } from "../services/usuarios.services.js"
+import { dbCreateUsuario, dbGetUsuario, dbUpdateUsuario, dbDeleteUsuario, dbGetUserByEmail } from "../services/usuarios.services.js"
 import { generarPassword } from "../helpers/bcrypt.helpers.js";
 
 //Controlador define quien hace una accion especifica
@@ -31,9 +30,8 @@ const getUsuario = async (req, res) => {
 }
 const createUsuario = async (req, res) => {
     try {
-        //Extraer el _id del userFound usando una desestructuracion del payload qu envia en el req con l peticion el Middlewar de Aunticacion
+           //Extraer el _id del userFound usando una desestructuracion del payload qu envia en el req con l peticion el Middlewar de Aunticacion
         const userFound = req.userFound
-
         // Usa un operador ternario para asignar el valor de _id a la variable id, o null si no existe 
         const id = userFound?._id ? userFound._id : null;
 
@@ -41,13 +39,22 @@ const createUsuario = async (req, res) => {
         const usuario = req.body;
         usuario.createdBy =  id; 
 
-        //Encripta la contraseña antes de guardarla en la base de datos (opcional, pero recomendado)
+        // Contraseña con mínimo de 8 caracteres 
+        if (!usuario.contrasena || usuario.contrasena.length < 8) {
+            return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 6 caracteres' } });
+        }
+
+        // El correo no puede estar ya registrado
+        if (await dbGetUserByEmail(usuario.email)) {
+            return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
+        }
+
+        //Encripta la contraseña antes de guardarla en la base de datos
         usuario.contrasena = generarPassword(usuario.contrasena);
 
-        const newUsuario = await dbCreateUsuario(usuario);      //Llega como una Promesa (Promise)
+        const newUsuario = await dbCreateUsuario(usuario);
 
-        //Respuesta al cliente
-        res.json({ mensaje: 'Registra usuario', usuario: newUsuario });
+        res.status(201).json({ mensaje: 'Registra usuario', usuario: newUsuario });
     }
     catch (error) {
         console.error(error);
@@ -55,16 +62,15 @@ const createUsuario = async (req, res) => {
         if(error.name == 'ValidationError'){
             const errors ={};
 
-            //Iterar los erores para estraer el nombre de la propiedad y el error
+            //Iterar los errores para extraer el nombre de la propiedad y el error
             for(const field in error.errors) {
                 errors[field] = error.errors[field].message;
             }
             
-            res.json({errors})     //Retorna un error especifico
- 
+            return res.status(400).json({errors})
         } 
 
-        res.send( 'Error al registrar usuario' )
+        res.status(500).send( 'Error al registrar usuario' )
     }
 }
 
