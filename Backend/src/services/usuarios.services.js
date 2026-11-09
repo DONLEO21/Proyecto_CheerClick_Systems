@@ -16,7 +16,7 @@ const dbUpdateUsuario = async (id, usuarioUpdate) => {
     return await usuarioModel.findByIdAndUpdate (
         id,
         usuarioUpdate,
-        {new : true}
+        {new : true, runValidators : true}
     );
 }
 

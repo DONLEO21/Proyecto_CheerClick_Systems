@@ -80,17 +80,39 @@ const updateUsuario = async (req, res) => {
         const id = req.params.id;
         const inputData = req.body;
 
+        // Campos que no se pueden modificar desde aquí
+        delete inputData.createdBy;
+        delete inputData.resetCodeHash;
+        delete inputData.resetCodeExpires;
+        delete inputData.resetAttempts;
+
+        // Si se envia una contraseña nueva, se valida y se encripta antes de guardarla
+        if (inputData.contrasena) {
+            if (inputData.contrasena.length < 8) {
+                return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 8 caracteres' } });
+            }
+            inputData.contrasena = generarPassword(inputData.contrasena);
+        }
+
         const data = await dbUpdateUsuario(id, inputData);
+
+        if (!data) {
+            return res.status(404).json({ msg: 'Usuario no encontrado' });
+        }
+
+        // No devolver la contraseña al cliente
+        const jsonObj = data.toObject();
+        delete jsonObj.contrasena;
 
         res.json({
             msg: 'Usuario Actualizado',
-            data: data
+            data: jsonObj
         });
     }
     catch ( error){
         console.error( error);
 
-        res.json({
+        res.status(500).json({
             msg: 'No se ha podido actualizar el usuario'
         })
     }
