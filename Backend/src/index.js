@@ -16,7 +16,8 @@ const app = express();
 
 conexion();  
 
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));  
+app.use('/uploads', express.static('uploads'));
 
 //Definiendo endpoint (ruta de entrada)
 app.get('/health', (req, res) => {

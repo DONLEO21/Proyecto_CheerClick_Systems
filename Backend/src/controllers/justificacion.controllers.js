@@ -1,135 +1,51 @@
-import { dbCreateJustificacion, dbDeleteJustificacion, dbGetJustificacion, dbUpdateJustificacion } from "../services/justificacion.services.js";
+import {
+    dbCreateJustificacion, dbDeleteJustificacion, dbGetJustificacion, dbUpdateJustificacion
+} from "../services/justificacion.services.js";
+import { responderError } from "../helpers/errores.helpers.js";
+import { filtroAsistenciaPorRol } from "../helpers/acceso.helpers.js";
+import { guardarArchivoBase64, borrarArchivo } from "../helpers/archivo.helpers.js";
 
 const createJustificacion = async (req, res) => {
+    let archivo = null;
     try {
-        const inputData = req.body;
-
-        //Usar el servicio para registrar
-        const data = await dbCreateJustificacion(inputData);
-
-        res.status(201).json({ msg: 'Registrar justificación', data: data })
+        archivo = await guardarArchivoBase64(req.body.archivo);
+        const data = await dbCreateJustificacion(req.userFound, req.body, archivo);
+        res.status(201).json({ msg: 'Registrar justificación', data });
+    } catch (error) {
+        borrarArchivo(archivo);   // no deja archivos huérfanos
+        responderError(res, error, 'No se pudo registrar la justificación');
     }
-    catch (error) {
-        console.error(error);
-
-        if (error.code == 11000) {
-            const field = Object.keys(error.keyValue)[0]
-
-            //Mensaje de error que se le envia al usuario
-            return res.status(400).json({
-                msg: `Error por duplicado en el campo '${field}'`,
-                [field]: `El ${field} ${error.keyValue[field]} ya se encuentra registrado`
-            });
-        }
-
-        if (error.name == 'ValidationError') {
-            const errors = {};
-
-            //Iterar los errores para extraer el nombre de la propiedad y el error
-            for (const field in error.errors) {
-                errors[field] = error.errors[field].message;
-            }
-
-            return res.status(400).json({ errors })     //Retorna un error especifico
-        }
-
-        res.status(500).json({ msg: 'No se pudo registrar la justificación' })    //Retorna un error generico
-    }
-}
+};
 
 const getJustificacion = async (req, res) => {
     try {
-        const data = await dbGetJustificacion();
-
-        res.status(200).json({
-            msg: 'Lista de justificaciones',
-            data: data
-        })
+        const restriccion = await filtroAsistenciaPorRol(req.userFound, req.query.nivel);
+        const data = await dbGetJustificacion(req.query, restriccion);
+        res.status(200).json({ msg: 'Lista de justificaciones', data });
+    } catch (error) {
+        responderError(res, error, 'No se ha podido listar justificaciones');
     }
-    catch (error) {
-        console.error(error);
-
-        res.status(500).json({
-            msg: 'No se ha podido listar justificaciones'
-        })
-    }
-}
+};
 
 const updateJustificacion = async (req, res) => {
     try {
-        const id = req.params.id;
-        const inputData = req.body;
-
-        const data = await dbUpdateJustificacion(id, inputData);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró la justificación' });
-        }
-
-        res.status(200).json({
-            msg: 'Actualizar justificación',
-            data: data
-        });
+        const data = await dbUpdateJustificacion(req.userFound, req.params.id, req.body);
+        if (!data) return res.status(404).json({ msg: 'No se encontró la justificación' });
+        res.status(200).json({ msg: 'Actualizar justificación', data });
+    } catch (error) {
+        responderError(res, error, 'No se ha podido actualizar la justificación');
     }
-    catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({ msg: 'Error en el formato del ID', [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB` });
-        }
-
-        if (error.code == 11000) {
-            const field = Object.keys(error.keyValue)[0]
-
-            return res.status(400).json({
-                msg: `Error por duplicado en el campo '${field}'`,
-                [field]: `El ${field} ${error.keyValue[field]} ya se encuentra registrado`
-            });
-        }
-
-        if (error.name == 'ValidationError') {
-            const errors = {};
-
-            for (const field in error.errors) {
-                errors[field] = error.errors[field].message;
-            }
-
-            return res.status(400).json({ errors })
-        }
-
-        res.status(500).json({
-            msg: 'No se ha podido actualizar la justificación'
-        })
-    }
-}
+};
 
 const deleteJustificacion = async (req, res) => {
     try {
-        const id = req.params.id;
-
-        const data = await dbDeleteJustificacion(id);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'No se encontró la justificación' });
-        }
-
-        res.status(200).json({
-            msg: 'Eliminar justificación',
-            data: data
-        });
+        const data = await dbDeleteJustificacion(req.params.id);
+        if (!data) return res.status(404).json({ msg: 'No se encontró la justificación' });
+        res.status(200).json({ msg: 'Eliminar justificación', data });
+    } catch (error) {
+        responderError(res, error, 'No se ha podido eliminar la justificación');
     }
-    catch (error) {
-        console.error(error);
-
-        if (error.name == 'CastError') {
-            return res.status(400).json({ msg: 'Error en el formato del ID', [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB` });
-        }
-
-        res.status(500).json({
-            msg: 'No se ha podido eliminar la justificación'
-        })
-    }
-}
+};
 
 export {
     createJustificacion,

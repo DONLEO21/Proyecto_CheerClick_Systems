@@ -19,18 +19,33 @@ const justificacionSchema = new Schema(
       type: String,
       required: [true, "El motivo es obligatorio"],
       trim: true,
-      maxlength: [100, "El motivo no puede superar los 100 caracteres"],
+      minlength: [10, "El motivo debe tener al menos 10 caracteres"],
+      maxlength: [250, "El motivo no puede superar los 250 caracteres"],
     },
-    archivo: {
-      type: String, // ruta del archivo de soporte
-      trim: true,
-      default: null,
-    },
+    archivo: { 
+      type: String, 
+      trim: true, 
+      default: null 
+    },          // ruta pública del soporte
+    archivoNombre: { 
+      type: String, 
+      trim: true, 
+      default: null 
+    },      // nombre original del soporte
+    archivoTamano: { 
+      type: String, 
+      trim: true, 
+      default: null 
+    },    // tamaño legible del soporte
     observaciones: {
       type: String,
       trim: true,
       maxlength: [250, "Las observaciones no pueden superar los 250 caracteres"],
       default: null,
+    },
+    fechaRevision: { 
+      type: Date, 
+      default: null 
     },
     // Una justificación por asistencia
     asistencia: {

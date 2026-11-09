@@ -1,11 +1,13 @@
 import { Schema, model } from "mongoose";
 
+
+export const TIPOS_NOVEDAD = ["Presente", "Tarde", "Inasistencia", "Justificado"];
 const asistenciaSchema = new Schema(
   {
     tipoNovedad: {
       type: String,
       enum: {
-        values: ["Presente", "Tarde", "Inasistencia", "Justificado"],
+        values: TIPOS_NOVEDAD,
         message: "El tipo de novedad debe ser: Presente, Tarde, Inasistencia o Justificado",
       },
       required: [true, "El tipo de novedad es obligatorio"],
