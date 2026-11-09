@@ -16,19 +16,21 @@ const createPerfilUsuario = async (req, res) => {
         })
     }
     catch (error) {
-        console.error(error);
+        console.error('Error detallado:', error); // Error detallado en consola
 
         if(error.name == 'ValidationError'){
             const errors ={};
-
-            //Iterar los errores para extraer el nombre de la propiedad y el error
             for(const field in error.errors) {
                 errors[field] = error.errors[field].message;
             }
-            
-            res.json({errors})     
- 
+            return res.status(400).json({ errors });
         } 
+
+        // Respuesta por defecto para cualquier otro error 
+        return res.status(500).json({
+            msg: 'No se ha podido registrar el perfil de usuario',
+            error: error.message
+        });
     }
 }
 

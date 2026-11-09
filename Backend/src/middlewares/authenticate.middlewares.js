@@ -9,7 +9,7 @@ const authMiddleware = async (req, res, next) => {
     console.log('token:', token);
 
     if ( ! token ) {
-        res.status(401).json({msg: 'Cadena de token vacia'});
+        return res.status(401).json({msg: 'Cadena de token vacia'});
     }
 
     //Divide la cadena en partes usuando el (.) punto como referencia
