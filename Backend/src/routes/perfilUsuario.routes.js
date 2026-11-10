@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { createPerfilUsuario, getPerfilUsuario, updatePerfilUsuario, cambiarEstadoPerfilUsuario} from "../controllers/perfilUsuario.controllers.js";
+import { createPerfilUsuario, getPerfilUsuario, updatePerfilUsuario, cambiarEstadoPerfilUsuario, getMiPerfil} from "../controllers/perfilUsuario.controllers.js";
 import { authMiddleware} from '../middlewares/authenticate.middlewares.js'
 
 const router = Router(); 
 
 router.post('/', authMiddleware, createPerfilUsuario);
+router.get('/me', authMiddleware, getMiPerfil);
 router.get('/:id', authMiddleware, getPerfilUsuario);
 router.patch('/:id', authMiddleware, updatePerfilUsuario);
 router.patch('/:id/estado', authMiddleware, cambiarEstadoPerfilUsuario);

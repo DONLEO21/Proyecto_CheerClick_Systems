@@ -1,8 +1,23 @@
 // Servicio se habla con la db. Estas funciones
 // realizaran la consultas a la db
-
+import mongoose from "mongoose"
 import usuarioModel from "../models/usuarios.models.js"
 import contadorModel from "../models/contador.model.js"
+
+
+const dbGetUsuarioConPlan = async ( id ) => {
+    const consulta = usuarioModel.findById( id ).select('-contrasena');
+
+    if( mongoose.models.Nivel ) {
+        consulta.populate({ path: 'nivel', select: 'nombre diasEntreno imagenEntre' });
+    }
+    if( mongoose.models.planAsociado ) {
+        consulta.populate({ path: 'planAsociado', select: 'nombre valor' });
+    }
+
+    return await consulta;
+}
+
 
 const PREFIJOS = { Atleta: 'AT', Entrenador: 'EN', Administrador: 'AD' };
 
@@ -74,5 +89,6 @@ export {
     PREFIJOS,
     dbFindUserByEmail,
     dbListUsuarios,
-    dbCountUsuarios
+    dbCountUsuarios,
+    dbGetUsuarioConPlan
 }

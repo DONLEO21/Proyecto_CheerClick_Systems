@@ -4,6 +4,8 @@ import {
     dbUpdatePerfilUsuario,
     dbGetPerfilByUsuario
 } from "../services/perfilUsuario.services.js";
+import { dbGetUsuarioConPlan } from "../services/usuarios.services.js";
+import { dbGetContactosByUsuario } from "../services/contactoEmergencia.services.js";
 
 const responderError = (res, error, msg) => {
     console.error(error);
@@ -70,6 +72,9 @@ const createPerfilUsuario = async (req, res) => {
         // El perfil siempre pertenece a quien lo registra y nace activo
         inputData.perteneceA = req.userFound._id;
         delete inputData.status;
+        delete inputData.fotoPerfil;
+        delete inputData.certificadoEps;
+        delete inputData.ediciones;
 
         const errors = validarOtros(inputData, true);
         if (errors) return res.status(400).json({ errors });
@@ -109,6 +114,9 @@ const updatePerfilUsuario = async (req, res) => {
         const inputData = req.body;
 
         delete inputData.perteneceA;
+        delete inputData.fotoPerfil;
+        delete inputData.certificadoEps;
+        delete inputData.ediciones;
         delete inputData.status;
 
         const errors = validarOtros(inputData, false);
@@ -151,9 +159,53 @@ const cambiarEstadoPerfilUsuario = async (req, res) => {
     }
 }
 
+// Campos que el usuario solo puede corregir una vez
+const CAMPOS_UNA_VEZ = ['numDocumento', 'genero', 'fechaNacimiento'];
+
+const getMiPerfil = async (req, res) => {
+    try {
+        const id = req.userFound._id;
+
+        const [usuario, perfil, contactos] = await Promise.all([
+            dbGetUsuarioConPlan(id),
+            dbGetPerfilByUsuario(id),
+            dbGetContactosByUsuario(id)
+        ]);
+
+        // El certificado es privado, no se envia al frontend
+        let perfilObj = null;
+        let camposBloqueados = [];
+
+        if (perfil) {
+            perfilObj = perfil.toObject();
+            perfilObj.tieneCertificadoEps = !!perfilObj.certificadoEps;
+            delete perfilObj.certificadoEps;
+
+            if (!esAdmin(req)) {
+                camposBloqueados = CAMPOS_UNA_VEZ.filter(c => (perfilObj.ediciones?.[c] ?? 0) >= 1);
+            }
+        }
+
+        res.json({
+            msg: 'Mi perfil',
+            data: {
+                nombreCompleto: `${usuario.nombre} ${usuario.apellido}`,
+                usuario,                 
+                perfil: perfilObj,     
+                camposBloqueados,       
+                contactos
+            }
+        });
+    }
+    catch (error) {
+        responderError(res, error, 'No se pudo obtener tu perfil');
+    }
+}
+
 export {
     createPerfilUsuario,
     getPerfilUsuario,
     updatePerfilUsuario,
+    getMiPerfil,
     cambiarEstadoPerfilUsuario
 }
