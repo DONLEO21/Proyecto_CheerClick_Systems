@@ -38,6 +38,16 @@ const usuarioSchema = new Schema({
         default: true,
         required: true
     },
+    codigo: {
+        type: String,
+        unique: true,
+        sparse: true          // Registros pendientes no tienen código
+    },
+    estadoSolicitud: {
+        type: String,
+        enum: ['Pendiente', 'Aprobada', 'Rechazada'],
+        default: 'Aprobada'   // Los usuarios que ya existen quedan aprobados
+    },
     // Recuperación de contraseña. 
     resetCodeHash: {
         type: String,

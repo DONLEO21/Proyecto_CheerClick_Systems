@@ -85,6 +85,10 @@ const updateUsuario = async (req, res) => {
         delete inputData.resetCodeHash;
         delete inputData.resetCodeExpires;
         delete inputData.resetAttempts;
+        delete inputData.codigo;
+        delete inputData.estadoSolicitud;
+        delete inputData.rol;
+        delete inputData.status;
 
         // Si se envia una contraseña nueva, se valida y se encripta antes de guardarla
         if (inputData.contrasena) {

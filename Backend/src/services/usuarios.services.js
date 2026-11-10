@@ -2,6 +2,22 @@
 // realizaran la consultas a la db
 
 import usuarioModel from "../models/usuarios.models.js"
+import contadorModel from "../models/contador.model.js"
+
+const PREFIJOS = { Atleta: 'AT', Entrenador: 'EN', Administrador: 'AD' };
+
+// Genera el código del rol: AT001, EN001, AD001...
+const dbGenerarCodigo = async ( rol ) => {
+    const prefijo = PREFIJOS[rol];
+
+    const contador = await contadorModel.findOneAndUpdate(
+        { _id: prefijo },
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true }
+    );
+
+    return prefijo + String( contador.seq ).padStart( 3, '0' );
+}
 
 //TODO: Conectar el modelo de usuarios con la base de datos
 const dbCreateUsuario = async ( newUsuario ) => {
@@ -35,6 +51,8 @@ const dbGetUserByEmail = async ( email , status = true) => {
 }
 
 export {
+    PREFIJOS,
+    dbGenerarCodigo,
     dbCreateUsuario,
     dbGetUsuario,
     dbUpdateUsuario,
