@@ -20,10 +20,14 @@ const dbUpdateContactoE = async (id, contactoEUpdate) => {
         {new : true}
     );
 }
+const dbGetContactosByUsuario = async ( idUsuario ) => {
+    return await contactoEModel.find({ createdBy: idUsuario }).sort({ principal: -1 });
+}
 
 export {
     dbCreateContactoE,
     dbGetContactoE,
     dbDeleteContactoE,
-    dbUpdateContactoE
+    dbUpdateContactoE,
+    dbGetContactosByUsuario
 }

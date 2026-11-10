@@ -20,9 +20,14 @@ const dbDeletePerfilUsuario = async (id) => {
     return await perfilUsuarioModel.findOneAndDelete({ _id: id})
 }
 
+const dbGetPerfilByUsuario = async ( idUsuario ) => {
+    return await perfilUsuarioModel.findOne({ perteneceA: idUsuario });
+}
+
 export {
     dbCreatePerfilUsuario,
     dbGetPerfilUsuario,
     dbUpdatePerfilUsuario,
-    dbDeletePerfilUsuario
+    dbDeletePerfilUsuario,
+    dbGetPerfilByUsuario
 }

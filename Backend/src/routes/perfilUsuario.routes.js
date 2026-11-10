@@ -5,7 +5,7 @@ import { authMiddleware} from '../middlewares/authenticate.middlewares.js'
 
 const router = Router(); 
 
-router.post('/', [ authMiddleware , authorizationMiddleware], createPerfilUsuario);
+router.post('/', [ authMiddleware, authorizationMiddleware(['Atleta', 'Entrenador', 'Administrador']) ], createPerfilUsuario);
 router.get('/:id', getPerfilUsuario);
 router.patch('/:id', updatePerfilUsuario);
 router.delete('/:id', deletePerfilUsuario);

@@ -24,6 +24,19 @@ const dbFindUserByEmail = async ( email ) => {
     return await usuarioModel.findOne({ email: email });
 }
 
+const dbListUsuarios = async ( filtro, page = 1, limit = 10 ) => {
+    const [ data, total ] = await Promise.all([
+        usuarioModel.find( filtro ).select('-contrasena').sort({ createdAt: -1 }).skip( (page - 1) * limit ).limit( limit ),
+        usuarioModel.countDocuments( filtro )
+    ]);
+
+    return { data, total };
+}
+
+const dbCountUsuarios = async ( filtro = {} ) => {
+    return await usuarioModel.countDocuments( filtro );
+}
+
 //TODO: Conectar el modelo de usuarios con la base de datos
 const dbCreateUsuario = async ( newUsuario ) => {
     return await usuarioModel.create(newUsuario);
@@ -64,5 +77,7 @@ export {
     dbGetUserForReset,
     dbGenerarCodigo,
     PREFIJOS,
-    dbFindUserByEmail
+    dbFindUserByEmail,
+    dbListUsuarios,
+    dbCountUsuarios
 }
