@@ -1,6 +1,5 @@
-import { dbCreateContactoE, dbDeleteContactoE, dbGetContactoE, dbUpdateContactoE } from "../services/contactoEmergencia.services.js";
+import { dbCreateContactoE, dbGetContactoE, dbUpdateContactoE } from "../services/contactoEmergencia.services.js";
 
-// Convierte los errores de Mongoose en respuestas con código HTTP
 const responderError = (res, error, msg) => {
     console.error(error);
 
@@ -19,25 +18,37 @@ const responderError = (res, error, msg) => {
     res.status(500).json({ msg });
 }
 
+const esAdmin = (req) => req.userFound.rol === 'Administrador';
+
 // Solo el dueño del contacto o un administrador
 const esDuenoOAdmin = (req, contacto) => {
-    if (req.userFound.rol === 'Administrador') return true;
+    if (esAdmin(req)) return true;
     const duenoId = contacto.createdBy?._id ?? contacto.createdBy;
     return String(duenoId) === String(req.userFound._id);
 }
 
+// Carga el contacto y valida existencia, estado y permisos
+const cargarContacto = async (req, res) => {
+    const contacto = await dbGetContactoE(req.params.id);
+
+    // Un contacto inhabilitado solo lo ve el admin
+    if (!contacto || (!contacto.status && !esAdmin(req))) {
+        res.status(404).json({ msg: 'Contacto de emergencia no encontrado' });
+        return null;
+    }
+    if (!esDuenoOAdmin(req, contacto)) {
+        res.status(403).json({ msg: 'No tienes permiso sobre este contacto' });
+        return null;
+    }
+    return contacto;
+}
+
 const getContactoEmergencia = async (req, res) => {
     try {
-        const data = await dbGetContactoE(req.params.id);
+        const contacto = await cargarContacto(req, res);
+        if (!contacto) return;
 
-        if (!data) {
-            return res.status(404).json({ msg: 'Contacto de emergencia no encontrado' });
-        }
-        if (!esDuenoOAdmin(req, data)) {
-            return res.status(403).json({ msg: 'No tienes permiso sobre este contacto' });
-        }
-
-        res.json({ msg: 'Obtiene un contacto de emergencia', data: data });
+        res.json({ msg: 'Obtiene un contacto de emergencia', data: contacto });
     }
     catch (error) {
         responderError(res, error, 'No se puede obtener el contacto de emergencia por ID');
@@ -48,15 +59,14 @@ const createContactoEmergencia = async (req, res) => {
     try {
         const inputData = req.body;
 
-        // El contacto pertenece a quien lo registra
+        // El contacto pertenece a quien lo registra y nace activo
         inputData.createdBy = req.userFound._id;
+        delete inputData.status;
 
-        // Si el parentesco es "Otro", el texto es obligatorio
         if (inputData.parentesco === 'Otro' && !inputData.parentescoOtro?.trim()) {
             return res.status(400).json({ errors: { parentescoOtro: 'Escribe el parentesco' } });
         }
 
-        // Si no es "Otro", se descarta el texto libre
         if (inputData.parentesco !== 'Otro') {
             inputData.parentescoOtro = null;
         }
@@ -72,19 +82,14 @@ const createContactoEmergencia = async (req, res) => {
 
 const updateContactoEmergencia = async (req, res) => {
     try {
-        const id = req.params.id;
+        const contacto = await cargarContacto(req, res);
+        if (!contacto) return;
+
         const inputData = req.body;
 
-        const contacto = await dbGetContactoE(id);
-        if (!contacto) {
-            return res.status(404).json({ msg: 'Contacto de emergencia no encontrado' });
-        }
-        if (!esDuenoOAdmin(req, contacto)) {
-            return res.status(403).json({ msg: 'No tienes permiso sobre este contacto' });
-        }
-
-        // Un contacto no se puede pasar a otro usuario
+        // Ni el dueño ni el estado se cambian
         delete inputData.createdBy;
+        delete inputData.status;
 
         if (inputData.parentesco && inputData.parentesco !== 'Otro') {
             inputData.parentescoOtro = null;
@@ -94,7 +99,7 @@ const updateContactoEmergencia = async (req, res) => {
             return res.status(400).json({ errors: { parentescoOtro: 'Escribe el parentesco' } });
         }
 
-        const data = await dbUpdateContactoE(id, inputData);
+        const data = await dbUpdateContactoE(req.params.id, inputData);
 
         res.json({ msg: 'Contacto de emergencia actualizado', data: data });
     }
@@ -103,28 +108,37 @@ const updateContactoEmergencia = async (req, res) => {
     }
 }
 
-const deleteContactoEmergencia = async (req, res) => {
+// Inhabilita o reactiva un contacto de emergencia
+const cambiarEstadoContactoEmergencia = async (req, res) => {
     try {
-        const contacto = await dbGetContactoE(req.params.id);
-        if (!contacto) {
-            return res.status(404).json({ msg: 'Contacto de emergencia no encontrado' });
-        }
-        if (!esDuenoOAdmin(req, contacto)) {
-            return res.status(403).json({ msg: 'No tienes permiso sobre este contacto' });
+        const { status } = req.body;
+
+        if (typeof status !== 'boolean') {
+            return res.status(400).json({ errors: { status: 'Debe ser true o false' } });
         }
 
-        const data = await dbDeleteContactoE(req.params.id);
+        const contacto = await cargarContacto(req, res);
+        if (!contacto) return;
 
-        res.json({ msg: 'Contacto de emergencia eliminado', data: data });
+        if (status === true && !esAdmin(req)) {
+            return res.status(403).json({ msg: 'Solo un administrador puede reactivar un contacto' });
+        }
+
+        const data = await dbUpdateContactoE(req.params.id, { status });
+
+        res.json({
+            msg: status ? 'Contacto reactivado' : 'Contacto inhabilitado',
+            data: data
+        });
     }
     catch (error) {
-        responderError(res, error, 'No se ha podido eliminar el contacto de emergencia');
+        responderError(res, error, 'No se ha podido cambiar el estado del contacto');
     }
 }
 
 export {
     createContactoEmergencia,
+    getContactoEmergencia,
     updateContactoEmergencia,
-    deleteContactoEmergencia,
-    getContactoEmergencia
+    cambiarEstadoContactoEmergencia
 }

@@ -36,6 +36,10 @@ const contactoEmergenciaSchema =new Schema({
         type: Schema.Types.ObjectId,
         ref: 'usuario',
         default: null
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 
 },{

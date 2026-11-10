@@ -9,10 +9,6 @@ const dbGetContactoE = async (id) => {
     return await contactoEModel.findOne({ _id: id })
 }
 
-const dbDeleteContactoE = async (id) => {
-    return await contactoEModel.findOneAndDelete({ _id: id})
-}
-
 const dbUpdateContactoE = async (id, contactoEUpdate) => {
     return await contactoEModel.findByIdAndUpdate (
         id,
@@ -23,14 +19,16 @@ const dbUpdateContactoE = async (id, contactoEUpdate) => {
         }
     );
 }
-const dbGetContactosByUsuario = async ( idUsuario ) => {
-    return await contactoEModel.find({ createdBy: idUsuario }).sort({ principal: -1 });
+
+const dbGetContactosByUsuario = async (idUsuario, soloActivos = true) => {
+    const filtro = { createdBy: idUsuario };
+    if (soloActivos) filtro.status = true;
+    return await contactoEModel.find(filtro).sort({ principal: -1 });
 }
 
 export {
     dbCreateContactoE,
     dbGetContactoE,
-    dbDeleteContactoE,
     dbUpdateContactoE,
     dbGetContactosByUsuario
 }
