@@ -60,6 +60,10 @@ const perfilUsuarioSchema = new Schema ({
         ref: 'usuario',
         default: null
     },
+    status: {
+        type: Boolean,
+        default: true
+    },
 },{
     timestamps: true
 });

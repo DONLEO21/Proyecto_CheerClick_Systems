@@ -5,22 +5,18 @@ const dbCreatePerfilUsuario = async (perfilUsuario) => {
 }
 
 const dbGetPerfilUsuario = async (id) => {
-    return await perfilUsuarioModel.findOne({ _id : id})
+    return await perfilUsuarioModel.findById(id);
 }
 
 const dbUpdatePerfilUsuario = async (id, perfilUsuarioUpdate) => {
-    return await perfilUsuarioModel.findByIdAndUpdate (
+    return await perfilUsuarioModel.findByIdAndUpdate(
         id,
         perfilUsuarioUpdate,
-        { new : true, runValidators: true }
+        { new: true, runValidators: true }
     );
 }
 
-const dbDeletePerfilUsuario = async (id) => {
-    return await perfilUsuarioModel.findOneAndDelete({ _id: id})
-}
-
-const dbGetPerfilByUsuario = async ( idUsuario ) => {
+const dbGetPerfilByUsuario = async (idUsuario) => {
     return await perfilUsuarioModel.findOne({ perteneceA: idUsuario });
 }
 
@@ -28,6 +24,5 @@ export {
     dbCreatePerfilUsuario,
     dbGetPerfilUsuario,
     dbUpdatePerfilUsuario,
-    dbDeletePerfilUsuario,
     dbGetPerfilByUsuario
 }

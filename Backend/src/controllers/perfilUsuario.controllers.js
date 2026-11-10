@@ -1,152 +1,159 @@
-import { dbCreatePerfilUsuario, dbGetPerfilUsuario, dbUpdatePerfilUsuario, dbDeletePerfilUsuario} from "../services/perfilUsuario.services.js"
+import {
+    dbCreatePerfilUsuario,
+    dbGetPerfilUsuario,
+    dbUpdatePerfilUsuario,
+    dbGetPerfilByUsuario
+} from "../services/perfilUsuario.services.js";
+
+const responderError = (res, error, msg) => {
+    console.error(error);
+
+    if (error.code === 11000) {
+        return res.status(409).json({ errors: { numDocumento: 'Este número de documento ya está registrado' } });
+    }
+
+    if (error.name === 'ValidationError') {
+        const errors = {};
+        for (const field in error.errors) errors[field] = error.errors[field].message;
+        return res.status(400).json({ errors });
+    }
+
+    if (error.name === 'CastError') {
+        return res.status(400).json({ msg: 'El ID no tiene un formato válido' });
+    }
+
+    res.status(500).json({ msg });
+}
+
+const esAdmin = (req) => req.userFound.rol === 'Administrador';
+
+// Solo el dueño del perfil o un administrador
+const esDuenoOAdmin = (req, perfil) => {
+    if (esAdmin(req)) return true;
+    const duenoId = perfil.perteneceA?._id ?? perfil.perteneceA;
+    return String(duenoId) === String(req.userFound._id);
+}
+
+// Carga el perfil y valida existencia, estado y permisos.
+// Si algo falla ya responde y devuelve null.
+const cargarPerfil = async (req, res) => {
+    const perfil = await dbGetPerfilUsuario(req.params.id);
+
+    // Un perfil inhabilitado solo lo ve el admin
+    if (!perfil || (!perfil.status && !esAdmin(req))) {
+        res.status(404).json({ msg: 'Perfil no encontrado' });
+        return null;
+    }
+    if (!esDuenoOAdmin(req, perfil)) {
+        res.status(403).json({ msg: 'No tienes permiso sobre este perfil' });
+        return null;
+    }
+    return perfil;
+}
+const validarOtros = (data) => {
+    if (data.genero && data.genero !== 'Otro') data.generoOtro = null;
+    if (data.eps && data.eps !== 'Otra') data.epsOtra = null;
+
+    if (data.genero === 'Otro' && !data.generoOtro?.trim()) {
+        return { generoOtro: 'Escribe tu género' };
+    }
+    if (data.eps === 'Otra' && !data.epsOtra?.trim()) {
+        return { epsOtra: 'Escribe el nombre de tu EPS' };
+    }
+    return null;
+}
 
 const createPerfilUsuario = async (req, res) => {
     try {
+        const inputData = req.body;
 
-        const user_id = req.userFound._id;
+        // El perfil siempre pertenece a quien lo registra y nace activo
+        inputData.perteneceA = req.userFound._id;
+        delete inputData.status;
 
-        const perfilUsuario = req.body;
-        perfilUsuario.perteneceA = user_id;
+        const errors = validarOtros(inputData, true);
+        if (errors) return res.status(400).json({ errors });
 
-        if (perfilUsuario.genero === 'Otro' && !perfilUsuario.generoOtro?.trim()) {
-        return res.status(400).json({ errors: { generoOtro: 'Escribe tu género' } });
+        // Un usuario solo puede tener un perfil
+        const existente = await dbGetPerfilByUsuario(req.userFound._id);
+        if (existente) {
+            return res.status(409).json({ msg: 'Este usuario ya tiene un perfil registrado' });
         }
-        if (perfilUsuario.eps === 'Otra' && !perfilUsuario.epsOtra?.trim()) {
-            return res.status(400).json({ errors: { epsOtra: 'Escribe el nombre de tu EPS' } });
-        }
 
-        const newPerfilUsuario = await dbCreatePerfilUsuario(perfilUsuario);
+        const data = await dbCreatePerfilUsuario(inputData);
 
-        res.json ({
-            msj: 'Registra perfil de usuario',
-            perfilUsuario: newPerfilUsuario
-        })
+        res.status(201).json({ msg: 'Registra perfil de usuario', data: data });
     }
     catch (error) {
-        console.error('Error detallado:', error); // Error detallado en consola
-
-        if(error.name == 'ValidationError'){
-            const errors ={};
-            for(const field in error.errors) {
-                errors[field] = error.errors[field].message;
-            }
-            return res.status(400).json({ errors });
-        } 
-
-        // Respuesta por defecto para cualquier otro error 
-        return res.status(500).json({
-            msg: 'No se ha podido registrar el perfil de usuario',
-            error: error.message
-        });
+        responderError(res, error, 'No se ha podido registrar el perfil de usuario');
     }
 }
 
 const getPerfilUsuario = async (req, res) => {
-    const id = req.params.id;
     try {
-        const data = await dbGetPerfilUsuario(id);
+        const perfil = await cargarPerfil(req, res);
+        if (!perfil) return;
 
-        res.json({
-            msg: 'Obtiene un perfil de usuario',
-            data: data
-        })
+        res.json({ msg: 'Obtiene un perfil de usuario', data: perfil });
     }
-    catch ( error ){
-        console.error( error );
-
-        if(error.name == 'CastError') {
-            return res.json({
-                msg: `El ID debe tener 24 caracteres y el enviado tiene ${id.lenght}`, 
-                [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB`});
-        }
-
-        res.json({
-            msg: 'No se puede obtener el perfil de usuario por ID'
-        })
+    catch (error) {
+        responderError(res, error, 'No se puede obtener el perfil de usuario por ID');
     }
 }
 
-const updatePerfilUsuario = async ( req, res) => {
+const updatePerfilUsuario = async (req, res) => {
     try {
-        const id = req.params.id;
+        const perfil = await cargarPerfil(req, res);
+        if (!perfil) return;
+
         const inputData = req.body;
 
-        // Un perfil no se puede pasar a otro usuario
         delete inputData.perteneceA;
+        delete inputData.status;
 
-        if (inputData.genero && inputData.genero !== 'Otro') inputData.generoOtro = null;
-        if (inputData.eps && inputData.eps !== 'Otra') inputData.epsOtra = null;
+        const errors = validarOtros(inputData, false);
+        if (errors) return res.status(400).json({ errors });
 
-        // Si se eligió "Otro", el texto es obligatorio
-        if (inputData.genero === 'Otro' && !inputData.generoOtro?.trim()) {
-            return res.status(400).json({ errors: { generoOtro: 'Escribe tu género' } });
-        }
-        if (inputData.eps === 'Otra' && !inputData.epsOtra?.trim()) {
-            return res.status(400).json({ errors: { epsOtra: 'Escribe el nombre de tu EPS' } });
-        }
+        const data = await dbUpdatePerfilUsuario(req.params.id, inputData);
 
-        const data = await dbUpdatePerfilUsuario(id, inputData);
-
-        if (!data) {
-            return res.status(404).json({ msg: 'Perfil no encontrado' });
-        }
-
-        res.json({
-            msg: 'Perfil de usuario actualizado',
-            data: data
-        })
+        res.json({ msg: 'Perfil de usuario actualizado', data: data });
     }
-    catch ( error ){
-        console.error( error);
-
-        if (error.code === 11000) {
-            return res.status(409).json({ errors: { numDocumento: 'Este número de documento ya está registrado' } });
-        }
-
-        if (error.name === 'ValidationError') {
-            const errors = {};
-            for (const field in error.errors) errors[field] = error.errors[field].message;
-            return res.status(400).json({ errors });
-        }
-
-        if (error.name === 'CastError') {
-            return res.status(400).json({ msg: 'El ID no tiene un formato válido' });
-        }
-
-        res.status(500).json({
-            msg: 'No se ha podido actualizar el perfil de usuario por ID'
-        })
+    catch (error) {
+        responderError(res, error, 'No se ha podido actualizar el perfil de usuario por ID');
     }
 }
 
-const deletePerfilUsuario = async (req, res) => {
+// Inactiva o activa un perfil de usuario
+const cambiarEstadoPerfilUsuario = async (req, res) => {
     try {
-        const id = req.params.id;
-        const data = await dbDeletePerfilUsuario(id);
+        const { status } = req.body;
 
-        res.json ({
-            msg: 'Perfil de usuario eliminado',
-            data: data
-        })
-    }
-    catch ( error) {
-        console.error (error);
-
-        if(error.name == 'CastError') {
-            return res.json({
-                msg: `El ID debe tener 24 caracteres y el enviado tiene ${id.lenght}`, 
-                [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB`});
+        if (typeof status !== 'boolean') {
+            return res.status(400).json({ errors: { status: 'Debe ser true o false' } });
         }
 
+        const perfil = await cargarPerfil(req, res);
+        if (!perfil) return;
+
+        if (status === true && !esAdmin(req)) {
+            return res.status(403).json({ msg: 'Solo un administrador puede reactivar un perfil' });
+        }
+
+        const data = await dbUpdatePerfilUsuario(req.params.id, { status });
+
         res.json({
-            msg: ' No se ha podido eliminar el perfil de usuario por ID'
-        })
+            msg: status ? 'Perfil reactivado' : 'Perfil inhabilitado',
+            data: data
+        });
+    }
+    catch (error) {
+        responderError(res, error, 'No se ha podido cambiar el estado del perfil');
     }
 }
 
-export{
+export {
     createPerfilUsuario,
     getPerfilUsuario,
     updatePerfilUsuario,
-    deletePerfilUsuario
+    cambiarEstadoPerfilUsuario
 }
