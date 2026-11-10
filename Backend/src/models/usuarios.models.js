@@ -15,18 +15,20 @@ const usuarioSchema = new Schema({
     },
     nivel: {
         type: Schema.Types.ObjectId,
-        ref: 'nivel',
+        ref: 'Nivel',           
         default: null
     },
-    mensualidad: {
+    planAsociado: {
         type: Schema.Types.ObjectId,
-        ref: 'mensualidad',
+        ref: 'planAsociado',     
         default: null
     },
     email: {
         type: String,
         required: [true, 'El correo es obligatorio'],
-        trim: true
+        trim: true,
+        lowercase: true,
+        unique: true
     },
     contrasena: {
         type: String,
@@ -57,6 +59,11 @@ const usuarioSchema = new Schema({
         type: String,
         enum: ['Pendiente', 'Aprobada', 'Rechazada'],
         default: 'Aprobada'   // Los usuarios que ya existen quedan aprobados
+    },
+    // Preferencias de comunicación
+    preferencias: {
+        notificaciones: { type: Boolean, default: true },
+        correos:        { type: Boolean, default: true }
     },
     // Recuperación de contraseña. 
     resetCodeHash: {

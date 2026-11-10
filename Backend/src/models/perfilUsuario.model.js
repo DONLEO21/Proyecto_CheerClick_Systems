@@ -55,6 +55,16 @@ const perfilUsuarioSchema = new Schema ({
         type: String,
         default: null
     },
+    certificadoEps: {
+        type: String,
+        default: null
+    },
+    // Cuántas veces el USUARIO corrigió cada campo "de una sola vez"
+    ediciones: {
+        numDocumento:    { type: Number, default: 0 },
+        genero:          { type: Number, default: 0 },
+        fechaNacimiento: { type: Number, default: 0 }
+    },
     perteneceA: {
         type: Schema.Types.ObjectId,
         ref: 'usuario',

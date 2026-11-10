@@ -5,6 +5,7 @@ import usuariosRoute from './routes/usuarios.routes.js'; //EsModule_
 import contactoEmergenciaRoute from './routes/contactoEmergencia.routes.js'
 import perfilUsuarioRoute from './routes/perfilUsuario.routes.js'
 import authRoute from './routes/auth.routes.js'
+import path from 'node:path';
 
 
 import conexion from './config/mongo.config.js' //Conexion a la base de datos
@@ -18,6 +19,9 @@ conexion();      //Ejecuta la conexion a la base de datos
 
 //Habilita a la aplicacion para intepretar JSON
 app.use(express.json());
+
+// Solo las fotos son públicas. Los certificados no se envian aqui
+app.use('/uploads/fotos', express.static(path.resolve('uploads/fotos')));
 
 //Definiendo el primer endpoint (Ruta de entrada) 
 app.get('/health', (req, res) => {
