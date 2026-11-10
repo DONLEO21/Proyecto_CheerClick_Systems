@@ -60,10 +60,6 @@ const dbUpdateUsuario = async (id, usuarioUpdate) => {
     );
 }
 
-const dbDeleteUsuario = async (id) => {
-    return await usuarioModel.findOneAndDelete({_id: id})
-}
-
 const dbGetUserByEmail = async ( email , status = true) => {
     return await usuarioModel.findOne({ email: email, status: status });
 }
@@ -72,7 +68,6 @@ export {
     dbCreateUsuario,
     dbGetUsuario,
     dbUpdateUsuario,
-    dbDeleteUsuario,
     dbGetUserByEmail,
     dbGetUserForReset,
     dbGenerarCodigo,

@@ -1,86 +1,107 @@
-import { dbCreateUsuario, dbGetUsuario, dbUpdateUsuario, dbDeleteUsuario, dbGetUserByEmail } from "../services/usuarios.services.js"
+import { dbCreateUsuario, dbGetUsuario, dbUpdateUsuario, dbFindUserByEmail, dbGenerarCodigo, PREFIJOS } from "../services/usuarios.services.js";
 import { generarPassword } from "../helpers/bcrypt.helpers.js";
 
-//Controlador define quien hace una accion especifica
-const getUsuario = async (req, res) => {
-     const id = req.params.id;
-    try {
+const responderError = (res, error, msg) => {
+    console.error(error);
 
-        const data = await dbGetUsuario(id);
-
-        res.json({
-            msg: 'Obtiene un usuario',
-            data: data
-        })
+    if (error.name === 'ValidationError') {
+        const errors = {};
+        for (const field in error.errors) errors[field] = error.errors[field].message;
+        return res.status(400).json({ errors });
     }
-    catch ( error ){
+    if (error.name === 'CastError') {
+        return res.status(400).json({ msg: 'El ID no tiene un formato válido' });
+    }
+    res.status(500).json({ msg });
+}
 
-        console.error( error );
+const esAdmin = (req) => req.userFound.rol === 'Administrador';
 
-        if(error.name == 'CastError') {
-            return res.json({
-                msg: `El ID debe tener 24 caracteres y el enviado tiene ${id.lenght}`, 
-                [error.path]: `El identificador ${error.value} no tiene el formato valido que requiere MongoDB`});
+// Solo el propio usuario o un administrador
+const esDuenoOAdmin = (req, idUsuario) =>
+    esAdmin(req) || String(idUsuario) === String(req.userFound._id);
+
+// Nunca devuelvee el hash
+const sinContrasena = (doc) => {
+    const obj = doc.toObject();
+    delete obj.contrasena;
+    return obj;
+}
+
+const getUsuario = async (req, res) => {
+    try {
+        if (!esDuenoOAdmin(req, req.params.id)) {
+            return res.status(403).json({ msg: 'No tienes permiso sobre este usuario' });
         }
 
-        res.json({
-            msg: 'No se puede obtener el usuario por ID'
-        })
+        const data = await dbGetUsuario(req.params.id);
+
+        // Una cuenta inhabilitada solo la ve el admin
+        if (!data || (!data.status && !esAdmin(req))) {
+            return res.status(404).json({ msg: 'Usuario no encontrado' });
+        }
+
+        res.json({ msg: 'Obtiene un usuario', data });
+    }
+    catch (error) {
+        responderError(res, error, 'No se puede obtener el usuario por ID');
     }
 }
+
+// Creación por el administrador: nace aprobada, activa y con código
 const createUsuario = async (req, res) => {
     try {
-           //Extraer el _id del userFound usando una desestructuracion del payload qu envia en el req con l peticion el Middlewar de Aunticacion
-        const userFound = req.userFound
-        // Usa un operador ternario para asignar el valor de _id a la variable id, o null si no existe 
-        const id = userFound?._id ? userFound._id : null;
-
-        // Extrae los datos del cuerpo de la peticion
         const usuario = req.body;
-        usuario.createdBy =  id; 
 
-        // Contraseña con mínimo de 8 caracteres 
+        // El admin elige el rol, pero debe ser uno válido
+        if (usuario.rol && !PREFIJOS[usuario.rol]) {
+            return res.status(400).json({ errors: { rol: 'Rol no válido' } });
+        }
+        usuario.rol = usuario.rol || 'Atleta';
+
+        usuario.createdBy = req.userFound._id;
+        usuario.status = true;
+        usuario.estadoSolicitud = 'Aprobada';
+        delete usuario.codigo;
+        delete usuario.resetCodeHash;
+        delete usuario.resetCodeExpires;
+        delete usuario.resetAttempts;
+
         if (!usuario.contrasena || usuario.contrasena.length < 8) {
             return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 8 caracteres' } });
         }
 
-        // El correo no puede estar ya registrado
-        if (await dbGetUserByEmail(usuario.email)) {
+        // Sin filtrar por status: un correo de cuenta inhabilitada sigue ocupado
+        if (usuario.email && await dbFindUserByEmail(usuario.email)) {
             return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
         }
 
-        //Encripta la contraseña antes de guardarla en la base de datos
         usuario.contrasena = generarPassword(usuario.contrasena);
+        usuario.codigo = await dbGenerarCodigo(usuario.rol);
 
-        const newUsuario = await dbCreateUsuario(usuario);
+        const nuevo = await dbCreateUsuario(usuario);
 
-        res.status(201).json({ mensaje: 'Registra usuario', usuario: newUsuario });
+        res.status(201).json({ msg: 'Registra usuario', data: sinContrasena(nuevo) });
     }
     catch (error) {
-        console.error(error);
-
-        if(error.name == 'ValidationError'){
-            const errors ={};
-
-            //Iterar los errores para extraer el nombre de la propiedad y el error
-            for(const field in error.errors) {
-                errors[field] = error.errors[field].message;
-            }
-            
-            return res.status(400).json({errors})
-        } 
-
-        res.status(500).send( 'Error al registrar usuario' )
+        responderError(res, error, 'Error al registrar usuario');
     }
 }
-
 
 const updateUsuario = async (req, res) => {
     try {
         const id = req.params.id;
         const inputData = req.body;
 
-        // Campos que no se pueden modificar desde aquí
+        if (!esDuenoOAdmin(req, id)) {
+            return res.status(403).json({ msg: 'No tienes permiso sobre este usuario' });
+        }
+
+        const actual = await dbGetUsuario(id);
+        if (!actual || (!actual.status && !esAdmin(req))) {
+            return res.status(404).json({ msg: 'Usuario no encontrado' });
+        }
+
         delete inputData.createdBy;
         delete inputData.resetCodeHash;
         delete inputData.resetCodeExpires;
@@ -90,8 +111,25 @@ const updateUsuario = async (req, res) => {
         delete inputData.rol;
         delete inputData.status;
 
-        // Si se envia una contraseña nueva, se valida y se encripta antes de guardarla
+        // Nivel y mensualidad solo los asigna el admin
+        if (!esAdmin(req)) {
+            delete inputData.nivel;
+            delete inputData.mensualidad;
+        }
+
+        // Correo: no puede quedar repetido
+        if (inputData.email && inputData.email !== actual.email) {
+            const existente = await dbFindUserByEmail(inputData.email);
+            if (existente && String(existente._id) !== String(id)) {
+                return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
+            }
+        }
+
+        // Contraseña: solo la cambia su dueño
         if (inputData.contrasena) {
+            if (String(id) !== String(req.userFound._id)) {
+                return res.status(403).json({ msg: 'Solo el dueño de la cuenta puede cambiar su contraseña' });
+            }
             if (inputData.contrasena.length < 8) {
                 return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 8 caracteres' } });
             }
@@ -100,49 +138,10 @@ const updateUsuario = async (req, res) => {
 
         const data = await dbUpdateUsuario(id, inputData);
 
-        if (!data) {
-            return res.status(404).json({ msg: 'Usuario no encontrado' });
-        }
-
-        // No devolver la contraseña al cliente
-        const jsonObj = data.toObject();
-        delete jsonObj.contrasena;
-
-        res.json({
-            msg: 'Usuario Actualizado',
-            data: jsonObj
-        });
+        res.json({ msg: 'Usuario actualizado', data: sinContrasena(data) });
     }
-    catch ( error){
-        console.error( error);
-
-        res.status(500).json({
-            msg: 'No se ha podido actualizar el usuario'
-        })
+    catch (error) {
+        responderError(res, error, 'No se ha podido actualizar el usuario');
     }
 }
-
-const deleteUsuario = async (req, res) => {
-    try {
-        const id = req.params.id;
-        const data = await dbDeleteUsuario(id);
-
-        res.json ({
-            msg: 'Usuario eliminado',
-            data: data
-        })
-    }
-    catch ( error) {
-        console.error (error);
-
-        res.json({
-            msg: 'No se ha podido eliminar el usuario'
-        })
-    }
-}
-export{
-    getUsuario,
-    createUsuario,
-    updateUsuario,
-    deleteUsuario
-}
+export { getUsuario, createUsuario, updateUsuario }

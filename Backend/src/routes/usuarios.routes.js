@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUsuario, createUsuario, updateUsuario, deleteUsuario } from '../controllers/usuarios.controllers.js';
+import { getUsuario, createUsuario, updateUsuario } from '../controllers/usuarios.controllers.js';
 import { listSolicitudes, getDetalleUsuario, aprobarSolicitud, rechazarSolicitud, listCuentas, cambiarStatus, cambiarRol } from '../controllers/cuentas.controllers.js';
 import { authorizationMiddleware } from '../middlewares/authorizationMiddleware.middleware.js'
 import { authMiddleware} from '../middlewares/authenticate.middlewares.js'
@@ -17,14 +17,13 @@ router.patch('/solicitudes/:id/rechazar', soloAdmin, rechazarSolicitud);
 
 // Gestión de cuentas
 router.get('/', soloAdmin, listCuentas);
-router.get('/:id/detalle', soloAdmin, getDetalleUsuario);   // "ojito": pendientes, aprobadas y rechazadas
+router.get('/:id/detalle', soloAdmin, getDetalleUsuario);   
 router.patch('/:id/status', soloAdmin, cambiarStatus);      // interruptor activa/inactiva
 router.patch('/:id/rol', soloAdmin, cambiarRol);            // selector de rol
 
 // CRUD básico
 router.get('/:id', authMiddleware, getUsuario);
 router.post('/', soloAdmin, createUsuario);
-router.patch('/:id', soloAdmin, updateUsuario);
-router.delete('/:id', soloAdmin, deleteUsuario);
+router.patch('/:id', authMiddleware, updateUsuario);
 
 export default router;
