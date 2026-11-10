@@ -9,10 +9,10 @@ const dbGetPerfilUsuario = async (id) => {
 }
 
 const dbUpdatePerfilUsuario = async (id, perfilUsuarioUpdate) => {
-    return await perfilUsuarioModel. findByIdAndUpdate (
+    return await perfilUsuarioModel.findByIdAndUpdate (
         id,
         perfilUsuarioUpdate,
-        {new : true}
+        { new : true, runValidators: true }
     );
 }
 

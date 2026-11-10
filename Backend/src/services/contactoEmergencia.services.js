@@ -17,7 +17,10 @@ const dbUpdateContactoE = async (id, contactoEUpdate) => {
     return await contactoEModel.findByIdAndUpdate (
         id,
         contactoEUpdate,
-        {new : true}
+        {
+            new : true,
+            runValidators: true
+        }
     );
 }
 const dbGetContactosByUsuario = async ( idUsuario ) => {

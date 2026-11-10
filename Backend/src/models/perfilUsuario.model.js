@@ -4,6 +4,7 @@ const perfilUsuarioSchema = new Schema ({
 
     tipoDocumento: {
         type: String,
+        required: [true, 'El tipo de documento es obligatorio'],
         enum: ['Cédula de Ciudadanía','Tarjeta de Identidad','Cédula de Extranjeria','Registro Civil','Pasaporte'],
         default: 'Cédula de Ciudadanía'
     },
@@ -16,8 +17,14 @@ const perfilUsuarioSchema = new Schema ({
     },
     genero: {
         type: String,
-        enum: ['Femenino','Masculino','Otro'],
-        default: 'Otro'
+        required: [true, 'El género es obligatorio'],
+        enum: ['Femenino','Masculino','Otro']
+    },
+    generoOtro: {
+        type: String,
+        trim: true,
+        maxlength: 30,
+        default: null
     },
     telefono: {
         type: String,
@@ -28,6 +35,17 @@ const perfilUsuarioSchema = new Schema ({
     fechaNacimiento: {
         type: Date,
         required: [true, 'La fecha de nacimiento es obligatoria']
+    },
+    eps: {
+        type: String,
+        required: [true, 'La EPS es obligatoria'],
+        enum: ['Compensar', 'Coomeva', 'Famisanar', 'Nueva EPS', 'Salud Total', 'Sanitas', 'SURA', 'Otra']
+    },
+    epsOtra: {
+        type: String,
+        trim: true,
+        maxlength: 40,
+        default: null
     },
     poliza:{
         type: String,
@@ -42,11 +60,6 @@ const perfilUsuarioSchema = new Schema ({
         ref: 'usuario',
         default: null
     },
-    Id_eps: {
-        type: Schema.Types.ObjectId,
-        ref: 'eps',
-        default: null
-    }
 },{
     timestamps: true
 });

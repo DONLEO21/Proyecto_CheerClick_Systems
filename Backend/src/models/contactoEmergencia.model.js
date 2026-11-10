@@ -6,6 +6,12 @@ const contactoEmergenciaSchema =new Schema({
         enum: ['Madre', 'Padre', 'Tutor', 'Cónyuge', 'Otro'],
         default: 'Madre',     
     },
+    parentescoOtro: {
+        type: String,
+        trim: true,
+        maxlength: 30,
+        default: null  
+    },
     nombre: {
         type: String,            
         required: [true, 'El nombre es obligatorio'],         

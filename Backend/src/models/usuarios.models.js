@@ -13,6 +13,16 @@ const usuarioSchema = new Schema({
         required: [true, 'El apellido es obligatorio'],          
         trim: true
     },
+    nivel: {
+        type: Schema.Types.ObjectId,
+        ref: 'nivel',
+        default: null
+    },
+    mensualidad: {
+        type: Schema.Types.ObjectId,
+        ref: 'mensualidad',
+        default: null
+    },
     email: {
         type: String,
         required: [true, 'El correo es obligatorio'],
