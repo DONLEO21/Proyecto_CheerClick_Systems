@@ -19,6 +19,11 @@ const dbGenerarCodigo = async ( rol ) => {
     return prefijo + String( contador.seq ).padStart( 3, '0' );
 }
 
+// Busca por correo sin filtrar por status: el login necesita distinguir las cuentas desactivadas
+const dbFindUserByEmail = async ( email ) => {
+    return await usuarioModel.findOne({ email: email });
+}
+
 //TODO: Conectar el modelo de usuarios con la base de datos
 const dbCreateUsuario = async ( newUsuario ) => {
     return await usuarioModel.create(newUsuario);
@@ -51,12 +56,13 @@ const dbGetUserByEmail = async ( email , status = true) => {
 }
 
 export {
-    PREFIJOS,
-    dbGenerarCodigo,
     dbCreateUsuario,
     dbGetUsuario,
     dbUpdateUsuario,
     dbDeleteUsuario,
     dbGetUserByEmail,
-    dbGetUserForReset
+    dbGetUserForReset,
+    dbGenerarCodigo,
+    PREFIJOS,
+    dbFindUserByEmail
 }

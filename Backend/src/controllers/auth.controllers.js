@@ -1,10 +1,6 @@
 import crypto from "node:crypto";
 import { verifyPassword, generarPassword } from "../helpers/bcrypt.helpers.js";
-import {
-  dbGetUserByEmail,
-  dbGetUserForReset,
-  dbUpdateUsuario,
-} from "../services/usuarios.services.js";
+import { dbGetUserByEmail, dbGetUserForReset, dbUpdateUsuario, dbFindUserByEmail } from "../services/usuarios.services.js";
 import { generateToken } from "../helpers/jwt.helpers.js";
 import { sendResetCodeEmail } from "../services/email.services.js";
 
@@ -28,7 +24,7 @@ const loginUser = async (req, res) => {
     }
 
     // Paso 2: Verificar si usuario existe, si el email esta registrado en la BD
-    const userFound = await dbGetUserByEmail(inputData.email);
+    const userFound = await dbFindUserByEmail( inputData.email );
 
     if (!userFound) {
       return res.status(404).json({
@@ -41,6 +37,18 @@ const loginUser = async (req, res) => {
     if (!isvalid) {
       return res.status(401).json({ msg: "Contraseña incorrecta" });
     }
+    // Paso 3.1: Verificar el estado de la cuenta (después de la contraseña, para no revelarlo a extraños)
+    if( userFound.estadoSolicitud === 'Pendiente' ) {
+      return res.status(403).json({ msg: 'Tu cuenta está pendiente de validación por el administrador' });
+    }
+
+    if( userFound.estadoSolicitud === 'Rechazada' ) {
+      return res.status(403).json({ msg: 'Tu solicitud fue rechazada. Contacta al club.' });
+    }
+
+    if( ! userFound.status ) {
+      return res.status(403).json({ msg: 'Tu cuenta está desactivada. Contacta al club.' });
+    }  
 
     // Paso 4: Generar el Token (Tarjeta que presento que Autentica y Autoriza)
     const payload = {
