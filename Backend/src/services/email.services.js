@@ -53,4 +53,23 @@ const sendResetCodeEmail = async (to, nombre, code, ttlMin) => {
   });
 };
 
-export { sendResetCodeEmail };
+const sendSolicitudEmail = async (to, nombre, aprobada, rol) => {
+  const titulo = aprobada ? '¡Tu cuenta fue aprobada!' : 'Tu solicitud fue rechazada';
+
+  const mensaje = aprobada
+    ? `Bienvenido a CheerClick Systems. Tu cuenta fue validada con el rol de <b>${rol}</b>. Ya puedes iniciar sesión.`
+    : 'Tu solicitud de ingreso no fue aprobada. Si crees que es un error, contacta al club.';
+
+  await transporter.sendMail({
+    from: process.env.MAIL_FROM,
+    to: to,
+    subject: `${titulo} - CheerClick`,
+    html: `
+            <div style="font-family:Arial,sans-serif;max-width:440px;margin:auto;border:1px solid #e4e4e7;border-radius:12px;padding:24px;">
+                <h2 style="text-align:center;color:#18181b;margin-top:0;">${titulo}</h2>
+                <p style="color:#3f3f46;line-height:1.5;">Hola ${nombre}. ${mensaje}</p>
+            </div>`
+  });
+};
+
+export { sendResetCodeEmail, sendSolicitudEmail };
