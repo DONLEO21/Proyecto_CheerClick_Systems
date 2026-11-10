@@ -1,6 +1,5 @@
 import { Router } from "express";
-import {createUsuario} from '../controllers/usuarios.controllers.js'
-import { loginUser, verifyAuthenticate, forgotPassword, verifyCode, resetPassword } from "../controllers/auth.controllers.js";
+import { registerUsuario, loginUser, verifyAuthenticate, forgotPassword, verifyCode, resetPassword } from "../controllers/auth.controllers.js";
 import { authMiddleware } from "../middlewares/authenticate.middlewares.js";
 import { withRoleMiddleware } from "../middlewares/withrout.middleware.js";
 import { loginLimiter, registerLimiter, forgotLimiter, resetLimiter } from "../middlewares/rateLimit.middlewares.js";
@@ -8,7 +7,7 @@ import { loginLimiter, registerLimiter, forgotLimiter, resetLimiter } from "../m
 const router = Router();
 
 // 1. Registro publico de usuarios (default: Atleta)
-router.post( '/register', registerLimiter, withRoleMiddleware, createUsuario);
+router.post( '/register', registerLimiter, withRoleMiddleware, registerUsuario );
 
 // 2. Login de usuarios
 router.post( '/login', loginLimiter, loginUser );

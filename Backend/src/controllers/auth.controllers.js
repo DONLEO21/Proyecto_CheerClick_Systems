@@ -1,8 +1,81 @@
 import crypto from "node:crypto";
 import { verifyPassword, generarPassword } from "../helpers/bcrypt.helpers.js";
-import { dbGetUserByEmail, dbGetUserForReset, dbUpdateUsuario, dbFindUserByEmail } from "../services/usuarios.services.js";
+import { dbGetUserByEmail, dbGetUserForReset, dbUpdateUsuario, dbCreateUsuario, dbFindUserByEmail } from "../services/usuarios.services.js";
 import { generateToken } from "../helpers/jwt.helpers.js";
 import { sendResetCodeEmail } from "../services/email.services.js";
+
+// Registro público: siempre Atleta, pendiente de aprobación
+const registerUsuario = async (req, res) => {
+  try {
+    // Solo se toman estos cuatro campos; todo lo demás del body se ignora
+    const { nombre, apellido, contrasena } = req.body;
+    const email = req.body.email?.trim().toLowerCase();
+
+    if (!email) {
+      return res.status(400).json({
+        errors: { email: 'El correo es obligatorio' }
+      });
+    }
+
+    if (!contrasena || contrasena.length < 8) {
+      return res.status(400).json({
+        errors: {
+          contrasena: 'La contraseña debe tener mínimo 8 caracteres'
+        }
+      });
+    }
+
+    if (await dbFindUserByEmail(email)) {
+      return res.status(409).json({
+        errors: { email: 'Este correo ya está registrado' }
+      });
+    }
+
+    const nuevo = await dbCreateUsuario({
+      nombre,
+      apellido,
+      email,
+      contrasena: generarPassword(contrasena),
+      rol: 'Atleta',
+      estadoSolicitud: 'Pendiente',
+      status: true
+    });
+
+    // Sin token: no puede entrar hasta que el admin apruebe
+    res.status(201).json({
+      msg: 'Solicitud registrada. Un administrador validará tu cuenta',
+      data: {
+        _id: nuevo._id,
+        nombre: nuevo.nombre,
+        apellido: nuevo.apellido,
+        email: nuevo.email
+      }
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    if (error.code === 11000) {
+      return res.status(409).json({
+        errors: { email: 'Este correo ya está registrado' }
+      });
+    }
+
+    if (error.name === 'ValidationError') {
+      const errors = {};
+
+      for (const field in error.errors) {
+        errors[field] = error.errors[field].message;
+      }
+
+      return res.status(400).json({ errors });
+    }
+
+    res.status(500).json({
+      msg: 'No se pudo registrar la solicitud'
+    });
+  }
+};
 
 const loginUser = async (req, res) => {
   try {
@@ -108,12 +181,10 @@ const verifyAuthenticate = (req, res) => {
 };
 
   // Recuperar contraseña
-
   const RESET_TTL_MIN = Number(process.env.RESET_CODE_TTL_MIN) || 10;
   const MAX_ATTEMPTS = 5;
 
-  // Revisa el código ingresado. Lo usan el paso 2 y el paso 3 para no repetir la regla.
-  // Si es correcto devuelve { user }; si no, devuelve { status, msg }
+  // Revisa el código ingresado
   const checkResetCode = async (email, code) => {
     const user = await dbGetUserForReset(email);
 
@@ -156,7 +227,7 @@ const verifyAuthenticate = (req, res) => {
       // Paso 2: Verificar que el correo esté registrado en la BD
       const userFound = await dbGetUserByEmail(email);
 
-      if (!userFound) {
+      if (!userFound || userFound.estadoSolicitud !== 'Aprobada') {
         return res
           .status(404)
           .json({ msg: "El usuario no existe. Por favor registrese" });
@@ -252,6 +323,7 @@ const verifyAuthenticate = (req, res) => {
 };
 
 export {
+  registerUsuario,
   loginUser,
   verifyAuthenticate,
   forgotPassword,
