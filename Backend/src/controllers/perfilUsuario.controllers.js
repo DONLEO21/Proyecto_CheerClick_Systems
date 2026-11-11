@@ -1,3 +1,4 @@
+import { dbCreatePerfilUsuario, dbGetPerfilUsuario, dbUpdatePerfilUsuario, dbGetPerfilByUsuario } from "../services/perfilUsuario.services.js";
 import { dbGetContactosByUsuario, dbCreateContactoE, dbUpdateContactoE } from "../services/contactoEmergencia.services.js";
 import { dbGetUsuarioConPlan, dbFindUserByEmail, dbUpdateUsuario } from "../services/usuarios.services.js";
 import { sendCorreoCambiadoEmail } from "../services/email.services.js";
@@ -473,6 +474,39 @@ const updateMisContactos = async (req, res) => {
     }
 }
 
+// PATCH /api/perfilusuario/me/preferencias   body: { notificaciones?: boolean, correos?: boolean }
+const updateMisPreferencias = async (req, res) => {
+    try {
+        const { notificaciones, correos } = req.body;
+        const cambios = {};
+
+        if (notificaciones !== undefined) {
+            if (typeof notificaciones !== 'boolean') {
+                return res.status(400).json({ errors: { notificaciones: 'Debe ser true o false' } });
+            }
+            cambios['preferencias.notificaciones'] = notificaciones;
+        }
+
+        if (correos !== undefined) {
+            if (typeof correos !== 'boolean') {
+                return res.status(400).json({ errors: { correos: 'Debe ser true o false' } });
+            }
+            cambios['preferencias.correos'] = correos;
+        }
+
+        if (Object.keys(cambios).length === 0) {
+            return res.status(400).json({ msg: 'Envía notificaciones, correos o ambos' });
+        }
+
+        const data = await dbUpdateUsuario(req.userFound._id, { $set: cambios });
+
+        res.json({ msg: 'Preferencias actualizadas', preferencias: data.preferencias });
+    }
+    catch (error) {
+        responderError(res, error, 'No se pudieron guardar las preferencias');
+    }
+}
+
 export {
     createPerfilUsuario,
     getPerfilUsuario,
@@ -483,5 +517,6 @@ export {
     updateMiFoto,
     updateMiCertificado,
     descargarMiCertificado,
-    updateMisContactos
+    updateMisContactos,
+    updateMisPreferencias
 }
