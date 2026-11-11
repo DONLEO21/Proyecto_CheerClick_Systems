@@ -1,9 +1,13 @@
 import { dbCreateUsuario, dbGetUsuario, dbUpdateUsuario, dbFindUserByEmail, dbGenerarCodigo, PREFIJOS } from "../services/usuarios.services.js";
 import { generarPassword } from "../helpers/bcrypt.helpers.js";
+import { sendCorreoCambiadoEmail } from "../services/email.services.js";
 
 const responderError = (res, error, msg) => {
     console.error(error);
 
+    if (error.code === 11000) {
+        return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
+    }
     if (error.name === 'ValidationError') {
         const errors = {};
         for (const field in error.errors) errors[field] = error.errors[field].message;
@@ -21,7 +25,7 @@ const esAdmin = (req) => req.userFound.rol === 'Administrador';
 const esDuenoOAdmin = (req, idUsuario) =>
     esAdmin(req) || String(idUsuario) === String(req.userFound._id);
 
-// Nunca devuelvee el hash
+// Nunca devuelve el hash
 const sinContrasena = (doc) => {
     const obj = doc.toObject();
     delete obj.contrasena;
@@ -41,7 +45,7 @@ const getUsuario = async (req, res) => {
             return res.status(404).json({ msg: 'Usuario no encontrado' });
         }
 
-        res.json({ msg: 'Obtiene un usuario', data });
+        res.json({ msg: 'Obtiene un usuario', data: sinContrasena(data) });
     }
     catch (error) {
         responderError(res, error, 'No se puede obtener el usuario por ID');
@@ -70,6 +74,8 @@ const createUsuario = async (req, res) => {
         if (!usuario.contrasena || usuario.contrasena.length < 8) {
             return res.status(400).json({ errors: { contrasena: 'La contraseña debe tener mínimo 8 caracteres' } });
         }
+
+        if (usuario.email) usuario.email = String(usuario.email).trim().toLowerCase();
 
         // Sin filtrar por status: un correo de cuenta inhabilitada sigue ocupado
         if (usuario.email && await dbFindUserByEmail(usuario.email)) {
@@ -102,26 +108,31 @@ const updateUsuario = async (req, res) => {
             return res.status(404).json({ msg: 'Usuario no encontrado' });
         }
 
+        // Campos que nunca se cambian desde aquí
         delete inputData.createdBy;
         delete inputData.resetCodeHash;
         delete inputData.resetCodeExpires;
         delete inputData.resetAttempts;
         delete inputData.codigo;
         delete inputData.estadoSolicitud;
-        delete inputData.rol;
-        delete inputData.status;
+        delete inputData.rol;      
+        delete inputData.status;    
 
-        // Nivel y mensualidad solo los asigna el admin
+        // Nivel y plan solo los asigna el admin
         if (!esAdmin(req)) {
             delete inputData.nivel;
-            delete inputData.mensualidad;
+            delete inputData.planAsociado;
         }
 
-        // Correo: no puede quedar repetido
-        if (inputData.email && inputData.email !== actual.email) {
-            const existente = await dbFindUserByEmail(inputData.email);
-            if (existente && String(existente._id) !== String(id)) {
-                return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
+        // Correo: en minúscula y sin repetir
+        if (inputData.email) {
+            inputData.email = String(inputData.email).trim().toLowerCase();
+
+            if (inputData.email !== actual.email) {
+                const existente = await dbFindUserByEmail(inputData.email);
+                if (existente && String(existente._id) !== String(id)) {
+                    return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
+                }
             }
         }
 
@@ -138,10 +149,20 @@ const updateUsuario = async (req, res) => {
 
         const data = await dbUpdateUsuario(id, inputData);
 
+        // Avisar al correo anterior (si falla, el cambio igual queda guardado)
+        if (inputData.email && inputData.email !== actual.email) {
+            try {
+                await sendCorreoCambiadoEmail(actual.email, actual.nombre, inputData.email);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
         res.json({ msg: 'Usuario actualizado', data: sinContrasena(data) });
     }
     catch (error) {
         responderError(res, error, 'No se ha podido actualizar el usuario');
     }
 }
+
 export { getUsuario, createUsuario, updateUsuario }

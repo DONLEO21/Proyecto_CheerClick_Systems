@@ -72,4 +72,18 @@ const sendSolicitudEmail = async (to, nombre, aprobada, rol) => {
   });
 };
 
-export { sendResetCodeEmail, sendSolicitudEmail };
+const sendCorreoCambiadoEmail = async (to, nombre, nuevoEmail) => {
+  await transporter.sendMail({
+    from: process.env.MAIL_FROM,
+    to: to,
+    subject: 'El correo de tu cuenta fue cambiado - CheerClick',
+    html: `
+            <div style="font-family:Arial,sans-serif;max-width:440px;margin:auto;border:1px solid #e4e4e7;border-radius:12px;padding:24px;">
+                <h2 style="text-align:center;color:#18181b;margin-top:0;">Correo actualizado</h2>
+                <p style="color:#3f3f46;line-height:1.5;">Hola ${nombre}. El correo de tu cuenta ahora es <b>${nuevoEmail}</b>. Si no fuiste tú, contacta al club de inmediato.</p>
+            </div>`
+  });
+};
+
+export { sendResetCodeEmail, sendSolicitudEmail, sendCorreoCambiadoEmail };
+

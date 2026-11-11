@@ -6,6 +6,8 @@ import {
 } from "../services/perfilUsuario.services.js";
 import { dbGetUsuarioConPlan } from "../services/usuarios.services.js";
 import { dbGetContactosByUsuario } from "../services/contactoEmergencia.services.js";
+import { dbFindUserByEmail, dbUpdateUsuario } from "../services/usuarios.services.js";
+import { sendCorreoCambiadoEmail } from "../services/email.services.js";
 
 const responderError = (res, error, msg) => {
     console.error(error);
@@ -131,6 +133,134 @@ const updatePerfilUsuario = async (req, res) => {
     }
 }
 
+const CAMPOS_PERFIL = ['tipoDocumento', 'numDocumento', 'genero', 'generoOtro', 'telefono', 'fechaNacimiento', 'eps', 'epsOtra', 'poliza'];
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const mismaFecha = (a, b) => new Date(a).toISOString().slice(0, 10) === new Date(b).toISOString().slice(0, 10);
+
+
+const updateMiPerfil = async (req, res) => {
+    try {
+        const body = req.body;
+        const user = req.userFound;
+        const admin = esAdmin(req);
+
+        // ----- Paso 1: datos del usuario (nombre, apellido, correo) -----
+        const datosUsuario = {};
+
+        for (const campo of ['nombre', 'apellido']) {
+            if (body[campo] !== undefined) {
+                if (!String(body[campo]).trim()) {
+                    return res.status(400).json({ errors: { [campo]: `El ${campo} es obligatorio` } });
+                }
+                datosUsuario[campo] = String(body[campo]).trim();
+            }
+        }
+
+        let correoAnterior = null;
+        if (body.email !== undefined) {
+            const email = String(body.email).trim().toLowerCase();
+
+            if (!EMAIL_REGEX.test(email)) {
+                return res.status(400).json({ errors: { email: 'El correo no es válido' } });
+            }
+            if (email !== user.email) {
+                if (await dbFindUserByEmail(email)) {
+                    return res.status(409).json({ errors: { email: 'Este correo ya está registrado' } });
+                }
+                datosUsuario.email = email;
+                correoAnterior = user.email;
+            }
+        }
+
+        // ----- Paso 2: datos del perfil -----
+        const datosPerfil = {};
+        const incrementos = {};
+
+        if (CAMPOS_PERFIL.some(c => body[c] !== undefined)) {
+            const perfil = await dbGetPerfilByUsuario(user._id);
+            if (!perfil) {
+                return res.status(404).json({ msg: 'Primero debes crear tu perfil' });
+            }
+
+            for (const campo of CAMPOS_PERFIL) {
+                if (body[campo] !== undefined) datosPerfil[campo] = body[campo];
+            }
+
+            if (datosPerfil.fechaNacimiento !== undefined && isNaN(new Date(datosPerfil.fechaNacimiento))) {
+                return res.status(400).json({ errors: { fechaNacimiento: 'La fecha no es válida' } });
+            }
+
+            // Campos de una sola vez
+            if (!admin) {
+                const bloqueados = [];
+
+                const cambios = {
+                    numDocumento: datosPerfil.numDocumento !== undefined
+                        && String(datosPerfil.numDocumento).trim() !== perfil.numDocumento,
+                    genero: (datosPerfil.genero !== undefined && datosPerfil.genero !== perfil.genero)
+                        || (datosPerfil.generoOtro !== undefined && (datosPerfil.generoOtro ?? null) !== perfil.generoOtro),
+                    fechaNacimiento: datosPerfil.fechaNacimiento !== undefined
+                        && !mismaFecha(datosPerfil.fechaNacimiento, perfil.fechaNacimiento)
+                };
+
+                for (const campo of Object.keys(cambios)) {
+                    if (!cambios[campo]) continue;
+                    if ((perfil.ediciones?.[campo] ?? 0) >= 1) bloqueados.push(campo);
+                    else incrementos[`ediciones.${campo}`] = 1;
+                }
+
+                if (bloqueados.length > 0) {
+                    return res.status(403).json({
+                        msg: 'Estos campos ya no los puedes modificar. Contacta al club',
+                        camposBloqueados: bloqueados
+                    });
+                }
+            }
+
+            // "Otro" y se valida contra lo que quedará guardado
+            const fusion = {
+                genero: perfil.genero, generoOtro: perfil.generoOtro,
+                eps: perfil.eps, epsOtra: perfil.epsOtra,
+                ...datosPerfil
+            };
+            const errors = validarOtros(fusion);
+            if (errors) return res.status(400).json({ errors });
+
+            datosPerfil.generoOtro = fusion.generoOtro;
+            datosPerfil.epsOtra = fusion.epsOtra;
+
+            // ----- Paso 3: guardar el perfil -----
+            const update = { $set: datosPerfil };
+            if (Object.keys(incrementos).length > 0) update.$inc = incrementos;
+
+            await dbUpdatePerfilUsuario(perfil._id, update);
+        }
+
+        // ----- Paso 4: guardar el usuario -----
+        if (Object.keys(datosUsuario).length > 0) {
+            await dbUpdateUsuario(user._id, datosUsuario);
+        }
+
+        // ----- Paso 5: avisar al correo anterior (si falla, el cambio igual queda) -----
+        let correoAvisado = null;
+        if (correoAnterior) {
+            try {
+                await sendCorreoCambiadoEmail(correoAnterior, user.nombre, datosUsuario.email);
+                correoAvisado = true;
+            } catch (error) {
+                console.error(error);
+                correoAvisado = false;
+            }
+        }
+
+        res.json({ msg: 'Perfil actualizado', correoAvisado });
+
+    } catch (error) {
+        responderError(res, error, 'No se pudo actualizar tu perfil');
+    }
+}
+
 // Inactiva o activa un perfil de usuario
 const cambiarEstadoPerfilUsuario = async (req, res) => {
     try {
@@ -207,5 +337,6 @@ export {
     getPerfilUsuario,
     updatePerfilUsuario,
     getMiPerfil,
-    cambiarEstadoPerfilUsuario
+    cambiarEstadoPerfilUsuario,
+    updateMiPerfil
 }
