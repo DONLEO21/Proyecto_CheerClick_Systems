@@ -4,10 +4,10 @@ import {
     dbUpdatePerfilUsuario,
     dbGetPerfilByUsuario
 } from "../services/perfilUsuario.services.js";
-import { dbGetUsuarioConPlan } from "../services/usuarios.services.js";
+import { dbGetUsuarioConPlan, dbFindUserByEmail, dbUpdateUsuario } from "../services/usuarios.services.js";
 import { dbGetContactosByUsuario } from "../services/contactoEmergencia.services.js";
-import { dbFindUserByEmail, dbUpdateUsuario } from "../services/usuarios.services.js";
 import { sendCorreoCambiadoEmail } from "../services/email.services.js";
+import { guardarFoto, borrarFoto } from "../services/archivos.services.js";
 
 const responderError = (res, error, msg) => {
     console.error(error);
@@ -38,6 +38,15 @@ const esDuenoOAdmin = (req, perfil) => {
     return String(duenoId) === String(req.userFound._id);
 }
 
+// El certificado es privado: nunca se expone su nombre de archivo, solo si existe
+const perfilPublico = (perfil) => {
+    if (!perfil) return null;
+    const obj = perfil.toObject();
+    obj.tieneCertificadoEps = !!obj.certificadoEps;
+    delete obj.certificadoEps;
+    return obj;
+}
+
 // Carga el perfil y valida existencia, estado y permisos.
 // Si algo falla ya responde y devuelve null.
 const cargarPerfil = async (req, res) => {
@@ -54,6 +63,8 @@ const cargarPerfil = async (req, res) => {
     }
     return perfil;
 }
+
+// "Otro": limpia el texto libre si ya no aplica y exige el texto si se eligió "Otro"
 const validarOtros = (data) => {
     if (data.genero && data.genero !== 'Otro') data.generoOtro = null;
     if (data.eps && data.eps !== 'Otra') data.epsOtra = null;
@@ -67,18 +78,25 @@ const validarOtros = (data) => {
     return null;
 }
 
+// Campos que solo cambian por su propio endpoint
+const quitarCamposProtegidos = (data) => {
+    delete data.perteneceA;
+    delete data.status;
+    delete data.fotoPerfil;
+    delete data.certificadoEps;
+    delete data.ediciones;
+}
+
 const createPerfilUsuario = async (req, res) => {
     try {
         const inputData = req.body;
 
+        quitarCamposProtegidos(inputData);
+
         // El perfil siempre pertenece a quien lo registra y nace activo
         inputData.perteneceA = req.userFound._id;
-        delete inputData.status;
-        delete inputData.fotoPerfil;
-        delete inputData.certificadoEps;
-        delete inputData.ediciones;
 
-        const errors = validarOtros(inputData, true);
+        const errors = validarOtros(inputData);
         if (errors) return res.status(400).json({ errors });
 
         // Un usuario solo puede tener un perfil
@@ -89,7 +107,7 @@ const createPerfilUsuario = async (req, res) => {
 
         const data = await dbCreatePerfilUsuario(inputData);
 
-        res.status(201).json({ msg: 'Registra perfil de usuario', data: data });
+        res.status(201).json({ msg: 'Registra perfil de usuario', data: perfilPublico(data) });
     }
     catch (error) {
         responderError(res, error, 'No se ha podido registrar el perfil de usuario');
@@ -101,35 +119,98 @@ const getPerfilUsuario = async (req, res) => {
         const perfil = await cargarPerfil(req, res);
         if (!perfil) return;
 
-        res.json({ msg: 'Obtiene un perfil de usuario', data: perfil });
+        res.json({ msg: 'Obtiene un perfil de usuario', data: perfilPublico(perfil) });
     }
     catch (error) {
         responderError(res, error, 'No se puede obtener el perfil de usuario por ID');
     }
 }
 
+// Edición por el administrador 
 const updatePerfilUsuario = async (req, res) => {
     try {
         const perfil = await cargarPerfil(req, res);
         if (!perfil) return;
 
         const inputData = req.body;
+        quitarCamposProtegidos(inputData);
 
-        delete inputData.perteneceA;
-        delete inputData.fotoPerfil;
-        delete inputData.certificadoEps;
-        delete inputData.ediciones;
-        delete inputData.status;
-
-        const errors = validarOtros(inputData, false);
+        const errors = validarOtros(inputData);
         if (errors) return res.status(400).json({ errors });
 
         const data = await dbUpdatePerfilUsuario(req.params.id, inputData);
 
-        res.json({ msg: 'Perfil de usuario actualizado', data: data });
+        res.json({ msg: 'Perfil de usuario actualizado', data: perfilPublico(data) });
     }
     catch (error) {
         responderError(res, error, 'No se ha podido actualizar el perfil de usuario por ID');
+    }
+}
+
+// Inactiva o activa un perfil de usuario
+const cambiarEstadoPerfilUsuario = async (req, res) => {
+    try {
+        const { status } = req.body;
+
+        if (typeof status !== 'boolean') {
+            return res.status(400).json({ errors: { status: 'Debe ser true o false' } });
+        }
+
+        const perfil = await cargarPerfil(req, res);
+        if (!perfil) return;
+
+        if (status === true && !esAdmin(req)) {
+            return res.status(403).json({ msg: 'Solo un administrador puede reactivar un perfil' });
+        }
+
+        const data = await dbUpdatePerfilUsuario(req.params.id, { status });
+
+        res.json({
+            msg: status ? 'Perfil reactivado' : 'Perfil inhabilitado',
+            data: perfilPublico(data)
+        });
+    }
+    catch (error) {
+        responderError(res, error, 'No se ha podido cambiar el estado del perfil');
+    }
+}
+
+// ---------- Mi perfil ----------
+
+// Campos que el usuario solo puede corregir una vez
+const CAMPOS_UNA_VEZ = ['numDocumento', 'genero', 'fechaNacimiento'];
+
+
+const getMiPerfil = async (req, res) => {
+    try {
+        const id = req.userFound._id;
+
+        const [usuario, perfil, contactos] = await Promise.all([
+            dbGetUsuarioConPlan(id),
+            dbGetPerfilByUsuario(id),
+            dbGetContactosByUsuario(id)
+        ]);
+
+        const perfilObj = perfilPublico(perfil);
+        let camposBloqueados = [];
+
+        if (perfilObj && !esAdmin(req)) {
+            camposBloqueados = CAMPOS_UNA_VEZ.filter(c => (perfilObj.ediciones?.[c] ?? 0) >= 1);
+        }
+
+        res.json({
+            msg: 'Mi perfil',
+            data: {
+                nombreCompleto: `${usuario.nombre} ${usuario.apellido}`,
+                usuario,                 
+                perfil: perfilObj,       
+                camposBloqueados,       
+                contactos
+            }
+        });
+    }
+    catch (error) {
+        responderError(res, error, 'No se pudo obtener tu perfil');
     }
 }
 
@@ -138,14 +219,13 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const mismaFecha = (a, b) => new Date(a).toISOString().slice(0, 10) === new Date(b).toISOString().slice(0, 10);
 
-
 const updateMiPerfil = async (req, res) => {
     try {
         const body = req.body;
         const user = req.userFound;
         const admin = esAdmin(req);
 
-        // ----- Paso 1: datos del usuario (nombre, apellido, correo) -----
+        // ----- Paso 1: datos del usuario
         const datosUsuario = {};
 
         for (const campo of ['nombre', 'apellido']) {
@@ -174,14 +254,14 @@ const updateMiPerfil = async (req, res) => {
         }
 
         // ----- Paso 2: datos del perfil -----
-        const datosPerfil = {};
-        const incrementos = {};
-
         if (CAMPOS_PERFIL.some(c => body[c] !== undefined)) {
             const perfil = await dbGetPerfilByUsuario(user._id);
             if (!perfil) {
                 return res.status(404).json({ msg: 'Primero debes crear tu perfil' });
             }
+
+            const datosPerfil = {};
+            const incrementos = {};
 
             for (const campo of CAMPOS_PERFIL) {
                 if (body[campo] !== undefined) datosPerfil[campo] = body[campo];
@@ -218,7 +298,7 @@ const updateMiPerfil = async (req, res) => {
                 }
             }
 
-            // "Otro" y se valida contra lo que quedará guardado
+            // "Otro": se valida contra lo que quedará guardado
             const fusion = {
                 genero: perfil.genero, generoOtro: perfil.generoOtro,
                 eps: perfil.eps, epsOtra: perfil.epsOtra,
@@ -242,7 +322,7 @@ const updateMiPerfil = async (req, res) => {
             await dbUpdateUsuario(user._id, datosUsuario);
         }
 
-        // ----- Paso 5: avisar al correo anterior (si falla, el cambio igual queda) -----
+        // ----- Paso 5: avisar al correo anterior ----
         let correoAvisado = null;
         if (correoAnterior) {
             try {
@@ -261,74 +341,21 @@ const updateMiPerfil = async (req, res) => {
     }
 }
 
-// Inactiva o activa un perfil de usuario
-const cambiarEstadoPerfilUsuario = async (req, res) => {
+// Actualiza la foto de perfil del usuario. Borra la anterior si existía.
+const updateMiFoto = async (req, res) => {
     try {
-        const { status } = req.body;
+        const perfil = await dbGetPerfilByUsuario(req.userFound._id);
+        if (!perfil) return res.status(404).json({ msg: 'Primero debes crear tu perfil' });
 
-        if (typeof status !== 'boolean') {
-            return res.status(400).json({ errors: { status: 'Debe ser true o false' } });
-        }
+        const ruta = await guardarFoto(req.file);
+        await dbUpdatePerfilUsuario(perfil._id, { fotoPerfil: ruta });
+        await borrarFoto(perfil.fotoPerfil);
 
-        const perfil = await cargarPerfil(req, res);
-        if (!perfil) return;
-
-        if (status === true && !esAdmin(req)) {
-            return res.status(403).json({ msg: 'Solo un administrador puede reactivar un perfil' });
-        }
-
-        const data = await dbUpdatePerfilUsuario(req.params.id, { status });
-
-        res.json({
-            msg: status ? 'Perfil reactivado' : 'Perfil inhabilitado',
-            data: data
-        });
+        res.json({ msg: 'Foto de perfil actualizada', fotoPerfil: ruta });
     }
     catch (error) {
-        responderError(res, error, 'No se ha podido cambiar el estado del perfil');
-    }
-}
-
-// Campos que el usuario solo puede corregir una vez
-const CAMPOS_UNA_VEZ = ['numDocumento', 'genero', 'fechaNacimiento'];
-
-const getMiPerfil = async (req, res) => {
-    try {
-        const id = req.userFound._id;
-
-        const [usuario, perfil, contactos] = await Promise.all([
-            dbGetUsuarioConPlan(id),
-            dbGetPerfilByUsuario(id),
-            dbGetContactosByUsuario(id)
-        ]);
-
-        // El certificado es privado, no se envia al frontend
-        let perfilObj = null;
-        let camposBloqueados = [];
-
-        if (perfil) {
-            perfilObj = perfil.toObject();
-            perfilObj.tieneCertificadoEps = !!perfilObj.certificadoEps;
-            delete perfilObj.certificadoEps;
-
-            if (!esAdmin(req)) {
-                camposBloqueados = CAMPOS_UNA_VEZ.filter(c => (perfilObj.ediciones?.[c] ?? 0) >= 1);
-            }
-        }
-
-        res.json({
-            msg: 'Mi perfil',
-            data: {
-                nombreCompleto: `${usuario.nombre} ${usuario.apellido}`,
-                usuario,                 
-                perfil: perfilObj,     
-                camposBloqueados,       
-                contactos
-            }
-        });
-    }
-    catch (error) {
-        responderError(res, error, 'No se pudo obtener tu perfil');
+        if (error.status === 400) return res.status(400).json({ msg: error.message });
+        responderError(res, error, 'No se pudo guardar la foto');
     }
 }
 
@@ -336,7 +363,8 @@ export {
     createPerfilUsuario,
     getPerfilUsuario,
     updatePerfilUsuario,
-    getMiPerfil,
     cambiarEstadoPerfilUsuario,
-    updateMiPerfil
+    getMiPerfil,
+    updateMiPerfil,
+    updateMiFoto
 }

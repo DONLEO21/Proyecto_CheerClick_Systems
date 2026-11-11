@@ -1,44 +1,42 @@
-import { generateToken, validateToken } from "../helpers/jwt.helpers.js";
-import { dbGetUserByEmail } from "../services/usuarios.services.js";
+import { validateToken } from "../helpers/jwt.helpers.js";
+import { dbGetUsuario } from "../services/usuarios.services.js";
 
 const authMiddleware = async (req, res, next) => {
-   const token = req.header('X-Token')
+    try {
+        const token = req.header('X-Token');
 
-    const msg =  'hola soy el Middleware de Autenticaticon';
+        if ( ! token ) {
+            return res.status(401).json({msg: 'Cadena de token vacia'});
+        }
 
-    console.log('token:', token);
+        // Divide la cadena en partes usando el (.) punto como referencia
+        const tokenParts = token.split('.');
 
-    if ( ! token ) {
-        return res.status(401).json({msg: 'Cadena de token vacia'});
-    }
+        // Un token valido tiene 3 partes separadas por puntos
+        if (tokenParts.length !== 3) {
+            return res.status(401).json({msg: 'EL formato del token no es valido'});
+        }
 
-    //Divide la cadena en partes usuando el (.) punto como referencia
-     const tokenParts = token.split('.')
-    //  console.log('Token Parts', tokenParts )
+        const payload = validateToken(token);
 
-    // Verificar si la cadena tenga  parts separadas por puntos (Forma base de u token)
-    if (tokenParts.length !== 3) {
-        return res.status(401).json({msg: 'EL formato del token no es valido'});
-    } 
+        if ( ! payload) {
+            return res.status(401).json({msg: 'Token invalido o inactivo'});
+        }
 
-    const payload = validateToken(token);
+        // Se busca por _id: el correo puede cambiar, el _id nunca
+        const userFound = await dbGetUsuario( payload._id );
 
-    if ( ! payload) {
+        if ( ! userFound || ! userFound.status ) {
+            return res.status(401).json({msg: 'El usuario no esta activo o el usuario no esta registrado en el sistema'});
+        }
+
+        req.userFound = userFound;
+        next();
+
+    } catch (error) {
+        console.error(error);
         return res.status(401).json({msg: 'Token invalido o inactivo'});
     }
-
-    console.log('payload (Middleware): ', payload);
-
-    const userFound = await dbGetUserByEmail( payload.email );
-
-    if ( !userFound) {
-         return res.status(401).json({msg: 'El usuario no esta activo o el usuario no esta registrado en el sistema'})
-    }
-
-    req.userFound = userFound
-
-    console.log('userFound', userFound);
-    next();
 }
 
 export {
