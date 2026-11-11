@@ -1,11 +1,5 @@
-import {
-    dbCreatePerfilUsuario,
-    dbGetPerfilUsuario,
-    dbUpdatePerfilUsuario,
-    dbGetPerfilByUsuario
-} from "../services/perfilUsuario.services.js";
+import { dbGetContactosByUsuario, dbCreateContactoE, dbUpdateContactoE } from "../services/contactoEmergencia.services.js";
 import { dbGetUsuarioConPlan, dbFindUserByEmail, dbUpdateUsuario } from "../services/usuarios.services.js";
-import { dbGetContactosByUsuario } from "../services/contactoEmergencia.services.js";
 import { sendCorreoCambiadoEmail } from "../services/email.services.js";
 import { guardarFoto, borrarFoto, guardarCertificado, borrarCertificado, rutaCertificado } from "../services/archivos.services.js";
 
@@ -398,6 +392,87 @@ const descargarMiCertificado = async (req, res) => {
     }
 }
 
+const PARENTESCOS = ['Madre', 'Padre', 'Tutor', 'Cónyuge', 'Otro'];
+
+// Valida un contacto
+const validarContacto = ( c ) => {
+    const errors = {};
+    if( ! String( c.nombre ?? '' ).trim() ) errors.nombre = 'El nombre es obligatorio';
+    if( ! String( c.apellido ?? '' ).trim() ) errors.apellido = 'El apellido es obligatorio';
+    if( ! String( c.telefono ?? '' ).trim() ) errors.telefono = 'El teléfono es obligatorio';
+    if( c.parentesco && ! PARENTESCOS.includes( c.parentesco ) ) errors.parentesco = 'Parentesco no válido';
+    if( c.parentesco === 'Otro' && ! String( c.parentescoOtro ?? '' ).trim() ) errors.parentescoOtro = 'Escribe el parentesco';
+    return Object.keys( errors ).length > 0 ? errors : null;
+}
+
+// PUT /api/perfilusuario/me/contactos   actualizar contactos de emergencia del usuario
+const updateMisContactos = async (req, res) => {
+    try {
+        const lista = req.body.contactos;
+        const user = req.userFound;
+        const requeridos = user.rol === 'Atleta' ? 2 : 1;
+
+        if( ! Array.isArray( lista ) || lista.length !== requeridos ) {
+            return res.status(400).json({
+                msg: user.rol === 'Atleta'
+                    ? 'Un atleta debe tener exactamente 2 contactos de emergencia'
+                    : 'Debes registrar exactamente 1 contacto de emergencia'
+            });
+        }
+
+        // Un solo principal; si solo hay uno, es el principal
+        if( requeridos === 1 ) {
+            lista[0].principal = true;
+        } else if( lista.filter( c => c.principal === true ).length !== 1 ) {
+            return res.status(400).json({ msg: 'Exactamente uno de los 2 contactos debe ser el principal' });
+        }
+
+        // Validar todos antes de guardar nada
+        const errores = lista.map( validarContacto );
+        if( errores.some( e => e ) ) {
+            return res.status(400).json({ errors: errores });
+        }
+
+        // Los _id enviados son contactos activos del propio usuario
+        const actuales = await dbGetContactosByUsuario( user._id );
+        const idsPropios = actuales.map( c => String( c._id ) );
+        const idsEnviados = lista.filter( c => c._id ).map( c => String( c._id ) );
+
+        if( idsEnviados.some( id => ! idsPropios.includes( id ) ) ) {
+            return res.status(403).json({ msg: 'Uno de los contactos no te pertenece' });
+        }
+        if( new Set( idsEnviados ).size !== idsEnviados.length ) {
+            return res.status(400).json({ msg: 'Hay contactos repetidos en la lista' });
+        }
+
+        // Guardar: actualizar o crear
+        for( const c of lista ) {
+            const datos = {
+                nombre: c.nombre.trim(),
+                apellido: c.apellido.trim(),
+                telefono: c.telefono.trim(),
+                parentesco: c.parentesco || 'Madre',
+                parentescoOtro: c.parentesco === 'Otro' ? c.parentescoOtro.trim() : null,
+                principal: c.principal === true
+            };
+
+            if( c._id ) await dbUpdateContactoE( c._id, datos );
+            else await dbCreateContactoE({ ...datos, createdBy: user._id });
+        }
+
+        // Inhabilitar los que ya no están en la lista
+        for( const id of idsPropios.filter( id => ! idsEnviados.includes( id ) ) ) {
+            await dbUpdateContactoE( id, { status: false } );
+        }
+
+        const contactos = await dbGetContactosByUsuario( user._id );
+        res.json({ msg: 'Contactos de emergencia actualizados', contactos });
+    }
+    catch (error) {
+        responderError(res, error, 'No se pudieron guardar los contactos');
+    }
+}
+
 export {
     createPerfilUsuario,
     getPerfilUsuario,
@@ -407,5 +482,6 @@ export {
     updateMiPerfil,
     updateMiFoto,
     updateMiCertificado,
-    descargarMiCertificado
+    descargarMiCertificado,
+    updateMisContactos
 }
