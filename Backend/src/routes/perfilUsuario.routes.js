@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { createPerfilUsuario, getPerfilUsuario, updatePerfilUsuario, cambiarEstadoPerfilUsuario, getMiPerfil, updateMiPerfil, updateMiFoto } from "../controllers/perfilUsuario.controllers.js";
+import { createPerfilUsuario, getPerfilUsuario, updatePerfilUsuario, cambiarEstadoPerfilUsuario, getMiPerfil, updateMiPerfil, updateMiFoto, updateMiCertificado, descargarMiCertificado } from "../controllers/perfilUsuario.controllers.js";
 import { authMiddleware } from '../middlewares/authenticate.middlewares.js'
 import { authorizationMiddleware } from '../middlewares/authorizationMiddleware.middleware.js'
-import { subirFotoMiddleware } from "../services/archivos.services.js";
+import { subirFotoMiddleware, subirCertificadoMiddleware } from "../services/archivos.services.js";
 
 const router = Router();
 
@@ -11,10 +11,12 @@ router.post('/', authMiddleware, createPerfilUsuario);
 router.get('/me', authMiddleware, getMiPerfil);
 router.patch('/me', authMiddleware, updateMiPerfil);
 router.put('/me/foto', authMiddleware, subirFotoMiddleware, updateMiFoto);
+router.put('/me/certificado-eps', authMiddleware, subirCertificadoMiddleware, updateMiCertificado);
+router.get('/me/certificado-eps', authMiddleware, descargarMiCertificado);
 
 router.get('/:id', authMiddleware, getPerfilUsuario);
 router.patch('/:id', [ authMiddleware, authorizationMiddleware(['Administrador']) ], updatePerfilUsuario);
 router.patch('/:id/estado', authMiddleware, cambiarEstadoPerfilUsuario);
 
-//Exportar las rutas definidas en este archivo
+//Exportar las rutas definidas del archivo
 export default router;

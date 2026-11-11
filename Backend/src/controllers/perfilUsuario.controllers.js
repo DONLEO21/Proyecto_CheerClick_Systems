@@ -7,7 +7,7 @@ import {
 import { dbGetUsuarioConPlan, dbFindUserByEmail, dbUpdateUsuario } from "../services/usuarios.services.js";
 import { dbGetContactosByUsuario } from "../services/contactoEmergencia.services.js";
 import { sendCorreoCambiadoEmail } from "../services/email.services.js";
-import { guardarFoto, borrarFoto } from "../services/archivos.services.js";
+import { guardarFoto, borrarFoto, guardarCertificado, borrarCertificado, rutaCertificado } from "../services/archivos.services.js";
 
 const responderError = (res, error, msg) => {
     console.error(error);
@@ -192,6 +192,7 @@ const getMiPerfil = async (req, res) => {
         ]);
 
         const perfilObj = perfilPublico(perfil);
+        if (perfilObj) perfilObj.certificadoEpsUrl = perfilObj.tieneCertificadoEps ? '/api/perfilusuario/me/certificado-eps' : null;
         let camposBloqueados = [];
 
         if (perfilObj && !esAdmin(req)) {
@@ -359,6 +360,44 @@ const updateMiFoto = async (req, res) => {
     }
 }
 
+// PUT /api/perfilusuario/me/certificado-eps  (se puede volver a subir: reemplaza el anterior)
+const updateMiCertificado = async (req, res) => {
+    try {
+        const perfil = await dbGetPerfilByUsuario(req.userFound._id);
+        if (!perfil) return res.status(404).json({ msg: 'Primero debes crear tu perfil' });
+
+        const nombre = await guardarCertificado(req.file);
+        await dbUpdatePerfilUsuario(perfil._id, { certificadoEps: nombre });
+        await borrarCertificado(perfil.certificadoEps);
+
+        res.json({ msg: 'Certificado de EPS actualizado', tieneCertificadoEps: true });
+    }
+    catch (error) {
+        if (error.status === 400) return res.status(400).json({ msg: error.message });
+        responderError(res, error, 'No se pudo guardar el certificado');
+    }
+}
+
+// GET /api/perfilusuario/me/certificado-eps  descargar certificado del usuario
+const descargarMiCertificado = async (req, res) => {
+    try {
+        const perfil = await dbGetPerfilByUsuario(req.userFound._id);
+
+        if (!perfil?.certificadoEps) {
+            return res.status(404).json({ msg: 'Aún no has subido tu certificado de EPS' });
+        }
+
+        res.sendFile(rutaCertificado(perfil.certificadoEps), error => {
+            if (error && !res.headersSent) {
+                res.status(404).json({ msg: 'No se encontró el archivo del certificado' });
+            }
+        });
+    }
+    catch (error) {
+        responderError(res, error, 'No se pudo obtener el certificado');
+    }
+}
+
 export {
     createPerfilUsuario,
     getPerfilUsuario,
@@ -366,5 +405,7 @@ export {
     cambiarEstadoPerfilUsuario,
     getMiPerfil,
     updateMiPerfil,
-    updateMiFoto
+    updateMiFoto,
+    updateMiCertificado,
+    descargarMiCertificado
 }
